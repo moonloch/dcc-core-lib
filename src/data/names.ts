@@ -202,12 +202,18 @@ export function generateName(
   // Build full name
   const fullName = epithet ? `${firstName} ${epithet}` : firstName;
 
-  return {
+  // Only include epithet property if it has a value (exactOptionalPropertyTypes)
+  const result: GeneratedName = {
     firstName,
-    epithet,
     fullName,
     ancestry: nameData.ancestry,
   };
+
+  if (epithet) {
+    result.epithet = epithet;
+  }
+
+  return result;
 }
 
 /**

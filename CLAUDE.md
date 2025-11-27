@@ -27,7 +27,16 @@ npx vitest run src/path/to/file.test.ts
 
 - **Pure Functions**: All game logic must be implemented as pure functions with no side effects
 - **ESM Module**: Uses ES modules (`"type": "module"`)
-- **Planned modules** (from index.ts comments): `dice`, `tables`, `combat`, `characters`
+- **Modules**: `dice`, `skills`, `data`, `character`, `types`
+
+## Key Modules
+
+- `src/character/create.ts` - 0-level character generation
+- `src/character/serialize.ts` - Versioned JSON export/import (CHARACTER_FORMAT_VERSION = "1.0")
+- `src/types/character.ts` - Character, Inventory, InventoryItem types
+- `src/dice/` - Dice chain, roll evaluation
+- `src/skills/` - Skill resolution system
+- `src/data/` - Static data (occupations, birth augurs, names, ability modifiers)
 
 ## TypeScript Configuration
 

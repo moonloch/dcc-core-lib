@@ -4,6 +4,8 @@ A TypeScript library providing core game logic for Dungeon Crawl Classics (DCC) 
 
 ## Features
 
+- **Character Creation** - Generate 0-level peasants with occupations, equipment, birth augurs
+- **Character Serialization** - Versioned JSON export/import for persistent storage
 - **Dice Chain System** - Full DCC dice chain with bump up/down, crit range scaling
 - **Unified Skill Resolution** - All class abilities modeled as skills for consistent handling
 - **Data Loaders** - Parse FoundryVTT format class progressions and rollable tables
@@ -131,6 +133,65 @@ const modifier = getBirthAugurModifier(augurs[0], 16, 14);
 // Calculates luck modifier based on birth augur effect
 ```
 
+### Character Creation
+
+```typescript
+import {
+  createZeroLevelCharacter,
+  DEFAULT_CHARACTER_CREATION_DATA,
+  defaultRandomSource,
+} from 'dcc-core-lib';
+import type { CharacterCreationConfig } from 'dcc-core-lib';
+
+// Create a random 0-level character
+const result = createZeroLevelCharacter(
+  DEFAULT_CHARACTER_CREATION_DATA,
+  { name: { generateName: true, includeEpithet: true } },
+  defaultRandomSource
+);
+
+console.log(result.character.identity.name);       // "Bram the Bold"
+console.log(result.character.identity.occupation); // "Farmer"
+console.log(result.character.state.hp.current);    // 3
+console.log(result.character.state.inventory.items); // [{ name: "Pitchfork", ... }]
+
+// With specific options
+const config: CharacterCreationConfig = {
+  name: { generateName: false },
+  occupation: { specificOccupation: "Blacksmith" },
+  alignment: "l", // Lawful
+};
+const smith = createZeroLevelCharacter(DEFAULT_CHARACTER_CREATION_DATA, config, defaultRandomSource);
+```
+
+### Character Serialization
+
+```typescript
+import {
+  exportCharacter,
+  importCharacter,
+  CHARACTER_FORMAT_VERSION,
+} from 'dcc-core-lib';
+
+// Export to versioned JSON
+const json = exportCharacter(character);
+// {
+//   "version": "1.0",
+//   "format": "dcc-core-lib",
+//   "exportedAt": "2025-11-27T...",
+//   "character": { ... }
+// }
+
+// Import from JSON (handles version checking)
+const result = importCharacter(json);
+if (result.success) {
+  console.log(result.character);
+  if (result.warnings) {
+    console.log('Warnings:', result.warnings); // e.g., version mismatch
+  }
+}
+```
+
 ### Static Data
 
 ```typescript
@@ -196,8 +257,11 @@ npx vitest run src/path/to/file.test.ts
 
 ## Project Status
 
-Core implementation complete with 139 passing tests:
+Core implementation complete:
 
+- Character creation (0-level with occupations, equipment, birth augurs)
+- Character serialization (versioned JSON export/import)
+- Inventory system (weapons, armor, gear, trade goods)
 - Dice system (dice chain, roll evaluation)
 - Skill resolution (unified skill checks)
 - Data loaders (class progressions, rollable tables, birth augurs)

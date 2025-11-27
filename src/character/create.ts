@@ -11,7 +11,10 @@ import type {
   BirthAugur,
   CharacterState,
   CharacterIdentity,
+  Inventory,
+  InventoryItem,
 } from "../types/character.js";
+import { createInventoryItem } from "../types/character.js";
 import type {
   CharacterCreationConfig,
   DiceMethodDefinition,
@@ -592,13 +595,18 @@ export function createZeroLevelCharacter(
   const nameConfig = resolvedConfig.name as NameConfig;
   if (nameConfig.generateName) {
     const nameData = data.nameData ?? DEFAULT_NAME_DATA;
+    // Build options object, only including properties that have values
+    const nameOptions: { includeEpithet?: boolean; epithetChance?: number } = {};
+    if (nameConfig.includeEpithet !== undefined) {
+      nameOptions.includeEpithet = nameConfig.includeEpithet;
+    }
+    if (nameConfig.epithetChance !== undefined) {
+      nameOptions.epithetChance = nameConfig.epithetChance;
+    }
     const generated = generateNameForOccupation(
       occupation.name,
       nameData,
-      {
-        includeEpithet: nameConfig.includeEpithet,
-        epithetChance: nameConfig.epithetChance,
-      },
+      nameOptions,
       random
     );
     characterName = generated.fullName;
@@ -614,6 +622,25 @@ export function createZeroLevelCharacter(
     startingLuck: scores.lck.current,
     languages: ["Common"],
   };
+
+  // Build starting inventory from occupation
+  const inventoryItems: InventoryItem[] = [];
+
+  // Add trained weapon
+  if (occupation.trainedWeapon) {
+    inventoryItems.push(
+      createInventoryItem(occupation.trainedWeapon, "weapon", { equipped: true })
+    );
+  }
+
+  // Add trade goods
+  if (occupation.tradeGoods) {
+    inventoryItems.push(
+      createInventoryItem(occupation.tradeGoods, "trade-goods")
+    );
+  }
+
+  const inventory: Inventory = { items: inventoryItems };
 
   // Build the character state
   const state: CharacterState = {
@@ -638,6 +665,7 @@ export function createZeroLevelCharacter(
       sp: 0,
       cp: occupation.startingFunds ?? 0,
     },
+    inventory,
     conditions: [],
   };
 

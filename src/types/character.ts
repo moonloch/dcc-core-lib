@@ -312,6 +312,85 @@ export interface Experience {
 }
 
 // =============================================================================
+// Equipment & Inventory
+// =============================================================================
+
+/**
+ * Item category for organization
+ */
+export type ItemCategory = "weapon" | "armor" | "gear" | "trade-goods" | "treasure" | "other";
+
+/**
+ * An item in the character's inventory
+ */
+export interface InventoryItem {
+  /** Unique identifier for this item instance */
+  id: string;
+
+  /** Item name */
+  name: string;
+
+  /** Item category */
+  category: ItemCategory;
+
+  /** Quantity (default 1) */
+  quantity: number;
+
+  /** Is this item currently equipped? */
+  equipped?: boolean;
+
+  /** Additional notes about the item */
+  notes?: string;
+
+  /** Value in copper pieces (if known) */
+  value?: number;
+}
+
+/**
+ * Character's inventory/equipment
+ */
+export interface Inventory {
+  /** All items carried */
+  items: InventoryItem[];
+}
+
+/**
+ * Create an empty inventory
+ */
+export function createEmptyInventory(): Inventory {
+  return { items: [] };
+}
+
+/**
+ * Create an inventory item with defaults
+ */
+export function createInventoryItem(
+  name: string,
+  category: ItemCategory,
+  options?: Partial<Omit<InventoryItem, "name" | "category">>
+): InventoryItem {
+  const item: InventoryItem = {
+    id: options?.id ?? `item-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
+    name,
+    category,
+    quantity: options?.quantity ?? 1,
+  };
+
+  // Only add optional properties if they have values (exactOptionalPropertyTypes)
+  if (options?.equipped !== undefined) {
+    item.equipped = options.equipped;
+  }
+  if (options?.notes !== undefined) {
+    item.notes = options.notes;
+  }
+  if (options?.value !== undefined) {
+    item.value = options.value;
+  }
+
+  return item;
+}
+
+// =============================================================================
 // Currency
 // =============================================================================
 
@@ -360,6 +439,9 @@ export interface CharacterState {
 
   /** Currency */
   currency: Currency;
+
+  /** Inventory/equipment */
+  inventory: Inventory;
 
   /** Active conditions/effects */
   conditions: string[];

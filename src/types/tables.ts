@@ -42,9 +42,9 @@ export interface RollableTable {
 }
 
 /**
- * Birth augur (luck) entry with parsed data
+ * Birth augur (luck) table entry with parsed data
  */
-export interface BirthAugur {
+export interface BirthAugurEntry {
   /** Roll value (1-30) */
   roll: number;
 
@@ -107,9 +107,9 @@ export function lookupTableResult(
 /**
  * Look up a birth augur by roll value
  */
-export function lookupBirthAugur(
-  augurs: BirthAugur[],
+export function lookupBirthAugurEntry(
+  augurs: BirthAugurEntry[],
   roll: number
-): BirthAugur | undefined {
+): BirthAugurEntry | undefined {
   return augurs.find((a) => a.roll === roll);
 }

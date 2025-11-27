@@ -8,3 +8,6 @@ export * from "./skills.js";
 export * from "./classes.js";
 export * from "./class-progression.js";
 export * from "./tables.js";
+export * from "./character.js";
+export * from "./character-creation.js";
+export * from "./random.js";

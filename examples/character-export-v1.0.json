@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "format": "dcc-core-lib",
+  "exportedAt": "2025-01-15T12:00:00.000Z",
+  "character": {
+    "identity": {
+      "id": "unique-character-id",
+      "name": "Character Name",
+      "occupation": "Farmer",
+      "alignment": "n",
+      "birthAugur": {
+        "id": "1",
+        "name": "Child of Frost",
+        "effect": "All attack rolls",
+        "modifies": "attackRolls",
+        "multiplier": 1
+      },
+      "startingLuck": 10,
+      "languages": ["Common"]
+    },
+    "state": {
+      "hp": {
+        "current": 4,
+        "max": 4,
+        "temp": 0
+      },
+      "abilities": {
+        "str": { "current": 10, "max": 10 },
+        "agl": { "current": 10, "max": 10 },
+        "sta": { "current": 10, "max": 10 },
+        "per": { "current": 10, "max": 10 },
+        "int": { "current": 10, "max": 10 },
+        "lck": { "current": 10, "max": 10 }
+      },
+      "xp": {
+        "current": 0,
+        "nextLevel": 10
+      },
+      "saves": {
+        "reflex": 0,
+        "fortitude": 0,
+        "will": 0
+      },
+      "combat": {
+        "attackBonus": 0,
+        "actionDice": ["d20"],
+        "critDie": "d4",
+        "critTable": "I",
+        "threatRange": 20,
+        "ac": 10,
+        "speed": 30,
+        "initiative": 0
+      },
+      "currency": {
+        "pp": 0,
+        "ep": 0,
+        "gp": 0,
+        "sp": 0,
+        "cp": 0
+      },
+      "conditions": []
+    }
+  }
+}

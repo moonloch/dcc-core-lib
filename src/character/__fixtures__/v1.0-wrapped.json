@@ -1,0 +1,64 @@
+{
+  "version": "1.0",
+  "format": "dcc-core-lib",
+  "exportedAt": "2025-01-15T12:00:00.000Z",
+  "character": {
+    "identity": {
+      "id": "test-character-001",
+      "name": "Grimtoe the Unlucky",
+      "occupation": "Stout Tunneler",
+      "alignment": "l",
+      "birthAugur": {
+        "id": "1",
+        "name": "Child of Frost",
+        "effect": "All attack rolls",
+        "modifies": "attackRolls",
+        "multiplier": 1
+      },
+      "startingLuck": 7,
+      "languages": ["Common", "Dwarvish"]
+    },
+    "state": {
+      "hp": {
+        "current": 4,
+        "max": 4,
+        "temp": 0
+      },
+      "abilities": {
+        "str": { "current": 14, "max": 14 },
+        "agl": { "current": 10, "max": 10 },
+        "sta": { "current": 16, "max": 16 },
+        "per": { "current": 8, "max": 8 },
+        "int": { "current": 11, "max": 11 },
+        "lck": { "current": 7, "max": 7 }
+      },
+      "xp": {
+        "current": 0,
+        "nextLevel": 10
+      },
+      "saves": {
+        "reflex": 0,
+        "fortitude": 0,
+        "will": 0
+      },
+      "combat": {
+        "attackBonus": 0,
+        "actionDice": ["d20"],
+        "critDie": "d4",
+        "critTable": "I",
+        "threatRange": 20,
+        "ac": 10,
+        "speed": 25,
+        "initiative": 0
+      },
+      "currency": {
+        "pp": 0,
+        "ep": 0,
+        "gp": 0,
+        "sp": 0,
+        "cp": 32
+      },
+      "conditions": []
+    }
+  }
+}

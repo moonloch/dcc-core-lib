@@ -14,3 +14,6 @@ export * from "./data/index.js";
 
 // Skill resolution
 export * from "./skills/index.js";
+
+// Character creation
+export * from "./character/index.js";

@@ -7,7 +7,7 @@
 import type {
   RollableTable,
   TableEntry,
-  BirthAugur,
+  BirthAugurEntry,
   BirthAugurEffectType,
 } from "../../types/tables.js";
 
@@ -141,8 +141,8 @@ function parseBirthAugurDescription(
 /**
  * Load birth augurs from a raw luck table
  */
-export function loadBirthAugurs(raw: RawTableData): BirthAugur[] {
-  const augurs: BirthAugur[] = [];
+export function loadBirthAugurs(raw: RawTableData): BirthAugurEntry[] {
+  const augurs: BirthAugurEntry[] = [];
 
   for (const result of raw.results) {
     const parsed = parseBirthAugurDescription(result.description);
@@ -176,7 +176,7 @@ export function loadBirthAugurs(raw: RawTableData): BirthAugur[] {
  */
 export function getBirthAugurModifier(
   luckModifier: number,
-  augur: BirthAugur
+  augur: BirthAugurEntry
 ): { modifier: number; affects: string; effectType: BirthAugurEffectType } {
   return {
     modifier: luckModifier,

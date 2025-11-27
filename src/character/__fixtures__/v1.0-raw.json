@@ -1,0 +1,59 @@
+{
+  "identity": {
+    "id": "test-character-002",
+    "name": "Whisper of the Meadow",
+    "occupation": "Smallfolk Chicken Wrangler",
+    "alignment": "n",
+    "birthAugur": {
+      "id": "10",
+      "name": "Fortunate Fate",
+      "effect": "Critical hit tables",
+      "modifies": "criticalHits",
+      "multiplier": 1
+    },
+    "startingLuck": 15,
+    "languages": ["Common", "Halfling"]
+  },
+  "state": {
+    "hp": {
+      "current": 2,
+      "max": 3,
+      "temp": 0
+    },
+    "abilities": {
+      "str": { "current": 8, "max": 8 },
+      "agl": { "current": 14, "max": 14 },
+      "sta": { "current": 12, "max": 12 },
+      "per": { "current": 13, "max": 13 },
+      "int": { "current": 10, "max": 10 },
+      "lck": { "current": 15, "max": 15 }
+    },
+    "xp": {
+      "current": 5,
+      "nextLevel": 10
+    },
+    "saves": {
+      "reflex": 0,
+      "fortitude": 0,
+      "will": 0
+    },
+    "combat": {
+      "attackBonus": 0,
+      "actionDice": ["d20"],
+      "critDie": "d4",
+      "critTable": "I",
+      "threatRange": 20,
+      "ac": 11,
+      "speed": 20,
+      "initiative": 1
+    },
+    "currency": {
+      "pp": 0,
+      "ep": 0,
+      "gp": 2,
+      "sp": 5,
+      "cp": 10
+    },
+    "conditions": []
+  }
+}

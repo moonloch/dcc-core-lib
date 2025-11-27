@@ -12,8 +12,11 @@ export * from "./dice/index.js";
 // Static game data
 export * from "./data/index.js";
 
-// Skill resolution
+// Skill resolution (low-level)
 export * from "./skills/index.js";
+
+// Character-level check API (high-level)
+export * from "./checks/index.js";
 
 // Character creation
 export * from "./character/index.js";

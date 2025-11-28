@@ -12,3 +12,4 @@ export * from "./tables.js";
 export * from "./character.js";
 export * from "./character-creation.js";
 export * from "./random.js";
+export * from "./spells.js";

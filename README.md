@@ -7,10 +7,11 @@ A TypeScript library providing core game logic for Dungeon Crawl Classics (DCC) 
 - **Character Creation** - Generate 0-level peasants with occupations, equipment, birth augurs
 - **Character Serialization** - Versioned JSON export/import for persistent storage
 - **Dice Chain System** - Full DCC dice chain with bump up/down, crit range scaling
+- **Spell System** - Complete spell casting with spellbooks, spellburn, disapproval, corruption, mercurial magic
 - **Unified Skill Resolution** - All class abilities modeled as skills for consistent handling
 - **Bonus System** - Comprehensive modifier tracking (ability, luck, spell, equipment, circumstance)
 - **Table Lookup System** - Simple, multi-column, and tiered tables for result lookups
-- **Data Loaders** - Parse FoundryVTT format class progressions and rollable tables
+- **Data Loaders** - Parse FoundryVTT format class progressions, rollable tables, and spell definitions
 - **Pure Functions** - No classes, no side effects, easy to test and integrate
 - **Platform Agnostic** - Works in Node.js, browsers, FoundryVTT, or anywhere JavaScript runs
 
@@ -246,6 +247,58 @@ const validation = validateTable(TEST_TURN_UNHOLY_TABLE);
 console.log(validation.valid);  // true
 ```
 
+### Spell System
+
+```typescript
+import {
+  castSpell,
+  rollMercurialMagic,
+  validateSpellburn,
+  applySpellburn,
+  rollDisapproval,
+  rollCorruption,
+  addSpellToSpellbook,
+  markSpellLost,
+  recoverAllSpells,
+} from 'dcc-core-lib';
+import type { SpellCastInput, CasterProfile, SpellburnCommitment } from 'dcc-core-lib';
+
+// Cast a spell
+const result = castSpell({
+  spell: magicMissile,
+  character: wizard,
+  casterProfile: { type: 'wizard', level: 3, usesCorruption: true, usesDisapproval: false },
+  spellbookEntry: wizardSpellbook.spells[0],
+});
+
+console.log(result.total);        // Spell check result
+console.log(result.tier);         // "lost", "failure", or "success"
+console.log(result.fumble);       // True if natural 1
+
+// Spellburn - sacrifice ability scores for spell bonus
+const commitment: SpellburnCommitment = { str: 2, agl: 0, sta: 3 };
+const validation = validateSpellburn(wizard.abilities, commitment);
+if (validation.valid) {
+  const newAbilities = applySpellburn(wizard.abilities, commitment);
+  // +5 bonus to spell check from burning 5 total points
+}
+
+// Mercurial magic - rolled once when learning a spell
+const mercurial = rollMercurialMagic(wizard.luckMod, mercurialTable);
+console.log(mercurial.summary);     // e.g., "Spell produces bright flash"
+console.log(mercurial.displayOnCast); // Show effect when casting?
+
+// Cleric disapproval
+const disapproval = rollDisapproval(cleric.disapprovalRange, disapprovalTable);
+console.log(disapproval.description); // Effect description
+console.log(disapproval.severity);    // "minor", "moderate", etc.
+
+// Spellbook management
+let spellbook = addSpellToSpellbook(emptySpellbook, magicMissile, mercurial);
+spellbook = markSpellLost(spellbook, 'magic-missile');  // Lost for the day
+spellbook = recoverAllSpells(spellbook);                // After rest
+```
+
 ### Static Data
 
 ```typescript
@@ -311,7 +364,7 @@ npx vitest run src/path/to/file.test.ts
 
 ## Project Status
 
-Core implementation complete with 415 passing tests:
+Core implementation complete with 474 passing tests:
 
 - Character creation (0-level with occupations, equipment, birth augurs)
 - Character serialization (versioned JSON export/import)
@@ -320,7 +373,8 @@ Core implementation complete with 415 passing tests:
 - Skill resolution (unified skill checks)
 - Bonus system (ability, luck, spell, equipment modifiers)
 - Table lookup system (simple, multi-column, tiered tables)
-- Data loaders (class progressions, rollable tables, birth augurs)
+- Spell system (spell checks, spellbooks, spellburn, disapproval, corruption, mercurial magic)
+- Data loaders (class progressions, rollable tables, birth augurs, spell definitions)
 - Ability modifier lookup
 
 See [docs/STATUS.md](docs/STATUS.md) for current progress and next steps.

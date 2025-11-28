@@ -23,3 +23,6 @@ export * from "./character/index.js";
 
 // Table lookup system
 export * from "./tables/index.js";
+
+// Spell casting system
+export * from "./spells/index.js";

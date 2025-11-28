@@ -8,6 +8,7 @@
 
 import type { Alignment, DCCAbilityId } from "./system.js";
 import type { DieType } from "./dice.js";
+import type { Spellbook } from "./spells.js";
 
 // =============================================================================
 // Utility Types
@@ -212,6 +213,9 @@ export interface ClericState {
 
   /** Sins or other disapproval notes */
   sins?: string[];
+
+  /** Known spells and spellbook data */
+  spellbook?: Spellbook;
 }
 
 /**
@@ -229,6 +233,9 @@ export interface WizardState {
 
   /** Spellburn damage by ability (heals 1/day) */
   spellburnDamage?: Partial<Record<DCCAbilityId, number>>;
+
+  /** Known spells and spellbook data */
+  spellbook?: Spellbook;
 }
 
 /**
@@ -273,6 +280,9 @@ export interface ElfState {
 
   /** Known corruption effects */
   corruption: string[];
+
+  /** Known spells and spellbook data */
+  spellbook?: Spellbook;
 }
 
 /**

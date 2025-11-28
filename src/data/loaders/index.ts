@@ -6,3 +6,4 @@
 
 export * from "./class-loader.js";
 export * from "./table-loader.js";
+export * from "./spell-loader.js";

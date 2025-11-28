@@ -1,0 +1,487 @@
+/**
+ * Combat System Types
+ *
+ * Types for attack rolls, damage calculations, critical hits, fumbles,
+ * and initiative in DCC.
+ */
+
+import type { DieType, RollResult, RollModifier } from "./dice.js";
+import type { DCCAbilityId } from "./system.js";
+import type { RollBonus } from "./bonuses.js";
+
+// =============================================================================
+// Attack Types
+// =============================================================================
+
+/**
+ * Type of attack being made
+ */
+export type AttackType = "melee" | "missile" | "special";
+
+/**
+ * Input for making an attack roll
+ */
+export interface AttackInput {
+  /** Type of attack */
+  attackType: AttackType;
+
+  /** Base attack bonus from class/level */
+  attackBonus: number;
+
+  /** Action die to use (e.g., "d20", "d16") */
+  actionDie: DieType;
+
+  /** Threat range for critical hits (20 = only on 20, 19 = 19-20, etc.) */
+  threatRange: number;
+
+  /** Ability modifier to add (usually STR for melee, AGL for missile) */
+  abilityModifier: number;
+
+  /** Deed die for warriors/dwarves (e.g., "d3", "d4") */
+  deedDie?: DieType | undefined;
+
+  /** Additional bonuses from equipment, spells, luck, etc. */
+  bonuses?: RollBonus[] | undefined;
+
+  /** Target's armor class (optional, for hit determination) */
+  targetAC?: number | undefined;
+
+  /** Whether this is a backstab attack (for thieves) */
+  isBackstab?: boolean | undefined;
+
+  /** Two-weapon fighting penalty (usually -2 for halflings) */
+  twoWeaponPenalty?: number | undefined;
+}
+
+/**
+ * Result of an attack roll
+ */
+export interface AttackResult {
+  /** The roll result */
+  roll: RollResult;
+
+  /** The deed die result (if applicable) */
+  deedRoll?: RollResult | undefined;
+
+  /** Total attack bonus after all modifiers */
+  totalBonus: number;
+
+  /** Final total (roll + bonus) */
+  total: number;
+
+  /** Whether this is a critical threat */
+  isCriticalThreat: boolean;
+
+  /** Whether this is a fumble (natural 1) */
+  isFumble: boolean;
+
+  /** Whether the attack hits (if targetAC was provided) */
+  isHit?: boolean | undefined;
+
+  /** All modifiers that were applied */
+  appliedModifiers: RollModifier[];
+
+  /** Whether the deed was successful (roll >= 3) */
+  deedSuccess?: boolean | undefined;
+}
+
+// =============================================================================
+// Damage Types
+// =============================================================================
+
+/**
+ * Input for calculating damage
+ */
+export interface DamageInput {
+  /** Base weapon damage die (e.g., "d8" for longsword) */
+  damageDie: DieType;
+
+  /** Number of damage dice (usually 1) */
+  diceCount?: number | undefined;
+
+  /** Strength modifier for melee, 0 for most missile */
+  strengthModifier: number;
+
+  /** Deed die result (added to damage for warriors) */
+  deedDieResult?: number | undefined;
+
+  /** Magic weapon bonus */
+  magicBonus?: number | undefined;
+
+  /** Backstab multiplier (2, 3, 4, or 5 for thieves) */
+  backstabMultiplier?: number | undefined;
+
+  /** Additional bonuses */
+  bonuses?: RollBonus[] | undefined;
+}
+
+/**
+ * Result of a damage roll
+ */
+export interface DamageResult {
+  /** The damage roll result */
+  roll: RollResult;
+
+  /** Base damage from dice */
+  baseDamage: number;
+
+  /** Modifier damage (str, deed, magic, etc.) */
+  modifierDamage: number;
+
+  /** Total damage before multipliers */
+  subtotal: number;
+
+  /** Multiplier applied (backstab) */
+  multiplier: number;
+
+  /** Final total damage */
+  total: number;
+
+  /** Breakdown of damage sources */
+  breakdown: DamageBreakdown[];
+}
+
+/**
+ * Single source of damage
+ */
+export interface DamageBreakdown {
+  /** Source of the damage */
+  source: string;
+
+  /** Amount */
+  amount: number;
+}
+
+// =============================================================================
+// Critical Hit Types
+// =============================================================================
+
+/**
+ * Crit table identifier
+ */
+export type CritTableId = "I" | "II" | "III" | "IV" | "V";
+
+/**
+ * Input for rolling a critical hit
+ */
+export interface CriticalInput {
+  /** Which crit table to use */
+  critTable: CritTableId;
+
+  /** Crit die to roll (e.g., "d12" for warrior) */
+  critDie: DieType;
+
+  /** Luck modifier */
+  luckModifier: number;
+
+  /** Level (adds to crit roll for some classes) */
+  level?: number | undefined;
+
+  /** Additional crit modifiers (from items, spells, etc.) */
+  bonuses?: RollBonus[] | undefined;
+}
+
+/**
+ * Result of a critical hit roll
+ */
+export interface CriticalResult {
+  /** The crit roll result */
+  roll: RollResult;
+
+  /** Total crit roll (die + modifiers) */
+  total: number;
+
+  /** Which table to look up the result on */
+  critTable: CritTableId;
+
+  /** The table result (from lookup) */
+  tableResult?: string | undefined;
+
+  /** Extra damage dice from the crit */
+  extraDamageDice?: string | undefined;
+
+  /** Extra damage modifier */
+  extraDamageModifier?: number | undefined;
+
+  /** Special effect description */
+  effect?: string | undefined;
+}
+
+// =============================================================================
+// Fumble Types
+// =============================================================================
+
+/**
+ * Armor type affects fumble die
+ */
+export type ArmorType = "unarmored" | "padded" | "leather" | "hide" | "scale" | "chainmail" | "banded" | "half-plate" | "full-plate";
+
+/**
+ * Fumble die by armor type
+ */
+export const FUMBLE_DICE: Record<ArmorType, DieType> = {
+  unarmored: "d4",
+  padded: "d8",
+  leather: "d8",
+  hide: "d12",
+  scale: "d12",
+  chainmail: "d12",
+  banded: "d16",
+  "half-plate": "d16",
+  "full-plate": "d16",
+};
+
+/**
+ * Input for rolling a fumble
+ */
+export interface FumbleInput {
+  /** Armor type worn (determines fumble die) */
+  armorType: ArmorType;
+
+  /** Luck modifier (subtracted from fumble roll - lower is worse!) */
+  luckModifier: number;
+
+  /** Override fumble die (for special circumstances) */
+  fumbleDieOverride?: DieType | undefined;
+}
+
+/**
+ * Result of a fumble roll
+ */
+export interface FumbleResult {
+  /** The fumble roll result */
+  roll: RollResult;
+
+  /** Total fumble roll (die - luck, minimum 0) */
+  total: number;
+
+  /** The fumble die used */
+  fumbleDie: DieType;
+
+  /** The table result (from lookup) */
+  tableResult?: string | undefined;
+
+  /** Effect description */
+  effect?: string | undefined;
+}
+
+// =============================================================================
+// Initiative Types
+// =============================================================================
+
+/**
+ * Input for rolling initiative
+ */
+export interface InitiativeInput {
+  /** Initiative die (usually d20, but can vary) */
+  initiativeDie: DieType;
+
+  /** Agility modifier */
+  agilityModifier: number;
+
+  /** Class-based initiative modifier (if any) */
+  classModifier?: number | undefined;
+
+  /** Two-weapon fighting initiative bonus (+1 for halflings) */
+  twoWeaponBonus?: number | undefined;
+
+  /** Additional bonuses */
+  bonuses?: RollBonus[] | undefined;
+}
+
+/**
+ * Result of an initiative roll
+ */
+export interface InitiativeResult {
+  /** The initiative roll result */
+  roll: RollResult;
+
+  /** Total initiative */
+  total: number;
+
+  /** All modifiers applied */
+  modifiers: RollModifier[];
+}
+
+// =============================================================================
+// Combat Events (for callback injection)
+// =============================================================================
+
+/**
+ * Events emitted during combat
+ */
+export interface CombatEvents {
+  /** Called when an attack roll is made */
+  onAttackRoll?: (result: AttackResult) => void;
+
+  /** Called when a critical threat is rolled */
+  onCriticalThreat?: (result: AttackResult) => void;
+
+  /** Called when a fumble is rolled */
+  onFumbleRoll?: (result: AttackResult) => void;
+
+  /** Called when damage is rolled */
+  onDamageRoll?: (result: DamageResult) => void;
+
+  /** Called when a crit table result is determined */
+  onCriticalResult?: (result: CriticalResult) => void;
+
+  /** Called when a fumble table result is determined */
+  onFumbleResult?: (result: FumbleResult) => void;
+
+  /** Called when initiative is rolled */
+  onInitiativeRoll?: (result: InitiativeResult) => void;
+
+  /** Called when a deed is attempted */
+  onDeedAttempt?: (deedRoll: RollResult, success: boolean) => void;
+}
+
+// =============================================================================
+// Weapon Types
+// =============================================================================
+
+/**
+ * Weapon properties for combat calculations
+ */
+export interface WeaponStats {
+  /** Weapon name */
+  name: string;
+
+  /** Damage die */
+  damageDie: DieType;
+
+  /** Number of damage dice */
+  diceCount?: number | undefined;
+
+  /** Whether this is a melee weapon */
+  isMelee: boolean;
+
+  /** Whether this is a ranged weapon */
+  isRanged: boolean;
+
+  /** Whether this weapon can be used two-handed for extra damage */
+  twoHanded?: boolean | undefined;
+
+  /** Two-handed damage die (if different) */
+  twoHandedDamageDie?: DieType | undefined;
+
+  /** Magic bonus (if any) */
+  magicBonus?: number | undefined;
+
+  /** Range in feet (for ranged weapons) */
+  range?: number | undefined;
+
+  /** Ability used for attack (override default) */
+  attackAbility?: DCCAbilityId | undefined;
+
+  /** Ability used for damage (override default) */
+  damageAbility?: DCCAbilityId | undefined;
+}
+
+/**
+ * Common weapon stats
+ */
+export const COMMON_WEAPONS: Record<string, WeaponStats> = {
+  dagger: {
+    name: "Dagger",
+    damageDie: "d4",
+    isMelee: true,
+    isRanged: true,
+    range: 10,
+  },
+  shortSword: {
+    name: "Short Sword",
+    damageDie: "d6",
+    isMelee: true,
+    isRanged: false,
+  },
+  longsword: {
+    name: "Longsword",
+    damageDie: "d8",
+    isMelee: true,
+    isRanged: false,
+  },
+  battleaxe: {
+    name: "Battleaxe",
+    damageDie: "d8",
+    isMelee: true,
+    isRanged: false,
+  },
+  twoHandedSword: {
+    name: "Two-Handed Sword",
+    damageDie: "d10",
+    isMelee: true,
+    isRanged: false,
+    twoHanded: true,
+  },
+  mace: {
+    name: "Mace",
+    damageDie: "d6",
+    isMelee: true,
+    isRanged: false,
+  },
+  staff: {
+    name: "Staff",
+    damageDie: "d4",
+    isMelee: true,
+    isRanged: false,
+    twoHanded: true,
+  },
+  shortbow: {
+    name: "Shortbow",
+    damageDie: "d6",
+    isMelee: false,
+    isRanged: true,
+    range: 50,
+    twoHanded: true,
+  },
+  longbow: {
+    name: "Longbow",
+    damageDie: "d6",
+    isMelee: false,
+    isRanged: true,
+    range: 70,
+    twoHanded: true,
+  },
+  crossbow: {
+    name: "Crossbow",
+    damageDie: "d6",
+    isMelee: false,
+    isRanged: true,
+    range: 80,
+    twoHanded: true,
+  },
+  club: {
+    name: "Club",
+    damageDie: "d4",
+    isMelee: true,
+    isRanged: false,
+  },
+  spear: {
+    name: "Spear",
+    damageDie: "d8",
+    isMelee: true,
+    isRanged: true,
+    range: 30,
+  },
+  handaxe: {
+    name: "Handaxe",
+    damageDie: "d6",
+    isMelee: true,
+    isRanged: true,
+    range: 10,
+  },
+  flail: {
+    name: "Flail",
+    damageDie: "d6",
+    isMelee: true,
+    isRanged: false,
+  },
+  polearm: {
+    name: "Polearm",
+    damageDie: "d10",
+    isMelee: true,
+    isRanged: false,
+    twoHanded: true,
+  },
+};

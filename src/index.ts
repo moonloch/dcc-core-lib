@@ -26,3 +26,6 @@ export * from "./tables/index.js";
 
 // Spell casting system
 export * from "./spells/index.js";
+
+// Combat system
+export * from "./combat/index.js";

@@ -356,7 +356,51 @@ Events are organized by domain:
 | Spells | `onSpellCheck`, `onSpellSuccess`, `onSpellFailure`, `onMercurialEffect`, `onDisapproval` |
 | Character | `onLevelUp`, `onAbilityCheck`, `onSavingThrow`, `onLuckBurn` |
 
-## Data Loading
+## Data Loading & Copyright Separation
+
+### Philosophy: Strict Separation of Code and Data
+
+**This library (`dcc-core-lib`) contains NO copyrighted game data.**
+
+DCC RPG content is copyrighted by Goodman Games. To respect this:
+
+1. **`dcc-core-lib` (public)** - Contains only:
+   - Pure calculation functions
+   - Type definitions
+   - Data loaders/parsers
+   - Static lookup tables (ability modifiers, dice chain - game mechanics, not content)
+   - Fan-made sample data for testing
+
+2. **`licensed-data-package` (private)** - Contains official DCC content:
+   - Birth augurs (Table 1-2)
+   - Occupations (Table 1-3)
+   - Class progressions (all 7 core classes)
+   - Turn Unholy, Lay on Hands tables
+   - Crit tables, fumble tables
+   - Spell definitions
+
+### Registry Pattern for Class Data
+
+Class progression data must be registered at runtime, not hardcoded:
+
+```typescript
+// In your application startup
+import { registerClassProgressions } from "dcc-core-lib";
+import { ALL_CLASS_PROGRESSIONS } from "licensed-data-package";
+
+// Register official data
+registerClassProgressions(ALL_CLASS_PROGRESSIONS);
+
+// Now utility functions work
+const saves = getSavingThrows("warrior", 5);
+const attackBonus = getAttackBonus("thief", 3);
+```
+
+This pattern ensures:
+- Core library has no copyright violations
+- Data can come from official or fan-made sources
+- Tests use fan-made sample data
+- Production uses official data
 
 ### Challenge
 
@@ -405,31 +449,34 @@ const foundryLoader: DataLoader = {
 
 ### Data Separation
 
-Game data lives in a separate package/repository (`dcc-game-data`) containing:
+**Important:** Official game data lives in the **private** `licensed-data-package` repository:
 
 ```
-dcc-game-data/
-├── tables/
-│   ├── crit-tables/
-│   │   ├── crit-table-i.json
-│   │   ├── crit-table-ii.json
-│   │   └── ...
-│   ├── fumble-tables/
-│   └── spell-tables/
-├── classes/
-│   ├── warrior.json
-│   ├── wizard.json
-│   └── ...
-├── spells/
-│   ├── level-1/
-│   └── ...
-└── index.json  # manifest of all data
+licensed-data-package/           # PRIVATE - contains copyrighted content
+├── src/
+│   ├── index.ts             # Main exports
+│   ├── tables/
+│   │   ├── birth-augurs.ts  # Table 1-2
+│   │   ├── occupations.ts   # Table 1-3
+│   │   ├── turn-unholy.ts   # Table 4-4
+│   │   └── lay-on-hands.ts  # Table 4-2
+│   └── classes/             # Class progressions (levels 1-10)
+│       ├── warrior.ts
+│       ├── wizard.ts
+│       ├── cleric.ts
+│       ├── thief.ts
+│       ├── dwarf.ts
+│       ├── elf.ts
+│       └── halfling.ts
+└── dist/                    # Compiled TypeScript
 ```
 
 This library (`dcc-core-lib`) contains only:
-- Static lookup tables (ability modifiers, dice chain)
+- Static lookup tables (ability modifiers, dice chain - game mechanics)
 - Pure calculation functions
 - Type definitions
+- Data loaders/parsers for external data
+- Fan-made sample data for testing (NOT official content)
 
 ## System Variants (MCC, XCrawl, etc.)
 

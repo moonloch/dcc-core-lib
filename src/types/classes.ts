@@ -3,6 +3,10 @@
  *
  * Classes are defined as collections of skills plus base statistics.
  * This enables data-driven class definitions for easy homebrew.
+ *
+ * NOTE: This file contains only type definitions. Actual class data
+ * should be loaded from licensed-data-package and registered using
+ * registerClassProgression() from data/classes/progression-utils.
  */
 
 import type { DieType } from "./dice.js";
@@ -153,139 +157,4 @@ export interface CharacterClass {
 
   /** XP in this class (if tracking separately) */
   xp?: number;
-}
-
-/**
- * Standard DCC warrior class definition
- */
-export const WARRIOR_CLASS: ClassDefinition = {
-  id: "warrior",
-  name: "Warrior",
-  description: "Masters of combat who perform mighty deeds of arms",
-  hitDie: "d12",
-  attackProgression: "warrior",
-  saveProgression: "warrior",
-  critTable: "III",
-  baseThreatRange: 19,
-  skills: ["mighty-deed", "warrior-crit-progression", "weapon-training"],
-  levels: {
-    1: {
-      attackBonus: 1,
-      actionDice: "1d20",
-      critDie: "d12",
-      threatRange: 19,
-      saves: { reflex: 1, fortitude: 1, will: 0 },
-      title: "Squire",
-    },
-    2: {
-      attackBonus: 2,
-      actionDice: "1d20",
-      critDie: "d14",
-      threatRange: 19,
-      saves: { reflex: 1, fortitude: 1, will: 0 },
-      title: "Champion",
-    },
-    3: {
-      attackBonus: 3,
-      actionDice: "1d20",
-      critDie: "d16",
-      threatRange: 19,
-      saves: { reflex: 1, fortitude: 2, will: 1 },
-      title: "Warrior",
-    },
-    4: {
-      attackBonus: 4,
-      actionDice: "1d20",
-      critDie: "d20",
-      threatRange: 19,
-      saves: { reflex: 2, fortitude: 2, will: 1 },
-      title: "Hero",
-    },
-    5: {
-      attackBonus: 5,
-      actionDice: "1d20+1d14",
-      critDie: "d20",
-      threatRange: 18,
-      saves: { reflex: 2, fortitude: 3, will: 1 },
-      title: "Swashbuckler",
-    },
-  },
-  tags: ["martial", "core"],
-};
-
-/**
- * Standard DCC thief class definition (partial - for example)
- */
-export const THIEF_CLASS: ClassDefinition = {
-  id: "thief",
-  name: "Thief",
-  description: "Cunning rogues who rely on skill and luck",
-  hitDie: "d6",
-  attackProgression: "thief",
-  saveProgression: "thief",
-  critTable: "II",
-  baseThreatRange: 20,
-  skills: [
-    "backstab",
-    "thief-skills",
-    "luck-recovery",
-    "thieves-cant",
-  ],
-  levels: {
-    1: {
-      attackBonus: 0,
-      actionDice: "1d20",
-      critDie: "d10",
-      saves: { reflex: 1, fortitude: 0, will: 1 },
-      title: "Beggar",
-    },
-    2: {
-      attackBonus: 1,
-      actionDice: "1d20",
-      critDie: "d12",
-      saves: { reflex: 1, fortitude: 0, will: 1 },
-      title: "Cutpurse",
-    },
-  },
-  tags: ["skill-based", "core"],
-};
-
-/**
- * Helper to get class level data
- */
-export function getClassLevelData(
-  classDef: ClassDefinition,
-  level: number
-): ClassLevelData | undefined {
-  // Find the highest level data at or below the requested level
-  let result: ClassLevelData | undefined;
-  for (let l = level; l >= 1; l--) {
-    if (classDef.levels[l]) {
-      result = classDef.levels[l];
-      break;
-    }
-  }
-  return result;
-}
-
-/**
- * Get the attack bonus for a class at a level
- */
-export function getAttackBonus(
-  classDef: ClassDefinition,
-  level: number
-): number {
-  const levelData = getClassLevelData(classDef, level);
-  return levelData?.attackBonus ?? 0;
-}
-
-/**
- * Get the threat range for a class at a level
- */
-export function getThreatRange(
-  classDef: ClassDefinition,
-  level: number
-): number {
-  const levelData = getClassLevelData(classDef, level);
-  return levelData?.threatRange ?? classDef.baseThreatRange ?? 20;
 }

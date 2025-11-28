@@ -22,7 +22,7 @@
  */
 
 import type { DieType } from "../types/dice.js";
-import type { Character, AbilityScores } from "../types/character.js";
+import type { Character, AbilityScores, HPRollRecord } from "../types/character.js";
 import type { Alignment } from "../types/system.js";
 import type { RandomSource } from "../types/random.js";
 import { getAbilityModifier } from "../data/ability-modifiers.js";
@@ -288,6 +288,23 @@ export function getXPNeeded(character: Character): number | undefined {
 // =============================================================================
 
 /**
+ * Result of rolling HP for a level
+ */
+export interface HPRollResult {
+  /** Raw die result */
+  rolled: number;
+
+  /** HP actually gained (after minimum 1 rule) */
+  gained: number;
+
+  /** Stamina modifier applied */
+  staminaModifier: number;
+
+  /** Die that was rolled */
+  die: string;
+}
+
+/**
  * Roll HP for a new level
  *
  * @param hitDie - The hit die to roll (e.g., "d8")
@@ -299,7 +316,7 @@ export function rollHPForLevel(
   hitDie: DieType,
   staminaModifier: number,
   random?: RandomSource
-): { rolled: number; gained: number } {
+): HPRollResult {
   // Roll the hit die
   const dieMax = getDieMax(hitDie);
   const rolled = random ? random.roll(dieMax) : Math.floor(Math.random() * dieMax) + 1;
@@ -307,7 +324,20 @@ export function rollHPForLevel(
   // Add stamina modifier, minimum 1 HP per level
   const gained = Math.max(1, rolled + staminaModifier);
 
-  return { rolled, gained };
+  return { rolled, gained, staminaModifier, die: hitDie };
+}
+
+/**
+ * Create an HP roll record from a roll result
+ */
+function createHPRecord(level: number, result: HPRollResult): HPRollRecord {
+  return {
+    level,
+    die: result.die,
+    rolled: result.rolled,
+    staminaModifier: result.staminaModifier,
+    gained: result.gained,
+  };
 }
 
 /**
@@ -379,6 +409,10 @@ export function levelUpFrom0(
   const aglMod = getAbilityModifier(character.state.abilities.agl.current);
   const perMod = getAbilityModifier(character.state.abilities.per.current);
 
+  // Build HP history (preserve 0-level roll if exists, add level 1 roll)
+  const existingHistory = character.state.hp.history ?? [];
+  const newHistory = [...existingHistory, createHPRecord(1, hpResult)];
+
   // Build new character state
   const newCharacter: Character = {
     ...character,
@@ -393,6 +427,7 @@ export function levelUpFrom0(
         ...character.state.hp,
         current: character.state.hp.current + hpResult.gained,
         max: character.state.hp.max + hpResult.gained,
+        history: newHistory,
       },
       xp: {
         ...character.state.xp,
@@ -513,6 +548,10 @@ export function levelUp(
   const aglMod = getAbilityModifier(character.state.abilities.agl.current);
   const perMod = getAbilityModifier(character.state.abilities.per.current);
 
+  // Build HP history
+  const existingHistory = character.state.hp.history ?? [];
+  const newHistory = [...existingHistory, createHPRecord(newLevel, hpResult)];
+
   // Build new character state
   const newCharacter: Character = {
     ...character,
@@ -527,6 +566,7 @@ export function levelUp(
         ...character.state.hp,
         current: character.state.hp.current + hpResult.gained,
         max: character.state.hp.max + hpResult.gained,
+        history: newHistory,
       },
       xp: {
         ...character.state.xp,

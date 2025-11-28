@@ -184,6 +184,26 @@ export interface CombatStats {
 // =============================================================================
 
 /**
+ * Record of HP rolled at a specific level
+ */
+export interface HPRollRecord {
+  /** Level at which this HP was gained (0 for 0-level) */
+  level: number;
+
+  /** Die used (d4 for 0-level, class hit die for levels 1+) */
+  die: string;
+
+  /** Raw roll result before modifiers */
+  rolled: number;
+
+  /** Stamina modifier at time of roll */
+  staminaModifier: number;
+
+  /** HP actually gained (after minimum 1 rule) */
+  gained: number;
+}
+
+/**
  * Hit point tracking
  */
 export interface HitPoints {
@@ -195,6 +215,9 @@ export interface HitPoints {
 
   /** Temporary HP (from spells, etc.) */
   temp: number;
+
+  /** History of HP rolls per level (for recalculation if stamina changes) */
+  history?: HPRollRecord[] | undefined;
 }
 
 // =============================================================================

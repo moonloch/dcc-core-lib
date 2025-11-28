@@ -12,6 +12,7 @@
 
 import type { BirthAugurEntry, BirthAugurEffectType } from "../types/tables.js";
 import type { OccupationEntry } from "../character/create.js";
+import type { XPThresholds } from "../character/level-up.js";
 
 // =============================================================================
 // Example Birth Augurs (Fan-Made)
@@ -214,3 +215,36 @@ export function getBirthAugurEffectType(
 ): BirthAugurEffectType {
   return augur.effectType ?? "unknown";
 }
+
+// =============================================================================
+// Example XP Thresholds (Fan-Made)
+// =============================================================================
+
+/**
+ * Standard XP progression thresholds.
+ * XP needed to reach each level (index 0 = level 1).
+ *
+ * This is a fan-made approximation for testing purposes.
+ * Official DCC data should be loaded from licensed-data-package.
+ */
+const STANDARD_XP = [10, 50, 110, 190, 290, 410, 550, 710, 890, 1090];
+
+/**
+ * Slower XP progression for more powerful races (e.g., elves).
+ * Requires 20% more XP at each level.
+ */
+const SLOW_XP = [12, 60, 132, 228, 348, 492, 660, 852, 1068, 1308];
+
+/**
+ * Sample XP thresholds for all core classes.
+ * These are fan-made approximations for testing.
+ */
+export const SAMPLE_XP_THRESHOLDS: XPThresholds[] = [
+  { classId: "warrior", thresholds: STANDARD_XP },
+  { classId: "wizard", thresholds: STANDARD_XP },
+  { classId: "cleric", thresholds: STANDARD_XP },
+  { classId: "thief", thresholds: STANDARD_XP },
+  { classId: "dwarf", thresholds: STANDARD_XP },
+  { classId: "elf", thresholds: SLOW_XP },
+  { classId: "halfling", thresholds: STANDARD_XP },
+];

@@ -143,7 +143,7 @@ export interface CharacterClassInfo {
   level: number;
 
   /** Class title at current level (e.g., "Squire", "Magician") */
-  title?: string;
+  title?: string | undefined;
 }
 
 // =============================================================================
@@ -457,7 +457,7 @@ export interface CharacterState {
   conditions: string[];
 
   /** Class-specific state (only populated for relevant class) */
-  classState?: ClassSpecificState;
+  classState?: ClassSpecificState | undefined;
 }
 
 // =============================================================================

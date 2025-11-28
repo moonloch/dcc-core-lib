@@ -27,7 +27,7 @@ import type { SavingThrows } from "../../types/character.js";
  * Registry of class progressions by class ID.
  * Populated by registerClassProgression() or registerClassProgressions().
  */
-const classProgressionRegistry: Map<string, ClassProgression> = new Map();
+const classProgressionRegistry = new Map<string, ClassProgression>();
 
 /**
  * Register a class progression in the registry.

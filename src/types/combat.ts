@@ -232,6 +232,71 @@ export const FUMBLE_DICE: Record<ArmorType, DieType> = {
 };
 
 /**
+ * AC bonus by armor type (DCC core rules Table 3-3)
+ */
+export const ARMOR_AC_BONUS: Record<ArmorType, number> = {
+  unarmored: 0,
+  padded: 1,
+  leather: 2,
+  hide: 3,
+  scale: 4,
+  chainmail: 5,
+  banded: 6,
+  "half-plate": 7,
+  "full-plate": 8,
+};
+
+/**
+ * Shield AC bonus
+ */
+export const SHIELD_AC_BONUS = 1;
+
+/**
+ * Base AC without any armor or modifiers
+ */
+export const BASE_AC = 10;
+
+/**
+ * Armor statistics for equipped armor
+ */
+export interface ArmorStats {
+  /** Armor name */
+  name: string;
+
+  /** Armor type */
+  type: ArmorType;
+
+  /** AC bonus (can differ from standard for magic armor) */
+  acBonus: number;
+
+  /** Magic bonus (if any) */
+  magicBonus?: number | undefined;
+
+  /** Check penalty (negative number, can be reduced by magic) */
+  checkPenalty: number;
+
+  /** Speed penalty in feet */
+  speedPenalty: number;
+
+  /** Fumble die */
+  fumbleDie: DieType;
+}
+
+/**
+ * Shield statistics
+ */
+export interface ShieldStats {
+  /** Shield name */
+  name: string;
+
+  /** AC bonus (usually 1, can be higher for magic shields) */
+  acBonus: number;
+
+  /** Magic bonus (if any) */
+  magicBonus?: number | undefined;
+}
+
+/**
  * Input for rolling a fumble
  */
 export interface FumbleInput {

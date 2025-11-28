@@ -684,6 +684,108 @@ app.post('/api/attack', async (req, res) => {
 });
 ```
 
+## Error Handling Patterns
+
+The library uses a consistent layered approach to error handling:
+
+### 1. Internal Parsing Utilities → `null`
+
+Low-level parsing functions return `null` when they cannot parse input. This allows callers to easily check for failure and provide fallback behavior.
+
+```typescript
+// dice/dice-chain.ts
+function parseDice(expression: string): ParsedDice | null {
+  const match = DICE_REGEX.exec(expression);
+  if (!match) {
+    return null;  // Not a valid dice expression
+  }
+  // ... parse and return
+}
+
+// Usage
+const parsed = parseDice(userInput);
+if (!parsed) {
+  // Handle invalid input or use default
+}
+```
+
+**Examples:**
+- `parseDice()` - returns `null` for invalid dice expressions
+- `parseAugurDescription()` - returns `null` for malformed descriptions
+
+### 2. User-Facing APIs → Result Objects
+
+Operations that can fail in expected ways (file import, validation) return structured result objects with success/failure status:
+
+```typescript
+interface ImportResult {
+  success: boolean;
+  character?: Character;
+  error?: string;
+  warnings?: string[];
+}
+
+function importCharacter(json: string): ImportResult {
+  // Invalid JSON
+  if (!isValidJson(json)) {
+    return { success: false, error: "Invalid JSON" };
+  }
+
+  // Version mismatch (non-fatal)
+  const warnings: string[] = [];
+  if (data.version !== CURRENT_VERSION) {
+    warnings.push(`Version mismatch: expected ${CURRENT_VERSION}, got ${data.version}`);
+  }
+
+  return {
+    success: true,
+    character: parseCharacter(data),
+    warnings: warnings.length > 0 ? warnings : undefined,
+  };
+}
+```
+
+**Benefits:**
+- Explicit success/failure without exceptions
+- Can include warnings for non-fatal issues
+- Type-safe error messages
+- Easy to pattern match on results
+
+**Examples:**
+- `importCharacter()` - returns `{ success: boolean, error?, warnings?, character? }`
+- `peekExportedCharacter()` - returns `{ valid: boolean, error?, ...metadata }`
+
+### 3. Programming Errors → Throw
+
+Invalid function arguments (programmer errors) throw immediately. These indicate bugs that should be fixed, not runtime conditions to handle.
+
+```typescript
+function rollAbilityScores(config: AbilityScoreConfig, ...): AbilityScores {
+  if (config.method === "manual" && !config.manualScores) {
+    throw new Error("Manual method requires manualScores to be provided");
+  }
+  // ...
+}
+```
+
+**Examples:**
+- Missing required configuration
+- Invalid enum values
+- Constraint violations that indicate misuse
+
+### Summary Table
+
+| Scenario | Pattern | Example |
+|----------|---------|---------|
+| Parsing may fail | `return null` | `parseDice("invalid")` → `null` |
+| User input may be invalid | Result object | `importCharacter(json)` → `{success: false, error}` |
+| Programmer error | `throw Error` | Missing required config |
+
+This layered approach keeps the API clean:
+- `null` for "try to parse, might not work"
+- Result objects for "operation with expected failure modes"
+- Exceptions for "this should never happen if used correctly"
+
 ## Versioning Strategy
 
 - Core library follows semver

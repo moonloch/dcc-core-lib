@@ -20,3 +20,6 @@ export * from "./checks/index.js";
 
 // Character creation
 export * from "./character/index.js";
+
+// Table lookup system
+export * from "./tables/index.js";

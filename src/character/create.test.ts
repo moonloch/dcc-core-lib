@@ -36,7 +36,7 @@ function prettyPrintCharacter(result: ReturnType<typeof createZeroLevelCharacter
   for (const abilityId of abilityOrder) {
     const ability = abilities[abilityId];
     const mod = getAbilityModifier(ability.current);
-    const modStr = mod >= 0 ? `+${mod}` : `${mod}`;
+    const modStr = mod >= 0 ? `+${String(mod)}` : String(mod);
     const rollData = rolls.abilityRolls.find(r => r.ability === abilityId);
     const rollsStr = rollData ? `[${rollData.rolls.join(", ")}]` : "";
 
@@ -53,7 +53,7 @@ function prettyPrintCharacter(result: ReturnType<typeof createZeroLevelCharacter
   lines.push(`║    HP:         ${String(state.hp.current).padEnd(4)} / ${String(state.hp.max).padEnd(38)}║`);
   lines.push(`║    AC:         ${String(state.combat.ac).padEnd(46)}║`);
   lines.push(`║    Initiative: ${formatModifier(state.combat.initiative).padEnd(46)}║`);
-  lines.push(`║    Speed:      ${state.combat.speed}' ${" ".repeat(42)}║`);
+  lines.push(`║    Speed:      ${String(state.combat.speed)}' ${" ".repeat(42)}║`);
   lines.push(`║    Action Die: ${state.combat.actionDice.join(", ").padEnd(46)}║`);
   lines.push(`║    Crit:       ${state.combat.critDie} / Table ${state.combat.critTable}${" ".repeat(35)}║`);
 
@@ -72,7 +72,7 @@ function prettyPrintCharacter(result: ReturnType<typeof createZeroLevelCharacter
   lines.push("║  BIRTH AUGUR                                                 ║");
   lines.push("║  ─────────────────────────────────────────────────────────── ║");
   const luckMod = getAbilityModifier(identity.startingLuck);
-  const luckModStr = luckMod >= 0 ? `+${luckMod}` : `${luckMod}`;
+  const luckModStr = luckMod >= 0 ? `+${String(luckMod)}` : String(luckMod);
   lines.push(`║    ${identity.birthAugur.name.padEnd(57)}║`);
   lines.push(`║    Effect: ${identity.birthAugur.effect.substring(0, 49).padEnd(49)}║`);
   lines.push(`║    Luck Modifier: ${luckModStr.padEnd(42)}║`);
@@ -83,13 +83,13 @@ function prettyPrintCharacter(result: ReturnType<typeof createZeroLevelCharacter
   lines.push("║  OTHER                                                       ║");
   lines.push("║  ─────────────────────────────────────────────────────────── ║");
   lines.push(`║    Languages: ${identity.languages.join(", ").padEnd(46)}║`);
-  lines.push(`║    XP:        ${state.xp.current} / ${state.xp.nextLevel}${" ".repeat(44)}║`);
+  lines.push(`║    XP:        ${String(state.xp.current)} / ${String(state.xp.nextLevel)}${" ".repeat(44)}║`);
 
   // Currency
   const coins: string[] = [];
-  if (state.currency.gp > 0) coins.push(`${state.currency.gp} gp`);
-  if (state.currency.sp > 0) coins.push(`${state.currency.sp} sp`);
-  if (state.currency.cp > 0) coins.push(`${state.currency.cp} cp`);
+  if (state.currency.gp > 0) coins.push(`${String(state.currency.gp)} gp`);
+  if (state.currency.sp > 0) coins.push(`${String(state.currency.sp)} sp`);
+  if (state.currency.cp > 0) coins.push(`${String(state.currency.cp)} cp`);
   const coinStr = coins.length > 0 ? coins.join(", ") : "None";
   lines.push(`║    Funds:     ${coinStr.padEnd(46)}║`);
 
@@ -117,7 +117,7 @@ function formatAlignment(alignment: string): string {
 }
 
 function formatModifier(mod: number): string {
-  return mod >= 0 ? `+${mod}` : `${mod}`;
+  return mod >= 0 ? `+${String(mod)}` : String(mod);
 }
 
 describe("createZeroLevelCharacter", () => {
@@ -174,7 +174,7 @@ describe("createZeroLevelCharacter", () => {
       const result = characters[i];
       if (!result) continue;
 
-      console.log(`\n--- Character ${i + 1} ---\n`);
+      console.log(`\n--- Character ${String(i + 1)} ---\n`);
       console.log(prettyPrintCharacter(result));
     }
     console.log("\n");

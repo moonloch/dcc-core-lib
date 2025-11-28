@@ -19,10 +19,6 @@ import {
   parseCheckId,
   CheckNamespace,
   createCheckId,
-  type AbilityId,
-  type SaveId,
-  type AbilityCheckId,
-  type SaveCheckId,
 } from "./constants.js";
 import { getCheckDefinition } from "./definitions.js";
 import {
@@ -248,7 +244,7 @@ export function rollCheck(
  * @param options - Roll options
  */
 export function rollAbilityCheck(
-  abilityId: AbilityCheckId | AbilityId | string,
+  abilityId: string,
   character: Character,
   options: RollCheckOptions = {}
 ): SkillCheckResult {
@@ -273,7 +269,7 @@ export function rollAbilityCheck(
  * @param options - Roll options
  */
 export function rollSavingThrow(
-  saveId: SaveCheckId | SaveId | string,
+  saveId: string,
   character: Character,
   options: RollCheckOptions = {}
 ): SkillCheckResult {

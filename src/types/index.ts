@@ -3,6 +3,7 @@
  */
 
 export * from "./dice.js";
+export * from "./bonuses.js";
 export * from "./system.js";
 export * from "./skills.js";
 export * from "./classes.js";

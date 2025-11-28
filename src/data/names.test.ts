@@ -60,7 +60,7 @@ describe("generateName", () => {
     );
 
     expect(result.epithet).toBeTruthy();
-    expect(result.fullName).toBe(`${result.firstName} ${result.epithet}`);
+    expect(result.fullName).toBe(`${result.firstName} ${result.epithet ?? ""}`);
     expect(DEFAULT_NAME_DATA.human.epithets).toContain(result.epithet);
   });
 

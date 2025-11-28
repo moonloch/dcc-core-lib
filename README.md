@@ -8,6 +8,8 @@ A TypeScript library providing core game logic for Dungeon Crawl Classics (DCC) 
 - **Character Serialization** - Versioned JSON export/import for persistent storage
 - **Dice Chain System** - Full DCC dice chain with bump up/down, crit range scaling
 - **Unified Skill Resolution** - All class abilities modeled as skills for consistent handling
+- **Bonus System** - Comprehensive modifier tracking (ability, luck, spell, equipment, circumstance)
+- **Table Lookup System** - Simple, multi-column, and tiered tables for result lookups
 - **Data Loaders** - Parse FoundryVTT format class progressions and rollable tables
 - **Pure Functions** - No classes, no side effects, easy to test and integrate
 - **Platform Agnostic** - Works in Node.js, browsers, FoundryVTT, or anywhere JavaScript runs
@@ -192,6 +194,58 @@ if (result.success) {
 }
 ```
 
+### Bonus System
+
+```typescript
+import {
+  createAbilityBonus,
+  createLuckBonus,
+  createEquipmentBonus,
+  computeBonuses,
+} from 'dcc-core-lib';
+import type { RollBonus } from 'dcc-core-lib';
+
+// Create bonuses from various sources
+const bonuses: RollBonus[] = [
+  createAbilityBonus('str', 'Strength', 2),
+  createLuckBonus(3),  // Burn 3 luck
+  createEquipmentBonus('magic-sword', 'Sword +1', 1),
+];
+
+// Compute total effect
+const computed = computeBonuses(bonuses);
+console.log(computed.totalModifier);  // 6 (all stack in DCC)
+console.log(computed.appliedBonuses); // List of applied bonuses
+```
+
+### Table Lookup System
+
+```typescript
+import {
+  registerTable,
+  getTable,
+  lookup,
+  lookupSimple,
+  validateTable,
+  TEST_TURN_UNHOLY_TABLE,
+} from 'dcc-core-lib';
+
+// Register a table
+registerTable(TEST_TURN_UNHOLY_TABLE);
+
+// Look up a result
+const table = getTable('test-turn-unholy');
+if (table) {
+  const result = lookup(table, 15);
+  console.log(result?.text);   // "Success. Turn 1d6+level HD..."
+  console.log(result?.effect); // { type: 'turn', dice: '1d6+CL', ... }
+}
+
+// Validate table structure (no gaps/overlaps)
+const validation = validateTable(TEST_TURN_UNHOLY_TABLE);
+console.log(validation.valid);  // true
+```
+
 ### Static Data
 
 ```typescript
@@ -257,13 +311,15 @@ npx vitest run src/path/to/file.test.ts
 
 ## Project Status
 
-Core implementation complete:
+Core implementation complete with 415 passing tests:
 
 - Character creation (0-level with occupations, equipment, birth augurs)
 - Character serialization (versioned JSON export/import)
 - Inventory system (weapons, armor, gear, trade goods)
 - Dice system (dice chain, roll evaluation)
 - Skill resolution (unified skill checks)
+- Bonus system (ability, luck, spell, equipment modifiers)
+- Table lookup system (simple, multi-column, tiered tables)
 - Data loaders (class progressions, rollable tables, birth augurs)
 - Ability modifier lookup
 

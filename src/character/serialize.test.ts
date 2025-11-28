@@ -27,7 +27,12 @@ describe("exportCharacter", () => {
     const result = createZeroLevelCharacter(DEFAULT_CHARACTER_CREATION_DATA, undefined, random);
 
     const json = exportCharacter(result.character);
-    const parsed = JSON.parse(json);
+    const parsed = JSON.parse(json) as {
+      version: string;
+      format: string;
+      exportedAt: string;
+      character: unknown;
+    };
 
     expect(parsed.version).toBe(CHARACTER_FORMAT_VERSION);
     expect(parsed.format).toBe("dcc-core-lib");
@@ -57,7 +62,12 @@ describe("exportCharacterRaw", () => {
     const result = createZeroLevelCharacter(DEFAULT_CHARACTER_CREATION_DATA, undefined, random);
 
     const json = exportCharacterRaw(result.character);
-    const parsed = JSON.parse(json);
+    const parsed = JSON.parse(json) as {
+      version?: unknown;
+      format?: unknown;
+      identity?: unknown;
+      state?: unknown;
+    };
 
     // Should not have wrapper fields
     expect(parsed.version).toBeUndefined();
@@ -102,9 +112,10 @@ describe("importCharacter", () => {
     const imported = importCharacter(json);
 
     expect(imported.success).toBe(true);
+    if (!imported.character) throw new Error("Expected character to be defined");
 
     // Re-export and compare
-    const reExported = exportCharacterRaw(imported.character!);
+    const reExported = exportCharacterRaw(imported.character);
     const originalRaw = exportCharacterRaw(original.character);
 
     expect(reExported).toBe(originalRaw);

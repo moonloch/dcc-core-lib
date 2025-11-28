@@ -26,7 +26,7 @@ import type {
   NameConfig,
 } from "../types/character-creation.js";
 import type { RandomSource } from "../types/random.js";
-import type { Alignment, DCCAbilityId } from "../types/system.js";
+import type { DCCAbilityId } from "../types/system.js";
 import type { BirthAugurEntry } from "../types/tables.js";
 import {
   resolveCharacterCreationConfig,
@@ -187,10 +187,6 @@ export function rollAbilityScores(
     methodDef = BUILT_IN_DICE_METHODS[config.method];
   }
 
-  if (!methodDef) {
-    throw new Error(`Unknown ability score method: ${config.method}`);
-  }
-
   // Roll each ability
   const scores = {} as AbilityScores;
 
@@ -322,10 +318,6 @@ export function rollZeroLevelHP(
     methodDef = BUILT_IN_ZERO_LEVEL_HP_METHODS[config.zeroLevelMethod];
   }
 
-  if (!methodDef) {
-    throw new Error(`Unknown HP method: ${config.zeroLevelMethod}`);
-  }
-
   const dieSize = methodDef.dieSize ?? 4; // Default d4 for 0-level
 
   // Handle max/average
@@ -412,7 +404,7 @@ export function selectBirthAugur(
   }
 
   if (!entry) {
-    throw new Error(`Birth augur not found for roll ${roll}`);
+    throw new Error(`Birth augur not found for roll ${String(roll)}`);
   }
 
   // Convert BirthAugurEntry to BirthAugur (character's assigned augur)
@@ -501,7 +493,7 @@ export function selectOccupation(
   });
 
   if (!entry) {
-    throw new Error(`Occupation not found for roll ${roll}`);
+    throw new Error(`Occupation not found for roll ${String(roll)}`);
   }
 
   return { occupation: entry, roll };
@@ -576,19 +568,11 @@ export function createZeroLevelCharacter(
     data.customHPMethods
   );
 
-  // Determine alignment
-  let alignment: Alignment;
-  if (resolvedConfig.alignment) {
-    alignment = resolvedConfig.alignment;
-  } else if (resolvedConfig.allowRandomAlignment) {
-    const alignments: Alignment[] = ["l", "n", "c"];
-    alignment = random.pick(alignments) ?? "n";
-  } else {
-    alignment = "n";
-  }
+  // Determine alignment (resolveCharacterCreationConfig always provides a value)
+  const alignment = resolvedConfig.alignment;
 
   // Generate a unique ID
-  const id = `pc-${Date.now()}-${random.roll(10000)}`;
+  const id = `pc-${String(Date.now())}-${String(random.roll(10000))}`;
 
   // Generate name if configured
   let characterName = "";

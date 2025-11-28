@@ -370,7 +370,7 @@ export function createInventoryItem(
   options?: Partial<Omit<InventoryItem, "name" | "category">>
 ): InventoryItem {
   const item: InventoryItem = {
-    id: options?.id ?? `item-${Date.now()}-${Math.floor(Math.random() * 10000)}`,
+    id: options?.id ?? `item-${String(Date.now())}-${String(Math.floor(Math.random() * 10000))}`,
     name,
     category,
     quantity: options?.quantity ?? 1,

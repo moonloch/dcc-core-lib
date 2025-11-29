@@ -14,3 +14,5 @@ export * from "./character-creation.js";
 export * from "./random.js";
 export * from "./spells.js";
 export * from "./combat.js";
+export * from "./creatures.js";
+export * from "./equipment.js";

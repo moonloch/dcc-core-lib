@@ -14,7 +14,98 @@ import type { DCCAbilityId } from "./system.js";
 import type { ResultTier, TableEffect, SimpleTable, TieredTable } from "../tables/types.js";
 
 // =============================================================================
-// Caster Types
+// Spell Casting Mode (for spell data catalogs)
+// =============================================================================
+
+/**
+ * Spell casting mode determines how the spell is cast.
+ * Used in spell data catalogs to categorize spells.
+ */
+export type SpellCastingMode = "wizard" | "cleric" | "patron";
+
+// =============================================================================
+// Spell Data Types (for spell catalogs/tables)
+// =============================================================================
+
+/**
+ * Range bracket for a spell result
+ */
+export interface SpellResultRange {
+  /** Minimum roll (inclusive) */
+  min: number;
+  /** Maximum roll (inclusive) */
+  max: number;
+}
+
+/**
+ * A single result entry in a spell result table
+ */
+export interface SpellResult {
+  /** The roll range that triggers this result (inclusive) */
+  range: SpellResultRange;
+  /** Description of the spell effect at this roll level */
+  description: string;
+}
+
+/**
+ * Complete spell result table for spell check resolution
+ */
+export interface SpellResultTable {
+  /** Spell name this table applies to */
+  spellName: string;
+  /** Casting mode (wizard, cleric, or patron) */
+  castingMode: SpellCastingMode;
+  /** Ordered list of results by roll range */
+  results: SpellResult[];
+}
+
+/**
+ * Core spell data structure for spell catalogs.
+ * This is the "data" type for spell storage/lookup.
+ */
+export interface Spell {
+  /** Unique identifier for the spell */
+  id: string;
+  /** Display name */
+  name: string;
+  /** Spell level (1-5) */
+  level: number;
+  /** Casting mode */
+  castingMode: SpellCastingMode;
+  /** Rulebook page reference */
+  page: string;
+  /** Spell range */
+  range: string;
+  /** Spell duration */
+  duration: string;
+  /** Casting time */
+  castingTime: string;
+  /** Save type (e.g., "None", "Will vs. spell check DC") */
+  save: string;
+  /** General description of the spell */
+  description: string;
+}
+
+/**
+ * Extended spell data with result table included
+ */
+export interface SpellWithResults extends Spell {
+  /** Result table for spell check resolution */
+  resultTable: SpellResultTable;
+}
+
+/**
+ * Collection of spells organized by level
+ */
+export interface SpellCollection {
+  /** Casting mode for this collection */
+  castingMode: SpellCastingMode;
+  /** Spells indexed by level */
+  spellsByLevel: Record<number, Spell[]>;
+}
+
+// =============================================================================
+// Caster Types (for game logic)
 // =============================================================================
 
 /**

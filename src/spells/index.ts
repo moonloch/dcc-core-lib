@@ -6,6 +6,9 @@
  * corruption, fumbles, and mercurial magic.
  */
 
+// High-level spell check orchestration
+export * from "./spell-check.js";
+
 // Core spell casting
 export * from "./cast.js";
 

@@ -377,7 +377,8 @@ DCC RPG content is copyrighted by Goodman Games. To respect this:
    - Class progressions (all 7 core classes)
    - Turn Unholy, Lay on Hands tables
    - Crit tables, fumble tables
-   - Spell definitions
+   - Spell definitions (86 wizard spells, 39 cleric spells across levels 1-5)
+   - Spell result tables (88 wizard, 42 cleric) with full roll range effects
 
 ### Registry Pattern for Class Data
 
@@ -460,14 +461,29 @@ licensed-data-package/           # PRIVATE - contains copyrighted content
 │   │   ├── occupations.ts   # Table 1-3
 │   │   ├── turn-unholy.ts   # Table 4-4
 │   │   └── lay-on-hands.ts  # Table 4-2
-│   └── classes/             # Class progressions (levels 1-10)
-│       ├── warrior.ts
-│       ├── wizard.ts
-│       ├── cleric.ts
-│       ├── thief.ts
-│       ├── dwarf.ts
-│       ├── elf.ts
-│       └── halfling.ts
+│   ├── classes/             # Class progressions (levels 1-10)
+│   │   ├── warrior.ts
+│   │   ├── wizard.ts
+│   │   ├── cleric.ts
+│   │   ├── thief.ts
+│   │   ├── dwarf.ts
+│   │   ├── elf.ts
+│   │   └── halfling.ts
+│   └── spells/              # Spell data with result tables
+│       ├── types.ts         # Spell, SpellResult, SpellResultTable types
+│       ├── wizard-level-1.ts  # Level 1 wizard spells (26)
+│       ├── wizard-level-2.ts  # Level 2 wizard spells (23)
+│       ├── wizard-level-3.ts  # Level 3 wizard spells (26)
+│       ├── wizard-level-4.ts  # Level 4 wizard spells (6)
+│       ├── wizard-level-5.ts  # Level 5 wizard spells (5)
+│       ├── cleric-level-1.ts  # Level 1 cleric spells (14)
+│       ├── cleric-level-2.ts  # Level 2 cleric spells (11)
+│       ├── cleric-level-3.ts  # Level 3 cleric spells (7)
+│       ├── cleric-level-4.ts  # Level 4 cleric spells (4)
+│       ├── cleric-level-5.ts  # Level 5 cleric spells (3)
+│       ├── wizard-tables.ts   # 88 wizard spell result tables
+│       ├── cleric-tables.ts   # 42 cleric spell result tables
+│       └── index.ts           # Exports with convenience functions
 └── dist/                    # Compiled TypeScript
 ```
 

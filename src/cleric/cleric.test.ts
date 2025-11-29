@@ -19,8 +19,18 @@ import {
   getMaxHealing,
   LAY_ON_HANDS_SKILL,
 } from "./lay-on-hands.js";
+import {
+  divineAid,
+  getDivineAidModifier,
+  getDivineAidDie,
+  getMinimumCheckForSpellLevel,
+  estimateAidSpellLevel,
+  describePotentialAid,
+  DIVINE_AID_SKILL,
+} from "./divine-aid.js";
 import { TEST_TURN_UNHOLY_TABLE } from "../data/tables/test-turn-unholy.js";
 import { TEST_LAY_ON_HANDS_TABLE } from "../data/tables/test-lay-on-hands.js";
+import { TEST_DIVINE_AID_TABLE } from "../data/tables/test-divine-aid.js";
 
 /** Create a mock roller that returns a fixed value */
 function mockRoller(value: number) {
@@ -361,6 +371,237 @@ describe("Lay on Hands", () => {
 
     it("accepts custom max multiplier", () => {
       expect(getMaxHealing(5, 10)).toBe(50); // 5 * 10
+    });
+  });
+});
+
+// =============================================================================
+// Divine Aid Tests
+// =============================================================================
+
+describe("Divine Aid", () => {
+  describe("DIVINE_AID_SKILL definition", () => {
+    it("has correct id and type", () => {
+      expect(DIVINE_AID_SKILL.id).toBe("divine-aid");
+      expect(DIVINE_AID_SKILL.type).toBe("check");
+    });
+
+    it("uses d20 with Personality", () => {
+      expect(DIVINE_AID_SKILL.roll?.die).toBe("d20");
+      expect(DIVINE_AID_SKILL.roll?.ability).toBe("per");
+    });
+
+    it("adds full level to roll", () => {
+      expect(DIVINE_AID_SKILL.roll?.levelModifier).toBe("full");
+    });
+
+    it("allows luck", () => {
+      expect(DIVINE_AID_SKILL.roll?.allowLuck).toBe(true);
+    });
+  });
+
+  describe("divineAid", () => {
+    it("performs a skill check with level and personality", () => {
+      const result = divineAid(
+        { level: 3, personality: 16, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(10) }
+      );
+
+      // With d20=10, level=3, PER 16 (+2), total = 15
+      expect(result.check.total).toBe(15);
+      expect(result.check.modifiers).toHaveLength(2);
+    });
+
+    it("returns failure for low rolls", () => {
+      const result = divineAid(
+        { level: 1, personality: 10, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(5) }
+      );
+
+      // With d20=5, level=1, PER 10 (+0), total = 6
+      expect(result.check.total).toBe(6);
+      expect(result.success).toBe(false);
+      expect(result.effect.type).toBe("none");
+    });
+
+    it("returns minor aid for moderate rolls", () => {
+      const result = divineAid(
+        { level: 2, personality: 10, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(10) }
+      );
+
+      // With d20=10, level=2, PER 10 (+0), total = 12
+      expect(result.check.total).toBe(12);
+      expect(result.success).toBe(true);
+      expect(result.effect.type).toBe("minor-aid");
+    });
+
+    it("returns moderate aid for higher rolls", () => {
+      const result = divineAid(
+        { level: 3, personality: 14, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(10) }
+      );
+
+      // With d20=10, level=3, PER 14 (+1), total = 14
+      expect(result.check.total).toBe(14);
+      expect(result.success).toBe(true);
+      expect(result.effect.type).toBe("moderate-aid");
+    });
+
+    it("returns major aid for high rolls", () => {
+      const result = divineAid(
+        { level: 5, personality: 18, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(15) }
+      );
+
+      // With d20=15, level=5, PER 18 (+3), total = 23
+      expect(result.check.total).toBe(23);
+      expect(result.success).toBe(true);
+      expect(result.effect.type).toBe("major-aid");
+    });
+
+    it("returns miraculous aid for very high rolls", () => {
+      const result = divineAid(
+        { level: 7, personality: 18, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(16) }
+      );
+
+      // With d20=16, level=7, PER 18 (+3), total = 26
+      expect(result.check.total).toBe(26);
+      expect(result.success).toBe(true);
+      expect(result.effect.type).toBe("miraculous-aid");
+    });
+
+    it("triggers disapproval on natural 1", () => {
+      const result = divineAid(
+        { level: 5, personality: 18, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(1) }
+      );
+
+      expect(result.natural).toBe(1);
+      expect(result.disapprovalTriggered).toBe(true);
+      expect(result.success).toBe(false);
+      expect(result.newDisapprovalRange).toBe(2);
+    });
+
+    it("triggers disapproval within extended range", () => {
+      const result = divineAid(
+        { level: 5, personality: 18, disapprovalRange: 3 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(3) }
+      );
+
+      expect(result.natural).toBe(3);
+      expect(result.disapprovalTriggered).toBe(true);
+      expect(result.success).toBe(false);
+      expect(result.newDisapprovalRange).toBe(4);
+    });
+
+    it("does not trigger disapproval outside range", () => {
+      const result = divineAid(
+        { level: 5, personality: 18, disapprovalRange: 2 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(3) }
+      );
+
+      expect(result.natural).toBe(3);
+      expect(result.disapprovalTriggered).toBe(false);
+      expect(result.newDisapprovalRange).toBe(2);
+    });
+
+    it("applies luck burn", () => {
+      const result = divineAid(
+        { level: 1, personality: 10, disapprovalRange: 1, luck: 14, luckBurn: 2 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(10) }
+      );
+
+      // With d20=10, level=1, PER 10 (+0), luck burn 2, total = 13
+      expect(result.check.total).toBe(13);
+      expect(result.check.modifiers.some((m) => m.source === "luck")).toBe(true);
+    });
+
+    it("includes spell level in effect", () => {
+      const result = divineAid(
+        { level: 3, personality: 14, disapprovalRange: 1 },
+        TEST_DIVINE_AID_TABLE,
+        { mode: "evaluate", roller: mockRoller(10) }
+      );
+
+      expect(result.effect.spellLevelEquivalent).toBe(2);
+    });
+  });
+
+  describe("getDivineAidModifier", () => {
+    it("returns level plus personality modifier", () => {
+      expect(getDivineAidModifier(3, 16)).toBe(5); // 3 + 2
+      expect(getDivineAidModifier(5, 10)).toBe(5); // 5 + 0
+      expect(getDivineAidModifier(1, 8)).toBe(0); // 1 + (-1)
+    });
+  });
+
+  describe("getDivineAidDie", () => {
+    it("returns d20", () => {
+      expect(getDivineAidDie()).toBe("d20");
+    });
+  });
+
+  describe("getMinimumCheckForSpellLevel", () => {
+    it("returns correct thresholds for each spell level", () => {
+      expect(getMinimumCheckForSpellLevel(1)).toBe(12);
+      expect(getMinimumCheckForSpellLevel(2)).toBe(14);
+      expect(getMinimumCheckForSpellLevel(3)).toBe(18);
+      expect(getMinimumCheckForSpellLevel(4)).toBe(22);
+      expect(getMinimumCheckForSpellLevel(5)).toBe(26);
+    });
+
+    it("extrapolates for higher levels", () => {
+      expect(getMinimumCheckForSpellLevel(6)).toBe(32);
+    });
+  });
+
+  describe("estimateAidSpellLevel", () => {
+    it("returns 0 for low results", () => {
+      expect(estimateAidSpellLevel(5)).toBe(0);
+      expect(estimateAidSpellLevel(11)).toBe(0);
+    });
+
+    it("returns correct spell levels for results", () => {
+      expect(estimateAidSpellLevel(12)).toBe(1);
+      expect(estimateAidSpellLevel(13)).toBe(1);
+      expect(estimateAidSpellLevel(14)).toBe(2);
+      expect(estimateAidSpellLevel(17)).toBe(2);
+      expect(estimateAidSpellLevel(18)).toBe(3);
+      expect(estimateAidSpellLevel(21)).toBe(3);
+      expect(estimateAidSpellLevel(22)).toBe(4);
+      expect(estimateAidSpellLevel(25)).toBe(4);
+      expect(estimateAidSpellLevel(26)).toBe(5);
+      expect(estimateAidSpellLevel(30)).toBe(5);
+    });
+  });
+
+  describe("describePotentialAid", () => {
+    it("describes potential aid for very low modifiers", () => {
+      const desc = describePotentialAid(-10);
+      expect(desc).toContain("unlikely");
+    });
+
+    it("describes range for moderate modifiers", () => {
+      const desc = describePotentialAid(5);
+      expect(desc).toContain("ranges from");
+    });
+
+    it("describes reliable aid for very high modifiers", () => {
+      // With +25, even min roll (1+25=26) gives spell level 5
+      const desc = describePotentialAid(25);
+      expect(desc).toContain("reliably");
     });
   });
 });

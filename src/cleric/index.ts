@@ -4,10 +4,11 @@
  * Pure functions for cleric-specific abilities:
  * - Turn Unholy: Channel divine power to turn/destroy unholy creatures
  * - Lay on Hands: Channel divine healing to restore HP and cure ailments
+ * - Divine Aid: Petition deity for miraculous intervention
  *
  * @example
  * ```typescript
- * import { turnUnholy, layOnHands } from "dcc-core-lib";
+ * import { turnUnholy, layOnHands, divineAid } from "dcc-core-lib";
  *
  * // Turn Unholy
  * const turnResult = turnUnholy(
@@ -19,6 +20,12 @@
  * const healResult = layOnHands(
  *   { level: 3, personality: 16, healingSelf: false },
  *   layOnHandsTable
+ * );
+ *
+ * // Divine Aid
+ * const aidResult = divineAid(
+ *   { level: 3, personality: 16, disapprovalRange: 1 },
+ *   divineAidTable
  * );
  * ```
  */
@@ -57,3 +64,22 @@ export type {
   HealEffect,
   HealEffectType,
 } from "./lay-on-hands.js";
+
+// Divine Aid
+export {
+  divineAid,
+  getDivineAidModifier,
+  getDivineAidDie,
+  getMinimumCheckForSpellLevel,
+  estimateAidSpellLevel,
+  describePotentialAid,
+  DIVINE_AID_SKILL,
+} from "./divine-aid.js";
+
+export type {
+  DivineAidInput,
+  DivineAidResult,
+  DivineAidEffect,
+  DivineAidEffectType,
+  AidRequestType,
+} from "./divine-aid.js";

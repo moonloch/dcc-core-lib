@@ -148,7 +148,7 @@ export function estimateMaxHP(
 
   // Get class hit die (default d6 if class not registered)
   const hitDie = classId ? getHitDie(classId) : "d6";
-  const hitDieAvg = getAverageDieRoll(hitDie ?? "d6");
+  const hitDieAvg = getAverageDieRoll(hitDie);
 
   // Add HP for each class level
   for (let i = 1; i <= level; i++) {
@@ -198,7 +198,7 @@ export function calculateMaximumHP(
 
   // Get class hit die
   const hitDie = classId ? getHitDie(classId) : "d6";
-  const hitDieMax = getMaxDieRoll(hitDie ?? "d6");
+  const hitDieMax = getMaxDieRoll(hitDie);
 
   // Add max HP for each class level
   for (let i = 1; i <= level; i++) {

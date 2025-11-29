@@ -672,9 +672,12 @@ src/
 │   ├── fumbles.ts        # Fumble logic
 │   └── index.ts
 ├── parsers/
-│   ├── pc-parser.ts      # PC import from text
-│   ├── npc-parser.ts     # NPC stat block parser
-│   └── index.ts
+│   ├── purple-sorcerer-types.ts  # Types for parsed data
+│   ├── parse-text.ts             # Purple Sorcerer text format parser
+│   ├── parse-json.ts             # Purple Sorcerer JSON format parser
+│   ├── convert.ts                # Convert parsed data to Character type
+│   ├── npc-parser.ts             # NPC stat block parser (TODO)
+│   └── index.ts                  # Unified parser with auto-detection
 └── data/
     ├── ability-modifiers.ts  # Static modifier table (shared)
     ├── dice-chain.ts         # Default dice chain

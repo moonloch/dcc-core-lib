@@ -492,7 +492,7 @@ describe("Hit Points", () => {
   describe("Integration: Level-Up HP History", () => {
     it("level-up stores HP history", async () => {
       // Import level-up functions dynamically to test integration
-      const { levelUpFrom0, levelUp, clearXPThresholds } = await import("./level-up.js");
+      const { levelUpFrom0, clearXPThresholds } = await import("./level-up.js");
       const { createSeededRandomSource } = await import("../types/random.js");
 
       const random = createSeededRandomSource(12345);

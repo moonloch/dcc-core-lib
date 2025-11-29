@@ -5,4 +5,4 @@ dist/
 coverage/
 .idea/
 *.tsbuildinfo
-source_data*
+# source_data contains fan-made test data for integration tests

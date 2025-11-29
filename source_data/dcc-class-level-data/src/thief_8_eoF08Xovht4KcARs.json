@@ -1,0 +1,13 @@
+{
+  "_id": "eoF08Xovht4KcARs",
+  "name": "Thief Level 8",
+  "type": "class-level",
+  "system": {
+    "class": "thief",
+    "level": "8",
+    "levelData": "system.details.attackBonus=5\nsystem.attributes.critical.die=1d30\nsystem.attributes.critical.table=II\nsystem.attributes.actionDice.value=1d20,1d20\nsystem.attributes.hitDice.value=1d6\nsystem.class.luckDie=d10\nsystem.saves.ref.classBonus=+5\nsystem.saves.frt.classBonus=+3\nsystem.saves.wil.classBonus=+2",
+    "levelDataLawful": "system.details.title.value=Grandmaster\nsystem.class.backstab=+8\nsystem.skills.hideInShadows.value=+13\nsystem.skills.sneakSilently.value=+13\nsystem.skills.pickPockets.value=+13\nsystem.skills.climbSheerSurfaces.value=+13\nsystem.skills.pickLock.value=+8\nsystem.skills.findTrap.value=+8\nsystem.skills.disableTrap.value=+8\nsystem.skills.forgeDocument.value=+7\nsystem.skills.disguiseSelf.value=+7\nsystem.skills.readLanguages.value=+7\nsystem.skills.handlePoison.value=+7\nsystem.skills.castSpellFromScroll.die=d16",
+    "levelDataNeutral": "system.details.title.value=Grand Burglar\nsystem.class.backstab=+7\nsystem.skills.hideInShadows.value=+11\nsystem.skills.sneakSilently.value=+13\nsystem.skills.pickPockets.value=+13\nsystem.skills.climbSheerSurfaces.value=+14\nsystem.skills.pickLock.value=+9\nsystem.skills.findTrap.value=+9\nsystem.skills.disableTrap.value=+9\nsystem.skills.forgeDocument.value=+13\nsystem.skills.disguiseSelf.value=+7\nsystem.skills.readLanguages.value=+7\nsystem.skills.handlePoison.value=+7\nsystem.skills.castSpellFromScroll.die=d20",
+    "levelDataChaotic": "system.details.title.value=Grand Assassin\nsystem.class.backstab=+13\nsystem.skills.hideInShadows.value=+11\nsystem.skills.sneakSilently.value=+11\nsystem.skills.pickPockets.value=+12\nsystem.skills.climbSheerSurfaces.value=+12\nsystem.skills.pickLock.value=+8\nsystem.skills.findTrap.value=+8\nsystem.skills.disableTrap.value=+8\nsystem.skills.forgeDocument.value=+7\nsystem.skills.disguiseSelf.value=+7\nsystem.skills.readLanguages.value=+7\nsystem.skills.handlePoison.value=+13\nsystem.skills.castSpellFromScroll.die=d20"
+  }
+}

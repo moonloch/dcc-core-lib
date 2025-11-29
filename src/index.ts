@@ -32,3 +32,6 @@ export * from "./combat/index.js";
 
 // Purple Sorcerer parser
 export * from "./parsers/index.js";
+
+// Cleric abilities
+export * from "./cleric/index.js";

@@ -1,0 +1,13 @@
+{
+  "_id": "nT8sz4rKlKPyvrP5",
+  "name": "Thief Level 3",
+  "type": "class-level",
+  "system": {
+    "class": "thief",
+    "level": "3",
+    "levelData": "system.details.attackBonus=2\nsystem.attributes.critical.die=1d14\nsystem.attributes.critical.table=II\nsystem.attributes.actionDice.value=1d20\nsystem.attributes.hitDice.value=1d6\nsystem.class.luckDie=d5\nsystem.saves.ref.classBonus=+2\nsystem.saves.frt.classBonus=+1\nsystem.saves.wil.classBonus=+1",
+    "levelDataLawful": "system.details.title.value=Rogue\nsystem.class.backstab=+3\nsystem.skills.hideInShadows.value=+5\nsystem.skills.sneakSilently.value=+5\nsystem.skills.pickPockets.value=+5\nsystem.skills.climbSheerSurfaces.value=+5\nsystem.skills.pickLock.value=+3\nsystem.skills.findTrap.value=+3\nsystem.skills.disableTrap.value=+3\nsystem.skills.forgeDocument.value=+2\nsystem.skills.disguiseSelf.value=+2\nsystem.skills.readLanguages.value=+2\nsystem.skills.handlePoison.value=+2\nsystem.skills.castSpellFromScroll.die=d10",
+    "levelDataNeutral": "system.details.title.value=Burglar\nsystem.class.backstab=+2\nsystem.skills.hideInShadows.value=+3\nsystem.skills.sneakSilently.value=+5\nsystem.skills.pickPockets.value=+5\nsystem.skills.climbSheerSurfaces.value=+6\nsystem.skills.pickLock.value=+4\nsystem.skills.findTrap.value=+4\nsystem.skills.disableTrap.value=+4\nsystem.skills.forgeDocument.value=+4\nsystem.skills.disguiseSelf.value=+2\nsystem.skills.readLanguages.value=+2\nsystem.skills.handlePoison.value=+2\nsystem.skills.castSpellFromScroll.die=d12",
+    "levelDataChaotic": "system.details.title.value=Cutthroat\nsystem.class.backstab=+5\nsystem.skills.hideInShadows.value=+3\nsystem.skills.sneakSilently.value=+3\nsystem.skills.pickPockets.value=+4\nsystem.skills.climbSheerSurfaces.value=+4\nsystem.skills.pickLock.value=+3\nsystem.skills.findTrap.value=+3\nsystem.skills.disableTrap.value=+3\nsystem.skills.forgeDocument.value=+2\nsystem.skills.disguiseSelf.value=+2\nsystem.skills.readLanguages.value=+2\nsystem.skills.handlePoison.value=+5\nsystem.skills.castSpellFromScroll.die=d14"
+  }
+}

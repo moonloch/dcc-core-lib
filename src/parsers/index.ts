@@ -1,21 +1,30 @@
 /**
- * Purple Sorcerer Parser Module
+ * Parser Module
  *
- * Parses character data from Purple Sorcerer's generators.
- * Supports both text format (copy-paste) and JSON format (API/export).
+ * Parsers for various DCC RPG data formats:
+ *
+ * - **Purple Sorcerer Parser**: Parses character data from Purple Sorcerer's generators
+ *   (text format and JSON format)
+ * - **Stat Block Parser**: Parses NPC/creature stat blocks from text format
  *
  * @example
  * ```typescript
+ * // Purple Sorcerer character import
  * import { parsePurpleSorcerer, convertPSCharacters } from "dcc-core-lib";
  *
- * // Parse text or JSON (auto-detected)
  * const result = parsePurpleSorcerer(inputData);
- *
  * if (result.success) {
- *   // Convert to library Character type
- *   const characters = convertPSCharacters(result.characters, {
- *     defaultName: "New Character",
- *   });
+ *   const characters = convertPSCharacters(result.characters);
+ * }
+ *
+ * // NPC stat block parsing
+ * import { parseStatBlock } from "dcc-core-lib";
+ *
+ * const result = parseStatBlock(
+ *   "Goblin: Init +1; Atk club +0 melee (1d4); AC 11; HD 1d6; MV 30'; Act 1d20; SV Fort +3, Ref +4, Will -1; AL C."
+ * );
+ * if (result.success) {
+ *   console.log(result.creature);
  * }
  * ```
  */
@@ -89,3 +98,15 @@ export function parsePurpleSorcerer(input: string): PSParseResult {
 
   return parsePurpleSorcererText(input);
 }
+
+// =============================================================================
+// Stat Block Parser
+// =============================================================================
+
+export { parseStatBlock, parseStatBlocks } from "./parse-statblock.js";
+export type {
+  StatBlockParseResult,
+  StatBlockParseOptions,
+  ParsedAttack,
+  ParsedStatBlock,
+} from "./statblock-types.js";

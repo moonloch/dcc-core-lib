@@ -35,3 +35,9 @@ export * from "./parsers/index.js";
 
 // Cleric abilities
 export * from "./cleric/index.js";
+
+// Patron system
+export * from "./patron/index.js";
+
+// Occupation-based skills
+export * from "./occupation/index.js";

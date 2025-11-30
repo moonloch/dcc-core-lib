@@ -5,6 +5,10 @@
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:moonloch/dcc-core-lib.git"
+  },
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -30,10 +34,17 @@
     "dcc",
     "dungeon-crawl-classics",
     "rpg",
-    "ttrpg"
+    "ttrpg",
+    "dice",
+    "game-logic",
+    "foundry-vtt"
   ],
-  "author": "",
+  "author": "Tim L. White",
   "license": "MIT",
+  "engines": {
+    "node": ">=20.0.0"
+  },
+  "sideEffects": false,
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.0",

@@ -40,7 +40,7 @@ import {
  * Generate a unique combatant ID
  */
 function generateCombatantId(prefix: string): string {
-  return `${prefix}-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`;
+  return `${prefix}-${String(Date.now())}-${Math.random().toString(36).substring(2, 6)}`;
 }
 
 /**
@@ -98,10 +98,10 @@ function createLogEntry(
  * Create player combatants from characters
  */
 export function createPlayerCombatants(
-  players: Array<{
+  players: {
     discordUserId: string;
     character: Character;
-  }>
+  }[]
 ): PlayerCombatant[] {
   return players.map((p) => ({
     type: "player" as const,
@@ -122,7 +122,7 @@ export function createPlayerCombatants(
  * Create monster combatants from creatures
  */
 export function createMonsterCombatants(
-  monsters: Array<{ creature: Creature; count: number }>,
+  monsters: { creature: Creature; count: number }[],
   roller?: DiceRoller
 ): MonsterCombatant[] {
   const combatants: MonsterCombatant[] = [];
@@ -130,7 +130,7 @@ export function createMonsterCombatants(
   for (const { creature, count } of monsters) {
     for (let i = 1; i <= count; i++) {
       const hp = rollCreatureHP(creature.hitDice, roller);
-      const name = count > 1 ? `${creature.name} ${i}` : creature.name;
+      const name = count > 1 ? `${creature.name} ${String(i)}` : creature.name;
 
       combatants.push({
         type: "monster" as const,
@@ -159,8 +159,8 @@ export function createMonsterCombatants(
  */
 export function createCombatEncounter(
   encounterId: string,
-  players: Array<{ discordUserId: string; character: Character }>,
-  monsters: Array<{ creature: Creature; count: number }>,
+  players: { discordUserId: string; character: Character }[],
+  monsters: { creature: Creature; count: number }[],
   roller?: DiceRoller
 ): CombatEncounterState {
   const playerCombatants = createPlayerCombatants(players);
@@ -250,7 +250,7 @@ export function rollAllInitiative(
     createLogEntry(
       "initiative",
       1,
-      `${c.name} rolled ${c.initiative} for initiative`
+      `${c.name} rolled ${String(c.initiative)} for initiative`
     )
   );
 
@@ -294,7 +294,7 @@ export function isPlayersTurn(
   discordUserId: string
 ): boolean {
   const current = getCurrentTurnCombatant(encounter);
-  if (!current || current.type !== "player") return false;
+  if (current?.type !== "player") return false;
   return current.discordUserId === discordUserId;
 }
 
@@ -365,7 +365,8 @@ export function advanceTurn(
     c.combatantId === currentId ? { ...c, hasActedThisRound: true } : c
   );
 
-  let { turnIndex, round } = encounter;
+  const { turnIndex } = encounter;
+  let { round } = encounter;
   const log = [...encounter.combatLog];
 
   // Find next living combatant
@@ -382,14 +383,14 @@ export function advanceTurn(
       // Reset hasActedThisRound for all combatants
       combatants = combatants.map((c) => ({ ...c, hasActedThisRound: false }));
 
-      log.push(createLogEntry("round-start", round, `Round ${round} begins!`));
+      log.push(createLogEntry("round-start", round, `Round ${String(round)} begins!`));
     }
 
     const nextId = encounter.turnOrder[nextIndex];
     const nextCombatant = combatants.find((c) => c.combatantId === nextId);
 
     // Skip dead combatants
-    if (nextCombatant && nextCombatant.vitalStatus === "alive") {
+    if (nextCombatant?.vitalStatus === "alive") {
       return {
         ...encounter,
         combatants,
@@ -478,7 +479,7 @@ export function processPlayerAttack(
   const attacker = getCombatantById(encounter, attackerId);
   const target = getCombatantById(encounter, targetId);
 
-  if (!attacker || attacker.type !== "player") {
+  if (attacker?.type !== "player") {
     throw new Error("Invalid attacker");
   }
 
@@ -488,14 +489,14 @@ export function processPlayerAttack(
 
   const char = attacker.characterSnapshot;
   const strMod = getAbilityModifier(char.state.abilities.str.current);
-  const attackBonus = char.state.combat?.attackBonus ?? 0;
+  const attackBonus = char.state.combat.attackBonus;
 
   // Get target AC
   let targetAC: number;
   if (target.type === "monster") {
     targetAC = target.creature.ac;
   } else {
-    targetAC = target.characterSnapshot.state.combat?.ac ?? 10;
+    targetAC = target.characterSnapshot.state.combat.ac;
   }
 
   // Make attack roll
@@ -550,7 +551,7 @@ export function processPlayerAttack(
 
   // Create log entry
   const logMessage = hit
-    ? `${attacker.name} hits ${target.name} for ${damage} damage!${targetKilled ? ` ${target.name} is slain!` : ""}`
+    ? `${attacker.name} hits ${target.name} for ${String(damage)} damage!${targetKilled ? ` ${target.name} is slain!` : ""}`
     : attackResult.isFumble
       ? `${attacker.name} fumbles their attack!`
       : `${attacker.name} misses ${target.name}.`;
@@ -711,7 +712,7 @@ function decideMonsterAction(
   if (hpPercent <= monster.behaviorProfile.fleeThreshold && monster.behaviorProfile.fleeThreshold > 0) {
     return {
       actionType: "flee",
-      reasoning: `HP (${Math.round(hpPercent * 100)}%) below flee threshold (${Math.round(monster.behaviorProfile.fleeThreshold * 100)}%)`,
+      reasoning: `HP (${String(Math.round(hpPercent * 100))}%) below flee threshold (${String(Math.round(monster.behaviorProfile.fleeThreshold * 100))}%)`,
     };
   }
 
@@ -759,14 +760,14 @@ function processMonsterAttack(
   }
 
   // Get monster's attack
-  const attack = monster.creature.attacks?.[attackIndex];
+  const attack = monster.creature.attacks[attackIndex];
   const toHitStr = attack?.toHit ?? "+0";
   const toHitBonus = parseInt(toHitStr.replace("+", ""), 10) || 0;
 
   // Get target AC
   let targetAC: number;
   if (target.type === "player") {
-    targetAC = target.characterSnapshot.state.combat?.ac ?? 10;
+    targetAC = target.characterSnapshot.state.combat.ac;
   } else {
     targetAC = target.creature.ac;
   }
@@ -804,7 +805,7 @@ function processMonsterAttack(
   }
 
   // Get natural roll
-  const naturalRoll = attackResult.roll?.natural ?? attackResult.total;
+  const naturalRoll = attackResult.roll.natural ?? attackResult.total;
 
   // Get updated target HP
   const finalTarget = getCombatantById(updatedEncounter, targetId);
@@ -814,7 +815,7 @@ function processMonsterAttack(
   // Log the attack
   const attackName = attack?.name ?? "attack";
   const logMessage = hit
-    ? `${monster.name} hits ${target.name} with ${attackName} for ${damage} damage!${targetKilled ? ` ${target.name} falls!` : ""}`
+    ? `${monster.name} hits ${target.name} with ${attackName} for ${String(damage)} damage!${targetKilled ? ` ${target.name} falls!` : ""}`
     : attackResult.isFumble
       ? `${monster.name} fumbles their ${attackName}!`
       : `${monster.name} misses ${target.name} with ${attackName}.`;
@@ -863,7 +864,7 @@ export function processMonsterTurn(
   roller?: DiceRoller
 ): { encounter: CombatEncounterState; result: MonsterTurnResult } {
   const monster = getCombatantById(encounter, monsterId);
-  if (!monster || monster.type !== "monster") {
+  if (monster?.type !== "monster") {
     throw new Error("Invalid monster");
   }
 

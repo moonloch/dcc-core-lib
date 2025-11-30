@@ -7,6 +7,8 @@
  * - Critical hits
  * - Fumbles
  * - Initiative
+ * - Death and dying
+ * - Healing
  */
 
 // Attack functions
@@ -71,3 +73,136 @@ export {
   WARRIOR_INITIATIVE_DIE,
   DEFAULT_INITIATIVE_DIE,
 } from "./initiative.js";
+
+// Morale functions
+export {
+  // Types
+  type MoraleEntityType,
+  type MoraleTrigger,
+  type GroupMoraleState,
+  type CreatureMoraleState,
+  type RetainerMoraleState,
+  type MoraleCheckInput,
+  type MoraleCheckResult,
+  type MoraleImmuneType,
+  // Constants
+  DEFAULT_MORALE_DC,
+  MAX_SITUATIONAL_MODIFIER,
+  MIN_SITUATIONAL_MODIFIER,
+  MORALE_IMMUNE_TYPES,
+  // Functions
+  makeMoraleCheck,
+  calculateMoraleModifier,
+  checkGroupMoraleTrigger,
+  checkCreatureMoraleTrigger,
+  checkRetainerMoraleTrigger,
+  createGroupMoraleState,
+  createCreatureMoraleState,
+  createRetainerMoraleState,
+  resetRetainerMoraleForNewAdventure,
+  isImmuneToMorale,
+  hasImmuneTraits,
+  getSuggestedModifier,
+  formatMoraleResult,
+} from "./morale.js";
+
+// Death and dying functions
+export {
+  // Types
+  type VitalStatus,
+  type DamageApplicationResult,
+  type BleedingOutState,
+  type StabilizeResult,
+  type BodyRecoveryResult,
+  type RestType,
+  type HealingResult,
+  // Functions
+  getBleedOutRounds,
+  getVitalStatus,
+  applyDamage,
+  canBeSaved,
+  advanceBleedOutRound,
+  createBleedingOutState,
+  stabilizeCharacter,
+  applyBleedOutTrauma,
+  attemptBodyRecovery,
+  applyBodyRecovery,
+  getHealingFromRest,
+  applyNaturalHealing,
+  applyHealingResult,
+  applyMagicalHealing,
+  isAtDeathsDoor,
+  canReceiveHealing,
+} from "./death-and-dying.js";
+
+// Miscellaneous combat rules
+export {
+  // Types
+  type AbilityLossEffect,
+  type AbilityLossResult,
+  type OnFireState,
+  type FireDamageResult,
+  type ChargeModifiers,
+  type FallingDamageResult,
+  type FiringIntoMeleeResult,
+  type GrappleParticipant,
+  type GrappleResult,
+  type ArmorRecoveryResult,
+  type MissileRecoveryResult,
+  type SubdualDamageResult,
+  type WithdrawalOpponent,
+  type AttackOfOpportunityResult,
+  type WithdrawalResult,
+  type HorseType,
+  type MountState,
+  type MountedCombatBonuses,
+  type StayMountedResult,
+  type HorseSpookedResult,
+  // Constants
+  SUBDUAL_CAPABLE_WEAPONS,
+  // Ability loss functions
+  getAbilityLossEffect,
+  checkAbilityLoss,
+  // Fire functions
+  createOnFireState,
+  processFireRound,
+  // Charge functions
+  getChargeModifiers,
+  isValidCharge,
+  // Torch functions
+  checkDroppedTorch,
+  // Falling functions
+  calculateFallingDamage,
+  formatFallingDamage,
+  // Firing into melee functions
+  checkFiringIntoMelee,
+  // Grappling functions
+  getGrappleSizeBonus,
+  getGrappleModifier,
+  resolveGrapple,
+  formatGrappleResult,
+  // Equipment recovery functions
+  checkArmorRecovery,
+  checkMissileRecovery,
+  // Subdual functions
+  canDealSubdualDamage,
+  rollSubdualDamage,
+  rollUnarmedDamage,
+  // Melee against grappled
+  checkMeleeAgainstGrappled,
+  // Withdrawal functions
+  processWithdrawal,
+  isEngagedInMelee,
+  formatWithdrawalResult,
+  // Mounted combat functions
+  createMountState,
+  getMountedCombatBonuses,
+  getMountedInitiativeModifier,
+  checkHorseSpooked,
+  checkHorseAttackSpook,
+  makeStayMountedCheck,
+  isLanceOrSpear,
+  getMountedChargeDamageMultiplier,
+  formatStayMountedResult,
+  formatMountedBonuses,
+} from "./misc-rules.js";

@@ -1,5 +1,5 @@
 {
-  "name": "dcc-core-lib",
+  "name": "@moonloch/dcc-core-lib",
   "version": "0.1.0",
   "description": "Core DCC (Dungeon Crawl Classics) logic library - pure functions, no objects",
   "type": "module",
@@ -45,6 +45,9 @@
     "node": ">=20.0.0"
   },
   "sideEffects": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.0",

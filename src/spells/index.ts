@@ -23,3 +23,6 @@ export * from "./mercurial.js";
 
 // Cleric mechanics
 export * from "./disapproval.js";
+
+// Spell duels
+export * from "./spell-duel.js";

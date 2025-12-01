@@ -8,5 +8,11 @@
 // Types
 export * from "./types.js";
 
-// Encounter Engine
+// Combat Encounter Engine
 export * from "./encounter-engine.js";
+
+// Narrative Encounter Engine
+export * from "./narrative-engine.js";
+
+// Narrative Templates
+export * from "./narrative-templates.js";

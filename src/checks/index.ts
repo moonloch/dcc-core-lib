@@ -86,3 +86,11 @@ export {
   type InlineCheckConfig,
   type RollCheckOptions,
 } from "./roll.js";
+
+// Luck Check (roll-under)
+export {
+  rollLuckCheck,
+  rollLuckCheckSimple,
+  type LuckCheckResult,
+  type RollLuckCheckOptions,
+} from "./luck-check.js";

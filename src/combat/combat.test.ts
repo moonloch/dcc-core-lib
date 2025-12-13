@@ -212,7 +212,7 @@ describe("Attack System", () => {
       expect(result.isHit).toBe(false); // Fumble always misses
     });
 
-    it("should always hit on critical threat regardless of AC", () => {
+    it("should always hit on natural 20 regardless of AC", () => {
       const roller = createMockRoller(20);
       const input: AttackInput = {
         attackType: "melee",
@@ -225,7 +225,50 @@ describe("Attack System", () => {
 
       const result = makeAttackRoll(input, roller);
 
-      expect(result.isHit).toBe(true); // Crit threat always hits
+      expect(result.isHit).toBe(true); // Natural 20 always hits
+      expect(result.isCriticalThreat).toBe(true); // Also a crit since it hit
+    });
+
+    it("should NOT auto-hit on threat range roll that misses AC", () => {
+      // Warrior with 19-20 threat range rolls 19, but doesn't beat AC
+      const roller = createSequenceRoller([19, 1]); // Attack roll 19, deed roll 1
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 0,
+        actionDie: "d20",
+        threatRange: 19, // 19-20 threat range
+        abilityModifier: 0,
+        deedDie: "d3",
+        targetAC: 21, // AC is 21, total attack is 19 + 0 + 1 = 20
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.roll.natural).toBe(19);
+      expect(result.total).toBe(20); // 19 + 1 deed
+      expect(result.isHit).toBe(false); // 20 < 21 AC, so miss
+      expect(result.isCriticalThreat).toBe(false); // NOT a crit because it missed!
+    });
+
+    it("should crit on threat range roll that hits AC", () => {
+      // Warrior with 19-20 threat range rolls 19, and beats AC
+      const roller = createSequenceRoller([19, 3]); // Attack roll 19, deed roll 3
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 0,
+        actionDie: "d20",
+        threatRange: 19, // 19-20 threat range
+        abilityModifier: 0,
+        deedDie: "d3",
+        targetAC: 21, // AC is 21, total attack is 19 + 0 + 3 = 22
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.roll.natural).toBe(19);
+      expect(result.total).toBe(22); // 19 + 3 deed
+      expect(result.isHit).toBe(true); // 22 >= 21 AC
+      expect(result.isCriticalThreat).toBe(true); // Crit because 19 is in range AND it hit
     });
 
     it("should apply two-weapon fighting penalty", () => {
@@ -243,6 +286,103 @@ describe("Attack System", () => {
 
       expect(result.totalBonus).toBe(3); // 3 + 2 - 2
       expect(result.total).toBe(18); // 15 + 3
+    });
+
+    // Tests for larger dice (d24, etc.)
+    describe("larger dice critical hits", () => {
+      it("should crit on natural 24 with d24 (threat 20)", () => {
+        const roller = createMockRoller(24);
+        const input: AttackInput = {
+          attackType: "melee",
+          attackBonus: 0,
+          actionDie: "d24",
+          threatRange: 20, // Only max on d20, so only 24 on d24
+          abilityModifier: 0,
+          targetAC: 15,
+        };
+
+        const result = makeAttackRoll(input, roller);
+
+        expect(result.roll.natural).toBe(24);
+        expect(result.isHit).toBe(true); // 24 is auto-hit
+        expect(result.isCriticalThreat).toBe(true); // 24 is in threat range
+      });
+
+      it("should NOT crit on natural 23 with d24 when threat is 20", () => {
+        const roller = createMockRoller(23);
+        const input: AttackInput = {
+          attackType: "melee",
+          attackBonus: 0,
+          actionDie: "d24",
+          threatRange: 20, // Only 24 crits on d24
+          abilityModifier: 0,
+          targetAC: 15,
+        };
+
+        const result = makeAttackRoll(input, roller);
+
+        expect(result.roll.natural).toBe(23);
+        expect(result.isHit).toBe(true); // 23 >= 15
+        expect(result.isCriticalThreat).toBe(false); // 23 is not in threat range for threat 20
+      });
+
+      it("should crit on 23-24 with d24 when threat is 19-20", () => {
+        // Warrior with 19-20 threat using d24 should crit on 23-24
+        const roller23 = createMockRoller(23);
+        const roller24 = createMockRoller(24);
+        const input: AttackInput = {
+          attackType: "melee",
+          attackBonus: 0,
+          actionDie: "d24",
+          threatRange: 19, // 19-20 on d20 = 23-24 on d24
+          abilityModifier: 0,
+          targetAC: 15,
+        };
+
+        const result23 = makeAttackRoll(input, roller23);
+        const result24 = makeAttackRoll(input, roller24);
+
+        expect(result23.isCriticalThreat).toBe(true); // 23 is in range
+        expect(result24.isCriticalThreat).toBe(true); // 24 is in range
+      });
+
+      it("should NOT auto-hit on 23 with d24 even if in threat range", () => {
+        // 23 on d24 with threat 19-20 is a crit IF it hits
+        // But 23 is NOT an auto-hit (only 24 is)
+        const roller = createMockRoller(23);
+        const input: AttackInput = {
+          attackType: "melee",
+          attackBonus: 0,
+          actionDie: "d24",
+          threatRange: 19,
+          abilityModifier: 0,
+          targetAC: 30, // Higher than 23
+        };
+
+        const result = makeAttackRoll(input, roller);
+
+        expect(result.roll.natural).toBe(23);
+        expect(result.isHit).toBe(false); // 23 < 30 AC, and 23 is NOT auto-hit
+        expect(result.isCriticalThreat).toBe(false); // Can't crit on a miss
+      });
+
+      it("should auto-hit on natural 24 with d24 regardless of AC", () => {
+        const roller = createMockRoller(24);
+        const input: AttackInput = {
+          attackType: "melee",
+          attackBonus: -10,
+          actionDie: "d24",
+          threatRange: 20,
+          abilityModifier: -5,
+          targetAC: 100, // Impossibly high AC
+        };
+
+        const result = makeAttackRoll(input, roller);
+
+        expect(result.roll.natural).toBe(24);
+        expect(result.isHit).toBe(true); // Natural max always hits
+        expect(result.isCriticalThreat).toBe(true);
+      });
     });
   });
 
@@ -272,7 +412,8 @@ describe("Attack System", () => {
       expect(doesAttackHit(25, 15, true, false)).toBe(false);
     });
 
-    it("should always return true on critical threat", () => {
+    it("should always return true on natural max (auto-hit)", () => {
+      // isNaturalMax = true means the die rolled its maximum value
       expect(doesAttackHit(5, 15, false, true)).toBe(true);
     });
   });

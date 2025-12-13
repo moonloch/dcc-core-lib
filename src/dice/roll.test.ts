@@ -11,6 +11,8 @@ import {
   isNatural20,
   isNatural1,
   meetsThreatRange,
+  adjustThreatRange,
+  isAutoHit,
 } from "./roll.js";
 import type { RollModifier } from "../types/dice.js";
 
@@ -289,21 +291,86 @@ describe("roll", () => {
     });
   });
 
-  describe("meetsThreatRange", () => {
-    it("returns true when natural meets threat range", () => {
-      expect(meetsThreatRange({ natural: 20 } as never, 20)).toBe(true);
-      expect(meetsThreatRange({ natural: 19 } as never, 19)).toBe(true);
-      expect(meetsThreatRange({ natural: 20 } as never, 19)).toBe(true);
-      expect(meetsThreatRange({ natural: 18 } as never, 18)).toBe(true);
+  describe("adjustThreatRange", () => {
+    it("keeps threat range same for d20", () => {
+      expect(adjustThreatRange(20, 20)).toBe(20);
+      expect(adjustThreatRange(19, 20)).toBe(19);
+      expect(adjustThreatRange(18, 20)).toBe(18);
     });
 
-    it("returns false when natural is below threat range", () => {
-      expect(meetsThreatRange({ natural: 18 } as never, 19)).toBe(false);
-      expect(meetsThreatRange({ natural: 10 } as never, 20)).toBe(false);
+    it("adjusts threat range for d24", () => {
+      // d24: threat 20 on d20 becomes 24 (top 1 value)
+      expect(adjustThreatRange(20, 24)).toBe(24);
+      // d24: threat 19-20 on d20 becomes 23-24 (top 2 values)
+      expect(adjustThreatRange(19, 24)).toBe(23);
+      // d24: threat 18-20 on d20 becomes 22-24 (top 3 values)
+      expect(adjustThreatRange(18, 24)).toBe(22);
+    });
+
+    it("adjusts threat range for d30", () => {
+      expect(adjustThreatRange(20, 30)).toBe(30);
+      expect(adjustThreatRange(19, 30)).toBe(29);
+    });
+
+    it("adjusts threat range for smaller dice", () => {
+      // d16: threat 20 becomes 16
+      expect(adjustThreatRange(20, 16)).toBe(16);
+      // d16: threat 19 becomes 15 (top 2 values: 15-16)
+      expect(adjustThreatRange(19, 16)).toBe(15);
+    });
+
+    it("handles edge cases correctly", () => {
+      // d10 with threat 20 → max value only
+      expect(adjustThreatRange(20, 10)).toBe(10);
+      // d10 with threat 19 → 9-10 (top 2 values)
+      expect(adjustThreatRange(19, 10)).toBe(9);
+    });
+  });
+
+  describe("meetsThreatRange", () => {
+    it("returns true when natural meets threat range on d20", () => {
+      expect(meetsThreatRange({ natural: 20, die: "d20" } as never, 20)).toBe(true);
+      expect(meetsThreatRange({ natural: 19, die: "d20" } as never, 19)).toBe(true);
+      expect(meetsThreatRange({ natural: 20, die: "d20" } as never, 19)).toBe(true);
+      expect(meetsThreatRange({ natural: 18, die: "d20" } as never, 18)).toBe(true);
+    });
+
+    it("returns false when natural is below threat range on d20", () => {
+      expect(meetsThreatRange({ natural: 18, die: "d20" } as never, 19)).toBe(false);
+      expect(meetsThreatRange({ natural: 10, die: "d20" } as never, 20)).toBe(false);
+    });
+
+    it("adjusts threat range for d24", () => {
+      // Threat 20 on d20 → 24 on d24
+      expect(meetsThreatRange({ natural: 24, die: "d24" } as never, 20)).toBe(true);
+      expect(meetsThreatRange({ natural: 23, die: "d24" } as never, 20)).toBe(false);
+
+      // Threat 19-20 on d20 → 23-24 on d24
+      expect(meetsThreatRange({ natural: 24, die: "d24" } as never, 19)).toBe(true);
+      expect(meetsThreatRange({ natural: 23, die: "d24" } as never, 19)).toBe(true);
+      expect(meetsThreatRange({ natural: 22, die: "d24" } as never, 19)).toBe(false);
     });
 
     it("returns false for unevaluated rolls", () => {
-      expect(meetsThreatRange({} as never, 20)).toBe(false);
+      expect(meetsThreatRange({ die: "d20" } as never, 20)).toBe(false);
+    });
+  });
+
+  describe("isAutoHit", () => {
+    it("returns true for natural max on die", () => {
+      expect(isAutoHit({ natural: 20, die: "d20" } as never)).toBe(true);
+      expect(isAutoHit({ natural: 24, die: "d24" } as never)).toBe(true);
+      expect(isAutoHit({ natural: 6, die: "d6" } as never)).toBe(true);
+    });
+
+    it("returns false for non-max rolls", () => {
+      expect(isAutoHit({ natural: 19, die: "d20" } as never)).toBe(false);
+      expect(isAutoHit({ natural: 23, die: "d24" } as never)).toBe(false);
+      expect(isAutoHit({ natural: 1, die: "d20" } as never)).toBe(false);
+    });
+
+    it("returns false for unevaluated rolls", () => {
+      expect(isAutoHit({ die: "d20" } as never)).toBe(false);
     });
   });
 });

@@ -121,6 +121,18 @@ export interface CharacterCreationResult {
 }
 
 // =============================================================================
+// Helper Functions
+// =============================================================================
+
+/**
+ * Roll multiple dice and sum them.
+ */
+function rollDice(count: number, faces: number, random: RandomSource): number {
+  const rolls = random.rollMultiple(count, faces);
+  return rolls.reduce((sum, r) => sum + r, 0);
+}
+
+// =============================================================================
 // Ability Score Generation
 // =============================================================================
 
@@ -647,7 +659,8 @@ export function createZeroLevelCharacter(
       ep: 0,
       gp: 0,
       sp: 0,
-      cp: occupation.startingFunds ?? 0,
+      // Roll 5d12 copper pieces for starting funds (DCC standard)
+      cp: rollDice(5, 12, random),
     },
     inventory,
     conditions: [],

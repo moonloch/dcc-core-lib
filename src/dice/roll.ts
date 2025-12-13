@@ -350,11 +350,38 @@ export function isNatural1(result: RollResult): boolean {
 }
 
 /**
+ * Adjust threat range for dice larger than d20
+ *
+ * A threat range represents "top N values of the die". For example:
+ * - Threat range 20 on d20 = only 20 (top 1 value)
+ * - Threat range 19 on d20 = 19-20 (top 2 values)
+ * - Threat range 19 on d24 = 23-24 (top 2 values)
+ *
+ * Formula: adjustedRange = dieFaces - (20 - threatRange)
+ *
+ * @param threatRange - Base threat range (designed for d20)
+ * @param dieFaces - Number of faces on the die being rolled
+ * @returns Adjusted threat range for the die
+ */
+export function adjustThreatRange(threatRange: number, dieFaces: number): number {
+  // How many values from the top constitute a threat?
+  // For d20 with threat 19, that's 20 - 19 + 1 = 2 values (19 and 20)
+  // For d24, we want the same count: 24 - 1 = 23 (23 and 24)
+  const adjustedRange = dieFaces - (20 - threatRange);
+  // Ensure minimum of 1 (can't threaten on less than the max)
+  return Math.max(1, adjustedRange);
+}
+
+/**
  * Check if a roll meets or exceeds a threat range
  *
+ * For dice larger than d20, the threat range is adjusted to preserve
+ * the same "top N values" relationship. For example, a threat range
+ * of 19-20 on d20 becomes 23-24 on d24.
+ *
  * @param result - The roll result
- * @param threatRange - Minimum natural roll for threat (e.g., 19 for 19-20)
- * @returns True if natural roll is >= threatRange
+ * @param threatRange - Minimum natural roll for threat (e.g., 19 for 19-20 on d20)
+ * @returns True if natural roll meets the adjusted threat range
  */
 export function meetsThreatRange(
   result: RollResult,
@@ -363,5 +390,25 @@ export function meetsThreatRange(
   if (result.natural === undefined) {
     return false;
   }
-  return result.natural >= threatRange;
+  const faces = parseInt(result.die.slice(1), 10);
+  const adjustedRange = adjustThreatRange(threatRange, faces);
+  return result.natural >= adjustedRange;
+}
+
+/**
+ * Check if a roll is an automatic hit (natural max on the die)
+ *
+ * Only a natural 20 on d20 (or the maximum value on larger dice)
+ * is an automatic hit. This is distinct from threat range - a warrior
+ * with 19-20 threat range rolling a 19 does NOT auto-hit.
+ *
+ * @param result - The roll result
+ * @returns True if natural roll equals the die's maximum value
+ */
+export function isAutoHit(result: RollResult): boolean {
+  if (result.natural === undefined) {
+    return false;
+  }
+  const faces = parseInt(result.die.slice(1), 10);
+  return result.natural === faces;
 }

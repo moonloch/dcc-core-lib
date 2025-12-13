@@ -17,7 +17,7 @@ import type {
 } from "../types/combat.js";
 import type { RollBonus, ComputedBonuses } from "../types/bonuses.js";
 import { computeBonuses } from "../types/bonuses.js";
-import { evaluateRoll, meetsThreatRange, isNatural1 } from "../dice/roll.js";
+import { evaluateRoll, meetsThreatRange, isNatural1, isAutoHit } from "../dice/roll.js";
 
 // =============================================================================
 // Attack Roll Functions
@@ -175,24 +175,37 @@ export function makeAttackRoll(
   const deedValue = deedRoll?.natural ?? 0;
   const total = (roll.total ?? 0) + totalBonus + deedValue;
 
-  // Check for critical threat
-  const isCriticalThreat = meetsThreatRange(roll, input.threatRange);
-
-  // Check for fumble
+  // Check for fumble (natural 1)
   const isFumble = isNatural1(roll);
 
+  // Check if roll is in threat range (but this alone doesn't mean crit!)
+  const meetsRange = meetsThreatRange(roll, input.threatRange);
+
+  // Check for automatic hit (natural max on die - e.g., 20 on d20, 24 on d24)
+  const autoHit = isAutoHit(roll);
+
   // Determine hit (if AC provided)
+  // Per DCC rules: only natural max is auto-hit, NOT threat range
+  // A warrior with 19-20 threat range rolling 19 that doesn't beat AC misses
   let isHit: boolean | undefined;
   if (input.targetAC !== undefined) {
-    // Natural 1 always misses, natural 20 (or crit threat) always hits
     if (isFumble) {
+      // Natural 1 always misses
       isHit = false;
-    } else if (isCriticalThreat) {
+    } else if (autoHit) {
+      // Natural max (20 on d20, 24 on d24) always hits
       isHit = true;
     } else {
+      // Otherwise compare total to AC
       isHit = total >= input.targetAC;
     }
   }
+
+  // Critical threat only occurs if:
+  // 1. The roll is in the threat range, AND
+  // 2. The attack actually hits
+  // A roll in threat range that misses is NOT a critical hit
+  const isCriticalThreat = meetsRange && (isHit === undefined || isHit);
 
   const result: AttackResult = {
     roll,
@@ -244,25 +257,28 @@ export function calculateAttackBonus(
 /**
  * Check if an attack hits a target
  *
+ * Note: Only natural max (20 on d20, 24 on d24) is an automatic hit.
+ * Rolls in the threat range that don't beat AC do NOT hit.
+ *
  * @param attackTotal - Total attack roll result
  * @param targetAC - Target's armor class
- * @param isNaturalOne - Whether the roll was a natural 1
- * @param isCriticalThreat - Whether the roll was a critical threat
+ * @param isNaturalOne - Whether the roll was a natural 1 (auto-miss)
+ * @param isNaturalMax - Whether the roll was the die's maximum value (auto-hit)
  * @returns Whether the attack hits
  */
 export function doesAttackHit(
   attackTotal: number,
   targetAC: number,
   isNaturalOne: boolean,
-  isCriticalThreat: boolean
+  isNaturalMax: boolean
 ): boolean {
   // Natural 1 always misses
   if (isNaturalOne) {
     return false;
   }
 
-  // Critical threat always hits
-  if (isCriticalThreat) {
+  // Natural max (20 on d20, 24 on d24) always hits
+  if (isNaturalMax) {
     return true;
   }
 

@@ -77,7 +77,7 @@ export {
   getCheckIdsByNamespace,
 } from "./definitions.js";
 
-// Roll API
+// Roll API (sync)
 export {
   rollCheck,
   rollAbilityCheck,
@@ -85,6 +85,14 @@ export {
   type CheckInput,
   type InlineCheckConfig,
   type RollCheckOptions,
+} from "./roll.js";
+
+// Roll API (async siblings — for Promise-based roll machinery)
+export {
+  rollCheckAsync,
+  rollAbilityCheckAsync,
+  rollSavingThrowAsync,
+  type RollCheckOptionsAsync,
 } from "./roll.js";
 
 // Luck Check (roll-under)

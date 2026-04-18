@@ -3,12 +3,13 @@
 > Design doc for the roll-modifier type used throughout the check, skill,
 > attack, damage, and spell pipelines.
 >
-> **Status:** Proposal · 2026-04-17 · pre-implementation
+> **Status:** Proposal · 2026-04-17 · **staged migration in progress**
 >
 > This document pins the type shape, application order, and
-> origin-categorization scheme before code lands in the lib. Once
-> implemented, this doc becomes the reference for adding new modifier
-> kinds and for writing adapter code that emits modifiers.
+> origin-categorization scheme. The implementation is landing in
+> stages, subsystem-by-subsystem (see §9). Once every subsystem is
+> migrated, this doc becomes the single reference for adding new
+> modifier kinds and for writing adapter code that emits modifiers.
 
 ---
 
@@ -368,7 +369,59 @@ Explicitly not tackled here; listed so nobody expects them:
   orthogonal decision. It affects the evaluator's signature but not
   the modifier type.
 
-## 8. Open questions for the author of the first caller
+## 9. Staged migration plan
+
+The design in §2 is the end state. Reaching it in one commit would
+touch ~20 files plus their test suites. To keep each commit reviewable
+and to let the FoundryVTT adapter refactor make forward progress
+without waiting for unrelated subsystems (combat, spells) to migrate,
+the lib ships the new type alongside the old and retires the old one
+subsystem-by-subsystem.
+
+### During transition
+
+- **`RollModifier`** — the new tagged union defined in §2. Used by the
+  check/skill pipeline (`src/checks/`, `src/skills/`, `src/dice/`,
+  `src/types/dice.ts`, `src/types/skills.ts`).
+- **`LegacyRollModifier`** — the former flat `{ source, value, label }`
+  shape, kept alive and renamed so importers are explicit about
+  depending on the old form. Used by the subsystems not yet migrated.
+  Lives in `src/types/dice.ts` with a doc comment pointing at this §9.
+
+Both types export from the same module. Consumers import whichever
+shape they need.
+
+### Migration order
+
+| Wave | Subsystem | When it migrates | Notes |
+|---|---|---|---|
+| 1 | `checks/`, `skills/`, `dice/roll.ts` | **Now** (with this doc's implementation) | Needed by the Foundry adapter's Phase 1 (ability check → save → skill → init). |
+| 2 | `spells/`, `cleric/`, `patron/` | Foundry adapter Phase 2 | Spell check pipeline + cleric disapproval + patron taint. |
+| 3 | `combat/` (attack, damage, crits, fumbles, initiative, misc-rules, morale) | Foundry adapter Phase 3 | The largest chunk — attack/damage/crit chain interleaves lots of modifier types. |
+| 4 | `occupation/` | Opportunistic | Small surface; may migrate with wave 2 or 3. |
+
+### Retirement criteria
+
+`LegacyRollModifier` is deleted the day no non-test file imports it.
+That's when the last wave lands. The one-line deletion + a follow-up
+doc edit to collapse §9 back into the main text marks the end of the
+transition.
+
+### Invariants during transition
+
+- No file mixes both types. A subsystem is either fully on the new
+  type or fully on the legacy one.
+- `LegacyRollModifier` retains its original shape verbatim. It is
+  frozen — no new fields or changes — so migrations target a stable
+  form.
+- New features never reach for `LegacyRollModifier`. Anything new uses
+  the tagged union, even inside subsystems that haven't finished
+  migrating (if feasible).
+- The `SkillCheckResult.modifiers` field is on the new type from wave
+  1 forward. Combat and spell result types keep their current shapes
+  until their waves land.
+
+## 10. Open questions for the author of the first caller
 
 These don't block the type design but will surface while building the
 first adapter (DCC Foundry system, Phase 1 of the `refactor/

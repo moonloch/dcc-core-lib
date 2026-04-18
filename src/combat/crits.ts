@@ -8,7 +8,7 @@
  * - Level-based crit bonuses
  */
 
-import type { DieType, DiceRoller, RollModifier } from "../types/dice.js";
+import type { DieType, DiceRoller, LegacyRollModifier } from "../types/dice.js";
 import type {
   CriticalInput,
   CriticalResult,
@@ -156,7 +156,7 @@ export function rollCritical(
   const roll = evaluateRoll(formula, rollOptions);
 
   // Calculate modifiers
-  const modifiers: RollModifier[] = [];
+  const modifiers: LegacyRollModifier[] = [];
   let total = roll.natural ?? 0;
 
   // Add luck modifier

@@ -12,9 +12,14 @@
  */
 
 import type { Character } from "../types/index.js";
-import type { SkillDefinition, SkillCheckResult, SkillEvents } from "../types/skills.js";
+import type { SkillDefinition, SkillCheckInput, SkillCheckResult, SkillEvents } from "../types/skills.js";
 import type { RollModifier, DieType } from "../types/dice.js";
-import { resolveSkillCheck, type SkillResolveOptions } from "../skills/resolve.js";
+import {
+  resolveSkillCheck,
+  resolveSkillCheckAsync,
+  type SkillResolveOptions,
+  type SkillResolveOptionsAsync,
+} from "../skills/resolve.js";
 import {
   parseCheckId,
   CheckNamespace,
@@ -47,7 +52,7 @@ export interface InlineCheckConfig {
 export type CheckInput = string | SkillDefinition | InlineCheckConfig;
 
 /**
- * Options for rollCheck
+ * Options for rollCheck (sync)
  */
 export interface RollCheckOptions extends SkillResolveOptions {
   /** Additional situational modifiers */
@@ -73,6 +78,19 @@ export interface RollCheckOptions extends SkillResolveOptions {
    * Use this when your skill references a custom ability.
    * Standard DCC abilities (str, agl, sta, per, int, lck) are always included.
    */
+  additionalAbilities?: string[];
+}
+
+/**
+ * Options for rollCheckAsync. Uses an async custom roller — required
+ * when the underlying roll machinery is Promise-based (e.g. FoundryVTT's
+ * `Roll.evaluate()`).
+ */
+export interface RollCheckOptionsAsync extends SkillResolveOptionsAsync {
+  modifiers?: RollModifier[];
+  luckBurn?: number;
+  events?: SkillEvents;
+  accessors?: CharacterAccessors;
   additionalAbilities?: string[];
 }
 
@@ -151,14 +169,18 @@ function inlineToDefinition(config: InlineCheckConfig): SkillDefinition {
  *   additionalAbilities: ['psy'],
  * });
  */
-export function rollCheck(
+/**
+ * Shared input builder for rollCheck / rollCheckAsync. Given a check
+ * identifier and a character, produces the SkillCheckInput the
+ * resolve layer expects.
+ */
+function buildCheckInput(
   check: CheckInput,
   character: Character,
-  options: RollCheckOptions = {}
-): SkillCheckResult {
+  options: RollCheckOptions | RollCheckOptionsAsync
+): SkillCheckInput {
   const accessors = options.accessors ?? DEFAULT_ACCESSORS;
 
-  // Resolve the check to a SkillDefinition
   let skill: SkillDefinition;
   const additionalModifiers: RollModifier[] = [];
 
@@ -167,7 +189,6 @@ export function rollCheck(
   } else if (isInlineConfig(check)) {
     skill = inlineToDefinition(check);
   } else {
-    // String ID - parse namespace and look up in registry
     const parsed = parseCheckId(check);
 
     const definition = getCheckDefinition(check);
@@ -176,50 +197,47 @@ export function rollCheck(
     }
     skill = definition;
 
-    // If it's a save, add the save bonus from the character
     if (parsed.namespace === CheckNamespace.SAVE) {
       const saveBonus = accessors.getSaveBonus(character, parsed.value);
       if (saveBonus !== 0) {
         additionalModifiers.push({
-          source: "save-bonus",
+          kind: "add",
           value: saveBonus,
-          label: "Save bonus",
+          origin: {
+            category: "other",
+            id: "save-bonus",
+            label: "Save bonus",
+          },
         });
       }
     }
   }
 
-  // Determine which abilities to extract
   const abilityIds = ["str", "agl", "sta", "per", "int", "lck"];
   if (options.additionalAbilities) {
     abilityIds.push(...options.additionalAbilities);
   }
-  // Also include the skill's ability if specified
   if (skill.roll?.ability && !abilityIds.includes(skill.roll.ability)) {
     abilityIds.push(skill.roll.ability);
   }
 
-  // Extract character data using accessors
   const abilities = extractAbilityScores(character, accessors, abilityIds);
   const level = accessors.getLevel(character);
   const classId = accessors.getClassId(character);
   const luck = accessors.getLuck(character);
 
-  // Combine modifiers
-  const situationalModifiers = [
+  const situationalModifiers: RollModifier[] = [
     ...additionalModifiers,
     ...(options.modifiers ?? []),
   ];
 
-  // Build input - only include optional properties when defined
-  const input: Parameters<typeof resolveSkillCheck>[0] = {
+  const input: SkillCheckInput = {
     skill,
     abilities,
     level,
     luck,
   };
 
-  // Add optional properties only if they have values (exactOptionalPropertyTypes)
   if (classId !== undefined) {
     input.classId = classId;
   }
@@ -230,8 +248,33 @@ export function rollCheck(
     input.situationalModifiers = situationalModifiers;
   }
 
-  // Resolve the check
+  return input;
+}
+
+export function rollCheck(
+  check: CheckInput,
+  character: Character,
+  options: RollCheckOptions = {}
+): SkillCheckResult {
+  const input = buildCheckInput(check, character, options);
   return resolveSkillCheck(input, options, options.events);
+}
+
+/**
+ * Roll a check for a character (async).
+ *
+ * Same semantics as `rollCheck`, but the dice evaluation is performed
+ * via an async custom roller (see `RollCheckOptionsAsync.roller`). Use
+ * this when integrating with Promise-based roll machinery like
+ * FoundryVTT's `Roll.evaluate()`.
+ */
+export async function rollCheckAsync(
+  check: CheckInput,
+  character: Character,
+  options: RollCheckOptionsAsync
+): Promise<SkillCheckResult> {
+  const input = buildCheckInput(check, character, options);
+  return resolveSkillCheckAsync(input, options, options.events);
 }
 
 /**
@@ -282,4 +325,35 @@ export function rollSavingThrow(
 
   // Already namespaced
   return rollCheck(saveId, character, options);
+}
+
+/**
+ * Roll an ability check for a character (async).
+ */
+export async function rollAbilityCheckAsync(
+  abilityId: string,
+  character: Character,
+  options: RollCheckOptionsAsync
+): Promise<SkillCheckResult> {
+  const parsed = parseCheckId(abilityId);
+  if (parsed.namespace === null) {
+    return rollCheckAsync({ ability: abilityId }, character, options);
+  }
+  return rollCheckAsync(abilityId, character, options);
+}
+
+/**
+ * Roll a saving throw for a character (async).
+ */
+export async function rollSavingThrowAsync(
+  saveId: string,
+  character: Character,
+  options: RollCheckOptionsAsync
+): Promise<SkillCheckResult> {
+  const parsed = parseCheckId(saveId);
+  if (parsed.namespace === null) {
+    const namespacedId = createCheckId(CheckNamespace.SAVE, saveId);
+    return rollCheckAsync(namespacedId, character, options);
+  }
+  return rollCheckAsync(saveId, character, options);
 }

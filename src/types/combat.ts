@@ -5,7 +5,7 @@
  * and initiative in DCC.
  */
 
-import type { DieType, RollResult, RollModifier } from "./dice.js";
+import type { DieType, RollResult, LegacyRollModifier } from "./dice.js";
 import type { DCCAbilityId } from "./system.js";
 import type { RollBonus } from "./bonuses.js";
 
@@ -79,7 +79,7 @@ export interface AttackResult {
   isHit?: boolean | undefined;
 
   /** All modifiers that were applied */
-  appliedModifiers: RollModifier[];
+  appliedModifiers: LegacyRollModifier[];
 
   /** Whether the deed was successful (roll >= 3) */
   deedSuccess?: boolean | undefined;
@@ -365,7 +365,7 @@ export interface InitiativeResult {
   total: number;
 
   /** All modifiers applied */
-  modifiers: RollModifier[];
+  modifiers: LegacyRollModifier[];
 }
 
 // =============================================================================

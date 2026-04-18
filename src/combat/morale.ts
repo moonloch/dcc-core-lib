@@ -16,7 +16,7 @@
  * - Retainer: first combat/danger per adventure, end of adventure
  */
 
-import type { DiceRoller, RollModifier } from "../types/dice.js";
+import type { DiceRoller, LegacyRollModifier } from "../types/dice.js";
 import { evaluateRoll } from "../dice/roll.js";
 
 // =============================================================================
@@ -109,7 +109,7 @@ export interface MoraleCheckInput {
   isImmune?: boolean | undefined;
 
   /** Additional modifiers */
-  additionalModifiers?: RollModifier[] | undefined;
+  additionalModifiers?: LegacyRollModifier[] | undefined;
 }
 
 /**
@@ -132,7 +132,7 @@ export interface MoraleCheckResult {
   immune: boolean;
 
   /** All modifiers applied */
-  modifiers: RollModifier[];
+  modifiers: LegacyRollModifier[];
 
   /** What triggered this check */
   trigger: MoraleTrigger;
@@ -203,7 +203,7 @@ export function makeMoraleCheck(
   const dc = input.dc ?? DEFAULT_MORALE_DC;
 
   // Build modifiers
-  const modifiers: RollModifier[] = [];
+  const modifiers: LegacyRollModifier[] = [];
 
   // Will save
   if (input.willSave !== 0) {

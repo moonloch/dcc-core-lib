@@ -14,7 +14,7 @@ import {
   adjustThreatRange,
   isAutoHit,
 } from "./roll.js";
-import type { RollModifier } from "../types/dice.js";
+import type { LegacyRollModifier } from "../types/dice.js";
 
 describe("roll", () => {
   describe("ensurePlus", () => {
@@ -88,17 +88,17 @@ describe("roll", () => {
     });
 
     it("builds formula with modifiers", () => {
-      const mods: RollModifier[] = [{ source: "str", value: 3 }];
+      const mods: LegacyRollModifier[] = [{ source: "str", value: 3 }];
       expect(buildFormula("d20", 1, mods)).toBe("1d20+3");
     });
 
     it("builds formula with negative modifiers", () => {
-      const mods: RollModifier[] = [{ source: "penalty", value: -2 }];
+      const mods: LegacyRollModifier[] = [{ source: "penalty", value: -2 }];
       expect(buildFormula("d20", 1, mods)).toBe("1d20-2");
     });
 
     it("builds formula with multiple modifiers", () => {
-      const mods: RollModifier[] = [
+      const mods: LegacyRollModifier[] = [
         { source: "str", value: 3 },
         { source: "luck", value: 1 },
         { source: "penalty", value: -2 },
@@ -107,7 +107,7 @@ describe("roll", () => {
     });
 
     it("skips zero modifiers", () => {
-      const mods: RollModifier[] = [
+      const mods: LegacyRollModifier[] = [
         { source: "str", value: 3 },
         { source: "nothing", value: 0 },
       ];
@@ -218,7 +218,7 @@ describe("roll", () => {
 
   describe("createRoll", () => {
     it("creates roll from die and modifiers", () => {
-      const mods: RollModifier[] = [{ source: "str", value: 3 }];
+      const mods: LegacyRollModifier[] = [{ source: "str", value: 3 }];
       const result = createRoll("d20", mods, { mode: "formula" });
       expect(result.formula).toBe("1d20+3");
       expect(result.modifiers).toEqual(mods);
@@ -226,7 +226,7 @@ describe("roll", () => {
 
     it("evaluates when mode is evaluate", () => {
       const customRoller = vi.fn().mockReturnValue(10);
-      const mods: RollModifier[] = [{ source: "str", value: 3 }];
+      const mods: LegacyRollModifier[] = [{ source: "str", value: 3 }];
       const result = createRoll("d20", mods, {
         mode: "evaluate",
         roller: customRoller,
@@ -235,7 +235,7 @@ describe("roll", () => {
     });
 
     it("filters out zero modifiers from result", () => {
-      const mods: RollModifier[] = [
+      const mods: LegacyRollModifier[] = [
         { source: "str", value: 3 },
         { source: "nothing", value: 0 },
       ];

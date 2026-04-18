@@ -11,7 +11,7 @@
  */
 
 import type { Character } from "../types/character.js";
-import type { DieType, RollModifier, RollOptions } from "../types/dice.js";
+import type { DieType, LegacyRollModifier, RollOptions } from "../types/dice.js";
 import type { SimpleTable, TieredTable } from "../tables/types.js";
 import type {
   SpellDefinition,
@@ -52,7 +52,7 @@ export interface SpellCheckInput {
   spellburn?: SpellburnCommitment;
 
   /** Situational modifiers to apply */
-  situationalModifiers?: RollModifier[];
+  situationalModifiers?: LegacyRollModifier[];
 
   /** Action die override (if not d20) */
   actionDie?: DieType;

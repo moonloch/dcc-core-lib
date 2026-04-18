@@ -9,7 +9,7 @@
  * - Backstab multipliers (thieves)
  */
 
-import type { DieType, RollModifier, DiceRoller } from "../types/dice.js";
+import type { DieType, LegacyRollModifier, DiceRoller } from "../types/dice.js";
 import type {
   DamageInput,
   DamageResult,
@@ -208,7 +208,7 @@ export function getTwoHandedDamageDie(
 export function buildDamageFormula(
   damageDie: DieType,
   diceCount: number,
-  modifiers: RollModifier[]
+  modifiers: LegacyRollModifier[]
 ): string {
   let formula = `${String(diceCount)}${damageDie}`;
 

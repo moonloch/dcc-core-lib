@@ -9,7 +9,7 @@
  * - Bonus aggregation from multiple sources
  */
 
-import type { DieType, RollResult, RollModifier, DiceRoller } from "../types/dice.js";
+import type { DieType, RollResult, LegacyRollModifier, DiceRoller } from "../types/dice.js";
 import type {
   AttackInput,
   AttackResult,
@@ -29,8 +29,8 @@ import { evaluateRoll, meetsThreatRange, isNatural1, isAutoHit } from "../dice/r
 function buildAttackModifiers(
   input: AttackInput,
   computedBonuses: ComputedBonuses
-): RollModifier[] {
-  const modifiers: RollModifier[] = [];
+): LegacyRollModifier[] {
+  const modifiers: LegacyRollModifier[] = [];
 
   // Base attack bonus
   if (input.attackBonus !== 0) {

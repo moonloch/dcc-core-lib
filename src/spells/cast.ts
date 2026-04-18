@@ -15,7 +15,7 @@ import type {
   SpellEvents,
   CasterProfile,
 } from "../types/spells.js";
-import type { DieType, RollModifier, RollOptions } from "../types/dice.js";
+import type { DieType, LegacyRollModifier, RollOptions } from "../types/dice.js";
 import type { ResultTier, TieredTable, TieredEntry } from "../tables/types.js";
 import { totalSpellburn } from "../types/spells.js";
 import { buildFormula, evaluateRoll } from "../dice/roll.js";
@@ -31,8 +31,8 @@ import { lookupTiered, determineTier } from "../tables/lookup.js";
  */
 export function buildSpellCheckModifiers(
   input: SpellCastInput
-): RollModifier[] {
-  const modifiers: RollModifier[] = [];
+): LegacyRollModifier[] {
+  const modifiers: LegacyRollModifier[] = [];
 
   // Ability modifier
   if (input.abilityModifier !== 0) {
@@ -501,6 +501,6 @@ export function isFailure(tier: ResultTier | undefined): boolean {
 /**
  * Calculate the total modifier sum from a spell check modifiers list
  */
-export function getSpellCheckTotalModifier(modifiers: RollModifier[]): number {
+export function getSpellCheckTotalModifier(modifiers: LegacyRollModifier[]): number {
   return modifiers.reduce((sum, mod) => sum + mod.value, 0);
 }

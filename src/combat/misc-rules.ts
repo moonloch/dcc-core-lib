@@ -14,7 +14,7 @@
  * - Unarmed combat
  */
 
-import type { DiceRoller, RollModifier } from "../types/dice.js";
+import type { DiceRoller, LegacyRollModifier } from "../types/dice.js";
 import type { DCCAbilityId } from "../types/system.js";
 import { evaluateRoll } from "../dice/roll.js";
 import { bumpDie } from "../dice/dice-chain.js";
@@ -183,7 +183,7 @@ export interface GrappleResult {
   targetPinned: boolean;
 
   /** All modifiers applied */
-  modifiers: RollModifier[];
+  modifiers: LegacyRollModifier[];
 }
 
 /**
@@ -602,7 +602,7 @@ export function resolveGrapple(
     ? { mode: "evaluate" as const, roller }
     : { mode: "evaluate" as const };
 
-  const modifiers: RollModifier[] = [];
+  const modifiers: LegacyRollModifier[] = [];
 
   // Roll attacks
   const attackerRollResult = evaluateRoll("1d20", rollOptions);

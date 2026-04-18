@@ -133,7 +133,7 @@ describe("Turn Unholy", () => {
 
       // With d20=10, level=1, PER 10 (+0), luck burn 2, total = 13
       expect(result.check.total).toBe(13);
-      expect(result.check.modifiers.some((m) => m.source === "luck")).toBe(true);
+      expect(result.check.modifiers.some((m) => m.origin.category === "luck-burn")).toBe(true);
     });
   });
 
@@ -279,7 +279,7 @@ describe("Lay on Hands", () => {
 
       // With d20=10, level=3, PER 16 (+2), self-heal -4, total = 11
       expect(result.check.total).toBe(11);
-      expect(result.check.modifiers.some((m) => m.source === "self-healing")).toBe(true);
+      expect(result.check.modifiers.some((m) => m.origin.id === "self-healing")).toBe(true);
     });
 
     it("applies same alignment bonus", () => {
@@ -295,7 +295,7 @@ describe("Lay on Hands", () => {
 
       // With d20=10, level=3, PER 16 (+2), same alignment +2, total = 17
       expect(result.check.total).toBe(17);
-      expect(result.check.modifiers.some((m) => m.source === "alignment")).toBe(true);
+      expect(result.check.modifiers.some((m) => m.origin.category === "situational" && m.origin.id.startsWith("alignment-"))).toBe(true);
     });
 
     it("applies opposite alignment penalty", () => {
@@ -525,7 +525,7 @@ describe("Divine Aid", () => {
 
       // With d20=10, level=1, PER 10 (+0), luck burn 2, total = 13
       expect(result.check.total).toBe(13);
-      expect(result.check.modifiers.some((m) => m.source === "luck")).toBe(true);
+      expect(result.check.modifiers.some((m) => m.origin.category === "luck-burn")).toBe(true);
     });
 
     it("includes spell level in effect", () => {

@@ -7,7 +7,7 @@
  * patron's unique invoke table.
  */
 
-import type { RollOptions, RollModifier } from "../types/dice.js";
+import type { RollOptions, LegacyRollModifier } from "../types/dice.js";
 import type { TieredTable, SimpleTable } from "../tables/types.js";
 import type {
   InvokePatronInput,
@@ -42,8 +42,8 @@ export const INVOKE_PATRON_FUMBLE_TRIGGERS_TAINT = true;
  * @param input - Invoke patron input
  * @returns Array of roll modifiers
  */
-export function buildInvokeModifiers(input: InvokePatronInput): RollModifier[] {
-  const modifiers: RollModifier[] = [];
+export function buildInvokeModifiers(input: InvokePatronInput): LegacyRollModifier[] {
+  const modifiers: LegacyRollModifier[] = [];
 
   // Caster level
   if (input.casterLevel > 0) {
@@ -109,7 +109,7 @@ export function buildInvokeModifiers(input: InvokePatronInput): RollModifier[] {
  * @param modifiers - Array of roll modifiers
  * @returns Total modifier value
  */
-export function sumModifiers(modifiers: readonly RollModifier[]): number {
+export function sumModifiers(modifiers: readonly LegacyRollModifier[]): number {
   return modifiers.reduce((sum, mod) => sum + mod.value, 0);
 }
 
@@ -122,7 +122,7 @@ export function sumModifiers(modifiers: readonly RollModifier[]): number {
  */
 export function buildInvokeFormula(
   natural: number,
-  modifiers: readonly RollModifier[]
+  modifiers: readonly LegacyRollModifier[]
 ): string {
   const total = natural + sumModifiers(modifiers);
   const parts = [String(natural)];

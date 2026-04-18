@@ -7,7 +7,7 @@
  * - Fumble table lookups
  */
 
-import type { DieType, DiceRoller, RollModifier } from "../types/dice.js";
+import type { DieType, DiceRoller, LegacyRollModifier } from "../types/dice.js";
 import type {
   FumbleInput,
   FumbleResult,
@@ -168,7 +168,7 @@ export function rollFumble(
 
   // Calculate total (subtract luck modifier - positive luck = lower result)
   // Lower results on the fumble table are generally better
-  const modifiers: RollModifier[] = [];
+  const modifiers: LegacyRollModifier[] = [];
   let total = roll.natural ?? 0;
 
   if (input.luckModifier !== 0) {

@@ -8,7 +8,7 @@
  * - Two-weapon fighting bonus (halflings)
  */
 
-import type { DieType, DiceRoller, RollModifier } from "../types/dice.js";
+import type { DieType, DiceRoller, LegacyRollModifier } from "../types/dice.js";
 import type {
   InitiativeInput,
   InitiativeResult,
@@ -116,7 +116,7 @@ export function rollInitiative(
   const roll = evaluateRoll(formula, rollOptions);
 
   // Build modifiers
-  const modifiers: RollModifier[] = [];
+  const modifiers: LegacyRollModifier[] = [];
   let total = roll.natural ?? 0;
 
   // Agility modifier

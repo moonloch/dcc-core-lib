@@ -8,7 +8,7 @@
  * - Limited thief skill access
  */
 
-import type { DieType, RollModifier, RollOptions } from "../types/dice.js";
+import type { DieType, LegacyRollModifier, RollOptions } from "../types/dice.js";
 import type {
   OccupationSkillGrant,
   OccupationSkillCheckInput,
@@ -173,8 +173,8 @@ export function hasOccupationThiefSkill(
  */
 export function buildOccupationSkillModifiers(
   input: OccupationSkillCheckInput
-): RollModifier[] {
-  const modifiers: RollModifier[] = [];
+): LegacyRollModifier[] {
+  const modifiers: LegacyRollModifier[] = [];
   const { skill, abilities, luckBurn } = input;
 
   // Ability modifier

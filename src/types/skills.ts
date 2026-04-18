@@ -8,6 +8,11 @@
 
 import type { DieType, RollModifier } from "./dice.js";
 
+// NOTE: `RollModifier` here is the new tagged-union type (see
+// docs/MODIFIERS.md). The skill / check / save pipeline uses this
+// shape. Subsystems still on the legacy flat shape import
+// `LegacyRollModifier` explicitly.
+
 /**
  * Types of skills
  *

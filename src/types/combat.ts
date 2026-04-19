@@ -46,12 +46,31 @@ export interface AttackInput {
   /** Target's armor class (optional, for hit determination) */
   targetAC?: number | undefined;
 
-  /** Whether this is a backstab attack (for thieves) */
+  /**
+   * Thief backstab attack: a hit is automatically a critical threat
+   * (DCC core rules, Crit Table II). A natural 1 is still a fumble
+   * and does NOT auto-crit. This flag controls ONLY the auto-crit
+   * behavior.
+   *
+   * The Table 1-9 alignment/level attack bonus is NOT derived from
+   * this flag — callers must precompute it via
+   * `getBackstabAttackBonus(progression, level, alignment)` and pass
+   * it as a full `RollBonus` in `bonuses` (e.g. with `id: "class:backstab"`,
+   * `source: { type: "class", id: "thief" }`, `effect: { type: "modifier",
+   * value: N }`). See `makeAttackRoll` docstring for a full example.
+   */
   isBackstab?: boolean | undefined;
 
   /** Two-weapon fighting penalty (usually -2 for halflings) */
   twoWeaponPenalty?: number | undefined;
 }
+
+/**
+ * Why a critical threat fired. Drives downstream crit-table selection
+ * (a backstab auto-crit always rolls on Crit Table II regardless of
+ * the attacker's normal crit table).
+ */
+export type CritSource = "threat-range" | "backstab-auto" | "natural-max";
 
 /**
  * Result of an attack roll
@@ -71,6 +90,12 @@ export interface AttackResult {
 
   /** Whether this is a critical threat */
   isCriticalThreat: boolean;
+
+  /**
+   * When `isCriticalThreat` is true, what caused it. `undefined` when
+   * the attack is not a critical threat.
+   */
+  critSource?: CritSource | undefined;
 
   /** Whether this is a fumble (natural 1) */
   isFumble: boolean;
@@ -108,9 +133,6 @@ export interface DamageInput {
   /** Magic weapon bonus */
   magicBonus?: number | undefined;
 
-  /** Backstab multiplier (2, 3, 4, or 5 for thieves) */
-  backstabMultiplier?: number | undefined;
-
   /** Additional bonuses */
   bonuses?: RollBonus[] | undefined;
 }
@@ -127,12 +149,6 @@ export interface DamageResult {
 
   /** Modifier damage (str, deed, magic, etc.) */
   modifierDamage: number;
-
-  /** Total damage before multipliers */
-  subtotal: number;
-
-  /** Multiplier applied (backstab) */
-  multiplier: number;
 
   /** Final total damage */
   total: number;
@@ -406,6 +422,21 @@ export interface CombatEvents {
 // =============================================================================
 
 /**
+ * Alternate damage expression used when a thief lands a successful
+ * backstab using a backstab-friendly weapon (DCC Table 3-1 footnote).
+ *
+ * The thief rolls this expression *instead of* the weapon's normal
+ * damage — it is a full replacement, not an additive bonus.
+ */
+export interface BackstabDamage {
+  /** Alternate damage die rolled on a successful backstab */
+  damageDie: DieType;
+
+  /** Number of damage dice (defaults to 1) */
+  diceCount?: number | undefined;
+}
+
+/**
  * Weapon properties for combat calculations
  */
 export interface WeaponStats {
@@ -441,6 +472,14 @@ export interface WeaponStats {
 
   /** Ability used for damage (override default) */
   damageAbility?: DCCAbilityId | undefined;
+
+  /**
+   * Alternate damage used on a successful thief backstab. Only a small
+   * set of weapons has this (DCC Table 3-1 footnote: dagger, blackjack,
+   * blowgun, garrote). When the attacker is a thief AND the attack is
+   * a backstab, roll this instead of the normal damage.
+   */
+  backstabDamage?: BackstabDamage | undefined;
 }
 
 /**
@@ -453,6 +492,31 @@ export const COMMON_WEAPONS: Record<string, WeaponStats> = {
     isMelee: true,
     isRanged: true,
     range: 10,
+    backstabDamage: { damageDie: "d10" },
+  },
+  blackjack: {
+    name: "Blackjack",
+    damageDie: "d3",
+    isMelee: true,
+    isRanged: false,
+    backstabDamage: { damageDie: "d6", diceCount: 2 },
+  },
+  blowgun: {
+    name: "Blowgun",
+    damageDie: "d3",
+    isMelee: false,
+    isRanged: true,
+    range: 20,
+    backstabDamage: { damageDie: "d5" },
+  },
+  garrote: {
+    name: "Garrote",
+    // RAW: normal damage is a flat 1. Modeled as d1 so the dice
+    // pipeline can roll it uniformly (1d1 always yields 1).
+    damageDie: "d1",
+    isMelee: true,
+    isRanged: false,
+    backstabDamage: { damageDie: "d4", diceCount: 3 },
   },
   shortSword: {
     name: "Short Sword",

@@ -674,7 +674,6 @@ function buildClassState(
     case "thief":
       state.thief = {
         luckDie: "d3",
-        backstabMultiplier: 2,
       };
       break;
 
@@ -724,7 +723,6 @@ function updateClassState(
       classState.thief = {
         ...classState.thief,
         luckDie: getThiefLuckDie(level),
-        backstabMultiplier: getBackstabMultiplier(level),
       };
       break;
   }
@@ -744,12 +742,3 @@ function getThiefLuckDie(level: number): DieType {
   return "d3";
 }
 
-/**
- * Get backstab multiplier by level
- */
-function getBackstabMultiplier(level: number): number {
-  if (level >= 9) return 5;
-  if (level >= 7) return 4;
-  if (level >= 4) return 3;
-  return 2;
-}

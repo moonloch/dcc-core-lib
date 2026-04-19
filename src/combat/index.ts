@@ -25,8 +25,8 @@ export {
 export {
   rollDamage,
   calculateDamageModifier,
-  getBackstabMultiplier,
   getTwoHandedDamageDie,
+  getWeaponDamage,
   buildDamageFormula,
   applyMinimumDamage,
 } from "./damage.js";

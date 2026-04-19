@@ -537,7 +537,6 @@ describe("Level Advancement", () => {
 
       expectSuccess(result);
       expect(result.character.state.classState?.thief?.luckDie).toBe("d3");
-      expect(result.character.state.classState?.thief?.backstabMultiplier).toBe(2);
     });
 
     it("sets cleric class state", () => {
@@ -643,9 +642,9 @@ describe("Level Advancement", () => {
       expect(result.character.classInfo?.title).toBe("Warrior"); // Level 2 neutral title
     });
 
-    it("updates thief luck die and backstab", () => {
+    it("updates thief luck die", () => {
       const char = createLevel1Character("thief", { xp: 50 });
-      char.state.classState = { thief: { luckDie: "d3", backstabMultiplier: 2 } };
+      char.state.classState = { thief: { luckDie: "d3" } };
       const random = createSeededRandomSource(42);
 
       const result = levelUp(char, random);

@@ -172,7 +172,6 @@ export interface PSCharacter {
 
   // Class-specific
   luckDie?: DieType; // Thief luck die
-  backstabMultiplier?: number; // Thief backstab
   castSpellFromScrollDie?: DieType; // Thief scroll casting
 }
 

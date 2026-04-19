@@ -384,10 +384,8 @@ function createClassState(ps: PSCharacter): ClassSpecificState | undefined {
     case "thief": {
       // Parse luck die, normalize to "dN" format
       const luckDie = ps.luckDie ? normalizeDieType(ps.luckDie) : "d3";
-      const backstab = ps.thiefSkills?.find((s) => s.name === "Backstab");
       const thiefState: ThiefState = {
         luckDie,
-        backstabMultiplier: backstab?.bonus ?? 2,
       };
       state.thief = thiefState;
       break;

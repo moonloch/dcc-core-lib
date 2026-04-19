@@ -17,15 +17,40 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     the thief's level-scaled crit die).
   - Trigger is "target behind **or** unaware" (inclusive), not both.
   - Target must have clear anatomical vulnerabilities.
+- **Character format bumped to 1.1.** Legacy v1.0 exports import
+  successfully; `thief.backstabMultiplier` is stripped on read.
 - **Removed**: `getBackstabMultiplier`, `getBackstabMultiplierFromSkill`,
   `DamageInput.backstabMultiplier`, `DamageResult.subtotal`,
-  `DamageResult.multiplier`, `ThiefState.backstabMultiplier`.
-- **Added**: `getBackstabAttackBonus(progression, level, alignment)`,
-  `AttackInput.isBackstab` forces auto-crit on a hit,
-  `WeaponStats.backstabDamage` + `getWeaponDamage()` for Table 3-1
-  backstab-friendly weapons (dagger, blackjack, blowgun, garrote).
-- `canBackstab` now uses OR logic and accepts an optional
-  `targetHasAnatomy` parameter.
+  `DamageResult.multiplier`, `ThiefState.backstabMultiplier`,
+  `BACKSTAB_ENABLING` (renamed — see below).
+- **Added**:
+  - `getBackstabAttackBonus(progression, level, alignment)` — returns
+    `number | undefined` (undefined distinguishes missing-data from a
+    legitimate +0 bonus).
+  - `isBackstabTriggeredRaw(attackerIsBehind, targetIsUnaware)` — the
+    stock DCC trigger. Extensions (magic items, spells, extra classes)
+    compose their own trigger by OR-ing this with extra conditions.
+  - `canBackstab(isBackstabTriggered, classId, targetHasAnatomy?)` —
+    now takes a precomputed trigger boolean (caller computes RAW or
+    extension trigger) and enforces class + anatomy gates.
+  - `BACKSTAB_BONUS_ID = "class:backstab"` — canonical `RollBonus.id`
+    for the Table 1-9 attack bonus.
+  - `AttackInput.isBackstab` — drives auto-crit on a hit (a natural 1
+    fumble is still a miss and does NOT auto-crit).
+  - `AttackResult.critSource: "threat-range" | "backstab-auto" |
+    "natural-max" | undefined` — tells downstream code why a crit
+    fired (used to select the right crit table).
+  - `WeaponStats.backstabDamage` + `getWeaponDamage(weapon, isBackstab)`
+    for Table 3-1 backstab-friendly weapons (dagger, blackjack,
+    blowgun, garrote). `getWeaponDamage` lives in `src/combat/damage.ts`.
+- **Consolidated**: `BACKSTAB_ENABLING` renamed to `BACKSTAB`; the
+  previous `BACKSTAB` stub in `thief-skills.ts` now re-exports the
+  enabling-skills definition so there is a single source of truth.
+- `canBackstab` signature changed from
+  `(surprised, behind, classId, anatomy?)` to
+  `(triggered, classId, anatomy?)`. Migrate by passing
+  `isBackstabTriggeredRaw(behind, unaware)` (or your extension's
+  trigger) as the first argument.
 
 ## [0.1.0] - 2024-11-29
 

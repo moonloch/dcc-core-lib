@@ -151,7 +151,7 @@ Skills that unlock or enable other game mechanics. Examples:
 - Mighty Deed (enables deed die on attacks)
 - Shield Bash (enables extra shield attack)
 - Two-Weapon Fighting (enables off-hand attack)
-- Sneak Attack / Backstab (enables damage multiplier)
+- Backstab (enables auto-crit on Crit Table II for thieves; adds the Table 1-9 attack bonus)
 
 ```typescript
 const mightyDeed: SkillDefinition = {

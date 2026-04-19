@@ -165,8 +165,6 @@ interface DamageResult {
   roll: RollResult;            // Damage roll
   baseDamage: number;          // Dice result
   modifierDamage: number;      // Str, deed, magic, etc.
-  subtotal: number;            // Before multipliers
-  multiplier: number;          // Backstab multiplier
   total: number;               // Final damage
   breakdown: DamageBreakdown[];  // Source breakdown
 }

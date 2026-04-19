@@ -34,7 +34,7 @@ expressions impossible) or leak out of the modifier list entirely:
 - Dice-chain bumps live as pre-mutations on the `Character` before the
   lib sees it
 - Die-replacement (warrior's d24 action die) isn't modeled at all
-- Multipliers (backstab ×2 damage) have no representation
+- Multipliers (e.g., spell effects that double damage) have no representation
 
 Every time one of these escapes the modifier list, two things break:
 
@@ -122,7 +122,7 @@ export interface BumpDieModifier {
 /** Multiplicative factor applied after additive modifiers. Damage rolls. */
 export interface MultiplyModifier {
   kind: 'multiply'
-  factor: number               // 2 for backstab; can be fractional
+  factor: number               // e.g., 2 for a "double damage" spell effect; can be fractional
   origin: ModifierOrigin
 }
 
@@ -146,7 +146,7 @@ export interface DisplayModifier {
 export interface ModifierOrigin {
   category: ModifierCategory
   /** Stable identifier within the category. 'str', 'armor-check-penalty',
-   *  'backstab', an item UUID, an active effect UUID, etc. */
+   *  'mighty-deed', an item UUID, an active effect UUID, etc. */
   id: string
   /** Human-readable label. Emitters may provide English; renderers
    *  localize at display time. Not required — renderers can synthesize
@@ -168,7 +168,7 @@ export type ModifierCategory =
   | 'penalty'          // armor check penalty, encumbrance, etc.
   | 'equipment'        // gear providing a bonus or penalty
   | 'active-effect'    // Foundry AE or equivalent temporary effect
-  | 'class-feature'    // class-specific ability (Mighty Deed, Backstab)
+  | 'class-feature'    // class-specific ability (Mighty Deed, Backstab attack bonus)
   | 'spell'            // active spell effect
   | 'situational'      // circumstantial (flanking, prone, etc.)
   | 'dialog-input'     // user-entered at the modifier dialog
@@ -283,7 +283,8 @@ lists. This table is the acceptance criterion for the type.
 | Warrior d24 action die (manual pick) | `[{ kind: 'set-die', die: 'd24', origin: { category: 'class-feature', id: 'warrior-action-die' } }]` |
 | AE dice-chain bump (+1 step) | `[{ kind: 'bump-die', steps: 1, origin: { category: 'active-effect', id: '<ae-uuid>' } }]` |
 | Magic weapon threat 19-20 → 18-20 | `[{ kind: 'threat-shift', amount: 1, origin: { category: 'equipment', id: '<item-uuid>' } }]` |
-| Backstab ×2 damage | `[{ kind: 'multiply', factor: 2, origin: { category: 'class-feature', id: 'backstab' } }]` |
+| Thief backstab attack bonus (L3 chaotic +7) | `[{ kind: 'add', value: 7, origin: { category: 'class-feature', id: 'backstab', label: 'Backstab' } }]` |
+| Spell effect doubling damage | `[{ kind: 'multiply', factor: 2, origin: { category: 'spell', id: '<spell-uuid>' } }]` |
 | dcc-qol injected +1 | `[{ kind: 'add', value: 1, origin: { category: 'module', moduleId: 'dcc-qol', id: '<whatever>' } }]` |
 | Homebrew unclassifiable modifier | `[{ kind: 'add', value: 1, origin: { category: 'other', id: 'my-custom-thing', label: 'Custom' } }]` |
 

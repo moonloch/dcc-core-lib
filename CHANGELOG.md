@@ -7,6 +7,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed (BREAKING)
+
+- **Thief backstab rewritten to match DCC rules-as-written.** The prior
+  implementation applied a level-scaled damage multiplier (×2 → ×5),
+  which is not how DCC backstab works. The corrected mechanic:
+  - Attack-roll bonus from Table 1-9 (alignment × level).
+  - Automatic critical hit on any successful hit (Crit Table II with
+    the thief's level-scaled crit die).
+  - Trigger is "target behind **or** unaware" (inclusive), not both.
+  - Target must have clear anatomical vulnerabilities.
+- **Removed**: `getBackstabMultiplier`, `getBackstabMultiplierFromSkill`,
+  `DamageInput.backstabMultiplier`, `DamageResult.subtotal`,
+  `DamageResult.multiplier`, `ThiefState.backstabMultiplier`.
+- **Added**: `getBackstabAttackBonus(progression, level, alignment)`,
+  `AttackInput.isBackstab` forces auto-crit on a hit,
+  `WeaponStats.backstabDamage` + `getWeaponDamage()` for Table 3-1
+  backstab-friendly weapons (dagger, blackjack, blowgun, garrote).
+- `canBackstab` now uses OR logic and accepts an optional
+  `targetHasAnatomy` parameter.
+
 ## [0.1.0] - 2024-11-29
 
 ### Added

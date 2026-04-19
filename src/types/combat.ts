@@ -48,19 +48,29 @@ export interface AttackInput {
 
   /**
    * Thief backstab attack: a hit is automatically a critical threat
-   * (DCC core rules, Crit Table II). This flag controls ONLY the
-   * auto-crit behavior.
+   * (DCC core rules, Crit Table II). A natural 1 is still a fumble
+   * and does NOT auto-crit. This flag controls ONLY the auto-crit
+   * behavior.
    *
    * The Table 1-9 alignment/level attack bonus is NOT derived from
    * this flag — callers must precompute it via
    * `getBackstabAttackBonus(progression, level, alignment)` and pass
-   * it as a `RollBonus` in `bonuses` (source: "backstab").
+   * it as a full `RollBonus` in `bonuses` (e.g. with `id: "class:backstab"`,
+   * `source: { type: "class", id: "thief" }`, `effect: { type: "modifier",
+   * value: N }`). See `makeAttackRoll` docstring for a full example.
    */
   isBackstab?: boolean | undefined;
 
   /** Two-weapon fighting penalty (usually -2 for halflings) */
   twoWeaponPenalty?: number | undefined;
 }
+
+/**
+ * Why a critical threat fired. Drives downstream crit-table selection
+ * (a backstab auto-crit always rolls on Crit Table II regardless of
+ * the attacker's normal crit table).
+ */
+export type CritSource = "threat-range" | "backstab-auto" | "natural-max";
 
 /**
  * Result of an attack roll
@@ -80,6 +90,12 @@ export interface AttackResult {
 
   /** Whether this is a critical threat */
   isCriticalThreat: boolean;
+
+  /**
+   * When `isCriticalThreat` is true, what caused it. `undefined` when
+   * the attack is not a critical threat.
+   */
+  critSource?: CritSource | undefined;
 
   /** Whether this is a fumble (natural 1) */
   isFumble: boolean;
@@ -464,28 +480,6 @@ export interface WeaponStats {
    * a backstab, roll this instead of the normal damage.
    */
   backstabDamage?: BackstabDamage | undefined;
-}
-
-/**
- * Select the damage die and dice count to roll for a weapon attack,
- * substituting `weapon.backstabDamage` when `isBackstab` is true
- * (DCC Table 3-1 footnote). The caller is responsible for gating the
- * thief-class requirement via `canBackstab(...)` before setting the flag.
- */
-export function getWeaponDamage(
-  weapon: WeaponStats,
-  isBackstab: boolean
-): { damageDie: DieType; diceCount: number } {
-  if (isBackstab && weapon.backstabDamage) {
-    return {
-      damageDie: weapon.backstabDamage.damageDie,
-      diceCount: weapon.backstabDamage.diceCount ?? 1,
-    };
-  }
-  return {
-    damageDie: weapon.damageDie,
-    diceCount: weapon.diceCount ?? 1,
-  };
 }
 
 /**

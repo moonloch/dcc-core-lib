@@ -14,6 +14,7 @@ import type {
   DamageResult,
   DamageBreakdown,
   CombatEvents,
+  WeaponStats,
 } from "../types/combat.js";
 import type { RollBonus } from "../types/bonuses.js";
 import { computeBonuses } from "../types/bonuses.js";
@@ -142,6 +143,28 @@ export function calculateDamageModifier(
   total += computed.totalModifier;
 
   return total;
+}
+
+/**
+ * Select the damage die and dice count to roll for a weapon attack,
+ * substituting `weapon.backstabDamage` when `isBackstab` is true
+ * (DCC Table 3-1 footnote). The caller is responsible for gating the
+ * thief-class requirement via `canBackstab(...)` before setting the flag.
+ */
+export function getWeaponDamage(
+  weapon: WeaponStats,
+  isBackstab: boolean
+): { damageDie: DieType; diceCount: number } {
+  if (isBackstab && weapon.backstabDamage) {
+    return {
+      damageDie: weapon.backstabDamage.damageDie,
+      diceCount: weapon.backstabDamage.diceCount ?? 1,
+    };
+  }
+  return {
+    damageDie: weapon.damageDie,
+    diceCount: weapon.diceCount ?? 1,
+  };
 }
 
 /**

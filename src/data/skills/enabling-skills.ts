@@ -155,6 +155,13 @@ export function getShieldBashDamageDie(): DieType {
 // =============================================================================
 
 /**
+ * Canonical `RollBonus.id` for the thief's Table 1-9 backstab attack
+ * bonus. Use this when constructing the `RollBonus` that carries the
+ * precomputed backstab value into `makeAttackRoll`.
+ */
+export const BACKSTAB_BONUS_ID = "class:backstab";
+
+/**
  * Backstab
  *
  * Per DCC core rules: when a thief strikes from behind, or strikes a
@@ -166,7 +173,7 @@ export function getShieldBashDamageDie(): DieType {
  * There is no RAW damage multiplier; bonus damage, where it applies,
  * comes from backstab-friendly weapons (see `WeaponStats.backstabDamage`).
  */
-export const BACKSTAB_ENABLING: SkillDefinition = {
+export const BACKSTAB: SkillDefinition = {
   id: "backstab",
   name: "Backstab",
   description:
@@ -182,11 +189,10 @@ export const BACKSTAB_ENABLING: SkillDefinition = {
     data: {
       grantsAutoCrit: true,
       critTable: "II",
-      attackBonusSource: "class-progression-table-1-9",
       requiresAnatomy: true,
     },
   },
-  tags: ["combat", "stealth", "melee"],
+  tags: ["combat", "stealth", "melee", "thief"],
   classes: ["thief"],
 };
 
@@ -197,34 +203,70 @@ export const BACKSTAB_ENABLING: SkillDefinition = {
  * The value comes from the loaded class progression, which mirrors the
  * rulebook table (e.g., L1 Lawful +1, L1 Chaotic +3, L10 Chaotic +15).
  *
- * @returns The attack bonus, or 0 if the level/alignment has no entry.
+ * @returns The attack bonus, or `undefined` when the progression has
+ *   no entry for the given level/alignment (out-of-range level, wrong
+ *   class, or missing skill entry). A legitimate +0 is still returned
+ *   as `0` — `undefined` is reserved for "no data".
  */
 export function getBackstabAttackBonus(
   progression: ClassProgression,
   level: number,
   alignment: ProgressionAlignment
-): number {
+): number | undefined {
   const raw = getSkillBonus(progression, level, alignment, "backstab");
-  return typeof raw === "number" ? raw : 0;
+  return typeof raw === "number" ? raw : undefined;
 }
 
 /**
- * Check if conditions are met for a backstab attempt.
+ * RAW backstab trigger (DCC core rulebook, Thief class, paraphrased): the
+ * attack comes from behind, OR the target is unaware of the attacker.
  *
- * Per RAW, the trigger is "from behind OR target is otherwise unaware"
- * (inclusive). Either condition alone suffices. The target must also
- * have clear anatomical vulnerabilities (most humanoids and beasts do;
- * oozes, elementals, amorphous monsters typically do not).
+ * This helper covers only the rulebook trigger. Extensions (extra
+ * classes, magic items, spells, special effects) that grant backstab
+ * under broader circumstances should OR their own conditions in and
+ * hand the combined boolean to `canBackstab`.
+ *
+ * @param attackerIsBehind - True if the attacker is attacking from
+ *   behind the target.
+ * @param targetIsUnaware - True if the target is otherwise unaware of
+ *   the attacker (surprise round, sleeping, blinded, distracted,
+ *   flanked-and-engaged, etc.). Not limited to the surprise round.
+ */
+export function isBackstabTriggeredRaw(
+  attackerIsBehind: boolean,
+  targetIsUnaware: boolean
+): boolean {
+  return attackerIsBehind || targetIsUnaware;
+}
+
+/**
+ * Check if the preconditions for a backstab attempt are met.
+ *
+ * The *trigger* (RAW: behind or unaware) is intentionally a boolean
+ * the caller computes — typically via `isBackstabTriggeredRaw` for
+ * stock rules, or by OR-ing the RAW trigger with any extension-supplied
+ * conditions (magic item, spell effect, homebrew class ability).
+ *
+ * This function owns the class and anatomy gates, which an extension
+ * should not be able to bypass:
+ *  - Only thieves have backstab.
+ *  - Target must have clear anatomical vulnerabilities (oozes,
+ *    elementals, and amorphous monsters typically do not).
+ *
+ * @param isBackstabTriggered - Whether the in-world trigger conditions
+ *   are met (RAW: behind or unaware; or any extension's equivalent).
+ * @param classId - The attacker's class.
+ * @param targetHasAnatomy - Whether the target has clear anatomical
+ *   vulnerabilities. Defaults to true for callers that don't yet
+ *   thread monster anatomy data.
  */
 export function canBackstab(
-  targetIsSurprised: boolean,
-  attackerIsBehind: boolean,
+  isBackstabTriggered: boolean,
   classId: string,
   targetHasAnatomy = true
 ): boolean {
-  const hasSkill = BACKSTAB_ENABLING.classes?.includes(classId) ?? false;
-  const triggered = targetIsSurprised || attackerIsBehind;
-  return hasSkill && targetHasAnatomy && triggered;
+  const hasSkill = BACKSTAB.classes?.includes(classId) ?? false;
+  return hasSkill && targetHasAnatomy && isBackstabTriggered;
 }
 
 // =============================================================================
@@ -446,7 +488,7 @@ export function canShareLuck(classId: string, distanceToAlly: number): boolean {
 export const ENABLING_SKILLS: Record<string, SkillDefinition> = {
   "mighty-deed": MIGHTY_DEED,
   "shield-bash": SHIELD_BASH,
-  backstab: BACKSTAB_ENABLING,
+  backstab: BACKSTAB,
   "two-weapon-fighting": TWO_WEAPON_FIGHTING,
   "luck-recovery": LUCK_RECOVERY,
   "luck-sharing": LUCK_SHARING,

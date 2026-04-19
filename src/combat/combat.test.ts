@@ -7,7 +7,7 @@
 import { describe, it, expect } from "vitest";
 import type { DiceRoller } from "../types/dice.js";
 import type { AttackInput, DamageInput, CriticalInput, FumbleInput, InitiativeInput } from "../types/combat.js";
-import { COMMON_WEAPONS, getWeaponDamage } from "../types/combat.js";
+import { COMMON_WEAPONS } from "../types/combat.js";
 import {
   // Attack
   makeAttackRoll,
@@ -19,6 +19,7 @@ import {
   // Damage
   rollDamage,
   getTwoHandedDamageDie,
+  getWeaponDamage,
   buildDamageFormula,
   applyMinimumDamage,
   // Crits
@@ -318,6 +319,135 @@ describe("Attack System", () => {
 
       expect(result.isHit).toBe(false);
       expect(result.isCriticalThreat).toBe(false);
+      expect(result.critSource).toBeUndefined();
+    });
+
+    it("should NOT auto-crit on a natural 1 backstab (fumble wins)", () => {
+      // A natural 1 is always a fumble and never a crit, even when
+      // isBackstab is set. Regression test for the silent-failure
+      // path where missing targetAC + nat 1 used to crit+fumble both.
+      const roller = createMockRoller(1);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 5,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 3,
+        targetAC: 10,
+        isBackstab: true,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.isFumble).toBe(true);
+      expect(result.isHit).toBe(false);
+      expect(result.isCriticalThreat).toBe(false);
+      expect(result.critSource).toBeUndefined();
+    });
+
+    it("should NOT auto-crit on nat 1 backstab even without targetAC", () => {
+      // Same invariant when the caller omits targetAC — we cannot let
+      // "unknown hit" upgrade a fumble into a crit.
+      const roller = createMockRoller(1);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 0,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 0,
+        isBackstab: true,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.isFumble).toBe(true);
+      expect(result.isCriticalThreat).toBe(false);
+      expect(result.critSource).toBeUndefined();
+    });
+
+    it("tags the critSource as 'backstab-auto' on a backstab auto-crit", () => {
+      const roller = createMockRoller(12);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 1,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 2,
+        targetAC: 13,
+        isBackstab: true,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("backstab-auto");
+    });
+
+    it("tags the critSource as 'threat-range' on a normal threat-range crit", () => {
+      const roller = createMockRoller(19);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 3,
+        actionDie: "d20",
+        threatRange: 19,
+        abilityModifier: 2,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("threat-range");
+    });
+
+    it("tags the critSource as 'natural-max' on a natural-20 auto-hit crit", () => {
+      const roller = createMockRoller(20);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 0,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 0,
+        targetAC: 50,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("natural-max");
+    });
+
+    it("applies a precomputed backstab RollBonus end-to-end (Table 1-9 wiring)", () => {
+      // Regression test for the full backstab contract: the caller
+      // precomputes the Table 1-9 bonus (L3 Chaotic = +7), passes it
+      // as a full RollBonus, and sets isBackstab: true — the bonus
+      // lands in totalBonus AND the hit auto-crits.
+      const roller = createMockRoller(10);
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 1,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 2,
+        targetAC: 20,
+        isBackstab: true,
+        bonuses: [
+          {
+            id: "class:backstab",
+            label: "Backstab (Table 1-9)",
+            source: { type: "class", id: "thief" },
+            category: "inherent",
+            effect: { type: "modifier", value: 7 },
+          },
+        ],
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.totalBonus).toBe(10); // 1 attack + 2 abil + 7 backstab
+      expect(result.total).toBe(20); // 10 + 10
+      expect(result.isHit).toBe(true); // 20 >= 20
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("backstab-auto");
     });
 
     it("should apply two-weapon fighting penalty", () => {

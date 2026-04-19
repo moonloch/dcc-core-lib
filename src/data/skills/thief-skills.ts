@@ -3,36 +3,17 @@
  *
  * These define the base mechanics for each thief skill.
  * Level-specific bonuses come from class progression data.
+ *
+ * `BACKSTAB` lives in `enabling-skills.ts` (as the single source of
+ * truth for the skill definition, since backstab is a passive enabling
+ * skill in mechanics). It is re-exported here so the thief-skill
+ * catalog (Table 1-7's skill list) is complete under one registry.
  */
 
 import type { SkillDefinition } from "../../types/skills.js";
+import { BACKSTAB } from "./enabling-skills.js";
 
-/**
- * Backstab - catalog entry for Table 1-7's thief skill list.
- *
- * The actual mechanics (attack bonus via class progression Table 1-9,
- * auto-crit on Crit Table II) live in `BACKSTAB_ENABLING` in
- * `enabling-skills.ts`. See `canBackstab` and `getBackstabAttackBonus`.
- */
-export const BACKSTAB: SkillDefinition = {
-  id: "backstab",
-  name: "Backstab",
-  description:
-    "Against an unaware target, or one attacked from behind, add " +
-    "the alignment- and level-scaled attack bonus from Table 1-9. On " +
-    "a hit, the attack automatically scores a critical hit on Crit " +
-    "Table II.",
-  type: "modifier",
-  modifies: {
-    action: "attack",
-    effect: {
-      type: "flat",
-    },
-    condition: "target-behind-or-unaware",
-  },
-  tags: ["thief", "combat", "stealth"],
-  classes: ["thief"],
-};
+export { BACKSTAB };
 
 /**
  * Sneak Silently - move without being heard

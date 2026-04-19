@@ -65,12 +65,14 @@ describe("Thief Skill Definitions", () => {
       expect(BACKSTAB.type).toBe("modifier");
     });
 
-    it("modifies damage", () => {
-      expect(BACKSTAB.modifies?.action).toBe("damage");
+    it("modifies attack rolls", () => {
+      // Per RAW, backstab is an attack-roll bonus that also triggers
+      // an auto-crit; the skill's modifier hooks the attack roll.
+      expect(BACKSTAB.modifies?.action).toBe("attack");
     });
 
-    it("requires surprised target from behind", () => {
-      expect(BACKSTAB.modifies?.condition).toBe("surprised-target-from-behind");
+    it("triggers on a target from behind or an unaware target", () => {
+      expect(BACKSTAB.modifies?.condition).toBe("target-behind-or-unaware");
     });
 
     it("has combat and stealth tags", () => {

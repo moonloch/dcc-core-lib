@@ -308,21 +308,6 @@ describe("Full Combat Scenario", () => {
       expect(result.total).toBe(12);
     });
 
-    it("should apply backstab multiplier for thieves", () => {
-      const roller = createMockRoller(4);
-      const input: DamageInput = {
-        damageDie: "d6",
-        strengthModifier: 1,
-        backstabMultiplier: 3, // Level 3-4 thief
-      };
-
-      const result = rollDamage(input, roller);
-
-      expect(result.subtotal).toBe(5); // 4 + 1
-      expect(result.multiplier).toBe(3);
-      expect(result.total).toBe(15); // 5 * 3
-    });
-
     it("should enforce minimum 1 damage", () => {
       const roller = createMockRoller(1);
       const input: DamageInput = {
@@ -332,8 +317,7 @@ describe("Full Combat Scenario", () => {
 
       const result = rollDamage(input, roller);
 
-      expect(result.subtotal).toBe(-2);
-      expect(result.total).toBe(1); // Minimum 1
+      expect(result.total).toBe(1); // Minimum 1 (1 - 3 would be -2)
     });
   });
 

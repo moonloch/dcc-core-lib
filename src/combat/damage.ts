@@ -6,7 +6,6 @@
  * - Strength modifier
  * - Deed die bonus damage (warriors/dwarves)
  * - Magic weapon bonuses
- * - Backstab multipliers (thieves)
  */
 
 import type { DieType, LegacyRollModifier, DiceRoller } from "../types/dice.js";
@@ -46,14 +45,6 @@ import { evaluateRoll } from "../dice/roll.js";
  *   strengthModifier: 3,
  *   deedDieResult: 4,
  *   magicBonus: 1,
- * });
- *
- * @example
- * // Thief backstab damage
- * const result = rollDamage({
- *   damageDie: "d6",
- *   strengthModifier: 1,
- *   backstabMultiplier: 3,
  * });
  */
 export function rollDamage(
@@ -107,19 +98,12 @@ export function rollDamage(
     }
   }
 
-  // Calculate subtotal (before multiplier)
-  const subtotal = baseDamage + modifierDamage;
-
-  // Apply backstab multiplier
-  const multiplier = input.backstabMultiplier ?? 1;
-  const total = Math.max(1, subtotal * multiplier); // Minimum 1 damage
+  const total = Math.max(1, baseDamage + modifierDamage); // Minimum 1 damage
 
   const result: DamageResult = {
     roll,
     baseDamage,
     modifierDamage,
-    subtotal,
-    multiplier,
     total,
     breakdown,
   };
@@ -158,20 +142,6 @@ export function calculateDamageModifier(
   total += computed.totalModifier;
 
   return total;
-}
-
-/**
- * Get backstab multiplier by thief level
- *
- * @param level - Thief level
- * @returns Backstab damage multiplier
- */
-export function getBackstabMultiplier(level: number): number {
-  if (level <= 0) return 1;
-  if (level <= 2) return 2;
-  if (level <= 4) return 3;
-  if (level <= 6) return 4;
-  return 5;
 }
 
 /**

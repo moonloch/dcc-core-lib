@@ -130,6 +130,21 @@ function rollDeedDie(
  *   deedDie: "d4",
  *   targetAC: 15,
  * });
+ *
+ * @example
+ * // Thief backstab: caller precomputes the Table 1-9 bonus and passes
+ * // it via `bonuses`; `isBackstab: true` only drives the auto-crit.
+ * const backstabBonus = getBackstabAttackBonus(progression, 3, "chaotic"); // +7
+ * const result = makeAttackRoll({
+ *   attackType: "melee",
+ *   attackBonus: 2,
+ *   actionDie: "d20",
+ *   threatRange: 20,
+ *   abilityModifier: 1,
+ *   targetAC: 13,
+ *   isBackstab: true,
+ *   bonuses: [{ source: "backstab", value: backstabBonus }],
+ * });
  */
 export function makeAttackRoll(
   input: AttackInput,
@@ -201,11 +216,12 @@ export function makeAttackRoll(
     }
   }
 
-  // Critical threat only occurs if:
-  // 1. The roll is in the threat range, AND
-  // 2. The attack actually hits
-  // A roll in threat range that misses is NOT a critical hit
-  const isCriticalThreat = meetsRange && (isHit === undefined || isHit);
+  // Critical threat requires both a roll in the threat range AND a
+  // hit — a threat-range roll that misses is NOT a crit. A backstab
+  // hit auto-crits regardless of the natural roll (DCC core rules).
+  const isHitting = isHit === undefined || isHit;
+  const backstabAutoCrit = input.isBackstab === true && isHitting;
+  const isCriticalThreat = (meetsRange && isHitting) || backstabAutoCrit;
 
   const result: AttackResult = {
     roll,

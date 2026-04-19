@@ -8,21 +8,27 @@
 import type { SkillDefinition } from "../../types/skills.js";
 
 /**
- * Backstab - bonus damage on surprise attacks
+ * Backstab - catalog entry for Table 1-7's thief skill list.
+ *
+ * The actual mechanics (attack bonus via class progression Table 1-9,
+ * auto-crit on Crit Table II) live in `BACKSTAB_ENABLING` in
+ * `enabling-skills.ts`. See `canBackstab` and `getBackstabAttackBonus`.
  */
 export const BACKSTAB: SkillDefinition = {
   id: "backstab",
   name: "Backstab",
   description:
-    "When attacking a surprised or unaware opponent from behind, " +
-    "the thief gains bonus damage based on level and alignment.",
+    "Against an unaware target, or one attacked from behind, add " +
+    "the alignment- and level-scaled attack bonus from Table 1-9. On " +
+    "a hit, the attack automatically scores a critical hit on Crit " +
+    "Table II.",
   type: "modifier",
   modifies: {
-    action: "damage",
+    action: "attack",
     effect: {
       type: "flat",
     },
-    condition: "surprised-target-from-behind",
+    condition: "target-behind-or-unaware",
   },
   tags: ["thief", "combat", "stealth"],
   classes: ["thief"],

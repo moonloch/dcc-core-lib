@@ -25,7 +25,6 @@ export {
 export {
   rollDamage,
   calculateDamageModifier,
-  getBackstabMultiplier,
   getTwoHandedDamageDie,
   buildDamageFormula,
   applyMinimumDamage,

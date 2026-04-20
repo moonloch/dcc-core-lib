@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.6.0] - 2026-04-20
+
+### Added
+
+- **`DamageInput.extraDamageDice`** — optional array of extra damage
+  terms rolled separately from the base weapon die. Each term is
+  `{ count, die, flavor?, source? }`; each contributes its own
+  `DamageBreakdown` entry labelled by `source ?? flavor ?? "extra"`.
+  Covers dice-bearing magic weapon bonuses (e.g. `+1d4 fire`) and
+  multi-type per-term damage formulas (e.g. `1d6[fire]+1d6[cold]`).
+
+### Changed
+
+- **`DamageInput.magicBonus` now accepts negative values** for cursed
+  weapons (e.g. a `-1` sword). `rollDamage` adds the bonus whenever
+  it is non-zero, and labels the `breakdown` entry `"cursed"` for
+  negative values (unchanged `"magic"` label for positive). Callers
+  that were passing only non-negative magic bonuses see no behavior
+  change.
+
+## [0.5.0] - 2026-04-19
+
 ### Changed (BREAKING)
 
 - **Combat rules brought in line with RAW** following a validation pass

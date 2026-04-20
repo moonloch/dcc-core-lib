@@ -6,3 +6,6 @@ coverage/
 .idea/
 *.tsbuildinfo
 # source_data contains fan-made test data for integration tests
+.claude/worktrees
+.claude/*.lock
+.claude/settings.local.jsons

@@ -168,3 +168,31 @@ Workflow: glob the relevant filename prefix under `packs/dcc-core-journals/src/`
 ### Companion data repo
 
 `../licensed-data-package` contains the typed table data values that implement these rules. When verifying logic here, confirm that the data values there match the rulebook text referenced above. Both repos share the same rules-reference convention.
+
+### Separation of concerns: core-lib vs. licensed-data-package
+
+**This library contains logic (functions) only. It does not contain DCC rulebook data.**
+
+All per-class progressions, spell lists, crit/fumble/corruption table entries, occupation/augur tables, patron/taint tables, and any other Goodman-copyrighted table values belong in `licensed-data-package` (or another registered data source), never in `dcc-core-lib`. Core-lib exposes:
+
+- Type definitions (`ClassProgression`, `SpellDefinition`, etc.)
+- A registry (`registerClassProgression`, `registerClassProgressions`, `clearClassProgressions`) that data packages populate at app startup
+- Functions that read from the registry (`getCriticalHitData`, `getSavingThrows`, `getCritDie`, `getCritTable`, `getTitle`, …)
+
+**Red flags — do NOT do these in this repo:**
+
+- A `Record<number, …>` or similar keyed by character level hardcoding dice, saves, titles, or spells by class (e.g., `WARRIOR_CRIT_DIE`, `CLERIC_SAVES`, `THIEF_LUCK_DIE`).
+- `switch` statements on `classId` that encode rulebook values.
+- Constants named after a class (`HALFLING_*`, `DWARF_*`, etc.) that contain numeric rulebook values.
+- Any rulebook text, even in a comment.
+
+If a function needs class-specific rulebook data, read it from the registry. If the registry is empty (because no data package is loaded), return a minimal neutral default — do not inline "reasonable" defaults drawn from the rulebook.
+
+**Green flags — these belong in this repo:**
+
+- Pure algorithmic logic: "spell check = d20 + level + ability mod", "natural 1 on a cleric cast triggers disapproval", "halfling TWF penalty is one step better than the base TWF penalty".
+- Mechanic shapes and types: how lay-on-hands resolves, how disapproval range grows, how mercurial magic is rolled.
+- Fan-made sample data in `src/data/sample-data.ts` and similar, clearly labeled as "FAN-MADE, NOT OFFICIAL".
+- Tests that use synthetic class IDs (e.g., `"test-fighter"`) with inline minimal progressions, so the test suite does not depend on `licensed-data-package`.
+
+When tempted to "just put the table here for convenience," add it to `../licensed-data-package` instead, and have core-lib read it through the registry.

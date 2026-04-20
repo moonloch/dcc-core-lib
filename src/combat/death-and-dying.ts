@@ -93,8 +93,11 @@ export interface BodyRecoveryResult {
   /** The Luck roll made */
   luckRoll: number;
 
-  /** Target number needed */
-  targetDC: number;
+  /**
+   * The character's Luck score — the roll-under target. Body recovery is
+   * a roll-under-Luck check, not a meet-or-exceed DC.
+   */
+  luckTarget: number;
 
   /** If success, the character recovers to this HP */
   newHP?: number | undefined;
@@ -360,8 +363,10 @@ export function applyBleedOutTrauma(
  * Attempt to recover a dead character's body
  *
  * Per DCC rules: If body is recovered within 1 hour, character makes a Luck
- * check. On success, they were just unconscious and recover to 1 HP with
- * -4 penalty for 1 hour and permanent -1 to STR/AGL/STA.
+ * check — roll d20 and succeed if the result is ≤ Luck score (roll-under
+ * Luck check, not a meet-or-exceed DC). On success, they were just
+ * unconscious and recover to 1 HP with -4 penalty for 1 hour and
+ * permanent -1 to STR/AGL/STA.
  *
  * @param luckScore - Character's current Luck score
  * @param roller - Dice roller function
@@ -371,7 +376,6 @@ export function attemptBodyRecovery(
   luckScore: number,
   roller: DiceRoller
 ): BodyRecoveryResult {
-  // Roll d20 vs Luck score
   const luckRoll = roller("1d20");
   const success = luckRoll <= luckScore;
 
@@ -379,12 +383,11 @@ export function attemptBodyRecovery(
     return {
       success: false,
       luckRoll,
-      targetDC: luckScore,
+      luckTarget: luckScore,
     };
   }
 
-  // Success! Character was just unconscious
-  // Randomly determine which ability takes the permanent penalty
+  // Randomly pick which ability takes the permanent penalty
   const abilityRoll = roller("1d3");
   const abilities: DCCAbilityId[] = ["str", "agl", "sta"];
   const penaltyAbility = abilities[(abilityRoll - 1) % 3] ?? "sta";
@@ -392,7 +395,7 @@ export function attemptBodyRecovery(
   return {
     success: true,
     luckRoll,
-    targetDC: luckScore,
+    luckTarget: luckScore,
     newHP: 1,
     groggyDuration: "1 hour (-4 to all rolls)",
     permanentPenalty: {

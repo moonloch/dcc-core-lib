@@ -155,7 +155,7 @@ describe("Full Combat Scenario", () => {
 
       const initiatives = combatants.map((c) => {
         const input: InitiativeInput = {
-          initiativeDie: "d16",
+          initiativeDie: "d20",
           agilityModifier: Math.floor((c.agl - 10) / 2),
         };
         const result = rollInitiative(input, roller);
@@ -434,7 +434,7 @@ describe("Full Combat Scenario", () => {
 
         expect(result.success).toBe(true);
         expect(result.luckRoll).toBe(8);
-        expect(result.targetDC).toBe(12);
+        expect(result.luckTarget).toBe(12);
         expect(result.newHP).toBe(1);
         expect(result.groggyDuration).toBe("1 hour (-4 to all rolls)");
         expect(result.permanentPenalty?.ability).toBe("agl"); // d3 roll of 2
@@ -455,7 +455,7 @@ describe("Full Combat Scenario", () => {
         const recovery = {
           success: true,
           luckRoll: 5,
-          targetDC: 10,
+          luckTarget: 10,
           newHP: 1,
           groggyDuration: "1 hour (-4 to all rolls)",
           permanentPenalty: {

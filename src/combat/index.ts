@@ -17,7 +17,8 @@ export {
   calculateAttackBonus,
   doesAttackHit,
   getAttackAbility,
-  getTwoWeaponPenalty,
+  getTwoWeaponDice,
+  rollTwoWeaponAttack,
   isDeedSuccessful,
 } from "./attack.js";
 
@@ -40,10 +41,7 @@ export {
   getCritDie,
   buildCritFormula,
   parseCritExtraDamage,
-  WARRIOR_CRIT_DIE,
-  THIEF_CRIT_DIE,
   DEFAULT_CRIT_DIE,
-  CLASS_CRIT_TABLE,
 } from "./crits.js";
 
 // Fumble functions
@@ -69,9 +67,8 @@ export {
   getInitiativeDie,
   sortByInitiative,
   isInitiativeTied,
-  getTwoWeaponInitiativeBonus,
-  WARRIOR_INITIATIVE_DIE,
   DEFAULT_INITIATIVE_DIE,
+  TWO_HANDED_INITIATIVE_DIE,
 } from "./initiative.js";
 
 // Morale functions

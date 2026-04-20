@@ -35,6 +35,7 @@ import {
   getTitle,
   hasDeedDie,
   getHitDie,
+  getLuckDie,
 } from "../data/classes/progression-utils.js";
 
 // =============================================================================
@@ -722,23 +723,11 @@ function updateClassState(
     case "thief":
       classState.thief = {
         ...classState.thief,
-        luckDie: getThiefLuckDie(level),
+        luckDie: (getLuckDie("thief", level) as DieType | undefined) ?? "d3",
       };
       break;
   }
 
   character.state.classState = classState;
-}
-
-/**
- * Get thief luck die by level
- */
-function getThiefLuckDie(level: number): DieType {
-  if (level >= 9) return "d8";
-  if (level >= 7) return "d7";
-  if (level >= 5) return "d6";
-  if (level >= 3) return "d5";
-  if (level >= 2) return "d4";
-  return "d3";
 }
 

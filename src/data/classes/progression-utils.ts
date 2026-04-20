@@ -270,3 +270,22 @@ export function getHitDie(classId: string): string {
 
   return levelData.hitDie;
 }
+
+/**
+ * Get the luck die for a class at a specific level (used by thieves and
+ * halflings). Returns `undefined` for classes without a luck die, or when no
+ * progression is registered.
+ *
+ * @param classId - The class ID
+ * @param level - The character level
+ * @returns The luck die (e.g., "d3", "d14") or undefined
+ */
+export function getLuckDie(classId: string, level: number): string | undefined {
+  const progression = classProgressionRegistry.get(classId);
+  if (!progression) return undefined;
+
+  const levelData = progression.levels[level];
+  if (!levelData) return undefined;
+
+  return levelData.luckDie;
+}

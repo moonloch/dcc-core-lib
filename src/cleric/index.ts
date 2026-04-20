@@ -52,17 +52,13 @@ export {
   layOnHands,
   getLayOnHandsModifier,
   getLayOnHandsDie,
-  calculateHPHealed,
-  getMaxHealing,
   LAY_ON_HANDS_SKILL,
 } from "./lay-on-hands.js";
 
 export type {
   LayOnHandsInput,
   LayOnHandsResult,
-  LayOnHandsAlignmentMod,
-  HealEffect,
-  HealEffectType,
+  LayOnHandsTarget,
 } from "./lay-on-hands.js";
 
 // Divine Aid

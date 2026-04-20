@@ -17,6 +17,12 @@ import {
   increaseDisapprovalRange,
 } from "../spells/disapproval.js";
 
+/**
+ * RAW DCC p.31: each Divine Aid request accrues a cumulative +10 to the
+ * cleric's disapproval range, regardless of whether the check succeeds.
+ */
+export const DIVINE_AID_DISAPPROVAL_COST = 10;
+
 // =============================================================================
 // Divine Aid Skill Definition
 // =============================================================================
@@ -198,12 +204,19 @@ export function divineAid(
   // Get natural roll for disapproval check
   const natural = check.natural ?? 1;
 
-  // Check for disapproval
-  const disapprovalTriggered = rollTriggersDisapproval(natural, input.disapprovalRange);
-  let newDisapprovalRange = input.disapprovalRange;
+  // RAW DCC p.31 (paraphrased): each Divine Aid request permanently widens
+  // the cleric's disapproval range by 10, and the increases stack. The
+  // +10 applies to every Divine Aid
+  // request, regardless of success. Normal disapproval-range hits still
+  // stack on top.
+  let newDisapprovalRange = input.disapprovalRange + DIVINE_AID_DISAPPROVAL_COST;
 
+  const disapprovalTriggered = rollTriggersDisapproval(
+    natural,
+    input.disapprovalRange
+  );
   if (disapprovalTriggered) {
-    newDisapprovalRange = increaseDisapprovalRange(input.disapprovalRange);
+    newDisapprovalRange = increaseDisapprovalRange(newDisapprovalRange);
   }
 
   // Look up the result in the aid table

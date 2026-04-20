@@ -7,7 +7,7 @@
  */
 
 import type { Alignment, DCCAbilityId } from "./system.js";
-import type { DieType } from "./dice.js";
+import type { CritDieFormula, DieType } from "./dice.js";
 import type { Spellbook } from "./spells.js";
 
 // =============================================================================
@@ -160,8 +160,8 @@ export interface CombatStats {
   /** Action dice available (e.g., ["1d20"] or ["1d20", "1d14"]) */
   actionDice: DieType[];
 
-  /** Critical hit die */
-  critDie: DieType;
+  /** Critical hit die formula (e.g., "d12", "2d20", "d30+2") */
+  critDie: CritDieFormula;
 
   /** Critical hit table (I-V or custom ID) */
   critTable: string;

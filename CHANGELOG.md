@@ -9,6 +9,49 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Changed (BREAKING)
 
+- **Combat rules brought in line with RAW** following a validation pass
+  of `src/combat/**` against the DCC core rulebook (Chapter 4 +
+  Tables 3-3, 4-3). Findings catalogued in `docs/COMBAT_RULES_FIXES.md`.
+- **Initiative rewrite** (`src/combat/initiative.ts`):
+  - Default initiative die changed from `d16` to `d20` (Core Book Ch. 4:
+    initiative is rolled on a d20).
+  - Removed the per-level warrior/dwarf initiative-die map. Warriors now
+    add their **class level** as a flat modifier — pass it via
+    `InitiativeInput.classModifier`. Dwarves use the standard d20.
+  - Added `TWO_HANDED_INITIATIVE_DIE = "d16"` and a new
+    `getInitiativeDie(isWieldingTwoHanded?)` helper for the two-handed
+    weapon case.
+  - **Removed**: `WARRIOR_INITIATIVE_DIE`, `getTwoWeaponInitiativeBonus`
+    (the halfling `+1` two-weapon initiative bonus was fabricated —
+    halfling two-weapon advantages are die-chain reductions only).
+  - **Removed**: `InitiativeInput.twoWeaponBonus`.
+- **Two-weapon fighting rewrite** (`src/combat/attack.ts`):
+  - Replaces the flat `-2` (or `-1` for halflings) attack penalty with
+    the Table 4-3 die-chain reduction model. Each hand's action die is
+    stepped down the dice chain based on the attacker's Agility.
+  - **Removed**: `AttackInput.twoWeaponPenalty`, `getTwoWeaponPenalty`.
+  - **Added**: `getTwoWeaponDice(agility, { isHalfling })` returning
+    `TwoWeaponDiceConfig` (per-hand die reduction, crit eligibility,
+    Agl-16-17 "no auto-hit" flag, halfling overrides).
+  - **Added**: `rollTwoWeaponAttack(input, roller?, events?)` — high-
+    level wrapper that rolls both hands, clamps any improved threat
+    range to 20 (warriors lose improved threat range when two-weapon
+    fighting per the Table 4-3 footnote), and applies the Agl-16-17
+    "primary crits on max die that beats AC, no auto-hit" rule.
+  - Halfling class overrides: clamps effective Agility to a minimum
+    of 16 for row lookup; auto-hit + auto-crit on natural max of the
+    reduced die (either hand); and fumble only when **both** rolls
+    are natural 1.
+- **Armor check penalties corrected to Table 3-3** (`src/combat/fumbles.ts`):
+  - Padded check penalty: `-1` → `0`. Leather: `-2` → `-1`.
+  - **Added**: `studded-leather` armor type (AC +3, check -2,
+    fumble d8). `getArmorType()` now matches "studded" before
+    "leather" (substring overlap).
+- **Body recovery field rename** (`src/combat/death-and-dying.ts`):
+  - `BodyRecoveryResult.targetDC` → `luckTarget`. Body recovery is a
+    roll-under-Luck check, not a meet-or-exceed DC; the field name now
+    reflects the mechanic.
+
 - **Thief backstab rewritten to match DCC rules-as-written.** The prior
   implementation applied a level-scaled damage multiplier (×2 → ×5),
   which is not how DCC backstab works. The corrected mechanic:

@@ -5,7 +5,7 @@
  * and initiative in DCC.
  */
 
-import type { DieType, RollResult, LegacyRollModifier } from "./dice.js";
+import type { CritDieFormula, DieType, RollResult, LegacyRollModifier } from "./dice.js";
 import type { DCCAbilityId } from "./system.js";
 import type { RollBonus } from "./bonuses.js";
 
@@ -60,9 +60,80 @@ export interface AttackInput {
    * value: N }`). See `makeAttackRoll` docstring for a full example.
    */
   isBackstab?: boolean | undefined;
+}
 
-  /** Two-weapon fighting penalty (usually -2 for halflings) */
-  twoWeaponPenalty?: number | undefined;
+// =============================================================================
+// Two-weapon Fighting
+// =============================================================================
+
+/**
+ * Two-weapon fighting configuration derived from the attacker's Agility
+ * (DCC core rules Table 4-3, plus halfling class overrides). Reductions
+ * step each hand's action die DOWN the dice chain.
+ */
+export interface TwoWeaponDiceConfig {
+  /** Number of dice-chain steps to reduce the primary hand's action die. */
+  primaryDieReduction: number;
+  /** Number of dice-chain steps to reduce the off-hand's action die. */
+  offHandDieReduction: number;
+  /** Whether the primary hand is capable of scoring a critical hit at all. */
+  primaryCanCrit: boolean;
+  /** Whether the off-hand is capable of scoring a critical hit at all. */
+  offHandCanCrit: boolean;
+  /**
+   * Agl-16-17 row (non-halfling): the primary hand crits only on a
+   * natural max that ALSO beats the target's AC. The natural max does
+   * NOT auto-hit — the attacker must actually beat AC.
+   */
+  primaryCritRequiresBeatAC: boolean;
+  /**
+   * Halfling class override on the clamped Agl-16 row: a natural max
+   * on the reduced die is both an auto-hit AND an auto-crit, applied
+   * to both hands (halflings crit with either hand on a natural max).
+   * Replaces the non-halfling `primaryCritRequiresBeatAC` rule.
+   */
+  halflingAutoCritOnMax: boolean;
+  /**
+   * Halfling class override: a natural 1 on a single hand is NOT a
+   * fumble — halflings fumble only when BOTH hands roll natural 1.
+   */
+  halflingFumbleRequiresBoth1s: boolean;
+}
+
+/**
+ * Input for rolling a full two-weapon attack round (both hands).
+ *
+ * The primary and off-hand attack inputs should omit `actionDie` —
+ * the wrapper computes each hand's die from `baseActionDie` via
+ * the Table 4-3 reductions.
+ */
+export interface TwoWeaponAttackInput {
+  /** Attacker's Agility score (raw, pre-halfling-clamp). */
+  agility: number;
+  /**
+   * When true, applies the halfling class overrides: min effective
+   * Agility 16 for row lookup, auto-crit/auto-hit on natural max of
+   * the reduced die, and "both rolls must be natural 1" fumble rule.
+   */
+  isHalfling?: boolean | undefined;
+  /**
+   * Base action die before two-weapon reduction. Typically `d20`, or
+   * `d16` when already two-handing a single weapon (rare combo).
+   */
+  baseActionDie: DieType;
+  /** Primary-hand attack input (without `actionDie`). */
+  primary: Omit<AttackInput, "actionDie">;
+  /** Off-hand attack input (without `actionDie`). */
+  offHand: Omit<AttackInput, "actionDie">;
+}
+
+/**
+ * Result of a two-weapon attack round.
+ */
+export interface TwoWeaponAttackResult {
+  primary: AttackResult;
+  offHand: AttackResult;
+  config: TwoWeaponDiceConfig;
 }
 
 /**
@@ -184,8 +255,8 @@ export interface CriticalInput {
   /** Which crit table to use */
   critTable: CritTableId;
 
-  /** Crit die to roll (e.g., "d12" for warrior) */
-  critDie: DieType;
+  /** Crit die formula (e.g., "d12", "2d20", or "d30+2"). */
+  critDie: CritDieFormula;
 
   /** Luck modifier */
   luckModifier: number;
@@ -230,7 +301,7 @@ export interface CriticalResult {
 /**
  * Armor type affects fumble die
  */
-export type ArmorType = "unarmored" | "padded" | "leather" | "hide" | "scale" | "chainmail" | "banded" | "half-plate" | "full-plate";
+export type ArmorType = "unarmored" | "padded" | "leather" | "studded-leather" | "hide" | "scale" | "chainmail" | "banded" | "half-plate" | "full-plate";
 
 /**
  * Fumble die by armor type
@@ -239,6 +310,7 @@ export const FUMBLE_DICE: Record<ArmorType, DieType> = {
   unarmored: "d4",
   padded: "d8",
   leather: "d8",
+  "studded-leather": "d8",
   hide: "d12",
   scale: "d12",
   chainmail: "d12",
@@ -254,6 +326,7 @@ export const ARMOR_AC_BONUS: Record<ArmorType, number> = {
   unarmored: 0,
   padded: 1,
   leather: 2,
+  "studded-leather": 3,
   hide: 3,
   scale: 4,
   chainmail: 5,
@@ -352,19 +425,26 @@ export interface FumbleResult {
 
 /**
  * Input for rolling initiative
+ *
+ * RAW (Core Book Ch. 4): roll 1d20 + Agility mod. A character wielding a
+ * two-handed weapon rolls d16 instead of d20. Warriors add their class
+ * level as a flat modifier — pass it as `classModifier`.
  */
 export interface InitiativeInput {
-  /** Initiative die (usually d20, but can vary) */
+  /**
+   * Initiative die. Callers should pass `d20` by default, or `d16` when
+   * wielding a two-handed weapon. See `getInitiativeDie`.
+   */
   initiativeDie: DieType;
 
   /** Agility modifier */
   agilityModifier: number;
 
-  /** Class-based initiative modifier (if any) */
+  /**
+   * Flat class-based initiative modifier. Warriors pass their class
+   * level here (RAW: warriors add level to initiative).
+   */
   classModifier?: number | undefined;
-
-  /** Two-weapon fighting initiative bonus (+1 for halflings) */
-  twoWeaponBonus?: number | undefined;
 
   /** Additional bonuses */
   bonuses?: RollBonus[] | undefined;

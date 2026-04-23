@@ -221,7 +221,10 @@ describe("checks", () => {
         expect(refSave).toBeDefined();
         expect(refSave?.id).toBe("save:reflex");
         expect(refSave?.name).toBe("Reflex Save");
-        expect(refSave?.roll?.ability).toBe("agl");
+        // Save definitions intentionally omit roll.ability — the save
+        // bonus pulled via getSaveBonus is already the full total
+        // (class + ability mod). See createSaveDefinition.
+        expect(refSave?.roll?.ability).toBeUndefined();
       });
 
       it("returns undefined for non-namespaced IDs", () => {
@@ -319,21 +322,23 @@ describe("checks", () => {
     });
 
     describe("saving throws", () => {
+      // state.saves[id] is the FULL save (class + ability mod) per
+      // calculateSavingThrows. Save check definitions deliberately omit
+      // roll.ability so the resolver does NOT add the governing ability
+      // mod a second time. Mock saves: reflex=2, fortitude=3, will=1.
       it("rolls a reflex save using Save constant", () => {
         const character = createMockCharacter();
         const result = rollCheck(Save.REF, character);
 
         expect(result.skillId).toBe("save:reflex");
         expect(result.die).toBe("d20");
-        // AGL 14 = +1 modifier, save bonus = 2
-        expect(result.formula).toBe("1d20+3");
+        expect(result.formula).toBe("1d20+2");
       });
 
       it("rolls a fortitude save", () => {
         const character = createMockCharacter();
         const result = rollCheck(Save.FORT, character);
 
-        // STA 12 = 0 modifier, save bonus = 3
         expect(result.formula).toBe("1d20+3");
       });
 
@@ -341,7 +346,6 @@ describe("checks", () => {
         const character = createMockCharacter();
         const result = rollCheck(Save.WIL, character);
 
-        // PER 10 = 0 modifier, save bonus = 1
         expect(result.formula).toBe("1d20+1");
       });
 
@@ -355,7 +359,7 @@ describe("checks", () => {
         });
 
         expect(result.natural).toBe(12);
-        expect(result.total).toBe(15); // 12 + 1 (AGL) + 2 (save bonus)
+        expect(result.total).toBe(14); // 12 + 2 (saves.reflex)
       });
     });
 
@@ -558,8 +562,11 @@ describe("checks", () => {
       const result = rollSavingThrow(Save.REF, character);
 
       expect(result.skillId).toBe("save:reflex");
-      // AGL +1, save bonus +2
-      expect(result.formula).toBe("1d20+3");
+      // state.saves.reflex is the FULL bonus (class + ability mod) per
+      // calculateSavingThrows. The save check definition deliberately
+      // omits roll.ability so the resolver does NOT add the governing
+      // ability mod a second time. Mock saves.reflex = 2 → formula 1d20+2.
+      expect(result.formula).toBe("1d20+2");
     });
 
     it("handles raw save IDs by namespacing them", () => {
@@ -567,7 +574,7 @@ describe("checks", () => {
       const result = rollSavingThrow("reflex", character);
 
       expect(result.skillId).toBe("save:reflex");
-      expect(result.formula).toBe("1d20+3");
+      expect(result.formula).toBe("1d20+2");
     });
 
     it("includes save bonus in modifiers", () => {
@@ -580,6 +587,36 @@ describe("checks", () => {
         origin: { category: "other", id: "save-bonus", label: "Save bonus" },
         applied: true,
       });
+    });
+
+    // Regression: ensure the save check does not double-count the
+    // governing ability modifier. Repro from
+    // FoundryVTT-Next/Data/systems/dcc Cheesemaker (sta 14, level 0,
+    // saves.fortitude = +1): formula must be 1d20+1, not 1d20+2.
+    it("does not double-count ability mod into save bonus", () => {
+      const character = createMockCharacter({
+        classInfo: undefined,
+        state: {
+          ...createMockCharacter().state,
+          abilities: {
+            str: { current: 15, max: 15 },
+            agl: { current: 11, max: 11 },
+            sta: { current: 14, max: 14 }, // +1 modifier
+            per: { current: 17, max: 17 },
+            int: { current: 16, max: 16 },
+            lck: { current: 16, max: 16 },
+          },
+          saves: { reflex: 0, fortitude: 1, will: 2 },
+        },
+      });
+      const result = rollSavingThrow(Save.FORT, character);
+      expect(result.formula).toBe("1d20+1");
+      // The fortitude `add` modifier carries the full save value, with
+      // no separate `ability:sta` modifier piled on top.
+      const abilityMod = result.modifiers.find(
+        (m) => m.origin.category === "ability"
+      );
+      expect(abilityMod).toBeUndefined();
     });
   });
 

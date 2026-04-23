@@ -7,6 +7,19 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Save check no longer double-counts the governing ability modifier.**
+  `createSaveDefinition` previously set `roll.ability`, which caused the
+  resolver (`skills/resolve.ts#getAbilityMod`) to add Sta/Agl/Per on top
+  of `state.saves.{fortitude,reflex,will}` — but `state.saves.*` is
+  already the full save total per `calculateSavingThrows`
+  (class bonus + ability mod). Removed `roll.ability` from save
+  definitions. Repro: a 0-level character with sta 14 and
+  `state.saves.fortitude = 1` previously produced formula `1d20+2`;
+  now produces the correct `1d20+1`. Existing roll-test fixtures
+  updated to assert the de-duplicated total.
+
 ## [0.6.0] - 2026-04-20
 
 ### Added

@@ -182,20 +182,6 @@ export function fumbleRequiresCorruption(
   return fumbleResult.corruption;
 }
 
-/**
- * Check if a fumble result requires a patron taint roll.
- */
-export function fumbleRequiresPatronTaint(
-  fumbleResult: SpellFumbleResult,
-  hasPatron: boolean
-): boolean {
-  if (!hasPatron) {
-    return false;
-  }
-
-  return fumbleResult.patronTaint;
-}
-
 // =============================================================================
 // Misfire Effects
 // =============================================================================

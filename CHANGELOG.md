@@ -7,6 +7,69 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.7.0] - 2026-04-24
+
+### Changed (BREAKING)
+
+- **Patron taint brought in line with DCC RAW.** Previously the lib
+  modelled patron taint as a spell-fumble-table-gated mechanic
+  (`effect.type === 'patron-taint'` on entries, rolled via
+  `fumbleRequiresPatronTaint` inside `handleWizardFumble`). That
+  interpretation was wrong: neither the spell fumble table nor the
+  combat fumble table carries patron taint in RAW — they cover
+  misfires, corruption, and catastrophic outcomes. RAW patron taint
+  has two independent triggers, both now modelled:
+  - **Creeping-chance trigger.** Every patron-based cast rolls 1d100
+    vs the caster's current `patronTaintChance` (defaults to 1 when
+    omitted). On hit, taint is acquired and the chance resets to 1.
+    On miss, the chance increments by 1. This matches the rulebook's
+    rule: the chance starts at 1% on the first patron cast, grows by
+    1% with every later patron cast, and drops back to 1% once taint
+    has been acquired.
+  - **Result-table trigger.** Patron-spell result-table entries that
+    explicitly specify taint as an outcome (e.g. Bobugbubilz's
+    *Tadpole Transformation* roll of 1: "Lost, failure, and patron
+    taint") acquire taint when hit. Content tagging supports two
+    forms: `effect.type === 'patron-taint'` (primary-effect tag) or
+    `effect.data.patronTaint === true` (flag alongside another
+    primary type, for compound outcomes like "lost + taint").
+  - **Fumble forces result-table row 1.** Natural 1 on a spell check
+    now forces the result-table lookup total to 1, discarding
+    modifiers (per RAW, a natural 1 ignores all spell check
+    modifiers). This is what allows the result-table trigger to
+    fire for high-modifier casters on spells like Tadpole
+    Transformation; without it, a +5 INT wizard's "1+5=6" would
+    miss the roll-1 entry.
+  - **Both triggers run independently.** Either acquires taint;
+    `SpellCastResult.patronTaintSource` identifies which fired
+    (`"creeping-chance"` wins precedence when both hit on the same
+    cast).
+- **New inputs** on `SpellCastInput` / `SpellCheckInput`:
+  `patronTaintChance?: number`, `isPatronSpell?: boolean`. The latter
+  is a caller override; absent it, the lib falls back to
+  `spell.tags?.includes('patron')`.
+- **New result fields** on `SpellCastResult` (required):
+  `patronTaintChecked`, `patronTaintAcquired`. Optional:
+  `patronTaintRoll`, `patronTaintSource`, `newPatronTaintChance`,
+  `patronTaintResult`. Callers should persist `newPatronTaintChance`
+  back to character state when `patronTaintChecked` is true.
+- **Removed**: `fumbleRequiresPatronTaint` (no RAW basis). The
+  `SpellFumbleResult.patronTaint` boolean is still emitted but is
+  now dead in practice — slated for removal in a follow-up release
+  after a sibling-module + content audit.
+
+### Added
+
+- New module `src/spells/patron-taint-check.ts` exporting pure
+  helpers for both acquisition paths: `rollPatronTaintChanceCheck`,
+  `effectTriggersTaint`, `isPatronCast`,
+  `applyPatronTaintAcquisition`.
+- `onPatronTaint` event now fires on creeping-chance or result-table
+  acquisition (previously fired only on fumble-table acquisition,
+  which was RAW-incorrect and effectively dead).
+
+## [0.6.1] - 2026-04-23
+
 ### Fixed
 
 - **Save check no longer double-counts the governing ability modifier.**

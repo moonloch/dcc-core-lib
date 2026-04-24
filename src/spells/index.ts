@@ -20,6 +20,7 @@ export * from "./spellburn.js";
 export * from "./corruption.js";
 export * from "./fumble.js";
 export * from "./mercurial.js";
+export * from "./patron-taint-check.js";
 
 // Cleric mechanics
 export * from "./disapproval.js";

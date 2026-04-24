@@ -456,7 +456,15 @@ export interface CorruptionResult {
 // =============================================================================
 
 /**
- * Result of rolling on the spell fumble table
+ * Result of rolling on the spell fumble table.
+ *
+ * Note: patron taint is intentionally NOT on this shape. RAW (DCC core
+ * rulebook) triggers patron taint via the two independent paths
+ * handled by `handlePatronTaintTriggers` in `spell-check.ts`
+ * (per-cast creeping chance + spell-result-table entries);
+ * fumble tables do not produce patron taint. An earlier
+ * `patronTaint: boolean` flag here was dead code (parsed but never
+ * read by orchestration) and was removed in 0.8.0.
  */
 export interface SpellFumbleResult {
   /** The die roll result */
@@ -473,9 +481,6 @@ export interface SpellFumbleResult {
 
   /** Should roll on corruption table? */
   corruption: boolean;
-
-  /** Should roll on patron taint table? (if has patron) */
-  patronTaint: boolean;
 }
 
 /**

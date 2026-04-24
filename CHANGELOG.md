@@ -7,6 +7,29 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.8.0] - 2026-04-24
+
+### Changed (BREAKING)
+
+- **Retire dormant `SpellFumbleResult.patronTaint` flag +
+  fumble-entry tag parsing.** `rollSpellFumble` /
+  `rollSpellFumbleWithModifier` no longer parse
+  `effect.type === "patron-taint"` / `effect.data.patronTaint === true`
+  off fumble-table entries, and `SpellFumbleResult` no longer carries a
+  `patronTaint: boolean` field. The flag was dead in practice — nothing
+  in the orchestration (`spell-check.ts`) ever read it, and RAW patron
+  taint triggers (creeping chance + spell-result-table entries) are
+  fully handled by `handlePatronTaintTriggers` in `spell-check.ts`
+  since 0.7.0. Audited compendium content across `dcc-core-book` +
+  `xcc-core-book` (including spell fumble tables) and the downstream
+  DCC Foundry system + sibling modules (`dcc-qol`, `xcc`,
+  `mcc-classes`, `dcc-crawl-classes`) — zero consumers read the flag,
+  zero authored fumble-table entries tag with the taint effect. Pure
+  dead-code removal; no runtime behavior change. Consumers of
+  `SpellFumbleResult` that destructure `patronTaint` (none known) must
+  drop the field; TypeScript strict-mode consumers will catch the
+  shape change at compile.
+
 ## [0.7.0] - 2026-04-24
 
 ### Changed (BREAKING)

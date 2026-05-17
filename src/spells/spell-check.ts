@@ -174,12 +174,26 @@ export function getPatronId(character: Character): string | undefined {
 }
 
 /**
- * Get spellbook entry for a spell
+ * Get spellbook entry for a spell.
+ *
+ * When `profile` is supplied, the lookup is restricted to that profile's
+ * classState slot — important for the `profileOverride` flow, where the
+ * character may have a populated spellbook for its actual class but the
+ * caller wants the override's spellbook to take precedence. When omitted,
+ * the historical `wizard ?? cleric ?? elf` walk preserves backward
+ * compatibility for callers that don't know which profile is active.
  */
 export function getSpellbookEntry(
   character: Character,
-  spellId: string
+  spellId: string,
+  profile?: CasterProfile
 ): SpellbookEntry | undefined {
+  if (profile) {
+    const spellbook = character.state.classState?.[profile.type]?.spellbook;
+    if (!spellbook) return undefined;
+    return findSpellEntry(spellbook, spellId);
+  }
+
   const spellbook =
     character.state.classState?.wizard?.spellbook ??
     character.state.classState?.cleric?.spellbook ??
@@ -201,8 +215,10 @@ export function buildSpellCastInput(
   input: SpellCheckInput,
   profile: CasterProfile
 ): SpellCastInput | { error: string } {
-  // Get spellbook entry
-  const spellbookEntry = getSpellbookEntry(character, input.spell.id);
+  // Get spellbook entry — prefer the active profile's classState slot so
+  // the `profileOverride` flow looks up against the synthetic spellbook
+  // the caller populated, not the actor's actual-class spellbook.
+  const spellbookEntry = getSpellbookEntry(character, input.spell.id, profile);
   if (!spellbookEntry) {
     return { error: `Spell "${input.spell.name}" not found in spellbook` };
   }
@@ -316,8 +332,10 @@ export function calculateSpellCheck(
   options: SpellCheckOptions = {},
   events?: SpellEvents
 ): SpellCheckResult {
-  // Get caster profile
-  const profile = getCasterProfileFromCharacter(character);
+  // Get caster profile. Explicit override (used when the spell's mechanic
+  // class differs from the actor's class — e.g. a wizard-castingMode spell
+  // cast by a cleric) takes precedence over the character-derived profile.
+  const profile = options.profileOverride ?? getCasterProfileFromCharacter(character);
   if (!profile) {
     return createErrorResult(input.spell.id, "Character is not a spellcaster");
   }
@@ -414,12 +432,11 @@ export function calculateSpellCheck(
     }
   }
 
-  // Mark spell as lost if applicable
+  // Mark spell as lost if applicable. Use the active profile's spellbook
+  // slot (matches `getSpellbookEntry`'s lookup so the lost flag updates
+  // the same spellbook the cast read from).
   if (baseResult.spellLost) {
-    const spellbook =
-      character.state.classState?.wizard?.spellbook ??
-      character.state.classState?.cleric?.spellbook ??
-      character.state.classState?.elf?.spellbook;
+    const spellbook = character.state.classState?.[profile.type]?.spellbook;
 
     if (spellbook) {
       const updatedSpellbook = markSpellLost(spellbook, input.spell.id);

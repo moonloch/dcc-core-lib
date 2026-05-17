@@ -7,6 +7,36 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.9.0] - 2026-05-17
+
+### Added
+
+- **`SpellCheckOptions.profileOverride`.** Lets callers supply an
+  explicit `CasterProfile` that overrides the character-derived profile
+  for a single `calculateSpellCheck` call. The override governs spell
+  `casterTypes` validation, spellburn allowance, disapproval trigger,
+  corruption / patron-taint trigger, spell-loss recovery, and the
+  spell-check ability. Use case: a spell whose mechanic class differs
+  from the actor's class (e.g. a wizard-castingMode spell cast by a
+  cleric actor, or a cleric-castingMode spell cast by a wizard actor).
+  Class-bound state continues to be read from
+  `character.state.classState`, keyed by the override's `type` — callers
+  populate `state.classState.<override.type>` with the appropriate
+  spellbook, disapproval range, patron, etc.
+
+### Changed
+
+- **`getSpellbookEntry` accepts an optional `profile` parameter.** When
+  supplied, the lookup is restricted to that profile's `classState` slot.
+  When omitted, the historical `wizard ?? cleric ?? elf` walk preserves
+  backward compatibility for callers that don't track the active profile.
+  Internal `calculateSpellCheck` + `buildSpellCastInput` calls pass the
+  active profile so the override flow looks up against the synthetic
+  spellbook the caller populated, not the actor's actual-class spellbook.
+- **`markSpellLost` writeback uses the active profile's spellbook slot.**
+  Matches `getSpellbookEntry`'s lookup so the lost flag updates the same
+  spellbook the cast read from when an override is in play.
+
 ## [0.8.0] - 2026-04-24
 
 ### Changed (BREAKING)

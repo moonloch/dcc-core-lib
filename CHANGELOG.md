@@ -7,6 +7,30 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.10.0] - 2026-05-17
+
+### Changed
+
+- **`SpellCastInput.spellbookEntry` is now optional.** Enables "naked"
+  spell-check casts where the caster carries no spellbook slot — ad-hoc
+  GM-arbitrated checks, divine-arbitration checks, or skill-table
+  mechanics (Turn Unholy, divine aid) that borrow the spell-check
+  pipeline without owning a spellbook entry. When omitted, `castSpell`:
+  - Skips the spellbook-entry manifestation override
+    (`spellbookEntry.manifestation`).
+  - Skips the spellbook-entry mercurial-effect attachment
+    (`spellbookEntry.mercurialEffect`) and the corresponding
+    `onMercurialEffect` event.
+  - All other behavior (modifier list, crit/fumble detection,
+    `forceNatural` override, disapproval increment, corruption trigger,
+    tier classification) runs unchanged.
+
+  Callers using `calculateSpellCheck` are unaffected — that orchestrator
+  still builds a spellbookEntry internally from `character.state` and
+  errors out when none is found. Only direct `castSpell` callers gain
+  the option to omit it. +5 tests in `castSpell with optional
+  spellbookEntry`.
+
 ## [0.9.0] - 2026-05-17
 
 ### Added

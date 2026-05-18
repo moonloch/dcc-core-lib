@@ -365,8 +365,10 @@ export function castSpell(
   if (resultEntry && "manifestation" in resultEntry) {
     manifestation = resultEntry.manifestation;
   }
-  // Override with spellbook entry manifestation if set
-  if (input.spellbookEntry.manifestation) {
+  // Override with spellbook entry manifestation if set. Skipped for
+  // "naked" casts (no spellbookEntry — see SpellCastInput.spellbookEntry
+  // doc) — those callers don't carry a stored manifestation override.
+  if (input.spellbookEntry?.manifestation) {
     manifestation = input.spellbookEntry.manifestation;
   }
 
@@ -405,7 +407,7 @@ export function castSpell(
   if (newDisapprovalRange !== undefined) {
     result.newDisapprovalRange = newDisapprovalRange;
   }
-  if (!options.skipMercurial && input.spellbookEntry.mercurialEffect) {
+  if (!options.skipMercurial && input.spellbookEntry?.mercurialEffect) {
     result.mercurialEffect = input.spellbookEntry.mercurialEffect;
   }
   if (input.spellburn) {
@@ -438,7 +440,7 @@ export function castSpell(
     events?.onSpellburnApplied?.(input.spellburn);
   }
 
-  if (!options.skipMercurial && input.spellbookEntry.mercurialEffect) {
+  if (!options.skipMercurial && input.spellbookEntry?.mercurialEffect) {
     events?.onMercurialEffect?.(input.spellbookEntry.mercurialEffect, result);
   }
 

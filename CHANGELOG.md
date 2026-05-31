@@ -7,6 +7,28 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.11.0] - 2026-05-31
+
+### Changed
+
+- **Spellburn may now reduce a physical ability all the way to 0 (DCC RAW).**
+  Previously the floor was 1 — `validateSpellburn` rejected any burn that
+  would drop a score below 1, `getMaxSpellburn` capped at `current - 1`,
+  and `applySpellburn` clamped the result with `Math.max(1, …)`. Per DCC
+  RAW spellburn has no such floor: a caster may burn STR/AGL/STA to 0, and
+  burning Stamina to 0 is lethal — an intentional rules feature, not an
+  edge case to design away. The floor is now 0:
+  - `validateSpellburn` permits `burn === current` (still rejects
+    `burn > current` and negative burns); it continues to warn when a burn
+    reduces a score to 3 or below (which now includes the lethal burn to 0).
+  - `getMaxSpellburn` returns the full current score.
+  - `applySpellburn` clamps at 0 (guarding only against an oversized
+    commitment), never at 1.
+
+  This is the floor-of-1-vs-0 design call deferred in the DCC system's
+  PR #720 review backlog, resolved in favor of RAW fidelity. New dedicated
+  `spellburn.test.ts` (10 tests) pins the floor-0 contract.
+
 ## [0.10.0] - 2026-05-17
 
 ### Changed

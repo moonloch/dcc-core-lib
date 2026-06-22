@@ -54,7 +54,9 @@ export {
   getArmorType,
   getArmorCheckPenalty,
   getArmorSpeedPenalty,
+  getMonsterFumbleDie,
   FUMBLE_DICE,
+  MONSTER_FUMBLE_BASE_DIE,
   ARMOR_CHECK_PENALTY,
   ARMOR_SPEED_PENALTY,
 } from "./fumbles.js";
@@ -142,6 +144,9 @@ export {
   type ChargeModifiers,
   type FallingDamageResult,
   type FiringIntoMeleeResult,
+  type MissileRangeBand,
+  type MissileRangeBands,
+  type MissileRangePenalty,
   type GrappleParticipant,
   type GrappleResult,
   type ArmorRecoveryResult,
@@ -172,7 +177,12 @@ export {
   calculateFallingDamage,
   formatFallingDamage,
   // Firing into melee functions
+  FIRING_INTO_MELEE_PENALTY,
+  getFiringIntoMeleePenalty,
   checkFiringIntoMelee,
+  // Missile range functions
+  parseMissileRange,
+  getMissileRangePenalty,
   // Grappling functions
   getGrappleSizeBonus,
   getGrappleModifier,

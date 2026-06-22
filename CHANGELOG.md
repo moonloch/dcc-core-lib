@@ -7,6 +7,67 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.12.0] - 2026-06-22
+
+### Added
+
+- **Missile fire range penalties (DCC core rulebook p. 96).** New pure
+  helpers in `combat/misc-rules.ts`, exported from `combat`:
+  - `parseMissileRange(range)` — parses a weapon's range string into
+    structured `{ short, medium, long }` bands. Accepts the canonical
+    `"short/medium/long"` form (e.g. `"30/60/120"`) and the single-value
+    form (e.g. `"60"`, treated as the maximum reach with no intermediate
+    penalty bands). Tolerates whitespace and trailing unit markers on each
+    segment — feet (`70'`), inches (`30"`), smart quotes (`30’`/`30”`), or
+    word units (`30 ft`) — reading only the leading number (no unit
+    conversion); returns `null` for unparseable input.
+  - `getMissileRangePenalty(distance, bands, actionDie?)` — classifies a
+    measured distance into a `MissileRangeBand` and reports the penalty
+    owed: short = none, medium = `-2` to the attack roll, long = `-1d`
+    (the action die steps down one rung on the dice chain), beyond long =
+    out of range. Returns both the flat `attackModifier` and the
+    `actionDieSteps` so callers without a concrete action die can still
+    apply the rule; when an `actionDie` is supplied, the stepped-down die
+    is returned too.
+
+- **Firing-into-melee to-hit penalty (DCC core rulebook p. 96).** New
+  `FIRING_INTO_MELEE_PENALTY` constant (`-1`) and `getFiringIntoMeleePenalty(targetEngagedInMelee)`
+  helper in `combat/misc-rules.ts`, exported from `combat`. This is the
+  flat attack-roll penalty for shooting at a target engaged in melee,
+  distinct from the existing `checkFiringIntoMelee` friendly-fire check on
+  a miss. Whether the target is engaged is a positional question the caller
+  answers Foundry-side.
+
+- **Defender Luck on monster critical hits (DCC RAW).** New optional
+  `CriticalInput.defenderLuckModifier`. Per RAW, a PC's Luck modifier always
+  alters a monster's critical hit scored against them — a positive modifier
+  reduces the monster's roll, a negative one grants a bonus — so the value is
+  subtracted from the crit total and surfaces as a distinct `"Target's Luck"`
+  roll modifier (kept separate from the roller's own `luckModifier`). 4 new
+  crit tests covering the rulebook's two examples, stacking, and the
+  minimum-roll floor.
+
+- **Optional Monster Fumbles rule — PC Luck steps the die (DCC Yearbook #8).** New
+  `getMonsterFumbleDie(targetLuckModifier)` and `MONSTER_FUMBLE_BASE_DIE`
+  (`"1d10"`) in `combat/fumbles.ts`, exported from `combat`. Under this
+  optional rule, a monster fumbling against a PC rolls a fumble die stepped
+  along the dice chain by the targeted PC's Luck modifier — base `1d10` at +0,
+  one rung up per +1 (`d12`/`d14`/`d16`), one rung down per -1
+  (`d8`/`d7`/`d6`) — reproducing the annual's printed table exactly and
+  extrapolating past ±3. Distinct from the core fumble rule (`rollFumble`),
+  where the *fumbler's own* Luck is a flat roll modifier; here a *defending*
+  PC's Luck resizes the *die*. Multi-target attacks use the highest Luck among
+  the targets (the caller maxes). 3 new tests.
+
+  Part of bringing the `dcc-qol` module's combat automation into core DCC:
+  the rules live here as pure, unit-tested logic, while token geometry,
+  distance measurement, and the out-of-range confirmation dialog stay
+  Foundry-side. The remaining dcc-qol RAW combat rules already have lib
+  homes — `checkFiringIntoMelee` covers friendly fire, and `rollFumble`
+  covers a PC fumbler's own Luck + armor die — so they need only system-side
+  wiring, not new lib code. 24 new tests across `misc-rules.test.ts` and
+  `combat.test.ts`.
+
 ## [0.11.0] - 2026-05-31
 
 ### Changed

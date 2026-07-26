@@ -7,6 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.13.0] - 2026-07-26
+
+### Added
+
+- **Special mercurial-magic table entries ("Roll again twice") —
+  foundryvtt-dcc/dcc#339.** The DCC core Table 5-2 entries 99 (roll
+  twice more on the table) and 100+ (roll twice more, using a different
+  formula in place of d%) are meta-instructions, not literal effects. New
+  support in `spells/mercurial.ts` + `types/spells.ts`:
+  - `MercurialSpecial` / `MercurialSpecialAction` — a `special` field on
+    `MercurialTableEntry` (`{ action: "rollAgain", count, formula? }`)
+    marks such entries; table loaders populate it (the Foundry adapter
+    maps it from `flags.dcc.mercurial` on the `TableResult`).
+  - `rollMercurialMagic` now expands a drawn special entry: it makes
+    `count` sub-rolls using the special's `formula` (default `"1d100"`,
+    luck ×10 still applied) and returns a combined `MercurialEffect`
+    (joined summary/description) with the individual effects in the new
+    `subEffects` field. Sub-rolls landing on another special entry
+    recurse, capped at `MAX_MERCURIAL_SPECIAL_DEPTH` (5); a capped or
+    roller-less lookup returns the literal effect with `special` set and
+    no `subEffects` so consumers can detect the unexpanded state.
+  - `lookupMercurialEffect` stays a pure lookup — it copies `special`
+    through without rolling. New `expandMercurialSpecial(effect,
+    luckModifier, table, options?)` expands such a looked-up effect
+    with real rolls (used by callers resolving a manually entered
+    table value).
+  - `special.count` is defensively clamped to 10 sub-rolls.
+  - The effect accessors (`getMercurialModifier`,
+    `getMercurialDiceModifier`, `getMercurialDuration`,
+    `getMercurialData`, `shouldMercurialTrigger`,
+    `classifyMercurialEffect`, `summarizeMercurialEffect`) understand
+    combined effects: modifiers sum and dice concatenate across
+    `subEffects` (every sub-effect applies), triggering is "any
+    sub-effect triggers", classification merges (uniform stays,
+    disagreement → mixed), and duration/data return the first defined
+    (documented — iterate `subEffects` for per-effect values).
+  - Sub-roll formulas may carry flat modifiers ("1d100+20"): the
+    built-in evaluator path routes through `evaluateRoll`, and a custom
+    `roller` receives the full expression.
+
+### Fixed
+
+- `spellbook.ts` entry copies now deep-copy `mercurialEffect` —
+  including its `effect` (and nested `data`), `special`, and the
+  recursive `subEffects` tree — so mutating an entry returned by the
+  query helpers can no longer corrupt the source spellbook.
+
 ## [0.12.0] - 2026-06-22
 
 ### Added

@@ -19,6 +19,37 @@ import type { DeepReadonly } from "../types/character.js";
 // =============================================================================
 
 /**
+ * Create a deep mutable copy of a readonly MercurialEffect. All nested
+ * containers — `effect` (and its `data`), `special`, and the recursive
+ * `subEffects` tree (roll-again specials nest, see MercurialSpecial) —
+ * are copied, so mutating the copy can never corrupt the original.
+ */
+function copyMercurialEffect(
+  effect: DeepReadonly<MercurialEffect>
+): MercurialEffect {
+  const result: MercurialEffect = {
+    rollValue: effect.rollValue,
+    summary: effect.summary,
+    description: effect.description,
+    displayOnCast: effect.displayOnCast,
+  };
+  if (effect.effect) {
+    const { data, ...effectRest } = effect.effect;
+    result.effect = { ...effectRest };
+    if (data) {
+      result.effect.data = { ...data };
+    }
+  }
+  if (effect.special) {
+    result.special = { ...effect.special };
+  }
+  if (effect.subEffects) {
+    result.subEffects = effect.subEffects.map(copyMercurialEffect);
+  }
+  return result;
+}
+
+/**
  * Create a mutable copy of a readonly SpellbookEntry.
  * Handles exactOptionalPropertyTypes by only copying defined properties.
  */
@@ -32,7 +63,7 @@ function copySpellbookEntry(entry: DeepReadonly<SpellbookEntry>): SpellbookEntry
     result.learnedAt = entry.learnedAt;
   }
   if (entry.mercurialEffect) {
-    result.mercurialEffect = { ...entry.mercurialEffect };
+    result.mercurialEffect = copyMercurialEffect(entry.mercurialEffect);
   }
   if (entry.manifestation !== undefined) {
     result.manifestation = entry.manifestation;
@@ -220,7 +251,7 @@ export function addSpellToSpellbook(
 
   const newSpellbook: Spellbook = {
     spells: [
-      ...spellbook.spells.map((s) => ({ ...s })),
+      ...spellbook.spells.map((s) => copySpellbookEntry(s)),
       newEntry,
     ],
   };
@@ -244,7 +275,7 @@ export function removeSpellFromSpellbook(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells
       .filter((s) => s.spellId !== spellId)
-      .map((s) => ({ ...s })),
+      .map((s) => copySpellbookEntry(s)),
   };
 
   if (spellbook.maxSpellsPerLevel) {
@@ -265,9 +296,9 @@ export function markSpellLost(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => {
       if (s.spellId === spellId) {
-        return { ...s, lost: true };
+        return { ...copySpellbookEntry(s), lost: true };
       }
-      return { ...s };
+      return copySpellbookEntry(s);
     }),
   };
 
@@ -289,9 +320,9 @@ export function markSpellRecovered(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => {
       if (s.spellId === spellId) {
-        return { ...s, lost: false };
+        return { ...copySpellbookEntry(s), lost: false };
       }
-      return { ...s };
+      return copySpellbookEntry(s);
     }),
   };
 
@@ -311,7 +342,7 @@ export function recoverAllSpells(
 ): Spellbook {
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => ({
-      ...s,
+      ...copySpellbookEntry(s),
       lost: false,
     })),
   };
@@ -335,9 +366,9 @@ export function updateSpellLastResult(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => {
       if (s.spellId === spellId) {
-        return { ...s, lastResult: result };
+        return { ...copySpellbookEntry(s), lastResult: result };
       }
-      return { ...s };
+      return copySpellbookEntry(s);
     }),
   };
 
@@ -360,7 +391,7 @@ export function updateSpellNotes(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => {
       if (s.spellId === spellId) {
-        const updated = { ...s };
+        const updated = copySpellbookEntry(s);
         if (notes !== undefined) {
           updated.notes = notes;
         } else {
@@ -368,7 +399,7 @@ export function updateSpellNotes(
         }
         return updated;
       }
-      return { ...s };
+      return copySpellbookEntry(s);
     }),
   };
 
@@ -388,7 +419,7 @@ export function setSpellLimits(
   limits: Partial<Record<number, number>>
 ): Spellbook {
   return {
-    spells: spellbook.spells.map((s) => ({ ...s })),
+    spells: spellbook.spells.map((s) => copySpellbookEntry(s)),
     maxSpellsPerLevel: { ...limits },
   };
 }
@@ -405,7 +436,7 @@ export function updateMercurialEffect(
   const newSpellbook: Spellbook = {
     spells: spellbook.spells.map((s) => {
       if (s.spellId === spellId) {
-        const updated = { ...s };
+        const updated = copySpellbookEntry(s);
         if (mercurialEffect !== undefined) {
           updated.mercurialEffect = mercurialEffect;
         } else {
@@ -413,7 +444,7 @@ export function updateMercurialEffect(
         }
         return updated;
       }
-      return { ...s };
+      return copySpellbookEntry(s);
     }),
   };
 

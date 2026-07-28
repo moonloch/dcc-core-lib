@@ -37,6 +37,8 @@ import {
   createBleedingOutState,
   advanceBleedOutRound,
   stabilizeCharacter,
+  getScarDescription,
+  SCAR_DESCRIPTIONS,
   applyBleedOutTrauma,
   attemptBodyRecovery,
   applyBodyRecovery,
@@ -433,6 +435,17 @@ describe("Full Combat Scenario", () => {
         expect(result.newHP).toBe(6);
         expect(result.staminaLoss).toBe(true);
         expect(result.scar).toBeDefined();
+      });
+
+      it("returns a stable scar index that localizing consumers can key off", () => {
+        const bleedState = createBleedingOutState(3, 1);
+        const result = stabilizeCharacter(bleedState, 6);
+
+        expect(result.scarIndex).toBeGreaterThanOrEqual(0);
+        expect(result.scarIndex).toBeLessThan(SCAR_DESCRIPTIONS.length);
+        // The English string and the index always agree.
+        expect(result.scar).toBe(getScarDescription(result.scarIndex ?? -1));
+        expect(getScarDescription(999)).toBe("Terrible scar");
       });
 
       it("should fail to save once the final-chance round has passed", () => {

@@ -144,6 +144,8 @@ export {
   applyMagicalHealing,
   isAtDeathsDoor,
   canReceiveHealing,
+  getScarDescription,
+  SCAR_DESCRIPTIONS,
 } from "./death-and-dying.js";
 
 // Miscellaneous combat rules

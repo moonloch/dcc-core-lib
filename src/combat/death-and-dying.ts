@@ -79,6 +79,13 @@ export interface StabilizeResult {
   /** The permanent scar gained */
   scar?: string | undefined;
 
+  /**
+   * Stable index of the scar in {@link SCAR_DESCRIPTIONS} (0-based).
+   * Consumers with localization use this to translate the scar rather
+   * than displaying the English `scar` string.
+   */
+  scarIndex?: number | undefined;
+
   /** Reason for failure (if not saved) */
   failureReason?: string | undefined;
 }
@@ -318,11 +325,13 @@ export function stabilizeCharacter(
   // They start at 0 HP and gain the healing amount
   const newHP = healingAmount;
 
+  const scarIndex = rollScarIndex();
   return {
     saved: true,
     newHP,
     staminaLoss: true, // Always lose 1 Stamina when saved from bleeding out
-    scar: generateScar(),
+    scar: getScarDescription(scarIndex),
+    scarIndex,
   };
 }
 
@@ -606,23 +615,37 @@ export function applyMagicalHealing(
 // =============================================================================
 
 /**
- * Generate a random scar description
+ * The scar table for characters saved from bleeding out. Order is part of
+ * the public contract: `StabilizeResult.scarIndex` indexes this array, and
+ * localizing consumers key their translations off it.
  */
-function generateScar(): string {
-  const scars = [
-    "Jagged scar across the face",
-    "Deep wound on the chest",
-    "Missing finger",
-    "Burn scar on the arm",
-    "Twisted scar on the back",
-    "Maimed ear",
-    "Scarred throat",
-    "Puckered scar on the abdomen",
-    "Mangled hand",
-    "Gnarled scar on the leg",
-  ];
-  const index = Math.floor(Math.random() * scars.length);
-  return scars[index] ?? "Terrible scar";
+export const SCAR_DESCRIPTIONS: readonly string[] = [
+  "Jagged scar across the face",
+  "Deep wound on the chest",
+  "Missing finger",
+  "Burn scar on the arm",
+  "Twisted scar on the back",
+  "Maimed ear",
+  "Scarred throat",
+  "Puckered scar on the abdomen",
+  "Mangled hand",
+  "Gnarled scar on the leg",
+];
+
+/**
+ * Roll a random index into {@link SCAR_DESCRIPTIONS}
+ */
+function rollScarIndex(): number {
+  return Math.floor(Math.random() * SCAR_DESCRIPTIONS.length);
+}
+
+/**
+ * Look up the English description for a scar index
+ *
+ * @param index - Index into {@link SCAR_DESCRIPTIONS}
+ */
+export function getScarDescription(index: number): string {
+  return SCAR_DESCRIPTIONS[index] ?? "Terrible scar";
 }
 
 /**

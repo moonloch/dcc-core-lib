@@ -188,7 +188,11 @@ export function makeAttackRoll(
   const isFumble = isNatural1(roll);
 
   // Check if roll is in threat range (but this alone doesn't mean crit!)
-  const meetsRange = meetsThreatRange(roll, input.threatRange);
+  const meetsRange = meetsThreatRange(
+    roll,
+    input.threatRange,
+    input.threatRangeIsNatural === true
+  );
 
   // Check for automatic hit (natural max on die - e.g., 20 on d20, 24 on d24)
   const autoHit = isAutoHit(roll);

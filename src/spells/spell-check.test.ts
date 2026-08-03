@@ -636,6 +636,93 @@ describe("calculateSpellCheck", () => {
     expect(result.newDisapprovalRange).toBe(3); // Increased from 2
   });
 
+  it("auto-fails a natural roll inside the disapproval range despite a successful total (dcc#874)", () => {
+    // DCC RAW (paraphrased): a natural roll inside the disapproval range is
+    // a failure even when the modified total would otherwise succeed.
+    // Natural 12 + 3 modifiers = 15 → success-minor by total, but
+    // range 12 swallows it: forced to the failure row (total 1).
+    const cleric = createTestCleric();
+    if (cleric.state.classState?.cleric) {
+      cleric.state.classState.cleric.disapprovalRange = 12;
+    }
+
+    const result = calculateSpellCheck(
+      cleric,
+      {
+        spell: clericSpell,
+        resultTable: mockSpellResultTable,
+        disapprovalTable: mockDisapprovalTable,
+      },
+      {
+        roller: (formula?: string) => (formula === "1d4" ? 2 : 12),
+      }
+    );
+
+    expect(result.disapprovalAutoFail).toBe(true);
+    expect(result.fumble).toBe(false);
+    expect(result.total).toBe(1);
+    expect(result.tier).toBe("lost");
+    expect(result.disapprovalResult).toBeDefined();
+  });
+
+  it("keeps the total-based result when the natural roll is just outside the disapproval range", () => {
+    const cleric = createTestCleric();
+    if (cleric.state.classState?.cleric) {
+      cleric.state.classState.cleric.disapprovalRange = 4;
+    }
+
+    const result = calculateSpellCheck(
+      cleric,
+      {
+        spell: clericSpell,
+        resultTable: mockSpellResultTable,
+        disapprovalTable: mockDisapprovalTable,
+      },
+      {
+        roller: () => 5,
+      }
+    );
+
+    expect(result.disapprovalAutoFail).toBe(false);
+    expect(result.total).toBe(8); // natural 5 + 3 modifiers, untouched
+  });
+
+  it("suppresses a would-be crit when the disapproval range swallows the die's max face", () => {
+    const cleric = createTestCleric();
+    if (cleric.state.classState?.cleric) {
+      cleric.state.classState.cleric.disapprovalRange = 20;
+    }
+
+    const result = calculateSpellCheck(
+      cleric,
+      {
+        spell: clericSpell,
+        resultTable: mockSpellResultTable,
+        disapprovalTable: mockDisapprovalTable,
+      },
+      {
+        roller: (formula?: string) => (formula === "1d4" ? 2 : 20),
+      }
+    );
+
+    expect(result.critical).toBe(false);
+    expect(result.disapprovalAutoFail).toBe(true);
+    expect(result.total).toBe(1);
+  });
+
+  it("never flags disapprovalAutoFail for wizard casts", () => {
+    const wizard = createTestWizard();
+
+    const result = calculateSpellCheck(
+      wizard,
+      { spell: testSpell, resultTable: mockSpellResultTable },
+      { roller: () => 4 }
+    );
+
+    expect(result.disapprovalAutoFail).toBe(false);
+    expect(result.total).toBe(9); // natural 4 + 5 modifiers, untouched
+  });
+
   it("includes spellburn in modifiers", () => {
     const wizard = createTestWizard();
 
@@ -907,40 +994,40 @@ describe("castSpell with optional spellbookEntry", () => {
 
 describe("isSpellCheckSuccess", () => {
   it("returns true for success tiers", () => {
-    expect(isSpellCheckSuccess({ tier: "success", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
-    expect(isSpellCheckSuccess({ tier: "success-minor", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
-    expect(isSpellCheckSuccess({ tier: "success-major", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
-    expect(isSpellCheckSuccess({ tier: "success-critical", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckSuccess({ tier: "success", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckSuccess({ tier: "success-minor", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckSuccess({ tier: "success-major", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckSuccess({ tier: "success-critical", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
   });
 
   it("returns false for failure tiers", () => {
-    expect(isSpellCheckSuccess({ tier: "failure", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
-    expect(isSpellCheckSuccess({ tier: "lost", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
+    expect(isSpellCheckSuccess({ tier: "failure", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
+    expect(isSpellCheckSuccess({ tier: "lost", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
   });
 
   it("returns false for error results", () => {
-    expect(isSpellCheckSuccess({ error: "test error", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
+    expect(isSpellCheckSuccess({ error: "test error", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
   });
 });
 
 describe("isSpellCheckFailure", () => {
   it("returns true for failure tiers", () => {
-    expect(isSpellCheckFailure({ tier: "failure", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
-    expect(isSpellCheckFailure({ tier: "lost", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckFailure({ tier: "failure", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckFailure({ tier: "lost", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
   });
 
   it("returns false for success tiers", () => {
-    expect(isSpellCheckFailure({ tier: "success", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
+    expect(isSpellCheckFailure({ tier: "success", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(false);
   });
 
   it("returns true for error results", () => {
-    expect(isSpellCheckFailure({ error: "test error", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
+    expect(isSpellCheckFailure({ error: "test error", spellId: "test", die: "d20", formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false })).toBe(true);
   });
 });
 
 describe("getSpellCheckSummary", () => {
   it("shows error message for errors", () => {
-    const result = { error: "Something went wrong", spellId: "test", die: "d20" as const, formula: "", modifiers: [], critical: false, fumble: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false };
+    const result = { error: "Something went wrong", spellId: "test", die: "d20" as const, formula: "", modifiers: [], critical: false, fumble: false, disapprovalAutoFail: false, spellLost: false, corruptionTriggered: false, disapprovalIncrease: 0, luckBurned: 0, patronTaintChecked: false, patronTaintAcquired: false };
     expect(getSpellCheckSummary(result)).toContain("Error: Something went wrong");
   });
 
@@ -955,6 +1042,7 @@ describe("getSpellCheckSummary", () => {
       tier: "success" as const,
       critical: false,
       fumble: false,
+      disapprovalAutoFail: false,
       spellLost: false,
       corruptionTriggered: false,
       disapprovalIncrease: 0,
@@ -979,6 +1067,7 @@ describe("getSpellCheckSummary", () => {
       tier: "success-critical" as const,
       critical: true,
       fumble: false,
+      disapprovalAutoFail: false,
       spellLost: false,
       corruptionTriggered: false,
       disapprovalIncrease: 0,
@@ -1001,6 +1090,7 @@ describe("getSpellCheckSummary", () => {
       tier: "lost" as const,
       critical: false,
       fumble: true,
+      disapprovalAutoFail: false,
       spellLost: true,
       corruptionTriggered: false,
       disapprovalIncrease: 0,

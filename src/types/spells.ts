@@ -671,6 +671,16 @@ export interface SpellCastResult {
   /** Was this a fumble (natural 1)? */
   fumble: boolean;
 
+  /**
+   * Did the natural roll land inside the caster's disapproval range
+   * (excluding the natural-1 fumble)? Per DCC RAW (core rulebook, cleric
+   * magic) such a roll is a failure no matter what the modified total
+   * would otherwise have achieved, so the result-table lookup is forced to
+   * the failure row exactly like a fumble. Only ever true for profiles
+   * with `usesDisapproval` when `disapprovalRange` was provided.
+   */
+  disapprovalAutoFail: boolean;
+
   /** Result tier (lost, failure, success levels) */
   tier?: ResultTier;
 

@@ -10,6 +10,7 @@ import {
   rollSimple,
   isNatural20,
   isNatural1,
+  meetsFumbleRange,
   meetsThreatRange,
   adjustThreatRange,
   isAutoHit,
@@ -288,6 +289,30 @@ describe("roll", () => {
 
     it("returns false for unevaluated rolls", () => {
       expect(isNatural1({} as never)).toBe(false);
+    });
+  });
+
+  describe("meetsFumbleRange", () => {
+    it("defaults to fumbling only on a natural 1", () => {
+      expect(meetsFumbleRange({ natural: 1 } as never)).toBe(true);
+      expect(meetsFumbleRange({ natural: 2 } as never)).toBe(false);
+    });
+
+    it("fumbles on any natural roll inside an expanded range", () => {
+      expect(meetsFumbleRange({ natural: 1 } as never, 3)).toBe(true);
+      expect(meetsFumbleRange({ natural: 3 } as never, 3)).toBe(true);
+      expect(meetsFumbleRange({ natural: 4 } as never, 3)).toBe(false);
+    });
+
+    it("is a natural threshold — never rescaled to the die size", () => {
+      // A fumble range of 2 means natural 1-2 on ANY die.
+      expect(meetsFumbleRange({ natural: 2, die: "d16" } as never, 2)).toBe(true);
+      expect(meetsFumbleRange({ natural: 3, die: "d16" } as never, 2)).toBe(false);
+      expect(meetsFumbleRange({ natural: 2, die: "d24" } as never, 2)).toBe(true);
+    });
+
+    it("returns false for unevaluated rolls", () => {
+      expect(meetsFumbleRange({} as never, 5)).toBe(false);
     });
   });
 

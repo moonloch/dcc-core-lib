@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **Weapon fumble ranges — foundryvtt-dcc/dcc#343.** `AttackInput` gains
+  an optional `fumbleRange` (default 1): the highest natural roll that
+  fumbles, expressed as a natural threshold on the die actually rolled
+  and never rescaled when the action die changes size. A roll inside
+  the fumble range always misses and can never be a critical threat
+  (including backstab auto-crits). New `meetsFumbleRange(result,
+  fumbleRange)` helper in `dice/roll.ts`; `rollTwoWeaponAttack` passes
+  each hand's `fumbleRange` through, and the halfling both-hands rule
+  applies to the expanded range unchanged.
+
 ## [0.13.0] - 2026-07-26
 
 ### Added

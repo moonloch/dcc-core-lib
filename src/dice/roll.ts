@@ -447,6 +447,26 @@ export function isNatural1(result: RollResult): boolean {
 }
 
 /**
+ * Check if a roll falls inside a fumble range
+ *
+ * The fumble range is a natural-roll threshold on the die actually
+ * rolled (1 = only a natural 1, 2 = natural 1-2, etc.). Unlike the
+ * threat range it is NEVER rescaled when the die changes size — a
+ * weapon that fumbles on 1-2 fumbles on a natural 1-2 whether the
+ * action die is a d16, d20, or d24.
+ *
+ * @param result - The roll result
+ * @param fumbleRange - Highest natural roll that fumbles (default 1)
+ * @returns True if the natural roll is within the fumble range
+ */
+export function meetsFumbleRange(result: RollResult, fumbleRange = 1): boolean {
+  if (result.natural === undefined) {
+    return false;
+  }
+  return result.natural <= fumbleRange;
+}
+
+/**
  * Adjust threat range for dice larger than d20
  *
  * A threat range represents "top N values of the die". For example:

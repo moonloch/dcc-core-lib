@@ -9,6 +9,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **Lay on Hands "keep-highest" healing dice house rule.** `LayOnHandsInput`
+  gains an optional `healingDiceMode` (`"raw"` default | `"keep-highest"`).
+  In keep-highest mode every die the table grants is rolled (one at a time,
+  so custom rollers still expose each result) and only the highest
+  `min(rawDiceCount, target.hitDice)` are kept, so a strong check is no
+  longer wasted on a low-level target. `LayOnHandsResult` reports
+  `healingRolls` / `keptHealingRolls` in that mode. Condition healing is
+  unaffected. New exported type `LayOnHandsHealingDiceMode`.
+
 - **Weapon fumble ranges — foundryvtt-dcc/dcc#343.** `AttackInput` gains
   an optional `fumbleRange` (default 1): the highest natural roll that
   fumbles, expressed as a natural threshold on the die actually rolled
@@ -18,6 +27,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   fumbleRange)` helper in `dice/roll.ts`; `rollTwoWeaponAttack` passes
   each hand's `fumbleRange` through, and the halfling both-hands rule
   applies to the expanded range unchanged.
+
+### Removed
+
+- **Lay on Hands `healingSelf` −4 penalty.** Not in the DCC core rules
+  (p. 31); removed `LayOnHandsInput.healingSelf` and the third
+  `healingSelf` parameter of `getLayOnHandsModifier`. Callers that need a
+  judge-discretion penalty can pass it via `situationalModifiers`.
 
 ## [0.13.0] - 2026-07-26
 

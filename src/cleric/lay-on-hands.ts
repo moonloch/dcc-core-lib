@@ -12,7 +12,9 @@
  *   3. (check total, alignment) → dice count.
  *   4. If healing HP: roll `diceCount × target.hitDie`, but the dice count is
  *      capped at `min(diceCount, target.hitDice)`. Dice type matches the
- *      subject's hit die.
+ *      subject's hit die. Under the optional "keep-highest" house rule
+ *      (`healingDiceMode`), every granted die is rolled and only the highest
+ *      `min(diceCount, target.hitDice)` are kept.
  *   5. If healing a condition: no cap; if dice count ≥ threshold, condition
  *      is cured (no "overflow" HP).
  *   6. Natural 1 triggers disapproval (handled by the caller via the
@@ -62,6 +64,8 @@ export interface LayOnHandsTarget {
   hitDice: number;
 }
 
+export type LayOnHandsHealingDiceMode = "raw" | "keep-highest";
+
 export interface LayOnHandsInput {
   /** Cleric level */
   level: number;
@@ -82,8 +86,13 @@ export interface LayOnHandsInput {
   luck?: number | undefined;
   /** Luck points burned on this check */
   luckBurn?: number | undefined;
-  /** Judge-discretion self-healing penalty (common house rule: -4) */
-  healingSelf?: boolean | undefined;
+  /**
+   * How HP healing dice are rolled. "raw" (default) rolls only the capped
+   * dice. "keep-highest" (house rule) rolls every die the table grants and
+   * keeps the highest `min(rawDiceCount, target.hitDice)`. Ignored for
+   * condition healing.
+   */
+  healingDiceMode?: LayOnHandsHealingDiceMode | undefined;
   /** Extra situational modifiers on the spell check (NOT alignment) */
   situationalModifiers?: RollModifier[] | undefined;
 }
@@ -99,6 +108,14 @@ export interface LayOnHandsResult {
   diceCount: number;
   /** HP restored (only when healing HP, not conditions) */
   hpHealed?: number | undefined;
+  /**
+   * Individual healing die results, in roll order ("keep-highest" mode only:
+   * all `rawDiceCount` dice are rolled one at a time so the kept ones can be
+   * chosen). The kept dice are `keptHealingRolls`.
+   */
+  healingRolls?: number[] | undefined;
+  /** The dice that counted toward `hpHealed` ("keep-highest" mode only), highest first */
+  keptHealingRolls?: number[] | undefined;
   /** If condition healing was requested, the id, and whether it was cured */
   condition?: { id: string; cured: boolean; threshold: number } | undefined;
   /** Extra row-level effects (disease cure, limb restore, etc.) */
@@ -120,13 +137,6 @@ export function layOnHands(
 ): LayOnHandsResult {
   // Build situational modifiers — NO alignment modifier here (RAW).
   const modifiers: RollModifier[] = [...(input.situationalModifiers ?? [])];
-  if (input.healingSelf) {
-    modifiers.push({
-      kind: "add",
-      value: -4,
-      origin: { category: "situational", id: "self-healing", label: "Healing self" },
-    });
-  }
 
   const checkInput: SkillCheckInput = {
     skill: LAY_ON_HANDS_SKILL,
@@ -179,11 +189,24 @@ export function layOnHands(
   const capped = Math.min(rawDiceCount, input.target.hitDice);
   result.diceCount = capped;
   if (capped > 0) {
-    const formula = `${String(capped)}${input.target.hitDie}`;
     const rollOpt: RollOptions = { mode: "evaluate" };
     if (options.roller !== undefined) rollOpt.roller = options.roller;
-    const heal = evaluateRoll(formula, rollOpt);
-    result.hpHealed = heal.total ?? 0;
+    if (input.healingDiceMode === "keep-highest") {
+      // Roll each die singly — a custom roller only reports totals, so this
+      // is the only way to see the individual results to keep.
+      const rolls: number[] = [];
+      for (let i = 0; i < rawDiceCount; i++) {
+        rolls.push(evaluateRoll(`1${input.target.hitDie}`, rollOpt).total ?? 0);
+      }
+      const kept = [...rolls].sort((a, b) => b - a).slice(0, capped);
+      result.healingRolls = rolls;
+      result.keptHealingRolls = kept;
+      result.hpHealed = kept.reduce((sum, r) => sum + r, 0);
+    } else {
+      const formula = `${String(capped)}${input.target.hitDie}`;
+      const heal = evaluateRoll(formula, rollOpt);
+      result.hpHealed = heal.total ?? 0;
+    }
   } else {
     result.hpHealed = 0;
   }
@@ -199,14 +222,8 @@ export function layOnHands(
  * Note: alignment is NOT a roll modifier (RAW); it only affects the result
  * lookup.
  */
-export function getLayOnHandsModifier(
-  level: number,
-  personality: number,
-  healingSelf = false
-): number {
-  let mod = level + getAbilityModifier(personality);
-  if (healingSelf) mod -= 4;
-  return mod;
+export function getLayOnHandsModifier(level: number, personality: number): number {
+  return level + getAbilityModifier(personality);
 }
 
 export function getLayOnHandsDie(): DieType {

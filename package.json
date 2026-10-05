@@ -1,6 +1,6 @@
 {
   "name": "@moonloch/dcc-core-lib",
-  "version": "0.13.7",
+  "version": "0.14.0",
   "description": "Core DCC (Dungeon Crawl Classics) logic library - pure functions, no objects",
   "type": "module",
   "main": "./dist/index.js",

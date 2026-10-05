@@ -28,6 +28,38 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   each hand's `fumbleRange` through, and the halfling both-hands rule
   applies to the expanded range unchanged.
 
+### Changed
+
+- **BREAKING: `rollDisapproval` / `checkAndRollDisapproval` signatures.**
+  Both now take the triggering natural roll and the cleric's Luck modifier:
+  `rollDisapproval(naturalRoll, disapprovalRange, table, luckModifier = 0,
+  options)` and `checkAndRollDisapproval(natural, disapprovalRange, table,
+  luckModifier = 0, options)`. A custom roller now receives `"Nd4"` (N =
+  the natural roll) instead of `"1d4"`. `DisapprovalResult` gains
+  `formula`, `diceCount`, `naturalRoll` and `luckModifier`.
+  `getExpectedSeverity` takes an optional `luckModifier`.
+- **`calculateDisapprovalIncrease` takes the disapproval range** (optional
+  third parameter). Any natural inside the range counts as one failed
+  check, not only a natural 1. Without the range, behaviour is unchanged.
+
+### Fixed
+
+- **Cleric disapproval roll follows Table 5-7 (moonloch/dcc-core-lib#18).**
+  It was 1d4 × disapproval range and ignored Luck. RAW: roll 1d4 per point
+  of the natural spell-check roll, reduced by the cleric's Luck modifier
+  (current Luck after any Luck burned on the check). A roll pushed below 1
+  by Luck looks up row 1; `roll` keeps the unclamped value.
+  `getExpectedSeverity` now models the same roll.
+- **The disapproval range rose twice on one cast.** `castSpell` counted
+  only a natural 1, while `calculateSpellCheck`'s cleric handler raised the
+  range again whenever a disapproval table was loaded. A natural 1 fired
+  `onDisapprovalIncreased` twice; an in-range natural above 1 raised the
+  range but reported `disapprovalIncrease: 0`, so callers that add a point
+  for failed casts added a second one. `castSpell` now owns the increase
+  (exactly +1 for any in-range natural, with or without a table) and the
+  cleric handler only rolls the table. Checks that fail on their total
+  outside the range are still the caller's to count.
+
 ### Removed
 
 - **Lay on Hands `healingSelf` −4 penalty.** Not in the DCC core rules

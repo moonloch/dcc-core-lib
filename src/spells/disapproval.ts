@@ -84,8 +84,24 @@ export function resetDisapprovalRange(): number {
  * Result of rolling on the disapproval table
  */
 export interface DisapprovalResult {
-  /** The roll result (1d4 multiplied by disapproval range, typically) */
+  /**
+   * The disapproval roll: (natural)d4 minus the cleric's Luck modifier.
+   * Not clamped — may be below 1 when Luck is high. The table lookup
+   * clamps to row 1 (see `rollDisapproval`).
+   */
   roll: number;
+
+  /** The dice expression rolled, e.g. "3d4" */
+  formula: string;
+
+  /** Number of d4s rolled (equals the triggering natural roll) */
+  diceCount: number;
+
+  /** The natural spell-check roll that triggered disapproval */
+  naturalRoll: number;
+
+  /** The cleric's Luck modifier (subtracted from the dice total) */
+  luckModifier: number;
 
   /** Description of the disapproval effect */
   description: string;
@@ -103,42 +119,58 @@ export interface DisapprovalResult {
 /**
  * Default random number generator for disapproval rolls
  */
-function defaultRoller(faces: number): number {
-  return Math.floor(Math.random() * faces) + 1;
+function defaultRoller(count: number, faces: number): number {
+  let total = 0;
+  for (let i = 0; i < count; i++) {
+    total += Math.floor(Math.random() * faces) + 1;
+  }
+  return total;
 }
 
 /**
  * Roll for disapproval effect.
  *
- * In DCC, the disapproval roll is typically:
- * 1d4 × current disapproval range
+ * DCC RAW (core rulebook, Table 5-7): the cleric rolls 1d4 for every point
+ * of the natural spell-check roll (a natural 1 rolls 1d4, a natural 4 inside
+ * the range rolls 4d4), and the roll is reduced by the cleric's Luck
+ * modifier. The disapproval range itself only decides *whether* disapproval
+ * happens; it does not scale the roll.
  *
- * @param disapprovalRange - Current disapproval range
+ * A Luck modifier can push the roll below 1. The table starts at 1, so the
+ * lookup clamps to 1 (the mildest result); `roll` keeps the unclamped value
+ * so callers can show the arithmetic.
+ *
+ * @param naturalRoll - The natural d20 roll that triggered disapproval
+ * @param disapprovalRange - Current disapproval range (reported only)
  * @param disapprovalTable - Table to look up the result
- * @param options - Roll options
+ * @param luckModifier - The cleric's Luck modifier (default 0)
+ * @param options - Roll options. A custom roller receives "Nd4".
  * @returns The disapproval result
  */
 export function rollDisapproval(
+  naturalRoll: number,
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
+  luckModifier = 0,
   options: RollOptions = {}
 ): DisapprovalResult {
-  // Roll 1d4
-  let baseRoll: number;
-  if (options.roller) {
-    baseRoll = options.roller("1d4");
-  } else {
-    baseRoll = defaultRoller(4);
-  }
+  const diceCount = Math.max(1, Math.floor(naturalRoll));
+  const formula = `${String(diceCount)}d4`;
 
-  // Multiply by disapproval range
-  const roll = baseRoll * disapprovalRange;
+  const diceTotal = options.roller
+    ? options.roller(formula)
+    : defaultRoller(diceCount, 4);
 
-  // Look up result
-  const tableResult = lookupSimple(disapprovalTable, roll);
+  const roll = diceTotal - luckModifier;
+
+  const tableResult = lookupSimple(disapprovalTable, Math.max(1, roll));
 
   const result: DisapprovalResult = {
     roll,
+    formula,
+    diceCount,
+    naturalRoll,
+    luckModifier,
     description: tableResult?.text ?? `Disapproval (roll ${String(roll)})`,
     disapprovalRange,
   };
@@ -166,6 +198,7 @@ export function rollDisapproval(
  * @param natural - The natural die roll from the spell check
  * @param disapprovalRange - Current disapproval range
  * @param disapprovalTable - Table to look up the result
+ * @param luckModifier - The cleric's Luck modifier (default 0)
  * @param options - Roll options
  * @returns DisapprovalResult if triggered, undefined otherwise
  */
@@ -173,13 +206,14 @@ export function checkAndRollDisapproval(
   natural: number,
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
+  luckModifier = 0,
   options: RollOptions = {}
 ): DisapprovalResult | undefined {
   if (!rollTriggersDisapproval(natural, disapprovalRange)) {
     return undefined;
   }
 
-  return rollDisapproval(disapprovalRange, disapprovalTable, options);
+  return rollDisapproval(natural, disapprovalRange, disapprovalTable, luckModifier, options);
 }
 
 // =============================================================================
@@ -206,15 +240,25 @@ export function getDisapprovalSeverity(roll: number): DisapprovalSeverity {
 /**
  * Calculate the expected disapproval severity for a given range.
  * Useful for warning players about high disapproval ranges.
+ *
+ * Any natural roll from 1 to the range triggers disapproval, and the roll is
+ * (natural)d4 − Luck modifier, so the best case is a natural 1 rolling a 1
+ * and the worst case is a natural equal to the range rolling all 4s.
+ * The average assumes each triggering natural is equally likely.
  */
-export function getExpectedSeverity(disapprovalRange: number): {
+export function getExpectedSeverity(
+  disapprovalRange: number,
+  luckModifier = 0
+): {
   minimum: DisapprovalSeverity;
   maximum: DisapprovalSeverity;
   average: DisapprovalSeverity;
 } {
-  const minRoll = disapprovalRange; // Roll of 1 × range
-  const maxRoll = disapprovalRange * 4; // Roll of 4 × range
-  const avgRoll = Math.floor(disapprovalRange * 2.5); // Average of 2.5 × range
+  const range = Math.max(1, Math.floor(disapprovalRange));
+  const minRoll = Math.max(1, 1 - luckModifier);
+  const maxRoll = Math.max(1, range * 4 - luckModifier);
+  // Mean natural over 1..range is (range + 1) / 2; each d4 averages 2.5.
+  const avgRoll = Math.max(1, Math.floor(((range + 1) / 2) * 2.5 - luckModifier));
 
   return {
     minimum: getDisapprovalSeverity(minRoll),

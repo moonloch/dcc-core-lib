@@ -238,22 +238,33 @@ export function checkDisapproval(
 }
 
 /**
- * Calculate disapproval increase based on result
+ * Calculate the disapproval-range increase this cast causes.
+ *
+ * DCC RAW (core rulebook, cleric magic): every failed spell check widens the
+ * disapproval range by one, and a natural roll inside the range is an
+ * automatic failure. So a natural inside the range (natural 1 included)
+ * is a failed check and raises the range by exactly 1.
+ *
+ * Only in-range naturals are counted here. A check that fails on its total
+ * (outside the range) also raises the range under RAW, but whether a total
+ * fails depends on the spell's result table, so that increase is left to
+ * the caller.
+ *
+ * @param natural - The natural spell-check roll
+ * @param profile - The caster profile
+ * @param disapprovalRange - Current disapproval range. When omitted, only a
+ *   natural 1 counts (the range is always at least 1).
  */
 export function calculateDisapprovalIncrease(
   natural: number | undefined,
-  profile: CasterProfile
+  profile: CasterProfile,
+  disapprovalRange = 1
 ): number {
-  if (!profile.usesDisapproval) {
+  if (!profile.usesDisapproval || natural === undefined) {
     return 0;
   }
 
-  // Natural 1 increases disapproval range
-  if (natural === 1) {
-    return 1;
-  }
-
-  return 0;
+  return natural <= Math.max(1, disapprovalRange) ? 1 : 0;
 }
 
 // =============================================================================
@@ -369,7 +380,11 @@ export function castSpell(
     triggersCorruption(resultEntry, natural, input.casterProfile);
 
   // Calculate disapproval increase
-  const disapprovalIncrease = calculateDisapprovalIncrease(natural, input.casterProfile);
+  const disapprovalIncrease = calculateDisapprovalIncrease(
+    natural,
+    input.casterProfile,
+    input.disapprovalRange
+  );
   let newDisapprovalRange: number | undefined;
   if (input.casterProfile.usesDisapproval && input.disapprovalRange !== undefined) {
     newDisapprovalRange = input.disapprovalRange + disapprovalIncrease;

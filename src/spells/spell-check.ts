@@ -680,7 +680,7 @@ export function getSpellCheckSummary(result: SpellCheckResult): string {
   }
 
   // Disapproval
-  if (result.disapprovalResult) {
+  if (result.disapprovalResult?.matched) {
     parts.push(`Disapproval: ${result.disapprovalResult.description}`);
   }
 

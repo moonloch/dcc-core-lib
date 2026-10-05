@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **Disapproval table miss no longer returns English text.** When the
+  disapproval roll is above the table's last row, `rollDisapproval` used to
+  set `description` to a hardcoded `"Disapproval (roll N)"`, which consumers
+  posted to chat untranslated. `DisapprovalResult` gains `matched`, and
+  `description` is `""` on a miss, so the consumer renders its own localized
+  fallback. `getSpellCheckSummary` omits the disapproval line on a miss.
+
 ## [0.14.0] - 2026-10-05
 
 ### Added

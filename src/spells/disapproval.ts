@@ -103,7 +103,16 @@ export interface DisapprovalResult {
   /** The cleric's Luck modifier (subtracted from the dice total) */
   luckModifier: number;
 
-  /** Description of the disapproval effect */
+  /**
+   * Whether the table had a row for the roll. False when the roll is above
+   * the table's last row (a high natural can roll up to 80).
+   */
+  matched: boolean;
+
+  /**
+   * Description of the disapproval effect: the matched row's text, or ""
+   * when no row matched (consumers render their own localized fallback).
+   */
   description: string;
 
   /** Duration of the effect (if applicable) */
@@ -171,7 +180,8 @@ export function rollDisapproval(
     diceCount,
     naturalRoll,
     luckModifier,
-    description: tableResult?.text ?? `Disapproval (roll ${String(roll)})`,
+    matched: tableResult !== undefined,
+    description: tableResult?.text ?? "",
     disapprovalRange,
   };
 

@@ -124,8 +124,38 @@ export function findInlineResult(
 }
 
 /**
+ * Minimum spell check total to succeed, by spell level (DCC RAW: 10 + 2 × level)
+ */
+export const SPELL_CHECK_THRESHOLDS: Record<number, number> = {
+  1: 12,
+  2: 14,
+  3: 16,
+  4: 18,
+  5: 20,
+};
+
+/**
+ * Get the minimum spell check threshold for a spell level
+ */
+export function getSpellCheckThreshold(spellLevel: number): number {
+  return SPELL_CHECK_THRESHOLDS[spellLevel] ?? 12 + (spellLevel - 1) * 2;
+}
+
+/**
+ * Check if a spell check succeeded (met minimum threshold)
+ */
+export function didSpellCheckSucceed(total: number, spellLevel: number): boolean {
+  const threshold = getSpellCheckThreshold(spellLevel);
+  return total >= threshold;
+}
+
+/**
  * Determine the spell result from a check total.
  * Uses inline results if available, otherwise falls back to table lookup.
+ *
+ * Without inline results or a table, the default tiers apply the spell-level
+ * threshold: a total below `getSpellCheckThreshold(spell.level)` is a failure.
+ * A missing or invalid level is treated as level 1.
  */
 export function determineSpellResult(
   total: number,
@@ -166,7 +196,8 @@ export function determineSpellResult(
   if (total <= 1) {
     return { tier: "lost" };
   }
-  if (total <= 11) {
+  const level = Number.isFinite(spell.level) && spell.level >= 1 ? spell.level : 1;
+  if (!didSpellCheckSucceed(total, level)) {
     return { tier: "failure" };
   }
   if (total <= 13) {
@@ -182,18 +213,36 @@ export function determineSpellResult(
 }
 
 /**
- * Check if a result indicates the spell is lost
+ * Does this caster lose the spell for the day on a failed spell check?
+ * See `CasterProfile.losesSpellOnFailure`.
+ */
+export function losesSpellOnFailure(profile: CasterProfile): boolean {
+  return profile.losesSpellOnFailure ?? !profile.usesDisapproval;
+}
+
+/**
+ * Check if a result indicates the spell is lost.
+ *
+ * An entry's explicit `lost` flag always wins. Otherwise, with a caster
+ * profile, DCC RAW applies: a wizard or elf loses the spell on any failed
+ * check (`failure` or `lost` tier), and a cleric keeps it (a failed cleric
+ * check raises disapproval instead). Without a profile, only the `lost`
+ * tier counts.
  */
 export function isSpellLostResult(
   entry: SpellResultEntry | TieredEntry | undefined,
-  tier: ResultTier
+  tier: ResultTier,
+  profile?: CasterProfile
 ): boolean {
   // Check explicit lost flag
   if (entry && "lost" in entry && entry.lost) {
     return true;
   }
 
-  // Lost tier always means spell is lost
+  if (profile) {
+    return losesSpellOnFailure(profile) && (tier === "failure" || tier === "lost");
+  }
+
   return tier === "lost";
 }
 
@@ -373,7 +422,8 @@ export function castSpell(
   }
 
   // Determine if spell is lost
-  const spellLost = tier !== undefined && isSpellLostResult(resultEntry, tier);
+  const spellLost =
+    tier !== undefined && isSpellLostResult(resultEntry, tier, input.casterProfile);
 
   // Check for corruption trigger
   const corruptionTriggered = !options.skipCorruption &&

@@ -137,6 +137,13 @@ export interface CasterProfile {
 
   /** How lost spells can be recovered */
   lostSpellRecovery: "none" | "rest" | "prayer";
+
+  /**
+   * Is the spell lost for the day when a spell check fails? DCC RAW: true for
+   * wizards and elves; a cleric's failure raises disapproval instead. When
+   * omitted, casters that use disapproval keep the spell and all others lose it.
+   */
+  losesSpellOnFailure?: boolean;
 }
 
 /**
@@ -151,6 +158,7 @@ export const CASTER_PROFILES: Record<CasterType, CasterProfile> = {
     usesDisapproval: false,
     canSpellburn: true,
     lostSpellRecovery: "rest",
+    losesSpellOnFailure: true,
   },
   cleric: {
     type: "cleric",
@@ -160,6 +168,7 @@ export const CASTER_PROFILES: Record<CasterType, CasterProfile> = {
     usesDisapproval: true,
     canSpellburn: false,
     lostSpellRecovery: "prayer",
+    losesSpellOnFailure: false,
   },
   elf: {
     type: "elf",
@@ -169,6 +178,7 @@ export const CASTER_PROFILES: Record<CasterType, CasterProfile> = {
     usesDisapproval: false,
     canSpellburn: true,
     lostSpellRecovery: "rest",
+    losesSpellOnFailure: true,
   },
 };
 

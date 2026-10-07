@@ -9,6 +9,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added
 
+- **`CasterProfile.losesSpellOnFailure`** (optional) and **`losesSpellOnFailure(profile)`.**
+  Whether a failed spell check loses the spell for the day: `true` for wizard
+  and elf, `false` for cleric. When omitted, casters that use disapproval keep
+  the spell and all others lose it.
+
 - **`applyTwoWeaponHandRules(result, config, hand, targetAC?)`.** Applies one
   hand's Table 4-3 critical-hit rules to an attack rolled on its own, for
   consumers that roll each two-weapon hand separately instead of through
@@ -16,6 +21,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   natural max can crit, so a threat-range crit below the max is now stripped.
 
 ### Fixed
+
+- **Default spell-check tiers honor the spell level.** With no inline results
+  or `resultTable`, `determineSpellResult` counted any total ≥ 12 as a success,
+  so a level-3 spell totalling 14 succeeded. A total below
+  `getSpellCheckThreshold(spell.level)` (10 + 2 × level) is now a `failure`;
+  level 1 is unchanged. `SPELL_CHECK_THRESHOLDS`, `getSpellCheckThreshold` and
+  `didSpellCheckSucceed` move to `cast.ts` and are still re-exported from
+  `spell-duel.ts`.
+
+- **`spellLost` follows the RAW spell-loss rule.** A wizard or elf now loses
+  the spell on any failed check, not only a natural 1, and a cleric never
+  loses one from a failed check (a natural 1 included). An explicit `lost` flag
+  on a result entry still applies. `isSpellLostResult` takes an optional caster
+  profile; without one, only the `lost` tier counts. `invokePatron` also loses
+  the spell on any failed check, not just a fumble.
 
 - **Two-weapon Agl 18+ primary keeps an improved threat range.**
   `rollTwoWeaponAttack` clamped every hand's threat range to 20. Table 4-3's

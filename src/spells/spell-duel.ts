@@ -33,6 +33,15 @@ import {
   entryToCounterspellPowerResult,
   entryToPhlogistonDisturbanceResult,
 } from "./spell-duel-tables.js";
+import { getSpellCheckThreshold, didSpellCheckSucceed } from "./cast.js";
+
+// The spell-check threshold lives in cast.ts (castSpell's default tiers use
+// it); re-exported here for existing spell-duel importers.
+export {
+  SPELL_CHECK_THRESHOLDS,
+  getSpellCheckThreshold,
+  didSpellCheckSucceed,
+} from "./cast.js";
 
 // Re-export table types and defaults for external use
 export type {
@@ -303,17 +312,6 @@ export interface SpellDuelState {
 export const STARTING_MOMENTUM = 10;
 
 /**
- * Minimum spell check thresholds by spell level
- */
-export const SPELL_CHECK_THRESHOLDS: Record<number, number> = {
-  1: 12,
-  2: 14,
-  3: 16,
-  4: 18,
-  5: 20,
-};
-
-/**
  * Default spells and what they can counter
  */
 export const COUNTERSPELL_RELATIONSHIPS: Record<string, string[]> = {
@@ -489,21 +487,6 @@ export function createSpellDuelParticipant(
     initiative,
     patron,
   };
-}
-
-/**
- * Get the minimum spell check threshold for a spell level
- */
-export function getSpellCheckThreshold(spellLevel: number): number {
-  return SPELL_CHECK_THRESHOLDS[spellLevel] ?? 12 + (spellLevel - 1) * 2;
-}
-
-/**
- * Check if a spell check succeeded (met minimum threshold)
- */
-export function didSpellCheckSucceed(total: number, spellLevel: number): boolean {
-  const threshold = getSpellCheckThreshold(spellLevel);
-  return total >= threshold;
 }
 
 /**

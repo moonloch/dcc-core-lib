@@ -7,7 +7,21 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added
+
+- **`applyTwoWeaponHandRules(result, config, hand, targetAC?)`.** Applies one
+  hand's Table 4-3 critical-hit rules to an attack rolled on its own, for
+  consumers that roll each two-weapon hand separately instead of through
+  `rollTwoWeaponAttack`. On the Agl 16-17 row, only the reduced die's
+  natural max can crit, so a threat-range crit below the max is now stripped.
+
 ### Fixed
+
+- **Two-weapon Agl 18+ primary keeps an improved threat range.**
+  `rollTwoWeaponAttack` clamped every hand's threat range to 20. Table 4-3's
+  18+ row lets the primary hand crit normally, so a
+  warrior's 19-20 range now applies. The other rows don't need the clamp:
+  those hands either can't crit or crit only on the die's natural max.
 
 - **Disapproval table miss no longer returns English text.** When the
   disapproval roll is above the table's last row, `rollDisapproval` used to

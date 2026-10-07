@@ -19,6 +19,7 @@ export {
   getAttackAbility,
   getTwoWeaponDice,
   rollTwoWeaponAttack,
+  applyTwoWeaponHandRules,
   isDeedSuccessful,
 } from "./attack.js";
 

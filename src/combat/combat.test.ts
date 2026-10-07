@@ -6,7 +6,7 @@
 
 import { describe, it, expect, beforeAll, afterAll } from "vitest";
 import type { DiceRoller } from "../types/dice.js";
-import type { AttackInput, DamageInput, CriticalInput, FumbleInput, InitiativeInput } from "../types/combat.js";
+import type { AttackInput, AttackResult, DamageInput, CriticalInput, FumbleInput, InitiativeInput } from "../types/combat.js";
 import { COMMON_WEAPONS } from "../types/combat.js";
 import type { ClassProgression, ProgressionLevelData } from "../types/class-progression.js";
 import {
@@ -33,6 +33,7 @@ import {
   getAttackAbility,
   getTwoWeaponDice,
   rollTwoWeaponAttack,
+  applyTwoWeaponHandRules,
   isDeedSuccessful,
   // Damage
   rollDamage,
@@ -825,9 +826,9 @@ describe("Attack System", () => {
       expect(result.primary.isCriticalThreat).toBe(false);
     });
 
-    it("warriors lose improved threat range when two-weapon fighting", () => {
-      // Warrior with 19-20 threat (normally crits on 19 or 20).
-      // Two-weapon Agl 18+: primary still on d20, but threat range clamped to 20.
+    it("Agl 18+: primary keeps an improved threat range (crits as normal)", () => {
+      // Warrior with 19-20 threat; Table 4-3's 18+ row leaves the primary
+      // hand's crit range unchanged.
       const roller = createSequenceRoller([19, 1]);
       const result = rollTwoWeaponAttack({
         agility: 18,
@@ -836,8 +837,24 @@ describe("Attack System", () => {
         offHand: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0 },
       }, roller);
 
-      expect(result.primary.isCriticalThreat).toBe(false); // 19 no longer threats
-      expect(result.primary.isHit).toBe(true); // still hits AC 15
+      expect(result.primary.isCriticalThreat).toBe(true);
+      expect(result.primary.critSource).toBe("threat-range");
+      expect(result.primary.isHit).toBe(true);
+    });
+
+    it("Agl 16-17: an improved threat range below the max face does not crit", () => {
+      // Threat 19-20 scales to 15-16 on the primary d16; only the max face crits.
+      const roller = createSequenceRoller([15, 1]);
+      const result = rollTwoWeaponAttack({
+        agility: 16,
+        baseActionDie: "d20",
+        primary: { attackType: "melee", attackBonus: 0, threatRange: 19, abilityModifier: 0, targetAC: 10 },
+        offHand: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0 },
+      }, roller);
+
+      expect(result.primary.roll.die).toBe("d16");
+      expect(result.primary.isHit).toBe(true);
+      expect(result.primary.isCriticalThreat).toBe(false);
     });
 
     it("Agl 16-17 non-halfling: natural max requires beating AC to crit (no auto-hit)", () => {
@@ -924,6 +941,50 @@ describe("Attack System", () => {
 
       expect(result.primary.isFumble).toBe(true);
       expect(result.offHand.isFumble).toBe(true);
+    });
+  });
+
+  describe("applyTwoWeaponHandRules (one hand rolled on its own)", () => {
+    const rollHand = (die: "d20" | "d16" | "d14", natural: number, input: Partial<AttackInput> = {}): AttackResult =>
+      makeAttackRoll({
+        attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0, actionDie: die, ...input,
+      }, createSequenceRoller([natural]));
+
+    it("strips a crit from a hand that cannot crit", () => {
+      const result = rollHand("d16", 16, { targetAC: 10 });
+      applyTwoWeaponHandRules(result, getTwoWeaponDice(18), "offHand", 10);
+      expect(result.isCriticalThreat).toBe(false);
+      expect(result.critSource).toBeUndefined();
+      expect(result.isHit).toBe(true);
+    });
+
+    it("Agl 18+ primary keeps the actor's threat range", () => {
+      const result = rollHand("d20", 19, { threatRange: 19, targetAC: 10 });
+      applyTwoWeaponHandRules(result, getTwoWeaponDice(18), "primary", 10);
+      expect(result.isCriticalThreat).toBe(true);
+    });
+
+    it("Agl 16-17 primary: natural max that misses AC is neither a hit nor a crit", () => {
+      const result = rollHand("d16", 16, { targetAC: 20 });
+      applyTwoWeaponHandRules(result, getTwoWeaponDice(16), "primary", 20);
+      expect(result.isHit).toBe(false);
+      expect(result.isCriticalThreat).toBe(false);
+    });
+
+    it("Agl 16-17 primary: without a target AC the natural-max crit is left unresolved", () => {
+      const result = rollHand("d16", 16);
+      applyTwoWeaponHandRules(result, getTwoWeaponDice(16), "primary");
+      expect(result.isHit).toBeUndefined();
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("natural-max");
+    });
+
+    it("halfling: natural max on the off-hand auto-hits and crits", () => {
+      const result = rollHand("d16", 16, { targetAC: 30 });
+      applyTwoWeaponHandRules(result, getTwoWeaponDice(10, { isHalfling: true }), "offHand", 30);
+      expect(result.isHit).toBe(true);
+      expect(result.isCriticalThreat).toBe(true);
+      expect(result.critSource).toBe("natural-max");
     });
   });
 

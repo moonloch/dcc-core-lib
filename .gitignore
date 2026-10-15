@@ -7,4 +7,5 @@ coverage/
 *.tsbuildinfo
 .claude/worktrees
 .claude/*.lock
-.claude/settings.local.jsons
+.claude/settings.local.json
+CLAUDE.local.md

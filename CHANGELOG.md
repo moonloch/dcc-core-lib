@@ -421,7 +421,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 - **Combat rules brought in line with RAW** following a validation pass
   of `src/combat/**` against the DCC core rulebook (Chapter 4 +
-  Tables 3-3, 4-3). Findings catalogued in `docs/COMBAT_RULES_FIXES.md`.
+  Tables 3-3, 4-3).
 - **Initiative rewrite** (`src/combat/initiative.ts`):
   - Default initiative die changed from `d16` to `d20` (Core Book Ch. 4:
     initiative is rolled on a d20).

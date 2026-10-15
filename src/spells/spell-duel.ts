@@ -426,7 +426,8 @@ export function rollCounterspellPower(
  *
  * The die matches the table: its size is the highest `max` in the table, so
  * the core book's Table 4-7 (p. 98) rolls a d10 and the default placeholder
- * table rolls a d20.
+ * table rolls a d20. Rows must therefore cover 1 to the die size exactly, with
+ * no catch-all row (such as `max: 100`) at the end.
  *
  * @param roller - Optional dice roller
  * @param table - Optional custom table data (for official tables)
@@ -436,6 +437,9 @@ export function rollPhlogistonDisturbance(
   table?: PhlogistonDisturbanceTable
 ): PhlogistonDisturbanceResult {
   const tableData = table ?? DEFAULT_SPELL_DUEL_TABLES.phlogistonDisturbance;
+  if (tableData.length === 0) {
+    throw new Error("Phlogiston disturbance table is empty");
+  }
 
   const dieFormula = `1d${String(Math.max(...tableData.map((entry) => entry.max)))}`;
   const rollResult = roller
@@ -702,11 +706,6 @@ export function resolveCounterspellExchange(
     newDefenderMomentum += 1;
   }
 
-  // Table 4-6 modifier: the winner's momentum minus the loser's
-  const momentumModifier = comparison.attackerHigh
-    ? newAttackerMomentum - newDefenderMomentum
-    : newDefenderMomentum - newAttackerMomentum;
-
   // Resolve based on comparison result
   if (comparison.isPhlogistonDisturbance) {
     const phlogistonDisturbance = rollPhlogistonDisturbance(roller, tables?.phlogistonDisturbance);
@@ -720,6 +719,10 @@ export function resolveCounterspellExchange(
       samePatronCancellation: false,
     };
   } else {
+    // Table 4-6 modifier: the winner's momentum minus the loser's
+    const momentumModifier = comparison.attackerHigh
+      ? newAttackerMomentum - newDefenderMomentum
+      : newDefenderMomentum - newAttackerMomentum;
     const counterspellPower = rollCounterspellPower(
       comparison.comparisonDie,
       comparison.attackerHigh,

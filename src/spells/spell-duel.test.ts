@@ -302,11 +302,20 @@ describe("rollCounterspellPower (Table 4-6)", () => {
     expect(result.attackerSpellEffective).toBe(true);
   });
 
-  it("low rolls favor the defender when defender high", () => {
+  it("high rolls favor the defender when defender high", () => {
+    const roller = createMockRoller(10);
+    // With +3 momentum, roll of 10 = 13
+    const result = rollCounterspellPower("d10", false, 3, roller);
+    expect(result.modifiedResult).toBe(13);
+    expect(result.attackerSpellEffective).toBe(false);
+    expect(result.defenderSpellEffective).toBe(true);
+  });
+
+  it("low rolls work against the defender when defender high", () => {
     const roller = createMockRoller(1);
-    // With -3 momentum, roll of 1 = 1 (clamped)
-    const result = rollCounterspellPower("d6", false, -3, roller);
+    const result = rollCounterspellPower("d6", false, 0, roller);
     expect(result.modifiedResult).toBe(1);
+    expect(result.defenderSpellEffective).toBe(false);
   });
 });
 
@@ -371,6 +380,12 @@ describe("rollPhlogistonDisturbance (Table 4-7)", () => {
     const result = rollPhlogistonDisturbance(roller, tenRowTable);
     expect(rolled).toEqual(["1d10"]);
     expect(result.effect).toBe("row 4");
+  });
+
+  it("throws on an empty table", () => {
+    expect(() => rollPhlogistonDisturbance(createMockRoller(1), [])).toThrow(
+      "Phlogiston disturbance table is empty"
+    );
   });
 
   it("rolls a d20 on the default table", () => {
@@ -790,6 +805,31 @@ describe("resolveCounterspellExchange", () => {
     expect(result.newAttackerMomentum).toBe(11);
     expect(result.counterspellPower?.momentumModifier).toBe(-2);
     expect(result.counterspellPower?.modifiedResult).toBe(2);
+  });
+
+  it("a defender who wins while ahead on momentum gets a better default-table result", () => {
+    let state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12 },
+    ]);
+    state = {
+      ...state,
+      participants: state.participants.map((p) => (p.id === "defender" ? { ...p, momentum: 12 } : p)),
+    };
+
+    const result = resolveCounterspellExchange(
+      state,
+      "attacker",
+      "defender",
+      { casterId: "attacker", spell: createMagicMissile(), naturalRoll: 8, total: 13, succeeded: true, spellLost: false },
+      { casterId: "defender", spell: createMagicShield(), naturalRoll: 15, total: 20, succeeded: true, spellLost: false },
+      createMockRoller(10)
+    );
+
+    // 13 vs 10 momentum after the win: 10 + 3 = 13, the defender's best row
+    expect(result.counterspellPower?.modifiedResult).toBe(13);
+    expect(result.counterspellPower?.attackerSpellEffective).toBe(false);
+    expect(result.counterspellPower?.defenderSpellEffective).toBe(true);
   });
 
   it("triggers phlogiston disturbance on equal checks", () => {

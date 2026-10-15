@@ -15,13 +15,17 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   was the absolute difference, signed only by which side won.
   `rollCounterspellPower`'s third parameter is now that signed
   `momentumModifier`, applied as given, instead of an absolute difference.
+  The fan-made default Table 4-6 `defenderHigh` column is reversed to match:
+  higher results now favor the defender, as they favor the attacker in the
+  `attackerHigh` column.
 
 ### Fixed
 
 - **Phlogiston Disturbance rolls a die that fits the table.**
   `rollPhlogistonDisturbance` sizes the die to the highest `max` in the table
   it is given, so an injected Table 4-7 (p. 98) rolls a d10. The default
-  placeholder table still rolls a d20.
+  placeholder table still rolls a d20. A phlogiston table's rows must cover 1
+  to the die size, with no catch-all row.
 - **Same-patron cancellation needs both checks to succeed.**
   `resolveCounterspellExchange` checks for success before cancelling two
   invocations of the same patron (p. 98).

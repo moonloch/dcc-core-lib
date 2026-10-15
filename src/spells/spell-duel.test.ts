@@ -272,14 +272,14 @@ describe("rollCounterspellPower (Table 4-6)", () => {
 
   it("applies negative momentum modifier when defender high", () => {
     const roller = createMockRoller(5);
-    const result = rollCounterspellPower("d6", false, 3, roller);
+    const result = rollCounterspellPower("d6", false, -3, roller);
     expect(result.momentumModifier).toBe(-3);
     expect(result.modifiedResult).toBe(2); // 5 - 3
   });
 
   it("clamps modified result to minimum 1", () => {
     const roller = createMockRoller(1);
-    const result = rollCounterspellPower("d6", false, 10, roller);
+    const result = rollCounterspellPower("d6", false, -10, roller);
     expect(result.modifiedResult).toBe(1); // 1 - 10 = -9, clamped to 1
   });
 
@@ -305,7 +305,7 @@ describe("rollCounterspellPower (Table 4-6)", () => {
   it("low rolls favor the defender when defender high", () => {
     const roller = createMockRoller(1);
     // With -3 momentum, roll of 1 = 1 (clamped)
-    const result = rollCounterspellPower("d6", false, 3, roller);
+    const result = rollCounterspellPower("d6", false, -3, roller);
     expect(result.modifiedResult).toBe(1);
   });
 });
@@ -352,6 +352,34 @@ describe("rollPhlogistonDisturbance (Table 4-7)", () => {
     const roller = createMockRoller(19);
     const result = rollPhlogistonDisturbance(roller);
     expect(result.specialEffect).toBe("dimensional-rift");
+  });
+
+  it("sizes the die to the table passed in", () => {
+    const rolled: string[] = [];
+    const roller = (expression: string): number => {
+      rolled.push(expression);
+      return 4;
+    };
+    const tenRowTable = Array.from({ length: 10 }, (_, i) => ({
+      min: i + 1,
+      max: i + 1,
+      effect: `row ${String(i + 1)}`,
+      affectsAttacker: true,
+      affectsDefender: true,
+      affectsBystanders: false,
+    }));
+    const result = rollPhlogistonDisturbance(roller, tenRowTable);
+    expect(rolled).toEqual(["1d10"]);
+    expect(result.effect).toBe("row 4");
+  });
+
+  it("rolls a d20 on the default table", () => {
+    const rolled: string[] = [];
+    rollPhlogistonDisturbance((expression: string) => {
+      rolled.push(expression);
+      return 1;
+    });
+    expect(rolled).toEqual(["1d20"]);
   });
 
   it("includes magical chaos for roll 20", () => {
@@ -699,6 +727,69 @@ describe("resolveCounterspellExchange", () => {
     expect(result.samePatronCancellation).toBe(true);
     expect(result.newAttackerMomentum).toBe(10); // Unchanged
     expect(result.newDefenderMomentum).toBe(10); // Unchanged
+  });
+
+  it("does not cancel same-patron invocations when a check fails", () => {
+    const state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17, patron: "Test Patron" },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12, patron: "Test Patron" },
+    ]);
+
+    const result = resolveCounterspellExchange(
+      state,
+      "attacker",
+      "defender",
+      { casterId: "attacker", spell: createInvokePatron("Test Patron"), naturalRoll: 15, total: 20, succeeded: true, spellLost: false },
+      { casterId: "defender", spell: createInvokePatron("Test Patron"), naturalRoll: 2, total: 5, succeeded: false, spellLost: true }
+    );
+
+    expect(result.samePatronCancellation).toBe(false);
+  });
+
+  it("uses the winner's momentum minus the loser's when the defender wins with more momentum", () => {
+    const state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12 },
+    ]);
+
+    const result = resolveCounterspellExchange(
+      state,
+      "attacker",
+      "defender",
+      { casterId: "attacker", spell: createMagicMissile(), naturalRoll: 8, total: 13, succeeded: true, spellLost: false },
+      { casterId: "defender", spell: createMagicShield(), naturalRoll: 11, total: 16, succeeded: true, spellLost: false },
+      createMockRoller(2)
+    );
+
+    // Defender wins: 11 vs 10 momentum, so +1 on the defender-high column
+    expect(result.newDefenderMomentum).toBe(11);
+    expect(result.counterspellPower?.momentumModifier).toBe(1);
+    expect(result.counterspellPower?.modifiedResult).toBe(3);
+  });
+
+  it("gives a negative modifier when the winner trails on momentum", () => {
+    let state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12 },
+    ]);
+    state = {
+      ...state,
+      participants: state.participants.map((p) => (p.id === "defender" ? { ...p, momentum: 13 } : p)),
+    };
+
+    const result = resolveCounterspellExchange(
+      state,
+      "attacker",
+      "defender",
+      { casterId: "attacker", spell: createMagicMissile(), naturalRoll: 13, total: 18, succeeded: true, spellLost: false },
+      { casterId: "defender", spell: createMagicShield(), naturalRoll: 9, total: 14, succeeded: true, spellLost: false },
+      createMockRoller(4)
+    );
+
+    // Attacker wins and moves to 11, still trailing the defender's 13
+    expect(result.newAttackerMomentum).toBe(11);
+    expect(result.counterspellPower?.momentumModifier).toBe(-2);
+    expect(result.counterspellPower?.modifiedResult).toBe(2);
   });
 
   it("triggers phlogiston disturbance on equal checks", () => {

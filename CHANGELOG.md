@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **BREAKING: spell duel momentum modifier follows the core book (Table 4-6,
+  p. 98).** The modifier is now the winner's momentum minus the loser's, so it
+  is negative when the winner of the exchange trails on momentum. Before, it
+  was the absolute difference, signed only by which side won.
+  `rollCounterspellPower`'s third parameter is now that signed
+  `momentumModifier`, applied as given, instead of an absolute difference.
+
+### Fixed
+
+- **Phlogiston Disturbance rolls a die that fits the table.**
+  `rollPhlogistonDisturbance` sizes the die to the highest `max` in the table
+  it is given, so an injected Table 4-7 (p. 98) rolls a d10. The default
+  placeholder table still rolls a d20.
+- **Same-patron cancellation needs both checks to succeed.**
+  `resolveCounterspellExchange` checks for success before cancelling two
+  invocations of the same patron (p. 98).
+
 ## [0.15.0] - 2026-10-15
 
 ### Changed

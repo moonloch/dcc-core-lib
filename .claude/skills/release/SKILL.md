@@ -20,6 +20,12 @@ moves the CHANGELOG notes, merged to `main`, which creates the draft.
 If arguments are provided, treat them as the version to release (e.g.
 `0.16.0`) or a bump level (`patch`, `minor`, `major`).
 
+## 0. Check the working tree
+
+The maintainer does their own git work in this checkout. Run `git status`
+first: if the tree has uncommitted changes, or is mid-merge or mid-rebase,
+**STOP** and ask. Don't carry stray edits onto `main` or into the release PR.
+
 ## 1. Merge the feature PR (if one is given)
 
 If the user named a feature PR to ship (or the current branch has one), merge
@@ -101,11 +107,15 @@ git checkout main && git pull
 
 ## 6. Wait for the draft release
 
+Watch the run for the release PR's merge commit, not just the latest run:
+
 ```bash
-gh run list --workflow "Create Release" --limit 3
+gh run list --workflow "Create Release" --commit "$(git rev-parse HEAD)"
 gh run watch <run id> --exit-status
 gh release view v<version> --json isDraft,body
 ```
+
+(If the run isn't listed yet, wait a few seconds and list again.)
 
 The workflow creates the draft `v<version>` with GitHub's generated notes. If
 it fails, check `gh run view <run id> --log-failed` and report.
@@ -113,12 +123,13 @@ it fails, check `gh run view <run id> --log-failed` and report.
 ## 7. Edit the release notes
 
 Keep GitHub's generated `## What's Changed` list (it credits contributors and
-links each PR), and put a short header above it — as in v0.15.0:
+links each PR), and put a short header above it (v0.15.0 is an example).
+The shape, with placeholders:
 
 ```
-**Breaking:** `rollCounterspellPower`'s third parameter is now a signed momentum modifier. See CHANGELOG.md.
+**Breaking:** `<function>` <what changed and how to migrate>. See CHANGELOG.md.
 
-Fixes spell duel momentum on a Phlogiston Disturbance (#30), ...
+<One line of plain-English highlights, with PR numbers.>
 
 ## What's Changed
 * ...

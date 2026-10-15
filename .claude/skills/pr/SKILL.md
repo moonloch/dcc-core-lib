@@ -9,6 +9,9 @@ Execute each step below sequentially using your tools directly. Run everything
 in the main context except for Step 13 (review).
 
 If arguments are provided, treat them as the base branch (default: `main`).
+Always compare against the **remote** base: run `git fetch origin` first and
+use `origin/<base>` (written `origin/main` below), never the local branch,
+which may be behind.
 
 **This repo is pnpm-only.** Every command below is `pnpm run ...` or `pnpm
 exec ...`; never `npm`.
@@ -20,8 +23,9 @@ Run `git branch --show-current` to get the current branch name.
 - If on `main`: **STOP** and tell the user to create/checkout a feature branch.
 - Otherwise, confirm the branch and proceed.
 
-Tim does his own git work in this checkout, so re-verify `git status` right
-before any branch operation and stop if the tree is mid-merge or mid-rebase.
+The maintainer does their own git work in this checkout, so re-verify `git
+status` right before any branch operation and stop if the tree is mid-merge or
+mid-rebase.
 
 ## Step 2: Version Bump — NOT in the PR
 
@@ -37,7 +41,7 @@ before committing and mention it in the final summary. (Dependency changes to
 
 This library contains **logic only — no Goodman Games data or text** (see
 CLAUDE.md and CONTRIBUTING.md, "Copyright separation"). Scan the diff
-(`git diff main...HEAD` plus uncommitted changes) for the red flags:
+(`git diff origin/main...HEAD` plus uncommitted changes) for the red flags:
 
 - `Record`s keyed by level, `switch` statements on `classId`, or class-named
   constants (`WARRIOR_*`, `THIEF_*`, …) that encode rulebook values.
@@ -60,16 +64,20 @@ CONTRIBUTING.md requires every fix to ship a regression test that **fails on
 `main`** and passes on the branch.
 
 1. Identify the behavior the diff changes and the test(s) covering it.
-2. Prove the new test fails without the fix: temporarily restore the `main`
-   version of the changed source file(s), run only the relevant test file,
-   confirm the new test fails for the expected reason, then restore the
-   branch version.
+2. Prove the new test fails without the fix: copy the branch's changed
+   source file(s) to the session scratchpad, overwrite them with the
+   `origin/main` version, run only the relevant test file, confirm the new
+   test fails for the expected reason, then copy the branch version back.
+   This works whether or not the fix is committed yet. Don't use `git stash`
+   (it may stash nothing and then pop someone else's stash) or `git checkout
+   -- <file>` (it discards an uncommitted fix).
    ```bash
-   git stash push <src files> -q          # or: git show main:<file> > <file>
-   pnpm exec vitest run src/path/to/file.test.ts
-   git stash pop -q                       # or: git checkout -- <file>
+   cp src/path/to/file.ts <scratchpad>/file.ts
+   git show origin/main:src/path/to/file.ts > src/path/to/file.ts
+   pnpm exec vitest run src/path/to/file.test.ts     # must fail
+   cp <scratchpad>/file.ts src/path/to/file.ts
    ```
-   Double-check with `git diff` afterwards that the branch version is back.
+   Run `git diff` afterwards to confirm the branch version is back.
 3. Grep for other tests still asserting the old behavior and update them.
 
 For a feature (not a fix), make sure the new behavior has tests. If you
@@ -97,6 +105,9 @@ pnpm run build        # tsc + bundled dist/dcc-core-lib.d.ts
 pnpm run docs:check   # regenerates docs/api and fails if it changed
 ```
 
+- `docs:check` only compares tracked files, so also run
+  `git status --short docs/api`: a new export gets a new, untracked page that
+  `docs:check` doesn't catch. Commit those pages too.
 - If `docs:check` fails only because `docs/api/` is stale, the regenerated
   files are already written: review the diff (it should only reflect the
   doc comments and signatures you changed, plus line-number shifts) and
@@ -136,14 +147,16 @@ Include the doc updates in the same PR.
 ## Step 9: Downstream Check (DCC system)
 
 The FoundryVTT DCC system vendors this library's `dist/` at
-`module/vendor/dcc-core-lib/`. The local checkout is at
-`/Users/timlwhite/FoundryVTT-Next/Data/systems/dcc`.
+`module/vendor/dcc-core-lib/`. Its checkout is usually at
+`<FoundryVTT Data>/systems/dcc` (CLAUDE.md explains `<FoundryVTT Data>`;
+CLAUDE.local.md may give the local path). If there's no checkout, report the
+downstream check as **not run**, never as "no usages".
 
 For every export renamed, removed, or changed in signature or meaning by the
 diff, grep the system's own code (not the vendored copy):
 
 ```bash
-grep -rn "<name>" /Users/timlwhite/FoundryVTT-Next/Data/systems/dcc/module \
+grep -rn "<name>" "<FoundryVTT Data>/systems/dcc/module" \
   --include='*.js' --include='*.mjs' | grep -v vendor/dcc-core-lib
 ```
 
@@ -185,7 +198,7 @@ If push is rejected due to conflicts, **STOP** and report to user.
 ## Step 12: PR Creation or Update
 
 1. Check if a PR already exists: `gh pr view --json number,title,url 2>/dev/null`
-2. **If NO existing PR**: Create one with `gh pr create --base <base>`:
+2. **If NO existing PR**: Create one with `gh pr create --base <base>` (the branch name, not `origin/`):
    - Conventional-commit title (under 70 chars), same style as the commits
    - Body sections:
      - `## Summary` — what was wrong / what's new, and why. Cite table/page
@@ -199,7 +212,7 @@ If push is rejected due to conflicts, **STOP** and report to user.
 3. **If PR EXISTS**: Update it with `gh pr edit --title "..." --body "..."`:
    - Always regenerate title and description from the current diff
    - Never preserve stale descriptions
-4. Use `git diff <base>...HEAD` to understand the full scope of changes for
+4. Use `git diff origin/<base>...HEAD` to understand the full scope of changes for
    the PR description.
 
 ## Step 13: Automated PR Review
@@ -243,7 +256,7 @@ Checks: check ✓ build ✓ docs:check ✓ (<n> tests)
 Commits: <count> (<original> original + <fix> fixes)
 Issues fixed: <count>
 Remaining: <count> (manual review suggested)
-DCC system: <no usages affected / call sites listed / vendor sync needed>
+DCC system: <no usages affected / call sites listed / vendor sync needed / not run (no checkout)>
 Status: Ready for review / Needs attention
 ```
 

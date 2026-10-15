@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pnpm exec vitest run src/*)",
+      "Bash(git fetch)",
+      "Bash(git fetch *)",
+      "Bash(gh run watch *)",
+      "Bash(pnpm run check)",
+      "Bash(pnpm run test)",
+      "Bash(pnpm run typecheck)",
+      "Bash(pnpm run lint)"
+    ]
+  }
+}

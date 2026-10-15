@@ -10,9 +10,7 @@ CONTRIBUTING.md, "How a fix reaches the DCC system"):
 
 - On every push to `main`, the `Create Release` workflow runs checks, builds,
   and creates a **draft** GitHub release `v<package.json version>` if none
-  exists for that version.
-- If that release already exists, the workflow opens an automatic
-  `release/bump-vX.Y.Z` PR that bumps the **patch** version instead.
+  exists for that version. Otherwise it does nothing.
 - **Publishing** the draft triggers `Publish to GitHub Packages`. That is the
   maintainer's call, never this skill's.
 
@@ -88,7 +86,6 @@ style of #22:
   notes under `[<version>] - <date>`)
 - Why minor vs. patch, listing the breaking changes if minor
 - `Included:` — one bullet per PR (`#N short description`), grouping tooling
-- If an automatic `release/bump-v*` PR is open, say this release supersedes it
 - That merging creates the draft release `v<version>`, and publishing that
   draft publishes the package
 - The session's PR attribution lines
@@ -100,14 +97,6 @@ Wait for CI (`gh pr checks <N> --watch`), then squash-merge it:
 ```bash
 gh pr merge <N> --squash --delete-branch
 git checkout main && git pull
-```
-
-Then close any open automatic bump PR it supersedes (the `release/bump-v*`
-PR from Step 4), with a comment:
-
-```bash
-gh pr list --state open --search "head:release/bump-v"
-gh pr close <M> --delete-branch --comment "Superseded by #<N> (release <version>)."
 ```
 
 ## 6. Wait for the draft release
@@ -171,6 +160,6 @@ sync from this repo.
 
 - Never publish/promote a release unless the maintainer explicitly says to.
 - Never push directly to `main`; the version bump always goes through the
-  release PR.
+  release PR. Nothing else bumps the version.
 - Never bump the version in a feature PR (the `/pr` skill doesn't).
 - If a workflow fails, check its logs with `gh run view --log-failed`.

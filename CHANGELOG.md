@@ -7,18 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.14.3] - 2026-10-07
+
 ### Added
 
 - **`CasterProfile.losesSpellOnFailure`** (optional) and **`losesSpellOnFailure(profile)`.**
   Whether a failed spell check loses the spell for the day: `true` for wizard
   and elf, `false` for cleric. When omitted, casters that use disapproval keep
   the spell and all others lose it.
-
-- **`applyTwoWeaponHandRules(result, config, hand, targetAC?)`.** Applies one
-  hand's Table 4-3 critical-hit rules to an attack rolled on its own, for
-  consumers that roll each two-weapon hand separately instead of through
-  `rollTwoWeaponAttack`. On the Agl 16-17 row, only the reduced die's
-  natural max can crit, so a threat-range crit below the max is now stripped.
 
 ### Fixed
 
@@ -37,11 +33,27 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   profile; without one, only the `lost` tier counts. `invokePatron` also loses
   the spell on any failed check, not just a fumble.
 
+## [0.14.2] - 2026-10-07
+
+### Added
+
+- **`applyTwoWeaponHandRules(result, config, hand, targetAC?)`.** Applies one
+  hand's Table 4-3 critical-hit rules to an attack rolled on its own, for
+  consumers that roll each two-weapon hand separately instead of through
+  `rollTwoWeaponAttack`. On the Agl 16-17 row, only the reduced die's
+  natural max can crit, so a threat-range crit below the max is now stripped.
+
+### Fixed
+
 - **Two-weapon Agl 18+ primary keeps an improved threat range.**
-  `rollTwoWeaponAttack` clamped every hand's threat range to 20. Table 4-3's
-  18+ row lets the primary hand crit normally, so a
-  warrior's 19-20 range now applies. The other rows don't need the clamp:
-  those hands either can't crit or crit only on the die's natural max.
+  `rollTwoWeaponAttack` clamped every hand's threat range to 20. Under
+  Table 4-3's 18+ row the primary hand crits normally, so a warrior's 19-20
+  range now applies. The other rows don't need the clamp: those hands either
+  can't crit or crit only on the die's natural max.
+
+## [0.14.1] - 2026-10-05
+
+### Fixed
 
 - **Disapproval table miss no longer returns English text.** When the
   disapproval roll is above the table's last row, `rollDisapproval` used to

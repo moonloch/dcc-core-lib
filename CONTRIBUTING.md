@@ -38,7 +38,7 @@ docs(readme): ...
 chore: ...
 ```
 
-Common scopes: `character`, `checks`, `cleric`, `combat`, `dice`, `data`, `patron`, `skills`, `spells`, `tables`, `types`. Mark breaking API changes with `!` and explain the migration in the PR body. Add a line to `CHANGELOG.md` under the unreleased section for user-visible changes.
+Common scopes: `adventure`, `character`, `checks`, `cleric`, `combat`, `dice`, `data`, `occupation`, `parsers`, `patron`, `skills`, `spells`, `tables`, `types` (plus `docs`, `readme`, `changelog` for documentation). Mark breaking API changes with `!` and explain the migration in the PR body. Add a line to `CHANGELOG.md` under the unreleased section for user-visible changes.
 
 ## Copyright separation
 

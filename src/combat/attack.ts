@@ -595,7 +595,7 @@ function emitTwoWeaponEvents(
  * {@link AttackResult.deedSuccess} accounts for.
  *
  * @param deedRoll - The deed die roll result
- * @returns Whether the deed succeeded
+ * @returns Whether the deed die shows 3+
  */
 export function isDeedSuccessful(deedRoll: number): boolean {
   return deedRoll >= 3;

@@ -954,6 +954,24 @@ describe("Attack System", () => {
       expect(result.primary.isCriticalThreat).toBe(true);
     });
 
+    it("halfling Agl 16-17: a natural max auto-hits, so its 3+ deed succeeds against any AC", () => {
+      // Primary d16 natural 16 with a d4 deed of 3: total 19 < AC 30, but the
+      // halfling natural max on the reduced die auto-hits, so the deed holds.
+      const roller = createSequenceRoller([16, 3, 1]); // primary, primary deed, off-hand
+      const result = rollTwoWeaponAttack({
+        agility: 16,
+        isHalfling: true,
+        baseActionDie: "d20",
+        primary: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0, deedDie: "d4", targetAC: 30 },
+        offHand: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0, targetAC: 30 },
+      }, roller);
+
+      expect(result.primary.roll.die).toBe("d16");
+      expect(result.primary.total).toBe(19);
+      expect(result.primary.isHit).toBe(true);
+      expect(result.primary.deedSuccess).toBe(true);
+    });
+
     it("passes each hand's fumbleRange through to its attack roll", () => {
       // Primary carries a cursed weapon that fumbles on 1-2; off-hand
       // is normal. Both hands roll a natural 2.

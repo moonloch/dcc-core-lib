@@ -2551,7 +2551,7 @@ die only: the deed itself also needs the attack to hit, which
 
 `boolean`
 
-Whether the deed succeeded
+Whether the deed die shows 3+
 
 ***
 

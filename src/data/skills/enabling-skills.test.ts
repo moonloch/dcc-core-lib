@@ -29,8 +29,7 @@ import {
   getTwoWeaponInitBonus,
   // Luck Recovery functions
   canRecoverLuck,
-  getHalflingDailyLuckRecovery,
-  thiefShouldRecoverLuck,
+  nightlyLuckRecovery,
   // Luck Sharing functions
   canShareLuck,
   // Registry functions
@@ -296,24 +295,33 @@ describe("Enabling Skills", () => {
     });
   });
 
-  describe("getHalflingDailyLuckRecovery", () => {
-    it("returns 1", () => {
-      expect(getHalflingDailyLuckRecovery()).toBe(1);
+  describe("nightlyLuckRecovery", () => {
+    it("restores one point per level", () => {
+      expect(nightlyLuckRecovery({ level: 1, current: 9, max: 11 })).toBe(10);
+      expect(nightlyLuckRecovery({ level: 4, current: 5, max: 14 })).toBe(9);
+    });
+
+    it("caps at the natural maximum", () => {
+      expect(nightlyLuckRecovery({ level: 3, current: 9, max: 11 })).toBe(11);
+    });
+
+    it("leaves a score at or above the maximum unchanged", () => {
+      expect(nightlyLuckRecovery({ level: 2, current: 11, max: 11 })).toBe(11);
+      expect(nightlyLuckRecovery({ level: 2, current: 13, max: 11 })).toBe(13);
+    });
+
+    it("does not recover on a level below 1", () => {
+      expect(nightlyLuckRecovery({ level: 0, current: 9, max: 11 })).toBe(9);
     });
   });
 
-  describe("thiefShouldRecoverLuck", () => {
-    it("returns true on natural 20 with thief skill", () => {
-      expect(thiefShouldRecoverLuck(20, true)).toBe(true);
-    });
-
-    it("returns false on non-20 with thief skill", () => {
-      expect(thiefShouldRecoverLuck(19, true)).toBe(false);
-      expect(thiefShouldRecoverLuck(1, true)).toBe(false);
-    });
-
-    it("returns false on natural 20 with non-thief skill", () => {
-      expect(thiefShouldRecoverLuck(20, false)).toBe(false);
+  describe("LUCK_RECOVERY data", () => {
+    it("recovers by level nightly, with no natural-20 trigger", () => {
+      const data = LUCK_RECOVERY.enables?.data;
+      expect(LUCK_RECOVERY.enables?.condition).toBe("nightly");
+      expect(data?.["pointsPerLevel"]).toBe(1);
+      expect(data).not.toHaveProperty("thiefTrigger");
+      expect(data).not.toHaveProperty("halflingDailyRecovery");
     });
   });
 
@@ -327,20 +335,25 @@ describe("Enabling Skills", () => {
   });
 
   describe("canShareLuck", () => {
-    it("returns true for halfling within 30 feet", () => {
-      expect(canShareLuck("halfling", 30)).toBe(true);
-      expect(canShareLuck("halfling", 15)).toBe(true);
-      expect(canShareLuck("halfling", 0)).toBe(true);
+    it("has no built-in range", () => {
+      expect(canShareLuck("halfling")).toBe(true);
+      expect(canShareLuck("halfling", { distanceToAlly: 500 })).toBe(true);
+      expect(LUCK_SHARING.enables?.data).not.toHaveProperty("range");
     });
 
-    it("returns false for halfling beyond 30 feet", () => {
-      expect(canShareLuck("halfling", 31)).toBe(false);
-      expect(canShareLuck("halfling", 100)).toBe(false);
+    it("requires the ally to be visible", () => {
+      expect(canShareLuck("halfling", { allyVisible: true })).toBe(true);
+      expect(canShareLuck("halfling", { allyVisible: false })).toBe(false);
+    });
+
+    it("applies a caller-supplied range", () => {
+      expect(canShareLuck("halfling", { distanceToAlly: 30, maxRange: 30 })).toBe(true);
+      expect(canShareLuck("halfling", { distanceToAlly: 31, maxRange: 30 })).toBe(false);
     });
 
     it("returns false for non-halfling", () => {
-      expect(canShareLuck("thief", 10)).toBe(false);
-      expect(canShareLuck("warrior", 10)).toBe(false);
+      expect(canShareLuck("thief")).toBe(false);
+      expect(canShareLuck("warrior")).toBe(false);
     });
   });
 

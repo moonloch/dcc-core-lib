@@ -646,6 +646,86 @@ Defined in: [data/names.ts:60](https://github.com/moonloch/dcc-core-lib/blob/mai
 
 The ancestry used
 
+***
+
+### NightlyLuckRecoveryInput
+
+Defined in: [data/skills/enabling-skills.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L350)
+
+Input to [nightlyLuckRecovery](#nightlyluckrecovery).
+
+#### Properties
+
+##### level
+
+```ts
+level: number;
+```
+
+Defined in: [data/skills/enabling-skills.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L352)
+
+The character's class level.
+
+##### current
+
+```ts
+current: number;
+```
+
+Defined in: [data/skills/enabling-skills.ts:354](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L354)
+
+The character's current Luck score.
+
+##### max
+
+```ts
+max: number;
+```
+
+Defined in: [data/skills/enabling-skills.ts:356](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L356)
+
+The character's natural maximum Luck score.
+
+***
+
+### ShareLuckOptions
+
+Defined in: [data/skills/enabling-skills.ts:406](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L406)
+
+Optional conditions for [canShareLuck](#canshareluck).
+
+#### Properties
+
+##### allyVisible?
+
+```ts
+optional allyVisible?: boolean;
+```
+
+Defined in: [data/skills/enabling-skills.ts:408](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L408)
+
+Whether the ally is nearby and visible to the halfling. Default true.
+
+##### distanceToAlly?
+
+```ts
+optional distanceToAlly?: number;
+```
+
+Defined in: [data/skills/enabling-skills.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L410)
+
+Distance to the ally. Only checked when `maxRange` is also given.
+
+##### maxRange?
+
+```ts
+optional maxRange?: number;
+```
+
+Defined in: [data/skills/enabling-skills.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L412)
+
+A table's own range limit. The rules set none, so there is no default.
+
 ## Type Aliases
 
 ### Ancestry
@@ -871,9 +951,9 @@ Defined in: [data/skills/enabling-skills.ts:323](https://github.com/moonloch/dcc
 
 Luck Recovery
 
-Thieves and halflings can recover spent luck points. Thieves recover
-luck when they succeed at certain thief skills. Halflings can share
-their luck recovery with nearby allies.
+Thieves and halflings regain spent Luck overnight: one point per class
+level, never past the character's natural maximum (DCC RPG core rules,
+Thief and Halfling class text).
 
 ***
 
@@ -883,11 +963,13 @@ their luck recovery with nearby allies.
 const LUCK_SHARING: SkillDefinition;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:381](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L381)
+Defined in: [data/skills/enabling-skills.ts:383](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L383)
 
 Luck Sharing (Halfling)
 
-Halflings can spend their luck to aid allies within 30 feet.
+A halfling can spend Luck on behalf of an ally who is nearby and
+visible to them, even outside their turn in the initiative order.
+Only one halfling in a party can do this. There is no fixed range.
 
 ***
 
@@ -897,7 +979,7 @@ Halflings can spend their luck to aid allies within 30 feet.
 const ENABLING_SKILLS: Record<string, SkillDefinition>;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L424)
+Defined in: [data/skills/enabling-skills.ts:437](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L437)
 
 All enabling skills indexed by ID
 
@@ -909,7 +991,7 @@ All enabling skills indexed by ID
 const ENABLING_SKILL_IDS: string[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L436)
+Defined in: [data/skills/enabling-skills.ts:449](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L449)
 
 List of enabling skill IDs
 
@@ -2358,7 +2440,7 @@ Get the initiative bonus for two-weapon fighting from skill definition
 function canRecoverLuck(classId: string): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L347)
+Defined in: [data/skills/enabling-skills.ts:345](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L345)
 
 Check if a character can recover luck
 
@@ -2374,15 +2456,25 @@ Check if a character can recover luck
 
 ***
 
-### getHalflingDailyLuckRecovery()
+### nightlyLuckRecovery()
 
 ```ts
-function getHalflingDailyLuckRecovery(): number;
+function nightlyLuckRecovery(input: NightlyLuckRecoveryInput): number;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:354](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L354)
+Defined in: [data/skills/enabling-skills.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L366)
 
-Get daily luck recovery amount for halflings from skill definition
+Luck score after a night's rest for a class that recovers Luck: the
+current score plus one point per level, capped at the natural maximum.
+A score already at or above the maximum is left unchanged. Callers
+decide whether the character recovers Luck at all (see
+[canRecoverLuck](#canrecoverluck)).
+
+#### Parameters
+
+| Parameter | Type |
+| ------ | ------ |
+| `input` | [`NightlyLuckRecoveryInput`](#nightlyluckrecoveryinput) |
 
 #### Returns
 
@@ -2390,45 +2482,25 @@ Get daily luck recovery amount for halflings from skill definition
 
 ***
 
-### thiefShouldRecoverLuck()
-
-```ts
-function thiefShouldRecoverLuck(naturalRoll: number, isThiefSkill: boolean): boolean;
-```
-
-Defined in: [data/skills/enabling-skills.ts:368](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L368)
-
-Check if a thief should recover luck (on natural 20 of thief skill)
-
-#### Parameters
-
-| Parameter | Type |
-| ------ | ------ |
-| `naturalRoll` | `number` |
-| `isThiefSkill` | `boolean` |
-
-#### Returns
-
-`boolean`
-
-***
-
 ### canShareLuck()
 
 ```ts
-function canShareLuck(classId: string, distanceToAlly: number): boolean;
+function canShareLuck(classId: string, options?: ShareLuckOptions): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:404](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L404)
+Defined in: [data/skills/enabling-skills.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L421)
 
-Check if a halfling can share luck with an ally
+Check if a character can share Luck with an ally. The class must have
+[LUCK\_SHARING](#luck_sharing) and the ally must be visible. A range applies only
+when the caller supplies `maxRange`. The one-halfling-per-party limit
+is left to the caller.
 
 #### Parameters
 
 | Parameter | Type |
 | ------ | ------ |
 | `classId` | `string` |
-| `distanceToAlly` | `number` |
+| `options?` | [`ShareLuckOptions`](#shareluckoptions) |
 
 #### Returns
 
@@ -2442,7 +2514,7 @@ Check if a halfling can share luck with an ally
 function getEnablingSkillsForClass(classId: string): SkillDefinition[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L441)
+Defined in: [data/skills/enabling-skills.ts:454](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L454)
 
 Get all enabling skills for a given class
 
@@ -2464,7 +2536,7 @@ Get all enabling skills for a given class
 function classHasEnablingSkill(classId: string, skillId: string): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L450)
+Defined in: [data/skills/enabling-skills.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L463)
 
 Check if a class has a specific enabling skill
 

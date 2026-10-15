@@ -7,6 +7,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **BREAKING: Luck helpers follow the core book.** Thieves and halflings regain
+  Luck each night, one point per class level, capped at the natural maximum.
+  - New `nightlyLuckRecovery({ level, current, max })` returns the Luck score
+    after a night's rest.
+  - Removed `thiefShouldRecoverLuck`: no rule ties recovery to a natural 20.
+  - Removed `getHalflingDailyLuckRecovery`: recovery is by level, not 1 a day.
+  - `canShareLuck(classId, options?)` no longer takes a distance and has no
+    built-in 30-foot range. The ally must be visible (`allyVisible`), and a
+    range applies only when the caller passes `maxRange` with `distanceToAlly`.
+  - `LUCK_RECOVERY` and `LUCK_SHARING` descriptions and `enables.data` are
+    updated to match.
+
 ## [0.14.4] - 2026-10-15
 
 ### Changed

@@ -281,7 +281,7 @@ export function peekExportedCharacter(json: string): PeekResult {
     return {
       valid: true,
       version: obj["version"] as string | undefined,
-      format: obj["format"] as string,
+      format: obj["format"],
       exportedAt: obj["exportedAt"] as string | undefined,
       characterName: identity?.["name"] as string | undefined,
       occupation: identity?.["occupation"] as string | undefined,

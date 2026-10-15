@@ -783,12 +783,8 @@ describe("Integration: Party vs Goblins Combat", () => {
     const cleric = createTestCharacter("Hektor", 3, 14, { per: 16, sta: 12, lck: 10 });
     // Goblins have 4 HP and 5 HP respectively, Will save +0
 
-    // Track combat state
-    let goblin1Alive = true;
-    let goblin2Alive = true;
-
     // Track goblin group morale
-    let goblinMorale = createGroupMoraleState(2);
+    const goblinMorale = createGroupMoraleState(2);
 
     // Round 1: Roll initiative
     const initRoller = createSequenceRoller([14, 10, 16, 8]);
@@ -846,13 +842,13 @@ describe("Integration: Party vs Goblins Combat", () => {
     const kragDamage = rollDamage({ damageDie: "d8", strengthModifier: 3, deedDieResult: 5 }, createMockRoller(7));
     // 7 + 3 + 5 = 15 damage, goblin has 4 HP - definitely dead
     expect(kragDamage.total).toBe(15);
-    goblin1Alive = false;
+    const goblin1Alive = false;
 
     // MORALE CHECK: First goblin dies - check for morale trigger
     const moraleTrigger1 = checkGroupMoraleTrigger(goblinMorale, 1);
     expect(moraleTrigger1).toBeDefined();
     expect(moraleTrigger1?.trigger).toBe("first-ally-slain");
-    goblinMorale = moraleTrigger1?.newState ?? goblinMorale;
+    expect(moraleTrigger1?.newState).toBeDefined();
 
     // Remaining goblin makes morale check (rolls 14, +0 Will = 14 vs DC 11 - passes!)
     const moraleRoller = createMockRoller(14);
@@ -896,7 +892,7 @@ describe("Integration: Party vs Goblins Combat", () => {
     const finalDamage = rollDamage({ damageDie: "d8", strengthModifier: 3 }, createMockRoller(6));
     // 6 + 3 = 9 damage, goblin has 5 HP - dead
     expect(finalDamage.total).toBe(9);
-    goblin2Alive = false;
+    const goblin2Alive = false;
 
     // Combat over!
     expect(goblin1Alive).toBe(false);
@@ -966,12 +962,12 @@ describe("Integration: Party vs Goblins Combat", () => {
     const warrior = createTestCharacter("Theron", 4, 24, { str: 16, sta: 14 });
 
     // 4 bandits, Will save +0, not particularly motivated
-    let banditMorale = createGroupMoraleState(4);
+    const banditMorale = createGroupMoraleState(4);
 
     // Warrior kills first bandit with a devastating blow
     const trigger1 = checkGroupMoraleTrigger(banditMorale, 1);
     expect(trigger1?.trigger).toBe("first-ally-slain");
-    banditMorale = trigger1?.newState ?? banditMorale;
+    expect(trigger1?.newState).toBeDefined();
 
     // First morale check - bandits roll 8, +0 Will = 8 vs DC 11 - FAIL!
     const moraleRoller1 = createMockRoller(8);
@@ -997,7 +993,7 @@ describe("Integration: Party vs Goblins Combat", () => {
 
   it("should handle golem immunity to morale", () => {
     // Setup: Party fights iron golems
-    let golemMorale = createGroupMoraleState(2);
+    const golemMorale = createGroupMoraleState(2);
 
     // Check if golems are immune
     const isGolemImmune = isImmuneToMorale("iron golem");
@@ -1006,7 +1002,7 @@ describe("Integration: Party vs Goblins Combat", () => {
     // Party destroys one golem
     const trigger = checkGroupMoraleTrigger(golemMorale, 1);
     expect(trigger?.trigger).toBe("first-ally-slain");
-    golemMorale = trigger?.newState ?? golemMorale;
+    expect(trigger?.newState).toBeDefined();
 
     // Golem morale check - immune, so auto-passes
     const golemMoraleCheck = makeMoraleCheck({

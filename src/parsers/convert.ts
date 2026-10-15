@@ -292,7 +292,7 @@ function parseActionDice(attackDice?: string): DieType[] {
     if (match?.[2]) {
       return match[2] as DieType;
     }
-    return "d20" as DieType;
+    return "d20";
   });
 
   return dice.length > 0 ? dice : ["d20"];

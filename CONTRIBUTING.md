@@ -71,10 +71,10 @@ The DCC system does not install this package from a registry; it **vendors** the
 3. **Sync the vendored copy in the system repo.** In a checkout of [foundryvtt-dcc/dcc](https://github.com/foundryvtt-dcc/dcc), with this repo checked out at the merged commit:
 
    ```bash
-   DCC_CORE_LIB_SRC=/path/to/your/dcc-core-lib ppnpm run sync-core-lib
+   DCC_CORE_LIB_SRC=/path/to/your/dcc-core-lib pnpm run sync-core-lib
    ```
 
-   `scripts/sync-core-lib.mjs` runs `npm run build` in the lib checkout, copies `dist/` into `module/vendor/dcc-core-lib/`, and writes `VERSION.json` with the source commit SHA. Commit the vendor diff (e.g. `vendor: sync dcc-core-lib to 0.14.4 (abc1234)`) in a system PR, and remove any temporary adapter workaround that the lib fix makes unnecessary. The system repo's `.claude/skills/sync-core-lib/SKILL.md` describes the same procedure. The script still calls `npm run build` rather than `pnpm run build`; that works because `build` is a plain script, and the system repo may switch it to pnpm later.
+   `scripts/sync-core-lib.mjs` runs `pnpm run build` in the lib checkout (run `pnpm install` there first so its dependencies are current), copies `dist/` into `module/vendor/dcc-core-lib/`, and writes `VERSION.json` with the source commit SHA. Commit the vendor diff (e.g. `vendor: sync dcc-core-lib to 0.15.0 (abc1234)`) in a system PR, and remove any temporary adapter workaround that the lib fix makes unnecessary. The system repo's `.claude/skills/sync-core-lib/SKILL.md` describes the same procedure.
 
 If you need a system-side workaround while the lib PR is in review, keep it small, mark it as temporary, and reference the lib PR so it can be removed after the sync.
 

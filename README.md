@@ -37,6 +37,8 @@ Each GitHub release publishes `@moonloch/dcc-core-lib` to GitHub Packages. GitHu
 ```
 
 ```bash
+pnpm add @moonloch/dcc-core-lib
+# or
 npm install @moonloch/dcc-core-lib
 ```
 
@@ -45,8 +47,8 @@ npm install @moonloch/dcc-core-lib
 ```bash
 git clone https://github.com/moonloch/dcc-core-lib.git
 cd dcc-core-lib
-npm ci
-npm run build   # emits dist/
+pnpm install --frozen-lockfile
+pnpm run build   # emits dist/
 ```
 
 ## Quick start
@@ -105,7 +107,7 @@ Everything is exported from the package root. Each module has a generated API pa
 | `adventure` | Encounter and narrative helpers for running adventures | [adventure.md](docs/api/adventure.md) |
 | `types` | Shared types, including `RollModifier`, `Character` and `SystemConfig` | [types.md](docs/api/types.md) |
 
-`dist/dcc-core-lib.d.ts`, produced by `npm run build`, holds the whole public surface in one declaration file. It is the best single input for editors, tooling and LLM-assisted callers; [llms.txt](llms.txt) indexes the docs for the same purpose.
+`dist/dcc-core-lib.d.ts`, produced by `pnpm run build`, holds the whole public surface in one declaration file. It is the best single input for editors, tooling and LLM-assisted callers; [llms.txt](llms.txt) indexes the docs for the same purpose.
 
 ## Copyright separation
 
@@ -124,20 +126,20 @@ DCC RPG is © Goodman Games. This repository contains logic, types, loaders, and
 ## Development
 
 ```bash
-npm run check        # Lint + typecheck + tests (what CI and the pre-push hook run)
-npm run build        # Compile TypeScript to dist/
-npm run lint         # Run ESLint
-npm run lint:fix     # Run ESLint with auto-fix
-npm run test         # Run tests once
-npm run test:watch   # Run tests in watch mode
-npm run typecheck    # Type-check without emitting
-npm run clean        # Remove dist/
+pnpm run check        # Lint + typecheck + tests (what CI and the pre-push hook run)
+pnpm run build        # Compile TypeScript to dist/
+pnpm run lint         # Run ESLint
+pnpm run lint:fix     # Run ESLint with auto-fix
+pnpm run test         # Run tests once
+pnpm run test:watch   # Run tests in watch mode
+pnpm run typecheck    # Type-check without emitting
+pnpm run clean        # Remove dist/
 ```
 
 Run a single test file:
 
 ```bash
-npx vitest run src/path/to/file.test.ts
+pnpm exec vitest run src/path/to/file.test.ts
 ```
 
 ## Contributing
@@ -148,7 +150,7 @@ Bug reports and pull requests are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) is
 - **Open an issue first** for anything bigger than a bug fix, so the approach is agreed before you write code.
 - **Ship a regression test** with every bug fix. It must fail before the fix and pass after it.
 - **Keep book text and data out.** Cite a rule by table and page number; never paste it.
-- **Run `npm run check`** before you push. CI runs the same command.
+- **Run `pnpm run check`** before you push. CI runs the same command.
 - **Use conventional commits**, with the module as the scope, such as `fix(combat): ...`.
 - **AI-assisted contributions are welcome** under the [LLM contribution policy](CONTRIBUTING.md#ai-and-llm-assisted-contributions). You must review and understand every line, disclose substantial AI use, and never let a model supply rulebook text or values.
 

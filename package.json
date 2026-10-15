@@ -23,16 +23,16 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc -p tsconfig.build.json && npm run build:dts",
+    "build": "tsc -p tsconfig.build.json && pnpm run build:dts",
     "build:dts": "dts-bundle-generator --no-check --export-referenced-types --out-file dist/dcc-core-lib.d.ts src/index.ts",
-    "check": "npm run lint && npm run typecheck && npm run test",
+    "check": "pnpm run lint && pnpm run typecheck && pnpm run test",
     "clean": "rm -rf dist",
     "docs:api": "typedoc",
-    "docs:check": "npm run docs:api && git diff --exit-code --stat docs/api",
+    "docs:check": "pnpm run docs:api && git diff --exit-code --stat docs/api",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
     "prepare": "husky",
-    "prepublishOnly": "npm run build",
+    "prepublishOnly": "pnpm run build",
     "test": "vitest run",
     "test:watch": "vitest",
     "typecheck": "tsc --noEmit"
@@ -66,5 +66,6 @@
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.15.0",
     "vitest": "^2.1.6"
-  }
+  },
+  "packageManager": "pnpm@12.4.2"
 }

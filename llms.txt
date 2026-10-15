@@ -2,7 +2,7 @@
 
 > Pure-function TypeScript library for Dungeon Crawl Classics RPG game logic: dice chain, checks and saves, skills, spells, combat, character creation and advancement, cleric, patron, occupation and adventure helpers. No platform dependencies. Contains no official rulebook data; callers register their own licensed data.
 
-The public surface is the set of exports from `src/index.ts`. The most precise, complete description is the generated declaration file: `dist/dcc-core-lib.d.ts` (one file, produced by `npm run build`). The generated markdown under `docs/api/` carries the same signatures and doc comments, one page per module.
+The public surface is the set of exports from `src/index.ts`. The most precise, complete description is the generated declaration file: `dist/dcc-core-lib.d.ts` (one file, produced by `pnpm run build`). The generated markdown under `docs/api/` carries the same signatures and doc comments, one page per module.
 
 ## Reference
 

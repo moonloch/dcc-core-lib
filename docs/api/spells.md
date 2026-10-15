@@ -1688,7 +1688,7 @@ The spell being attacked with
 
 ### ResolveExchangeOptions
 
-Defined in: [spells/spell-duel.ts:605](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L605)
+Defined in: [spells/spell-duel.ts:614](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L614)
 
 Options for resolving a counterspell exchange
 
@@ -1700,7 +1700,7 @@ Options for resolving a counterspell exchange
 optional roller?: DiceRoller;
 ```
 
-Defined in: [spells/spell-duel.ts:607](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L607)
+Defined in: [spells/spell-duel.ts:616](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L616)
 
 Optional dice roller
 
@@ -1710,7 +1710,7 @@ Optional dice roller
 optional tables?: SpellDuelTables;
 ```
 
-Defined in: [spells/spell-duel.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L609)
+Defined in: [spells/spell-duel.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L618)
 
 Optional custom tables (for official tables)
 
@@ -1955,12 +1955,13 @@ loop forever.
 const DEFAULT_COUNTERSPELL_POWER_TABLE: CounterspellPowerTable;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L153)
+Defined in: [spells/spell-duel-tables.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L154)
 
 Default counterspell power table (fan-made)
 
 This provides a balanced set of outcomes for spell duels.
-Lower results favor the defender, higher results favor the attacker.
+In each column, higher results favor whoever won the exchange: the
+momentum modifier is the winner's momentum minus the loser's.
 
 ***
 
@@ -1970,7 +1971,7 @@ Lower results favor the defender, higher results favor the attacker.
 const DEFAULT_PHLOGISTON_DISTURBANCE_TABLE: PhlogistonDisturbanceTable;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L310)
+Defined in: [spells/spell-duel-tables.ts:311](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L311)
 
 Default phlogiston disturbance table (fan-made)
 
@@ -1985,7 +1986,7 @@ Roll d20 to determine the effect.
 const DEFAULT_SPELL_DUEL_TABLES: SpellDuelTables;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L421)
+Defined in: [spells/spell-duel-tables.ts:422](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L422)
 
 Default spell duel tables (fan-made)
 
@@ -4181,7 +4182,7 @@ Otherwise, the difference determines the die size to roll.
 function lookupCounterspellPowerEntry(table: CounterspellPowerEntry[], roll: number): CounterspellPowerEntry;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:434](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L434)
+Defined in: [spells/spell-duel-tables.ts:435](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L435)
 
 Look up a counterspell power entry by roll value
 
@@ -4204,7 +4205,7 @@ Look up a counterspell power entry by roll value
 function lookupPhlogistonDisturbanceEntry(table: PhlogistonDisturbanceTable, roll: number): PhlogistonDisturbanceEntry;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:454](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L454)
+Defined in: [spells/spell-duel-tables.ts:455](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L455)
 
 Look up a phlogiston disturbance entry by roll value
 
@@ -4232,7 +4233,7 @@ function entryToCounterspellPowerResult(
 ): CounterspellPowerResult;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:474](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L474)
+Defined in: [spells/spell-duel-tables.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L475)
 
 Convert a counterspell power entry to the full result format
 
@@ -4257,7 +4258,7 @@ Convert a counterspell power entry to the full result format
 function entryToPhlogistonDisturbanceResult(entry: PhlogistonDisturbanceEntry, roll: number): PhlogistonDisturbanceResult;
 ```
 
-Defined in: [spells/spell-duel-tables.ts:496](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L496)
+Defined in: [spells/spell-duel-tables.ts:497](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L497)
 
 Convert a phlogiston disturbance entry to the full result format
 
@@ -4339,17 +4340,19 @@ Compare spell checks and determine the die to roll
 function rollCounterspellPower(
    comparisonDie: ComparisonDie, 
    attackerHigh: boolean, 
-   momentumDifference: number, 
+   momentumModifier: number, 
    roller?: DiceRoller, 
    table?: CounterspellPowerTable
 ): CounterspellPowerResult;
 ```
 
-Defined in: [spells/spell-duel.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L386)
+Defined in: [spells/spell-duel.ts:388](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L388)
 
 Table 4-6: Counterspell Power results
 
-Roll is modified by the difference between momentum trackers
+The roll is modified by the winner's momentum minus the loser's (Table 4-6
+and the spell duel rules, core book p. 98), so it is negative when the
+winner of this exchange trails on momentum.
 If attacker high, use "Attacker High" column
 If defender high, use "Defender High" column
 
@@ -4359,7 +4362,7 @@ If defender high, use "Defender High" column
 | ------ | ------ | ------ |
 | `comparisonDie` | [`ComparisonDie`](#comparisondie) | The die to roll (from Table 4-5) |
 | `attackerHigh` | `boolean` | Whether the attacker had the higher spell check |
-| `momentumDifference` | `number` | Absolute difference between momentum trackers |
+| `momentumModifier` | `number` | The winner's momentum minus the loser's |
 | `roller?` | [`DiceRoller`](types.md#diceroller) | Optional dice roller |
 | `table?` | [`CounterspellPowerTable`](#counterspellpowertable) | Optional custom table data (for official tables) |
 
@@ -4375,12 +4378,17 @@ If defender high, use "Defender High" column
 function rollPhlogistonDisturbance(roller?: DiceRoller, table?: PhlogistonDisturbanceTable): PhlogistonDisturbanceResult;
 ```
 
-Defined in: [spells/spell-duel.ts:429](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L429)
+Defined in: [spells/spell-duel.ts:435](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L435)
 
 Roll on Table 4-7: Phlogiston Disturbance
 
 This occurs when both spell checks are identical
 Dangerous magical effects can occur
+
+The die matches the table: its size is the highest `max` in the table, so
+the core book's Table 4-7 (p. 98) rolls a d10 and the default placeholder
+table rolls a d20. Rows must therefore cover 1 to the die size exactly, with
+no catch-all row (such as `max: 100`) at the end.
 
 #### Parameters
 
@@ -4407,7 +4415,7 @@ function createSpellDuelState(participants: {
 }[]): SpellDuelState;
 ```
 
-Defined in: [spells/spell-duel.ts:453](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L453)
+Defined in: [spells/spell-duel.ts:462](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L462)
 
 Create initial spell duel state
 
@@ -4435,7 +4443,7 @@ function createSpellDuelParticipant(
 ): SpellDuelParticipant;
 ```
 
-Defined in: [spells/spell-duel.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L475)
+Defined in: [spells/spell-duel.ts:484](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L484)
 
 Create a spell duel participant
 
@@ -4465,7 +4473,7 @@ function checkSpellLostInDuel(
 ): boolean;
 ```
 
-Defined in: [spells/spell-duel.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L495)
+Defined in: [spells/spell-duel.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L504)
 
 Determine if a spell is lost based on the initial check (spell duel context)
 
@@ -4489,7 +4497,7 @@ Determine if a spell is lost based on the initial check (spell duel context)
 function canCounter(attackSpell: SpellDuelSpell, counterSpell: SpellDuelSpell): boolean;
 ```
 
-Defined in: [spells/spell-duel.ts:513](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L513)
+Defined in: [spells/spell-duel.ts:522](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L522)
 
 Check if a defending spell can counter an attacking spell
 
@@ -4512,7 +4520,7 @@ Check if a defending spell can counter an attacking spell
 function isSamePatronInvocation(attackSpell: SpellDuelSpell, counterSpell: SpellDuelSpell): boolean;
 ```
 
-Defined in: [spells/spell-duel.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L555)
+Defined in: [spells/spell-duel.ts:564](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L564)
 
 Check if two invoke patron spells are for the same patron (auto-cancel)
 
@@ -4540,7 +4548,7 @@ function makeSpellDuelCheck(
 ): SpellDuelCheck;
 ```
 
-Defined in: [spells/spell-duel.ts:577](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L577)
+Defined in: [spells/spell-duel.ts:586](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L586)
 
 Make a spell check for a duel participant
 
@@ -4574,7 +4582,7 @@ function resolveCounterspellExchange(
 ): CounterspellExchangeResult;
 ```
 
-Defined in: [spells/spell-duel.ts:622](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L622)
+Defined in: [spells/spell-duel.ts:631](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L631)
 
 Resolve a counterspell exchange between attacker and defender
 
@@ -4601,7 +4609,7 @@ Resolve a counterspell exchange between attacker and defender
 function applyExchangeResult(state: SpellDuelState, result: CounterspellExchangeResult): SpellDuelState;
 ```
 
-Defined in: [spells/spell-duel.ts:737](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L737)
+Defined in: [spells/spell-duel.ts:748](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L748)
 
 Apply a counterspell exchange result to update the duel state
 
@@ -4624,7 +4632,7 @@ Apply a counterspell exchange result to update the duel state
 function getInitiativeOrder(state: SpellDuelState): SpellDuelParticipant[];
 ```
 
-Defined in: [spells/spell-duel.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L761)
+Defined in: [spells/spell-duel.ts:772](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L772)
 
 Get participants sorted by initiative (highest first)
 
@@ -4650,7 +4658,7 @@ function canCounterspellByInitiative(
 ): boolean;
 ```
 
-Defined in: [spells/spell-duel.ts:769](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L769)
+Defined in: [spells/spell-duel.ts:780](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L780)
 
 Check if a participant can counterspell based on initiative
 A caster can only counterspell someone with higher initiative
@@ -4675,7 +4683,7 @@ A caster can only counterspell someone with higher initiative
 function formatSpellDuelCheck(check: SpellDuelCheck): string;
 ```
 
-Defined in: [spells/spell-duel.ts:792](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L792)
+Defined in: [spells/spell-duel.ts:803](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L803)
 
 Format a spell duel check result for display
 
@@ -4701,7 +4709,7 @@ function formatExchangeResult(
 ): string;
 ```
 
-Defined in: [spells/spell-duel.ts:801](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L801)
+Defined in: [spells/spell-duel.ts:812](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L812)
 
 Format a counterspell exchange result for display
 
@@ -4725,7 +4733,7 @@ Format a counterspell exchange result for display
 function formatSpellDuelState(state: SpellDuelState): string;
 ```
 
-Defined in: [spells/spell-duel.ts:856](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L856)
+Defined in: [spells/spell-duel.ts:867](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L867)
 
 Format the current state of a spell duel
 

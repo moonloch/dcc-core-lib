@@ -281,7 +281,7 @@ not validate `effect` contents. Other registry functions: `registerTables`,
 | `rollPatronTaint(…, taintTable)` | `taintTable` | `SimpleTable` |
 | `castSpell(input)` | `input.resultTable` (optional; else `spell.results` inline, else level threshold) | `TieredTable` |
 | `invokePatron(input)` | `input.invokeTable`, `input.taintTable` (both optional) | `TieredTable`, `SimpleTable` |
-| `rollCounterspellPower(…, table?)`, `rollPhlogistonDisturbance(…, table?)` | optional; fan-made `DEFAULT_SPELL_DUEL_TABLES` otherwise | `CounterspellPowerTable`, `PhlogistonDisturbanceTable` |
+| `rollCounterspellPower(…, table?)`, `rollPhlogistonDisturbance(…, table?)` | optional; fan-made `DEFAULT_SPELL_DUEL_TABLES` otherwise. A phlogiston table's rows must cover 1 to the die size with no catch-all row: the highest `max` sets the die | `CounterspellPowerTable`, `PhlogistonDisturbanceTable` |
 
 `rollCritical` and `rollFumble` do **not** take a table: they roll the die
 and apply modifiers, returning a total for your app to look up (for example

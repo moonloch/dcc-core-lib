@@ -203,8 +203,8 @@ interface ClassDefinition {
   // Skills granted by this class
   skills: string[];  // Skill IDs
 
-  // Level-based skill unlocks
-  skillProgression?: Record<number, string[]>;
+  // Per-level data (attack bonus, saves, skill values, ...)
+  levels: Record<number, ClassLevelData>;
 
   // Restrictions
   requirements?: {
@@ -226,6 +226,7 @@ const warrior: ClassDefinition = {
     'warrior-crit-range',
     'threat-range-progression',
   ],
+  levels: { /* supplied by a registered data source */ },
 };
 
 // Example: Cleric class
@@ -243,6 +244,7 @@ const cleric: ClassDefinition = {
     'spell-casting-cleric',
     'disapproval-tracking',
   ],
+  levels: { /* supplied by a registered data source */ },
 };
 ```
 
@@ -253,31 +255,49 @@ A single function handles all skill checks:
 ```typescript
 interface SkillCheckInput {
   skill: SkillDefinition;
-  character: CharacterState;
-  situationalModifiers?: Modifier[];
+  abilities: Record<string, number>;
+  level: number;
+  classId?: string;
+  situationalModifiers?: RollModifier[];   // see docs/MODIFIERS.md
+  luck?: number;
+  luckBurn?: number;
 }
 
 interface SkillCheckResult {
-  roll: number;
-  die: string;
-  modifiers: AppliedModifier[];
-  total: number;
+  skillId: string;
+  die: DieType;
+  natural?: number;
+  modifiers: RollModifier[];
+  total?: number;
+  formula: string;
   tableResult?: TableLookupResult;
   success?: boolean;
+  critical?: boolean;
+  fumble?: boolean;
   effects?: SkillEffect[];
+  resourcesConsumed?: { resource: ResourceType; amount: number }[];
 }
 
 function resolveSkillCheck(
   input: SkillCheckInput,
-  events?: SkillEvents,
-  loader?: DataLoader
+  options?: SkillResolveOptions,   // RollOptions + threatRange
+  events?: SkillEvents
+): SkillCheckResult;
+
+// Promise-based variant for async dice rollers (e.g. FoundryVTT)
+function resolveSkillCheckAsync(
+  input: SkillCheckInput,
+  options: SkillResolveOptionsAsync,
+  events?: SkillEvents
 ): Promise<SkillCheckResult>;
 ```
+
+Higher-level wrappers in `src/checks/` (`rollCheck`, `rollAbilityCheck`, `rollSavingThrow` and their `*Async` forms) build the `SkillCheckInput` from a `Character`.
 
 ### Benefits
 
 1. **Data-Driven Classes**: New classes are JSON, not code changes
-2. **Consistent Events**: `onSkillCheck` covers all class abilities
+2. **Consistent Events**: `onSkillCheckStart` / `onSkillCheckComplete` cover all class abilities
 3. **Unified Modifiers**: Luck, situational bonuses work the same everywhere
 4. **Homebrew Friendly**: GMs can create classes by assembling skills
 5. **Testable**: One skill resolution function to test thoroughly
@@ -295,30 +315,27 @@ Different platforms handle events differently:
 
 ### Solution: Callback Injection
 
-Rather than building an event system into the library, functions accept optional event callbacks:
+Rather than building an event system into the library, functions accept an optional `events` object (usually the last parameter) whose callbacks are invoked synchronously:
 
 ```typescript
-interface RollEvents {
-  onRollStart?: (context: RollContext) => void;
-  onRollComplete?: (result: RollResult) => void;
-  onCritical?: (result: CriticalResult) => void;
-  onFumble?: (result: FumbleResult) => void;
+interface SkillEvents {
+  onSkillCheckStart?: (input: SkillCheckInput) => void;
+  onSkillCheckComplete?: (result: SkillCheckResult) => void;
+  onCritical?: (result: SkillCheckResult) => void;
+  onFumble?: (result: SkillCheckResult) => void;
+  // ...
 }
 
-function performAttackRoll(
-  attacker: AttackContext,
-  options?: AttackOptions,
-  events?: RollEvents
-): AttackResult {
-  events?.onRollStart?.({ type: 'attack', attacker });
-
-  const result = calculateAttack(attacker, options);
-
-  if (result.isCritical) {
-    events?.onCritical?.(result.critical);
-  }
-
-  events?.onRollComplete?.(result);
+function resolveSkillCheck(
+  input: SkillCheckInput,
+  options: SkillResolveOptions = {},
+  events?: SkillEvents
+): SkillCheckResult {
+  events?.onSkillCheckStart?.(input);
+  // ... build modifiers, roll, look up result table ...
+  if (result.critical) events?.onCritical?.(result);
+  if (result.fumble) events?.onFumble?.(result);
+  events?.onSkillCheckComplete?.(result);
   return result;
 }
 ```
@@ -329,17 +346,17 @@ Each integration creates an adapter that bridges to its event system:
 
 ```typescript
 // foundry-adapter.ts
-function createFoundryEvents(): RollEvents {
+function createFoundryEvents(): SkillEvents {
   return {
-    onRollComplete: (result) => Hooks.call('dcc.rollComplete', result),
+    onSkillCheckComplete: (result) => Hooks.call('dcc.skillCheckComplete', result),
     onCritical: (result) => Hooks.call('dcc.critical', result),
   };
 }
 
 // node-adapter.ts
-function createEmitterEvents(emitter: EventEmitter): RollEvents {
+function createEmitterEvents(emitter: EventEmitter): SkillEvents {
   return {
-    onRollComplete: (result) => emitter.emit('rollComplete', result),
+    onSkillCheckComplete: (result) => emitter.emit('skillCheckComplete', result),
     onCritical: (result) => emitter.emit('critical', result),
   };
 }
@@ -347,14 +364,15 @@ function createEmitterEvents(emitter: EventEmitter): RollEvents {
 
 ### Event Types
 
-Events are organized by domain:
+Events are organized by domain, one interface per domain (see [EVENTS.md](./EVENTS.md) for payloads):
 
-| Domain | Events |
-|--------|--------|
-| Dice | `onRollStart`, `onRollComplete`, `onDiceChainBump` |
-| Combat | `onAttack`, `onDamage`, `onCritical`, `onFumble`, `onInitiative` |
-| Spells | `onSpellCheck`, `onSpellSuccess`, `onSpellFailure`, `onMercurialEffect`, `onDisapproval` |
-| Character | `onLevelUp`, `onAbilityCheck`, `onSavingThrow`, `onLuckBurn` |
+| Interface | Events |
+|-----------|--------|
+| `SkillEvents` (skills; checks via `options.events`) | `onSkillCheckStart`, `onSkillCheckComplete`, `onCritical`, `onFumble`, `onResourceConsumed`, `onTableLookup` |
+| `CombatEvents` | `onAttackRoll`, `onCriticalThreat`, `onFumbleRoll`, `onDamageRoll`, `onCriticalResult`, `onFumbleResult`, `onInitiativeRoll`, `onDeedAttempt` |
+| `SpellEvents` | `onSpellCheckStart`, `onSpellCheckComplete`, `onCritical`, `onFumble`, `onSpellLost`, `onCorruptionTriggered`, `onDisapprovalIncreased`, `onSpellburnApplied`, `onMercurialEffect`, `onPatronTaint` |
+| `PatronEvents` | `onInvokeStart`, `onInvokeComplete`, `onPatronAnswers`, `onPatronIgnores`, `onTaintIncurred`, `onBondFormed` |
+| `OccupationSkillEvents` | `onCheckStart`, `onCheckComplete`, `onCritical`, `onFumble` |
 
 ## Data Loading & Copyright Separation
 
@@ -364,21 +382,16 @@ Events are organized by domain:
 
 DCC RPG content is copyrighted by Goodman Games. To respect this:
 
-1. **`dcc-core-lib` (public)** - Contains only:
+1. **`dcc-core-lib` (this repo, public)** - Contains only:
    - Pure calculation functions
    - Type definitions
-   - Data loaders/parsers
+   - Registries and data loaders/parsers
    - Static lookup tables (ability modifiers, dice chain - game mechanics, not content)
-   - Fan-made sample data for testing
+   - Fan-made sample data for testing (`src/data/sample-data.ts`, the `test-*` tables in `src/data/tables/`, and the fixtures in `test_data/`)
 
-2. **`licensed-data-package` (private)** - Contains official DCC content:
-   - Birth augurs (Table 1-2)
-   - Occupations (Table 1-3)
-   - Class progressions (all 7 core classes)
-   - Turn Unholy, Lay on Hands tables
-   - Crit tables, fumble tables
-   - Spell definitions (86 wizard spells, 39 cleric spells across levels 1-5)
-   - Spell result tables (88 wizard, 42 cleric) with full roll range effects
+2. **Official data** - Class progressions, occupations, birth augurs, crit/fumble/corruption tables, spell definitions and spell result tables are supplied at runtime by the consuming application (the FoundryVTT DCC system loads them from its own content) or by a separately maintained data package. None of it is committed here.
+
+See [CONTRIBUTING.md](../CONTRIBUTING.md#copyright-separation) for the exact rules on what may and may not be added to this repository, and [DATA.md](DATA.md) for the file formats and registration functions a data package feeds into.
 
 ### Registry Pattern for Class Data
 
@@ -386,16 +399,22 @@ Class progression data must be registered at runtime, not hardcoded:
 
 ```typescript
 // In your application startup
-import { registerClassProgressions } from "dcc-core-lib";
-import { ALL_CLASS_PROGRESSIONS } from "licensed-data-package";
+import {
+  registerClassProgressions,
+  getSavingThrows,
+  getAttackBonus,
+} from "@moonloch/dcc-core-lib";
+import { ALL_CLASS_PROGRESSIONS } from "your-data-package";
 
-// Register official data
+// Register class data
 registerClassProgressions(ALL_CLASS_PROGRESSIONS);
 
 // Now utility functions work
 const saves = getSavingThrows("warrior", 5);
 const attackBonus = getAttackBonus("thief", 3);
 ```
+
+Tables (crit, fumble, turn unholy, etc.) use the same pattern via the table registry (`registerTable`, `registerTables`, `loadAndRegisterTable`, `getTable`, ...).
 
 This pattern ensures:
 - Core library has no copyright violations
@@ -411,88 +430,30 @@ Game data (spell tables, crit tables, class progressions) needs to be loaded fro
 - FoundryVTT compendiums
 - Bundled inline (single-file deployments)
 
-### Solution: Data Loader Interface
+### Solution: Caller Loads, Library Parses
+
+The library does no I/O and all of its functions are synchronous with respect to data. The caller fetches raw data however its platform allows, then hands it to a pure loader that converts it to the library's types, and registers the result:
 
 ```typescript
-interface DataLoader {
-  loadTable(tableId: string): Promise<TableData>;
-  loadClassData(classId: string): Promise<ClassData>;
-  loadSpellData(spellId: string): Promise<SpellData>;
-}
+import {
+  loadClassProgression,
+  registerClassProgression,
+  loadAndRegisterTable,
+  loadSpellDefinitions,
+} from "@moonloch/dcc-core-lib";
 
-// File system loader
-const fsLoader: DataLoader = {
-  async loadTable(id) {
-    const path = `./data/tables/${id}.json`;
-    return JSON.parse(await fs.readFile(path, 'utf-8'));
-  },
-  // ...
-};
+// Node.js: read from disk
+loadAndRegisterTable(await fs.readFile("./data/tables/crit-table-iii.json", "utf-8"));
 
-// HTTP loader
-const httpLoader: DataLoader = {
-  async loadTable(id) {
-    const response = await fetch(`${baseUrl}/tables/${id}.json`);
-    return response.json();
-  },
-  // ...
-};
+// Browser / API: fetch over HTTP
+const spells = loadSpellDefinitions(await (await fetch(`${baseUrl}/spells.json`)).json());
 
-// FoundryVTT loader
-const foundryLoader: DataLoader = {
-  async loadTable(id) {
-    const pack = game.packs.get(`dcc.${id}`);
-    return pack.getDocuments();
-  },
-  // ...
-};
+// FoundryVTT: read compendium documents and convert them
+const levelDocs = (await game.packs.get("my-module.class-levels").getDocuments()).map((d) => d.toObject());
+registerClassProgression(loadClassProgression("warrior", "Warrior", ["mighty-deed"], levelDocs));
 ```
 
-### Data Separation
-
-**Important:** Official game data lives in the **private** `licensed-data-package` repository:
-
-```
-licensed-data-package/           # PRIVATE - contains copyrighted content
-├── src/
-│   ├── index.ts             # Main exports
-│   ├── tables/
-│   │   ├── birth-augurs.ts  # Table 1-2
-│   │   ├── occupations.ts   # Table 1-3
-│   │   ├── turn-unholy.ts   # Table 4-4
-│   │   └── lay-on-hands.ts  # Table 4-2
-│   ├── classes/             # Class progressions (levels 1-10)
-│   │   ├── warrior.ts
-│   │   ├── wizard.ts
-│   │   ├── cleric.ts
-│   │   ├── thief.ts
-│   │   ├── dwarf.ts
-│   │   ├── elf.ts
-│   │   └── halfling.ts
-│   └── spells/              # Spell data with result tables
-│       ├── types.ts         # Spell, SpellResult, SpellResultTable types
-│       ├── wizard-level-1.ts  # Level 1 wizard spells (26)
-│       ├── wizard-level-2.ts  # Level 2 wizard spells (23)
-│       ├── wizard-level-3.ts  # Level 3 wizard spells (26)
-│       ├── wizard-level-4.ts  # Level 4 wizard spells (6)
-│       ├── wizard-level-5.ts  # Level 5 wizard spells (5)
-│       ├── cleric-level-1.ts  # Level 1 cleric spells (14)
-│       ├── cleric-level-2.ts  # Level 2 cleric spells (11)
-│       ├── cleric-level-3.ts  # Level 3 cleric spells (7)
-│       ├── cleric-level-4.ts  # Level 4 cleric spells (4)
-│       ├── cleric-level-5.ts  # Level 5 cleric spells (3)
-│       ├── wizard-tables.ts   # 88 wizard spell result tables
-│       ├── cleric-tables.ts   # 42 cleric spell result tables
-│       └── index.ts           # Exports with convenience functions
-└── dist/                    # Compiled TypeScript
-```
-
-This library (`dcc-core-lib`) contains only:
-- Static lookup tables (ability modifiers, dice chain - game mechanics)
-- Pure calculation functions
-- Type definitions
-- Data loaders/parsers for external data
-- Fan-made sample data for testing (NOT official content)
+The loaders in `src/data/loaders/` convert raw JSON to library types: `loadClassProgression` / `parseClassLevel` and `loadRollableTable` / `loadBirthAugurs` accept the FoundryVTT document JSON shape, so data exported from Foundry compendiums can be used directly; `loadSpellDefinitions` and `loadMercurialTable` (plus `*WithValidation` variants) take plain JSON. The table registry's `loadTableFromJson` / `loadAndRegisterTable` take a JSON string in the library's own table format. `src/data/loaders/integration.test.ts` exercises them against the fan-made fixtures in `test_data/`. [DATA.md](DATA.md) documents every format field by field.
 
 ## System Variants (MCC, XCrawl, etc.)
 
@@ -519,38 +480,51 @@ But differ in:
 
 ### Solution: System Configuration
 
-The library accepts a `SystemConfig` that defines the game system:
+A `SystemConfig` type (in `src/types/system.ts`) defines a game system. The library exports the DCC configuration as `DCC_SYSTEM` (built from `DCC_ABILITIES`, `DCC_ALIGNMENTS`, `DCC_SAVES`, `DCC_ABILITY_MAPPINGS`) plus `findAbility()` / `findSave()` helpers. No other system configs ship with the library; the MCC example below is illustrative.
 
 ```typescript
 interface SystemConfig {
   id: string;                           // 'dcc', 'mcc', 'xcrawl'
   name: string;
+  version?: string;
 
   // Ability scores for this system
-  abilities: AbilityDefinition[];       // [{id: 'str', name: 'Strength'}, ...]
+  abilities: AbilityDefinition[];       // [{id: 'str', name: 'Strength', abbrev: 'STR'}, ...]
 
   // Which ability is used for common things
   abilityMappings: {
     meleeAttack: string;                // 'str' in DCC
+    meleeDamage: string;
     missileAttack: string;              // 'agl' in DCC
+    missileDamage?: string;
     armorClass: string;                 // 'agl' in DCC
     hitPoints: string;                  // 'sta' in DCC
+    reflexSave: string;
+    fortSave: string;
     willSave: string;                   // 'per' in DCC (varies by system)
-    // ... etc
+    initiative: string;
+    wizardSpellCheck?: string;
+    clericSpellCheck?: string;
   };
+
+  alignments: AlignmentDefinition[];
+  saves: SaveDefinition[];
 
   // Available classes in this system
   classes: string[];                    // Class IDs to load
 
   // Dice chain (usually same across systems)
-  diceChain?: string[];                 // Override if different
+  diceChain?: number[];                 // Override if different
 
   // System-specific mechanics
-  mechanics?: {
-    hasMutations?: boolean;
+  mechanics: {
     hasDisapproval?: boolean;
     hasMercurial?: boolean;
-    // ... etc
+    hasMutations?: boolean;
+    hasWetware?: boolean;
+    hasArtifacts?: boolean;
+    hasLuckDie?: boolean;
+    hasFleetingLuck?: boolean;
   };
 }
 
@@ -574,7 +548,9 @@ const dccSystem: SystemConfig = {
     willSave: 'per',
     reflexSave: 'agl',
     fortSave: 'sta',
+    // ... meleeDamage, initiative, etc.
   },
+  // ... alignments, saves
   classes: ['warrior', 'wizard', 'cleric', 'thief', 'dwarf', 'elf', 'halfling'],
   mechanics: {
     hasDisapproval: true,
@@ -602,7 +578,9 @@ const mccSystem: SystemConfig = {
     willSave: 'per',
     reflexSave: 'agl',
     fortSave: 'sta',
+    // ... meleeDamage, initiative, etc.
   },
+  // ... alignments, saves
   classes: ['sentinel', 'rover', 'shaman', 'healer', 'mutant', 'manimal', 'plantient'],
   mechanics: {
     hasMutations: true,
@@ -614,24 +592,25 @@ const mccSystem: SystemConfig = {
 
 ### Usage
 
-Functions that need system context accept the config:
+**Not yet implemented.** Today no library function takes a `SystemConfig`; functions use DCC's ability mappings directly. The intended shape is for functions that need system context to accept the config:
 
 ```typescript
+// Hypothetical signatures — neither exists today
 function resolveSkillCheck(
   input: SkillCheckInput,
   system: SystemConfig,      // System defines ability mappings
-  events?: SkillEvents,
-  loader?: DataLoader
-): Promise<SkillCheckResult>;
+  options?: SkillResolveOptions,
+  events?: SkillEvents
+): SkillCheckResult;
 
 // Or create a bound context
-const dcc = createSystemContext(dccSystem, loader, events);
+const dcc = createSystemContext(DCC_SYSTEM, events);
 dcc.resolveSkillCheck(input);  // Uses DCC config
 ```
 
 ### Data Organization
 
-System-specific data lives in the data package:
+A possible layout for system-specific data in a data package (no such package is part of this repository):
 
 ```
 dcc-game-data/
@@ -656,96 +635,90 @@ dcc-game-data/
 
 ```
 src/
-├── index.ts              # Public API exports
+├── index.ts              # Public API: re-exports every module below
 ├── types/                # TypeScript type definitions
-│   ├── character.ts      # Character state, ability scores
-│   ├── skills.ts         # SkillDefinition, SkillCheckResult
-│   ├── classes.ts        # ClassDefinition, progression
-│   ├── system.ts         # SystemConfig for variants
-│   ├── combat.ts         # Attack, damage, initiative
-│   ├── dice.ts           # Dice expressions, roll results
-│   ├── events.ts         # Event callback interfaces
-│   ├── items.ts          # Weapons, armor, equipment
-│   └── tables.ts         # Table data structures
-├── dice/
-│   ├── dice-chain.ts     # Dice progression logic
-│   ├── roll.ts           # Roll formula parsing
+│   ├── character.ts      # Character, Inventory, InventoryItem
+│   ├── character-creation.ts
+│   ├── class-progression.ts  # ClassProgression (registry data shape)
+│   ├── classes.ts        # ClassDefinition
+│   ├── skills.ts         # SkillDefinition, SkillCheckResult, SkillEvents
+│   ├── system.ts         # SystemConfig, DCC_SYSTEM
+│   ├── combat.ts         # Attack, damage, crits, fumbles, CombatEvents
+│   ├── spells.ts         # Spells, corruption, mercurial, SpellEvents
+│   ├── patron.ts         # Patrons, bonds, PatronEvents
+│   ├── occupation-skills.ts
+│   ├── dice.ts           # Dice types, RollModifier / LegacyRollModifier
+│   ├── bonuses.ts        # RollBonus and bonus computation
+│   ├── creatures.ts, equipment.ts, random.ts, tables.ts
 │   └── index.ts
-├── skills/
-│   ├── resolve.ts        # Unified skill resolution
-│   ├── modifiers.ts      # Modifier calculation helpers
-│   └── index.ts
-├── character/
-│   ├── abilities.ts      # Ability score calculations
-│   ├── armor-class.ts    # AC calculations
-│   ├── hit-points.ts     # HP calculations
-│   └── index.ts
-├── combat/
-│   ├── attack.ts         # Attack roll calculations
-│   ├── damage.ts         # Damage calculations
-│   ├── initiative.ts     # Initiative calculations
-│   ├── crits.ts          # Critical hit logic
-│   ├── fumbles.ts        # Fumble logic
-│   └── index.ts
-├── parsers/
-│   ├── purple-sorcerer-types.ts  # Types for parsed data
-│   ├── parse-text.ts             # Purple Sorcerer text format parser
-│   ├── parse-json.ts             # Purple Sorcerer JSON format parser
-│   ├── convert.ts                # Convert parsed data to Character type
-│   ├── npc-parser.ts             # NPC stat block parser (TODO)
-│   └── index.ts                  # Unified parser with auto-detection
+├── dice/                 # dice-chain.ts (chain + parsing), roll.ts (formulas, modifier pipeline)
+├── skills/               # resolve.ts: unified skill resolution (sync + async)
+├── checks/               # Character-level checks: roll.ts, luck-check.ts, definitions, accessors
+├── character/            # create.ts (0-level), level-up, armor-class, hit-points,
+│                         # saving-throws, serialize.ts (versioned JSON export/import)
+├── combat/               # attack, damage, crits, fumbles, initiative, action-dice,
+│                         # death-and-dying, morale, misc-rules
+├── spells/               # cast, spell-check, spellbook, spellburn, corruption, disapproval,
+│                         # fumble, mercurial, patron-taint-check, spell-duel(-tables)
+├── cleric/               # turn-unholy, lay-on-hands, divine-aid
+├── patron/               # registry, invoke, bond
+├── occupation/           # Occupation-based skill checks (+ fan-made sample skills)
+├── tables/               # Table registry and lookup
+├── parsers/              # Purple Sorcerer text/JSON parsers, stat-block parser, convert.ts
+├── adventure/            # Encounter and narrative engines
 └── data/
-    ├── ability-modifiers.ts  # Static modifier table (shared)
-    ├── dice-chain.ts         # Default dice chain
-    └── index.ts
+    ├── ability-modifiers.ts  # Static modifier table (shared mechanic)
+    ├── names.ts              # Name generation
+    ├── sample-data.ts        # FAN-MADE sample data for tests/demos
+    ├── classes/              # Class progression registry + accessors
+    ├── loaders/              # Raw JSON → library types (class, table, spell loaders)
+    ├── skills/               # Enabling-skill and thief-skill definitions/helpers
+    └── tables/               # Fan-made test tables (test-turn-unholy, ...)
 ```
 
 ## Integration Examples
 
 ### FoundryVTT Integration
 
+The FoundryVTT DCC system is the primary consumer. It vendors this library's `dist/` and keeps its own adapter layer (dice roller, event-to-hook bridge, data registration) in the system repo; see [CONTRIBUTING.md](../CONTRIBUTING.md#how-a-fix-reaches-the-dcc-system). A simplified sketch of an attack:
+
 ```typescript
-import { performAttackRoll, createDiceChain } from 'dcc-core-lib';
-import { createFoundryEvents, createFoundryDataLoader } from 'dcc-foundry-adapter';
+import { makeAttackRoll, type CombatEvents, type DiceRoller } from '@moonloch/dcc-core-lib';
 
 // In actor.js
-async rollAttack(weaponId) {
+rollAttack(weaponId) {
   const weapon = this.items.get(weaponId);
-  const events = createFoundryEvents();
-  const loader = createFoundryDataLoader();
+  const events: CombatEvents = {
+    onCriticalThreat: (result) => Hooks.call('dcc.criticalThreat', result),
+  };
+  const roller: DiceRoller = (expression) => new Roll(expression).evaluateSync().total;
 
-  const result = await performAttackRoll(
+  const result = makeAttackRoll(
     {
+      attackType: 'melee',
       attackBonus: this.system.details.attackBonus,
-      actionDie: this.system.details.actionDice,
+      actionDie: this.system.attributes.actionDice.value,
+      threatRange: weapon.system.critRange,
+      abilityModifier: this.system.abilities.str.mod,
       // ...
     },
-    { weapon: weapon.system },
-    events,
-    loader
+    roller,
+    events
   );
 
   // FoundryVTT-specific: create chat message
-  await this.createAttackChatMessage(result);
+  return this.createAttackChatMessage(result);
 }
 ```
 
 ### API Integration
 
 ```typescript
-import { performAttackRoll } from 'dcc-core-lib';
-import { createHttpDataLoader } from './data-loader';
+import { makeAttackRoll } from '@moonloch/dcc-core-lib';
 
-app.post('/api/attack', async (req, res) => {
-  const loader = createHttpDataLoader(process.env.DATA_URL);
-
-  const result = await performAttackRoll(
-    req.body.attacker,
-    req.body.options,
-    undefined,  // no events needed for API
-    loader
-  );
-
+app.post('/api/attack', (req, res) => {
+  // No roller: uses the built-in random roller. No events needed for an API.
+  const result = makeAttackRoll(req.body.attack);
   res.json(result);
 });
 ```
@@ -760,7 +733,7 @@ Low-level parsing functions return `null` when they cannot parse input. This all
 
 ```typescript
 // dice/dice-chain.ts
-function parseDice(expression: string): ParsedDice | null {
+function parseDiceExpression(expression: string): ParsedDiceExpression | null {
   const match = DICE_REGEX.exec(expression);
   if (!match) {
     return null;  // Not a valid dice expression
@@ -769,15 +742,16 @@ function parseDice(expression: string): ParsedDice | null {
 }
 
 // Usage
-const parsed = parseDice(userInput);
+const parsed = parseDiceExpression(userInput);
 if (!parsed) {
   // Handle invalid input or use default
 }
 ```
 
 **Examples:**
-- `parseDice()` - returns `null` for invalid dice expressions
-- `parseAugurDescription()` - returns `null` for malformed descriptions
+- `parseDiceExpression()` / `getPrimaryDie()` - return `null` for invalid dice expressions
+- `parseMissileRange()` - returns `null` for an unparseable range string
+- `parseBirthAugurDescription()` (internal to the table loader) - returns `null` for malformed descriptions
 
 ### 2. User-Facing APIs → Result Objects
 
@@ -826,7 +800,7 @@ function importCharacter(json: string): ImportResult {
 Invalid function arguments (programmer errors) throw immediately. These indicate bugs that should be fixed, not runtime conditions to handle.
 
 ```typescript
-function rollAbilityScores(config: AbilityScoreConfig, ...): AbilityScores {
+function rollAbilityScores(config: AbilityScoreConfig, random: RandomSource, ...): { scores: AbilityScores; rolls: ... } {
   if (config.method === "manual" && !config.manualScores) {
     throw new Error("Manual method requires manualScores to be provided");
   }
@@ -843,7 +817,7 @@ function rollAbilityScores(config: AbilityScoreConfig, ...): AbilityScores {
 
 | Scenario | Pattern | Example |
 |----------|---------|---------|
-| Parsing may fail | `return null` | `parseDice("invalid")` → `null` |
+| Parsing may fail | `return null` | `parseDiceExpression("invalid")` → `null` |
 | User input may be invalid | Result object | `importCharacter(json)` → `{success: false, error}` |
 | Programmer error | `throw Error` | Missing required config |
 
@@ -854,7 +828,8 @@ This layered approach keeps the API clean:
 
 ## Versioning Strategy
 
-- Core library follows semver
-- Game data package versioned separately
-- FoundryVTT adapter tracks FoundryVTT API versions
+- Core library follows semver (pre-1.0: minor versions may contain breaking changes, marked in [CHANGELOG.md](../CHANGELOG.md))
+- Exported character JSON carries its own format version (`CHARACTER_FORMAT_VERSION`, see `src/character/serialize.ts`)
+- Official game data is versioned separately by whoever supplies it
+- The FoundryVTT adapter lives in the DCC system repo, which pins a vendored lib build (`module/vendor/dcc-core-lib/VERSION.json`)
 - Breaking changes to event interfaces are major version bumps

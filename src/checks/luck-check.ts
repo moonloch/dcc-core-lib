@@ -79,7 +79,7 @@ function defaultRoller(expression: string): number {
  * @returns The luck check result
  *
  * @example
- * import { rollLuckCheck } from 'dcc-core-lib';
+ * import { rollLuckCheck } from '@moonloch/dcc-core-lib';
  *
  * const result = rollLuckCheck(character);
  * if (result.success) {
@@ -123,7 +123,7 @@ export function rollLuckCheck(
  * @returns The luck check result
  *
  * @example
- * import { rollLuckCheckSimple } from 'dcc-core-lib';
+ * import { rollLuckCheckSimple } from '@moonloch/dcc-core-lib';
  *
  * const result = rollLuckCheckSimple(12);
  * if (result.success) {

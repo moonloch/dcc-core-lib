@@ -1,352 +1,130 @@
-# dcc-core-lib
+# @moonloch/dcc-core-lib
 
-A TypeScript library providing core game logic for Dungeon Crawl Classics (DCC) RPG. Built with pure functions and zero platform dependencies.
+[![CI](https://github.com/moonloch/dcc-core-lib/actions/workflows/ci.yml/badge.svg)](https://github.com/moonloch/dcc-core-lib/actions/workflows/ci.yml)
 
-## Features
+Game logic for the Dungeon Crawl Classics (DCC) RPG as a TypeScript library: dice chain, checks and saves, combat, spellcasting, character creation and advancement. It is built from pure functions with no platform dependencies, so it runs in Node.js, browsers, FoundryVTT, or anywhere else JavaScript does.
 
-- **Character Creation** - Generate 0-level peasants with occupations, equipment, birth augurs
-- **Character Serialization** - Versioned JSON export/import for persistent storage
-- **Dice Chain System** - Full DCC dice chain with bump up/down, crit range scaling
-- **Spell System** - Complete spell casting with spellbooks, spellburn, disapproval, corruption, mercurial magic
-- **Unified Skill Resolution** - All class abilities modeled as skills for consistent handling
-- **Bonus System** - Comprehensive modifier tracking (ability, luck, spell, equipment, circumstance)
-- **Table Lookup System** - Simple, multi-column, and tiered tables for result lookups
-- **Data Loaders** - Parse FoundryVTT format class progressions, rollable tables, and spell definitions
-- **Pure Functions** - No classes, no side effects, easy to test and integrate
-- **Platform Agnostic** - Works in Node.js, browsers, FoundryVTT, or anywhere JavaScript runs
+> **This repository contains no DCC RPG book text.** There is no rules prose, table text, spell description or flavor text from any Goodman Games publication anywhere in the code, tests or docs. Official tables and results are referred to by name only, and test fixtures use placeholder or altered values.
+
+The library is **logic only**. It ships no official rulebook data either: class progressions, spell results, crit and fumble tables and the like are registered at runtime by the app that uses the library, from a data source built from the app's own licensed copy. [docs/DATA.md](docs/DATA.md) explains how.
+
+The main consumer is the [DCC system for FoundryVTT](https://github.com/foundryvtt-dcc/dcc), which vendors this library's build. Game-logic fixes for that system belong here, with a regression test; see [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## Status
+
+- **Stage:** pre-1.0 and actively maintained. Minor versions can change the API; breaking changes are called out in [CHANGELOG.md](CHANGELOG.md).
+- **In production:** the DCC system for FoundryVTT runs its rolls, checks, saves, combat and spellcasting through this library.
+- **Rules accuracy:** behavior is checked against the rules as written and covered by unit tests, and every bug fix lands with a regression test. Known gaps are tracked as [open issues](https://github.com/moonloch/dcc-core-lib/issues).
+- **Releases:** listed on the [releases page](https://github.com/moonloch/dcc-core-lib/releases) and published to GitHub Packages.
+- **Variants:** a `SystemConfig` type for DCC variants such as MCC and XCrawl exists, with the DCC config shipped as `DCC_SYSTEM`, but no function takes it yet. See [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#system-variants-mcc-xcrawl-etc).
 
 ## Installation
 
+The package is **not** on the public npm registry, and the unscoped name `dcc-core-lib` is not this package. There are three ways to consume it:
+
+### 1. Vendored by the DCC FoundryVTT system (primary consumer)
+
+FoundryVTT has no bundler, so the [DCC system](https://github.com/foundryvtt-dcc/dcc) commits this library's built `dist/` into `module/vendor/dcc-core-lib/` and imports it directly. The system repo's `scripts/sync-core-lib.mjs` builds a local checkout of this repo and copies `dist/` across (writing `VERSION.json` with the source commit). See [CONTRIBUTING.md](CONTRIBUTING.md#how-a-fix-reaches-the-dcc-system).
+
+### 2. GitHub Packages
+
+Each GitHub release publishes `@moonloch/dcc-core-lib` to GitHub Packages. GitHub Packages' npm registry requires authentication even for public packages, so you need a personal access token (classic) with the `read:packages` scope.
+
+```ini
+# .npmrc (project or ~/.npmrc) — do not commit the token
+@moonloch:registry=https://npm.pkg.github.com
+//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
+```
+
 ```bash
-npm install dcc-core-lib
+npm install @moonloch/dcc-core-lib
 ```
 
-## Quick Start
+### 3. From source
+
+```bash
+git clone https://github.com/moonloch/dcc-core-lib.git
+cd dcc-core-lib
+npm ci
+npm run build   # emits dist/
+```
+
+## Quick start
 
 ```typescript
 import {
   evaluateRoll,
   bumpDie,
-  resolveSkillCheck,
   getAbilityModifier,
-} from 'dcc-core-lib';
-
-// Roll dice
-const result = evaluateRoll('1d20+3');
-console.log(result.total); // e.g., 15
-
-// Use the dice chain
-const blessedDie = bumpDie('d20', 1);  // Returns 'd24'
-const cursedDie = bumpDie('d20', -2);  // Returns 'd14'
-
-// Get ability modifiers
-const modifier = getAbilityModifier(16); // Returns +2
-
-// Resolve a skill check
-const checkResult = await resolveSkillCheck({
-  skill: thiefBackstab,
-  character: { level: 3, abilities: { agl: 16 } },
-  modifiers: [{ source: 'situational', value: 2 }],
-});
-```
-
-## Modules
-
-### Dice
-
-```typescript
-import {
-  evaluateRoll,
-  parseExpression,
-  bumpDie,
-  rankDie,
-  getDiceChain,
-  calculateProportionalCritRange,
-} from 'dcc-core-lib';
-
-// Parse and evaluate dice expressions
-const parsed = parseExpression('2d6+1d4+3');
-const result = evaluateRoll('3d6');
-
-// Dice chain operations
-const chain = getDiceChain();
-// ['d3', 'd4', 'd5', 'd6', 'd7', 'd8', 'd10', 'd12', 'd14', 'd16', 'd20', 'd24', 'd30']
-
-const rank = rankDie('d20');  // Returns 10
-const bumped = bumpDie('d16', 2);  // Returns 'd24'
-
-// Crit range scaling for non-d20 action dice
-const critRange = calculateProportionalCritRange('d16', 19, 20);
-// Returns { min: 16, max: 16 } (scaled from 19-20 on d20)
-```
-
-### Skills
-
-```typescript
-import { resolveSkillCheck } from 'dcc-core-lib';
-import type { SkillDefinition, SkillCheckInput } from 'dcc-core-lib';
-
-// Define a skill
-const climbSheerSurfaces: SkillDefinition = {
-  id: 'climb-sheer-surfaces',
-  name: 'Climb Sheer Surfaces',
-  type: 'check',
-  roll: {
-    die: 'd20',
-    ability: 'agl',
-  },
-};
-
-// Resolve with events
-const result = await resolveSkillCheck(
-  {
-    skill: climbSheerSurfaces,
-    character: { level: 3, abilities: { agl: 14 } },
-  },
-  {
-    onRollComplete: (r) => console.log('Rolled:', r.total),
-  }
-);
-```
-
-### Data Loaders
-
-```typescript
-import {
-  loadClassProgression,
-  getSkillBonusFromProgression,
-  loadRollableTable,
-  loadBirthAugurs,
-} from 'dcc-core-lib';
-
-// Load class progression from FoundryVTT format JSON files
-const thiefProgression = loadClassProgression(thiefLevelFiles);
-const backstabBonus = getSkillBonusFromProgression(
-  thiefProgression,
-  5,        // level
-  'backstab'
-);
-
-// Load rollable tables
-const fumbleTable = loadRollableTable(fumbleTableJson);
-
-// Load birth augurs from luck table
-const augurs = loadBirthAugurs(luckTableJson);
-const modifier = getBirthAugurModifier(augurs[0], 16, 14);
-// Calculates luck modifier based on birth augur effect
-```
-
-### Character Creation
-
-```typescript
-import {
   createZeroLevelCharacter,
   DEFAULT_CHARACTER_CREATION_DATA,
   defaultRandomSource,
-} from 'dcc-core-lib';
-import type { CharacterCreationConfig } from 'dcc-core-lib';
+  rollAbilityCheck,
+  rollSavingThrow,
+} from '@moonloch/dcc-core-lib';
 
-// Create a random 0-level character
-const result = createZeroLevelCharacter(
+// Dice and the dice chain
+evaluateRoll('1d20+3', { mode: 'evaluate' }).total; // e.g. 17
+bumpDie('1d20', 1);    // '1d24'
+bumpDie('1d20', -2);   // '1d14'
+getAbilityModifier(16); // 2
+
+// A random 0-level character, built from the library's placeholder creation data
+const { character } = createZeroLevelCharacter(
   DEFAULT_CHARACTER_CREATION_DATA,
-  { name: { generateName: true, includeEpithet: true } },
+  { name: { generateName: true } },
   defaultRandomSource
 );
 
-console.log(result.character.identity.name);       // "Bram the Bold"
-console.log(result.character.identity.occupation); // "Farmer"
-console.log(result.character.state.hp.current);    // 3
-console.log(result.character.state.inventory.items); // [{ name: "Pitchfork", ... }]
-
-// With specific options
-const config: CharacterCreationConfig = {
-  name: { generateName: false },
-  occupation: { specificOccupation: "Blacksmith" },
-  alignment: "l", // Lawful
-};
-const smith = createZeroLevelCharacter(DEFAULT_CHARACTER_CREATION_DATA, config, defaultRandomSource);
+// High-level checks read abilities, level, class and Luck from the character
+const strength = rollAbilityCheck('str', character, { mode: 'evaluate' });
+const reflex = rollSavingThrow('reflex', character, { mode: 'evaluate' });
+console.log(strength.natural, strength.total, reflex.total);
 ```
 
-### Character Serialization
+The dice, check, save and skill rolls have async twins (`evaluateRollAsync`, `rollAbilityCheckAsync`, `rollSavingThrowAsync`, `resolveSkillCheckAsync` and so on) that take an async `roller`, so an app can plug in its own dice engine, such as FoundryVTT's `Roll`. Results report the natural roll, modifiers and total; the app decides how to show them.
 
-```typescript
-import {
-  exportCharacter,
-  importCharacter,
-  CHARACTER_FORMAT_VERSION,
-} from 'dcc-core-lib';
+## Modules
 
-// Export to versioned JSON
-const json = exportCharacter(character);
-// {
-//   "version": "1.0",
-//   "format": "dcc-core-lib",
-//   "exportedAt": "2025-11-27T...",
-//   "character": { ... }
-// }
+Everything is exported from the package root. Each module has a generated API page with every signature and doc comment.
 
-// Import from JSON (handles version checking)
-const result = importCharacter(json);
-if (result.success) {
-  console.log(result.character);
-  if (result.warnings) {
-    console.log('Warnings:', result.warnings); // e.g., version mismatch
-  }
-}
-```
+| Module | What it covers | API |
+|---|---|---|
+| `dice` | Dice chain, formula parsing and evaluation, sync and async rollers, crit range scaling | [dice.md](docs/api/dice.md) |
+| `checks` | High-level ability checks, saving throws and Luck checks for a character | [checks.md](docs/api/checks.md) |
+| `skills` | Low-level unified skill resolution that every check and class ability goes through | [skills.md](docs/api/skills.md) |
+| `character` | 0-level creation, level-up, saves, AC, hit points, versioned JSON export and import | [character.md](docs/api/character.md) |
+| `combat` | Attacks, damage, crits, fumbles, initiative, action dice, two-weapon fighting, morale, mounted combat, grappling, death and dying | [combat.md](docs/api/combat.md) |
+| `spells` | Spell checks, spellbooks, spellburn, corruption, disapproval, mercurial magic, spell duels | [spells.md](docs/api/spells.md) |
+| `cleric` | Turn unholy, lay on hands, divine aid | [cleric.md](docs/api/cleric.md) |
+| `patron` | Patron bond, invoke patron, patron taint | [patron.md](docs/api/patron.md) |
+| `occupation` | Occupation-based skill checks | [occupation.md](docs/api/occupation.md) |
+| `tables` | Table registry and lookup for simple, multi-column and tiered result tables | [tables.md](docs/api/tables.md) |
+| `data` | Loaders for FoundryVTT-format data, the class-progression registry, ability modifiers and other static values | [data.md](docs/api/data.md) |
+| `parsers` | Stat-block and Purple Sorcerer character parsers | [parsers.md](docs/api/parsers.md) |
+| `adventure` | Encounter and narrative helpers for running adventures | [adventure.md](docs/api/adventure.md) |
+| `types` | Shared types, including `RollModifier`, `Character` and `SystemConfig` | [types.md](docs/api/types.md) |
 
-### Bonus System
+`dist/dcc-core-lib.d.ts`, produced by `npm run build`, holds the whole public surface in one declaration file. It is the best single input for editors, tooling and LLM-assisted callers; [llms.txt](llms.txt) indexes the docs for the same purpose.
 
-```typescript
-import {
-  createAbilityBonus,
-  createLuckBonus,
-  createEquipmentBonus,
-  computeBonuses,
-} from 'dcc-core-lib';
-import type { RollBonus } from 'dcc-core-lib';
+## Copyright separation
 
-// Create bonuses from various sources
-const bonuses: RollBonus[] = [
-  createAbilityBonus('str', 'Strength', 2),
-  createLuckBonus(3),  // Burn 3 luck
-  createEquipmentBonus('magic-sword', 'Sword +1', 1),
-];
+DCC RPG is © Goodman Games. This repository contains logic, types, loaders, and clearly labeled fan-made sample data only. Official table values (class progressions, spell lists and results, crit/fumble/corruption tables, occupations, birth augurs, patron taints, ...) are registered at runtime by the consuming app — e.g. via `registerClassProgressions()` — from a separate data source that you build from your own licensed copy. [docs/DATA.md](docs/DATA.md) documents the formats and functions. Contributions must not add official rulebook data or text; see [CONTRIBUTING.md](CONTRIBUTING.md#copyright-separation).
 
-// Compute total effect
-const computed = computeBonuses(bonuses);
-console.log(computed.totalModifier);  // 6 (all stack in DCC)
-console.log(computed.appliedBonuses); // List of applied bonuses
-```
+## Documentation
 
-### Table Lookup System
-
-```typescript
-import {
-  registerTable,
-  getTable,
-  lookup,
-  lookupSimple,
-  validateTable,
-  TEST_TURN_UNHOLY_TABLE,
-} from 'dcc-core-lib';
-
-// Register a table
-registerTable(TEST_TURN_UNHOLY_TABLE);
-
-// Look up a result
-const table = getTable('test-turn-unholy');
-if (table) {
-  const result = lookup(table, 15);
-  console.log(result?.text);   // "Success. Turn 1d6+level HD..."
-  console.log(result?.effect); // { type: 'turn', dice: '1d6+CL', ... }
-}
-
-// Validate table structure (no gaps/overlaps)
-const validation = validateTable(TEST_TURN_UNHOLY_TABLE);
-console.log(validation.valid);  // true
-```
-
-### Spell System
-
-```typescript
-import {
-  castSpell,
-  rollMercurialMagic,
-  validateSpellburn,
-  applySpellburn,
-  rollDisapproval,
-  rollCorruption,
-  addSpellToSpellbook,
-  markSpellLost,
-  recoverAllSpells,
-} from 'dcc-core-lib';
-import type { SpellCastInput, CasterProfile, SpellburnCommitment } from 'dcc-core-lib';
-
-// Cast a spell
-const result = castSpell({
-  spell: magicMissile,
-  character: wizard,
-  casterProfile: { type: 'wizard', level: 3, usesCorruption: true, usesDisapproval: false },
-  spellbookEntry: wizardSpellbook.spells[0],
-});
-
-console.log(result.total);        // Spell check result
-console.log(result.tier);         // "lost", "failure", or "success"
-console.log(result.fumble);       // True if natural 1
-
-// Spellburn - sacrifice ability scores for spell bonus
-const commitment: SpellburnCommitment = { str: 2, agl: 0, sta: 3 };
-const validation = validateSpellburn(wizard.abilities, commitment);
-if (validation.valid) {
-  const newAbilities = applySpellburn(wizard.abilities, commitment);
-  // +5 bonus to spell check from burning 5 total points
-}
-
-// Mercurial magic - rolled once when learning a spell
-const mercurial = rollMercurialMagic(wizard.luckMod, mercurialTable);
-console.log(mercurial.summary);     // e.g., "Spell produces bright flash"
-console.log(mercurial.displayOnCast); // Show effect when casting?
-
-// Cleric disapproval
-const disapproval = rollDisapproval(cleric.disapprovalRange, disapprovalTable);
-console.log(disapproval.description); // Effect description
-console.log(disapproval.severity);    // "minor", "moderate", etc.
-
-// Spellbook management
-let spellbook = addSpellToSpellbook(emptySpellbook, magicMissile, mercurial);
-spellbook = markSpellLost(spellbook, 'magic-missile');  // Lost for the day
-spellbook = recoverAllSpells(spellbook);                // After rest
-```
-
-### Static Data
-
-```typescript
-import { getAbilityModifier, getAbilityModifierRange } from 'dcc-core-lib';
-
-// Standard DCC ability modifier lookup
-getAbilityModifier(3);   // Returns -3
-getAbilityModifier(10);  // Returns 0
-getAbilityModifier(18);  // Returns +3
-
-// Get score range for a modifier
-getAbilityModifierRange(2);  // Returns { min: 15, max: 16 }
-```
-
-## Architecture
-
-This library follows a **pure functional approach**:
-
-- All game logic is implemented as pure functions with no side effects
-- No classes or stateful objects
-- Platform-specific behavior injected via callbacks and data loaders
-- Event system uses callback injection pattern
-
-For detailed architecture documentation, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
-
-## System Variants
-
-The library supports DCC variants (MCC, XCrawl, etc.) through `SystemConfig`:
-
-```typescript
-import type { SystemConfig } from 'dcc-core-lib';
-import { DCC_SYSTEM } from 'dcc-core-lib';
-
-// Use the default DCC system config
-console.log(DCC_SYSTEM.abilities);
-// [{ id: 'str', name: 'Strength' }, ...]
-
-// Or define your own for MCC, etc.
-const mccSystem: SystemConfig = {
-  id: 'mcc',
-  name: 'Mutant Crawl Classics',
-  // ... custom abilities, classes, mechanics
-};
-```
+- [docs/DATA.md](docs/DATA.md): building and loading a game-data directory from your own licensed copy
+- [docs/api/index.md](docs/api/index.md): generated API reference, one page per module
+- [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): design goals, module layout, data-loading policy
+- [docs/MODIFIERS.md](docs/MODIFIERS.md): the `RollModifier` type and the order modifiers apply in
+- [docs/EVENTS.md](docs/EVENTS.md): event callbacks the roll functions accept
+- [examples/character-export-v1.0.json](examples/character-export-v1.0.json): a complete character export in the older 1.0 format, which `importCharacter` migrates
+- [CHANGELOG.md](CHANGELOG.md): release history
 
 ## Development
 
 ```bash
+npm run check        # Lint + typecheck + tests (what CI and the pre-push hook run)
 npm run build        # Compile TypeScript to dist/
 npm run lint         # Run ESLint
 npm run lint:fix     # Run ESLint with auto-fix
@@ -362,23 +140,20 @@ Run a single test file:
 npx vitest run src/path/to/file.test.ts
 ```
 
-## Project Status
+## Contributing
 
-Core implementation complete with 474 passing tests:
+Bug reports and pull requests are welcome. [CONTRIBUTING.md](CONTRIBUTING.md) is the full guide. The short version:
 
-- Character creation (0-level with occupations, equipment, birth augurs)
-- Character serialization (versioned JSON export/import)
-- Inventory system (weapons, armor, gear, trade goods)
-- Dice system (dice chain, roll evaluation)
-- Skill resolution (unified skill checks)
-- Bonus system (ability, luck, spell, equipment modifiers)
-- Table lookup system (simple, multi-column, tiered tables)
-- Spell system (spell checks, spellbooks, spellburn, disapproval, corruption, mercurial magic)
-- Data loaders (class progressions, rollable tables, birth augurs, spell definitions)
-- Ability modifier lookup
+- **Pick the right repo.** Rules-logic bugs belong here. Foundry sheets, chat cards and other UI belong in the [system repo](https://github.com/foundryvtt-dcc/dcc/issues).
+- **Open an issue first** for anything bigger than a bug fix, so the approach is agreed before you write code.
+- **Ship a regression test** with every bug fix. It must fail before the fix and pass after it.
+- **Keep book text and data out.** Cite a rule by table and page number; never paste it.
+- **Run `npm run check`** before you push. CI runs the same command.
+- **Use conventional commits**, with the module as the scope, such as `fix(combat): ...`.
+- **AI-assisted contributions are welcome** under the [LLM contribution policy](CONTRIBUTING.md#ai-and-llm-assisted-contributions). You must review and understand every line, disclose substantial AI use, and never let a model supply rulebook text or values.
 
-See [docs/STATUS.md](docs/STATUS.md) for current progress and next steps.
+Report security issues privately as described in [SECURITY.md](SECURITY.md), not in a public issue.
 
 ## License
 
-MIT
+[MIT](LICENSE) © 2025-2026 Tim L. White. Dungeon Crawl Classics and DCC RPG are trademarks of Goodman Games; this project is not affiliated with or endorsed by Goodman Games.

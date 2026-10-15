@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Supplying your own game data
+    url: https://github.com/moonloch/dcc-core-lib/blob/main/docs/DATA.md
+    about: File formats, loaders and registration functions for class progressions, tables, spells and patrons. This library ships no official rulebook data, and official rulebook text must not be pasted into issues; cite the table or page number instead.
+  - name: DCC FoundryVTT system (sheets, chat cards, UI)
+    url: https://github.com/foundryvtt-dcc/dcc/issues
+    about: Problems with the Foundry system itself belong in the system repository.

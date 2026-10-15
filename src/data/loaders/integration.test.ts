@@ -16,7 +16,7 @@ import {
 } from "./class-loader.js";
 import { loadBirthAugurs, loadRollableTable, type RawTableData } from "./table-loader.js";
 
-const SOURCE_DATA_PATH = join(process.cwd(), "source_data");
+const TEST_DATA_PATH = join(process.cwd(), "test_data");
 
 /**
  * Raw FoundryVTT level item format
@@ -33,19 +33,19 @@ interface RawLevelItem {
 }
 
 /**
- * Helper to load a JSON file from source_data
+ * Helper to load a JSON file from test_data
  */
 function loadLevelItem(subpath: string): RawLevelItem {
-  const fullPath = join(SOURCE_DATA_PATH, subpath);
+  const fullPath = join(TEST_DATA_PATH, subpath);
   const content = readFileSync(fullPath, "utf-8");
   return JSON.parse(content) as RawLevelItem;
 }
 
 /**
- * Helper to load a table JSON file from source_data
+ * Helper to load a table JSON file from test_data
  */
 function loadTableData(subpath: string): RawTableData {
-  const fullPath = join(SOURCE_DATA_PATH, subpath);
+  const fullPath = join(TEST_DATA_PATH, subpath);
   const content = readFileSync(fullPath, "utf-8");
   return JSON.parse(content) as RawTableData;
 }
@@ -86,26 +86,26 @@ describe("Integration: Real Source Data", () => {
 
       // Base stats
       expect(level.attackBonus).toBe(0);
-      expect(level.criticalDie).toBe("1d10");
+      expect(level.criticalDie).toBe("1d8");
       expect(level.criticalTable).toBe("II");
       expect(level.hitDie).toBe("1d6");
-      expect(level.luckDie).toBe("d3");
-      expect(level.saves).toEqual({ ref: 1, frt: 1, wil: 0 });
+      expect(level.luckDie).toBe("d4");
+      expect(level.saves).toEqual({ ref: 1, frt: 0, wil: 0 });
 
       // Lawful alignment
-      expect(level.lawful?.title).toBe("Bravo");
+      expect(level.lawful?.title).toBe("Cutpurse");
       expect(level.lawful?.skills["backstab"]).toBe(1);
       expect(level.lawful?.skills["hide-in-shadows"]).toBe(3);
       expect(level.lawful?.skills["cast-spell-from-scroll"]).toBe("d10");
 
       // Neutral alignment
-      expect(level.neutral?.title).toBe("Beggar");
+      expect(level.neutral?.title).toBe("Footpad");
       expect(level.neutral?.skills["backstab"]).toBe(0);
       expect(level.neutral?.skills["sneak-silently"]).toBe(3);
       expect(level.neutral?.skills["cast-spell-from-scroll"]).toBe("d12");
 
       // Chaotic alignment
-      expect(level.chaotic?.title).toBe("Thug");
+      expect(level.chaotic?.title).toBe("Ruffian");
       expect(level.chaotic?.skills["backstab"]).toBe(3);
       expect(level.chaotic?.skills["handle-poison"]).toBe(3);
     });
@@ -220,10 +220,11 @@ describe("Integration: Real Source Data", () => {
 
       // Warrior has deed die as attack bonus
       expect(level.attackBonus).toBe("d3");
-      expect(level.criticalDie).toBe("1d12");
+      expect(level.criticalDie).toBe("1d10");
       expect(level.criticalTable).toBe("III");
       expect(level.critRange).toBe(19);
-      expect(level.hitDie).toBe("1d12");
+      expect(level.hitDie).toBe("1d10");
+      expect(level.saves).toEqual({ ref: 1, frt: 2, wil: 0 });
     });
   });
 

@@ -1386,8 +1386,8 @@ describe("Critical Hit System", () => {
 
   describe("getCritTable / getCritDie (registry-backed)", () => {
     // Minimal synthetic progression to exercise the registry delegation.
-    // Real class data lives in licensed-data-package and is registered by apps
-    // at startup; tests use synthetic classes to stay hermetic.
+    // Real class data is supplied by the consuming app and registered at
+    // startup; tests use synthetic classes to stay hermetic.
     const TEST_CLASS: ClassProgression = {
       classId: "test-fighter",
       name: "Test Fighter",

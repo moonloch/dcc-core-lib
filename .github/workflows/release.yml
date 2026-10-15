@@ -1,15 +1,23 @@
 name: Create Release
 
+# On every push to main: if no GitHub release exists for the package.json
+# version, create a draft release for it. If one already exists, open (or
+# reuse) a pull request that bumps the patch version instead of pushing to
+# main, so main can stay branch-protected. Merging that PR re-runs this
+# workflow and creates the draft release for the new version.
+
 on:
   push:
     branches:
       - main
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   release:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
 
@@ -27,45 +35,62 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Get package version and check for existing release
+      - name: Check for an existing release
         id: package
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
           CURRENT_VERSION=$(node -p "require('./package.json').version")
           echo "Current version: $CURRENT_VERSION"
+          echo "version=$CURRENT_VERSION" >> "$GITHUB_OUTPUT"
 
-          # Check if a release with this version already exists
           if gh release view "v$CURRENT_VERSION" > /dev/null 2>&1; then
-            echo "Release v$CURRENT_VERSION already exists, incrementing patch version..."
-
-            # Parse version and increment patch
-            IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
-            NEW_PATCH=$((PATCH + 1))
-            NEW_VERSION="$MAJOR.$MINOR.$NEW_PATCH"
-
-            echo "New version: $NEW_VERSION"
-
-            # Update package.json with new version
-            npm version "$NEW_VERSION" --no-git-tag-version
-
-            # Commit the version bump
-            git config user.name "github-actions[bot]"
-            git config user.email "github-actions[bot]@users.noreply.github.com"
-            git add package.json package-lock.json
-            git commit -m "chore: bump version to $NEW_VERSION"
-            git push
-
-            echo "version=$NEW_VERSION" >> $GITHUB_OUTPUT
+            echo "Release v$CURRENT_VERSION already exists"
+            echo "exists=true" >> "$GITHUB_OUTPUT"
           else
-            echo "No existing release found, using current version"
-            echo "version=$CURRENT_VERSION" >> $GITHUB_OUTPUT
+            echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Create draft release
+        if: steps.package.outputs.exists == 'false'
         uses: softprops/action-gh-release@v2
         with:
           tag_name: v${{ steps.package.outputs.version }}
           name: v${{ steps.package.outputs.version }}
           draft: true
           generate_release_notes: true
+
+      - name: Open a version-bump pull request
+        if: steps.package.outputs.exists == 'true'
+        env:
+          # A personal access token in RELEASE_PR_TOKEN (contents + pull
+          # requests: write) makes the CI workflow run on the bump PR.
+          # With the default token the PR is still opened, but GitHub does
+          # not trigger workflows for it: close and reopen the PR, or push
+          # to its branch, to get the required status check.
+          GH_TOKEN: ${{ secrets.RELEASE_PR_TOKEN || github.token }}
+        run: |
+          CURRENT_VERSION="${{ steps.package.outputs.version }}"
+          IFS='.' read -r MAJOR MINOR PATCH <<< "$CURRENT_VERSION"
+          NEW_VERSION="$MAJOR.$MINOR.$((PATCH + 1))"
+          BRANCH="release/bump-v$NEW_VERSION"
+
+          if gh pr list --head "$BRANCH" --state open --json number --jq 'length' | grep -qv '^0$'; then
+            echo "A bump PR from $BRANCH is already open; nothing to do"
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$BRANCH"
+          npm version "$NEW_VERSION" --no-git-tag-version
+          git add package.json package-lock.json
+          git commit -m "chore: bump version to $NEW_VERSION"
+          git push --force origin "$BRANCH"
+
+          gh pr create \
+            --base main \
+            --head "$BRANCH" \
+            --title "chore: bump version to $NEW_VERSION" \
+            --body "Release v$CURRENT_VERSION already exists, so the push to main did not create a draft release. Merging this PR bumps \`package.json\` to $NEW_VERSION; the Create Release workflow then creates the draft release for v$NEW_VERSION."
+          echo "::notice::Release v$CURRENT_VERSION exists; opened a PR from $BRANCH bumping to $NEW_VERSION"

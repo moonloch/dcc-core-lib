@@ -1,13 +1,17 @@
 {
   "name": "@moonloch/dcc-core-lib",
   "version": "0.14.3",
-  "description": "Core DCC (Dungeon Crawl Classics) logic library - pure functions, no objects",
+  "description": "Pure-function TypeScript game-logic library for the Dungeon Crawl Classics RPG (dice chain, checks, combat, spells, character creation). No platform dependencies and no official rulebook data.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:moonloch/dcc-core-lib.git"
+    "url": "git+https://github.com/moonloch/dcc-core-lib.git"
+  },
+  "homepage": "https://github.com/moonloch/dcc-core-lib#readme",
+  "bugs": {
+    "url": "https://github.com/moonloch/dcc-core-lib/issues"
   },
   "exports": {
     ".": {
@@ -19,16 +23,19 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc",
+    "build": "tsc -p tsconfig.build.json && npm run build:dts",
+    "build:dts": "dts-bundle-generator --no-check --export-referenced-types --out-file dist/dcc-core-lib.d.ts src/index.ts",
     "check": "npm run lint && npm run typecheck && npm run test",
+    "clean": "rm -rf dist",
+    "docs:api": "typedoc",
+    "docs:check": "npm run docs:api && git diff --exit-code --stat docs/api",
     "lint": "eslint src --ext .ts",
     "lint:fix": "eslint src --ext .ts --fix",
+    "prepare": "husky",
+    "prepublishOnly": "npm run build",
     "test": "vitest run",
     "test:watch": "vitest",
-    "typecheck": "tsc --noEmit",
-    "clean": "rm -rf dist",
-    "prepublishOnly": "npm run build",
-    "prepare": "husky"
+    "typecheck": "tsc --noEmit"
   },
   "keywords": [
     "dcc",
@@ -51,8 +58,11 @@
   "devDependencies": {
     "@eslint/js": "^9.15.0",
     "@types/node": "^22.10.0",
+    "dts-bundle-generator": "9.5.1",
     "eslint": "^9.15.0",
     "husky": "^9.1.7",
+    "typedoc": "0.28.20",
+    "typedoc-plugin-markdown": "4.14.0",
     "typescript": "^5.7.2",
     "typescript-eslint": "^8.15.0",
     "vitest": "^2.1.6"

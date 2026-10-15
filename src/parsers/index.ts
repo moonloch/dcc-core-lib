@@ -10,7 +10,7 @@
  * @example
  * ```typescript
  * // Purple Sorcerer character import
- * import { parsePurpleSorcerer, convertPSCharacters } from "dcc-core-lib";
+ * import { parsePurpleSorcerer, convertPSCharacters } from "@moonloch/dcc-core-lib";
  *
  * const result = parsePurpleSorcerer(inputData);
  * if (result.success) {
@@ -18,7 +18,7 @@
  * }
  *
  * // NPC stat block parsing
- * import { parseStatBlock } from "dcc-core-lib";
+ * import { parseStatBlock } from "@moonloch/dcc-core-lib";
  *
  * const result = parseStatBlock(
  *   "Goblin: Init +1; Atk club +0 melee (1d4); AC 11; HD 1d6; MV 30'; Act 1d20; SV Fort +3, Ref +4, Will -1; AL C."

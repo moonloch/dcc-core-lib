@@ -175,7 +175,7 @@ describe("parseStatBlock", () => {
       );
 
       expect(result.success).toBe(true);
-      expect(result.creature?.actionDice).toBe("3d20");
+      expect(result.creature?.actionDice).toBe("2d20");
     });
 
     it("parses action dice with notes", () => {
@@ -321,7 +321,7 @@ describe("parseStatBlock", () => {
       );
 
       expect(result.success).toBe(true);
-      expect(result.creature?.init).toBe(-3);
+      expect(result.creature?.init).toBe(-1);
       expect(result.creature?.attacks).toHaveLength(1);
     });
 

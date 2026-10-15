@@ -3,11 +3,14 @@
 > Design doc for the roll-modifier type used throughout the check, skill,
 > attack, damage, and spell pipelines.
 >
-> **Status:** Proposal · 2026-04-17 · **staged migration in progress**
+> **Status:** Adopted · first written 2026-04-17 · updated 2026-10-15 ·
+> **staged migration in progress** — the check/skill/dice pipeline and
+> `cleric/` are on the tagged union; `spells/`, `patron/`, `combat/` and
+> `occupation/` still use `LegacyRollModifier` (see §8).
 >
 > This document pins the type shape, application order, and
 > origin-categorization scheme. The implementation is landing in
-> stages, subsystem-by-subsystem (see §9). Once every subsystem is
+> stages, subsystem-by-subsystem (see §8). Once every subsystem is
 > migrated, this doc becomes the single reference for adding new
 > modifier kinds and for writing adapter code that emits modifiers.
 
@@ -370,7 +373,7 @@ Explicitly not tackled here; listed so nobody expects them:
   orthogonal decision. It affects the evaluator's signature but not
   the modifier type.
 
-## 9. Staged migration plan
+## 8. Staged migration plan
 
 The design in §2 is the end state. Reaching it in one commit would
 touch ~20 files plus their test suites. To keep each commit reviewable
@@ -387,25 +390,28 @@ subsystem-by-subsystem.
 - **`LegacyRollModifier`** — the former flat `{ source, value, label }`
   shape, kept alive and renamed so importers are explicit about
   depending on the old form. Used by the subsystems not yet migrated.
-  Lives in `src/types/dice.ts` with a doc comment pointing at this §9.
+  Lives in `src/types/dice.ts` with a doc comment pointing at this §8.
 
 Both types export from the same module. Consumers import whichever
 shape they need.
 
 ### Migration order
 
-| Wave | Subsystem | When it migrates | Notes |
-|---|---|---|---|
-| 1 | `checks/`, `skills/`, `dice/roll.ts` | **Now** (with this doc's implementation) | Needed by the Foundry adapter's Phase 1 (ability check → save → skill → init). |
-| 2 | `spells/`, `cleric/`, `patron/` | Foundry adapter Phase 2 | Spell check pipeline + cleric disapproval + patron taint. |
-| 3 | `combat/` (attack, damage, crits, fumbles, initiative, misc-rules, morale) | Foundry adapter Phase 3 | The largest chunk — attack/damage/crit chain interleaves lots of modifier types. |
-| 4 | `occupation/` | Opportunistic | Small surface; may migrate with wave 2 or 3. |
+Status as of 2026-10-15 (from which non-test files in `src/` import
+`LegacyRollModifier`):
+
+| Wave | Subsystem | When it migrates | Status | Notes |
+|---|---|---|---|---|
+| 1 | `checks/`, `skills/`, `dice/roll.ts` | With this doc's implementation | **Done** | Needed by the Foundry adapter's Phase 1 (ability check → save → skill → init). `dice/roll.ts` also still hosts the legacy helpers (`buildFormula`, `createRoll`, `rollSimple`) that the unmigrated subsystems call, and `RollResult.modifiers` is still the legacy shape. |
+| 2 | `spells/`, `cleric/`, `patron/` | Foundry adapter Phase 2 | **Partial** — `cleric/` done; `spells/` (`cast.ts`, `spell-check.ts`, `types/spells.ts`) and `patron/` (`invoke.ts`) remain | Spell check pipeline + cleric disapproval + patron taint. |
+| 3 | `combat/` (attack, damage, crits, fumbles, initiative, misc-rules, morale) | Foundry adapter Phase 3 | **Not started** — all seven files plus `types/combat.ts` remain | The largest chunk — attack/damage/crit chain interleaves lots of modifier types. |
+| 4 | `occupation/` | Opportunistic | **Not started** — `occupation/skills.ts` remains | Small surface; may migrate with wave 2 or 3. |
 
 ### Retirement criteria
 
 `LegacyRollModifier` is deleted the day no non-test file imports it.
 That's when the last wave lands. The one-line deletion + a follow-up
-doc edit to collapse §9 back into the main text marks the end of the
+doc edit to collapse §8 back into the main text marks the end of the
 transition.
 
 ### Invariants during transition
@@ -422,7 +428,7 @@ transition.
   1 forward. Combat and spell result types keep their current shapes
   until their waves land.
 
-## 10. Open questions for the author of the first caller
+## 9. Open questions for the author of the first caller
 
 These don't block the type design but will surface while building the
 first adapter (DCC Foundry system, Phase 1 of the `refactor/

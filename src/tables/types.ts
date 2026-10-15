@@ -94,7 +94,7 @@ export type LayOnHandsConditionThresholds = Record<string, number>;
 
 /**
  * RAW Lay on Hands table (Table 4-2, DCC core p.31). Rulebook data values
- * belong in the companion `licensed-data-package` package; this type is the shape
+ * are supplied by the consuming application; this type is the shape
  * core-lib expects.
  */
 export interface LayOnHandsTable extends TableMetadata {

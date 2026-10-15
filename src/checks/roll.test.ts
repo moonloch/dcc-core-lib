@@ -590,9 +590,9 @@ describe("checks", () => {
     });
 
     // Regression: ensure the save check does not double-count the
-    // governing ability modifier. Repro from
-    // FoundryVTT-Next/Data/systems/dcc Cheesemaker (sta 14, level 0,
-    // saves.fortitude = +1): formula must be 1d20+1, not 1d20+2.
+    // governing ability modifier. Repro from a DCC FoundryVTT system
+    // 0-level character (sta 14, level 0, saves.fortitude = +1):
+    // formula must be 1d20+1, not 1d20+2.
     it("does not double-count ability mod into save bonus", () => {
       const character = createMockCharacter({
         classInfo: undefined,

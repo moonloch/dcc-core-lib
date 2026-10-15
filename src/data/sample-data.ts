@@ -7,7 +7,7 @@
  * for testing and demonstration purposes. These are original creations
  * and are NOT from any published game system.
  *
- * For official DCC RPG data, use the separate licensed-data-package package.
+ * For official DCC RPG data, supply your own licensed data.
  */
 
 import type { BirthAugurEntry, BirthAugurEffectType } from "../types/tables.js";
@@ -156,7 +156,7 @@ export const SAMPLE_OCCUPATIONS: OccupationEntry[] = [
  * Default character creation data using fan-made content.
  * Use this for testing or when official data isn't available.
  *
- * For official DCC RPG data, use the licensed-data-package package instead.
+ * For official DCC RPG data, supply your own licensed data instead.
  */
 export const DEFAULT_CHARACTER_CREATION_DATA = {
   birthAugurs: SAMPLE_BIRTH_AUGURS,
@@ -225,7 +225,7 @@ export function getBirthAugurEffectType(
  * XP needed to reach each level (index 0 = level 1).
  *
  * This is a fan-made approximation for testing purposes.
- * Official DCC data should be loaded from licensed-data-package.
+ * Official DCC data should be supplied by the consuming application.
  */
 const STANDARD_XP = [10, 50, 110, 190, 290, 410, 550, 710, 890, 1090];
 

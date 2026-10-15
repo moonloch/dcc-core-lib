@@ -4,7 +4,7 @@
 
 ### BondBreakConsequences
 
-Defined in: patron/bond.ts:305
+Defined in: [patron/bond.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L305)
 
 Information about the consequences of breaking a patron bond.
 In DCC, this is extremely dangerous and often results in death or worse.
@@ -17,7 +17,7 @@ In DCC, this is extremely dangerous and often results in death or worse.
 description: string;
 ```
 
-Defined in: patron/bond.ts:307
+Defined in: [patron/bond.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L307)
 
 Description of the consequences
 
@@ -27,7 +27,7 @@ Description of the consequences
 suggestedEffects: string[];
 ```
 
-Defined in: patron/bond.ts:310
+Defined in: [patron/bond.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L310)
 
 Suggested mechanical effects
 
@@ -37,7 +37,7 @@ Suggested mechanical effects
 potentiallyFatal: boolean;
 ```
 
-Defined in: patron/bond.ts:313
+Defined in: [patron/bond.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L313)
 
 Is this potentially fatal?
 
@@ -45,7 +45,7 @@ Is this potentially fatal?
 
 ### PatronSpellGrant
 
-Defined in: types/patron.ts:21
+Defined in: [types/patron.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L21)
 
 A patron spell granted to bound wizards/elves.
 These are spells unique to a patron that aren't in the standard spell list.
@@ -58,7 +58,7 @@ These are spells unique to a patron that aren't in the standard spell list.
 spellId: string;
 ```
 
-Defined in: types/patron.ts:23
+Defined in: [types/patron.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L23)
 
 Spell ID reference
 
@@ -68,7 +68,7 @@ Spell ID reference
 minLevel: number;
 ```
 
-Defined in: types/patron.ts:26
+Defined in: [types/patron.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L26)
 
 Minimum level to learn this patron spell
 
@@ -78,7 +78,7 @@ Minimum level to learn this patron spell
 optional description?: string;
 ```
 
-Defined in: types/patron.ts:29
+Defined in: [types/patron.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L29)
 
 Description of how/when this spell is granted
 
@@ -86,7 +86,7 @@ Description of how/when this spell is granted
 
 ### PatronDefinition
 
-Defined in: types/patron.ts:36
+Defined in: [types/patron.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L36)
 
 Patron definition loaded from external JSON.
 Each patron has unique invoke results, taint, and granted spells.
@@ -99,7 +99,7 @@ Each patron has unique invoke results, taint, and granted spells.
 id: string;
 ```
 
-Defined in: types/patron.ts:38
+Defined in: [types/patron.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L38)
 
 Unique identifier (e.g., "bobugbubilz", "the-king-of-elfland")
 
@@ -109,7 +109,7 @@ Unique identifier (e.g., "bobugbubilz", "the-king-of-elfland")
 name: string;
 ```
 
-Defined in: types/patron.ts:41
+Defined in: [types/patron.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L41)
 
 Display name
 
@@ -119,7 +119,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/patron.ts:44
+Defined in: [types/patron.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L44)
 
 Full description of the patron
 
@@ -129,7 +129,7 @@ Full description of the patron
 optional domain?: string;
 ```
 
-Defined in: types/patron.ts:47
+Defined in: [types/patron.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L47)
 
 Domain or sphere of influence (e.g., "demons", "nature", "chaos")
 
@@ -139,7 +139,7 @@ Domain or sphere of influence (e.g., "demons", "nature", "chaos")
 optional alignment?: "lawful" | "neutral" | "chaotic";
 ```
 
-Defined in: types/patron.ts:50
+Defined in: [types/patron.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L50)
 
 Typical alignment of patron (informational)
 
@@ -149,7 +149,7 @@ Typical alignment of patron (informational)
 optional source?: string;
 ```
 
-Defined in: types/patron.ts:53
+Defined in: [types/patron.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L53)
 
 Source reference (e.g., "DCC Core Rules p.321")
 
@@ -159,7 +159,7 @@ Source reference (e.g., "DCC Core Rules p.321")
 invokeTableId: string;
 ```
 
-Defined in: types/patron.ts:59
+Defined in: [types/patron.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L59)
 
 Invoke Patron result table ID.
 References a TieredTable with results for different check totals.
@@ -170,7 +170,7 @@ References a TieredTable with results for different check totals.
 taintTableId: string;
 ```
 
-Defined in: types/patron.ts:65
+Defined in: [types/patron.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L65)
 
 Patron taint table ID.
 References a SimpleTable rolled on fumbles or certain spell results.
@@ -181,7 +181,7 @@ References a SimpleTable rolled on fumbles or certain spell results.
 grantedSpells: PatronSpellGrant[];
 ```
 
-Defined in: types/patron.ts:71
+Defined in: [types/patron.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L71)
 
 Spells granted by this patron.
 These become available when the bond is formed.
@@ -192,7 +192,7 @@ These become available when the bond is formed.
 optional bondRequirements?: string;
 ```
 
-Defined in: types/patron.ts:76
+Defined in: [types/patron.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L76)
 
 Special requirements for bonding with this patron.
 
@@ -200,7 +200,7 @@ Special requirements for bonding with this patron.
 
 ### PatronBond
 
-Defined in: types/patron.ts:87
+Defined in: [types/patron.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L87)
 
 Record of the bond between character and patron.
 Stored in character's class state.
@@ -213,7 +213,7 @@ Stored in character's class state.
 patronId: string;
 ```
 
-Defined in: types/patron.ts:89
+Defined in: [types/patron.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L89)
 
 Patron ID
 
@@ -223,7 +223,7 @@ Patron ID
 bondedAt: string;
 ```
 
-Defined in: types/patron.ts:92
+Defined in: [types/patron.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L92)
 
 When the bond was formed (ISO date string)
 
@@ -233,7 +233,7 @@ When the bond was formed (ISO date string)
 optional bondStrength?: "normal" | "weak" | "strong";
 ```
 
-Defined in: types/patron.ts:95
+Defined in: [types/patron.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L95)
 
 Current bond strength (optional, for systems that track this)
 
@@ -243,7 +243,7 @@ Current bond strength (optional, for systems that track this)
 taintCount: number;
 ```
 
-Defined in: types/patron.ts:98
+Defined in: [types/patron.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L98)
 
 Accumulated taint count (for tracking how much taint received)
 
@@ -253,7 +253,7 @@ Accumulated taint count (for tracking how much taint received)
 optional notes?: string;
 ```
 
-Defined in: types/patron.ts:101
+Defined in: [types/patron.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L101)
 
 Notes about the bond relationship
 
@@ -261,7 +261,7 @@ Notes about the bond relationship
 
 ### InvokePatronInput
 
-Defined in: types/patron.ts:112
+Defined in: [types/patron.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L112)
 
 Input for invoking a patron.
 This is used when a wizard/elf casts Invoke Patron spell.
@@ -274,7 +274,7 @@ This is used when a wizard/elf casts Invoke Patron spell.
 patronId: string;
 ```
 
-Defined in: types/patron.ts:114
+Defined in: [types/patron.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L114)
 
 The patron being invoked
 
@@ -284,7 +284,7 @@ The patron being invoked
 casterLevel: number;
 ```
 
-Defined in: types/patron.ts:117
+Defined in: [types/patron.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L117)
 
 Caster level
 
@@ -294,7 +294,7 @@ Caster level
 abilityModifier: number;
 ```
 
-Defined in: types/patron.ts:120
+Defined in: [types/patron.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L120)
 
 Spell check ability modifier (Intelligence for wizard/elf)
 
@@ -304,7 +304,7 @@ Spell check ability modifier (Intelligence for wizard/elf)
 optional luckBurn?: number;
 ```
 
-Defined in: types/patron.ts:123
+Defined in: [types/patron.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L123)
 
 Luck to burn on this check
 
@@ -314,7 +314,7 @@ Luck to burn on this check
 optional luckModifier?: number;
 ```
 
-Defined in: types/patron.ts:126
+Defined in: [types/patron.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L126)
 
 Luck modifier (from current luck score)
 
@@ -328,7 +328,7 @@ optional spellburn?: {
 };
 ```
 
-Defined in: types/patron.ts:129
+Defined in: [types/patron.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L129)
 
 Spellburn commitment
 
@@ -359,7 +359,7 @@ optional situationalModifiers?: {
 }[];
 ```
 
-Defined in: types/patron.ts:136
+Defined in: [types/patron.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L136)
 
 Additional situational modifiers
 
@@ -381,7 +381,7 @@ value: number;
 optional invokeTable?: TieredTable;
 ```
 
-Defined in: types/patron.ts:142
+Defined in: [types/patron.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L142)
 
 Pre-loaded invoke patron table
 
@@ -391,7 +391,7 @@ Pre-loaded invoke patron table
 optional taintTable?: SimpleTable;
 ```
 
-Defined in: types/patron.ts:145
+Defined in: [types/patron.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L145)
 
 Pre-loaded taint table (for fumbles)
 
@@ -399,7 +399,7 @@ Pre-loaded taint table (for fumbles)
 
 ### InvokePatronResult
 
-Defined in: types/patron.ts:151
+Defined in: [types/patron.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L151)
 
 Result of invoking a patron.
 
@@ -411,7 +411,7 @@ Result of invoking a patron.
 patronId: string;
 ```
 
-Defined in: types/patron.ts:153
+Defined in: [types/patron.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L153)
 
 The patron that was invoked
 
@@ -421,7 +421,7 @@ The patron that was invoked
 natural: number;
 ```
 
-Defined in: types/patron.ts:156
+Defined in: [types/patron.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L156)
 
 Natural die result (d20)
 
@@ -431,7 +431,7 @@ Natural die result (d20)
 total: number;
 ```
 
-Defined in: types/patron.ts:159
+Defined in: [types/patron.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L159)
 
 Total check result (after all modifiers)
 
@@ -441,7 +441,7 @@ Total check result (after all modifiers)
 formula: string;
 ```
 
-Defined in: types/patron.ts:162
+Defined in: [types/patron.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L162)
 
 Formula used for display
 
@@ -451,7 +451,7 @@ Formula used for display
 critical: boolean;
 ```
 
-Defined in: types/patron.ts:165
+Defined in: [types/patron.ts:165](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L165)
 
 Was this a critical (natural 20)?
 
@@ -461,7 +461,7 @@ Was this a critical (natural 20)?
 fumble: boolean;
 ```
 
-Defined in: types/patron.ts:168
+Defined in: [types/patron.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L168)
 
 Was this a fumble (natural 1)?
 
@@ -471,7 +471,7 @@ Was this a fumble (natural 1)?
 optional tier?: string;
 ```
 
-Defined in: types/patron.ts:171
+Defined in: [types/patron.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L171)
 
 Result tier from the invoke table
 
@@ -481,7 +481,7 @@ Result tier from the invoke table
 optional resultText?: string;
 ```
 
-Defined in: types/patron.ts:174
+Defined in: [types/patron.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L174)
 
 Result text describing the patron's aid
 
@@ -491,7 +491,7 @@ Result text describing the patron's aid
 success: boolean;
 ```
 
-Defined in: types/patron.ts:177
+Defined in: [types/patron.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L177)
 
 Did the invocation succeed (patron answered)?
 
@@ -501,7 +501,7 @@ Did the invocation succeed (patron answered)?
 taintIncurred: boolean;
 ```
 
-Defined in: types/patron.ts:180
+Defined in: [types/patron.ts:180](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L180)
 
 Was patron taint incurred?
 
@@ -511,7 +511,7 @@ Was patron taint incurred?
 optional taintDescription?: string;
 ```
 
-Defined in: types/patron.ts:183
+Defined in: [types/patron.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L183)
 
 Taint description if incurred
 
@@ -521,7 +521,7 @@ Taint description if incurred
 spellLost: boolean;
 ```
 
-Defined in: types/patron.ts:186
+Defined in: [types/patron.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L186)
 
 Is the spell lost for the day?
 
@@ -534,7 +534,7 @@ modifiers: {
 }[];
 ```
 
-Defined in: types/patron.ts:189
+Defined in: [types/patron.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L189)
 
 All modifiers that were applied
 
@@ -554,7 +554,7 @@ value: number;
 
 ### PatronEvents
 
-Defined in: types/patron.ts:202
+Defined in: [types/patron.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L202)
 
 Event callbacks for patron system.
 
@@ -566,7 +566,7 @@ Event callbacks for patron system.
 optional onInvokeStart?: (input: InvokePatronInput) => void;
 ```
 
-Defined in: types/patron.ts:204
+Defined in: [types/patron.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L204)
 
 Called when Invoke Patron starts
 
@@ -586,7 +586,7 @@ Called when Invoke Patron starts
 optional onInvokeComplete?: (result: InvokePatronResult) => void;
 ```
 
-Defined in: types/patron.ts:207
+Defined in: [types/patron.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L207)
 
 Called when Invoke Patron completes
 
@@ -606,7 +606,7 @@ Called when Invoke Patron completes
 optional onPatronAnswers?: (result: InvokePatronResult) => void;
 ```
 
-Defined in: types/patron.ts:210
+Defined in: [types/patron.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L210)
 
 Called when patron answers (success)
 
@@ -626,7 +626,7 @@ Called when patron answers (success)
 optional onPatronIgnores?: (result: InvokePatronResult) => void;
 ```
 
-Defined in: types/patron.ts:213
+Defined in: [types/patron.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L213)
 
 Called when patron ignores (failure)
 
@@ -646,7 +646,7 @@ Called when patron ignores (failure)
 optional onTaintIncurred?: (patronId: string, description: string) => void;
 ```
 
-Defined in: types/patron.ts:216
+Defined in: [types/patron.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L216)
 
 Called when patron taint is incurred
 
@@ -667,7 +667,7 @@ Called when patron taint is incurred
 optional onBondFormed?: (bond: PatronBond) => void;
 ```
 
-Defined in: types/patron.ts:219
+Defined in: [types/patron.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L219)
 
 Called when bond is formed
 
@@ -685,7 +685,7 @@ Called when bond is formed
 
 ### PatronLookupOptions
 
-Defined in: types/patron.ts:229
+Defined in: [types/patron.ts:229](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L229)
 
 Options for filtering/searching patrons
 
@@ -697,7 +697,7 @@ Options for filtering/searching patrons
 optional alignment?: "lawful" | "neutral" | "chaotic";
 ```
 
-Defined in: types/patron.ts:231
+Defined in: [types/patron.ts:231](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L231)
 
 Filter by alignment
 
@@ -707,7 +707,7 @@ Filter by alignment
 optional domain?: string;
 ```
 
-Defined in: types/patron.ts:234
+Defined in: [types/patron.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L234)
 
 Filter by domain
 
@@ -717,7 +717,7 @@ Filter by domain
 optional nameSearch?: string;
 ```
 
-Defined in: types/patron.ts:237
+Defined in: [types/patron.ts:237](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/patron.ts#L237)
 
 Search by name (partial match)
 
@@ -729,7 +729,7 @@ Search by name (partial match)
 const INVOKE_PATRON_MIN_SUCCESS: 12 = 12;
 ```
 
-Defined in: patron/invoke.ts:28
+Defined in: [patron/invoke.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L28)
 
 Minimum check result for patron to answer.
 Below this threshold, the invocation fails.
@@ -742,7 +742,7 @@ Below this threshold, the invocation fails.
 const INVOKE_PATRON_FUMBLE_TRIGGERS_TAINT: true = true;
 ```
 
-Defined in: patron/invoke.ts:33
+Defined in: [patron/invoke.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L33)
 
 Natural 1 always triggers patron taint on invoke.
 
@@ -757,7 +757,7 @@ function createPatronBond(patronId: string, options?: {
 }): PatronBond;
 ```
 
-Defined in: patron/bond.ts:25
+Defined in: [patron/bond.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L25)
 
 Create a new patron bond.
 
@@ -787,7 +787,7 @@ function canFormPatronBond(character: Character, patronId: string): {
 };
 ```
 
-Defined in: patron/bond.ts:60
+Defined in: [patron/bond.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L60)
 
 Check if a character can form a bond with a patron.
 
@@ -811,8 +811,8 @@ Object with canBond flag and reason if false
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `canBond` | `boolean` | patron/bond.ts:63 |
-| `reason?` | `string` | patron/bond.ts:63 |
+| `canBond` | `boolean` | [patron/bond.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L63) |
+| `reason?` | `string` | [patron/bond.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L63) |
 
 ***
 
@@ -822,7 +822,7 @@ Object with canBond flag and reason if false
 function getCharacterPatronId(character: Character): string | undefined;
 ```
 
-Defined in: patron/bond.ts:94
+Defined in: [patron/bond.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L94)
 
 Get the patron ID from a character's state.
 
@@ -846,7 +846,7 @@ Patron ID or undefined if not bonded
 function hasPatronBond(character: Character): boolean;
 ```
 
-Defined in: patron/bond.ts:107
+Defined in: [patron/bond.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L107)
 
 Check if a character has a patron bond.
 
@@ -888,7 +888,7 @@ function formWizardPatronBond(
 };
 ```
 
-Defined in: patron/bond.ts:124
+Defined in: [patron/bond.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L124)
 
 Form a patron bond for a wizard.
 Returns the updated wizard state.
@@ -917,11 +917,11 @@ Updated wizard state
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `corruption` | `string`[] | patron/bond.ts:135 |
-| `patron` | `string` | patron/bond.ts:136 |
-| `familiar?` | `string` | patron/bond.ts:137 |
-| `spellburnDamage?` | `Partial`\<`Record`\<`string`, `number`\>\> | patron/bond.ts:138 |
-| `spellbook?` | [`Spellbook`](types.md#spellbook-3) | patron/bond.ts:139 |
+| `corruption` | `string`[] | [patron/bond.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L135) |
+| `patron` | `string` | [patron/bond.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L136) |
+| `familiar?` | `string` | [patron/bond.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L137) |
+| `spellburnDamage?` | `Partial`\<`Record`\<`string`, `number`\>\> | [patron/bond.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L138) |
+| `spellbook?` | [`Spellbook`](types.md#spellbook-3) | [patron/bond.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L139) |
 
 ***
 
@@ -945,7 +945,7 @@ function formElfPatronBond(
 };
 ```
 
-Defined in: patron/bond.ts:175
+Defined in: [patron/bond.ts:175](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L175)
 
 Form a patron bond for an elf.
 Returns the updated elf state.
@@ -972,9 +972,9 @@ Updated elf state
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `patron` | `string` | patron/bond.ts:184 |
-| `corruption` | `string`[] | patron/bond.ts:185 |
-| `spellbook?` | [`Spellbook`](types.md#spellbook-3) | patron/bond.ts:186 |
+| `patron` | `string` | [patron/bond.ts:184](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L184) |
+| `corruption` | `string`[] | [patron/bond.ts:185](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L185) |
+| `spellbook?` | [`Spellbook`](types.md#spellbook-3) | [patron/bond.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L186) |
 
 ***
 
@@ -984,7 +984,7 @@ Updated elf state
 function getAvailablePatronSpells(character: Character): string[];
 ```
 
-Defined in: patron/bond.ts:215
+Defined in: [patron/bond.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L215)
 
 Get the patron spells available to a character.
 
@@ -1008,7 +1008,7 @@ Array of available patron spell IDs
 function canLearnPatronSpell(character: Character, spellId: string): boolean;
 ```
 
-Defined in: patron/bond.ts:232
+Defined in: [patron/bond.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L232)
 
 Check if a character can learn a specific patron spell.
 
@@ -1033,7 +1033,7 @@ True if the spell is available from their patron at their level
 function createPatronSpellEntry(spellId: string): SpellbookEntry;
 ```
 
-Defined in: patron/bond.ts:245
+Defined in: [patron/bond.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L245)
 
 Create a spellbook entry for a patron spell.
 
@@ -1057,7 +1057,7 @@ A new spellbook entry
 function incrementTaintCount(bond: PatronBond): PatronBond;
 ```
 
-Defined in: patron/bond.ts:264
+Defined in: [patron/bond.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L264)
 
 Increment the taint count on a patron bond.
 
@@ -1081,7 +1081,7 @@ Updated patron bond with incremented taint count
 function addTaintToNotes(bond: PatronBond, taintDescription: string): PatronBond;
 ```
 
-Defined in: patron/bond.ts:278
+Defined in: [patron/bond.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L278)
 
 Add a taint description to the bond notes.
 
@@ -1106,7 +1106,7 @@ Updated patron bond
 function getPatronBondBreakConsequences(patronId: string): BondBreakConsequences;
 ```
 
-Defined in: patron/bond.ts:323
+Defined in: [patron/bond.ts:323](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L323)
 
 Get information about breaking a patron bond.
 This doesn't actually break the bond - just informs about consequences.
@@ -1134,7 +1134,7 @@ function canBreakPatronBond(character: Character): {
 };
 ```
 
-Defined in: patron/bond.ts:351
+Defined in: [patron/bond.ts:351](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L351)
 
 Check if a character is eligible to break their patron bond.
 This is always possible but always dangerous.
@@ -1158,8 +1158,8 @@ Object with canBreak flag and warning
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `canBreak` | `boolean` | patron/bond.ts:352 |
-| `warning` | `string` | patron/bond.ts:353 |
+| `canBreak` | `boolean` | [patron/bond.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L352) |
+| `warning` | `string` | [patron/bond.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/bond.ts#L353) |
 
 ***
 
@@ -1169,7 +1169,7 @@ Object with canBreak flag and warning
 function buildInvokeModifiers(input: InvokePatronInput): LegacyRollModifier[];
 ```
 
-Defined in: patron/invoke.ts:45
+Defined in: [patron/invoke.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L45)
 
 Calculate all modifiers for an Invoke Patron check.
 
@@ -1193,7 +1193,7 @@ Array of roll modifiers
 function sumModifiers(modifiers: readonly LegacyRollModifier[]): number;
 ```
 
-Defined in: patron/invoke.ts:112
+Defined in: [patron/invoke.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L112)
 
 Sum all modifiers to get total modifier value.
 
@@ -1217,7 +1217,7 @@ Total modifier value
 function buildInvokeFormula(natural: number, modifiers: readonly LegacyRollModifier[]): string;
 ```
 
-Defined in: patron/invoke.ts:123
+Defined in: [patron/invoke.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L123)
 
 Build the formula string for display.
 
@@ -1246,7 +1246,7 @@ function invokePatron(
 ): InvokePatronResult;
 ```
 
-Defined in: patron/invoke.ts:167
+Defined in: [patron/invoke.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L167)
 
 Invoke a patron.
 
@@ -1279,7 +1279,7 @@ Invoke patron result
 function isInvokeSuccess(result: InvokePatronResult): boolean;
 ```
 
-Defined in: patron/invoke.ts:299
+Defined in: [patron/invoke.ts:299](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L299)
 
 Check if an invoke result was successful.
 
@@ -1303,7 +1303,7 @@ True if patron answered
 function isInvokeFumble(result: InvokePatronResult): boolean;
 ```
 
-Defined in: patron/invoke.ts:309
+Defined in: [patron/invoke.ts:309](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L309)
 
 Check if an invoke result was a fumble.
 
@@ -1327,7 +1327,7 @@ True if natural 1 was rolled
 function getInvokeSummary(result: InvokePatronResult): string;
 ```
 
-Defined in: patron/invoke.ts:319
+Defined in: [patron/invoke.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L319)
 
 Get a summary of the invoke result for display.
 
@@ -1351,7 +1351,7 @@ Summary string
 function getMinimumForInvokeTier(invokeTable: TieredTable, desiredTier: string): number | undefined;
 ```
 
-Defined in: patron/invoke.ts:366
+Defined in: [patron/invoke.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L366)
 
 Calculate the minimum check needed for a specific invoke result tier.
 This helps players understand what they need to roll for desired effects.
@@ -1377,7 +1377,7 @@ Minimum check total needed, or undefined if tier not in table
 function estimateInvokeSuccessChance(totalModifier: number, targetDC?: number): number;
 ```
 
-Defined in: patron/invoke.ts:386
+Defined in: [patron/invoke.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/invoke.ts#L386)
 
 Estimate the chance of success given modifiers.
 Assumes a d20 roll.
@@ -1403,7 +1403,7 @@ Probability of success (0-1)
 function registerPatron(patron: PatronDefinition): void;
 ```
 
-Defined in: patron/registry.ts:30
+Defined in: [patron/registry.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L30)
 
 Register a patron definition.
 
@@ -1429,7 +1429,7 @@ Error if patron with same ID already exists
 function registerPatrons(patrons: readonly PatronDefinition[]): void;
 ```
 
-Defined in: patron/registry.ts:42
+Defined in: [patron/registry.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L42)
 
 Register multiple patron definitions.
 
@@ -1451,7 +1451,7 @@ Register multiple patron definitions.
 function clearPatronRegistry(): void;
 ```
 
-Defined in: patron/registry.ts:52
+Defined in: [patron/registry.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L52)
 
 Clear all registered patrons.
 Primarily for testing purposes.
@@ -1468,7 +1468,7 @@ Primarily for testing purposes.
 function getPatron(patronId: string): PatronDefinition | undefined;
 ```
 
-Defined in: patron/registry.ts:66
+Defined in: [patron/registry.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L66)
 
 Get a patron by ID.
 
@@ -1492,7 +1492,7 @@ The patron definition, or undefined if not found
 function requirePatron(patronId: string): PatronDefinition;
 ```
 
-Defined in: patron/registry.ts:77
+Defined in: [patron/registry.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L77)
 
 Get a patron by ID, throwing if not found.
 
@@ -1520,7 +1520,7 @@ Error if patron is not registered
 function hasPatron(patronId: string): boolean;
 ```
 
-Defined in: patron/registry.ts:91
+Defined in: [patron/registry.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L91)
 
 Check if a patron is registered.
 
@@ -1544,7 +1544,7 @@ True if patron is registered
 function getRegisteredPatronIds(): string[];
 ```
 
-Defined in: patron/registry.ts:100
+Defined in: [patron/registry.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L100)
 
 Get all registered patron IDs.
 
@@ -1562,7 +1562,7 @@ Array of registered patron IDs
 function getAllPatrons(): PatronDefinition[];
 ```
 
-Defined in: patron/registry.ts:109
+Defined in: [patron/registry.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L109)
 
 Get all registered patrons.
 
@@ -1580,7 +1580,7 @@ Array of all patron definitions
 function findPatrons(options: PatronLookupOptions): PatronDefinition[];
 ```
 
-Defined in: patron/registry.ts:119
+Defined in: [patron/registry.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L119)
 
 Find patrons matching the given criteria.
 
@@ -1604,7 +1604,7 @@ Array of matching patron definitions
 function getPatronInvokeTableId(patronId: string): string | undefined;
 ```
 
-Defined in: patron/registry.ts:148
+Defined in: [patron/registry.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L148)
 
 Get the invoke table ID for a patron.
 
@@ -1628,7 +1628,7 @@ The invoke table ID, or undefined if patron not found
 function getPatronTaintTableId(patronId: string): string | undefined;
 ```
 
-Defined in: patron/registry.ts:159
+Defined in: [patron/registry.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L159)
 
 Get the taint table ID for a patron.
 
@@ -1652,7 +1652,7 @@ The taint table ID, or undefined if patron not found
 function getPatronSpells(patronId: string, casterLevel?: number): PatronSpellGrant[];
 ```
 
-Defined in: patron/registry.ts:171
+Defined in: [patron/registry.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L171)
 
 Get spells granted by a patron.
 
@@ -1677,7 +1677,7 @@ Array of spell grant info
 function getPatronCount(): number;
 ```
 
-Defined in: patron/registry.ts:190
+Defined in: [patron/registry.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/patron/registry.ts#L190)
 
 Get the number of registered patrons.
 

@@ -4,7 +4,7 @@
 
 ### ChooseOptionResult
 
-Defined in: adventure/narrative-engine.ts:96
+Defined in: [adventure/narrative-engine.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L96)
 
 Result of choosing an option
 
@@ -16,7 +16,7 @@ Result of choosing an option
 encounter: NarrativeEncounterState;
 ```
 
-Defined in: adventure/narrative-engine.ts:98
+Defined in: [adventure/narrative-engine.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L98)
 
 Updated encounter state
 
@@ -26,7 +26,7 @@ Updated encounter state
 option: NarrativeOption;
 ```
 
-Defined in: adventure/narrative-engine.ts:101
+Defined in: [adventure/narrative-engine.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L101)
 
 The chosen option
 
@@ -36,7 +36,7 @@ The chosen option
 requiredCheck: boolean;
 ```
 
-Defined in: adventure/narrative-engine.ts:104
+Defined in: [adventure/narrative-engine.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L104)
 
 Whether a skill check was required
 
@@ -46,7 +46,7 @@ Whether a skill check was required
 optional checkResult?: NarrativeCheckResult;
 ```
 
-Defined in: adventure/narrative-engine.ts:107
+Defined in: [adventure/narrative-engine.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L107)
 
 Skill check result if applicable
 
@@ -56,7 +56,7 @@ Skill check result if applicable
 success: boolean;
 ```
 
-Defined in: adventure/narrative-engine.ts:110
+Defined in: [adventure/narrative-engine.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L110)
 
 Whether the outcome was successful
 
@@ -66,7 +66,7 @@ Whether the outcome was successful
 outcomeText: string;
 ```
 
-Defined in: adventure/narrative-engine.ts:113
+Defined in: [adventure/narrative-engine.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L113)
 
 The outcome text
 
@@ -74,7 +74,7 @@ The outcome text
 
 ### MonsterBehaviorProfile
 
-Defined in: adventure/types.ts:80
+Defined in: [adventure/types.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L80)
 
 Monster behavior profile for AI decisions
 
@@ -86,7 +86,7 @@ Monster behavior profile for AI decisions
 primary: MonsterBehaviorType;
 ```
 
-Defined in: adventure/types.ts:82
+Defined in: [adventure/types.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L82)
 
 Primary behavior type
 
@@ -96,7 +96,7 @@ Primary behavior type
 preferRanged: boolean;
 ```
 
-Defined in: adventure/types.ts:85
+Defined in: [adventure/types.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L85)
 
 Whether to prefer ranged attacks when available
 
@@ -106,7 +106,7 @@ Whether to prefer ranged attacks when available
 fleeThreshold: number;
 ```
 
-Defined in: adventure/types.ts:88
+Defined in: [adventure/types.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L88)
 
 HP percentage (0-1) at which to flee, 0 = never flee
 
@@ -116,7 +116,7 @@ HP percentage (0-1) at which to flee, 0 = never flee
 targetPriority: TargetPriority[];
 ```
 
-Defined in: adventure/types.ts:91
+Defined in: [adventure/types.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L91)
 
 Target selection priorities in order
 
@@ -124,7 +124,7 @@ Target selection priorities in order
 
 ### BaseCombatant
 
-Defined in: adventure/types.ts:101
+Defined in: [adventure/types.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L101)
 
 Base combatant properties shared by players and monsters
 
@@ -141,7 +141,7 @@ Base combatant properties shared by players and monsters
 combatantId: string;
 ```
 
-Defined in: adventure/types.ts:103
+Defined in: [adventure/types.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L103)
 
 Unique ID for this combatant in the encounter
 
@@ -151,7 +151,7 @@ Unique ID for this combatant in the encounter
 name: string;
 ```
 
-Defined in: adventure/types.ts:106
+Defined in: [adventure/types.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L106)
 
 Display name
 
@@ -161,7 +161,7 @@ Display name
 initiative: number;
 ```
 
-Defined in: adventure/types.ts:109
+Defined in: [adventure/types.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L109)
 
 Rolled initiative total
 
@@ -171,7 +171,7 @@ Rolled initiative total
 hasActedThisRound: boolean;
 ```
 
-Defined in: adventure/types.ts:112
+Defined in: [adventure/types.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L112)
 
 Whether this combatant has acted in the current round
 
@@ -181,7 +181,7 @@ Whether this combatant has acted in the current round
 vitalStatus: VitalStatus;
 ```
 
-Defined in: adventure/types.ts:115
+Defined in: [adventure/types.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L115)
 
 Current vital status
 
@@ -191,7 +191,7 @@ Current vital status
 conditions: string[];
 ```
 
-Defined in: adventure/types.ts:118
+Defined in: [adventure/types.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L118)
 
 Active conditions (poisoned, prone, etc.)
 
@@ -199,7 +199,7 @@ Active conditions (poisoned, prone, etc.)
 
 ### PlayerCombatant
 
-Defined in: adventure/types.ts:124
+Defined in: [adventure/types.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L124)
 
 A player character in combat
 
@@ -215,7 +215,7 @@ A player character in combat
 combatantId: string;
 ```
 
-Defined in: adventure/types.ts:103
+Defined in: [adventure/types.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L103)
 
 Unique ID for this combatant in the encounter
 
@@ -229,7 +229,7 @@ Unique ID for this combatant in the encounter
 name: string;
 ```
 
-Defined in: adventure/types.ts:106
+Defined in: [adventure/types.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L106)
 
 Display name
 
@@ -243,7 +243,7 @@ Display name
 initiative: number;
 ```
 
-Defined in: adventure/types.ts:109
+Defined in: [adventure/types.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L109)
 
 Rolled initiative total
 
@@ -257,7 +257,7 @@ Rolled initiative total
 hasActedThisRound: boolean;
 ```
 
-Defined in: adventure/types.ts:112
+Defined in: [adventure/types.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L112)
 
 Whether this combatant has acted in the current round
 
@@ -271,7 +271,7 @@ Whether this combatant has acted in the current round
 vitalStatus: VitalStatus;
 ```
 
-Defined in: adventure/types.ts:115
+Defined in: [adventure/types.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L115)
 
 Current vital status
 
@@ -285,7 +285,7 @@ Current vital status
 conditions: string[];
 ```
 
-Defined in: adventure/types.ts:118
+Defined in: [adventure/types.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L118)
 
 Active conditions (poisoned, prone, etc.)
 
@@ -299,7 +299,7 @@ Active conditions (poisoned, prone, etc.)
 type: "player";
 ```
 
-Defined in: adventure/types.ts:125
+Defined in: [adventure/types.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L125)
 
 ##### discordUserId
 
@@ -307,7 +307,7 @@ Defined in: adventure/types.ts:125
 discordUserId: string;
 ```
 
-Defined in: adventure/types.ts:128
+Defined in: [adventure/types.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L128)
 
 Discord user ID
 
@@ -317,7 +317,7 @@ Discord user ID
 characterId: string;
 ```
 
-Defined in: adventure/types.ts:131
+Defined in: [adventure/types.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L131)
 
 Character ID from storage
 
@@ -327,7 +327,7 @@ Character ID from storage
 characterSnapshot: Character;
 ```
 
-Defined in: adventure/types.ts:134
+Defined in: [adventure/types.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L134)
 
 Snapshot of character at encounter start
 
@@ -337,7 +337,7 @@ Snapshot of character at encounter start
 currentHP: number;
 ```
 
-Defined in: adventure/types.ts:137
+Defined in: [adventure/types.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L137)
 
 Current HP (may differ from snapshot after damage)
 
@@ -347,7 +347,7 @@ Current HP (may differ from snapshot after damage)
 optional bleedingOut?: BleedingOutState;
 ```
 
-Defined in: adventure/types.ts:140
+Defined in: [adventure/types.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L140)
 
 Bleeding out state if applicable
 
@@ -355,7 +355,7 @@ Bleeding out state if applicable
 
 ### MonsterCombatant
 
-Defined in: adventure/types.ts:146
+Defined in: [adventure/types.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L146)
 
 A monster/NPC in combat
 
@@ -371,7 +371,7 @@ A monster/NPC in combat
 combatantId: string;
 ```
 
-Defined in: adventure/types.ts:103
+Defined in: [adventure/types.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L103)
 
 Unique ID for this combatant in the encounter
 
@@ -385,7 +385,7 @@ Unique ID for this combatant in the encounter
 name: string;
 ```
 
-Defined in: adventure/types.ts:106
+Defined in: [adventure/types.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L106)
 
 Display name
 
@@ -399,7 +399,7 @@ Display name
 initiative: number;
 ```
 
-Defined in: adventure/types.ts:109
+Defined in: [adventure/types.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L109)
 
 Rolled initiative total
 
@@ -413,7 +413,7 @@ Rolled initiative total
 hasActedThisRound: boolean;
 ```
 
-Defined in: adventure/types.ts:112
+Defined in: [adventure/types.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L112)
 
 Whether this combatant has acted in the current round
 
@@ -427,7 +427,7 @@ Whether this combatant has acted in the current round
 vitalStatus: VitalStatus;
 ```
 
-Defined in: adventure/types.ts:115
+Defined in: [adventure/types.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L115)
 
 Current vital status
 
@@ -441,7 +441,7 @@ Current vital status
 conditions: string[];
 ```
 
-Defined in: adventure/types.ts:118
+Defined in: [adventure/types.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L118)
 
 Active conditions (poisoned, prone, etc.)
 
@@ -455,7 +455,7 @@ Active conditions (poisoned, prone, etc.)
 type: "monster";
 ```
 
-Defined in: adventure/types.ts:147
+Defined in: [adventure/types.ts:147](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L147)
 
 ##### creatureTemplateId
 
@@ -463,7 +463,7 @@ Defined in: adventure/types.ts:147
 creatureTemplateId: string;
 ```
 
-Defined in: adventure/types.ts:150
+Defined in: [adventure/types.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L150)
 
 Creature template ID (e.g., "goblin")
 
@@ -473,7 +473,7 @@ Creature template ID (e.g., "goblin")
 instanceNumber: number;
 ```
 
-Defined in: adventure/types.ts:153
+Defined in: [adventure/types.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L153)
 
 Instance number for multiples (1, 2, 3...)
 
@@ -483,7 +483,7 @@ Instance number for multiples (1, 2, 3...)
 currentHP: number;
 ```
 
-Defined in: adventure/types.ts:156
+Defined in: [adventure/types.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L156)
 
 Current HP
 
@@ -493,7 +493,7 @@ Current HP
 maxHP: number;
 ```
 
-Defined in: adventure/types.ts:159
+Defined in: [adventure/types.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L159)
 
 Maximum HP (rolled or default)
 
@@ -503,7 +503,7 @@ Maximum HP (rolled or default)
 creature: Creature;
 ```
 
-Defined in: adventure/types.ts:162
+Defined in: [adventure/types.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L162)
 
 Full creature template data
 
@@ -513,7 +513,7 @@ Full creature template data
 moraleState: CreatureMoraleState;
 ```
 
-Defined in: adventure/types.ts:165
+Defined in: [adventure/types.ts:165](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L165)
 
 Individual morale state
 
@@ -523,7 +523,7 @@ Individual morale state
 behaviorProfile: MonsterBehaviorProfile;
 ```
 
-Defined in: adventure/types.ts:168
+Defined in: [adventure/types.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L168)
 
 AI behavior profile
 
@@ -531,7 +531,7 @@ AI behavior profile
 
 ### CombatLogEntry
 
-Defined in: adventure/types.ts:199
+Defined in: [adventure/types.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L199)
 
 An entry in the combat log
 
@@ -543,7 +543,7 @@ An entry in the combat log
 type: CombatLogEntryType;
 ```
 
-Defined in: adventure/types.ts:201
+Defined in: [adventure/types.ts:201](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L201)
 
 Type of entry
 
@@ -553,7 +553,7 @@ Type of entry
 round: number;
 ```
 
-Defined in: adventure/types.ts:204
+Defined in: [adventure/types.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L204)
 
 Round number
 
@@ -563,7 +563,7 @@ Round number
 optional actorId?: string;
 ```
 
-Defined in: adventure/types.ts:207
+Defined in: [adventure/types.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L207)
 
 Acting combatant ID
 
@@ -573,7 +573,7 @@ Acting combatant ID
 optional targetId?: string;
 ```
 
-Defined in: adventure/types.ts:210
+Defined in: [adventure/types.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L210)
 
 Target combatant ID
 
@@ -583,7 +583,7 @@ Target combatant ID
 description: string;
 ```
 
-Defined in: adventure/types.ts:213
+Defined in: [adventure/types.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L213)
 
 Human-readable description
 
@@ -593,7 +593,7 @@ Human-readable description
 timestamp: string;
 ```
 
-Defined in: adventure/types.ts:216
+Defined in: [adventure/types.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L216)
 
 Timestamp
 
@@ -607,7 +607,7 @@ optional rolls?: {
 };
 ```
 
-Defined in: adventure/types.ts:219
+Defined in: [adventure/types.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L219)
 
 Roll details if applicable
 
@@ -633,7 +633,7 @@ optional dc?: number;
 
 ### CombatEncounterState
 
-Defined in: adventure/types.ts:233
+Defined in: [adventure/types.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L233)
 
 Full state of a combat encounter
 
@@ -645,7 +645,7 @@ Full state of a combat encounter
 encounterId: string;
 ```
 
-Defined in: adventure/types.ts:235
+Defined in: [adventure/types.ts:235](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L235)
 
 Unique encounter ID
 
@@ -655,7 +655,7 @@ Unique encounter ID
 type: "combat";
 ```
 
-Defined in: adventure/types.ts:238
+Defined in: [adventure/types.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L238)
 
 Discriminator
 
@@ -665,7 +665,7 @@ Discriminator
 phase: CombatPhase;
 ```
 
-Defined in: adventure/types.ts:241
+Defined in: [adventure/types.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L241)
 
 Current phase
 
@@ -675,7 +675,7 @@ Current phase
 combatants: Combatant[];
 ```
 
-Defined in: adventure/types.ts:244
+Defined in: [adventure/types.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L244)
 
 All combatants
 
@@ -685,7 +685,7 @@ All combatants
 round: number;
 ```
 
-Defined in: adventure/types.ts:247
+Defined in: [adventure/types.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L247)
 
 Current round number (starts at 1)
 
@@ -695,7 +695,7 @@ Current round number (starts at 1)
 currentTurnCombatantId: string | null;
 ```
 
-Defined in: adventure/types.ts:250
+Defined in: [adventure/types.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L250)
 
 ID of combatant whose turn it is
 
@@ -705,7 +705,7 @@ ID of combatant whose turn it is
 turnOrder: string[];
 ```
 
-Defined in: adventure/types.ts:253
+Defined in: [adventure/types.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L253)
 
 Ordered list of combatant IDs by initiative
 
@@ -715,7 +715,7 @@ Ordered list of combatant IDs by initiative
 turnIndex: number;
 ```
 
-Defined in: adventure/types.ts:256
+Defined in: [adventure/types.ts:256](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L256)
 
 Index into turnOrder for current turn
 
@@ -725,7 +725,7 @@ Index into turnOrder for current turn
 monsterGroupMorale: GroupMoraleState;
 ```
 
-Defined in: adventure/types.ts:259
+Defined in: [adventure/types.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L259)
 
 Group morale state for monsters
 
@@ -735,7 +735,7 @@ Group morale state for monsters
 monstersFleeing: boolean;
 ```
 
-Defined in: adventure/types.ts:262
+Defined in: [adventure/types.ts:262](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L262)
 
 Whether monsters are fleeing
 
@@ -745,7 +745,7 @@ Whether monsters are fleeing
 combatLog: CombatLogEntry[];
 ```
 
-Defined in: adventure/types.ts:265
+Defined in: [adventure/types.ts:265](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L265)
 
 Combat log
 
@@ -753,7 +753,7 @@ Combat log
 
 ### NarrativeOption
 
-Defined in: adventure/types.ts:285
+Defined in: [adventure/types.ts:285](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L285)
 
 An option in a narrative encounter
 
@@ -765,7 +765,7 @@ An option in a narrative encounter
 id: string;
 ```
 
-Defined in: adventure/types.ts:287
+Defined in: [adventure/types.ts:287](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L287)
 
 Option ID
 
@@ -775,7 +775,7 @@ Option ID
 text: string;
 ```
 
-Defined in: adventure/types.ts:290
+Defined in: [adventure/types.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L290)
 
 Display text for the option
 
@@ -788,7 +788,7 @@ optional skillCheck?: {
 };
 ```
 
-Defined in: adventure/types.ts:293
+Defined in: [adventure/types.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L293)
 
 Required skill check if any
 
@@ -810,7 +810,7 @@ dc: number;
 successOutcome: string;
 ```
 
-Defined in: adventure/types.ts:299
+Defined in: [adventure/types.ts:299](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L299)
 
 Outcome text on success (or if no check required)
 
@@ -820,7 +820,7 @@ Outcome text on success (or if no check required)
 optional failureOutcome?: string;
 ```
 
-Defined in: adventure/types.ts:302
+Defined in: [adventure/types.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L302)
 
 Outcome text on failure
 
@@ -828,7 +828,7 @@ Outcome text on failure
 
 ### NarrativeTemplate
 
-Defined in: adventure/types.ts:308
+Defined in: [adventure/types.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L308)
 
 A narrative encounter template
 
@@ -840,7 +840,7 @@ A narrative encounter template
 id: string;
 ```
 
-Defined in: adventure/types.ts:310
+Defined in: [adventure/types.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L310)
 
 Template ID
 
@@ -850,7 +850,7 @@ Template ID
 category: NarrativeCategory;
 ```
 
-Defined in: adventure/types.ts:313
+Defined in: [adventure/types.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L313)
 
 Category
 
@@ -860,7 +860,7 @@ Category
 situation: string;
 ```
 
-Defined in: adventure/types.ts:316
+Defined in: [adventure/types.ts:316](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L316)
 
 Situation description with {variable} placeholders
 
@@ -870,7 +870,7 @@ Situation description with {variable} placeholders
 options: NarrativeOption[];
 ```
 
-Defined in: adventure/types.ts:319
+Defined in: [adventure/types.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L319)
 
 Available options
 
@@ -878,7 +878,7 @@ Available options
 
 ### NarrativeCheckResult
 
-Defined in: adventure/types.ts:325
+Defined in: [adventure/types.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L325)
 
 A skill check result for a player
 
@@ -890,7 +890,7 @@ A skill check result for a player
 playerId: string;
 ```
 
-Defined in: adventure/types.ts:326
+Defined in: [adventure/types.ts:326](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L326)
 
 ##### playerName
 
@@ -898,7 +898,7 @@ Defined in: adventure/types.ts:326
 playerName: string;
 ```
 
-Defined in: adventure/types.ts:327
+Defined in: [adventure/types.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L327)
 
 ##### ability
 
@@ -906,7 +906,7 @@ Defined in: adventure/types.ts:327
 ability: DCCAbilityId;
 ```
 
-Defined in: adventure/types.ts:328
+Defined in: [adventure/types.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L328)
 
 ##### dc
 
@@ -914,7 +914,7 @@ Defined in: adventure/types.ts:328
 dc: number;
 ```
 
-Defined in: adventure/types.ts:329
+Defined in: [adventure/types.ts:329](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L329)
 
 ##### roll
 
@@ -922,7 +922,7 @@ Defined in: adventure/types.ts:329
 roll: number;
 ```
 
-Defined in: adventure/types.ts:330
+Defined in: [adventure/types.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L330)
 
 ##### modifier
 
@@ -930,7 +930,7 @@ Defined in: adventure/types.ts:330
 modifier: number;
 ```
 
-Defined in: adventure/types.ts:331
+Defined in: [adventure/types.ts:331](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L331)
 
 ##### total
 
@@ -938,7 +938,7 @@ Defined in: adventure/types.ts:331
 total: number;
 ```
 
-Defined in: adventure/types.ts:332
+Defined in: [adventure/types.ts:332](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L332)
 
 ##### passed
 
@@ -946,13 +946,13 @@ Defined in: adventure/types.ts:332
 passed: boolean;
 ```
 
-Defined in: adventure/types.ts:333
+Defined in: [adventure/types.ts:333](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L333)
 
 ***
 
 ### NarrativeEncounterState
 
-Defined in: adventure/types.ts:339
+Defined in: [adventure/types.ts:339](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L339)
 
 Full state of a narrative encounter
 
@@ -964,7 +964,7 @@ Full state of a narrative encounter
 encounterId: string;
 ```
 
-Defined in: adventure/types.ts:341
+Defined in: [adventure/types.ts:341](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L341)
 
 Unique encounter ID
 
@@ -974,7 +974,7 @@ Unique encounter ID
 type: "narrative";
 ```
 
-Defined in: adventure/types.ts:344
+Defined in: [adventure/types.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L344)
 
 Discriminator
 
@@ -984,7 +984,7 @@ Discriminator
 phase: NarrativePhase;
 ```
 
-Defined in: adventure/types.ts:347
+Defined in: [adventure/types.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L347)
 
 Current phase
 
@@ -994,7 +994,7 @@ Current phase
 templateId: string;
 ```
 
-Defined in: adventure/types.ts:350
+Defined in: [adventure/types.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L350)
 
 Template ID used
 
@@ -1004,7 +1004,7 @@ Template ID used
 situation: string;
 ```
 
-Defined in: adventure/types.ts:353
+Defined in: [adventure/types.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L353)
 
 Filled-in situation text
 
@@ -1014,7 +1014,7 @@ Filled-in situation text
 options: NarrativeOption[];
 ```
 
-Defined in: adventure/types.ts:356
+Defined in: [adventure/types.ts:356](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L356)
 
 Available options
 
@@ -1024,7 +1024,7 @@ Available options
 optional chosenOptionId?: string;
 ```
 
-Defined in: adventure/types.ts:359
+Defined in: [adventure/types.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L359)
 
 Chosen option ID
 
@@ -1034,7 +1034,7 @@ Chosen option ID
 optional checkResults?: NarrativeCheckResult[];
 ```
 
-Defined in: adventure/types.ts:362
+Defined in: [adventure/types.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L362)
 
 Skill check results if applicable
 
@@ -1044,7 +1044,7 @@ Skill check results if applicable
 optional outcome?: string;
 ```
 
-Defined in: adventure/types.ts:365
+Defined in: [adventure/types.ts:365](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L365)
 
 Final outcome text
 
@@ -1052,7 +1052,7 @@ Final outcome text
 
 ### AdventurePlayer
 
-Defined in: adventure/types.ts:390
+Defined in: [adventure/types.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L390)
 
 A player in an adventure
 
@@ -1064,7 +1064,7 @@ A player in an adventure
 discordUserId: string;
 ```
 
-Defined in: adventure/types.ts:392
+Defined in: [adventure/types.ts:392](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L392)
 
 Discord user ID
 
@@ -1074,7 +1074,7 @@ Discord user ID
 discordUsername: string;
 ```
 
-Defined in: adventure/types.ts:395
+Defined in: [adventure/types.ts:395](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L395)
 
 Discord username for display
 
@@ -1084,7 +1084,7 @@ Discord username for display
 characterId: string;
 ```
 
-Defined in: adventure/types.ts:398
+Defined in: [adventure/types.ts:398](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L398)
 
 Character ID from storage
 
@@ -1094,7 +1094,7 @@ Character ID from storage
 characterName: string;
 ```
 
-Defined in: adventure/types.ts:401
+Defined in: [adventure/types.ts:401](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L401)
 
 Character name for display
 
@@ -1104,7 +1104,7 @@ Character name for display
 joinedAt: string;
 ```
 
-Defined in: adventure/types.ts:404
+Defined in: [adventure/types.ts:404](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L404)
 
 When the player joined
 
@@ -1112,7 +1112,7 @@ When the player joined
 
 ### EncounterSummary
 
-Defined in: adventure/types.ts:410
+Defined in: [adventure/types.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L410)
 
 Summary of a completed encounter
 
@@ -1124,7 +1124,7 @@ Summary of a completed encounter
 encounterId: string;
 ```
 
-Defined in: adventure/types.ts:412
+Defined in: [adventure/types.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L412)
 
 Encounter ID
 
@@ -1134,7 +1134,7 @@ Encounter ID
 type: EncounterType;
 ```
 
-Defined in: adventure/types.ts:415
+Defined in: [adventure/types.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L415)
 
 Type of encounter
 
@@ -1144,7 +1144,7 @@ Type of encounter
 outcome: string;
 ```
 
-Defined in: adventure/types.ts:418
+Defined in: [adventure/types.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L418)
 
 How it ended
 
@@ -1154,7 +1154,7 @@ How it ended
 completedAt: string;
 ```
 
-Defined in: adventure/types.ts:421
+Defined in: [adventure/types.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L421)
 
 When it completed
 
@@ -1162,7 +1162,7 @@ When it completed
 
 ### AdventureState
 
-Defined in: adventure/types.ts:427
+Defined in: [adventure/types.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L427)
 
 Full adventure state
 
@@ -1174,7 +1174,7 @@ Full adventure state
 adventureId: string;
 ```
 
-Defined in: adventure/types.ts:429
+Defined in: [adventure/types.ts:429](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L429)
 
 Unique adventure ID
 
@@ -1184,7 +1184,7 @@ Unique adventure ID
 name: string;
 ```
 
-Defined in: adventure/types.ts:432
+Defined in: [adventure/types.ts:432](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L432)
 
 Adventure name
 
@@ -1194,7 +1194,7 @@ Adventure name
 threadId: string;
 ```
 
-Defined in: adventure/types.ts:435
+Defined in: [adventure/types.ts:435](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L435)
 
 Discord thread ID
 
@@ -1204,7 +1204,7 @@ Discord thread ID
 guildId: string;
 ```
 
-Defined in: adventure/types.ts:438
+Defined in: [adventure/types.ts:438](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L438)
 
 Discord guild ID
 
@@ -1214,7 +1214,7 @@ Discord guild ID
 creatorId: string;
 ```
 
-Defined in: adventure/types.ts:441
+Defined in: [adventure/types.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L441)
 
 Discord user ID of creator
 
@@ -1224,7 +1224,7 @@ Discord user ID of creator
 status: AdventureStatus;
 ```
 
-Defined in: adventure/types.ts:444
+Defined in: [adventure/types.ts:444](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L444)
 
 Current status
 
@@ -1234,7 +1234,7 @@ Current status
 createdAt: string;
 ```
 
-Defined in: adventure/types.ts:447
+Defined in: [adventure/types.ts:447](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L447)
 
 When created
 
@@ -1244,7 +1244,7 @@ When created
 lastActivityAt: string;
 ```
 
-Defined in: adventure/types.ts:450
+Defined in: [adventure/types.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L450)
 
 Last activity timestamp
 
@@ -1254,7 +1254,7 @@ Last activity timestamp
 players: AdventurePlayer[];
 ```
 
-Defined in: adventure/types.ts:453
+Defined in: [adventure/types.ts:453](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L453)
 
 Players in the adventure
 
@@ -1264,7 +1264,7 @@ Players in the adventure
 currentEncounter: EncounterState | null;
 ```
 
-Defined in: adventure/types.ts:456
+Defined in: [adventure/types.ts:456](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L456)
 
 Current active encounter if any
 
@@ -1274,7 +1274,7 @@ Current active encounter if any
 encounterHistory: EncounterSummary[];
 ```
 
-Defined in: adventure/types.ts:459
+Defined in: [adventure/types.ts:459](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L459)
 
 History of completed encounters
 
@@ -1284,7 +1284,7 @@ History of completed encounters
 customMonsters: Creature[];
 ```
 
-Defined in: adventure/types.ts:462
+Defined in: [adventure/types.ts:462](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L462)
 
 Custom monsters added for this adventure
 
@@ -1292,7 +1292,7 @@ Custom monsters added for this adventure
 
 ### PlayerCombatAction
 
-Defined in: adventure/types.ts:483
+Defined in: [adventure/types.ts:483](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L483)
 
 A player combat action
 
@@ -1304,7 +1304,7 @@ A player combat action
 type: PlayerActionType;
 ```
 
-Defined in: adventure/types.ts:485
+Defined in: [adventure/types.ts:485](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L485)
 
 Action type
 
@@ -1314,7 +1314,7 @@ Action type
 optional targetId?: string;
 ```
 
-Defined in: adventure/types.ts:488
+Defined in: [adventure/types.ts:488](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L488)
 
 Target combatant ID (for attacks)
 
@@ -1324,7 +1324,7 @@ Target combatant ID (for attacks)
 optional weaponId?: string;
 ```
 
-Defined in: adventure/types.ts:491
+Defined in: [adventure/types.ts:491](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L491)
 
 Weapon or item being used
 
@@ -1334,7 +1334,7 @@ Weapon or item being used
 optional spellId?: string;
 ```
 
-Defined in: adventure/types.ts:494
+Defined in: [adventure/types.ts:494](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L494)
 
 Spell being cast
 
@@ -1342,7 +1342,7 @@ Spell being cast
 
 ### MonsterDecision
 
-Defined in: adventure/types.ts:500
+Defined in: [adventure/types.ts:500](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L500)
 
 Monster AI decision
 
@@ -1354,7 +1354,7 @@ Monster AI decision
 actionType: "attack" | "special" | "flee" | "pass";
 ```
 
-Defined in: adventure/types.ts:502
+Defined in: [adventure/types.ts:502](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L502)
 
 Chosen action type
 
@@ -1364,7 +1364,7 @@ Chosen action type
 optional targetId?: string;
 ```
 
-Defined in: adventure/types.ts:505
+Defined in: [adventure/types.ts:505](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L505)
 
 Target combatant ID
 
@@ -1374,7 +1374,7 @@ Target combatant ID
 optional attackIndex?: number;
 ```
 
-Defined in: adventure/types.ts:508
+Defined in: [adventure/types.ts:508](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L508)
 
 Which attack to use
 
@@ -1384,7 +1384,7 @@ Which attack to use
 reasoning: string;
 ```
 
-Defined in: adventure/types.ts:511
+Defined in: [adventure/types.ts:511](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L511)
 
 Reasoning for the decision (for logging)
 
@@ -1392,7 +1392,7 @@ Reasoning for the decision (for logging)
 
 ### AttackActionResult
 
-Defined in: adventure/types.ts:521
+Defined in: [adventure/types.ts:521](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L521)
 
 Result of a combat attack action
 
@@ -1404,7 +1404,7 @@ Result of a combat attack action
 hit: boolean;
 ```
 
-Defined in: adventure/types.ts:523
+Defined in: [adventure/types.ts:523](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L523)
 
 Whether the attack hit
 
@@ -1414,7 +1414,7 @@ Whether the attack hit
 naturalRoll: number;
 ```
 
-Defined in: adventure/types.ts:526
+Defined in: [adventure/types.ts:526](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L526)
 
 Natural roll
 
@@ -1424,7 +1424,7 @@ Natural roll
 attackTotal: number;
 ```
 
-Defined in: adventure/types.ts:529
+Defined in: [adventure/types.ts:529](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L529)
 
 Total attack roll
 
@@ -1434,7 +1434,7 @@ Total attack roll
 targetAC: number;
 ```
 
-Defined in: adventure/types.ts:532
+Defined in: [adventure/types.ts:532](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L532)
 
 Target AC
 
@@ -1444,7 +1444,7 @@ Target AC
 damage: number;
 ```
 
-Defined in: adventure/types.ts:535
+Defined in: [adventure/types.ts:535](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L535)
 
 Damage dealt (0 if miss)
 
@@ -1454,7 +1454,7 @@ Damage dealt (0 if miss)
 critical: boolean;
 ```
 
-Defined in: adventure/types.ts:538
+Defined in: [adventure/types.ts:538](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L538)
 
 Whether it was a critical hit
 
@@ -1464,7 +1464,7 @@ Whether it was a critical hit
 fumble: boolean;
 ```
 
-Defined in: adventure/types.ts:541
+Defined in: [adventure/types.ts:541](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L541)
 
 Whether it was a fumble
 
@@ -1474,7 +1474,7 @@ Whether it was a fumble
 optional criticalEffect?: string;
 ```
 
-Defined in: adventure/types.ts:544
+Defined in: [adventure/types.ts:544](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L544)
 
 Critical hit description if applicable
 
@@ -1484,7 +1484,7 @@ Critical hit description if applicable
 optional fumbleEffect?: string;
 ```
 
-Defined in: adventure/types.ts:547
+Defined in: [adventure/types.ts:547](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L547)
 
 Fumble description if applicable
 
@@ -1494,7 +1494,7 @@ Fumble description if applicable
 targetKilled: boolean;
 ```
 
-Defined in: adventure/types.ts:550
+Defined in: [adventure/types.ts:550](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L550)
 
 Whether the target was killed
 
@@ -1504,7 +1504,7 @@ Whether the target was killed
 targetNewHP: number;
 ```
 
-Defined in: adventure/types.ts:553
+Defined in: [adventure/types.ts:553](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L553)
 
 Target's new HP
 
@@ -1514,7 +1514,7 @@ Target's new HP
 targetVitalStatus: VitalStatus;
 ```
 
-Defined in: adventure/types.ts:556
+Defined in: [adventure/types.ts:556](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L556)
 
 Target's new vital status
 
@@ -1522,7 +1522,7 @@ Target's new vital status
 
 ### MonsterTurnResult
 
-Defined in: adventure/types.ts:562
+Defined in: [adventure/types.ts:562](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L562)
 
 Result of a monster's turn
 
@@ -1534,7 +1534,7 @@ Result of a monster's turn
 monsterId: string;
 ```
 
-Defined in: adventure/types.ts:564
+Defined in: [adventure/types.ts:564](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L564)
 
 Monster combatant ID
 
@@ -1544,7 +1544,7 @@ Monster combatant ID
 monsterName: string;
 ```
 
-Defined in: adventure/types.ts:567
+Defined in: [adventure/types.ts:567](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L567)
 
 Monster name
 
@@ -1554,7 +1554,7 @@ Monster name
 decision: MonsterDecision;
 ```
 
-Defined in: adventure/types.ts:570
+Defined in: [adventure/types.ts:570](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L570)
 
 The decision made
 
@@ -1564,7 +1564,7 @@ The decision made
 optional attackResult?: AttackActionResult;
 ```
 
-Defined in: adventure/types.ts:573
+Defined in: [adventure/types.ts:573](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L573)
 
 Attack result if attacked
 
@@ -1574,7 +1574,7 @@ Attack result if attacked
 fled: boolean;
 ```
 
-Defined in: adventure/types.ts:576
+Defined in: [adventure/types.ts:576](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L576)
 
 Whether the monster fled
 
@@ -1586,7 +1586,7 @@ Whether the monster fled
 type EncounterType = "combat" | "exploration" | "trap" | "skill-challenge" | "narrative";
 ```
 
-Defined in: adventure/types.ts:21
+Defined in: [adventure/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L21)
 
 Type of encounter
 
@@ -1598,7 +1598,7 @@ Type of encounter
 type CombatPhase = "pending" | "initiative" | "active" | "resolved" | "fled" | "tpk";
 ```
 
-Defined in: adventure/types.ts:31
+Defined in: [adventure/types.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L31)
 
 Phase of a combat encounter
 
@@ -1610,7 +1610,7 @@ Phase of a combat encounter
 type NarrativePhase = "presenting" | "awaiting-choice" | "resolving" | "resolved";
 ```
 
-Defined in: adventure/types.ts:42
+Defined in: [adventure/types.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L42)
 
 Phase of a narrative encounter
 
@@ -1629,7 +1629,7 @@ type MonsterBehaviorType =
   | "territorial";
 ```
 
-Defined in: adventure/types.ts:55
+Defined in: [adventure/types.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L55)
 
 Primary behavior type for monster AI
 
@@ -1649,7 +1649,7 @@ type TargetPriority =
   | "random";
 ```
 
-Defined in: adventure/types.ts:67
+Defined in: [adventure/types.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L67)
 
 Target selection priority
 
@@ -1663,7 +1663,7 @@ type Combatant =
   | MonsterCombatant;
 ```
 
-Defined in: adventure/types.ts:174
+Defined in: [adventure/types.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L174)
 
 Union of combatant types
 
@@ -1686,7 +1686,7 @@ type CombatLogEntryType =
   | "combat-end";
 ```
 
-Defined in: adventure/types.ts:183
+Defined in: [adventure/types.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L183)
 
 Types of combat log entries
 
@@ -1698,7 +1698,7 @@ Types of combat log entries
 type NarrativeCategory = "exploration" | "trap" | "puzzle" | "social" | "environmental";
 ```
 
-Defined in: adventure/types.ts:275
+Defined in: [adventure/types.ts:275](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L275)
 
 Category of narrative template
 
@@ -1712,7 +1712,7 @@ type EncounterState =
   | NarrativeEncounterState;
 ```
 
-Defined in: adventure/types.ts:371
+Defined in: [adventure/types.ts:371](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L371)
 
 Union of encounter state types
 
@@ -1724,7 +1724,7 @@ Union of encounter state types
 type AdventureStatus = "gathering" | "active" | "paused" | "completed" | "abandoned";
 ```
 
-Defined in: adventure/types.ts:380
+Defined in: [adventure/types.ts:380](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L380)
 
 Adventure status
 
@@ -1736,7 +1736,7 @@ Adventure status
 type PlayerActionType = "attack" | "defend" | "flee" | "pass" | "use-item" | "cast-spell";
 ```
 
-Defined in: adventure/types.ts:472
+Defined in: [adventure/types.ts:472](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/types.ts#L472)
 
 Types of player combat actions
 
@@ -1748,7 +1748,7 @@ Types of player combat actions
 const NARRATIVE_TEMPLATES: Record<string, NarrativeTemplate>;
 ```
 
-Defined in: adventure/narrative-templates.ts:13
+Defined in: [adventure/narrative-templates.ts:13](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-templates.ts#L13)
 
 All available narrative templates, keyed by ID.
 
@@ -1763,7 +1763,7 @@ function createPlayerCombatants(players: {
 }[]): PlayerCombatant[];
 ```
 
-Defined in: adventure/encounter-engine.ts:100
+Defined in: [adventure/encounter-engine.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L100)
 
 Create player combatants from characters
 
@@ -1788,7 +1788,7 @@ function createMonsterCombatants(monsters: {
 }[], roller?: DiceRoller): MonsterCombatant[];
 ```
 
-Defined in: adventure/encounter-engine.ts:124
+Defined in: [adventure/encounter-engine.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L124)
 
 Create monster combatants from creatures
 
@@ -1822,7 +1822,7 @@ function createCombatEncounter(
 ): CombatEncounterState;
 ```
 
-Defined in: adventure/encounter-engine.ts:160
+Defined in: [adventure/encounter-engine.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L160)
 
 Create a new combat encounter
 
@@ -1847,7 +1847,7 @@ Create a new combat encounter
 function rollAllInitiative(encounter: CombatEncounterState, roller?: DiceRoller): CombatEncounterState;
 ```
 
-Defined in: adventure/encounter-engine.ts:232
+Defined in: [adventure/encounter-engine.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L232)
 
 Roll initiative for all combatants and set up turn order
 
@@ -1870,7 +1870,7 @@ Roll initiative for all combatants and set up turn order
 function getCurrentTurnCombatant(encounter: CombatEncounterState): Combatant | undefined;
 ```
 
-Defined in: adventure/encounter-engine.ts:280
+Defined in: [adventure/encounter-engine.ts:280](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L280)
 
 Get the current turn's combatant
 
@@ -1892,7 +1892,7 @@ Get the current turn's combatant
 function isPlayersTurn(encounter: CombatEncounterState, discordUserId: string): boolean;
 ```
 
-Defined in: adventure/encounter-engine.ts:292
+Defined in: [adventure/encounter-engine.ts:292](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L292)
 
 Check if it's a specific player's turn
 
@@ -1915,7 +1915,7 @@ Check if it's a specific player's turn
 function getCombatantById(encounter: CombatEncounterState, combatantId: string): Combatant | undefined;
 ```
 
-Defined in: adventure/encounter-engine.ts:304
+Defined in: [adventure/encounter-engine.ts:304](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L304)
 
 Get a combatant by ID
 
@@ -1938,7 +1938,7 @@ Get a combatant by ID
 function getCombatantByName(encounter: CombatEncounterState, name: string): Combatant | undefined;
 ```
 
-Defined in: adventure/encounter-engine.ts:314
+Defined in: [adventure/encounter-engine.ts:314](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L314)
 
 Get a combatant by name (partial match, case-insensitive)
 
@@ -1961,7 +1961,7 @@ Get a combatant by name (partial match, case-insensitive)
 function getLivingCombatants(encounter: CombatEncounterState): Combatant[];
 ```
 
-Defined in: adventure/encounter-engine.ts:327
+Defined in: [adventure/encounter-engine.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L327)
 
 Get all living combatants
 
@@ -1983,7 +1983,7 @@ Get all living combatants
 function getLivingPlayers(encounter: CombatEncounterState): PlayerCombatant[];
 ```
 
-Defined in: adventure/encounter-engine.ts:336
+Defined in: [adventure/encounter-engine.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L336)
 
 Get all living players
 
@@ -2005,7 +2005,7 @@ Get all living players
 function getLivingMonsters(encounter: CombatEncounterState): MonsterCombatant[];
 ```
 
-Defined in: adventure/encounter-engine.ts:347
+Defined in: [adventure/encounter-engine.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L347)
 
 Get all living monsters
 
@@ -2027,7 +2027,7 @@ Get all living monsters
 function advanceTurn(encounter: CombatEncounterState): CombatEncounterState;
 ```
 
-Defined in: adventure/encounter-engine.ts:359
+Defined in: [adventure/encounter-engine.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L359)
 
 Advance to the next turn
 
@@ -2053,7 +2053,7 @@ function applyCombatDamage(
 ): CombatEncounterState;
 ```
 
-Defined in: adventure/encounter-engine.ts:424
+Defined in: [adventure/encounter-engine.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L424)
 
 Apply damage to a combatant
 
@@ -2085,7 +2085,7 @@ function processPlayerAttack(
 };
 ```
 
-Defined in: adventure/encounter-engine.ts:473
+Defined in: [adventure/encounter-engine.ts:473](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L473)
 
 Process a player attack action
 
@@ -2109,8 +2109,8 @@ Process a player attack action
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `encounter` | [`CombatEncounterState`](#combatencounterstate) | adventure/encounter-engine.ts:478 |
-| `result` | [`AttackActionResult`](#attackactionresult) | adventure/encounter-engine.ts:478 |
+| `encounter` | [`CombatEncounterState`](#combatencounterstate) | [adventure/encounter-engine.ts:478](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L478) |
+| `result` | [`AttackActionResult`](#attackactionresult) | [adventure/encounter-engine.ts:478](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L478) |
 
 ***
 
@@ -2123,7 +2123,7 @@ function checkCombatEnd(encounter: CombatEncounterState): {
 };
 ```
 
-Defined in: adventure/encounter-engine.ts:600
+Defined in: [adventure/encounter-engine.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L600)
 
 Check if combat has ended
 
@@ -2144,8 +2144,8 @@ Check if combat has ended
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `ended` | `boolean` | adventure/encounter-engine.ts:602 |
-| `reason?` | `"fled"` \| `"victory"` \| `"defeat"` | adventure/encounter-engine.ts:602 |
+| `ended` | `boolean` | [adventure/encounter-engine.ts:602](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L602) |
+| `reason?` | `"fled"` \| `"victory"` \| `"defeat"` | [adventure/encounter-engine.ts:602](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L602) |
 
 ***
 
@@ -2155,7 +2155,7 @@ Check if combat has ended
 function endCombat(encounter: CombatEncounterState, reason: "fled" | "victory" | "defeat"): CombatEncounterState;
 ```
 
-Defined in: adventure/encounter-engine.ts:627
+Defined in: [adventure/encounter-engine.ts:627](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L627)
 
 End the combat encounter
 
@@ -2185,7 +2185,7 @@ function processMonsterTurn(
 };
 ```
 
-Defined in: adventure/encounter-engine.ts:861
+Defined in: [adventure/encounter-engine.ts:861](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L861)
 
 Process a single monster's turn
 
@@ -2208,8 +2208,8 @@ Process a single monster's turn
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `encounter` | [`CombatEncounterState`](#combatencounterstate) | adventure/encounter-engine.ts:865 |
-| `result` | [`MonsterTurnResult`](#monsterturnresult) | adventure/encounter-engine.ts:865 |
+| `encounter` | [`CombatEncounterState`](#combatencounterstate) | [adventure/encounter-engine.ts:865](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L865) |
+| `result` | [`MonsterTurnResult`](#monsterturnresult) | [adventure/encounter-engine.ts:865](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L865) |
 
 ***
 
@@ -2222,7 +2222,7 @@ function processAllMonsterTurns(encounter: CombatEncounterState, roller?: DiceRo
 };
 ```
 
-Defined in: adventure/encounter-engine.ts:943
+Defined in: [adventure/encounter-engine.ts:943](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L943)
 
 Process all pending monster turns until it's a player's turn or combat ends
 
@@ -2244,8 +2244,8 @@ Process all pending monster turns until it's a player's turn or combat ends
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `encounter` | [`CombatEncounterState`](#combatencounterstate) | adventure/encounter-engine.ts:946 |
-| `results` | [`MonsterTurnResult`](#monsterturnresult)[] | adventure/encounter-engine.ts:946 |
+| `encounter` | [`CombatEncounterState`](#combatencounterstate) | [adventure/encounter-engine.ts:946](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L946) |
+| `results` | [`MonsterTurnResult`](#monsterturnresult)[] | [adventure/encounter-engine.ts:946](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/encounter-engine.ts#L946) |
 
 ***
 
@@ -2255,7 +2255,7 @@ Process all pending monster turns until it's a player's turn or combat ends
 function createNarrativeEncounter(template: NarrativeTemplate): NarrativeEncounterState;
 ```
 
-Defined in: adventure/narrative-engine.ts:54
+Defined in: [adventure/narrative-engine.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L54)
 
 Create a new narrative encounter from a template.
 
@@ -2277,7 +2277,7 @@ Create a new narrative encounter from a template.
 function createNarrativeEncounterFromCategory(category: NarrativeCategory): NarrativeEncounterState | null;
 ```
 
-Defined in: adventure/narrative-engine.ts:70
+Defined in: [adventure/narrative-engine.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L70)
 
 Create a narrative encounter from a category (random template).
 
@@ -2299,7 +2299,7 @@ Create a narrative encounter from a category (random template).
 function createNarrativeEncounterFromId(templateId: string): NarrativeEncounterState | null;
 ```
 
-Defined in: adventure/narrative-engine.ts:83
+Defined in: [adventure/narrative-engine.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L83)
 
 Create a narrative encounter from a template ID.
 
@@ -2330,7 +2330,7 @@ function chooseOption(
 ): ChooseOptionResult | null;
 ```
 
-Defined in: adventure/narrative-engine.ts:120
+Defined in: [adventure/narrative-engine.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L120)
 
 Choose an option in a narrative encounter.
 If the option requires a skill check, it will be rolled.
@@ -2359,7 +2359,7 @@ If the option requires a skill check, it will be rolled.
 function getAvailableOptions(encounter: NarrativeEncounterState): NarrativeOption[];
 ```
 
-Defined in: adventure/narrative-engine.ts:199
+Defined in: [adventure/narrative-engine.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L199)
 
 Get the available options for an encounter.
 
@@ -2381,7 +2381,7 @@ Get the available options for an encounter.
 function isEncounterResolved(encounter: NarrativeEncounterState): boolean;
 ```
 
-Defined in: adventure/narrative-engine.ts:211
+Defined in: [adventure/narrative-engine.ts:211](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L211)
 
 Check if an encounter is resolved.
 
@@ -2403,7 +2403,7 @@ Check if an encounter is resolved.
 function formatOptionDisplay(option: NarrativeOption): string;
 ```
 
-Defined in: adventure/narrative-engine.ts:244
+Defined in: [adventure/narrative-engine.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L244)
 
 Format an option for display, including skill check info.
 
@@ -2425,7 +2425,7 @@ Format an option for display, including skill check info.
 function formatCheckResult(result: NarrativeCheckResult): string;
 ```
 
-Defined in: adventure/narrative-engine.ts:258
+Defined in: [adventure/narrative-engine.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-engine.ts#L258)
 
 Format a skill check result for display.
 
@@ -2447,7 +2447,7 @@ Format a skill check result for display.
 function getRandomTemplate(category: NarrativeCategory): NarrativeTemplate | undefined;
 ```
 
-Defined in: adventure/narrative-templates.ts:395
+Defined in: [adventure/narrative-templates.ts:395](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-templates.ts#L395)
 
 Get a random template from a specific category.
 
@@ -2469,7 +2469,7 @@ Get a random template from a specific category.
 function getTemplateById(id: string): NarrativeTemplate | undefined;
 ```
 
-Defined in: adventure/narrative-templates.ts:413
+Defined in: [adventure/narrative-templates.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-templates.ts#L413)
 
 Get a template by ID.
 
@@ -2491,7 +2491,7 @@ Get a template by ID.
 function getTemplatesByCategory(category: NarrativeCategory): NarrativeTemplate[];
 ```
 
-Defined in: adventure/narrative-templates.ts:420
+Defined in: [adventure/narrative-templates.ts:420](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-templates.ts#L420)
 
 Get all templates in a category.
 
@@ -2513,7 +2513,7 @@ Get all templates in a category.
 function getAvailableCategories(): NarrativeCategory[];
 ```
 
-Defined in: adventure/narrative-templates.ts:431
+Defined in: [adventure/narrative-templates.ts:431](https://github.com/moonloch/dcc-core-lib/blob/main/src/adventure/narrative-templates.ts#L431)
 
 Get all available categories.
 

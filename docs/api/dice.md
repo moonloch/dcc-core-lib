@@ -4,7 +4,7 @@
 
 ### ParsedFormula
 
-Defined in: dice/roll.ts:191
+Defined in: [dice/roll.ts:191](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L191)
 
 Parse a complete roll formula into components
 
@@ -28,7 +28,7 @@ The formula to parse
 dice: ParsedDiceExpression | null;
 ```
 
-Defined in: dice/roll.ts:193
+Defined in: [dice/roll.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L193)
 
 The primary dice expression
 
@@ -38,7 +38,7 @@ The primary dice expression
 totalModifier: number;
 ```
 
-Defined in: dice/roll.ts:196
+Defined in: [dice/roll.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L196)
 
 Total of all numeric modifiers
 
@@ -48,7 +48,7 @@ Total of all numeric modifiers
 modifierValues: number[];
 ```
 
-Defined in: dice/roll.ts:199
+Defined in: [dice/roll.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L199)
 
 Individual modifier values found
 
@@ -58,7 +58,7 @@ Individual modifier values found
 additionalDice: ParsedDiceExpression[];
 ```
 
-Defined in: dice/roll.ts:202
+Defined in: [dice/roll.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L202)
 
 Additional dice expressions found
 
@@ -68,7 +68,7 @@ Additional dice expressions found
 original: string;
 ```
 
-Defined in: dice/roll.ts:205
+Defined in: [dice/roll.ts:205](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L205)
 
 The original formula
 
@@ -78,7 +78,7 @@ The original formula
 normalized: string;
 ```
 
-Defined in: dice/roll.ts:208
+Defined in: [dice/roll.ts:208](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L208)
 
 Cleaned/normalized formula
 
@@ -86,7 +86,7 @@ Cleaned/normalized formula
 
 ### DieSelection
 
-Defined in: dice/roll.ts:555
+Defined in: [dice/roll.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L555)
 
 Result of die selection (pipeline phase 1): applies set-die and
 bump-die modifiers to a base die.
@@ -99,7 +99,7 @@ bump-die modifiers to a base die.
 die: `d${number}`;
 ```
 
-Defined in: dice/roll.ts:556
+Defined in: [dice/roll.ts:556](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L556)
 
 ##### supersededSetDies
 
@@ -107,7 +107,7 @@ Defined in: dice/roll.ts:556
 supersededSetDies: readonly `d${number}`[];
 ```
 
-Defined in: dice/roll.ts:559
+Defined in: [dice/roll.ts:559](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L559)
 
 Set-die modifiers that were superseded by later set-die modifiers
  (and thus not applied). Stored for renderers.
@@ -120,7 +120,7 @@ Set-die modifiers that were superseded by later set-die modifiers
 function parseDiceExpression(expression: string): ParsedDiceExpression | null;
 ```
 
-Defined in: dice/dice-chain.ts:25
+Defined in: [dice/dice-chain.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L25)
 
 Parse a dice expression into its components
 
@@ -144,7 +144,7 @@ Parsed components, or null if invalid
 function getPrimaryDie(expression: string): `d${number}` | null;
 ```
 
-Defined in: dice/dice-chain.ts:54
+Defined in: [dice/dice-chain.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L54)
 
 Get the primary die type from an expression
 
@@ -168,7 +168,7 @@ The die type (e.g., "d20"), or null if no die found
 function getPrimaryDieFaces(expression: string): number;
 ```
 
-Defined in: dice/dice-chain.ts:72
+Defined in: [dice/dice-chain.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L72)
 
 Get the number of faces on the primary die
 
@@ -192,7 +192,7 @@ Number of faces, or 20 if no die found
 function countDice(expression: string): number;
 ```
 
-Defined in: dice/dice-chain.ts:86
+Defined in: [dice/dice-chain.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L86)
 
 Count the number of dice in an expression
 
@@ -216,7 +216,7 @@ Number of dice, or 0 if invalid
 function getDieRank(faces: number, diceChain?: readonly number[]): number;
 ```
 
-Defined in: dice/dice-chain.ts:98
+Defined in: [dice/dice-chain.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L98)
 
 Get the rank (index) of a die in the dice chain
 
@@ -241,7 +241,7 @@ Index in the chain, or -1 if not found
 function rankDiceExpression(expression: string, diceChain?: readonly number[]): number;
 ```
 
-Defined in: dice/dice-chain.ts:112
+Defined in: [dice/dice-chain.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L112)
 
 Get the rank of the primary die in an expression
 
@@ -270,7 +270,7 @@ function bumpDie(
 ): string;
 ```
 
-Defined in: dice/dice-chain.ts:128
+Defined in: [dice/dice-chain.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L128)
 
 Bump a die up or down the dice chain
 
@@ -300,7 +300,7 @@ function bumpDieCount(
 ): string;
 ```
 
-Defined in: dice/dice-chain.ts:165
+Defined in: [dice/dice-chain.ts:165](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L165)
 
 Adjust the number of dice in an expression
 
@@ -326,7 +326,7 @@ New expression with adjusted count, or original if invalid
 function calculateCritAdjustment(original: string, adjusted: string): number;
 ```
 
-Defined in: dice/dice-chain.ts:199
+Defined in: [dice/dice-chain.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L199)
 
 Calculate the adjustment to critical range when die size changes
 
@@ -358,7 +358,7 @@ function calculateProportionalCritRange(
 ): number;
 ```
 
-Defined in: dice/dice-chain.ts:229
+Defined in: [dice/dice-chain.ts:229](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L229)
 
 Calculate proportional critical range for strict crit rules
 
@@ -395,7 +395,7 @@ calculateProportionalCritRange(19, 20, 24) // Returns 23 (23-24 range)
 function getDiceChain(): number[];
 ```
 
-Defined in: dice/dice-chain.ts:248
+Defined in: [dice/dice-chain.ts:248](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L248)
 
 Get the full dice chain
 
@@ -413,7 +413,7 @@ Copy of the default dice chain array
 function isInDiceChain(faces: number, diceChain?: readonly number[]): boolean;
 ```
 
-Defined in: dice/dice-chain.ts:259
+Defined in: [dice/dice-chain.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/dice-chain.ts#L259)
 
 Check if a die face count is in the dice chain
 
@@ -438,7 +438,7 @@ True if the die is in the chain
 function ensurePlus(value: string, includeZero?: boolean): string;
 ```
 
-Defined in: dice/roll.ts:98
+Defined in: [dice/roll.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L98)
 
 Ensure a modifier string has a + prefix if positive
 
@@ -473,7 +473,7 @@ ensurePlus("d6") // "+d6"
 function getFirstDie(formula: string): string;
 ```
 
-Defined in: dice/roll.ts:129
+Defined in: [dice/roll.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L129)
 
 Extract the first die expression from a formula
 
@@ -497,7 +497,7 @@ First die expression (e.g., "1d20") or empty string
 function getFirstMod(formula: string): string;
 ```
 
-Defined in: dice/roll.ts:143
+Defined in: [dice/roll.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L143)
 
 Extract the first numeric modifier from a formula
 
@@ -525,7 +525,7 @@ function buildFormula(
 ): string;
 ```
 
-Defined in: dice/roll.ts:163
+Defined in: [dice/roll.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L163)
 
 Build a roll formula from components (LEGACY).
 
@@ -555,7 +555,7 @@ Complete formula string
 function parseFormula(formula: string): ParsedFormula;
 ```
 
-Defined in: dice/roll.ts:211
+Defined in: [dice/roll.ts:211](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L211)
 
 #### Parameters
 
@@ -575,7 +575,7 @@ Defined in: dice/roll.ts:211
 function evaluateRoll(formula: string, options?: RollOptions): RollResult;
 ```
 
-Defined in: dice/roll.ts:268
+Defined in: [dice/roll.ts:268](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L268)
 
 Evaluate a roll formula (sync).
 
@@ -600,7 +600,7 @@ Roll result
 function evaluateRollAsync(formula: string, options: RollOptionsAsync): Promise<RollResult>;
 ```
 
-Defined in: dice/roll.ts:338
+Defined in: [dice/roll.ts:338](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L338)
 
 Evaluate a roll formula (async).
 
@@ -633,7 +633,7 @@ function createRoll(
 ): RollResult;
 ```
 
-Defined in: dice/roll.ts:396
+Defined in: [dice/roll.ts:396](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L396)
 
 Create a roll with legacy modifiers (LEGACY).
 
@@ -663,7 +663,7 @@ function rollSimple(
 ): RollResult;
 ```
 
-Defined in: dice/roll.ts:420
+Defined in: [dice/roll.ts:420](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L420)
 
 Roll a simple die (LEGACY).
 
@@ -691,7 +691,7 @@ Roll result
 function isNatural20(result: RollResult): boolean;
 ```
 
-Defined in: dice/roll.ts:434
+Defined in: [dice/roll.ts:434](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L434)
 
 Check if a roll is a natural 20 (or max on the die)
 
@@ -713,7 +713,7 @@ Check if a roll is a natural 20 (or max on the die)
 function isNatural1(result: RollResult): boolean;
 ```
 
-Defined in: dice/roll.ts:445
+Defined in: [dice/roll.ts:445](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L445)
 
 Check if a roll is a natural 1
 
@@ -735,7 +735,7 @@ Check if a roll is a natural 1
 function meetsFumbleRange(result: RollResult, fumbleRange?: number): boolean;
 ```
 
-Defined in: dice/roll.ts:462
+Defined in: [dice/roll.ts:462](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L462)
 
 Check if a roll falls inside a fumble range
 
@@ -766,7 +766,7 @@ True if the natural roll is within the fumble range
 function adjustThreatRange(threatRange: number, dieFaces: number): number;
 ```
 
-Defined in: dice/roll.ts:483
+Defined in: [dice/roll.ts:483](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L483)
 
 Adjust threat range for dice larger than d20
 
@@ -802,7 +802,7 @@ function meetsThreatRange(
 ): boolean;
 ```
 
-Defined in: dice/roll.ts:512
+Defined in: [dice/roll.ts:512](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L512)
 
 Check if a roll meets or exceeds a threat range
 
@@ -840,7 +840,7 @@ True if natural roll meets the (possibly adjusted) threat range
 function isAutoHit(result: RollResult): boolean;
 ```
 
-Defined in: dice/roll.ts:538
+Defined in: [dice/roll.ts:538](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L538)
 
 Check if a roll is an automatic hit (natural max on the die)
 
@@ -868,7 +868,7 @@ True if natural roll equals the die's maximum value
 function selectDie(baseDie: `d${number}`, modifiers: RollModifier[]): DieSelection;
 ```
 
-Defined in: dice/roll.ts:569
+Defined in: [dice/roll.ts:569](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L569)
 
 Phase 1 of the pipeline: determine the effective die.
 
@@ -895,7 +895,7 @@ Applies `set-die` modifiers (last wins) then `bump-die` modifiers
 function buildFormulaFromModifiers(die: `d${number}`, modifiers: RollModifier[]): string;
 ```
 
-Defined in: dice/roll.ts:602
+Defined in: [dice/roll.ts:602](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L602)
 
 Phase 2 of the pipeline: build the formula string from additive
 modifiers against a pre-selected die.
@@ -919,7 +919,7 @@ modifiers against a pre-selected die.
 function applyMultipliers(subtotal: number, modifiers: RollModifier[]): number;
 ```
 
-Defined in: dice/roll.ts:634
+Defined in: [dice/roll.ts:634](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L634)
 
 Phase 4 of the pipeline: apply multiplicative modifiers to a subtotal.
 Multiplicative modifiers compose by multiplication
@@ -948,7 +948,7 @@ function resolveThreatRange(
 ): number;
 ```
 
-Defined in: dice/roll.ts:654
+Defined in: [dice/roll.ts:654](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L654)
 
 Phase 5 of the pipeline: resolve effective threat range by summing
 `threat-shift` modifier amounts against a base threat range, then
@@ -976,7 +976,7 @@ The effective threat range to compare the natural roll against
 function markApplied(modifiers: RollModifier[]): RollModifier[];
 ```
 
-Defined in: dice/roll.ts:678
+Defined in: [dice/roll.ts:678](https://github.com/moonloch/dcc-core-lib/blob/main/src/dice/roll.ts#L678)
 
 Phase 6 of the pipeline: return a new modifier list with `applied`
 flags set on `add` and `add-dice` kinds.

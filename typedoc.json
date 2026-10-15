@@ -28,5 +28,8 @@
     "notExported": false,
     "invalidLink": true,
     "notDocumented": false
-  }
+  },
+  "disableGit": true,
+  "basePath": "src",
+  "sourceLinkTemplate": "https://github.com/moonloch/dcc-core-lib/blob/main/src/{path}#L{line}"
 }

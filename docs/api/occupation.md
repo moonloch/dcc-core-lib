@@ -4,7 +4,7 @@
 
 ### OccupationSkillGrant
 
-Defined in: types/occupation-skills.ts:53
+Defined in: [types/occupation-skills.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L53)
 
 A skill granted by an occupation.
 
@@ -16,7 +16,7 @@ A skill granted by an occupation.
 id: string;
 ```
 
-Defined in: types/occupation-skills.ts:55
+Defined in: [types/occupation-skills.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L55)
 
 Unique identifier for this skill grant
 
@@ -26,7 +26,7 @@ Unique identifier for this skill grant
 name: string;
 ```
 
-Defined in: types/occupation-skills.ts:58
+Defined in: [types/occupation-skills.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L58)
 
 Display name
 
@@ -36,7 +36,7 @@ Display name
 description: string;
 ```
 
-Defined in: types/occupation-skills.ts:61
+Defined in: [types/occupation-skills.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L61)
 
 Description of what this skill allows
 
@@ -46,7 +46,7 @@ Description of what this skill allows
 category: OccupationSkillCategory;
 ```
 
-Defined in: types/occupation-skills.ts:64
+Defined in: [types/occupation-skills.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L64)
 
 Category of skill
 
@@ -56,7 +56,7 @@ Category of skill
 optional abilityId?: string;
 ```
 
-Defined in: types/occupation-skills.ts:70
+Defined in: [types/occupation-skills.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L70)
 
 For trade skills: what ability score applies
 (e.g., "int" for knowledge, "per" for social, "agl" for physical)
@@ -67,7 +67,7 @@ For trade skills: what ability score applies
 optional thiefSkillId?: ThiefSkillId;
 ```
 
-Defined in: types/occupation-skills.ts:75
+Defined in: [types/occupation-skills.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L75)
 
 For limited thief skills: which thief skill this grants access to
 
@@ -77,7 +77,7 @@ For limited thief skills: which thief skill this grants access to
 optional effectiveLevel?: number;
 ```
 
-Defined in: types/occupation-skills.ts:81
+Defined in: [types/occupation-skills.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L81)
 
 For limited thief skills: the effective level for the skill
 (e.g., -2 means treat as 2 levels lower, minimum 0)
@@ -88,7 +88,7 @@ For limited thief skills: the effective level for the skill
 optional die?: `d${number}`;
 ```
 
-Defined in: types/occupation-skills.ts:86
+Defined in: [types/occupation-skills.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L86)
 
 Die used for checks (default: d10 for thief skills, d20 for others)
 
@@ -98,7 +98,7 @@ Die used for checks (default: d10 for thief skills, d20 for others)
 optional bonus?: number;
 ```
 
-Defined in: types/occupation-skills.ts:91
+Defined in: [types/occupation-skills.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L91)
 
 Fixed bonus to the check (in addition to ability mod)
 
@@ -108,7 +108,7 @@ Fixed bonus to the check (in addition to ability mod)
 optional baseDC?: number;
 ```
 
-Defined in: types/occupation-skills.ts:96
+Defined in: [types/occupation-skills.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L96)
 
 DC/target for simple pass/fail checks
 
@@ -118,7 +118,7 @@ DC/target for simple pass/fail checks
 optional usesPerDay?: number;
 ```
 
-Defined in: types/occupation-skills.ts:101
+Defined in: [types/occupation-skills.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L101)
 
 Is this a one-time daily ability?
 
@@ -128,7 +128,7 @@ Is this a one-time daily ability?
 optional tags?: string[];
 ```
 
-Defined in: types/occupation-skills.ts:106
+Defined in: [types/occupation-skills.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L106)
 
 Tags for categorization
 
@@ -136,7 +136,7 @@ Tags for categorization
 
 ### OccupationWeaponTraining
 
-Defined in: types/occupation-skills.ts:112
+Defined in: [types/occupation-skills.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L112)
 
 Weapon training from an occupation.
 
@@ -148,7 +148,7 @@ Weapon training from an occupation.
 weaponName: string;
 ```
 
-Defined in: types/occupation-skills.ts:114
+Defined in: [types/occupation-skills.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L114)
 
 The weapon name from the occupation
 
@@ -158,7 +158,7 @@ The weapon name from the occupation
 weaponType: string;
 ```
 
-Defined in: types/occupation-skills.ts:117
+Defined in: [types/occupation-skills.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L117)
 
 Normalized weapon type (e.g., "dagger", "club", "longsword")
 
@@ -168,7 +168,7 @@ Normalized weapon type (e.g., "dagger", "club", "longsword")
 attackBonus: number;
 ```
 
-Defined in: types/occupation-skills.ts:120
+Defined in: [types/occupation-skills.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L120)
 
 Bonus to attack with trained weapon (typically +1 for 0-level)
 
@@ -178,7 +178,7 @@ Bonus to attack with trained weapon (typically +1 for 0-level)
 damageBonus: number;
 ```
 
-Defined in: types/occupation-skills.ts:123
+Defined in: [types/occupation-skills.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L123)
 
 Bonus to damage with trained weapon (typically 0)
 
@@ -188,7 +188,7 @@ Bonus to damage with trained weapon (typically 0)
 optional notes?: string;
 ```
 
-Defined in: types/occupation-skills.ts:126
+Defined in: [types/occupation-skills.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L126)
 
 Special notes (e.g., "Hammer (as club)")
 
@@ -196,7 +196,7 @@ Special notes (e.g., "Hammer (as club)")
 
 ### OccupationWithSkills
 
-Defined in: types/occupation-skills.ts:137
+Defined in: [types/occupation-skills.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L137)
 
 Extended occupation entry with skill grants.
 This extends the base OccupationEntry with skill information.
@@ -209,7 +209,7 @@ This extends the base OccupationEntry with skill information.
 roll: string | number;
 ```
 
-Defined in: types/occupation-skills.ts:139
+Defined in: [types/occupation-skills.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L139)
 
 Roll value or range
 
@@ -219,7 +219,7 @@ Roll value or range
 name: string;
 ```
 
-Defined in: types/occupation-skills.ts:142
+Defined in: [types/occupation-skills.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L142)
 
 Occupation name
 
@@ -229,7 +229,7 @@ Occupation name
 trainedWeapon: string;
 ```
 
-Defined in: types/occupation-skills.ts:145
+Defined in: [types/occupation-skills.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L145)
 
 Trained weapon
 
@@ -239,7 +239,7 @@ Trained weapon
 tradeGoods: string;
 ```
 
-Defined in: types/occupation-skills.ts:148
+Defined in: [types/occupation-skills.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L148)
 
 Trade goods
 
@@ -249,7 +249,7 @@ Trade goods
 optional startingFunds?: number;
 ```
 
-Defined in: types/occupation-skills.ts:151
+Defined in: [types/occupation-skills.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L151)
 
 Starting funds in copper pieces
 
@@ -259,7 +259,7 @@ Starting funds in copper pieces
 optional isFarmer?: boolean;
 ```
 
-Defined in: types/occupation-skills.ts:154
+Defined in: [types/occupation-skills.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L154)
 
 Is this a farmer?
 
@@ -269,7 +269,7 @@ Is this a farmer?
 optional notes?: string;
 ```
 
-Defined in: types/occupation-skills.ts:157
+Defined in: [types/occupation-skills.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L157)
 
 Notes
 
@@ -279,7 +279,7 @@ Notes
 optional skills?: OccupationSkillGrant[];
 ```
 
-Defined in: types/occupation-skills.ts:163
+Defined in: [types/occupation-skills.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L163)
 
 Skills granted by this occupation.
 These are in addition to weapon training.
@@ -290,7 +290,7 @@ These are in addition to weapon training.
 optional weaponTraining?: OccupationWeaponTraining;
 ```
 
-Defined in: types/occupation-skills.ts:169
+Defined in: [types/occupation-skills.ts:169](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L169)
 
 Normalized weapon training data.
 Parsed from trainedWeapon string.
@@ -299,7 +299,7 @@ Parsed from trainedWeapon string.
 
 ### OccupationSkillCheckInput
 
-Defined in: types/occupation-skills.ts:179
+Defined in: [types/occupation-skills.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L179)
 
 Input for an occupation skill check.
 
@@ -311,7 +311,7 @@ Input for an occupation skill check.
 skill: OccupationSkillGrant;
 ```
 
-Defined in: types/occupation-skills.ts:181
+Defined in: [types/occupation-skills.ts:181](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L181)
 
 The skill being checked
 
@@ -321,7 +321,7 @@ The skill being checked
 level: number;
 ```
 
-Defined in: types/occupation-skills.ts:184
+Defined in: [types/occupation-skills.ts:184](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L184)
 
 Character's level (affects some calculations)
 
@@ -331,7 +331,7 @@ Character's level (affects some calculations)
 abilities: Record<string, number>;
 ```
 
-Defined in: types/occupation-skills.ts:187
+Defined in: [types/occupation-skills.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L187)
 
 Character's ability scores
 
@@ -341,7 +341,7 @@ Character's ability scores
 optional luck?: number;
 ```
 
-Defined in: types/occupation-skills.ts:190
+Defined in: [types/occupation-skills.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L190)
 
 Character's luck score (if applicable)
 
@@ -351,7 +351,7 @@ Character's luck score (if applicable)
 optional luckBurn?: number;
 ```
 
-Defined in: types/occupation-skills.ts:193
+Defined in: [types/occupation-skills.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L193)
 
 Luck to burn on this check
 
@@ -364,7 +364,7 @@ optional situationalModifiers?: {
 }[];
 ```
 
-Defined in: types/occupation-skills.ts:196
+Defined in: [types/occupation-skills.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L196)
 
 Situational modifiers
 
@@ -384,7 +384,7 @@ value: number;
 
 ### OccupationSkillCheckResult
 
-Defined in: types/occupation-skills.ts:205
+Defined in: [types/occupation-skills.ts:205](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L205)
 
 Result of an occupation skill check.
 
@@ -396,7 +396,7 @@ Result of an occupation skill check.
 skillId: string;
 ```
 
-Defined in: types/occupation-skills.ts:207
+Defined in: [types/occupation-skills.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L207)
 
 The skill that was checked
 
@@ -406,7 +406,7 @@ The skill that was checked
 die: `d${number}`;
 ```
 
-Defined in: types/occupation-skills.ts:210
+Defined in: [types/occupation-skills.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L210)
 
 Die used
 
@@ -416,7 +416,7 @@ Die used
 formula: string;
 ```
 
-Defined in: types/occupation-skills.ts:213
+Defined in: [types/occupation-skills.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L213)
 
 Complete formula
 
@@ -426,7 +426,7 @@ Complete formula
 optional natural?: number;
 ```
 
-Defined in: types/occupation-skills.ts:216
+Defined in: [types/occupation-skills.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L216)
 
 Natural die result
 
@@ -436,7 +436,7 @@ Natural die result
 optional total?: number;
 ```
 
-Defined in: types/occupation-skills.ts:219
+Defined in: [types/occupation-skills.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L219)
 
 Total after modifiers
 
@@ -446,7 +446,7 @@ Total after modifiers
 optional critical?: boolean;
 ```
 
-Defined in: types/occupation-skills.ts:222
+Defined in: [types/occupation-skills.ts:222](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L222)
 
 Was this a critical success?
 
@@ -456,7 +456,7 @@ Was this a critical success?
 optional fumble?: boolean;
 ```
 
-Defined in: types/occupation-skills.ts:225
+Defined in: [types/occupation-skills.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L225)
 
 Was this a fumble?
 
@@ -466,7 +466,7 @@ Was this a fumble?
 optional success?: boolean;
 ```
 
-Defined in: types/occupation-skills.ts:228
+Defined in: [types/occupation-skills.ts:228](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L228)
 
 Did the check succeed? (for DC-based checks)
 
@@ -479,7 +479,7 @@ modifiers: {
 }[];
 ```
 
-Defined in: types/occupation-skills.ts:231
+Defined in: [types/occupation-skills.ts:231](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L231)
 
 All modifiers applied
 
@@ -501,7 +501,7 @@ value: number;
 luckBurned: number;
 ```
 
-Defined in: types/occupation-skills.ts:237
+Defined in: [types/occupation-skills.ts:237](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L237)
 
 Luck burned
 
@@ -509,7 +509,7 @@ Luck burned
 
 ### OccupationSkillEvents
 
-Defined in: types/occupation-skills.ts:247
+Defined in: [types/occupation-skills.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L247)
 
 Event callbacks for occupation skill system.
 
@@ -521,7 +521,7 @@ Event callbacks for occupation skill system.
 optional onCheckStart?: (input: OccupationSkillCheckInput) => void;
 ```
 
-Defined in: types/occupation-skills.ts:249
+Defined in: [types/occupation-skills.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L249)
 
 Called when a skill check starts
 
@@ -541,7 +541,7 @@ Called when a skill check starts
 optional onCheckComplete?: (result: OccupationSkillCheckResult) => void;
 ```
 
-Defined in: types/occupation-skills.ts:252
+Defined in: [types/occupation-skills.ts:252](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L252)
 
 Called when a skill check completes
 
@@ -561,7 +561,7 @@ Called when a skill check completes
 optional onCritical?: (result: OccupationSkillCheckResult) => void;
 ```
 
-Defined in: types/occupation-skills.ts:255
+Defined in: [types/occupation-skills.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L255)
 
 Called on critical success
 
@@ -581,7 +581,7 @@ Called on critical success
 optional onFumble?: (result: OccupationSkillCheckResult) => void;
 ```
 
-Defined in: types/occupation-skills.ts:258
+Defined in: [types/occupation-skills.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L258)
 
 Called on fumble
 
@@ -609,7 +609,7 @@ type OccupationSkillCategory =
   | "social";
 ```
 
-Defined in: types/occupation-skills.ts:20
+Defined in: [types/occupation-skills.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L20)
 
 Categories of occupation skills.
 
@@ -634,7 +634,7 @@ type ThiefSkillId =
   | "cast-spell-from-scroll";
 ```
 
-Defined in: types/occupation-skills.ts:31
+Defined in: [types/occupation-skills.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/occupation-skills.ts#L31)
 
 Thief skills that occupations can grant limited access to.
 
@@ -646,7 +646,7 @@ Thief skills that occupations can grant limited access to.
 const PICKPOCKET_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:20
+Defined in: [occupation/sample-skills.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L20)
 
 Pickpocket occupation grants limited pick pocket ability.
 
@@ -658,7 +658,7 @@ Pickpocket occupation grants limited pick pocket ability.
 const KEY_MAKER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:37
+Defined in: [occupation/sample-skills.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L37)
 
 Key Maker occupation grants limited lock picking ability.
 
@@ -670,7 +670,7 @@ Key Maker occupation grants limited lock picking ability.
 const SEWER_WORKER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:54
+Defined in: [occupation/sample-skills.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L54)
 
 Sewer Worker occupation grants limited find trap ability.
 
@@ -682,7 +682,7 @@ Sewer Worker occupation grants limited find trap ability.
 const CONTRABAND_RUNNER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:71
+Defined in: [occupation/sample-skills.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L71)
 
 Contraband Runner grants limited hide in shadows ability.
 
@@ -694,7 +694,7 @@ Contraband Runner grants limited hide in shadows ability.
 const HEALER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:92
+Defined in: [occupation/sample-skills.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L92)
 
 Village Healer grants basic healing knowledge.
 
@@ -706,7 +706,7 @@ Village Healer grants basic healing knowledge.
 const HERB_GATHERER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:109
+Defined in: [occupation/sample-skills.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L109)
 
 Herb Gatherer grants plant identification.
 
@@ -718,7 +718,7 @@ Herb Gatherer grants plant identification.
 const STAR_READER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:126
+Defined in: [occupation/sample-skills.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L126)
 
 Star Reader grants fortune telling and astronomy knowledge.
 
@@ -730,7 +730,7 @@ Star Reader grants fortune telling and astronomy knowledge.
 const GAME_HUNTER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:142
+Defined in: [occupation/sample-skills.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L142)
 
 Game Hunter grants tracking ability.
 
@@ -742,7 +742,7 @@ Game Hunter grants tracking ability.
 const GEM_CUTTER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:158
+Defined in: [occupation/sample-skills.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L158)
 
 Gem Cutter grants appraisal ability.
 
@@ -754,7 +754,7 @@ Gem Cutter grants appraisal ability.
 const TRADER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:174
+Defined in: [occupation/sample-skills.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L174)
 
 Trader grants general appraisal and bargaining.
 
@@ -766,7 +766,7 @@ Trader grants general appraisal and bargaining.
 const COURT_FOOL_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:190
+Defined in: [occupation/sample-skills.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L190)
 
 Court Fool grants performance ability.
 
@@ -778,7 +778,7 @@ Court Fool grants performance ability.
 const SNAKE_OIL_SELLER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:206
+Defined in: [occupation/sample-skills.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L206)
 
 Snake Oil Seller grants deception and persuasion.
 
@@ -790,7 +790,7 @@ Snake Oil Seller grants deception and persuasion.
 const PLATE_SMITH_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:226
+Defined in: [occupation/sample-skills.ts:226](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L226)
 
 Plate Smith grants metalworking ability.
 
@@ -802,7 +802,7 @@ Plate Smith grants metalworking ability.
 const BARREL_MAKER_SKILL: OccupationSkillGrant;
 ```
 
-Defined in: occupation/sample-skills.ts:242
+Defined in: [occupation/sample-skills.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L242)
 
 Barrel Maker grants woodworking ability.
 
@@ -814,7 +814,7 @@ Barrel Maker grants woodworking ability.
 const OCCUPATION_SKILL_MAP: Record<string, OccupationSkillGrant[]>;
 ```
 
-Defined in: occupation/sample-skills.ts:263
+Defined in: [occupation/sample-skills.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L263)
 
 Map of occupation names to their granted skills.
 This can be merged with occupation data to extend it.
@@ -827,7 +827,7 @@ This can be merged with occupation data to extend it.
 const DEFAULT_TRADE_SKILL_DIE: DieType = "d20";
 ```
 
-Defined in: occupation/skills.ts:30
+Defined in: [occupation/skills.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L30)
 
 Default die for trade skill checks.
 
@@ -839,7 +839,7 @@ Default die for trade skill checks.
 const DEFAULT_THIEF_SKILL_DIE: DieType = "d20";
 ```
 
-Defined in: occupation/skills.ts:35
+Defined in: [occupation/skills.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L35)
 
 Default die for limited thief skill checks.
 
@@ -851,7 +851,7 @@ Default die for limited thief skill checks.
 const DEFAULT_WEAPON_TRAINING_BONUS: 0 = 0;
 ```
 
-Defined in: occupation/skills.ts:40
+Defined in: [occupation/skills.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L40)
 
 Default attack bonus for trained weapon proficiency.
 
@@ -863,7 +863,7 @@ Default attack bonus for trained weapon proficiency.
 const MIN_EFFECTIVE_LEVEL: 0 = 0;
 ```
 
-Defined in: occupation/skills.ts:45
+Defined in: [occupation/skills.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L45)
 
 Minimum effective level for limited thief skills.
 
@@ -875,7 +875,7 @@ Minimum effective level for limited thief skills.
 function getSkillsForOccupation(occupationName: string): OccupationSkillGrant[];
 ```
 
-Defined in: occupation/sample-skills.ts:286
+Defined in: [occupation/sample-skills.ts:286](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L286)
 
 Get skills for an occupation by name.
 
@@ -899,7 +899,7 @@ Array of skills, or empty array if none defined
 function occupationHasSkills(occupationName: string): boolean;
 ```
 
-Defined in: occupation/sample-skills.ts:298
+Defined in: [occupation/sample-skills.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/sample-skills.ts#L298)
 
 Check if an occupation has any special skills.
 
@@ -923,7 +923,7 @@ True if the occupation grants skills
 function parseWeaponTraining(trainedWeapon: string): OccupationWeaponTraining;
 ```
 
-Defined in: occupation/skills.ts:57
+Defined in: [occupation/skills.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L57)
 
 Parse weapon training from an occupation's trained weapon string.
 
@@ -947,7 +947,7 @@ Parsed weapon training data
 function isTrainedWeapon(weaponName: string, training: OccupationWeaponTraining): boolean;
 ```
 
-Defined in: occupation/skills.ts:90
+Defined in: [occupation/skills.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L90)
 
 Check if a weapon matches the character's trained weapon.
 
@@ -972,7 +972,7 @@ True if the weapon matches
 function getTrainedWeaponBonus(weaponName: string, training: OccupationWeaponTraining): number;
 ```
 
-Defined in: occupation/skills.ts:108
+Defined in: [occupation/skills.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L108)
 
 Get attack bonus for using trained weapon.
 
@@ -997,7 +997,7 @@ Attack bonus (0 if not trained weapon)
 function calculateEffectiveLevel(characterLevel: number, levelAdjustment?: number): number;
 ```
 
-Defined in: occupation/skills.ts:126
+Defined in: [occupation/skills.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L126)
 
 Calculate effective level for a limited thief skill.
 
@@ -1022,7 +1022,7 @@ Effective level (minimum 0)
 function getOccupationThiefSkill(occupationSkills: OccupationSkillGrant[], thiefSkillId: ThiefSkillId): OccupationSkillGrant | undefined;
 ```
 
-Defined in: occupation/skills.ts:140
+Defined in: [occupation/skills.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L140)
 
 Check if a character has access to a limited thief skill from their occupation.
 
@@ -1047,7 +1047,7 @@ The skill grant if available, undefined otherwise
 function hasOccupationThiefSkill(occupationSkills: OccupationSkillGrant[], thiefSkillId: ThiefSkillId): boolean;
 ```
 
-Defined in: occupation/skills.ts:157
+Defined in: [occupation/skills.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L157)
 
 Check if an occupation grants a specific thief skill.
 
@@ -1072,7 +1072,7 @@ True if the occupation grants access to this skill
 function buildOccupationSkillModifiers(input: OccupationSkillCheckInput): LegacyRollModifier[];
 ```
 
-Defined in: occupation/skills.ts:174
+Defined in: [occupation/skills.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L174)
 
 Build modifiers for an occupation skill check.
 
@@ -1100,7 +1100,7 @@ function resolveOccupationSkillCheck(
 ): OccupationSkillCheckResult;
 ```
 
-Defined in: occupation/skills.ts:233
+Defined in: [occupation/skills.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L233)
 
 Resolve an occupation skill check.
 
@@ -1126,7 +1126,7 @@ The skill check result
 function getTradeSkills(occupationSkills: OccupationSkillGrant[]): OccupationSkillGrant[];
 ```
 
-Defined in: occupation/skills.ts:318
+Defined in: [occupation/skills.ts:318](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L318)
 
 Get all trade skills from occupation skills.
 
@@ -1150,7 +1150,7 @@ Array of trade skills
 function getKnowledgeSkills(occupationSkills: OccupationSkillGrant[]): OccupationSkillGrant[];
 ```
 
-Defined in: occupation/skills.ts:332
+Defined in: [occupation/skills.ts:332](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L332)
 
 Get all knowledge skills from occupation skills.
 
@@ -1174,7 +1174,7 @@ Array of knowledge skills
 function getLimitedThiefSkills(occupationSkills: OccupationSkillGrant[]): OccupationSkillGrant[];
 ```
 
-Defined in: occupation/skills.ts:344
+Defined in: [occupation/skills.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L344)
 
 Get all limited thief skills from occupation skills.
 
@@ -1198,7 +1198,7 @@ Array of limited thief skills
 function isOccupationSkillSuccess(result: OccupationSkillCheckResult): boolean;
 ```
 
-Defined in: occupation/skills.ts:360
+Defined in: [occupation/skills.ts:360](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L360)
 
 Check if an occupation skill check result was successful.
 
@@ -1222,7 +1222,7 @@ True if successful
 function getOccupationSkillSummary(result: OccupationSkillCheckResult): string;
 ```
 
-Defined in: occupation/skills.ts:385
+Defined in: [occupation/skills.ts:385](https://github.com/moonloch/dcc-core-lib/blob/main/src/occupation/skills.ts#L385)
 
 Get a summary of the occupation skill check result.
 

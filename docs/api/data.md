@@ -4,7 +4,7 @@
 
 ### RawClassLevelData
 
-Defined in: data/loaders/class-loader.ts:24
+Defined in: [data/loaders/class-loader.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L24)
 
 Raw level data as it appears in source JSON
 
@@ -16,7 +16,7 @@ Raw level data as it appears in source JSON
 class: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:25
+Defined in: [data/loaders/class-loader.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L25)
 
 ##### level
 
@@ -24,7 +24,7 @@ Defined in: data/loaders/class-loader.ts:25
 level: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:26
+Defined in: [data/loaders/class-loader.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L26)
 
 ##### levelData
 
@@ -32,7 +32,7 @@ Defined in: data/loaders/class-loader.ts:26
 levelData: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:27
+Defined in: [data/loaders/class-loader.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L27)
 
 ##### levelDataLawful?
 
@@ -40,7 +40,7 @@ Defined in: data/loaders/class-loader.ts:27
 optional levelDataLawful?: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:28
+Defined in: [data/loaders/class-loader.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L28)
 
 ##### levelDataNeutral?
 
@@ -48,7 +48,7 @@ Defined in: data/loaders/class-loader.ts:28
 optional levelDataNeutral?: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:29
+Defined in: [data/loaders/class-loader.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L29)
 
 ##### levelDataChaotic?
 
@@ -56,13 +56,13 @@ Defined in: data/loaders/class-loader.ts:29
 optional levelDataChaotic?: string;
 ```
 
-Defined in: data/loaders/class-loader.ts:30
+Defined in: [data/loaders/class-loader.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L30)
 
 ***
 
 ### RawSpellDefinition
 
-Defined in: data/loaders/spell-loader.ts:24
+Defined in: [data/loaders/spell-loader.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L24)
 
 Raw spell definition from JSON source
 
@@ -74,7 +74,7 @@ Raw spell definition from JSON source
 id: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:25
+Defined in: [data/loaders/spell-loader.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L25)
 
 ##### name
 
@@ -82,7 +82,7 @@ Defined in: data/loaders/spell-loader.ts:25
 name: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:26
+Defined in: [data/loaders/spell-loader.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L26)
 
 ##### level
 
@@ -90,7 +90,7 @@ Defined in: data/loaders/spell-loader.ts:26
 level: number;
 ```
 
-Defined in: data/loaders/spell-loader.ts:27
+Defined in: [data/loaders/spell-loader.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L27)
 
 ##### casterTypes
 
@@ -98,7 +98,7 @@ Defined in: data/loaders/spell-loader.ts:27
 casterTypes: string[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:28
+Defined in: [data/loaders/spell-loader.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L28)
 
 ##### description?
 
@@ -106,7 +106,7 @@ Defined in: data/loaders/spell-loader.ts:28
 optional description?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:29
+Defined in: [data/loaders/spell-loader.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L29)
 
 ##### range?
 
@@ -114,7 +114,7 @@ Defined in: data/loaders/spell-loader.ts:29
 optional range?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:30
+Defined in: [data/loaders/spell-loader.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L30)
 
 ##### duration?
 
@@ -122,7 +122,7 @@ Defined in: data/loaders/spell-loader.ts:30
 optional duration?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:31
+Defined in: [data/loaders/spell-loader.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L31)
 
 ##### castingTime?
 
@@ -130,7 +130,7 @@ Defined in: data/loaders/spell-loader.ts:31
 optional castingTime?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:32
+Defined in: [data/loaders/spell-loader.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L32)
 
 ##### save?
 
@@ -138,7 +138,7 @@ Defined in: data/loaders/spell-loader.ts:32
 optional save?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:33
+Defined in: [data/loaders/spell-loader.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L33)
 
 ##### tags?
 
@@ -146,7 +146,7 @@ Defined in: data/loaders/spell-loader.ts:33
 optional tags?: string[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:34
+Defined in: [data/loaders/spell-loader.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L34)
 
 ##### source?
 
@@ -154,13 +154,13 @@ Defined in: data/loaders/spell-loader.ts:34
 optional source?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:35
+Defined in: [data/loaders/spell-loader.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L35)
 
 ***
 
 ### RawMercurialEffectData
 
-Defined in: data/loaders/spell-loader.ts:41
+Defined in: [data/loaders/spell-loader.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L41)
 
 Raw mercurial effect data from JSON source
 
@@ -172,7 +172,7 @@ Raw mercurial effect data from JSON source
 type: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:42
+Defined in: [data/loaders/spell-loader.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L42)
 
 ##### modifier?
 
@@ -180,7 +180,7 @@ Defined in: data/loaders/spell-loader.ts:42
 optional modifier?: number;
 ```
 
-Defined in: data/loaders/spell-loader.ts:43
+Defined in: [data/loaders/spell-loader.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L43)
 
 ##### dice?
 
@@ -188,7 +188,7 @@ Defined in: data/loaders/spell-loader.ts:43
 optional dice?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:44
+Defined in: [data/loaders/spell-loader.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L44)
 
 ##### trigger?
 
@@ -196,7 +196,7 @@ Defined in: data/loaders/spell-loader.ts:44
 optional trigger?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:45
+Defined in: [data/loaders/spell-loader.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L45)
 
 ##### duration?
 
@@ -204,7 +204,7 @@ Defined in: data/loaders/spell-loader.ts:45
 optional duration?: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:46
+Defined in: [data/loaders/spell-loader.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L46)
 
 ##### data?
 
@@ -212,13 +212,13 @@ Defined in: data/loaders/spell-loader.ts:46
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: data/loaders/spell-loader.ts:47
+Defined in: [data/loaders/spell-loader.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L47)
 
 ***
 
 ### RawMercurialTableEntry
 
-Defined in: data/loaders/spell-loader.ts:53
+Defined in: [data/loaders/spell-loader.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L53)
 
 Raw mercurial table entry from JSON source
 
@@ -230,7 +230,7 @@ Raw mercurial table entry from JSON source
 min: number;
 ```
 
-Defined in: data/loaders/spell-loader.ts:54
+Defined in: [data/loaders/spell-loader.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L54)
 
 ##### max
 
@@ -238,7 +238,7 @@ Defined in: data/loaders/spell-loader.ts:54
 max: number;
 ```
 
-Defined in: data/loaders/spell-loader.ts:55
+Defined in: [data/loaders/spell-loader.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L55)
 
 ##### summary
 
@@ -246,7 +246,7 @@ Defined in: data/loaders/spell-loader.ts:55
 summary: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:56
+Defined in: [data/loaders/spell-loader.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L56)
 
 ##### description
 
@@ -254,7 +254,7 @@ Defined in: data/loaders/spell-loader.ts:56
 description: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:57
+Defined in: [data/loaders/spell-loader.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L57)
 
 ##### displayOnCast?
 
@@ -262,7 +262,7 @@ Defined in: data/loaders/spell-loader.ts:57
 optional displayOnCast?: boolean;
 ```
 
-Defined in: data/loaders/spell-loader.ts:58
+Defined in: [data/loaders/spell-loader.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L58)
 
 ##### effect?
 
@@ -270,13 +270,13 @@ Defined in: data/loaders/spell-loader.ts:58
 optional effect?: RawMercurialEffectData;
 ```
 
-Defined in: data/loaders/spell-loader.ts:59
+Defined in: [data/loaders/spell-loader.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L59)
 
 ***
 
 ### RawMercurialTable
 
-Defined in: data/loaders/spell-loader.ts:65
+Defined in: [data/loaders/spell-loader.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L65)
 
 Raw mercurial table from JSON source
 
@@ -288,7 +288,7 @@ Raw mercurial table from JSON source
 id: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:66
+Defined in: [data/loaders/spell-loader.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L66)
 
 ##### name
 
@@ -296,7 +296,7 @@ Defined in: data/loaders/spell-loader.ts:66
 name: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:67
+Defined in: [data/loaders/spell-loader.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L67)
 
 ##### entries
 
@@ -304,13 +304,13 @@ Defined in: data/loaders/spell-loader.ts:67
 entries: RawMercurialTableEntry[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:68
+Defined in: [data/loaders/spell-loader.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L68)
 
 ***
 
 ### InvalidSpellEntry
 
-Defined in: data/loaders/spell-loader.ts:224
+Defined in: [data/loaders/spell-loader.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L224)
 
 Invalid spell entry with reason
 
@@ -322,7 +322,7 @@ Invalid spell entry with reason
 raw: RawSpellDefinition;
 ```
 
-Defined in: data/loaders/spell-loader.ts:225
+Defined in: [data/loaders/spell-loader.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L225)
 
 ##### reason
 
@@ -330,13 +330,13 @@ Defined in: data/loaders/spell-loader.ts:225
 reason: string;
 ```
 
-Defined in: data/loaders/spell-loader.ts:226
+Defined in: [data/loaders/spell-loader.ts:226](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L226)
 
 ***
 
 ### SpellValidationResult
 
-Defined in: data/loaders/spell-loader.ts:232
+Defined in: [data/loaders/spell-loader.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L232)
 
 Validation result for spell definitions
 
@@ -348,7 +348,7 @@ Validation result for spell definitions
 valid: SpellDefinition[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:233
+Defined in: [data/loaders/spell-loader.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L233)
 
 ##### invalid
 
@@ -356,13 +356,13 @@ Defined in: data/loaders/spell-loader.ts:233
 invalid: InvalidSpellEntry[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:234
+Defined in: [data/loaders/spell-loader.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L234)
 
 ***
 
 ### MercurialTableValidationResult
 
-Defined in: data/loaders/spell-loader.ts:359
+Defined in: [data/loaders/spell-loader.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L359)
 
 Validation result for mercurial table
 
@@ -374,7 +374,7 @@ Validation result for mercurial table
 valid: boolean;
 ```
 
-Defined in: data/loaders/spell-loader.ts:360
+Defined in: [data/loaders/spell-loader.ts:360](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L360)
 
 ##### table?
 
@@ -382,7 +382,7 @@ Defined in: data/loaders/spell-loader.ts:360
 optional table?: MercurialTable;
 ```
 
-Defined in: data/loaders/spell-loader.ts:361
+Defined in: [data/loaders/spell-loader.ts:361](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L361)
 
 ##### errors
 
@@ -390,13 +390,13 @@ Defined in: data/loaders/spell-loader.ts:361
 errors: string[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:362
+Defined in: [data/loaders/spell-loader.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L362)
 
 ***
 
 ### RawTableResult
 
-Defined in: data/loaders/table-loader.ts:17
+Defined in: [data/loaders/table-loader.ts:17](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L17)
 
 Raw table result from FoundryVTT format
 
@@ -408,7 +408,7 @@ Raw table result from FoundryVTT format
 range: [number, number];
 ```
 
-Defined in: data/loaders/table-loader.ts:18
+Defined in: [data/loaders/table-loader.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L18)
 
 ##### description
 
@@ -416,7 +416,7 @@ Defined in: data/loaders/table-loader.ts:18
 description: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:19
+Defined in: [data/loaders/table-loader.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L19)
 
 ##### type?
 
@@ -424,7 +424,7 @@ Defined in: data/loaders/table-loader.ts:19
 optional type?: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:20
+Defined in: [data/loaders/table-loader.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L20)
 
 ##### weight?
 
@@ -432,13 +432,13 @@ Defined in: data/loaders/table-loader.ts:20
 optional weight?: number;
 ```
 
-Defined in: data/loaders/table-loader.ts:21
+Defined in: [data/loaders/table-loader.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L21)
 
 ***
 
 ### RawTableData
 
-Defined in: data/loaders/table-loader.ts:27
+Defined in: [data/loaders/table-loader.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L27)
 
 Raw table data from FoundryVTT format
 
@@ -450,7 +450,7 @@ Raw table data from FoundryVTT format
 _id: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:28
+Defined in: [data/loaders/table-loader.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L28)
 
 ##### name
 
@@ -458,7 +458,7 @@ Defined in: data/loaders/table-loader.ts:28
 name: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:29
+Defined in: [data/loaders/table-loader.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L29)
 
 ##### description?
 
@@ -466,7 +466,7 @@ Defined in: data/loaders/table-loader.ts:29
 optional description?: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:30
+Defined in: [data/loaders/table-loader.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L30)
 
 ##### formula
 
@@ -474,7 +474,7 @@ Defined in: data/loaders/table-loader.ts:30
 formula: string;
 ```
 
-Defined in: data/loaders/table-loader.ts:31
+Defined in: [data/loaders/table-loader.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L31)
 
 ##### results
 
@@ -482,13 +482,13 @@ Defined in: data/loaders/table-loader.ts:31
 results: RawTableResult[];
 ```
 
-Defined in: data/loaders/table-loader.ts:32
+Defined in: [data/loaders/table-loader.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L32)
 
 ***
 
 ### NameData
 
-Defined in: data/names.ts:14
+Defined in: [data/names.ts:14](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L14)
 
 Name data organized by ancestry/race.
 
@@ -500,7 +500,7 @@ Name data organized by ancestry/race.
 ancestry: string;
 ```
 
-Defined in: data/names.ts:16
+Defined in: [data/names.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L16)
 
 Display name for this ancestry
 
@@ -510,7 +510,7 @@ Display name for this ancestry
 firstNames: string[];
 ```
 
-Defined in: data/names.ts:19
+Defined in: [data/names.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L19)
 
 First names
 
@@ -520,7 +520,7 @@ First names
 optional epithets?: string[];
 ```
 
-Defined in: data/names.ts:22
+Defined in: [data/names.ts:22](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L22)
 
 Optional epithets/titles (e.g., "the Bold", "Ironfoot")
 
@@ -528,7 +528,7 @@ Optional epithets/titles (e.g., "the Bold", "Ironfoot")
 
 ### NameGenerationData
 
-Defined in: data/names.ts:28
+Defined in: [data/names.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L28)
 
 Collection of all name data.
 
@@ -540,7 +540,7 @@ Collection of all name data.
 human: NameData;
 ```
 
-Defined in: data/names.ts:29
+Defined in: [data/names.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L29)
 
 ##### dwarf
 
@@ -548,7 +548,7 @@ Defined in: data/names.ts:29
 dwarf: NameData;
 ```
 
-Defined in: data/names.ts:30
+Defined in: [data/names.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L30)
 
 ##### elf
 
@@ -556,7 +556,7 @@ Defined in: data/names.ts:30
 elf: NameData;
 ```
 
-Defined in: data/names.ts:31
+Defined in: [data/names.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L31)
 
 ##### halfling
 
@@ -564,13 +564,13 @@ Defined in: data/names.ts:31
 halfling: NameData;
 ```
 
-Defined in: data/names.ts:32
+Defined in: [data/names.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L32)
 
 ***
 
 ### NameGenerationOptions
 
-Defined in: data/names.ts:38
+Defined in: [data/names.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L38)
 
 Options for name generation.
 
@@ -582,7 +582,7 @@ Options for name generation.
 optional includeEpithet?: boolean;
 ```
 
-Defined in: data/names.ts:40
+Defined in: [data/names.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L40)
 
 Include an epithet (default: false)
 
@@ -592,7 +592,7 @@ Include an epithet (default: false)
 optional epithetChance?: number;
 ```
 
-Defined in: data/names.ts:43
+Defined in: [data/names.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L43)
 
 Chance of epithet if includeEpithet is true (0-1, default: 0.3)
 
@@ -600,7 +600,7 @@ Chance of epithet if includeEpithet is true (0-1, default: 0.3)
 
 ### GeneratedName
 
-Defined in: data/names.ts:49
+Defined in: [data/names.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L49)
 
 Result of name generation.
 
@@ -612,7 +612,7 @@ Result of name generation.
 firstName: string;
 ```
 
-Defined in: data/names.ts:51
+Defined in: [data/names.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L51)
 
 The first name
 
@@ -622,7 +622,7 @@ The first name
 optional epithet?: string;
 ```
 
-Defined in: data/names.ts:54
+Defined in: [data/names.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L54)
 
 Optional epithet
 
@@ -632,7 +632,7 @@ Optional epithet
 fullName: string;
 ```
 
-Defined in: data/names.ts:57
+Defined in: [data/names.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L57)
 
 Full formatted name
 
@@ -642,7 +642,7 @@ Full formatted name
 ancestry: string;
 ```
 
-Defined in: data/names.ts:60
+Defined in: [data/names.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L60)
 
 The ancestry used
 
@@ -654,7 +654,7 @@ The ancestry used
 type Ancestry = keyof NameGenerationData;
 ```
 
-Defined in: data/names.ts:168
+Defined in: [data/names.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L168)
 
 Ancestry type for name generation.
 
@@ -666,7 +666,7 @@ Ancestry type for name generation.
 const ABILITY_MODIFIERS: Readonly<Record<number, number>>;
 ```
 
-Defined in: data/ability-modifiers.ts:21
+Defined in: [data/ability-modifiers.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/ability-modifiers.ts#L21)
 
 Ability modifier lookup table
 Key: ability score (0-24)
@@ -680,7 +680,7 @@ Value: modifier (-4 to +6)
 const MIN_ABILITY_SCORE: 0 = 0;
 ```
 
-Defined in: data/ability-modifiers.ts:52
+Defined in: [data/ability-modifiers.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/ability-modifiers.ts#L52)
 
 Minimum ability score with a defined modifier
 
@@ -692,7 +692,7 @@ Minimum ability score with a defined modifier
 const MAX_ABILITY_SCORE: 24 = 24;
 ```
 
-Defined in: data/ability-modifiers.ts:57
+Defined in: [data/ability-modifiers.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/ability-modifiers.ts#L57)
 
 Maximum ability score with a defined modifier
 
@@ -704,7 +704,7 @@ Maximum ability score with a defined modifier
 const DEFAULT_NAME_DATA: NameGenerationData;
 ```
 
-Defined in: data/names.ts:158
+Defined in: [data/names.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L158)
 
 Default name generation data with all ancestries.
 
@@ -716,7 +716,7 @@ Default name generation data with all ancestries.
 const SAMPLE_BIRTH_AUGURS: BirthAugurEntry[];
 ```
 
-Defined in: data/sample-data.ts:26
+Defined in: [data/sample-data.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L26)
 
 Example birth augur data for testing.
 These are original fan-made entries, not official DCC content.
@@ -730,7 +730,7 @@ Roll 1d30 to select a birth augur.
 const SAMPLE_OCCUPATIONS: OccupationEntry[];
 ```
 
-Defined in: data/sample-data.ts:68
+Defined in: [data/sample-data.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L68)
 
 Example occupation data for testing.
 These are original fan-made entries, not official DCC content.
@@ -747,7 +747,7 @@ const DEFAULT_CHARACTER_CREATION_DATA: {
 };
 ```
 
-Defined in: data/sample-data.ts:161
+Defined in: [data/sample-data.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L161)
 
 Default character creation data using fan-made content.
 Use this for testing or when official data isn't available.
@@ -758,8 +758,8 @@ For official DCC RPG data, supply your own licensed data instead.
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-birthaugurs"></a> `birthAugurs` | [`BirthAugurEntry`](types.md#birthaugurentry)[] | `SAMPLE_BIRTH_AUGURS` | data/sample-data.ts:162 |
-| <a id="property-occupations"></a> `occupations` | [`OccupationEntry`](character.md#occupationentry)[] | `SAMPLE_OCCUPATIONS` | data/sample-data.ts:163 |
+| <a id="property-birthaugurs"></a> `birthAugurs` | [`BirthAugurEntry`](types.md#birthaugurentry)[] | `SAMPLE_BIRTH_AUGURS` | [data/sample-data.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L162) |
+| <a id="property-occupations"></a> `occupations` | [`OccupationEntry`](character.md#occupationentry)[] | `SAMPLE_OCCUPATIONS` | [data/sample-data.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L163) |
 
 ***
 
@@ -769,7 +769,7 @@ For official DCC RPG data, supply your own licensed data instead.
 const SAMPLE_XP_THRESHOLDS: XPThresholds[];
 ```
 
-Defined in: data/sample-data.ts:242
+Defined in: [data/sample-data.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L242)
 
 Sample XP thresholds for all core classes.
 These are fan-made approximations for testing.
@@ -782,7 +782,7 @@ These are fan-made approximations for testing.
 const MIGHTY_DEED: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:31
+Defined in: [data/skills/enabling-skills.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L31)
 
 Mighty Deed of Arms
 
@@ -801,7 +801,7 @@ The deed die improves with level.
 const SHIELD_BASH: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:77
+Defined in: [data/skills/enabling-skills.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L77)
 
 Shield Bash
 
@@ -816,7 +816,7 @@ extra attack each round while wielding a shield.
 const BACKSTAB_BONUS_ID: "class:backstab" = "class:backstab";
 ```
 
-Defined in: data/skills/enabling-skills.ts:129
+Defined in: [data/skills/enabling-skills.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L129)
 
 Canonical `RollBonus.id` for the thief's Table 1-9 backstab attack
 bonus. Use this when constructing the `RollBonus` that carries the
@@ -830,7 +830,7 @@ precomputed backstab value into `makeAttackRoll`.
 const BACKSTAB: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:143
+Defined in: [data/skills/enabling-skills.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L143)
 
 Backstab
 
@@ -851,7 +851,7 @@ comes from backstab-friendly weapons (see `WeaponStats.backstabDamage`).
 const TWO_WEAPON_FIGHTING: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:250
+Defined in: [data/skills/enabling-skills.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L250)
 
 Two-Weapon Fighting
 
@@ -867,7 +867,7 @@ bonus when doing so.
 const LUCK_RECOVERY: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:323
+Defined in: [data/skills/enabling-skills.ts:323](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L323)
 
 Luck Recovery
 
@@ -883,7 +883,7 @@ their luck recovery with nearby allies.
 const LUCK_SHARING: SkillDefinition;
 ```
 
-Defined in: data/skills/enabling-skills.ts:381
+Defined in: [data/skills/enabling-skills.ts:381](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L381)
 
 Luck Sharing (Halfling)
 
@@ -897,7 +897,7 @@ Halflings can spend their luck to aid allies within 30 feet.
 const ENABLING_SKILLS: Record<string, SkillDefinition>;
 ```
 
-Defined in: data/skills/enabling-skills.ts:424
+Defined in: [data/skills/enabling-skills.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L424)
 
 All enabling skills indexed by ID
 
@@ -909,7 +909,7 @@ All enabling skills indexed by ID
 const ENABLING_SKILL_IDS: string[];
 ```
 
-Defined in: data/skills/enabling-skills.ts:436
+Defined in: [data/skills/enabling-skills.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L436)
 
 List of enabling skill IDs
 
@@ -921,7 +921,7 @@ List of enabling skill IDs
 const SNEAK_SILENTLY: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:21
+Defined in: [data/skills/thief-skills.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L21)
 
 Sneak Silently - move without being heard
 
@@ -933,7 +933,7 @@ Sneak Silently - move without being heard
 const HIDE_IN_SHADOWS: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:41
+Defined in: [data/skills/thief-skills.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L41)
 
 Hide in Shadows - conceal oneself in darkness
 
@@ -945,7 +945,7 @@ Hide in Shadows - conceal oneself in darkness
 const PICK_POCKETS: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:61
+Defined in: [data/skills/thief-skills.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L61)
 
 Pick Pockets - steal from a target without detection
 
@@ -957,7 +957,7 @@ Pick Pockets - steal from a target without detection
 const CLIMB_SHEER_SURFACES: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:81
+Defined in: [data/skills/thief-skills.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L81)
 
 Climb Sheer Surfaces - scale walls and cliffs
 
@@ -969,7 +969,7 @@ Climb Sheer Surfaces - scale walls and cliffs
 const PICK_LOCK: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:101
+Defined in: [data/skills/thief-skills.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L101)
 
 Pick Lock - open locks without a key
 
@@ -981,7 +981,7 @@ Pick Lock - open locks without a key
 const FIND_TRAP: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:121
+Defined in: [data/skills/thief-skills.ts:121](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L121)
 
 Find Trap - locate hidden traps
 
@@ -993,7 +993,7 @@ Find Trap - locate hidden traps
 const DISABLE_TRAP: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:141
+Defined in: [data/skills/thief-skills.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L141)
 
 Disable Trap - safely disarm detected traps
 
@@ -1005,7 +1005,7 @@ Disable Trap - safely disarm detected traps
 const FORGE_DOCUMENT: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:161
+Defined in: [data/skills/thief-skills.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L161)
 
 Forge Document - create fake documents
 
@@ -1017,7 +1017,7 @@ Forge Document - create fake documents
 const DISGUISE_SELF: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:181
+Defined in: [data/skills/thief-skills.ts:181](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L181)
 
 Disguise Self - alter appearance
 
@@ -1029,7 +1029,7 @@ Disguise Self - alter appearance
 const READ_LANGUAGES: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:201
+Defined in: [data/skills/thief-skills.ts:201](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L201)
 
 Read Languages - decipher unknown writings
 
@@ -1041,7 +1041,7 @@ Read Languages - decipher unknown writings
 const HANDLE_POISON: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:221
+Defined in: [data/skills/thief-skills.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L221)
 
 Handle Poison - work with poisons safely
 
@@ -1053,7 +1053,7 @@ Handle Poison - work with poisons safely
 const CAST_SPELL_FROM_SCROLL: SkillDefinition;
 ```
 
-Defined in: data/skills/thief-skills.ts:244
+Defined in: [data/skills/thief-skills.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L244)
 
 Cast Spell from Scroll - use magical scrolls
 
@@ -1068,7 +1068,7 @@ not a d20 with a bonus.
 const THIEF_SKILLS: Record<string, SkillDefinition>;
 ```
 
-Defined in: data/skills/thief-skills.ts:265
+Defined in: [data/skills/thief-skills.ts:265](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L265)
 
 All thief skills indexed by ID
 
@@ -1080,7 +1080,7 @@ All thief skills indexed by ID
 const THIEF_SKILL_IDS: string[];
 ```
 
-Defined in: data/skills/thief-skills.ts:284
+Defined in: [data/skills/thief-skills.ts:284](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/thief-skills.ts#L284)
 
 List of thief skill IDs
 
@@ -1092,7 +1092,7 @@ List of thief skill IDs
 const TEST_LAY_ON_HANDS_TABLE: LayOnHandsTable;
 ```
 
-Defined in: data/tables/test-lay-on-hands.ts:14
+Defined in: [data/tables/test-lay-on-hands.ts:14](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/tables/test-lay-on-hands.ts#L14)
 
 Fan-made Lay on Hands table for testing. Structure matches RAW (3 alignment
 columns, dice-count cells), values are original.
@@ -1105,7 +1105,7 @@ columns, dice-count cells), values are original.
 const TEST_TURN_UNHOLY_TABLE: SimpleTable;
 ```
 
-Defined in: data/tables/test-turn-unholy.ts:17
+Defined in: [data/tables/test-turn-unholy.ts:17](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/tables/test-turn-unholy.ts#L17)
 
 Fan-made Turn Unholy result table for testing.
 Simplified version with fewer entries for test coverage.
@@ -1118,7 +1118,7 @@ Simplified version with fewer entries for test coverage.
 function getAbilityModifier(score: number): number;
 ```
 
-Defined in: data/ability-modifiers.ts:65
+Defined in: [data/ability-modifiers.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/ability-modifiers.ts#L65)
 
 Get the modifier for an ability score
 
@@ -1142,7 +1142,7 @@ The modifier, or 0 if score is out of range
 function formatAbilityModifier(score: number): string;
 ```
 
-Defined in: data/ability-modifiers.ts:83
+Defined in: [data/ability-modifiers.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/ability-modifiers.ts#L83)
 
 Get the modifier with a plus sign prefix for positive values
 
@@ -1166,7 +1166,7 @@ Formatted modifier string (e.g., "+2", "-1", "0")
 function registerClassProgression(progression: ClassProgression): void;
 ```
 
-Defined in: data/classes/progression-utils.ts:43
+Defined in: [data/classes/progression-utils.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L43)
 
 Register a class progression in the registry.
 
@@ -1195,7 +1195,7 @@ registerClassProgression(WARRIOR_PROGRESSION);
 function registerClassProgressions(progressions: ClassProgression[]): void;
 ```
 
-Defined in: data/classes/progression-utils.ts:58
+Defined in: [data/classes/progression-utils.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L58)
 
 Register multiple class progressions at once.
 
@@ -1224,7 +1224,7 @@ registerClassProgressions(ALL_CLASS_PROGRESSIONS);
 function clearClassProgressions(): void;
 ```
 
-Defined in: data/classes/progression-utils.ts:68
+Defined in: [data/classes/progression-utils.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L68)
 
 Clear all registered class progressions.
 Useful for testing or resetting state.
@@ -1241,7 +1241,7 @@ Useful for testing or resetting state.
 function getClassProgression(classId: string): ClassProgression | undefined;
 ```
 
-Defined in: data/classes/progression-utils.ts:78
+Defined in: [data/classes/progression-utils.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L78)
 
 Get a registered class progression by ID.
 
@@ -1265,7 +1265,7 @@ The class progression, or undefined if not registered
 function getRegisteredClassIds(): string[];
 ```
 
-Defined in: data/classes/progression-utils.ts:87
+Defined in: [data/classes/progression-utils.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L87)
 
 Get all registered class IDs.
 
@@ -1287,7 +1287,7 @@ function getSaveBonus(
 ): number;
 ```
 
-Defined in: data/classes/progression-utils.ts:103
+Defined in: [data/classes/progression-utils.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L103)
 
 Get save bonus from a class progression at a specific level.
 
@@ -1320,7 +1320,7 @@ const frt = getSaveBonus("warrior", 5, "frt"); // 3
 function getSavingThrows(classId: string, level: number): SavingThrows;
 ```
 
-Defined in: data/classes/progression-utils.ts:129
+Defined in: [data/classes/progression-utils.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L129)
 
 Get all saving throw bonuses from a class progression at a specific level.
 
@@ -1353,7 +1353,7 @@ const saves = getSavingThrows("warrior", 5);
 function getAttackBonus(classId: string, level: number): string | number;
 ```
 
-Defined in: data/classes/progression-utils.ts:159
+Defined in: [data/classes/progression-utils.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L159)
 
 Get the attack bonus from a class progression at a specific level.
 Note: For warriors and dwarves, this returns the deed die as a string.
@@ -1380,7 +1380,7 @@ The attack bonus (number or die type string)
 function getActionDice(classId: string, level: number): string[];
 ```
 
-Defined in: data/classes/progression-utils.ts:179
+Defined in: [data/classes/progression-utils.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L179)
 
 Get the action dice from a class progression at a specific level.
 
@@ -1409,7 +1409,7 @@ function getCriticalHitData(classId: string, level: number): {
 };
 ```
 
-Defined in: data/classes/progression-utils.ts:199
+Defined in: [data/classes/progression-utils.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L199)
 
 Get the critical hit data from a class progression at a specific level.
 
@@ -1434,9 +1434,9 @@ The critical die and table
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `die` | `string` | data/classes/progression-utils.ts:202 |
-| `table` | `string` | data/classes/progression-utils.ts:202 |
-| `range?` | `number` | data/classes/progression-utils.ts:202 |
+| `die` | `string` | [data/classes/progression-utils.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L202) |
+| `table` | `string` | [data/classes/progression-utils.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L202) |
+| `range?` | `number` | [data/classes/progression-utils.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L202) |
 
 ***
 
@@ -1450,7 +1450,7 @@ function getTitle(
 ): string | undefined;
 ```
 
-Defined in: data/classes/progression-utils.ts:233
+Defined in: [data/classes/progression-utils.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L233)
 
 Get the title for a character of a specific class, level, and alignment.
 
@@ -1476,7 +1476,7 @@ The title, or undefined if not found
 function hasDeedDie(classId: string): boolean;
 ```
 
-Defined in: data/classes/progression-utils.ts:253
+Defined in: [data/classes/progression-utils.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L253)
 
 Check if a class has deed die (warrior-style attack bonus).
 
@@ -1500,7 +1500,7 @@ True if the class uses deed die
 function getHitDie(classId: string): string;
 ```
 
-Defined in: data/classes/progression-utils.ts:263
+Defined in: [data/classes/progression-utils.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L263)
 
 Get the hit die for a class.
 
@@ -1524,7 +1524,7 @@ The hit die (e.g., "d8", "d10")
 function getLuckDie(classId: string, level: number): string | undefined;
 ```
 
-Defined in: data/classes/progression-utils.ts:283
+Defined in: [data/classes/progression-utils.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/classes/progression-utils.ts#L283)
 
 Get the luck die for a class at a specific level (used by thieves and
 halflings). Returns `undefined` for classes without a luck die, or when no
@@ -1551,7 +1551,7 @@ The luck die (e.g., "d3", "d14") or undefined
 function parseClassLevel(raw: RawClassLevelData): ProgressionLevelData;
 ```
 
-Defined in: data/loaders/class-loader.ts:158
+Defined in: [data/loaders/class-loader.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L158)
 
 Parse a single level's raw data into ProgressionLevelData
 
@@ -1578,7 +1578,7 @@ function loadClassProgression(
 ): ClassProgression;
 ```
 
-Defined in: data/loaders/class-loader.ts:194
+Defined in: [data/loaders/class-loader.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L194)
 
 Load class progression from an array of raw level data
 
@@ -1608,7 +1608,7 @@ function getSkillBonusFromProgression(
 ): number | `d${number}` | undefined;
 ```
 
-Defined in: data/loaders/class-loader.ts:220
+Defined in: [data/loaders/class-loader.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/class-loader.ts#L220)
 
 Get skill bonus for a character from progression data
 
@@ -1633,7 +1633,7 @@ Get skill bonus for a character from progression data
 function parseSpellDefinition(raw: RawSpellDefinition): SpellDefinition | undefined;
 ```
 
-Defined in: data/loaders/spell-loader.ts:137
+Defined in: [data/loaders/spell-loader.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L137)
 
 Parse a raw spell definition into a typed SpellDefinition
 
@@ -1655,7 +1655,7 @@ Parse a raw spell definition into a typed SpellDefinition
 function loadSpellDefinitions(rawSpells: RawSpellDefinition[]): SpellDefinition[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:206
+Defined in: [data/loaders/spell-loader.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L206)
 
 Load multiple spell definitions from raw JSON array
 
@@ -1677,7 +1677,7 @@ Load multiple spell definitions from raw JSON array
 function loadSpellDefinitionsWithValidation(rawSpells: RawSpellDefinition[]): SpellValidationResult;
 ```
 
-Defined in: data/loaders/spell-loader.ts:240
+Defined in: [data/loaders/spell-loader.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L240)
 
 Load spell definitions with validation reporting
 
@@ -1699,7 +1699,7 @@ Load spell definitions with validation reporting
 function loadMercurialTable(raw: RawMercurialTable): MercurialTable;
 ```
 
-Defined in: data/loaders/spell-loader.ts:346
+Defined in: [data/loaders/spell-loader.ts:346](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L346)
 
 Load a mercurial table from raw JSON
 
@@ -1721,7 +1721,7 @@ Load a mercurial table from raw JSON
 function loadMercurialTableWithValidation(raw: RawMercurialTable): MercurialTableValidationResult;
 ```
 
-Defined in: data/loaders/spell-loader.ts:368
+Defined in: [data/loaders/spell-loader.ts:368](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L368)
 
 Load mercurial table with validation
 
@@ -1743,7 +1743,7 @@ Load mercurial table with validation
 function groupSpellsByLevel(spells: readonly SpellDefinition[]): Map<number, SpellDefinition[]>;
 ```
 
-Defined in: data/loaders/spell-loader.ts:439
+Defined in: [data/loaders/spell-loader.ts:439](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L439)
 
 Group spells by level
 
@@ -1765,7 +1765,7 @@ Group spells by level
 function groupSpellsByCasterType(spells: readonly SpellDefinition[]): Map<CasterType, SpellDefinition[]>;
 ```
 
-Defined in: data/loaders/spell-loader.ts:459
+Defined in: [data/loaders/spell-loader.ts:459](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L459)
 
 Group spells by caster type
 
@@ -1787,7 +1787,7 @@ Group spells by caster type
 function findSpellById(spells: readonly SpellDefinition[], id: string): SpellDefinition | undefined;
 ```
 
-Defined in: data/loaders/spell-loader.ts:481
+Defined in: [data/loaders/spell-loader.ts:481](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L481)
 
 Find a spell by ID
 
@@ -1810,7 +1810,7 @@ Find a spell by ID
 function findSpellsByName(spells: readonly SpellDefinition[], name: string): SpellDefinition[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:491
+Defined in: [data/loaders/spell-loader.ts:491](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L491)
 
 Find spells by name (case-insensitive partial match)
 
@@ -1837,7 +1837,7 @@ function getAvailableSpells(
 ): SpellDefinition[];
 ```
 
-Defined in: data/loaders/spell-loader.ts:502
+Defined in: [data/loaders/spell-loader.ts:502](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/spell-loader.ts#L502)
 
 Get all spells available to a specific caster type at a given level
 
@@ -1861,7 +1861,7 @@ Get all spells available to a specific caster type at a given level
 function loadRollableTable(raw: RawTableData): RollableTable;
 ```
 
-Defined in: data/loaders/table-loader.ts:50
+Defined in: [data/loaders/table-loader.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L50)
 
 Load a rollable table from raw FoundryVTT data
 
@@ -1883,7 +1883,7 @@ Load a rollable table from raw FoundryVTT data
 function loadBirthAugurs(raw: RawTableData): BirthAugurEntry[];
 ```
 
-Defined in: data/loaders/table-loader.ts:144
+Defined in: [data/loaders/table-loader.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L144)
 
 Load birth augurs from a raw luck table
 
@@ -1909,7 +1909,7 @@ function getBirthAugurModifier(luckModifier: number, augur: BirthAugurEntry): {
 };
 ```
 
-Defined in: data/loaders/table-loader.ts:176
+Defined in: [data/loaders/table-loader.ts:176](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L176)
 
 Get modifier value based on luck score and birth augur
 
@@ -1938,9 +1938,9 @@ Object with the modifier value and what it affects
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `modifier` | `number` | data/loaders/table-loader.ts:179 |
-| `affects` | `string` | data/loaders/table-loader.ts:179 |
-| `effectType` | [`BirthAugurEffectType`](types.md#birthaugureffecttype) | data/loaders/table-loader.ts:179 |
+| `modifier` | `number` | [data/loaders/table-loader.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L179) |
+| `affects` | `string` | [data/loaders/table-loader.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L179) |
+| `effectType` | [`BirthAugurEffectType`](types.md#birthaugureffecttype) | [data/loaders/table-loader.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/loaders/table-loader.ts#L179) |
 
 ***
 
@@ -1955,7 +1955,7 @@ function generateName(
 ): GeneratedName;
 ```
 
-Defined in: data/names.ts:179
+Defined in: [data/names.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L179)
 
 Generate a random name for the given ancestry.
 
@@ -1982,7 +1982,7 @@ Generated name result
 function detectAncestryFromOccupation(occupation: string): keyof NameGenerationData;
 ```
 
-Defined in: data/names.ts:226
+Defined in: [data/names.ts:226](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L226)
 
 Detect likely ancestry from occupation name.
 Returns 'human' as default if no specific ancestry detected.
@@ -2012,7 +2012,7 @@ function generateNameForOccupation(
 ): GeneratedName;
 ```
 
-Defined in: data/names.ts:252
+Defined in: [data/names.ts:252](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/names.ts#L252)
 
 Generate a name based on the character's occupation.
 Automatically detects ancestry from occupation keywords.
@@ -2040,7 +2040,7 @@ Generated name result
 function occupationMatchesRoll(occupation: OccupationEntry, roll: number): boolean;
 ```
 
-Defined in: data/sample-data.ts:174
+Defined in: [data/sample-data.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L174)
 
 Check if a roll matches an occupation entry.
 Handles both single numbers and ranges like "23-24".
@@ -2064,7 +2064,7 @@ Handles both single numbers and ranges like "23-24".
 function findOccupationByRoll(occupations: OccupationEntry[], roll: number): OccupationEntry | undefined;
 ```
 
-Defined in: data/sample-data.ts:193
+Defined in: [data/sample-data.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L193)
 
 Find an occupation by roll value.
 
@@ -2087,7 +2087,7 @@ Find an occupation by roll value.
 function findBirthAugurByRoll(augurs: BirthAugurEntry[], roll: number): BirthAugurEntry | undefined;
 ```
 
-Defined in: data/sample-data.ts:203
+Defined in: [data/sample-data.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L203)
 
 Find a birth augur by roll value.
 
@@ -2110,7 +2110,7 @@ Find a birth augur by roll value.
 function getBirthAugurEffectType(augur: BirthAugurEntry): BirthAugurEffectType;
 ```
 
-Defined in: data/sample-data.ts:213
+Defined in: [data/sample-data.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/sample-data.ts#L213)
 
 Get the effect type ID for programmatic use.
 
@@ -2132,7 +2132,7 @@ Get the effect type ID for programmatic use.
 function getDeedSuccessThreshold(): number;
 ```
 
-Defined in: data/skills/enabling-skills.ts:56
+Defined in: [data/skills/enabling-skills.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L56)
 
 Get the deed success threshold from the skill definition
 
@@ -2148,7 +2148,7 @@ Get the deed success threshold from the skill definition
 function canShieldBash(hasShieldEquipped: boolean, classId: string): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:102
+Defined in: [data/skills/enabling-skills.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L102)
 
 Check if a character can perform a shield bash
 
@@ -2171,7 +2171,7 @@ Check if a character can perform a shield bash
 function getShieldBashDamageDie(): `d${number}`;
 ```
 
-Defined in: data/skills/enabling-skills.ts:109
+Defined in: [data/skills/enabling-skills.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L109)
 
 Get the shield bash damage die from the skill definition
 
@@ -2191,7 +2191,7 @@ function getBackstabAttackBonus(
 ): number | undefined;
 ```
 
-Defined in: data/skills/enabling-skills.ts:178
+Defined in: [data/skills/enabling-skills.ts:178](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L178)
 
 Look up the thief's backstab attack-roll bonus for a given level and
 alignment from class progression data (Table 1-9).
@@ -2224,7 +2224,7 @@ The attack bonus, or `undefined` when the progression has
 function isBackstabTriggeredRaw(attackerIsBehind: boolean, targetIsUnaware: boolean): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:202
+Defined in: [data/skills/enabling-skills.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L202)
 
 RAW backstab trigger (DCC core rulebook, Thief class, paraphrased): the
 attack comes from behind, OR the target is unaware of the attacker.
@@ -2257,7 +2257,7 @@ function canBackstab(
 ): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:230
+Defined in: [data/skills/enabling-skills.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L230)
 
 Check if the preconditions for a backstab attempt are met.
 
@@ -2292,7 +2292,7 @@ should not be able to bypass:
 function hasTwoWeaponFighting(classId: string): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:274
+Defined in: [data/skills/enabling-skills.ts:274](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L274)
 
 Check if a character has two-weapon fighting capability
 
@@ -2314,7 +2314,7 @@ Check if a character has two-weapon fighting capability
 function getTwoWeaponAttackPenalty(classId: string): number;
 ```
 
-Defined in: data/skills/enabling-skills.ts:281
+Defined in: [data/skills/enabling-skills.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L281)
 
 Get the two-weapon fighting attack penalty from skill definition
 
@@ -2336,7 +2336,7 @@ Get the two-weapon fighting attack penalty from skill definition
 function getTwoWeaponInitBonus(classId: string): number;
 ```
 
-Defined in: data/skills/enabling-skills.ts:298
+Defined in: [data/skills/enabling-skills.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L298)
 
 Get the initiative bonus for two-weapon fighting from skill definition
 
@@ -2358,7 +2358,7 @@ Get the initiative bonus for two-weapon fighting from skill definition
 function canRecoverLuck(classId: string): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:347
+Defined in: [data/skills/enabling-skills.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L347)
 
 Check if a character can recover luck
 
@@ -2380,7 +2380,7 @@ Check if a character can recover luck
 function getHalflingDailyLuckRecovery(): number;
 ```
 
-Defined in: data/skills/enabling-skills.ts:354
+Defined in: [data/skills/enabling-skills.ts:354](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L354)
 
 Get daily luck recovery amount for halflings from skill definition
 
@@ -2396,7 +2396,7 @@ Get daily luck recovery amount for halflings from skill definition
 function thiefShouldRecoverLuck(naturalRoll: number, isThiefSkill: boolean): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:368
+Defined in: [data/skills/enabling-skills.ts:368](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L368)
 
 Check if a thief should recover luck (on natural 20 of thief skill)
 
@@ -2419,7 +2419,7 @@ Check if a thief should recover luck (on natural 20 of thief skill)
 function canShareLuck(classId: string, distanceToAlly: number): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:404
+Defined in: [data/skills/enabling-skills.ts:404](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L404)
 
 Check if a halfling can share luck with an ally
 
@@ -2442,7 +2442,7 @@ Check if a halfling can share luck with an ally
 function getEnablingSkillsForClass(classId: string): SkillDefinition[];
 ```
 
-Defined in: data/skills/enabling-skills.ts:441
+Defined in: [data/skills/enabling-skills.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L441)
 
 Get all enabling skills for a given class
 
@@ -2464,7 +2464,7 @@ Get all enabling skills for a given class
 function classHasEnablingSkill(classId: string, skillId: string): boolean;
 ```
 
-Defined in: data/skills/enabling-skills.ts:450
+Defined in: [data/skills/enabling-skills.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L450)
 
 Check if a class has a specific enabling skill
 

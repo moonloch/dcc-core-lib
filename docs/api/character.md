@@ -4,7 +4,7 @@
 
 ### ACBonus
 
-Defined in: character/armor-class.ts:43
+Defined in: [character/armor-class.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L43)
 
 Simple AC bonus for spell effects, magic items, etc.
 
@@ -19,7 +19,7 @@ bonuses are always flat modifiers.
 value: number;
 ```
 
-Defined in: character/armor-class.ts:45
+Defined in: [character/armor-class.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L45)
 
 Numeric value to add to AC
 
@@ -32,7 +32,7 @@ optional source?: {
 };
 ```
 
-Defined in: character/armor-class.ts:48
+Defined in: [character/armor-class.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L48)
 
 Source information for display
 
@@ -56,7 +56,7 @@ Optional category (for UI grouping)
 
 ### ACInput
 
-Defined in: character/armor-class.ts:64
+Defined in: [character/armor-class.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L64)
 
 Input for calculating armor class
 
@@ -68,7 +68,7 @@ Input for calculating armor class
 agilityModifier: number;
 ```
 
-Defined in: character/armor-class.ts:66
+Defined in: [character/armor-class.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L66)
 
 Agility modifier
 
@@ -78,7 +78,7 @@ Agility modifier
 optional armor?: ArmorStats;
 ```
 
-Defined in: character/armor-class.ts:69
+Defined in: [character/armor-class.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L69)
 
 Equipped armor (optional - unarmored if not provided)
 
@@ -88,7 +88,7 @@ Equipped armor (optional - unarmored if not provided)
 optional shield?: ShieldStats;
 ```
 
-Defined in: character/armor-class.ts:72
+Defined in: [character/armor-class.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L72)
 
 Equipped shield (optional)
 
@@ -98,7 +98,7 @@ Equipped shield (optional)
 optional bonuses?: ACBonus[];
 ```
 
-Defined in: character/armor-class.ts:75
+Defined in: [character/armor-class.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L75)
 
 Additional bonuses (spells, magic items, etc.)
 
@@ -106,7 +106,7 @@ Additional bonuses (spells, magic items, etc.)
 
 ### ACResult
 
-Defined in: character/armor-class.ts:81
+Defined in: [character/armor-class.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L81)
 
 Result of AC calculation with breakdown
 
@@ -118,7 +118,7 @@ Result of AC calculation with breakdown
 total: number;
 ```
 
-Defined in: character/armor-class.ts:83
+Defined in: [character/armor-class.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L83)
 
 Final AC value
 
@@ -128,7 +128,7 @@ Final AC value
 base: number;
 ```
 
-Defined in: character/armor-class.ts:86
+Defined in: [character/armor-class.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L86)
 
 Base AC (10)
 
@@ -138,7 +138,7 @@ Base AC (10)
 agilityBonus: number;
 ```
 
-Defined in: character/armor-class.ts:89
+Defined in: [character/armor-class.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L89)
 
 Agility modifier contribution
 
@@ -148,7 +148,7 @@ Agility modifier contribution
 armorBonus: number;
 ```
 
-Defined in: character/armor-class.ts:92
+Defined in: [character/armor-class.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L92)
 
 Armor contribution (if any)
 
@@ -158,7 +158,7 @@ Armor contribution (if any)
 shieldBonus: number;
 ```
 
-Defined in: character/armor-class.ts:95
+Defined in: [character/armor-class.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L95)
 
 Shield contribution (if any)
 
@@ -168,7 +168,7 @@ Shield contribution (if any)
 otherBonuses: number;
 ```
 
-Defined in: character/armor-class.ts:98
+Defined in: [character/armor-class.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L98)
 
 Other bonuses (magic, spells, etc.)
 
@@ -178,7 +178,7 @@ Other bonuses (magic, spells, etc.)
 breakdown: ACBreakdown[];
 ```
 
-Defined in: character/armor-class.ts:101
+Defined in: [character/armor-class.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L101)
 
 Breakdown of all components
 
@@ -186,7 +186,7 @@ Breakdown of all components
 
 ### ACBreakdown
 
-Defined in: character/armor-class.ts:107
+Defined in: [character/armor-class.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L107)
 
 Single component of AC calculation
 
@@ -198,7 +198,7 @@ Single component of AC calculation
 source: string;
 ```
 
-Defined in: character/armor-class.ts:109
+Defined in: [character/armor-class.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L109)
 
 Source of the bonus
 
@@ -208,7 +208,7 @@ Source of the bonus
 value: number;
 ```
 
-Defined in: character/armor-class.ts:112
+Defined in: [character/armor-class.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L112)
 
 Value contributed
 
@@ -216,7 +216,7 @@ Value contributed
 
 ### OccupationEntry
 
-Defined in: character/create.ts:51
+Defined in: [character/create.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L51)
 
 An occupation entry from the occupation table.
 
@@ -228,7 +228,7 @@ An occupation entry from the occupation table.
 roll: string | number;
 ```
 
-Defined in: character/create.ts:53
+Defined in: [character/create.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L53)
 
 Roll value or range (e.g., 1, or "1-2")
 
@@ -238,7 +238,7 @@ Roll value or range (e.g., 1, or "1-2")
 name: string;
 ```
 
-Defined in: character/create.ts:56
+Defined in: [character/create.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L56)
 
 Occupation name
 
@@ -248,7 +248,7 @@ Occupation name
 trainedWeapon: string;
 ```
 
-Defined in: character/create.ts:59
+Defined in: [character/create.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L59)
 
 Trained weapon
 
@@ -258,7 +258,7 @@ Trained weapon
 tradeGoods: string;
 ```
 
-Defined in: character/create.ts:62
+Defined in: [character/create.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L62)
 
 Trade goods
 
@@ -268,7 +268,7 @@ Trade goods
 optional startingFunds?: number;
 ```
 
-Defined in: character/create.ts:65
+Defined in: [character/create.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L65)
 
 Starting funds (in copper pieces)
 
@@ -278,7 +278,7 @@ Starting funds (in copper pieces)
 optional isFarmer?: boolean;
 ```
 
-Defined in: character/create.ts:68
+Defined in: [character/create.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L68)
 
 Whether this is a farmer (gets additional trade goods)
 
@@ -288,7 +288,7 @@ Whether this is a farmer (gets additional trade goods)
 optional notes?: string;
 ```
 
-Defined in: character/create.ts:71
+Defined in: [character/create.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L71)
 
 Special notes
 
@@ -296,7 +296,7 @@ Special notes
 
 ### CharacterCreationData
 
-Defined in: character/create.ts:78
+Defined in: [character/create.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L78)
 
 Data required for character creation.
 Injected to keep functions pure and testable.
@@ -309,7 +309,7 @@ Injected to keep functions pure and testable.
 occupations: OccupationEntry[];
 ```
 
-Defined in: character/create.ts:80
+Defined in: [character/create.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L80)
 
 Occupation entries to roll/select from
 
@@ -319,7 +319,7 @@ Occupation entries to roll/select from
 birthAugurs: BirthAugurEntry[];
 ```
 
-Defined in: character/create.ts:83
+Defined in: [character/create.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L83)
 
 Birth augur entries to roll/select from
 
@@ -329,7 +329,7 @@ Birth augur entries to roll/select from
 optional customDiceMethods?: Record<string, DiceMethodDefinition>;
 ```
 
-Defined in: character/create.ts:86
+Defined in: [character/create.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L86)
 
 Custom dice methods (if using method: "custom" with string ID)
 
@@ -339,7 +339,7 @@ Custom dice methods (if using method: "custom" with string ID)
 optional customHPMethods?: Record<string, HPMethodDefinition>;
 ```
 
-Defined in: character/create.ts:89
+Defined in: [character/create.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L89)
 
 Custom HP methods (if using method: "custom" with string ID)
 
@@ -349,7 +349,7 @@ Custom HP methods (if using method: "custom" with string ID)
 optional nameData?: NameGenerationData;
 ```
 
-Defined in: character/create.ts:92
+Defined in: [character/create.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L92)
 
 Name generation data (defaults to DEFAULT_NAME_DATA if not provided)
 
@@ -357,7 +357,7 @@ Name generation data (defaults to DEFAULT_NAME_DATA if not provided)
 
 ### CharacterCreationResult
 
-Defined in: character/create.ts:98
+Defined in: [character/create.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L98)
 
 Result of character creation, including the character and metadata.
 
@@ -369,7 +369,7 @@ Result of character creation, including the character and metadata.
 character: Character;
 ```
 
-Defined in: character/create.ts:100
+Defined in: [character/create.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L100)
 
 The created character
 
@@ -389,7 +389,7 @@ rolls: {
 };
 ```
 
-Defined in: character/create.ts:103
+Defined in: [character/create.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L103)
 
 Metadata about the creation process
 
@@ -434,7 +434,7 @@ HP roll
 
 ### XPThresholds
 
-Defined in: character/level-up.ts:53
+Defined in: [character/level-up.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L53)
 
 XP thresholds for a single class (XP needed to reach each level)
 
@@ -451,7 +451,7 @@ Index 9 = XP to reach level 10
 classId: string;
 ```
 
-Defined in: character/level-up.ts:55
+Defined in: [character/level-up.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L55)
 
 Class ID this threshold applies to
 
@@ -461,7 +461,7 @@ Class ID this threshold applies to
 thresholds: number[];
 ```
 
-Defined in: character/level-up.ts:58
+Defined in: [character/level-up.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L58)
 
 XP needed to reach each level (index 0 = level 1)
 
@@ -469,7 +469,7 @@ XP needed to reach each level (index 0 = level 1)
 
 ### LevelUpResult
 
-Defined in: character/level-up.ts:64
+Defined in: [character/level-up.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L64)
 
 Result of a level-up operation
 
@@ -481,7 +481,7 @@ Result of a level-up operation
 success: boolean;
 ```
 
-Defined in: character/level-up.ts:66
+Defined in: [character/level-up.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L66)
 
 Whether the level-up was successful
 
@@ -491,7 +491,7 @@ Whether the level-up was successful
 optional error?: string;
 ```
 
-Defined in: character/level-up.ts:69
+Defined in: [character/level-up.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L69)
 
 Error message if not successful
 
@@ -501,7 +501,7 @@ Error message if not successful
 optional character?: Character;
 ```
 
-Defined in: character/level-up.ts:72
+Defined in: [character/level-up.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L72)
 
 The updated character (if successful)
 
@@ -511,7 +511,7 @@ The updated character (if successful)
 optional changes?: LevelUpChanges;
 ```
 
-Defined in: character/level-up.ts:75
+Defined in: [character/level-up.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L75)
 
 Details about what changed
 
@@ -519,7 +519,7 @@ Details about what changed
 
 ### LevelUpChanges
 
-Defined in: character/level-up.ts:81
+Defined in: [character/level-up.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L81)
 
 Details of what changed during level-up
 
@@ -531,7 +531,7 @@ Details of what changed during level-up
 previousLevel: number;
 ```
 
-Defined in: character/level-up.ts:83
+Defined in: [character/level-up.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L83)
 
 Previous level
 
@@ -541,7 +541,7 @@ Previous level
 newLevel: number;
 ```
 
-Defined in: character/level-up.ts:86
+Defined in: [character/level-up.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L86)
 
 New level
 
@@ -551,7 +551,7 @@ New level
 hpRolled: number;
 ```
 
-Defined in: character/level-up.ts:89
+Defined in: [character/level-up.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L89)
 
 HP rolled for this level
 
@@ -561,7 +561,7 @@ HP rolled for this level
 hpGained: number;
 ```
 
-Defined in: character/level-up.ts:92
+Defined in: [character/level-up.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L92)
 
 HP gained (after modifiers, minimum 1)
 
@@ -571,7 +571,7 @@ HP gained (after modifiers, minimum 1)
 optional newTitle?: string;
 ```
 
-Defined in: character/level-up.ts:95
+Defined in: [character/level-up.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L95)
 
 New title (if any)
 
@@ -585,7 +585,7 @@ newSaves: {
 };
 ```
 
-Defined in: character/level-up.ts:98
+Defined in: [character/level-up.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L98)
 
 New save bonuses
 
@@ -613,7 +613,7 @@ will: number;
 newAttackBonus: string | number;
 ```
 
-Defined in: character/level-up.ts:105
+Defined in: [character/level-up.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L105)
 
 New attack bonus
 
@@ -623,7 +623,7 @@ New attack bonus
 newActionDice: string[];
 ```
 
-Defined in: character/level-up.ts:108
+Defined in: [character/level-up.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L108)
 
 New action dice
 
@@ -637,7 +637,7 @@ newCritData: {
 };
 ```
 
-Defined in: character/level-up.ts:111
+Defined in: [character/level-up.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L111)
 
 New crit data
 
@@ -663,7 +663,7 @@ optional range?: number;
 
 ### HPRollResult
 
-Defined in: character/level-up.ts:294
+Defined in: [character/level-up.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L294)
 
 Result of rolling HP for a level
 
@@ -675,7 +675,7 @@ Result of rolling HP for a level
 rolled: number;
 ```
 
-Defined in: character/level-up.ts:296
+Defined in: [character/level-up.ts:296](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L296)
 
 Raw die result
 
@@ -685,7 +685,7 @@ Raw die result
 gained: number;
 ```
 
-Defined in: character/level-up.ts:299
+Defined in: [character/level-up.ts:299](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L299)
 
 HP actually gained (after minimum 1 rule)
 
@@ -695,7 +695,7 @@ HP actually gained (after minimum 1 rule)
 staminaModifier: number;
 ```
 
-Defined in: character/level-up.ts:302
+Defined in: [character/level-up.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L302)
 
 Stamina modifier applied
 
@@ -705,7 +705,7 @@ Stamina modifier applied
 die: string;
 ```
 
-Defined in: character/level-up.ts:305
+Defined in: [character/level-up.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L305)
 
 Die that was rolled
 
@@ -713,7 +713,7 @@ Die that was rolled
 
 ### SaveCalculationInput
 
-Defined in: character/saving-throws.ts:32
+Defined in: [character/saving-throws.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L32)
 
 Input for calculating saving throws
 
@@ -725,7 +725,7 @@ Input for calculating saving throws
 optional classId?: string;
 ```
 
-Defined in: character/saving-throws.ts:34
+Defined in: [character/saving-throws.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L34)
 
 Class ID (undefined for 0-level)
 
@@ -735,7 +735,7 @@ Class ID (undefined for 0-level)
 level: number;
 ```
 
-Defined in: character/saving-throws.ts:37
+Defined in: [character/saving-throws.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L37)
 
 Character level (0 for 0-level)
 
@@ -745,7 +745,7 @@ Character level (0 for 0-level)
 abilities: AbilityScores;
 ```
 
-Defined in: character/saving-throws.ts:40
+Defined in: [character/saving-throws.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L40)
 
 Current ability scores
 
@@ -753,7 +753,7 @@ Current ability scores
 
 ### SaveBreakdown
 
-Defined in: character/saving-throws.ts:46
+Defined in: [character/saving-throws.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L46)
 
 Detailed breakdown of a saving throw calculation
 
@@ -765,7 +765,7 @@ Detailed breakdown of a saving throw calculation
 total: number;
 ```
 
-Defined in: character/saving-throws.ts:48
+Defined in: [character/saving-throws.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L48)
 
 Total save bonus
 
@@ -775,7 +775,7 @@ Total save bonus
 classBonus: number;
 ```
 
-Defined in: character/saving-throws.ts:51
+Defined in: [character/saving-throws.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L51)
 
 Base bonus from class/level
 
@@ -785,7 +785,7 @@ Base bonus from class/level
 abilityModifier: number;
 ```
 
-Defined in: character/saving-throws.ts:54
+Defined in: [character/saving-throws.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L54)
 
 Bonus from ability modifier
 
@@ -795,7 +795,7 @@ Bonus from ability modifier
 ability: "agl" | "sta" | "per";
 ```
 
-Defined in: character/saving-throws.ts:57
+Defined in: [character/saving-throws.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L57)
 
 Which ability affects this save
 
@@ -803,7 +803,7 @@ Which ability affects this save
 
 ### SaveBreakdowns
 
-Defined in: character/saving-throws.ts:63
+Defined in: [character/saving-throws.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L63)
 
 Complete save breakdown for all three saves
 
@@ -815,7 +815,7 @@ Complete save breakdown for all three saves
 reflex: SaveBreakdown;
 ```
 
-Defined in: character/saving-throws.ts:64
+Defined in: [character/saving-throws.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L64)
 
 ##### fortitude
 
@@ -823,7 +823,7 @@ Defined in: character/saving-throws.ts:64
 fortitude: SaveBreakdown;
 ```
 
-Defined in: character/saving-throws.ts:65
+Defined in: [character/saving-throws.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L65)
 
 ##### will
 
@@ -831,13 +831,13 @@ Defined in: character/saving-throws.ts:65
 will: SaveBreakdown;
 ```
 
-Defined in: character/saving-throws.ts:66
+Defined in: [character/saving-throws.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L66)
 
 ***
 
 ### ExportedCharacter
 
-Defined in: character/serialize.ts:22
+Defined in: [character/serialize.ts:22](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L22)
 
 Exported character wrapper with metadata.
 
@@ -849,7 +849,7 @@ Exported character wrapper with metadata.
 version: string;
 ```
 
-Defined in: character/serialize.ts:24
+Defined in: [character/serialize.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L24)
 
 Format version for compatibility checking
 
@@ -859,7 +859,7 @@ Format version for compatibility checking
 format: "dcc-core-lib";
 ```
 
-Defined in: character/serialize.ts:27
+Defined in: [character/serialize.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L27)
 
 Format identifier
 
@@ -869,7 +869,7 @@ Format identifier
 exportedAt: string;
 ```
 
-Defined in: character/serialize.ts:30
+Defined in: [character/serialize.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L30)
 
 Export timestamp (ISO 8601)
 
@@ -879,7 +879,7 @@ Export timestamp (ISO 8601)
 character: Character;
 ```
 
-Defined in: character/serialize.ts:33
+Defined in: [character/serialize.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L33)
 
 The character data
 
@@ -887,7 +887,7 @@ The character data
 
 ### ExportOptions
 
-Defined in: character/serialize.ts:39
+Defined in: [character/serialize.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L39)
 
 Options for character export.
 
@@ -899,7 +899,7 @@ Options for character export.
 optional pretty?: boolean;
 ```
 
-Defined in: character/serialize.ts:41
+Defined in: [character/serialize.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L41)
 
 Pretty print with indentation (default: true)
 
@@ -909,7 +909,7 @@ Pretty print with indentation (default: true)
 optional indent?: number;
 ```
 
-Defined in: character/serialize.ts:44
+Defined in: [character/serialize.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L44)
 
 Indentation spaces when pretty printing (default: 2)
 
@@ -917,7 +917,7 @@ Indentation spaces when pretty printing (default: 2)
 
 ### ImportResult
 
-Defined in: character/serialize.ts:91
+Defined in: [character/serialize.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L91)
 
 Result of importing a character.
 
@@ -929,7 +929,7 @@ Result of importing a character.
 success: boolean;
 ```
 
-Defined in: character/serialize.ts:93
+Defined in: [character/serialize.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L93)
 
 Whether the import was successful
 
@@ -939,7 +939,7 @@ Whether the import was successful
 optional character?: Character;
 ```
 
-Defined in: character/serialize.ts:96
+Defined in: [character/serialize.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L96)
 
 The imported character (if successful)
 
@@ -949,7 +949,7 @@ The imported character (if successful)
 optional error?: string;
 ```
 
-Defined in: character/serialize.ts:99
+Defined in: [character/serialize.ts:99](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L99)
 
 Error message (if failed)
 
@@ -959,7 +959,7 @@ Error message (if failed)
 optional warnings?: string[];
 ```
 
-Defined in: character/serialize.ts:102
+Defined in: [character/serialize.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L102)
 
 Warnings about the import (e.g., version mismatch)
 
@@ -967,7 +967,7 @@ Warnings about the import (e.g., version mismatch)
 
 ### PeekResult
 
-Defined in: character/serialize.ts:249
+Defined in: [character/serialize.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L249)
 
 Result of peeking at exported character metadata.
 
@@ -979,7 +979,7 @@ Result of peeking at exported character metadata.
 valid: boolean;
 ```
 
-Defined in: character/serialize.ts:250
+Defined in: [character/serialize.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L250)
 
 ##### version?
 
@@ -987,7 +987,7 @@ Defined in: character/serialize.ts:250
 optional version?: string;
 ```
 
-Defined in: character/serialize.ts:251
+Defined in: [character/serialize.ts:251](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L251)
 
 ##### format?
 
@@ -995,7 +995,7 @@ Defined in: character/serialize.ts:251
 optional format?: string;
 ```
 
-Defined in: character/serialize.ts:252
+Defined in: [character/serialize.ts:252](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L252)
 
 ##### exportedAt?
 
@@ -1003,7 +1003,7 @@ Defined in: character/serialize.ts:252
 optional exportedAt?: string;
 ```
 
-Defined in: character/serialize.ts:253
+Defined in: [character/serialize.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L253)
 
 ##### characterName?
 
@@ -1011,7 +1011,7 @@ Defined in: character/serialize.ts:253
 optional characterName?: string;
 ```
 
-Defined in: character/serialize.ts:254
+Defined in: [character/serialize.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L254)
 
 ##### occupation?
 
@@ -1019,7 +1019,7 @@ Defined in: character/serialize.ts:254
 optional occupation?: string;
 ```
 
-Defined in: character/serialize.ts:255
+Defined in: [character/serialize.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L255)
 
 ##### error?
 
@@ -1027,7 +1027,7 @@ Defined in: character/serialize.ts:255
 optional error?: string;
 ```
 
-Defined in: character/serialize.ts:256
+Defined in: [character/serialize.ts:256](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L256)
 
 ## Variables
 
@@ -1037,7 +1037,7 @@ Defined in: character/serialize.ts:256
 const CHARACTER_FORMAT_VERSION: "1.1" = "1.1";
 ```
 
-Defined in: character/serialize.ts:17
+Defined in: [character/serialize.ts:17](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L17)
 
 Current export format version.
 Increment when making breaking changes to the format.
@@ -1054,7 +1054,7 @@ Increment when making breaking changes to the format.
 function calculateAC(input: ACInput): ACResult;
 ```
 
-Defined in: character/armor-class.ts:152
+Defined in: [character/armor-class.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L152)
 
 Calculate total armor class
 
@@ -1114,7 +1114,7 @@ function calculateSimpleAC(
 ): number;
 ```
 
-Defined in: character/armor-class.ts:238
+Defined in: [character/armor-class.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L238)
 
 Calculate AC with just the basics (no bonus system)
 
@@ -1149,7 +1149,7 @@ const ac = calculateSimpleAC(2, "leather", true);
 function createArmorStats(type: ArmorType, name?: string): ArmorStats;
 ```
 
-Defined in: character/armor-class.ts:266
+Defined in: [character/armor-class.ts:266](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L266)
 
 Create armor stats from armor type
 
@@ -1185,7 +1185,7 @@ function createMagicArmorStats(
 ): ArmorStats;
 ```
 
-Defined in: character/armor-class.ts:294
+Defined in: [character/armor-class.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L294)
 
 Create magic armor stats
 
@@ -1218,7 +1218,7 @@ const magicChainmail = createMagicArmorStats("chainmail", 2);
 function createShieldStats(name?: string, magicBonus?: number): ShieldStats;
 ```
 
-Defined in: character/armor-class.ts:319
+Defined in: [character/armor-class.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L319)
 
 Create shield stats
 
@@ -1243,7 +1243,7 @@ ShieldStats
 function getArmorACBonus(type: ArmorType): number;
 ```
 
-Defined in: character/armor-class.ts:364
+Defined in: [character/armor-class.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L364)
 
 Get AC bonus for armor type
 
@@ -1272,7 +1272,7 @@ function getArmorDetails(type: ArmorType): {
 };
 ```
 
-Defined in: character/armor-class.ts:374
+Defined in: [character/armor-class.ts:374](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L374)
 
 Get all armor stats for an armor type
 
@@ -1297,10 +1297,10 @@ Object with all armor-related values
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `acBonus` | `number` | character/armor-class.ts:375 |
-| `checkPenalty` | `number` | character/armor-class.ts:376 |
-| `speedPenalty` | `number` | character/armor-class.ts:377 |
-| `fumbleDie` | `` `d${number}` `` | character/armor-class.ts:378 |
+| `acBonus` | `number` | [character/armor-class.ts:375](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L375) |
+| `checkPenalty` | `number` | [character/armor-class.ts:376](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L376) |
+| `speedPenalty` | `number` | [character/armor-class.ts:377](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L377) |
+| `fumbleDie` | `` `d${number}` `` | [character/armor-class.ts:378](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L378) |
 
 ***
 
@@ -1317,7 +1317,7 @@ function getAllArmorStats(): {
 }[];
 ```
 
-Defined in: character/armor-class.ts:391
+Defined in: [character/armor-class.ts:391](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/armor-class.ts#L391)
 
 List all armor types with their stats
 
@@ -1352,7 +1352,7 @@ function rollAbilityScores(
 };
 ```
 
-Defined in: character/create.ts:142
+Defined in: [character/create.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L142)
 
 Roll ability scores using the specified method.
 
@@ -1380,8 +1380,8 @@ Roll ability scores using the specified method.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `scores` | [`AbilityScores`](types.md#abilityscores-1) | character/create.ts:147 |
-| `rolls` | \{ `ability`: [`DCCAbilityId`](types.md#dccabilityid); `rolls`: `number`[]; `kept`: `number`[]; `total`: `number`; \}[] | character/create.ts:148 |
+| `scores` | [`AbilityScores`](types.md#abilityscores-1) | [character/create.ts:147](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L147) |
+| `rolls` | \{ `ability`: [`DCCAbilityId`](types.md#dccabilityid); `rolls`: `number`[]; `kept`: `number`[]; `total`: `number`; \}[] | [character/create.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L148) |
 
 ***
 
@@ -1391,7 +1391,7 @@ Roll ability scores using the specified method.
 function checkAbilityModifierConstraints(scores: AbilityScores, config: AbilityScoreConfig): boolean;
 ```
 
-Defined in: character/create.ts:270
+Defined in: [character/create.ts:270](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L270)
 
 Check if ability scores meet the minimum/maximum total modifier constraints.
 
@@ -1422,7 +1422,7 @@ function rollZeroLevelHP(
 };
 ```
 
-Defined in: character/create.ts:307
+Defined in: [character/create.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L307)
 
 Roll hit points for a 0-level character.
 
@@ -1446,8 +1446,8 @@ Roll hit points for a 0-level character.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `hp` | `number` | character/create.ts:312 |
-| `roll` | `number` | character/create.ts:312 |
+| `hp` | `number` | [character/create.ts:312](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L312) |
+| `roll` | `number` | [character/create.ts:312](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L312) |
 
 ***
 
@@ -1464,7 +1464,7 @@ function selectBirthAugur(
 };
 ```
 
-Defined in: character/create.ts:398
+Defined in: [character/create.ts:398](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L398)
 
 Select or roll a birth augur.
 
@@ -1487,8 +1487,8 @@ Select or roll a birth augur.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `augur` | [`BirthAugur`](types.md#birthaugur-1) | character/create.ts:402 |
-| `roll` | `number` | character/create.ts:402 |
+| `augur` | [`BirthAugur`](types.md#birthaugur-1) | [character/create.ts:402](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L402) |
+| `roll` | `number` | [character/create.ts:402](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L402) |
 
 ***
 
@@ -1498,7 +1498,7 @@ Select or roll a birth augur.
 function calculateLuckySignBonus(luckModifier: number, mode: LuckySignMode): number;
 ```
 
-Defined in: character/create.ts:437
+Defined in: [character/create.ts:437](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L437)
 
 Calculate the effective luck modifier based on the lucky sign mode.
 
@@ -1528,7 +1528,7 @@ function selectOccupation(
 };
 ```
 
-Defined in: character/create.ts:473
+Defined in: [character/create.ts:473](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L473)
 
 Select or roll an occupation.
 
@@ -1551,8 +1551,8 @@ Select or roll an occupation.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `occupation` | [`OccupationEntry`](#occupationentry) | character/create.ts:477 |
-| `roll` | `number` | character/create.ts:477 |
+| `occupation` | [`OccupationEntry`](#occupationentry) | [character/create.ts:477](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L477) |
+| `roll` | `number` | [character/create.ts:477](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L477) |
 
 ***
 
@@ -1566,7 +1566,7 @@ function createZeroLevelCharacter(
 ): CharacterCreationResult;
 ```
 
-Defined in: character/create.ts:526
+Defined in: [character/create.ts:526](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/create.ts#L526)
 
 Create a new 0-level character.
 
@@ -1592,7 +1592,7 @@ The created character and roll metadata
 function calculateMaxHP(character: Character): number;
 ```
 
-Defined in: character/hit-points.ts:41
+Defined in: [character/hit-points.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L41)
 
 Calculate max HP from roll history with current stamina modifier
 
@@ -1624,7 +1624,7 @@ const maxHP = calculateMaxHP(character);
 function recalculateHP(character: Character): Character;
 ```
 
-Defined in: character/hit-points.ts:78
+Defined in: [character/hit-points.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L78)
 
 Recalculate character HP based on history and current stamina
 
@@ -1662,7 +1662,7 @@ function estimateMaxHP(
 ): number;
 ```
 
-Defined in: character/hit-points.ts:133
+Defined in: [character/hit-points.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L133)
 
 Estimate expected max HP for a character of given class and level
 
@@ -1697,7 +1697,7 @@ const hp = estimateMaxHP("warrior", 5, 2); // ~45 HP
 function calculateMinimumHP(level: number): number;
 ```
 
-Defined in: character/hit-points.ts:170
+Defined in: [character/hit-points.ts:170](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L170)
 
 Calculate minimum possible HP for a character
 
@@ -1727,7 +1727,7 @@ function calculateMaximumHP(
 ): number;
 ```
 
-Defined in: character/hit-points.ts:185
+Defined in: [character/hit-points.ts:185](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L185)
 
 Calculate maximum possible HP for a character
 
@@ -1760,7 +1760,7 @@ function createHPRollRecord(
 ): HPRollRecord;
 ```
 
-Defined in: character/hit-points.ts:224
+Defined in: [character/hit-points.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L224)
 
 Create an HP roll record for a level-up
 
@@ -1787,7 +1787,7 @@ HP roll record
 function addHPRollToHistory(character: Character, record: HPRollRecord): Character;
 ```
 
-Defined in: character/hit-points.ts:246
+Defined in: [character/hit-points.ts:246](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L246)
 
 Add an HP roll to a character's history
 
@@ -1812,7 +1812,7 @@ Updated character with new HP history entry
 function getTotalHPFromHistory(history: HPRollRecord[]): number;
 ```
 
-Defined in: character/hit-points.ts:270
+Defined in: [character/hit-points.ts:270](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/hit-points.ts#L270)
 
 Get total HP gained from history
 
@@ -1836,7 +1836,7 @@ Total HP from all recorded rolls
 function registerXPThresholds(thresholds: XPThresholds): void;
 ```
 
-Defined in: character/level-up.ts:149
+Defined in: [character/level-up.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L149)
 
 Register XP thresholds for a class
 
@@ -1858,7 +1858,7 @@ Register XP thresholds for a class
 function registerAllXPThresholds(thresholds: XPThresholds[]): void;
 ```
 
-Defined in: character/level-up.ts:158
+Defined in: [character/level-up.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L158)
 
 Register multiple XP thresholds at once
 
@@ -1880,7 +1880,7 @@ Register multiple XP thresholds at once
 function clearXPThresholds(): void;
 ```
 
-Defined in: character/level-up.ts:167
+Defined in: [character/level-up.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L167)
 
 Clear all registered XP thresholds (for testing)
 
@@ -1896,7 +1896,7 @@ Clear all registered XP thresholds (for testing)
 function getXPThresholds(classId: string): number[];
 ```
 
-Defined in: character/level-up.ts:177
+Defined in: [character/level-up.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L177)
 
 Get XP thresholds for a class
 
@@ -1920,7 +1920,7 @@ XP thresholds, or default if not registered
 function getXPForLevel(classId: string, level: number): number | undefined;
 ```
 
-Defined in: character/level-up.ts:199
+Defined in: [character/level-up.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L199)
 
 Get XP required to reach a specific level
 
@@ -1951,7 +1951,7 @@ const xpForLevel5 = getXPForLevel("warrior", 5); // 290
 function getXPForNextLevel(classId: string, currentLevel: number): number | undefined;
 ```
 
-Defined in: character/level-up.ts:215
+Defined in: [character/level-up.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L215)
 
 Get XP required for next level
 
@@ -1976,7 +1976,7 @@ XP required for next level, or undefined if at max
 function calculateLevelFromXP(classId: string, xp: number): number;
 ```
 
-Defined in: character/level-up.ts:226
+Defined in: [character/level-up.ts:226](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L226)
 
 Calculate what level a character should be based on XP
 
@@ -2001,7 +2001,7 @@ Level the character should be (0-10)
 function canLevelUp(character: Character): boolean;
 ```
 
-Defined in: character/level-up.ts:245
+Defined in: [character/level-up.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L245)
 
 Check if a character can level up
 
@@ -2025,7 +2025,7 @@ True if character has enough XP for next level
 function getXPNeeded(character: Character): number | undefined;
 ```
 
-Defined in: character/level-up.ts:271
+Defined in: [character/level-up.ts:271](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L271)
 
 Get how much XP is needed for next level
 
@@ -2053,7 +2053,7 @@ function rollHPForLevel(
 ): HPRollResult;
 ```
 
-Defined in: character/level-up.ts:316
+Defined in: [character/level-up.ts:316](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L316)
 
 Roll HP for a new level
 
@@ -2083,7 +2083,7 @@ function levelUpFrom0(
 ): LevelUpResult;
 ```
 
-Defined in: character/level-up.ts:364
+Defined in: [character/level-up.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L364)
 
 Level up a 0-level character to 1st level
 
@@ -2109,7 +2109,7 @@ Level-up result
 function levelUp(character: Character, random?: RandomSource): LevelUpResult;
 ```
 
-Defined in: character/level-up.ts:493
+Defined in: [character/level-up.ts:493](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L493)
 
 Level up a character to the next level
 
@@ -2134,7 +2134,7 @@ Level-up result
 function addXP(character: Character, xp: number): Character;
 ```
 
-Defined in: character/level-up.ts:619
+Defined in: [character/level-up.ts:619](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/level-up.ts#L619)
 
 Add XP to a character
 
@@ -2159,7 +2159,7 @@ Updated character
 function calculateSavingThrows(character: Character): SavingThrows;
 ```
 
-Defined in: character/saving-throws.ts:85
+Defined in: [character/saving-throws.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L85)
 
 Calculate all saving throws for a character
 
@@ -2190,7 +2190,7 @@ console.log(saves.reflex, saves.fortitude, saves.will);
 function calculateSavesFromInput(input: SaveCalculationInput): SavingThrows;
 ```
 
-Defined in: character/saving-throws.ts:96
+Defined in: [character/saving-throws.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L96)
 
 Calculate saving throws from raw input
 
@@ -2214,7 +2214,7 @@ All three saving throw values
 function calculateSavingThrowsWithBreakdown(character: Character): SaveBreakdowns;
 ```
 
-Defined in: character/saving-throws.ts:119
+Defined in: [character/saving-throws.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L119)
 
 Calculate saving throws with detailed breakdown
 
@@ -2245,7 +2245,7 @@ console.log(`Reflex: ${breakdown.reflex.classBonus} + ${breakdown.reflex.ability
 function calculateReflexSave(character: Character): number;
 ```
 
-Defined in: character/saving-throws.ts:153
+Defined in: [character/saving-throws.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L153)
 
 Calculate Reflex save (Agility-based)
 
@@ -2267,7 +2267,7 @@ Calculate Reflex save (Agility-based)
 function calculateFortitudeSave(character: Character): number;
 ```
 
-Defined in: character/saving-throws.ts:163
+Defined in: [character/saving-throws.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L163)
 
 Calculate Fortitude save (Stamina-based)
 
@@ -2289,7 +2289,7 @@ Calculate Fortitude save (Stamina-based)
 function calculateWillSave(character: Character): number;
 ```
 
-Defined in: character/saving-throws.ts:173
+Defined in: [character/saving-throws.ts:173](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L173)
 
 Calculate Will save (Personality-based)
 
@@ -2311,7 +2311,7 @@ Calculate Will save (Personality-based)
 function recalculateSavingThrows(character: Character): Character;
 ```
 
-Defined in: character/saving-throws.ts:193
+Defined in: [character/saving-throws.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/saving-throws.ts#L193)
 
 Recalculate and update a character's saving throws
 
@@ -2338,7 +2338,7 @@ New character with recalculated saves
 function exportCharacter(character: Character, options?: ExportOptions): string;
 ```
 
-Defined in: character/serialize.ts:54
+Defined in: [character/serialize.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L54)
 
 Export a character to JSON string.
 
@@ -2363,7 +2363,7 @@ JSON string representation
 function exportCharacterRaw(character: Character, options?: ExportOptions): string;
 ```
 
-Defined in: character/serialize.ts:78
+Defined in: [character/serialize.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L78)
 
 Export just the character data without wrapper metadata.
 
@@ -2388,7 +2388,7 @@ JSON string of character data only
 function importCharacter(json: string): ImportResult;
 ```
 
-Defined in: character/serialize.ts:113
+Defined in: [character/serialize.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L113)
 
 Import a character from JSON string.
 
@@ -2414,7 +2414,7 @@ Import result with character or error
 function peekExportedCharacter(json: string): PeekResult;
 ```
 
-Defined in: character/serialize.ts:263
+Defined in: [character/serialize.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/character/serialize.ts#L263)
 
 Parse exported character metadata without importing the full character.
 Useful for previewing before import.

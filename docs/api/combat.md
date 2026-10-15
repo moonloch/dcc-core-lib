@@ -4,7 +4,7 @@
 
 ### DamageApplicationResult
 
-Defined in: combat/death-and-dying.ts:35
+Defined in: [combat/death-and-dying.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L35)
 
 Result of checking a character's vital status after taking damage
 
@@ -16,7 +16,7 @@ Result of checking a character's vital status after taking damage
 newHP: number;
 ```
 
-Defined in: combat/death-and-dying.ts:37
+Defined in: [combat/death-and-dying.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L37)
 
 New current HP
 
@@ -26,7 +26,7 @@ New current HP
 status: VitalStatus;
 ```
 
-Defined in: combat/death-and-dying.ts:40
+Defined in: [combat/death-and-dying.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L40)
 
 New vital status
 
@@ -36,7 +36,7 @@ New vital status
 optional roundsUntilDeath?: number;
 ```
 
-Defined in: combat/death-and-dying.ts:43
+Defined in: [combat/death-and-dying.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L43)
 
 Rounds remaining before permanent death (if bleeding out)
 
@@ -46,7 +46,7 @@ Rounds remaining before permanent death (if bleeding out)
 instantDeath: boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:46
+Defined in: [combat/death-and-dying.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L46)
 
 Whether the character was instantly killed (0-level or massive damage)
 
@@ -56,7 +56,7 @@ Whether the character was instantly killed (0-level or massive damage)
 startedBleedingOut: boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:49
+Defined in: [combat/death-and-dying.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L49)
 
 Whether the character just started bleeding out
 
@@ -64,7 +64,7 @@ Whether the character just started bleeding out
 
 ### BleedingOutState
 
-Defined in: combat/death-and-dying.ts:55
+Defined in: [combat/death-and-dying.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L55)
 
 State of a bleeding out character
 
@@ -76,7 +76,7 @@ State of a bleeding out character
 roundsRemaining: number;
 ```
 
-Defined in: combat/death-and-dying.ts:57
+Defined in: [combat/death-and-dying.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L57)
 
 Number of rounds remaining before permanent death
 
@@ -86,7 +86,7 @@ Number of rounds remaining before permanent death
 maxRounds: number;
 ```
 
-Defined in: combat/death-and-dying.ts:60
+Defined in: [combat/death-and-dying.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L60)
 
 Maximum rounds (equal to level)
 
@@ -96,7 +96,7 @@ Maximum rounds (equal to level)
 startRound: number;
 ```
 
-Defined in: combat/death-and-dying.ts:63
+Defined in: [combat/death-and-dying.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L63)
 
 Round combat started (for tracking)
 
@@ -104,7 +104,7 @@ Round combat started (for tracking)
 
 ### StabilizeResult
 
-Defined in: combat/death-and-dying.ts:69
+Defined in: [combat/death-and-dying.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L69)
 
 Result of attempting to stabilize/save a bleeding out character
 
@@ -116,7 +116,7 @@ Result of attempting to stabilize/save a bleeding out character
 saved: boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:71
+Defined in: [combat/death-and-dying.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L71)
 
 Whether the character was saved
 
@@ -126,7 +126,7 @@ Whether the character was saved
 optional newHP?: number;
 ```
 
-Defined in: combat/death-and-dying.ts:74
+Defined in: [combat/death-and-dying.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L74)
 
 New HP after healing (if saved)
 
@@ -136,7 +136,7 @@ New HP after healing (if saved)
 staminaLoss: boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:77
+Defined in: [combat/death-and-dying.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L77)
 
 Whether character suffered permanent Stamina loss
 
@@ -146,7 +146,7 @@ Whether character suffered permanent Stamina loss
 optional scar?: string;
 ```
 
-Defined in: combat/death-and-dying.ts:80
+Defined in: [combat/death-and-dying.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L80)
 
 The permanent scar gained
 
@@ -156,7 +156,7 @@ The permanent scar gained
 optional scarIndex?: number;
 ```
 
-Defined in: combat/death-and-dying.ts:87
+Defined in: [combat/death-and-dying.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L87)
 
 Stable index of the scar in [SCAR\_DESCRIPTIONS](#scar_descriptions) (0-based).
 Consumers with localization use this to translate the scar rather
@@ -168,7 +168,7 @@ than displaying the English `scar` string.
 optional failureReason?: string;
 ```
 
-Defined in: combat/death-and-dying.ts:90
+Defined in: [combat/death-and-dying.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L90)
 
 Reason for failure (if not saved)
 
@@ -176,7 +176,7 @@ Reason for failure (if not saved)
 
 ### BodyRecoveryResult
 
-Defined in: combat/death-and-dying.ts:96
+Defined in: [combat/death-and-dying.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L96)
 
 Result of recovering a dead body
 
@@ -188,7 +188,7 @@ Result of recovering a dead body
 success: boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:98
+Defined in: [combat/death-and-dying.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L98)
 
 Whether the Luck check succeeded
 
@@ -198,7 +198,7 @@ Whether the Luck check succeeded
 luckRoll: number;
 ```
 
-Defined in: combat/death-and-dying.ts:101
+Defined in: [combat/death-and-dying.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L101)
 
 The Luck roll made
 
@@ -208,7 +208,7 @@ The Luck roll made
 luckTarget: number;
 ```
 
-Defined in: combat/death-and-dying.ts:107
+Defined in: [combat/death-and-dying.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L107)
 
 The character's Luck score — the roll-under target. Body recovery is
 a roll-under-Luck check, not a meet-or-exceed DC.
@@ -219,7 +219,7 @@ a roll-under-Luck check, not a meet-or-exceed DC.
 optional newHP?: number;
 ```
 
-Defined in: combat/death-and-dying.ts:110
+Defined in: [combat/death-and-dying.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L110)
 
 If success, the character recovers to this HP
 
@@ -229,7 +229,7 @@ If success, the character recovers to this HP
 optional groggyDuration?: string;
 ```
 
-Defined in: combat/death-and-dying.ts:113
+Defined in: [combat/death-and-dying.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L113)
 
 Penalty duration (-4 to all rolls for 1 hour)
 
@@ -242,7 +242,7 @@ optional permanentPenalty?: {
 };
 ```
 
-Defined in: combat/death-and-dying.ts:116
+Defined in: [combat/death-and-dying.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L116)
 
 Permanent ability penalty
 
@@ -262,7 +262,7 @@ amount: number;
 
 ### HealingResult
 
-Defined in: combat/death-and-dying.ts:130
+Defined in: [combat/death-and-dying.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L130)
 
 Result of natural healing from rest
 
@@ -274,7 +274,7 @@ Result of natural healing from rest
 hpHealed: number;
 ```
 
-Defined in: combat/death-and-dying.ts:132
+Defined in: [combat/death-and-dying.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L132)
 
 HP healed
 
@@ -284,7 +284,7 @@ HP healed
 newHP: number;
 ```
 
-Defined in: combat/death-and-dying.ts:135
+Defined in: [combat/death-and-dying.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L135)
 
 New current HP
 
@@ -294,7 +294,7 @@ New current HP
 abilityHealed: Partial<Record<DCCAbilityId, number>>;
 ```
 
-Defined in: combat/death-and-dying.ts:138
+Defined in: [combat/death-and-dying.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L138)
 
 Ability points healed (if any ability damage)
 
@@ -302,7 +302,7 @@ Ability points healed (if any ability damage)
 
 ### AbilityLossResult
 
-Defined in: combat/misc-rules.ts:38
+Defined in: [combat/misc-rules.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L38)
 
 Result of checking ability loss effects
 
@@ -314,7 +314,7 @@ Result of checking ability loss effects
 ability: DCCAbilityId;
 ```
 
-Defined in: combat/misc-rules.ts:40
+Defined in: [combat/misc-rules.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L40)
 
 Which ability is at 0
 
@@ -324,7 +324,7 @@ Which ability is at 0
 effect: AbilityLossEffect;
 ```
 
-Defined in: combat/misc-rules.ts:43
+Defined in: [combat/misc-rules.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L43)
 
 The effect on the character
 
@@ -334,7 +334,7 @@ The effect on the character
 description: string;
 ```
 
-Defined in: combat/misc-rules.ts:46
+Defined in: [combat/misc-rules.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L46)
 
 Description of the effect
 
@@ -344,7 +344,7 @@ Description of the effect
 incapacitated: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:49
+Defined in: [combat/misc-rules.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L49)
 
 Whether the character is incapacitated
 
@@ -352,7 +352,7 @@ Whether the character is incapacitated
 
 ### OnFireState
 
-Defined in: combat/misc-rules.ts:55
+Defined in: [combat/misc-rules.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L55)
 
 State of a character on fire
 
@@ -364,7 +364,7 @@ State of a character on fire
 damageDie: string;
 ```
 
-Defined in: combat/misc-rules.ts:57
+Defined in: [combat/misc-rules.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L57)
 
 Damage die per round (default 1d6)
 
@@ -374,7 +374,7 @@ Damage die per round (default 1d6)
 extinguishDC: number;
 ```
 
-Defined in: combat/misc-rules.ts:60
+Defined in: [combat/misc-rules.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L60)
 
 DC to put out the fire (default 10)
 
@@ -384,7 +384,7 @@ DC to put out the fire (default 10)
 roundsOnFire: number;
 ```
 
-Defined in: combat/misc-rules.ts:63
+Defined in: [combat/misc-rules.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L63)
 
 Rounds the character has been on fire
 
@@ -394,7 +394,7 @@ Rounds the character has been on fire
 optional source?: string;
 ```
 
-Defined in: combat/misc-rules.ts:66
+Defined in: [combat/misc-rules.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L66)
 
 Source of the fire (for description)
 
@@ -402,7 +402,7 @@ Source of the fire (for description)
 
 ### FireDamageResult
 
-Defined in: combat/misc-rules.ts:72
+Defined in: [combat/misc-rules.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L72)
 
 Result of fire damage for a round
 
@@ -414,7 +414,7 @@ Result of fire damage for a round
 damage: number;
 ```
 
-Defined in: combat/misc-rules.ts:74
+Defined in: [combat/misc-rules.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L74)
 
 Damage taken this round
 
@@ -424,7 +424,7 @@ Damage taken this round
 attemptedExtinguish: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:77
+Defined in: [combat/misc-rules.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L77)
 
 Whether the character attempted to extinguish
 
@@ -434,7 +434,7 @@ Whether the character attempted to extinguish
 optional reflexRoll?: number;
 ```
 
-Defined in: combat/misc-rules.ts:80
+Defined in: [combat/misc-rules.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L80)
 
 The Reflex save roll (if attempted)
 
@@ -444,7 +444,7 @@ The Reflex save roll (if attempted)
 extinguished: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:83
+Defined in: [combat/misc-rules.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L83)
 
 Whether the fire was extinguished
 
@@ -454,7 +454,7 @@ Whether the fire was extinguished
 optional newState?: OnFireState;
 ```
 
-Defined in: combat/misc-rules.ts:86
+Defined in: [combat/misc-rules.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L86)
 
 Updated fire state (undefined if extinguished)
 
@@ -462,7 +462,7 @@ Updated fire state (undefined if extinguished)
 
 ### ChargeModifiers
 
-Defined in: combat/misc-rules.ts:92
+Defined in: [combat/misc-rules.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L92)
 
 Charge attack modifiers
 
@@ -474,7 +474,7 @@ Charge attack modifiers
 attackBonus: number;
 ```
 
-Defined in: combat/misc-rules.ts:94
+Defined in: [combat/misc-rules.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L94)
 
 Attack bonus from charging (+2)
 
@@ -484,7 +484,7 @@ Attack bonus from charging (+2)
 acPenalty: number;
 ```
 
-Defined in: combat/misc-rules.ts:97
+Defined in: [combat/misc-rules.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L97)
 
 AC penalty from charging (-2)
 
@@ -494,7 +494,7 @@ AC penalty from charging (-2)
 minDistance: number;
 ```
 
-Defined in: combat/misc-rules.ts:100
+Defined in: [combat/misc-rules.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L100)
 
 Minimum distance required (half speed)
 
@@ -502,7 +502,7 @@ Minimum distance required (half speed)
 
 ### FallingDamageResult
 
-Defined in: combat/misc-rules.ts:106
+Defined in: [combat/misc-rules.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L106)
 
 Result of falling damage
 
@@ -514,7 +514,7 @@ Result of falling damage
 damage: number;
 ```
 
-Defined in: combat/misc-rules.ts:108
+Defined in: [combat/misc-rules.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L108)
 
 Total damage taken
 
@@ -524,7 +524,7 @@ Total damage taken
 diceResults: number[];
 ```
 
-Defined in: combat/misc-rules.ts:111
+Defined in: [combat/misc-rules.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L111)
 
 Individual die results
 
@@ -534,7 +534,7 @@ Individual die results
 brokenBones: number;
 ```
 
-Defined in: combat/misc-rules.ts:114
+Defined in: [combat/misc-rules.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L114)
 
 Number of broken bones (dice that rolled 6)
 
@@ -544,7 +544,7 @@ Number of broken bones (dice that rolled 6)
 distanceFallen: number;
 ```
 
-Defined in: combat/misc-rules.ts:117
+Defined in: [combat/misc-rules.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L117)
 
 Distance fallen in feet
 
@@ -554,7 +554,7 @@ Distance fallen in feet
 permanentLoss: number;
 ```
 
-Defined in: combat/misc-rules.ts:120
+Defined in: [combat/misc-rules.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L120)
 
 Permanent ability loss from broken bones
 
@@ -562,7 +562,7 @@ Permanent ability loss from broken bones
 
 ### FiringIntoMeleeResult
 
-Defined in: combat/misc-rules.ts:126
+Defined in: [combat/misc-rules.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L126)
 
 Result of firing into melee when missing
 
@@ -574,7 +574,7 @@ Result of firing into melee when missing
 hitAlly: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:128
+Defined in: [combat/misc-rules.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L128)
 
 Whether the shot went wild
 
@@ -584,7 +584,7 @@ Whether the shot went wild
 chanceRoll: number;
 ```
 
-Defined in: combat/misc-rules.ts:131
+Defined in: [combat/misc-rules.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L131)
 
 The d100 roll for determining if ally is hit
 
@@ -594,7 +594,7 @@ The d100 roll for determining if ally is hit
 optional allyIndex?: number;
 ```
 
-Defined in: combat/misc-rules.ts:134
+Defined in: [combat/misc-rules.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L134)
 
 Index of ally hit (if any) - for random selection
 
@@ -604,7 +604,7 @@ Index of ally hit (if any) - for random selection
 optional allyAttackRoll?: number;
 ```
 
-Defined in: combat/misc-rules.ts:137
+Defined in: [combat/misc-rules.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L137)
 
 Re-roll attack result against ally's AC (if hit)
 
@@ -614,7 +614,7 @@ Re-roll attack result against ally's AC (if hit)
 optional allyWasHit?: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:140
+Defined in: [combat/misc-rules.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L140)
 
 Whether the re-roll hit the ally
 
@@ -622,7 +622,7 @@ Whether the re-roll hit the ally
 
 ### GrappleParticipant
 
-Defined in: combat/misc-rules.ts:146
+Defined in: [combat/misc-rules.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L146)
 
 Grapple participant stats
 
@@ -634,7 +634,7 @@ Grapple participant stats
 attackBonus: number;
 ```
 
-Defined in: combat/misc-rules.ts:148
+Defined in: [combat/misc-rules.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L148)
 
 Attack bonus
 
@@ -644,7 +644,7 @@ Attack bonus
 strengthMod: number;
 ```
 
-Defined in: combat/misc-rules.ts:151
+Defined in: [combat/misc-rules.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L151)
 
 Strength modifier
 
@@ -654,7 +654,7 @@ Strength modifier
 agilityMod: number;
 ```
 
-Defined in: combat/misc-rules.ts:154
+Defined in: [combat/misc-rules.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L154)
 
 Agility modifier
 
@@ -664,7 +664,7 @@ Agility modifier
 sizeCategory: number;
 ```
 
-Defined in: combat/misc-rules.ts:157
+Defined in: [combat/misc-rules.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L157)
 
 Size category (1 = small, 2 = medium, 3 = large, etc.)
 
@@ -674,7 +674,7 @@ Size category (1 = small, 2 = medium, 3 = large, etc.)
 optional hitDice?: number;
 ```
 
-Defined in: combat/misc-rules.ts:160
+Defined in: [combat/misc-rules.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L160)
 
 For monsters: hit dice (used instead of ability mods)
 
@@ -682,7 +682,7 @@ For monsters: hit dice (used instead of ability mods)
 
 ### GrappleResult
 
-Defined in: combat/misc-rules.ts:166
+Defined in: [combat/misc-rules.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L166)
 
 Result of a grapple attempt
 
@@ -694,7 +694,7 @@ Result of a grapple attempt
 attackerRoll: number;
 ```
 
-Defined in: combat/misc-rules.ts:168
+Defined in: [combat/misc-rules.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L168)
 
 Attacker's roll
 
@@ -704,7 +704,7 @@ Attacker's roll
 attackerTotal: number;
 ```
 
-Defined in: combat/misc-rules.ts:171
+Defined in: [combat/misc-rules.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L171)
 
 Attacker's total (roll + mods)
 
@@ -714,7 +714,7 @@ Attacker's total (roll + mods)
 defenderRoll: number;
 ```
 
-Defined in: combat/misc-rules.ts:174
+Defined in: [combat/misc-rules.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L174)
 
 Defender's roll
 
@@ -724,7 +724,7 @@ Defender's roll
 defenderTotal: number;
 ```
 
-Defined in: combat/misc-rules.ts:177
+Defined in: [combat/misc-rules.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L177)
 
 Defender's total (roll + mods)
 
@@ -734,7 +734,7 @@ Defender's total (roll + mods)
 attackerWins: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:180
+Defined in: [combat/misc-rules.ts:180](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L180)
 
 Whether the attacker won
 
@@ -744,7 +744,7 @@ Whether the attacker won
 targetPinned: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:183
+Defined in: [combat/misc-rules.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L183)
 
 Whether target is now pinned
 
@@ -754,7 +754,7 @@ Whether target is now pinned
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: combat/misc-rules.ts:186
+Defined in: [combat/misc-rules.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L186)
 
 All modifiers applied
 
@@ -762,7 +762,7 @@ All modifiers applied
 
 ### ArmorRecoveryResult
 
-Defined in: combat/misc-rules.ts:192
+Defined in: [combat/misc-rules.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L192)
 
 Result of armor recovery check
 
@@ -774,7 +774,7 @@ Result of armor recovery check
 usable: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:194
+Defined in: [combat/misc-rules.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L194)
 
 Whether the armor is usable
 
@@ -784,7 +784,7 @@ Whether the armor is usable
 roll: number;
 ```
 
-Defined in: combat/misc-rules.ts:197
+Defined in: [combat/misc-rules.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L197)
 
 The d100 roll
 
@@ -794,7 +794,7 @@ The d100 roll
 optional humanSized?: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:200
+Defined in: [combat/misc-rules.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L200)
 
 Whether armor fits humans (if checking)
 
@@ -804,7 +804,7 @@ Whether armor fits humans (if checking)
 optional repairCostFraction?: number;
 ```
 
-Defined in: combat/misc-rules.ts:203
+Defined in: [combat/misc-rules.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L203)
 
 Estimated repair cost (fraction of original)
 
@@ -812,7 +812,7 @@ Estimated repair cost (fraction of original)
 
 ### MissileRecoveryResult
 
-Defined in: combat/misc-rules.ts:209
+Defined in: [combat/misc-rules.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L209)
 
 Result of missile weapon recovery
 
@@ -824,7 +824,7 @@ Result of missile weapon recovery
 recovered: number;
 ```
 
-Defined in: combat/misc-rules.ts:211
+Defined in: [combat/misc-rules.ts:211](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L211)
 
 Number of missiles recovered
 
@@ -834,7 +834,7 @@ Number of missiles recovered
 destroyed: number;
 ```
 
-Defined in: combat/misc-rules.ts:214
+Defined in: [combat/misc-rules.ts:214](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L214)
 
 Number of missiles destroyed
 
@@ -847,7 +847,7 @@ rolls: {
 }[];
 ```
 
-Defined in: combat/misc-rules.ts:217
+Defined in: [combat/misc-rules.ts:217](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L217)
 
 Individual roll results
 
@@ -867,7 +867,7 @@ destroyed: boolean;
 
 ### SubdualDamageResult
 
-Defined in: combat/misc-rules.ts:223
+Defined in: [combat/misc-rules.ts:223](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L223)
 
 Subdual damage info
 
@@ -879,7 +879,7 @@ Subdual damage info
 damageDie: string;
 ```
 
-Defined in: combat/misc-rules.ts:225
+Defined in: [combat/misc-rules.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L225)
 
 The stepped-down damage die
 
@@ -889,7 +889,7 @@ The stepped-down damage die
 damage: number;
 ```
 
-Defined in: combat/misc-rules.ts:228
+Defined in: [combat/misc-rules.ts:228](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L228)
 
 Damage rolled
 
@@ -899,7 +899,7 @@ Damage rolled
 isSubdual: true;
 ```
 
-Defined in: combat/misc-rules.ts:231
+Defined in: [combat/misc-rules.ts:231](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L231)
 
 Whether this damage is subdual (non-lethal)
 
@@ -909,7 +909,7 @@ Whether this damage is subdual (non-lethal)
 originalDie: string;
 ```
 
-Defined in: combat/misc-rules.ts:234
+Defined in: [combat/misc-rules.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L234)
 
 Original weapon die (before step-down)
 
@@ -917,7 +917,7 @@ Original weapon die (before step-down)
 
 ### MissileRangeBands
 
-Defined in: combat/misc-rules.ts:598
+Defined in: [combat/misc-rules.ts:598](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L598)
 
 A missile weapon's three range increments, in the scene's distance unit
 (typically feet). Each value is the maximum distance for that band.
@@ -930,7 +930,7 @@ A missile weapon's three range increments, in the scene's distance unit
 short: number;
 ```
 
-Defined in: combat/misc-rules.ts:600
+Defined in: [combat/misc-rules.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L600)
 
 Maximum distance for short range (no penalty)
 
@@ -940,7 +940,7 @@ Maximum distance for short range (no penalty)
 medium: number;
 ```
 
-Defined in: combat/misc-rules.ts:603
+Defined in: [combat/misc-rules.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L603)
 
 Maximum distance for medium range (-2 to attack)
 
@@ -950,7 +950,7 @@ Maximum distance for medium range (-2 to attack)
 long: number;
 ```
 
-Defined in: combat/misc-rules.ts:606
+Defined in: [combat/misc-rules.ts:606](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L606)
 
 Maximum distance for long range (-1d to the action die)
 
@@ -958,7 +958,7 @@ Maximum distance for long range (-1d to the action die)
 
 ### MissileRangePenalty
 
-Defined in: combat/misc-rules.ts:612
+Defined in: [combat/misc-rules.ts:612](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L612)
 
 The penalty owed for a missile attack at a given distance.
 
@@ -970,7 +970,7 @@ The penalty owed for a missile attack at a given distance.
 band: MissileRangeBand;
 ```
 
-Defined in: combat/misc-rules.ts:614
+Defined in: [combat/misc-rules.ts:614](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L614)
 
 Which range band the target falls into
 
@@ -980,7 +980,7 @@ Which range band the target falls into
 attackModifier: number;
 ```
 
-Defined in: combat/misc-rules.ts:617
+Defined in: [combat/misc-rules.ts:617](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L617)
 
 Flat modifier to the attack roll (e.g. -2 at medium range, 0 otherwise)
 
@@ -990,7 +990,7 @@ Flat modifier to the attack roll (e.g. -2 at medium range, 0 otherwise)
 actionDieSteps: number;
 ```
 
-Defined in: combat/misc-rules.ts:620
+Defined in: [combat/misc-rules.ts:620](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L620)
 
 Dice-chain steps applied to the action die (e.g. -1 at long range, 0 otherwise)
 
@@ -1000,7 +1000,7 @@ Dice-chain steps applied to the action die (e.g. -1 at long range, 0 otherwise)
 optional actionDie?: string;
 ```
 
-Defined in: combat/misc-rules.ts:623
+Defined in: [combat/misc-rules.ts:623](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L623)
 
 The action die after applying [actionDieSteps](#actiondiesteps) (only when an action die was supplied)
 
@@ -1010,7 +1010,7 @@ The action die after applying [actionDieSteps](#actiondiesteps) (only when an ac
 outOfRange: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:626
+Defined in: [combat/misc-rules.ts:626](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L626)
 
 Whether the target is beyond the weapon's maximum (long) range
 
@@ -1018,7 +1018,7 @@ Whether the target is beyond the weapon's maximum (long) range
 
 ### WithdrawalOpponent
 
-Defined in: combat/misc-rules.ts:1038
+Defined in: [combat/misc-rules.ts:1038](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1038)
 
 Opponent info for withdrawal attacks of opportunity
 
@@ -1030,7 +1030,7 @@ Opponent info for withdrawal attacks of opportunity
 name: string;
 ```
 
-Defined in: combat/misc-rules.ts:1040
+Defined in: [combat/misc-rules.ts:1040](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1040)
 
 Opponent's name/identifier
 
@@ -1040,7 +1040,7 @@ Opponent's name/identifier
 attackBonus: number;
 ```
 
-Defined in: combat/misc-rules.ts:1043
+Defined in: [combat/misc-rules.ts:1043](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1043)
 
 Opponent's attack bonus
 
@@ -1050,7 +1050,7 @@ Opponent's attack bonus
 damageDie: string;
 ```
 
-Defined in: combat/misc-rules.ts:1046
+Defined in: [combat/misc-rules.ts:1046](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1046)
 
 Opponent's damage die
 
@@ -1060,7 +1060,7 @@ Opponent's damage die
 strengthMod: number;
 ```
 
-Defined in: combat/misc-rules.ts:1049
+Defined in: [combat/misc-rules.ts:1049](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1049)
 
 Opponent's strength modifier for damage
 
@@ -1068,7 +1068,7 @@ Opponent's strength modifier for damage
 
 ### AttackOfOpportunityResult
 
-Defined in: combat/misc-rules.ts:1055
+Defined in: [combat/misc-rules.ts:1055](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1055)
 
 Result of a single attack of opportunity
 
@@ -1080,7 +1080,7 @@ Result of a single attack of opportunity
 opponentName: string;
 ```
 
-Defined in: combat/misc-rules.ts:1057
+Defined in: [combat/misc-rules.ts:1057](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1057)
 
 Opponent making the attack
 
@@ -1090,7 +1090,7 @@ Opponent making the attack
 attackRoll: number;
 ```
 
-Defined in: combat/misc-rules.ts:1060
+Defined in: [combat/misc-rules.ts:1060](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1060)
 
 Attack roll
 
@@ -1100,7 +1100,7 @@ Attack roll
 attackTotal: number;
 ```
 
-Defined in: combat/misc-rules.ts:1063
+Defined in: [combat/misc-rules.ts:1063](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1063)
 
 Total attack (roll + bonus)
 
@@ -1110,7 +1110,7 @@ Total attack (roll + bonus)
 hit: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1066
+Defined in: [combat/misc-rules.ts:1066](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1066)
 
 Whether the attack hit
 
@@ -1120,7 +1120,7 @@ Whether the attack hit
 optional damage?: number;
 ```
 
-Defined in: combat/misc-rules.ts:1069
+Defined in: [combat/misc-rules.ts:1069](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1069)
 
 Damage dealt (if hit)
 
@@ -1128,7 +1128,7 @@ Damage dealt (if hit)
 
 ### WithdrawalResult
 
-Defined in: combat/misc-rules.ts:1075
+Defined in: [combat/misc-rules.ts:1075](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1075)
 
 Result of withdrawing from melee
 
@@ -1140,7 +1140,7 @@ Result of withdrawing from melee
 numOpponents: number;
 ```
 
-Defined in: combat/misc-rules.ts:1077
+Defined in: [combat/misc-rules.ts:1077](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1077)
 
 Number of opponents who got free attacks
 
@@ -1150,7 +1150,7 @@ Number of opponents who got free attacks
 attacks: AttackOfOpportunityResult[];
 ```
 
-Defined in: combat/misc-rules.ts:1080
+Defined in: [combat/misc-rules.ts:1080](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1080)
 
 Results of each attack of opportunity
 
@@ -1160,7 +1160,7 @@ Results of each attack of opportunity
 totalDamage: number;
 ```
 
-Defined in: combat/misc-rules.ts:1083
+Defined in: [combat/misc-rules.ts:1083](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1083)
 
 Total damage taken
 
@@ -1168,7 +1168,7 @@ Total damage taken
 
 ### MountState
 
-Defined in: combat/misc-rules.ts:1186
+Defined in: [combat/misc-rules.ts:1186](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1186)
 
 State of a mount in combat
 
@@ -1180,7 +1180,7 @@ State of a mount in combat
 horseType: HorseType;
 ```
 
-Defined in: combat/misc-rules.ts:1188
+Defined in: [combat/misc-rules.ts:1188](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1188)
 
 Type of horse
 
@@ -1190,7 +1190,7 @@ Type of horse
 combatTrained: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1191
+Defined in: [combat/misc-rules.ts:1191](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1191)
 
 Whether the horse is trained for combat (warhorses always are)
 
@@ -1200,7 +1200,7 @@ Whether the horse is trained for combat (warhorses always are)
 currentHP: number;
 ```
 
-Defined in: combat/misc-rules.ts:1194
+Defined in: [combat/misc-rules.ts:1194](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1194)
 
 Horse's current HP
 
@@ -1210,7 +1210,7 @@ Horse's current HP
 maxHP: number;
 ```
 
-Defined in: combat/misc-rules.ts:1197
+Defined in: [combat/misc-rules.ts:1197](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1197)
 
 Horse's max HP
 
@@ -1220,7 +1220,7 @@ Horse's max HP
 halfHPChecked: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1200
+Defined in: [combat/misc-rules.ts:1200](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1200)
 
 Whether first-wounded check has been triggered (for warhorses)
 
@@ -1230,7 +1230,7 @@ Whether first-wounded check has been triggered (for warhorses)
 initiativeMod: number;
 ```
 
-Defined in: combat/misc-rules.ts:1203
+Defined in: [combat/misc-rules.ts:1203](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1203)
 
 Horse's initiative modifier
 
@@ -1240,7 +1240,7 @@ Horse's initiative modifier
 speed: number;
 ```
 
-Defined in: combat/misc-rules.ts:1206
+Defined in: [combat/misc-rules.ts:1206](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1206)
 
 Horse's movement speed
 
@@ -1250,7 +1250,7 @@ Horse's movement speed
 ac: number;
 ```
 
-Defined in: combat/misc-rules.ts:1209
+Defined in: [combat/misc-rules.ts:1209](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1209)
 
 Horse's AC
 
@@ -1260,7 +1260,7 @@ Horse's AC
 optional attackBonus?: number;
 ```
 
-Defined in: combat/misc-rules.ts:1212
+Defined in: [combat/misc-rules.ts:1212](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1212)
 
 Horse's attack bonus (if combat trained)
 
@@ -1270,7 +1270,7 @@ Horse's attack bonus (if combat trained)
 optional damageDie?: string;
 ```
 
-Defined in: combat/misc-rules.ts:1215
+Defined in: [combat/misc-rules.ts:1215](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1215)
 
 Horse's damage die (if combat trained)
 
@@ -1278,7 +1278,7 @@ Horse's damage die (if combat trained)
 
 ### MountedCombatBonuses
 
-Defined in: combat/misc-rules.ts:1221
+Defined in: [combat/misc-rules.ts:1221](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1221)
 
 Mounted combat bonuses
 
@@ -1290,7 +1290,7 @@ Mounted combat bonuses
 acBonus: number;
 ```
 
-Defined in: combat/misc-rules.ts:1223
+Defined in: [combat/misc-rules.ts:1223](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1223)
 
 AC bonus while mounted (+1)
 
@@ -1300,7 +1300,7 @@ AC bonus while mounted (+1)
 attackBonusVsUnmounted: number;
 ```
 
-Defined in: combat/misc-rules.ts:1226
+Defined in: [combat/misc-rules.ts:1226](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1226)
 
 Attack bonus vs unmounted opponents (+1 higher ground)
 
@@ -1310,7 +1310,7 @@ Attack bonus vs unmounted opponents (+1 higher ground)
 lanceDamageDoubled: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1229
+Defined in: [combat/misc-rules.ts:1229](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1229)
 
 Whether lance/spear damage dice are doubled (charging)
 
@@ -1318,7 +1318,7 @@ Whether lance/spear damage dice are doubled (charging)
 
 ### StayMountedResult
 
-Defined in: combat/misc-rules.ts:1235
+Defined in: [combat/misc-rules.ts:1235](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1235)
 
 Result of a stay mounted check
 
@@ -1330,7 +1330,7 @@ Result of a stay mounted check
 dieUsed: string;
 ```
 
-Defined in: combat/misc-rules.ts:1237
+Defined in: [combat/misc-rules.ts:1237](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1237)
 
 The die used (d20 trained, d10 untrained)
 
@@ -1340,7 +1340,7 @@ The die used (d20 trained, d10 untrained)
 roll: number;
 ```
 
-Defined in: combat/misc-rules.ts:1240
+Defined in: [combat/misc-rules.ts:1240](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1240)
 
 The roll result
 
@@ -1350,7 +1350,7 @@ The roll result
 dc: number;
 ```
 
-Defined in: combat/misc-rules.ts:1243
+Defined in: [combat/misc-rules.ts:1243](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1243)
 
 The DC to beat
 
@@ -1360,7 +1360,7 @@ The DC to beat
 stayedMounted: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1246
+Defined in: [combat/misc-rules.ts:1246](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1246)
 
 Whether the check passed
 
@@ -1370,7 +1370,7 @@ Whether the check passed
 isProne: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1249
+Defined in: [combat/misc-rules.ts:1249](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1249)
 
 If failed, character is now prone
 
@@ -1380,7 +1380,7 @@ If failed, character is now prone
 reason: string;
 ```
 
-Defined in: combat/misc-rules.ts:1252
+Defined in: [combat/misc-rules.ts:1252](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1252)
 
 Reason for the check
 
@@ -1388,7 +1388,7 @@ Reason for the check
 
 ### HorseSpookedResult
 
-Defined in: combat/misc-rules.ts:1258
+Defined in: [combat/misc-rules.ts:1258](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1258)
 
 Result of checking if a horse is spooked
 
@@ -1400,7 +1400,7 @@ Result of checking if a horse is spooked
 spooked: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1260
+Defined in: [combat/misc-rules.ts:1260](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1260)
 
 Whether the horse is spooked
 
@@ -1410,7 +1410,7 @@ Whether the horse is spooked
 reason: string;
 ```
 
-Defined in: combat/misc-rules.ts:1263
+Defined in: [combat/misc-rules.ts:1263](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1263)
 
 Reason for spook (or why not spooked)
 
@@ -1420,7 +1420,7 @@ Reason for spook (or why not spooked)
 requiresStayMountedCheck: boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1266
+Defined in: [combat/misc-rules.ts:1266](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1266)
 
 Whether a stay mounted check is required
 
@@ -1428,7 +1428,7 @@ Whether a stay mounted check is required
 
 ### GroupMoraleState
 
-Defined in: combat/morale.ts:47
+Defined in: [combat/morale.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L47)
 
 Morale state for a group of creatures
 
@@ -1440,7 +1440,7 @@ Morale state for a group of creatures
 totalCreatures: number;
 ```
 
-Defined in: combat/morale.ts:49
+Defined in: [combat/morale.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L49)
 
 Total creatures in the group at start
 
@@ -1450,7 +1450,7 @@ Total creatures in the group at start
 activeCreatures: number;
 ```
 
-Defined in: combat/morale.ts:52
+Defined in: [combat/morale.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L52)
 
 Currently alive/active creatures
 
@@ -1460,7 +1460,7 @@ Currently alive/active creatures
 firstCasualtyChecked: boolean;
 ```
 
-Defined in: combat/morale.ts:55
+Defined in: [combat/morale.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L55)
 
 Whether first casualty check has been made
 
@@ -1470,7 +1470,7 @@ Whether first casualty check has been made
 halfDownChecked: boolean;
 ```
 
-Defined in: combat/morale.ts:58
+Defined in: [combat/morale.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L58)
 
 Whether half-down check has been made
 
@@ -1478,7 +1478,7 @@ Whether half-down check has been made
 
 ### CreatureMoraleState
 
-Defined in: combat/morale.ts:64
+Defined in: [combat/morale.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L64)
 
 Morale state for a single creature
 
@@ -1490,7 +1490,7 @@ Morale state for a single creature
 maxHP: number;
 ```
 
-Defined in: combat/morale.ts:66
+Defined in: [combat/morale.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L66)
 
 Maximum hit points
 
@@ -1500,7 +1500,7 @@ Maximum hit points
 currentHP: number;
 ```
 
-Defined in: combat/morale.ts:69
+Defined in: [combat/morale.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L69)
 
 Current hit points
 
@@ -1510,7 +1510,7 @@ Current hit points
 halfHPChecked: boolean;
 ```
 
-Defined in: combat/morale.ts:72
+Defined in: [combat/morale.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L72)
 
 Whether half-HP check has been made
 
@@ -1518,7 +1518,7 @@ Whether half-HP check has been made
 
 ### RetainerMoraleState
 
-Defined in: combat/morale.ts:78
+Defined in: [combat/morale.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L78)
 
 Morale state for a retainer
 
@@ -1530,7 +1530,7 @@ Morale state for a retainer
 firstCombatChecked: boolean;
 ```
 
-Defined in: combat/morale.ts:80
+Defined in: [combat/morale.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L80)
 
 Whether first combat check has been made this adventure
 
@@ -1540,7 +1540,7 @@ Whether first combat check has been made this adventure
 firstDangerChecked: boolean;
 ```
 
-Defined in: combat/morale.ts:83
+Defined in: [combat/morale.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L83)
 
 Whether first danger check has been made this adventure
 
@@ -1548,7 +1548,7 @@ Whether first danger check has been made this adventure
 
 ### MoraleCheckInput
 
-Defined in: combat/morale.ts:89
+Defined in: [combat/morale.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L89)
 
 Input for making a morale check
 
@@ -1560,7 +1560,7 @@ Input for making a morale check
 entityType: MoraleEntityType;
 ```
 
-Defined in: combat/morale.ts:91
+Defined in: [combat/morale.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L91)
 
 Type of entity
 
@@ -1570,7 +1570,7 @@ Type of entity
 willSave: number;
 ```
 
-Defined in: combat/morale.ts:94
+Defined in: [combat/morale.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L94)
 
 Creature's Will save bonus
 
@@ -1580,7 +1580,7 @@ Creature's Will save bonus
 trigger: MoraleTrigger;
 ```
 
-Defined in: combat/morale.ts:97
+Defined in: [combat/morale.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L97)
 
 What triggered the check
 
@@ -1590,7 +1590,7 @@ What triggered the check
 optional dc?: number;
 ```
 
-Defined in: combat/morale.ts:100
+Defined in: [combat/morale.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L100)
 
 DC to beat (default 11)
 
@@ -1600,7 +1600,7 @@ DC to beat (default 11)
 optional situationalModifier?: number;
 ```
 
-Defined in: combat/morale.ts:103
+Defined in: [combat/morale.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L103)
 
 Situational modifier (-4 to +4)
 
@@ -1610,7 +1610,7 @@ Situational modifier (-4 to +4)
 optional employerPersonalityMod?: number;
 ```
 
-Defined in: combat/morale.ts:106
+Defined in: [combat/morale.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L106)
 
 For retainers: employer's Personality modifier
 
@@ -1620,7 +1620,7 @@ For retainers: employer's Personality modifier
 optional isImmune?: boolean;
 ```
 
-Defined in: combat/morale.ts:109
+Defined in: [combat/morale.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L109)
 
 Whether creature is immune to morale (automatons, golems, etc.)
 
@@ -1630,7 +1630,7 @@ Whether creature is immune to morale (automatons, golems, etc.)
 optional additionalModifiers?: LegacyRollModifier[];
 ```
 
-Defined in: combat/morale.ts:112
+Defined in: [combat/morale.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L112)
 
 Additional modifiers
 
@@ -1638,7 +1638,7 @@ Additional modifiers
 
 ### MoraleCheckResult
 
-Defined in: combat/morale.ts:118
+Defined in: [combat/morale.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L118)
 
 Result of a morale check
 
@@ -1650,7 +1650,7 @@ Result of a morale check
 roll: number;
 ```
 
-Defined in: combat/morale.ts:120
+Defined in: [combat/morale.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L120)
 
 The d20 roll result
 
@@ -1660,7 +1660,7 @@ The d20 roll result
 total: number;
 ```
 
-Defined in: combat/morale.ts:123
+Defined in: [combat/morale.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L123)
 
 Total after all modifiers
 
@@ -1670,7 +1670,7 @@ Total after all modifiers
 dc: number;
 ```
 
-Defined in: combat/morale.ts:126
+Defined in: [combat/morale.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L126)
 
 DC that needed to be met
 
@@ -1680,7 +1680,7 @@ DC that needed to be met
 passed: boolean;
 ```
 
-Defined in: combat/morale.ts:129
+Defined in: [combat/morale.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L129)
 
 Whether the check passed (creature keeps fighting)
 
@@ -1690,7 +1690,7 @@ Whether the check passed (creature keeps fighting)
 immune: boolean;
 ```
 
-Defined in: combat/morale.ts:132
+Defined in: [combat/morale.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L132)
 
 Whether the check was skipped due to immunity
 
@@ -1700,7 +1700,7 @@ Whether the check was skipped due to immunity
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: combat/morale.ts:135
+Defined in: [combat/morale.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L135)
 
 All modifiers applied
 
@@ -1710,7 +1710,7 @@ All modifiers applied
 trigger: MoraleTrigger;
 ```
 
-Defined in: combat/morale.ts:138
+Defined in: [combat/morale.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L138)
 
 What triggered this check
 
@@ -1720,7 +1720,7 @@ What triggered this check
 outcome: "fights" | "flees" | "immune";
 ```
 
-Defined in: combat/morale.ts:141
+Defined in: [combat/morale.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L141)
 
 Description of outcome
 
@@ -1732,7 +1732,7 @@ Description of outcome
 type VitalStatus = "alive" | "unconscious" | "bleeding-out" | "dead" | "permanently-dead";
 ```
 
-Defined in: combat/death-and-dying.ts:25
+Defined in: [combat/death-and-dying.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L25)
 
 Character's vital status
 
@@ -1744,7 +1744,7 @@ Character's vital status
 type RestType = "active-adventure" | "bed-rest";
 ```
 
-Defined in: combat/death-and-dying.ts:125
+Defined in: [combat/death-and-dying.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L125)
 
 Type of rest for healing
 
@@ -1756,7 +1756,7 @@ Type of rest for healing
 type AbilityLossEffect = "babbling-idiot" | "immobile" | "unconscious" | "constant-mishaps";
 ```
 
-Defined in: combat/misc-rules.ts:29
+Defined in: [combat/misc-rules.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L29)
 
 Effect of having an ability reduced to 0
 
@@ -1768,7 +1768,7 @@ Effect of having an ability reduced to 0
 type MissileRangeBand = "short" | "medium" | "long" | "out-of-range";
 ```
 
-Defined in: combat/misc-rules.ts:592
+Defined in: [combat/misc-rules.ts:592](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L592)
 
 The three DCC missile range bands, plus the beyond-maximum case.
 
@@ -1786,7 +1786,7 @@ the target cannot be attacked.
 type HorseType = "warhorse" | "riding-horse" | "draft-horse" | "pony";
 ```
 
-Defined in: combat/misc-rules.ts:1181
+Defined in: [combat/misc-rules.ts:1181](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1181)
 
 Type of horse for combat purposes
 
@@ -1798,7 +1798,7 @@ Type of horse for combat purposes
 type MoraleEntityType = "monster" | "retainer" | "npc";
 ```
 
-Defined in: combat/morale.ts:29
+Defined in: [combat/morale.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L29)
 
 Type of entity making the morale check
 
@@ -1818,7 +1818,7 @@ type MoraleTrigger =
   | "other";
 ```
 
-Defined in: combat/morale.ts:34
+Defined in: [combat/morale.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L34)
 
 Trigger that caused the morale check
 
@@ -1830,7 +1830,7 @@ Trigger that caused the morale check
 type MoraleImmuneType = typeof MORALE_IMMUNE_TYPES[number];
 ```
 
-Defined in: combat/morale.ts:479
+Defined in: [combat/morale.ts:479](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L479)
 
 ## Variables
 
@@ -1840,7 +1840,7 @@ Defined in: combat/morale.ts:479
 const DEFAULT_CRIT_DIE: DieType = "d8";
 ```
 
-Defined in: combat/crits.ts:42
+Defined in: [combat/crits.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L42)
 
 Default crit die when no class progression is registered
 
@@ -1852,7 +1852,7 @@ Default crit die when no class progression is registered
 const SCAR_DESCRIPTIONS: readonly string[];
 ```
 
-Defined in: combat/death-and-dying.ts:622
+Defined in: [combat/death-and-dying.ts:622](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L622)
 
 The scar table for characters saved from bleeding out. Order is part of
 the public contract: `StabilizeResult.scarIndex` indexes this array, and
@@ -1866,7 +1866,7 @@ localizing consumers key their translations off it.
 const ARMOR_CHECK_PENALTY: Record<ArmorType, number>;
 ```
 
-Defined in: combat/fumbles.ts:31
+Defined in: [combat/fumbles.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L31)
 
 Armor check penalty by armor type (DCC core rules Table 3-3)
 This penalty applies to certain skill checks.
@@ -1879,7 +1879,7 @@ This penalty applies to certain skill checks.
 const ARMOR_SPEED_PENALTY: Record<ArmorType, number>;
 ```
 
-Defined in: combat/fumbles.ts:47
+Defined in: [combat/fumbles.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L47)
 
 Speed reduction by armor type, in feet (DCC core rules Table 3-3).
 
@@ -1891,7 +1891,7 @@ Speed reduction by armor type, in feet (DCC core rules Table 3-3).
 const MONSTER_FUMBLE_BASE_DIE: "1d10" = "1d10";
 ```
 
-Defined in: combat/fumbles.ts:136
+Defined in: [combat/fumbles.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L136)
 
 Base monster fumble die under the optional Monster Fumbles rule, at a +0
 targeted-PC Luck modifier (DCC Yearbook #8). The die steps along the dice
@@ -1905,7 +1905,7 @@ chain from here as the PC's Luck rises or falls.
 const DEFAULT_INITIATIVE_DIE: DieType = "d20";
 ```
 
-Defined in: combat/initiative.ts:31
+Defined in: [combat/initiative.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L30)
 
 Standard initiative die for all classes (RAW).
 
@@ -1917,7 +1917,7 @@ Standard initiative die for all classes (RAW).
 const TWO_HANDED_INITIATIVE_DIE: DieType = "d16";
 ```
 
-Defined in: combat/initiative.ts:34
+Defined in: [combat/initiative.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L33)
 
 Initiative die when wielding a two-handed weapon (RAW).
 
@@ -1929,7 +1929,7 @@ Initiative die when wielding a two-handed weapon (RAW).
 const FIRING_INTO_MELEE_PENALTY: -1 = -1;
 ```
 
-Defined in: combat/misc-rules.ts:507
+Defined in: [combat/misc-rules.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L507)
 
 To-hit penalty for making a missile attack at a target engaged in melee
 (DCC core rulebook p. 96). A flat -1 regardless of how many combatants are
@@ -1947,7 +1947,7 @@ from the *friendly-fire* check that happens when such a shot misses — see
 const SUBDUAL_CAPABLE_WEAPONS: readonly ["sword", "longsword", "short sword", "two-handed sword", "axe", "battle axe", "hand axe", "club", "spear", "staff", "quarterstaff"];
 ```
 
-Defined in: combat/misc-rules.ts:901
+Defined in: [combat/misc-rules.ts:901](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L901)
 
 Weapons that can deal subdual damage when the user is proficient
 
@@ -1959,7 +1959,7 @@ Weapons that can deal subdual damage when the user is proficient
 const DEFAULT_MORALE_DC: 11 = 11;
 ```
 
-Defined in: combat/morale.ts:149
+Defined in: [combat/morale.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L149)
 
 Default morale DC
 
@@ -1971,7 +1971,7 @@ Default morale DC
 const MAX_SITUATIONAL_MODIFIER: 4 = 4;
 ```
 
-Defined in: combat/morale.ts:152
+Defined in: [combat/morale.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L152)
 
 Maximum situational modifier
 
@@ -1983,7 +1983,7 @@ Maximum situational modifier
 const MIN_SITUATIONAL_MODIFIER: -4 = -4;
 ```
 
-Defined in: combat/morale.ts:155
+Defined in: [combat/morale.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L155)
 
 Minimum situational modifier
 
@@ -1995,7 +1995,7 @@ Minimum situational modifier
 const MORALE_IMMUNE_TYPES: readonly ["automaton", "construct", "golem", "animated", "mindless", "undead-mindless", "ooze", "elemental"];
 ```
 
-Defined in: combat/morale.ts:468
+Defined in: [combat/morale.ts:468](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L468)
 
 Common creature types that are immune to morale
 
@@ -2007,7 +2007,7 @@ Common creature types that are immune to morale
 function classExtraActionDieUse(className: string | undefined): ActionDieUse;
 ```
 
-Defined in: combat/action-dice.ts:49
+Defined in: [combat/action-dice.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L49)
 
 The `use` of a class's *extra* (slot ≥ 1) action dice.
 
@@ -2040,7 +2040,7 @@ function parseActionDice(input: string | string[], opts?: {
 }): ActionDieSlot[];
 ```
 
-Defined in: combat/action-dice.ts:74
+Defined in: [combat/action-dice.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L74)
 
 Parse an action-dice authoring value into structured slots.
 
@@ -2078,7 +2078,7 @@ Slots in authoring order, each with a single die (count 1).
 function actionMatchesUse(use: ActionDieUse, action: ActionType): boolean;
 ```
 
-Defined in: combat/action-dice.ts:142
+Defined in: [combat/action-dice.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L142)
 
 Whether a slot's `use` tag permits a given action.
 
@@ -2115,7 +2115,7 @@ function nextActionDie(
   | null;
 ```
 
-Defined in: combat/action-dice.ts:160
+Defined in: [combat/action-dice.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L160)
 
 The next unspent slot eligible for `action`, in budget order.
 
@@ -2149,7 +2149,7 @@ a weapon attack).
 function spendActionDie(state: ActionDiceState, index: number): ActionDiceState;
 ```
 
-Defined in: combat/action-dice.ts:180
+Defined in: [combat/action-dice.ts:180](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L180)
 
 Mark a slot spent, returning a new state (the input is not mutated).
 Out-of-range indices extend `spent` with unspent entries as needed.
@@ -2173,7 +2173,7 @@ Out-of-range indices extend `spent` with unspent entries as needed.
 function resetActionDice(slots: ActionDieSlot[], round: number): ActionDiceState;
 ```
 
-Defined in: combat/action-dice.ts:194
+Defined in: [combat/action-dice.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L194)
 
 A fresh all-unspent state for the given round, sized to `slots`.
 Call this on a combatant's turn to reset its budget.
@@ -2197,7 +2197,7 @@ Call this on a combatant's turn to reset its budget.
 function isActionDiceStateCurrent(state: ActionDiceState, round: number): boolean;
 ```
 
-Defined in: combat/action-dice.ts:205
+Defined in: [combat/action-dice.ts:205](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L205)
 
 Whether `state` belongs to `round`. The caller resets when this is false
 at the start of a combatant's turn (the lib does not watch the clock).
@@ -2221,7 +2221,7 @@ at the start of a combatant's turn (the lib does not watch the clock).
 function actionDieRollTerms(slot: ActionDieSlot): ActionDieRollTerms;
 ```
 
-Defined in: combat/action-dice.ts:222
+Defined in: [combat/action-dice.ts:222](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/action-dice.ts#L222)
 
 Resolve the roll terms for a chosen slot, reconciling its own modifier
 against the generic attack bonus.
@@ -2254,7 +2254,7 @@ function makeAttackRoll(
 ): AttackResult;
 ```
 
-Defined in: combat/attack.ts:143
+Defined in: [combat/attack.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L143)
 
 Make an attack roll
 
@@ -2333,7 +2333,7 @@ function calculateAttackBonus(
 ): number;
 ```
 
-Defined in: combat/attack.ts:281
+Defined in: [combat/attack.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L281)
 
 Calculate attack bonus from character data
 
@@ -2364,7 +2364,7 @@ function doesAttackHit(
 ): boolean;
 ```
 
-Defined in: combat/attack.ts:302
+Defined in: [combat/attack.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L302)
 
 Check if an attack hits a target
 
@@ -2394,7 +2394,7 @@ Whether the attack hits
 function getAttackAbility(attackType: "melee" | "missile" | "special"): "str" | "agl";
 ```
 
-Defined in: combat/attack.ts:328
+Defined in: [combat/attack.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L328)
 
 Get the attack ability for an attack type
 
@@ -2420,7 +2420,7 @@ function getTwoWeaponDice(agility: number, options?: {
 }): TwoWeaponDiceConfig;
 ```
 
-Defined in: combat/attack.ts:342
+Defined in: [combat/attack.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L342)
 
 Compute the two-weapon-fighting dice configuration for a given Agility
 (Table 4-3, with halfling class overrides applied when `isHalfling`).
@@ -2455,7 +2455,7 @@ function rollTwoWeaponAttack(
 ): TwoWeaponAttackResult;
 ```
 
-Defined in: combat/attack.ts:433
+Defined in: [combat/attack.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L433)
 
 Roll a full two-weapon attack round (both hands).
 
@@ -2494,7 +2494,7 @@ function applyTwoWeaponHandRules(
 ): void;
 ```
 
-Defined in: combat/attack.ts:477
+Defined in: [combat/attack.ts:477](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L477)
 
 Apply one hand's Table 4-3 critical-hit rules to an attack roll made
 with that hand's reduced die (mutates `result`). Use this when each
@@ -2533,7 +2533,7 @@ here.
 function isDeedSuccessful(deedRoll: number): boolean;
 ```
 
-Defined in: combat/attack.ts:579
+Defined in: [combat/attack.ts:579](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L579)
 
 Check if a deed die roll is successful
 
@@ -2559,7 +2559,7 @@ Whether the deed succeeded
 function getCritTable(classId: string, level?: number): CritTableId;
 ```
 
-Defined in: combat/crits.ts:62
+Defined in: [combat/crits.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L62)
 
 Get the crit table for a class at a level. Crit tables can vary by level
 (e.g., warriors use III at L1-2, IV at L3-4, V at L5+), so prefer passing
@@ -2586,7 +2586,7 @@ Crit table ID
 function getCritDie(classId: string, level: number): string;
 ```
 
-Defined in: combat/crits.ts:76
+Defined in: [combat/crits.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L76)
 
 Get crit die for a class at a level. Reads from the registered class
 progression data (see `registerClassProgression`). Returns the `DEFAULT_CRIT_DIE`
@@ -2617,7 +2617,7 @@ function rollCritical(
 ): CriticalResult;
 ```
 
-Defined in: combat/crits.ts:116
+Defined in: [combat/crits.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L116)
 
 Roll a critical hit
 
@@ -2668,7 +2668,7 @@ function calculateCritModifier(
 ): number;
 ```
 
-Defined in: combat/crits.ts:189
+Defined in: [combat/crits.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L189)
 
 Calculate total crit modifier
 
@@ -2694,7 +2694,7 @@ Total crit roll modifier
 function determineCritTable(classId: string, weaponCritTable?: CritTableId): CritTableId;
 ```
 
-Defined in: combat/crits.ts:213
+Defined in: [combat/crits.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L213)
 
 Determine which crit table to use based on class and weapon
 
@@ -2723,7 +2723,7 @@ function buildCritFormula(
 ): string;
 ```
 
-Defined in: combat/crits.ts:233
+Defined in: [combat/crits.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L233)
 
 Build crit formula string for display
 
@@ -2754,7 +2754,7 @@ function parseCritExtraDamage(tableResultText: string):
   | undefined;
 ```
 
-Defined in: combat/crits.ts:263
+Defined in: [combat/crits.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/crits.ts#L263)
 
 Parse crit table result into extra damage
 
@@ -2790,7 +2790,7 @@ function rollDamage(
 ): DamageResult;
 ```
 
-Defined in: combat/damage.ts:51
+Defined in: [combat/damage.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L51)
 
 Roll weapon damage
 
@@ -2841,7 +2841,7 @@ function calculateDamageModifier(
 ): number;
 ```
 
-Defined in: combat/damage.ts:143
+Defined in: [combat/damage.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L143)
 
 Calculate damage modifier from all sources
 
@@ -2871,7 +2871,7 @@ function getWeaponDamage(weapon: WeaponStats, isBackstab: boolean): {
 };
 ```
 
-Defined in: combat/damage.ts:171
+Defined in: [combat/damage.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L171)
 
 Select the damage die and dice count to roll for a weapon attack,
 substituting `weapon.backstabDamage` when `isBackstab` is true
@@ -2896,8 +2896,8 @@ thief-class requirement via `canBackstab(...)` before setting the flag.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `damageDie` | `` `d${number}` `` | combat/damage.ts:174 |
-| `diceCount` | `number` | combat/damage.ts:174 |
+| `damageDie` | `` `d${number}` `` | [combat/damage.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L174) |
+| `diceCount` | `number` | [combat/damage.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L174) |
 
 ***
 
@@ -2911,7 +2911,7 @@ function getTwoHandedDamageDie(
 ): `d${number}`;
 ```
 
-Defined in: combat/damage.ts:199
+Defined in: [combat/damage.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L199)
 
 Calculate two-handed weapon damage bonus
 
@@ -2945,7 +2945,7 @@ function buildDamageFormula(
 ): string;
 ```
 
-Defined in: combat/damage.ts:218
+Defined in: [combat/damage.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L218)
 
 Build damage formula string for display
 
@@ -2971,7 +2971,7 @@ Formatted damage string
 function applyMinimumDamage(damageTotal: number): number;
 ```
 
-Defined in: combat/damage.ts:243
+Defined in: [combat/damage.ts:243](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/damage.ts#L243)
 
 Calculate minimum damage
 
@@ -2997,7 +2997,7 @@ Damage, minimum 1
 function getBleedOutRounds(level: number): number;
 ```
 
-Defined in: combat/death-and-dying.ts:151
+Defined in: [combat/death-and-dying.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L151)
 
 Get the number of rounds a character can bleed out before dying
 
@@ -3021,7 +3021,7 @@ Rounds until permanent death, or 0 for instant death
 function getVitalStatus(currentHP: number, level: number): VitalStatus;
 ```
 
-Defined in: combat/death-and-dying.ts:167
+Defined in: [combat/death-and-dying.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L167)
 
 Determine a character's vital status based on current HP and level
 
@@ -3046,7 +3046,7 @@ Vital status
 function applyDamage(character: Character, damage: number): DamageApplicationResult;
 ```
 
-Defined in: combat/death-and-dying.ts:189
+Defined in: [combat/death-and-dying.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L189)
 
 Apply damage to a character and determine the result
 
@@ -3071,7 +3071,7 @@ Damage result with new status
 function canBeSaved(level: number, roundsElapsed: number): boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:228
+Defined in: [combat/death-and-dying.ts:228](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L228)
 
 Check if a character can be saved from bleeding out
 
@@ -3096,7 +3096,7 @@ Whether the character can still be saved
 function advanceBleedOutRound(state: BleedingOutState): BleedingOutState | undefined;
 ```
 
-Defined in: combat/death-and-dying.ts:255
+Defined in: [combat/death-and-dying.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L255)
 
 Advance the bleeding out timer by one round
 
@@ -3126,7 +3126,7 @@ Updated state, or undefined if character is now permanently dead
 function createBleedingOutState(level: number, currentRound: number): BleedingOutState;
 ```
 
-Defined in: combat/death-and-dying.ts:276
+Defined in: [combat/death-and-dying.ts:276](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L276)
 
 Create initial bleeding out state for a character
 
@@ -3151,7 +3151,7 @@ Bleeding out state
 function stabilizeCharacter(bleedingState: BleedingOutState, healingAmount: number): StabilizeResult;
 ```
 
-Defined in: combat/death-and-dying.ts:302
+Defined in: [combat/death-and-dying.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L302)
 
 Attempt to stabilize a bleeding out character
 
@@ -3183,7 +3183,7 @@ function applyBleedOutTrauma(
 ): Character;
 ```
 
-Defined in: combat/death-and-dying.ts:350
+Defined in: [combat/death-and-dying.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L350)
 
 Apply the permanent trauma from being saved from bleeding out
 
@@ -3213,7 +3213,7 @@ Updated character
 function attemptBodyRecovery(luckScore: number, roller: DiceRoller): BodyRecoveryResult;
 ```
 
-Defined in: combat/death-and-dying.ts:395
+Defined in: [combat/death-and-dying.ts:395](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L395)
 
 Attempt to recover a dead character's body
 
@@ -3244,7 +3244,7 @@ Body recovery result
 function applyBodyRecovery(character: Character, recovery: BodyRecoveryResult): Character | undefined;
 ```
 
-Defined in: combat/death-and-dying.ts:435
+Defined in: [combat/death-and-dying.ts:435](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L435)
 
 Apply body recovery result to a character
 
@@ -3269,7 +3269,7 @@ Updated character, or undefined if recovery failed
 function getHealingFromRest(restType: RestType): number;
 ```
 
-Defined in: combat/death-and-dying.ts:495
+Defined in: [combat/death-and-dying.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L495)
 
 Calculate natural healing from rest
 
@@ -3293,7 +3293,7 @@ HP healed per night
 function applyNaturalHealing(character: Character, restType: RestType): HealingResult;
 ```
 
-Defined in: combat/death-and-dying.ts:513
+Defined in: [combat/death-and-dying.ts:513](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L513)
 
 Apply natural healing to a character
 
@@ -3318,7 +3318,7 @@ Healing result
 function applyHealingResult(character: Character, healing: HealingResult): Character;
 ```
 
-Defined in: combat/death-and-dying.ts:554
+Defined in: [combat/death-and-dying.ts:554](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L554)
 
 Apply healing result to a character
 
@@ -3343,7 +3343,7 @@ Updated character
 function applyMagicalHealing(character: Character, amount: number): Character;
 ```
 
-Defined in: combat/death-and-dying.ts:593
+Defined in: [combat/death-and-dying.ts:593](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L593)
 
 Apply magical healing to a character
 
@@ -3368,7 +3368,7 @@ Updated character
 function getScarDescription(index: number): string;
 ```
 
-Defined in: combat/death-and-dying.ts:647
+Defined in: [combat/death-and-dying.ts:647](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L647)
 
 Look up the English description for a scar index
 
@@ -3390,7 +3390,7 @@ Look up the English description for a scar index
 function isAtDeathsDoor(currentHP: number): boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:657
+Defined in: [combat/death-and-dying.ts:657](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L657)
 
 Check if a character is at death's door (1 HP or less)
 
@@ -3414,7 +3414,7 @@ Whether character is at death's door
 function canReceiveHealing(status: VitalStatus): boolean;
 ```
 
-Defined in: combat/death-and-dying.ts:667
+Defined in: [combat/death-and-dying.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/death-and-dying.ts#L667)
 
 Check if a character can receive healing
 
@@ -3438,7 +3438,7 @@ Whether healing can be applied
 function getFumbleDie(armorType: ArmorType): `d${number}`;
 ```
 
-Defined in: combat/fumbles.ts:70
+Defined in: [combat/fumbles.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L70)
 
 Get the fumble die for an armor type
 
@@ -3462,7 +3462,7 @@ Fumble die type
 function getArmorType(armorName: string): ArmorType;
 ```
 
-Defined in: combat/fumbles.ts:92
+Defined in: [combat/fumbles.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L92)
 
 Get armor type from armor name
 
@@ -3486,7 +3486,7 @@ Armor type, defaulting to unarmored
 function getMonsterFumbleDie(targetLuckModifier: number): string;
 ```
 
-Defined in: combat/fumbles.ts:162
+Defined in: [combat/fumbles.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L162)
 
 Optional "Monster Fumbles" rule (DCC Yearbook #8). When a monster fumbles
 (natural 1 on its attack die) against a PC, the targeted PC's Luck modifier
@@ -3535,7 +3535,7 @@ function rollFumble(
 ): FumbleResult;
 ```
 
-Defined in: combat/fumbles.ts:200
+Defined in: [combat/fumbles.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L200)
 
 Roll a fumble
 
@@ -3587,7 +3587,7 @@ const result = rollFumble({
 function calculateFumbleModifier(luckModifier: number): number;
 ```
 
-Defined in: combat/fumbles.ts:249
+Defined in: [combat/fumbles.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L249)
 
 Calculate fumble modifier (for preview)
 
@@ -3611,7 +3611,7 @@ Net modifier to fumble roll (negative luck = positive modifier)
 function buildFumbleFormula(fumbleDie: `d${number}`, luckModifier: number): string;
 ```
 
-Defined in: combat/fumbles.ts:261
+Defined in: [combat/fumbles.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L261)
 
 Build fumble formula string for display
 
@@ -3636,7 +3636,7 @@ Formatted fumble formula
 function isFumble(naturalRoll: number): boolean;
 ```
 
-Defined in: combat/fumbles.ts:283
+Defined in: [combat/fumbles.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L283)
 
 Check if a natural roll is a fumble
 
@@ -3660,7 +3660,7 @@ True if the roll is a fumble (natural 1)
 function getArmorCheckPenalty(armorType: ArmorType): number;
 ```
 
-Defined in: combat/fumbles.ts:293
+Defined in: [combat/fumbles.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L293)
 
 Get armor check penalty for an armor type
 
@@ -3684,7 +3684,7 @@ Check penalty (negative number)
 function getArmorSpeedPenalty(armorType: ArmorType): number;
 ```
 
-Defined in: combat/fumbles.ts:303
+Defined in: [combat/fumbles.ts:303](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/fumbles.ts#L303)
 
 Get speed penalty for an armor type
 
@@ -3708,7 +3708,7 @@ Speed reduction in feet
 function getInitiativeDie(isWieldingTwoHanded?: boolean): `d${number}`;
 ```
 
-Defined in: combat/initiative.ts:43
+Defined in: [combat/initiative.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L42)
 
 Get the initiative die a character should roll.
 
@@ -3736,7 +3736,7 @@ function rollInitiative(
 ): InitiativeResult;
 ```
 
-Defined in: combat/initiative.ts:78
+Defined in: [combat/initiative.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L77)
 
 Roll initiative.
 
@@ -3793,7 +3793,7 @@ function calculateInitiativeModifier(
 ): number;
 ```
 
-Defined in: combat/initiative.ts:131
+Defined in: [combat/initiative.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L130)
 
 Calculate total initiative modifier (no die roll).
 
@@ -3821,7 +3821,7 @@ function buildInitiativeFormula(
 ): string;
 ```
 
-Defined in: combat/initiative.ts:151
+Defined in: [combat/initiative.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L150)
 
 Build initiative formula string for display.
 
@@ -3847,7 +3847,7 @@ function sortByInitiative<T extends {
 }>(combatants: readonly T[]): T[];
 ```
 
-Defined in: combat/initiative.ts:171
+Defined in: [combat/initiative.ts:170](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L170)
 
 Sort combatants by initiative (highest first).
 
@@ -3875,7 +3875,7 @@ Sort combatants by initiative (highest first).
 function isInitiativeTied(a: InitiativeResult, b: InitiativeResult): boolean;
 ```
 
-Defined in: combat/initiative.ts:180
+Defined in: [combat/initiative.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/initiative.ts#L179)
 
 Check for tied initiatives.
 
@@ -3898,7 +3898,7 @@ Check for tied initiatives.
 function getAbilityLossEffect(ability: DCCAbilityId): AbilityLossResult;
 ```
 
-Defined in: combat/misc-rules.ts:247
+Defined in: [combat/misc-rules.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L247)
 
 Get the effect of an ability being reduced to 0
 
@@ -3922,7 +3922,7 @@ The effect on the character
 function checkAbilityLoss(abilities: Record<DCCAbilityId, number>): AbilityLossResult[];
 ```
 
-Defined in: combat/misc-rules.ts:300
+Defined in: [combat/misc-rules.ts:300](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L300)
 
 Check all abilities for zero values and return effects
 
@@ -3950,7 +3950,7 @@ function createOnFireState(options?: {
 }): OnFireState;
 ```
 
-Defined in: combat/misc-rules.ts:324
+Defined in: [combat/misc-rules.ts:324](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L324)
 
 Create initial on-fire state
 
@@ -3982,7 +3982,7 @@ function processFireRound(
 ): FireDamageResult;
 ```
 
-Defined in: combat/misc-rules.ts:346
+Defined in: [combat/misc-rules.ts:346](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L346)
 
 Process a round of being on fire
 
@@ -4009,7 +4009,7 @@ Fire damage result
 function getChargeModifiers(speed: number): ChargeModifiers;
 ```
 
-Defined in: combat/misc-rules.ts:397
+Defined in: [combat/misc-rules.ts:397](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L397)
 
 Get charge attack modifiers
 
@@ -4033,7 +4033,7 @@ Charge modifiers
 function isValidCharge(distanceMoved: number, speed: number): boolean;
 ```
 
-Defined in: combat/misc-rules.ts:412
+Defined in: [combat/misc-rules.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L412)
 
 Check if a charge is valid
 
@@ -4061,7 +4061,7 @@ function checkDroppedTorch(roller?: DiceRoller): {
 };
 ```
 
-Defined in: combat/misc-rules.ts:426
+Defined in: [combat/misc-rules.ts:426](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L426)
 
 Check if a dropped torch is extinguished
 
@@ -4084,8 +4084,8 @@ Whether the torch went out
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `extinguished` | `boolean` | combat/misc-rules.ts:426 |
-| `roll` | `number` | combat/misc-rules.ts:426 |
+| `extinguished` | `boolean` | [combat/misc-rules.ts:426](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L426) |
+| `roll` | `number` | [combat/misc-rules.ts:426](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L426) |
 
 ***
 
@@ -4095,7 +4095,7 @@ Whether the torch went out
 function calculateFallingDamage(distanceFeet: number, roller?: DiceRoller): FallingDamageResult;
 ```
 
-Defined in: combat/misc-rules.ts:450
+Defined in: [combat/misc-rules.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L450)
 
 Calculate falling damage
 
@@ -4120,7 +4120,7 @@ Falling damage result
 function getFiringIntoMeleePenalty(targetEngagedInMelee: boolean): number;
 ```
 
-Defined in: combat/misc-rules.ts:519
+Defined in: [combat/misc-rules.ts:519](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L519)
 
 Get the to-hit penalty for a missile attack into melee.
 
@@ -4153,7 +4153,7 @@ function checkFiringIntoMelee(
 ): FiringIntoMeleeResult;
 ```
 
-Defined in: combat/misc-rules.ts:532
+Defined in: [combat/misc-rules.ts:532](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L532)
 
 Check if a missed ranged attack hits an ally in melee
 
@@ -4180,7 +4180,7 @@ Result of firing into melee
 function parseMissileRange(range: string): MissileRangeBands | null;
 ```
 
-Defined in: combat/misc-rules.ts:644
+Defined in: [combat/misc-rules.ts:644](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L644)
 
 Parse a DCC missile range string into structured bands.
 
@@ -4217,7 +4217,7 @@ function getMissileRangePenalty(
 ): MissileRangePenalty;
 ```
 
-Defined in: combat/misc-rules.ts:690
+Defined in: [combat/misc-rules.ts:690](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L690)
 
 Classify a missile attack's distance into a range band and report the
 penalty owed, per DCC core rulebook p. 96.
@@ -4255,7 +4255,7 @@ The range band and the penalty owed
 function getGrappleSizeBonus(attackerSize: number, defenderSize: number): number;
 ```
 
-Defined in: combat/misc-rules.ts:723
+Defined in: [combat/misc-rules.ts:723](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L723)
 
 Calculate size bonus for grappling
 
@@ -4280,7 +4280,7 @@ Bonus to attacker's grapple check
 function getGrappleModifier(participant: GrappleParticipant): number;
 ```
 
-Defined in: combat/misc-rules.ts:738
+Defined in: [combat/misc-rules.ts:738](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L738)
 
 Get the grapple modifier for a participant
 
@@ -4308,7 +4308,7 @@ function resolveGrapple(
 ): GrappleResult;
 ```
 
-Defined in: combat/misc-rules.ts:753
+Defined in: [combat/misc-rules.ts:753](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L753)
 
 Resolve a grapple attempt
 
@@ -4334,7 +4334,7 @@ Grapple result
 function checkArmorRecovery(checkHumanSized?: boolean, roller?: DiceRoller): ArmorRecoveryResult;
 ```
 
-Defined in: combat/misc-rules.ts:822
+Defined in: [combat/misc-rules.ts:822](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L822)
 
 Check whether armor salvaged from a defeated enemy is usable
 
@@ -4359,7 +4359,7 @@ Armor recovery result
 function checkMissileRecovery(numMissiles: number, roller?: DiceRoller): MissileRecoveryResult;
 ```
 
-Defined in: combat/misc-rules.ts:861
+Defined in: [combat/misc-rules.ts:861](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L861)
 
 Check recovery of missile weapons
 
@@ -4384,7 +4384,7 @@ Missile recovery result
 function canDealSubdualDamage(weaponName: string): boolean;
 ```
 
-Defined in: combat/misc-rules.ts:921
+Defined in: [combat/misc-rules.ts:921](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L921)
 
 Check if a weapon can deal subdual damage
 
@@ -4412,7 +4412,7 @@ function rollSubdualDamage(
 ): SubdualDamageResult;
 ```
 
-Defined in: combat/misc-rules.ts:934
+Defined in: [combat/misc-rules.ts:934](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L934)
 
 Calculate subdual damage (one die step lower)
 
@@ -4438,7 +4438,7 @@ Subdual damage result
 function rollUnarmedDamage(strengthMod: number, roller?: DiceRoller): SubdualDamageResult;
 ```
 
-Defined in: combat/misc-rules.ts:965
+Defined in: [combat/misc-rules.ts:965](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L965)
 
 Roll unarmed combat damage (always subdual)
 
@@ -4467,7 +4467,7 @@ function checkMeleeAgainstGrappled(
 ): FiringIntoMeleeResult;
 ```
 
-Defined in: combat/misc-rules.ts:997
+Defined in: [combat/misc-rules.ts:997](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L997)
 
 Check if a missed melee attack against a grappled creature hits the grappler
 
@@ -4497,7 +4497,7 @@ function processWithdrawal(
 ): WithdrawalResult;
 ```
 
-Defined in: combat/misc-rules.ts:1097
+Defined in: [combat/misc-rules.ts:1097](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1097)
 
 Process a withdrawal from melee combat
 
@@ -4526,7 +4526,7 @@ Withdrawal result with all attack of opportunity results
 function isEngagedInMelee(numAdjacentEnemies: number): boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1148
+Defined in: [combat/misc-rules.ts:1148](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1148)
 
 Check if a character is engaged in melee (for UI purposes)
 
@@ -4550,7 +4550,7 @@ Whether the character is engaged
 function formatWithdrawalResult(result: WithdrawalResult): string;
 ```
 
-Defined in: combat/misc-rules.ts:1155
+Defined in: [combat/misc-rules.ts:1155](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1155)
 
 Format withdrawal result for display
 
@@ -4582,7 +4582,7 @@ function createMountState(
 ): MountState;
 ```
 
-Defined in: combat/misc-rules.ts:1277
+Defined in: [combat/misc-rules.ts:1277](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1277)
 
 Create initial mount state
 
@@ -4613,7 +4613,7 @@ Mount state
 function getMountedCombatBonuses(isCharging?: boolean, hasLanceOrSpear?: boolean): MountedCombatBonuses;
 ```
 
-Defined in: combat/misc-rules.ts:1321
+Defined in: [combat/misc-rules.ts:1321](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1321)
 
 Get mounted combat bonuses
 
@@ -4638,7 +4638,7 @@ Combat bonuses
 function getMountedInitiativeModifier(riderInitMod: number, mountInitMod: number): number;
 ```
 
-Defined in: combat/misc-rules.ts:1341
+Defined in: [combat/misc-rules.ts:1341](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1341)
 
 Calculate mounted initiative modifier
 
@@ -4668,7 +4668,7 @@ function checkHorseSpooked(mount: MountState, damageDealt: number): {
 };
 ```
 
-Defined in: combat/misc-rules.ts:1358
+Defined in: [combat/misc-rules.ts:1358](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1358)
 
 Check if a horse is spooked by damage
 
@@ -4695,8 +4695,8 @@ Spook check result and updated mount state
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `result` | [`HorseSpookedResult`](#horsespookedresult) | combat/misc-rules.ts:1361 |
-| `newState` | [`MountState`](#mountstate) | combat/misc-rules.ts:1361 |
+| `result` | [`HorseSpookedResult`](#horsespookedresult) | [combat/misc-rules.ts:1361](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1361) |
+| `newState` | [`MountState`](#mountstate) | [combat/misc-rules.ts:1361](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1361) |
 
 ***
 
@@ -4706,7 +4706,7 @@ Spook check result and updated mount state
 function checkHorseAttackSpook(mount: MountState): HorseSpookedResult;
 ```
 
-Defined in: combat/misc-rules.ts:1429
+Defined in: [combat/misc-rules.ts:1429](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1429)
 
 Check if a horse is spooked by an untrained horse attacking
 
@@ -4736,7 +4736,7 @@ function makeStayMountedCheck(
 ): StayMountedResult;
 ```
 
-Defined in: combat/misc-rules.ts:1455
+Defined in: [combat/misc-rules.ts:1455](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1455)
 
 Make a stay mounted check
 
@@ -4764,7 +4764,7 @@ Stay mounted result
 function isLanceOrSpear(weaponName: string): boolean;
 ```
 
-Defined in: combat/misc-rules.ts:1493
+Defined in: [combat/misc-rules.ts:1493](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1493)
 
 Check if a weapon is a lance or spear (for mounted charge damage)
 
@@ -4788,7 +4788,7 @@ Whether it's a lance or spear
 function getMountedChargeDamageMultiplier(isCharging: boolean, weaponName: string): number;
 ```
 
-Defined in: combat/misc-rules.ts:1505
+Defined in: [combat/misc-rules.ts:1505](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1505)
 
 Calculate mounted charge damage multiplier
 
@@ -4813,7 +4813,7 @@ Damage multiplier (2 for lance/spear charge, 1 otherwise)
 function formatStayMountedResult(result: StayMountedResult): string;
 ```
 
-Defined in: combat/misc-rules.ts:1518
+Defined in: [combat/misc-rules.ts:1518](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1518)
 
 Format stay mounted result for display
 
@@ -4835,7 +4835,7 @@ Format stay mounted result for display
 function formatMountedBonuses(bonuses: MountedCombatBonuses): string;
 ```
 
-Defined in: combat/misc-rules.ts:1530
+Defined in: [combat/misc-rules.ts:1530](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1530)
 
 Format mounted combat bonuses for display
 
@@ -4857,7 +4857,7 @@ Format mounted combat bonuses for display
 function formatFallingDamage(result: FallingDamageResult): string;
 ```
 
-Defined in: combat/misc-rules.ts:1550
+Defined in: [combat/misc-rules.ts:1550](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1550)
 
 Format falling damage result for display
 
@@ -4883,7 +4883,7 @@ function formatGrappleResult(
 ): string;
 ```
 
-Defined in: combat/misc-rules.ts:1568
+Defined in: [combat/misc-rules.ts:1568](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/misc-rules.ts#L1568)
 
 Format grapple result for display
 
@@ -4907,7 +4907,7 @@ Format grapple result for display
 function makeMoraleCheck(input: MoraleCheckInput, roller?: DiceRoller): MoraleCheckResult;
 ```
 
-Defined in: combat/morale.ts:185
+Defined in: [combat/morale.ts:185](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L185)
 
 Make a morale check for a creature, retainer, or NPC
 
@@ -4957,7 +4957,7 @@ function calculateMoraleModifier(
 ): number;
 ```
 
-Defined in: combat/morale.ts:275
+Defined in: [combat/morale.ts:275](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L275)
 
 Calculate the total morale modifier for display
 
@@ -4988,7 +4988,7 @@ function checkGroupMoraleTrigger(state: GroupMoraleState, casualtyCount: number)
   | undefined;
 ```
 
-Defined in: combat/morale.ts:295
+Defined in: [combat/morale.ts:295](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L295)
 
 Check if a group morale check is triggered and update state
 
@@ -5022,7 +5022,7 @@ function checkCreatureMoraleTrigger(state: CreatureMoraleState, damageDealt: num
   | undefined;
 ```
 
-Defined in: combat/morale.ts:338
+Defined in: [combat/morale.ts:338](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L338)
 
 Check if a single creature morale check is triggered
 
@@ -5056,7 +5056,7 @@ function checkRetainerMoraleTrigger(state: RetainerMoraleState, situation: "comb
   | undefined;
 ```
 
-Defined in: combat/morale.ts:369
+Defined in: [combat/morale.ts:369](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L369)
 
 Check if a retainer morale check is triggered
 
@@ -5085,7 +5085,7 @@ Trigger type if check is needed, undefined otherwise
 function createGroupMoraleState(totalCreatures: number): GroupMoraleState;
 ```
 
-Defined in: combat/morale.ts:414
+Defined in: [combat/morale.ts:414](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L414)
 
 Create initial morale state for a group of creatures
 
@@ -5109,7 +5109,7 @@ Initial group morale state
 function createCreatureMoraleState(maxHP: number): CreatureMoraleState;
 ```
 
-Defined in: combat/morale.ts:429
+Defined in: [combat/morale.ts:429](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L429)
 
 Create initial morale state for a single creature
 
@@ -5133,7 +5133,7 @@ Initial creature morale state
 function createRetainerMoraleState(): RetainerMoraleState;
 ```
 
-Defined in: combat/morale.ts:442
+Defined in: [combat/morale.ts:442](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L442)
 
 Create initial morale state for a retainer
 
@@ -5151,7 +5151,7 @@ Initial retainer morale state
 function resetRetainerMoraleForNewAdventure(_state: RetainerMoraleState): RetainerMoraleState;
 ```
 
-Defined in: combat/morale.ts:455
+Defined in: [combat/morale.ts:455](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L455)
 
 Reset retainer morale state for a new adventure
 
@@ -5175,7 +5175,7 @@ Fresh retainer morale state
 function isImmuneToMorale(creatureType: string): boolean;
 ```
 
-Defined in: combat/morale.ts:487
+Defined in: [combat/morale.ts:487](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L487)
 
 Check if a creature type is immune to morale
 
@@ -5199,7 +5199,7 @@ Whether the creature is immune
 function hasImmuneTraits(traits: string[]): boolean;
 ```
 
-Defined in: combat/morale.ts:500
+Defined in: [combat/morale.ts:500](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L500)
 
 Check if a creature is immune based on traits/keywords
 
@@ -5223,7 +5223,7 @@ Whether the creature is immune
 function getSuggestedModifier(scenario: string): number;
 ```
 
-Defined in: combat/morale.ts:542
+Defined in: [combat/morale.ts:542](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L542)
 
 Get suggested situational modifier based on common scenarios
 
@@ -5245,7 +5245,7 @@ Get suggested situational modifier based on common scenarios
 function formatMoraleResult(result: MoraleCheckResult): string;
 ```
 
-Defined in: combat/morale.ts:589
+Defined in: [combat/morale.ts:589](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/morale.ts#L589)
 
 Format morale check result for display
 

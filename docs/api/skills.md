@@ -4,7 +4,7 @@
 
 ### SkillResolveOptions
 
-Defined in: skills/resolve.ts:227
+Defined in: [skills/resolve.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L227)
 
 Options for skill resolution (sync)
 
@@ -24,7 +24,7 @@ Options for skill resolution (sync)
 optional threatRange?: number;
 ```
 
-Defined in: skills/resolve.ts:229
+Defined in: [skills/resolve.ts:229](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L229)
 
 Threat range for critical success (default: max on die)
 
@@ -34,7 +34,7 @@ Threat range for critical success (default: max on die)
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:52
+Defined in: [types/dice.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L52)
 
 Whether to just build the formula or actually evaluate it
 
@@ -48,7 +48,7 @@ Whether to just build the formula or actually evaluate it
 optional roller?: DiceRoller;
 ```
 
-Defined in: types/dice.ts:55
+Defined in: [types/dice.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L55)
 
 Synchronous custom roller — used instead of built-in RNG when provided
 
@@ -60,7 +60,7 @@ Synchronous custom roller — used instead of built-in RNG when provided
 
 ### SkillResolveOptionsAsync
 
-Defined in: skills/resolve.ts:235
+Defined in: [skills/resolve.ts:235](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L235)
 
 Options for skill resolution (async)
 
@@ -80,7 +80,7 @@ Options for skill resolution (async)
 optional threatRange?: number;
 ```
 
-Defined in: skills/resolve.ts:237
+Defined in: [skills/resolve.ts:237](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L237)
 
 Threat range for critical success (default: max on die)
 
@@ -90,7 +90,7 @@ Threat range for critical success (default: max on die)
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:64
+Defined in: [types/dice.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L64)
 
 Whether to just build the formula or actually evaluate it
 
@@ -104,7 +104,7 @@ Whether to just build the formula or actually evaluate it
 roller: AsyncDiceRoller;
 ```
 
-Defined in: types/dice.ts:67
+Defined in: [types/dice.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L67)
 
 Asynchronous custom roller. Required for async evaluation.
 
@@ -124,7 +124,7 @@ function resolveSkillCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: skills/resolve.ts:336
+Defined in: [skills/resolve.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L336)
 
 Resolve a skill check (sync).
 
@@ -161,7 +161,7 @@ function resolveSkillCheckAsync(
 ): Promise<SkillCheckResult>;
 ```
 
-Defined in: skills/resolve.ts:377
+Defined in: [skills/resolve.ts:377](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L377)
 
 Resolve a skill check (async). Same pipeline as the sync variant;
 uses an async custom roller for the dice evaluation step.
@@ -196,7 +196,7 @@ function quickSkillCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: skills/resolve.ts:413
+Defined in: [skills/resolve.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L413)
 
 Quick skill check with minimal input
 
@@ -229,7 +229,7 @@ function abilityCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: skills/resolve.ts:444
+Defined in: [skills/resolve.ts:444](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L444)
 
 Create a simple ability check
 
@@ -259,7 +259,7 @@ function savingThrow(
 ): SkillCheckResult;
 ```
 
-Defined in: skills/resolve.ts:472
+Defined in: [skills/resolve.ts:472](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L472)
 
 Create a saving throw check
 

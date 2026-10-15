@@ -4,7 +4,7 @@
 
 ### CharacterAccessors
 
-Defined in: checks/accessors.ts:38
+Defined in: [checks/accessors.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L38)
 
 Functions to extract check-relevant data from a character.
 
@@ -22,7 +22,7 @@ Mapping summary (default DCC):
 getAbilityScore: (character: Character, abilityId: string) => number | undefined;
 ```
 
-Defined in: checks/accessors.ts:48
+Defined in: [checks/accessors.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L48)
 
 Get an ability score value for modifier calculation.
 
@@ -47,7 +47,7 @@ The ability score (e.g., 16), or undefined if not found
 getSaveBonus: (character: Character, saveId: string) => number;
 ```
 
-Defined in: checks/accessors.ts:59
+Defined in: [checks/accessors.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L59)
 
 Get a saving throw bonus (class-based bonus, not ability modifier).
 
@@ -72,7 +72,7 @@ The save bonus (e.g., 2), or 0 if not found
 getLevel: (character: Character) => number;
 ```
 
-Defined in: checks/accessors.ts:69
+Defined in: [checks/accessors.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L69)
 
 Get the character's level.
 
@@ -96,7 +96,7 @@ The character level (0 for 0-level characters)
 getLuck: (character: Character) => number;
 ```
 
-Defined in: checks/accessors.ts:79
+Defined in: [checks/accessors.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L79)
 
 Get the character's current luck score (for luck burning).
 
@@ -120,7 +120,7 @@ The current luck score
 getClassId: (character: Character) => string | undefined;
 ```
 
-Defined in: checks/accessors.ts:89
+Defined in: [checks/accessors.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L89)
 
 Get the character's class ID.
 
@@ -142,7 +142,7 @@ The class ID, or undefined for 0-level
 
 ### ParsedCheckId
 
-Defined in: checks/constants.ts:104
+Defined in: [checks/constants.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L104)
 
 Parsed check ID with namespace and value
 
@@ -154,7 +154,7 @@ Parsed check ID with namespace and value
 namespace: CheckNamespaceType | null;
 ```
 
-Defined in: checks/constants.ts:105
+Defined in: [checks/constants.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L105)
 
 ##### value
 
@@ -162,7 +162,7 @@ Defined in: checks/constants.ts:105
 value: string;
 ```
 
-Defined in: checks/constants.ts:106
+Defined in: [checks/constants.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L106)
 
 ##### raw
 
@@ -170,13 +170,13 @@ Defined in: checks/constants.ts:106
 raw: string;
 ```
 
-Defined in: checks/constants.ts:107
+Defined in: [checks/constants.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L107)
 
 ***
 
 ### LuckCheckResult
 
-Defined in: checks/luck-check.ts:19
+Defined in: [checks/luck-check.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L19)
 
 Result of a luck check
 
@@ -188,7 +188,7 @@ Result of a luck check
 roll: number;
 ```
 
-Defined in: checks/luck-check.ts:21
+Defined in: [checks/luck-check.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L21)
 
 The d20 roll
 
@@ -198,7 +198,7 @@ The d20 roll
 target: number;
 ```
 
-Defined in: checks/luck-check.ts:24
+Defined in: [checks/luck-check.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L24)
 
 The luck score being checked against
 
@@ -208,7 +208,7 @@ The luck score being checked against
 success: boolean;
 ```
 
-Defined in: checks/luck-check.ts:27
+Defined in: [checks/luck-check.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L27)
 
 Whether the check succeeded (roll <= target)
 
@@ -218,7 +218,7 @@ Whether the check succeeded (roll <= target)
 label: string;
 ```
 
-Defined in: checks/luck-check.ts:30
+Defined in: [checks/luck-check.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L30)
 
 Description of the check
 
@@ -226,7 +226,7 @@ Description of the check
 
 ### RollLuckCheckOptions
 
-Defined in: checks/luck-check.ts:36
+Defined in: [checks/luck-check.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L36)
 
 Options for rolling a luck check
 
@@ -238,7 +238,7 @@ Options for rolling a luck check
 optional roller?: DiceRoller;
 ```
 
-Defined in: checks/luck-check.ts:38
+Defined in: [checks/luck-check.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L38)
 
 Custom dice roller
 
@@ -248,7 +248,7 @@ Custom dice roller
 optional accessors?: CharacterAccessors;
 ```
 
-Defined in: checks/luck-check.ts:41
+Defined in: [checks/luck-check.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L41)
 
 Custom accessors for extracting data from the character
 
@@ -258,7 +258,7 @@ Custom accessors for extracting data from the character
 optional label?: string;
 ```
 
-Defined in: checks/luck-check.ts:44
+Defined in: [checks/luck-check.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L44)
 
 Label for the check
 
@@ -266,7 +266,7 @@ Label for the check
 
 ### InlineCheckConfig
 
-Defined in: checks/roll.ts:38
+Defined in: [checks/roll.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L38)
 
 Inline check configuration for custom/ad-hoc checks
 
@@ -278,7 +278,7 @@ Inline check configuration for custom/ad-hoc checks
 ability: string;
 ```
 
-Defined in: checks/roll.ts:40
+Defined in: [checks/roll.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L40)
 
 Ability to use for the modifier (raw ID like 'str', not namespaced)
 
@@ -288,7 +288,7 @@ Ability to use for the modifier (raw ID like 'str', not namespaced)
 optional die?: `d${number}`;
 ```
 
-Defined in: checks/roll.ts:43
+Defined in: [checks/roll.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L43)
 
 Die to roll (default: d20)
 
@@ -298,7 +298,7 @@ Die to roll (default: d20)
 optional name?: string;
 ```
 
-Defined in: checks/roll.ts:46
+Defined in: [checks/roll.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L46)
 
 Display name for the check
 
@@ -306,7 +306,7 @@ Display name for the check
 
 ### RollCheckOptions
 
-Defined in: checks/roll.ts:57
+Defined in: [checks/roll.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L57)
 
 Options for rollCheck (sync)
 
@@ -322,7 +322,7 @@ Options for rollCheck (sync)
 optional modifiers?: RollModifier[];
 ```
 
-Defined in: checks/roll.ts:59
+Defined in: [checks/roll.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L59)
 
 Additional situational modifiers
 
@@ -332,7 +332,7 @@ Additional situational modifiers
 optional luckBurn?: number;
 ```
 
-Defined in: checks/roll.ts:62
+Defined in: [checks/roll.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L62)
 
 Luck to burn on this roll
 
@@ -342,7 +342,7 @@ Luck to burn on this roll
 optional events?: SkillEvents;
 ```
 
-Defined in: checks/roll.ts:65
+Defined in: [checks/roll.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L65)
 
 Event callbacks
 
@@ -352,7 +352,7 @@ Event callbacks
 optional accessors?: CharacterAccessors;
 ```
 
-Defined in: checks/roll.ts:74
+Defined in: [checks/roll.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L74)
 
 Custom accessors for extracting data from the character.
 Override to support different character structures.
@@ -368,7 +368,7 @@ Override to support different character structures.
 optional additionalAbilities?: string[];
 ```
 
-Defined in: checks/roll.ts:81
+Defined in: [checks/roll.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L81)
 
 Additional ability IDs to extract from the character.
 Use this when your skill references a custom ability.
@@ -380,7 +380,7 @@ Standard DCC abilities (str, agl, sta, per, int, lck) are always included.
 optional threatRange?: number;
 ```
 
-Defined in: skills/resolve.ts:229
+Defined in: [skills/resolve.ts:229](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L229)
 
 Threat range for critical success (default: max on die)
 
@@ -394,7 +394,7 @@ Threat range for critical success (default: max on die)
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:52
+Defined in: [types/dice.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L52)
 
 Whether to just build the formula or actually evaluate it
 
@@ -408,7 +408,7 @@ Whether to just build the formula or actually evaluate it
 optional roller?: DiceRoller;
 ```
 
-Defined in: types/dice.ts:55
+Defined in: [types/dice.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L55)
 
 Synchronous custom roller — used instead of built-in RNG when provided
 
@@ -420,7 +420,7 @@ Synchronous custom roller — used instead of built-in RNG when provided
 
 ### RollCheckOptionsAsync
 
-Defined in: checks/roll.ts:89
+Defined in: [checks/roll.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L89)
 
 Options for rollCheckAsync. Uses an async custom roller — required
 when the underlying roll machinery is Promise-based (e.g. FoundryVTT's
@@ -438,7 +438,7 @@ when the underlying roll machinery is Promise-based (e.g. FoundryVTT's
 optional modifiers?: RollModifier[];
 ```
 
-Defined in: checks/roll.ts:90
+Defined in: [checks/roll.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L90)
 
 ##### luckBurn?
 
@@ -446,7 +446,7 @@ Defined in: checks/roll.ts:90
 optional luckBurn?: number;
 ```
 
-Defined in: checks/roll.ts:91
+Defined in: [checks/roll.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L91)
 
 ##### events?
 
@@ -454,7 +454,7 @@ Defined in: checks/roll.ts:91
 optional events?: SkillEvents;
 ```
 
-Defined in: checks/roll.ts:92
+Defined in: [checks/roll.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L92)
 
 ##### accessors?
 
@@ -462,7 +462,7 @@ Defined in: checks/roll.ts:92
 optional accessors?: CharacterAccessors;
 ```
 
-Defined in: checks/roll.ts:93
+Defined in: [checks/roll.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L93)
 
 ##### additionalAbilities?
 
@@ -470,7 +470,7 @@ Defined in: checks/roll.ts:93
 optional additionalAbilities?: string[];
 ```
 
-Defined in: checks/roll.ts:94
+Defined in: [checks/roll.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L94)
 
 ##### threatRange?
 
@@ -478,7 +478,7 @@ Defined in: checks/roll.ts:94
 optional threatRange?: number;
 ```
 
-Defined in: skills/resolve.ts:237
+Defined in: [skills/resolve.ts:237](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L237)
 
 Threat range for critical success (default: max on die)
 
@@ -492,7 +492,7 @@ Threat range for critical success (default: max on die)
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:64
+Defined in: [types/dice.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L64)
 
 Whether to just build the formula or actually evaluate it
 
@@ -506,7 +506,7 @@ Whether to just build the formula or actually evaluate it
 roller: AsyncDiceRoller;
 ```
 
-Defined in: types/dice.ts:67
+Defined in: [types/dice.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L67)
 
 Asynchronous custom roller. Required for async evaluation.
 
@@ -522,7 +522,7 @@ Asynchronous custom roller. Required for async evaluation.
 type CheckNamespaceType = typeof CheckNamespace[keyof typeof CheckNamespace];
 ```
 
-Defined in: checks/constants.ts:31
+Defined in: [checks/constants.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L31)
 
 Character-Level Check API
 
@@ -566,7 +566,7 @@ const result = rollCheck(Ability.STR, character, {
 type AbilityCheckId = typeof Ability[keyof typeof Ability];
 ```
 
-Defined in: checks/constants.ts:55
+Defined in: [checks/constants.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L55)
 
 Namespaced ability ID type
 
@@ -578,7 +578,7 @@ Namespaced ability ID type
 type AbilityId = "str" | "agl" | "sta" | "per" | "int" | "lck";
 ```
 
-Defined in: checks/constants.ts:60
+Defined in: [checks/constants.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L60)
 
 Raw ability ID (without namespace)
 
@@ -590,7 +590,7 @@ Raw ability ID (without namespace)
 type SaveCheckId = typeof Save[keyof typeof Save];
 ```
 
-Defined in: checks/constants.ts:81
+Defined in: [checks/constants.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L81)
 
 Namespaced save ID type
 
@@ -602,7 +602,7 @@ Namespaced save ID type
 type SaveId = "reflex" | "fortitude" | "will";
 ```
 
-Defined in: checks/constants.ts:86
+Defined in: [checks/constants.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L86)
 
 Raw save ID (without namespace)
 
@@ -617,7 +617,7 @@ type CheckInput =
   | InlineCheckConfig;
 ```
 
-Defined in: checks/roll.ts:52
+Defined in: [checks/roll.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L52)
 
 What can be passed as a check identifier
 
@@ -629,7 +629,7 @@ What can be passed as a check identifier
 const DEFAULT_ACCESSORS: CharacterAccessors;
 ```
 
-Defined in: checks/accessors.ts:111
+Defined in: [checks/accessors.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L111)
 
 Default accessors for standard DCC Character structure.
 
@@ -661,7 +661,7 @@ const CheckNamespace: {
 };
 ```
 
-Defined in: checks/constants.ts:25
+Defined in: [checks/constants.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L25)
 
 Check type namespaces
 
@@ -669,9 +669,9 @@ Check type namespaces
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-ability"></a> `ABILITY` | `"ability"` | `"ability"` | checks/constants.ts:26 |
-| <a id="property-save"></a> `SAVE` | `"save"` | `"save"` | checks/constants.ts:27 |
-| <a id="property-skill"></a> `SKILL` | `"skill"` | `"skill"` | checks/constants.ts:28 |
+| <a id="property-ability"></a> `ABILITY` | `"ability"` | `"ability"` | [checks/constants.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L26) |
+| <a id="property-save"></a> `SAVE` | `"save"` | `"save"` | [checks/constants.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L27) |
+| <a id="property-skill"></a> `SKILL` | `"skill"` | `"skill"` | [checks/constants.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L28) |
 
 ***
 
@@ -688,7 +688,7 @@ const Ability: {
 };
 ```
 
-Defined in: checks/constants.ts:43
+Defined in: [checks/constants.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L43)
 
 Standard DCC ability check identifiers (namespaced)
 
@@ -696,12 +696,12 @@ Standard DCC ability check identifiers (namespaced)
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-str"></a> `STR` | `"ability:str"` | `"ability:str"` | checks/constants.ts:44 |
-| <a id="property-agl"></a> `AGL` | `"ability:agl"` | `"ability:agl"` | checks/constants.ts:45 |
-| <a id="property-sta"></a> `STA` | `"ability:sta"` | `"ability:sta"` | checks/constants.ts:46 |
-| <a id="property-per"></a> `PER` | `"ability:per"` | `"ability:per"` | checks/constants.ts:47 |
-| <a id="property-int"></a> `INT` | `"ability:int"` | `"ability:int"` | checks/constants.ts:48 |
-| <a id="property-lck"></a> `LCK` | `"ability:lck"` | `"ability:lck"` | checks/constants.ts:49 |
+| <a id="property-str"></a> `STR` | `"ability:str"` | `"ability:str"` | [checks/constants.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L44) |
+| <a id="property-agl"></a> `AGL` | `"ability:agl"` | `"ability:agl"` | [checks/constants.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L45) |
+| <a id="property-sta"></a> `STA` | `"ability:sta"` | `"ability:sta"` | [checks/constants.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L46) |
+| <a id="property-per"></a> `PER` | `"ability:per"` | `"ability:per"` | [checks/constants.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L47) |
+| <a id="property-int"></a> `INT` | `"ability:int"` | `"ability:int"` | [checks/constants.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L48) |
+| <a id="property-lck"></a> `LCK` | `"ability:lck"` | `"ability:lck"` | [checks/constants.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L49) |
 
 #### Example
 
@@ -721,7 +721,7 @@ const Save: {
 };
 ```
 
-Defined in: checks/constants.ts:72
+Defined in: [checks/constants.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L72)
 
 Standard DCC saving throw identifiers (namespaced)
 
@@ -729,9 +729,9 @@ Standard DCC saving throw identifiers (namespaced)
 
 | Name | Type | Default value | Defined in |
 | ------ | ------ | ------ | ------ |
-| <a id="property-ref"></a> `REF` | `"save:reflex"` | `"save:reflex"` | checks/constants.ts:73 |
-| <a id="property-fort"></a> `FORT` | `"save:fortitude"` | `"save:fortitude"` | checks/constants.ts:74 |
-| <a id="property-wil"></a> `WIL` | `"save:will"` | `"save:will"` | checks/constants.ts:75 |
+| <a id="property-ref"></a> `REF` | `"save:reflex"` | `"save:reflex"` | [checks/constants.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L73) |
+| <a id="property-fort"></a> `FORT` | `"save:fortitude"` | `"save:fortitude"` | [checks/constants.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L74) |
+| <a id="property-wil"></a> `WIL` | `"save:will"` | `"save:will"` | [checks/constants.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L75) |
 
 #### Example
 
@@ -747,7 +747,7 @@ rollCheck(Save.REF, character);  // rolls "save:reflex"
 const SAVE_ABILITY_MAP: Record<SaveId, AbilityId>;
 ```
 
-Defined in: checks/constants.ts:91
+Defined in: [checks/constants.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L91)
 
 Map from save ID to the ability that modifies it
 
@@ -759,7 +759,7 @@ Map from save ID to the ability that modifies it
 const ABILITY_CHECK_DEFINITIONS: Record<AbilityId, SkillDefinition>;
 ```
 
-Defined in: checks/definitions.ts:47
+Defined in: [checks/definitions.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L47)
 
 Ability check skill definitions (keyed by raw ability ID)
 
@@ -771,7 +771,7 @@ Ability check skill definitions (keyed by raw ability ID)
 const SAVE_DEFINITIONS: Record<SaveId, SkillDefinition>;
 ```
 
-Defined in: checks/definitions.ts:87
+Defined in: [checks/definitions.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L87)
 
 Saving throw skill definitions (keyed by raw save ID)
 
@@ -787,7 +787,7 @@ function extractAbilityScores(
 ): Record<string, number>;
 ```
 
-Defined in: checks/accessors.ts:154
+Defined in: [checks/accessors.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/accessors.ts#L154)
 
 Extract all ability scores as a flat record.
 
@@ -814,7 +814,7 @@ a Record<string, number> of ability scores.
 function parseCheckId(id: string): ParsedCheckId;
 ```
 
-Defined in: checks/constants.ts:117
+Defined in: [checks/constants.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L117)
 
 Parse a namespaced check ID
 
@@ -843,7 +843,7 @@ parseCheckId("str")          // { namespace: null, value: "str", raw: "str" }
 function createCheckId(namespace: CheckNamespaceType, value: string): string;
 ```
 
-Defined in: checks/constants.ts:143
+Defined in: [checks/constants.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L143)
 
 Create a namespaced check ID
 
@@ -866,7 +866,7 @@ Create a namespaced check ID
 function isAbilityCheckId(id: string): id is AbilityCheckId;
 ```
 
-Defined in: checks/constants.ts:150
+Defined in: [checks/constants.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L150)
 
 Check if a string is a namespaced ability check ID
 
@@ -888,7 +888,7 @@ Check if a string is a namespaced ability check ID
 function isSaveCheckId(id: string): id is SaveCheckId;
 ```
 
-Defined in: checks/constants.ts:161
+Defined in: [checks/constants.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L161)
 
 Check if a string is a namespaced save check ID
 
@@ -910,7 +910,7 @@ Check if a string is a namespaced save check ID
 function isAbilityId(id: string): id is AbilityId;
 ```
 
-Defined in: checks/constants.ts:172
+Defined in: [checks/constants.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L172)
 
 Check if a raw string (no namespace) is a valid ability ID
 
@@ -932,7 +932,7 @@ Check if a raw string (no namespace) is a valid ability ID
 function isSaveId(id: string): id is SaveId;
 ```
 
-Defined in: checks/constants.ts:180
+Defined in: [checks/constants.ts:180](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/constants.ts#L180)
 
 Check if a raw string (no namespace) is a valid save ID
 
@@ -954,7 +954,7 @@ Check if a raw string (no namespace) is a valid save ID
 function getCheckDefinition(id: string): SkillDefinition | undefined;
 ```
 
-Defined in: checks/definitions.ts:128
+Defined in: [checks/definitions.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L128)
 
 Get a check definition by namespaced ID
 
@@ -984,7 +984,7 @@ getCheckDefinition("str")          // Returns undefined (must be namespaced)
 function getCheckDefinitionByParts(namespace: CheckNamespaceType, value: string): SkillDefinition | undefined;
 ```
 
-Defined in: checks/definitions.ts:138
+Defined in: [checks/definitions.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L138)
 
 Get a check definition by namespace and value
 
@@ -1013,7 +1013,7 @@ getCheckDefinitionByParts("ability", "str")  // Returns Strength Check definitio
 function registerCheckDefinition(definition: SkillDefinition): void;
 ```
 
-Defined in: checks/definitions.ts:150
+Defined in: [checks/definitions.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L150)
 
 Register a custom check definition
 
@@ -1037,7 +1037,7 @@ The definition's ID should be namespaced (e.g., "skill:backstab")
 function hasCheckDefinition(id: string): boolean;
 ```
 
-Defined in: checks/definitions.ts:157
+Defined in: [checks/definitions.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L157)
 
 Check if a check definition exists
 
@@ -1059,7 +1059,7 @@ Check if a check definition exists
 function getRegisteredCheckIds(): string[];
 ```
 
-Defined in: checks/definitions.ts:164
+Defined in: [checks/definitions.ts:164](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L164)
 
 Get all registered check IDs
 
@@ -1075,7 +1075,7 @@ Get all registered check IDs
 function getCheckIdsByNamespace(namespace: CheckNamespaceType): string[];
 ```
 
-Defined in: checks/definitions.ts:171
+Defined in: [checks/definitions.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/definitions.ts#L171)
 
 Get all registered check IDs for a specific namespace
 
@@ -1097,7 +1097,7 @@ Get all registered check IDs for a specific namespace
 function rollLuckCheck(character: Character, options?: RollLuckCheckOptions): LuckCheckResult;
 ```
 
-Defined in: checks/luck-check.ts:89
+Defined in: [checks/luck-check.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L89)
 
 Roll a luck check for a character
 
@@ -1140,7 +1140,7 @@ function rollLuckCheckSimple(
 ): LuckCheckResult;
 ```
 
-Defined in: checks/luck-check.ts:133
+Defined in: [checks/luck-check.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/luck-check.ts#L133)
 
 Roll a luck check with a specific target score
 
@@ -1184,7 +1184,7 @@ function rollCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: checks/roll.ts:254
+Defined in: [checks/roll.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L254)
 
 #### Parameters
 
@@ -1210,7 +1210,7 @@ function rollCheckAsync(
 ): Promise<SkillCheckResult>;
 ```
 
-Defined in: checks/roll.ts:271
+Defined in: [checks/roll.ts:271](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L271)
 
 Roll a check for a character (async).
 
@@ -1243,7 +1243,7 @@ function rollAbilityCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: checks/roll.ts:289
+Defined in: [checks/roll.ts:289](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L289)
 
 Roll an ability check for a character
 
@@ -1273,7 +1273,7 @@ function rollSavingThrow(
 ): SkillCheckResult;
 ```
 
-Defined in: checks/roll.ts:314
+Defined in: [checks/roll.ts:314](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L314)
 
 Roll a saving throw for a character
 
@@ -1303,7 +1303,7 @@ function rollAbilityCheckAsync(
 ): Promise<SkillCheckResult>;
 ```
 
-Defined in: checks/roll.ts:333
+Defined in: [checks/roll.ts:333](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L333)
 
 Roll an ability check for a character (async).
 
@@ -1331,7 +1331,7 @@ function rollSavingThrowAsync(
 ): Promise<SkillCheckResult>;
 ```
 
-Defined in: checks/roll.ts:348
+Defined in: [checks/roll.ts:348](https://github.com/moonloch/dcc-core-lib/blob/main/src/checks/roll.ts#L348)
 
 Roll a saving throw for a character (async).
 

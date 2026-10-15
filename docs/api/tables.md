@@ -4,7 +4,7 @@
 
 ### TableMetadata
 
-Defined in: tables/types.ts:19
+Defined in: [tables/types.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L19)
 
 Common metadata for all table types
 
@@ -23,7 +23,7 @@ Common metadata for all table types
 id: string;
 ```
 
-Defined in: tables/types.ts:21
+Defined in: [tables/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L21)
 
 Unique identifier for this table
 
@@ -33,7 +33,7 @@ Unique identifier for this table
 name: string;
 ```
 
-Defined in: tables/types.ts:24
+Defined in: [tables/types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L24)
 
 Display name
 
@@ -43,7 +43,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:27
+Defined in: [tables/types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L27)
 
 Description of what this table is for
 
@@ -53,7 +53,7 @@ Description of what this table is for
 optional source?: string;
 ```
 
-Defined in: tables/types.ts:30
+Defined in: [tables/types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L30)
 
 Source/reference (e.g., "DCC Core Rules p.82")
 
@@ -63,7 +63,7 @@ Source/reference (e.g., "DCC Core Rules p.82")
 optional tags?: string[];
 ```
 
-Defined in: tables/types.ts:33
+Defined in: [tables/types.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L33)
 
 Tags for categorization
 
@@ -71,7 +71,7 @@ Tags for categorization
 
 ### LayOnHandsExtraEffects
 
-Defined in: tables/types.ts:60
+Defined in: [tables/types.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L60)
 
 Extra, non-healing effects that some RAW rows grant (e.g., cure disease,
 neutralise poison, restore limb). Rulebook specifies these are discretionary
@@ -85,7 +85,7 @@ judge effects at high check totals; the table row carries the flags.
 optional curesDisease?: boolean;
 ```
 
-Defined in: tables/types.ts:61
+Defined in: [tables/types.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L61)
 
 ##### curesAllDiseases?
 
@@ -93,7 +93,7 @@ Defined in: tables/types.ts:61
 optional curesAllDiseases?: boolean;
 ```
 
-Defined in: tables/types.ts:62
+Defined in: [tables/types.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L62)
 
 ##### neutralizesPoison?
 
@@ -101,7 +101,7 @@ Defined in: tables/types.ts:62
 optional neutralizesPoison?: boolean;
 ```
 
-Defined in: tables/types.ts:63
+Defined in: [tables/types.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L63)
 
 ##### neutralizesAllPoisons?
 
@@ -109,7 +109,7 @@ Defined in: tables/types.ts:63
 optional neutralizesAllPoisons?: boolean;
 ```
 
-Defined in: tables/types.ts:64
+Defined in: [tables/types.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L64)
 
 ##### restoresLimb?
 
@@ -117,13 +117,13 @@ Defined in: tables/types.ts:64
 optional restoresLimb?: boolean;
 ```
 
-Defined in: tables/types.ts:65
+Defined in: [tables/types.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L65)
 
 ***
 
 ### LayOnHandsRow
 
-Defined in: tables/types.ts:73
+Defined in: [tables/types.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L73)
 
 One row of the Lay on Hands table. The check total (roll + Per mod + level)
 picks the row; the cleric-subject alignment picks the dice count column.
@@ -137,7 +137,7 @@ A dice count of 0 means the check fails (below the healing threshold).
 min: number;
 ```
 
-Defined in: tables/types.ts:75
+Defined in: [tables/types.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L75)
 
 Minimum check total (inclusive)
 
@@ -147,7 +147,7 @@ Minimum check total (inclusive)
 max: number;
 ```
 
-Defined in: tables/types.ts:77
+Defined in: [tables/types.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L77)
 
 Maximum check total (inclusive)
 
@@ -157,7 +157,7 @@ Maximum check total (inclusive)
 dice: Record<LayOnHandsAlignment, number>;
 ```
 
-Defined in: tables/types.ts:79
+Defined in: [tables/types.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L79)
 
 Dice count by alignment; 0 = failure on that column
 
@@ -167,7 +167,7 @@ Dice count by alignment; 0 = failure on that column
 optional extra?: LayOnHandsExtraEffects;
 ```
 
-Defined in: tables/types.ts:81
+Defined in: [tables/types.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L81)
 
 Optional extra discretionary effects granted at this row
 
@@ -177,7 +177,7 @@ Optional extra discretionary effects granted at this row
 optional text?: string;
 ```
 
-Defined in: tables/types.ts:83
+Defined in: [tables/types.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L83)
 
 Optional display text for this row
 
@@ -185,7 +185,7 @@ Optional display text for this row
 
 ### LayOnHandsTable
 
-Defined in: tables/types.ts:100
+Defined in: [tables/types.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L100)
 
 RAW Lay on Hands table (Table 4-2, DCC core p.31). Rulebook data values
 are supplied by the consuming application; this type is the shape
@@ -203,7 +203,7 @@ core-lib expects.
 id: string;
 ```
 
-Defined in: tables/types.ts:21
+Defined in: [tables/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L21)
 
 Unique identifier for this table
 
@@ -217,7 +217,7 @@ Unique identifier for this table
 name: string;
 ```
 
-Defined in: tables/types.ts:24
+Defined in: [tables/types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L24)
 
 Display name
 
@@ -231,7 +231,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:27
+Defined in: [tables/types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L27)
 
 Description of what this table is for
 
@@ -245,7 +245,7 @@ Description of what this table is for
 optional source?: string;
 ```
 
-Defined in: tables/types.ts:30
+Defined in: [tables/types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L30)
 
 Source/reference (e.g., "DCC Core Rules p.82")
 
@@ -259,7 +259,7 @@ Source/reference (e.g., "DCC Core Rules p.82")
 optional tags?: string[];
 ```
 
-Defined in: tables/types.ts:33
+Defined in: [tables/types.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L33)
 
 Tags for categorization
 
@@ -273,7 +273,7 @@ Tags for categorization
 type: "lay-on-hands";
 ```
 
-Defined in: tables/types.ts:101
+Defined in: [tables/types.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L101)
 
 ##### rows
 
@@ -281,7 +281,7 @@ Defined in: tables/types.ts:101
 rows: LayOnHandsRow[];
 ```
 
-Defined in: tables/types.ts:104
+Defined in: [tables/types.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L104)
 
 Rows ordered by min check total
 
@@ -291,7 +291,7 @@ Rows ordered by min check total
 optional conditions?: LayOnHandsConditionThresholds;
 ```
 
-Defined in: tables/types.ts:107
+Defined in: [tables/types.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L107)
 
 Optional per-condition dice thresholds (for condition healing)
 
@@ -299,7 +299,7 @@ Optional per-condition dice thresholds (for condition healing)
 
 ### SimpleTableEntry
 
-Defined in: tables/types.ts:118
+Defined in: [tables/types.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L118)
 
 A single entry in a simple range table.
 Matched when roll >= min AND roll <= max.
@@ -312,7 +312,7 @@ Matched when roll >= min AND roll <= max.
 min: number;
 ```
 
-Defined in: tables/types.ts:120
+Defined in: [tables/types.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L120)
 
 Minimum roll value (inclusive)
 
@@ -322,7 +322,7 @@ Minimum roll value (inclusive)
 max: number;
 ```
 
-Defined in: tables/types.ts:123
+Defined in: [tables/types.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L123)
 
 Maximum roll value (inclusive)
 
@@ -332,7 +332,7 @@ Maximum roll value (inclusive)
 text: string;
 ```
 
-Defined in: tables/types.ts:126
+Defined in: [tables/types.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L126)
 
 The result text/description
 
@@ -342,7 +342,7 @@ The result text/description
 optional effect?: TableEffect;
 ```
 
-Defined in: tables/types.ts:129
+Defined in: [tables/types.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L129)
 
 Optional structured effect data
 
@@ -350,7 +350,7 @@ Optional structured effect data
 
 ### SimpleTable
 
-Defined in: tables/types.ts:149
+Defined in: [tables/types.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L149)
 
 A simple range-based lookup table.
 Used for: fumbles, turn unholy, lay on hands, etc.
@@ -383,7 +383,7 @@ Used for: fumbles, turn unholy, lay on hands, etc.
 id: string;
 ```
 
-Defined in: tables/types.ts:21
+Defined in: [tables/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L21)
 
 Unique identifier for this table
 
@@ -397,7 +397,7 @@ Unique identifier for this table
 name: string;
 ```
 
-Defined in: tables/types.ts:24
+Defined in: [tables/types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L24)
 
 Display name
 
@@ -411,7 +411,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:27
+Defined in: [tables/types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L27)
 
 Description of what this table is for
 
@@ -425,7 +425,7 @@ Description of what this table is for
 optional source?: string;
 ```
 
-Defined in: tables/types.ts:30
+Defined in: [tables/types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L30)
 
 Source/reference (e.g., "DCC Core Rules p.82")
 
@@ -439,7 +439,7 @@ Source/reference (e.g., "DCC Core Rules p.82")
 optional tags?: string[];
 ```
 
-Defined in: tables/types.ts:33
+Defined in: [tables/types.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L33)
 
 Tags for categorization
 
@@ -453,7 +453,7 @@ Tags for categorization
 type: "simple";
 ```
 
-Defined in: tables/types.ts:150
+Defined in: [tables/types.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L150)
 
 ##### die?
 
@@ -461,7 +461,7 @@ Defined in: tables/types.ts:150
 optional die?: `d${number}`;
 ```
 
-Defined in: tables/types.ts:153
+Defined in: [tables/types.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L153)
 
 The die to roll for this table (informational)
 
@@ -471,7 +471,7 @@ The die to roll for this table (informational)
 entries: SimpleTableEntry[];
 ```
 
-Defined in: tables/types.ts:156
+Defined in: [tables/types.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L156)
 
 Table entries sorted by min value
 
@@ -479,7 +479,7 @@ Table entries sorted by min value
 
 ### MultiColumnRow
 
-Defined in: tables/types.ts:167
+Defined in: [tables/types.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L167)
 
 A single row in a multi-column table.
 The row is selected by roll value, then a specific column is read.
@@ -492,7 +492,7 @@ The row is selected by roll value, then a specific column is read.
 min: number;
 ```
 
-Defined in: tables/types.ts:169
+Defined in: [tables/types.ts:169](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L169)
 
 Minimum roll value (inclusive)
 
@@ -502,7 +502,7 @@ Minimum roll value (inclusive)
 max: number;
 ```
 
-Defined in: tables/types.ts:172
+Defined in: [tables/types.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L172)
 
 Maximum roll value (inclusive)
 
@@ -515,7 +515,7 @@ columns: Record<string, {
 }>;
 ```
 
-Defined in: tables/types.ts:175
+Defined in: [tables/types.ts:175](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L175)
 
 Results keyed by column ID
 
@@ -523,7 +523,7 @@ Results keyed by column ID
 
 ### ColumnDefinition
 
-Defined in: tables/types.ts:184
+Defined in: [tables/types.ts:184](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L184)
 
 Definition of a column in a multi-column table
 
@@ -535,7 +535,7 @@ Definition of a column in a multi-column table
 id: string;
 ```
 
-Defined in: tables/types.ts:186
+Defined in: [tables/types.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L186)
 
 Column identifier (e.g., "d4", "d6", "d8")
 
@@ -545,7 +545,7 @@ Column identifier (e.g., "d4", "d6", "d8")
 label: string;
 ```
 
-Defined in: tables/types.ts:189
+Defined in: [tables/types.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L189)
 
 Display label
 
@@ -555,7 +555,7 @@ Display label
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:192
+Defined in: [tables/types.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L192)
 
 Optional description
 
@@ -563,7 +563,7 @@ Optional description
 
 ### MultiColumnTable
 
-Defined in: tables/types.ts:223
+Defined in: [tables/types.ts:223](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L223)
 
 A multi-column lookup table.
 Used for: crit tables (where column = crit die type)
@@ -607,7 +607,7 @@ Used for: crit tables (where column = crit die type)
 id: string;
 ```
 
-Defined in: tables/types.ts:21
+Defined in: [tables/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L21)
 
 Unique identifier for this table
 
@@ -621,7 +621,7 @@ Unique identifier for this table
 name: string;
 ```
 
-Defined in: tables/types.ts:24
+Defined in: [tables/types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L24)
 
 Display name
 
@@ -635,7 +635,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:27
+Defined in: [tables/types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L27)
 
 Description of what this table is for
 
@@ -649,7 +649,7 @@ Description of what this table is for
 optional source?: string;
 ```
 
-Defined in: tables/types.ts:30
+Defined in: [tables/types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L30)
 
 Source/reference (e.g., "DCC Core Rules p.82")
 
@@ -663,7 +663,7 @@ Source/reference (e.g., "DCC Core Rules p.82")
 optional tags?: string[];
 ```
 
-Defined in: tables/types.ts:33
+Defined in: [tables/types.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L33)
 
 Tags for categorization
 
@@ -677,7 +677,7 @@ Tags for categorization
 type: "multi-column";
 ```
 
-Defined in: tables/types.ts:224
+Defined in: [tables/types.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L224)
 
 ##### columns
 
@@ -685,7 +685,7 @@ Defined in: tables/types.ts:224
 columns: ColumnDefinition[];
 ```
 
-Defined in: tables/types.ts:227
+Defined in: [tables/types.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L227)
 
 Column definitions
 
@@ -695,7 +695,7 @@ Column definitions
 rows: MultiColumnRow[];
 ```
 
-Defined in: tables/types.ts:230
+Defined in: [tables/types.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L230)
 
 Table rows
 
@@ -703,7 +703,7 @@ Table rows
 
 ### TieredEntry
 
-Defined in: tables/types.ts:253
+Defined in: [tables/types.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L253)
 
 A tiered result entry.
 Each entry represents one possible outcome at a specific tier.
@@ -716,7 +716,7 @@ Each entry represents one possible outcome at a specific tier.
 min: number;
 ```
 
-Defined in: tables/types.ts:255
+Defined in: [tables/types.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L255)
 
 Minimum check result for this entry
 
@@ -726,7 +726,7 @@ Minimum check result for this entry
 optional max?: number;
 ```
 
-Defined in: tables/types.ts:258
+Defined in: [tables/types.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L258)
 
 Maximum check result for this entry (optional, defaults to next entry's min - 1)
 
@@ -736,7 +736,7 @@ Maximum check result for this entry (optional, defaults to next entry's min - 1)
 tier: ResultTier;
 ```
 
-Defined in: tables/types.ts:261
+Defined in: [tables/types.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L261)
 
 The result tier
 
@@ -746,7 +746,7 @@ The result tier
 text: string;
 ```
 
-Defined in: tables/types.ts:264
+Defined in: [tables/types.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L264)
 
 Result text/description
 
@@ -756,7 +756,7 @@ Result text/description
 optional effect?: TableEffect;
 ```
 
-Defined in: tables/types.ts:267
+Defined in: [tables/types.ts:267](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L267)
 
 Structured effect data
 
@@ -766,7 +766,7 @@ Structured effect data
 optional spellLevel?: number;
 ```
 
-Defined in: tables/types.ts:270
+Defined in: [tables/types.ts:270](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L270)
 
 For spells: the spell level this result applies to
 
@@ -776,7 +776,7 @@ For spells: the spell level this result applies to
 optional manifestation?: string;
 ```
 
-Defined in: tables/types.ts:273
+Defined in: [tables/types.ts:273](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L273)
 
 Manifestation description (for spells)
 
@@ -784,7 +784,7 @@ Manifestation description (for spells)
 
 ### TieredTable
 
-Defined in: tables/types.ts:301
+Defined in: [tables/types.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L301)
 
 A tiered result table (used for spells and similar effects).
 
@@ -825,7 +825,7 @@ A tiered result table (used for spells and similar effects).
 id: string;
 ```
 
-Defined in: tables/types.ts:21
+Defined in: [tables/types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L21)
 
 Unique identifier for this table
 
@@ -839,7 +839,7 @@ Unique identifier for this table
 name: string;
 ```
 
-Defined in: tables/types.ts:24
+Defined in: [tables/types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L24)
 
 Display name
 
@@ -853,7 +853,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: tables/types.ts:27
+Defined in: [tables/types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L27)
 
 Description of what this table is for
 
@@ -867,7 +867,7 @@ Description of what this table is for
 optional source?: string;
 ```
 
-Defined in: tables/types.ts:30
+Defined in: [tables/types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L30)
 
 Source/reference (e.g., "DCC Core Rules p.82")
 
@@ -881,7 +881,7 @@ Source/reference (e.g., "DCC Core Rules p.82")
 optional tags?: string[];
 ```
 
-Defined in: tables/types.ts:33
+Defined in: [tables/types.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L33)
 
 Tags for categorization
 
@@ -895,7 +895,7 @@ Tags for categorization
 type: "tiered";
 ```
 
-Defined in: tables/types.ts:302
+Defined in: [tables/types.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L302)
 
 ##### spellLevel?
 
@@ -903,7 +903,7 @@ Defined in: tables/types.ts:302
 optional spellLevel?: number;
 ```
 
-Defined in: tables/types.ts:305
+Defined in: [tables/types.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L305)
 
 For spells: the spell level
 
@@ -916,7 +916,7 @@ optional tiers?: Partial<Record<ResultTier, {
 }>>;
 ```
 
-Defined in: tables/types.ts:308
+Defined in: [tables/types.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L308)
 
 Tier thresholds (optional, for quick tier lookup)
 
@@ -926,7 +926,7 @@ Tier thresholds (optional, for quick tier lookup)
 entries: TieredEntry[];
 ```
 
-Defined in: tables/types.ts:311
+Defined in: [tables/types.ts:311](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L311)
 
 All entries
 
@@ -934,7 +934,7 @@ All entries
 
 ### TableEffect
 
-Defined in: tables/types.ts:322
+Defined in: [tables/types.ts:322](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L322)
 
 Structured effect that can be parsed from a table result.
 Allows programmatic handling of table outcomes.
@@ -947,7 +947,7 @@ Allows programmatic handling of table outcomes.
 type: string;
 ```
 
-Defined in: tables/types.ts:324
+Defined in: [tables/types.ts:324](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L324)
 
 Effect type identifier
 
@@ -957,7 +957,7 @@ Effect type identifier
 optional dice?: string;
 ```
 
-Defined in: tables/types.ts:327
+Defined in: [tables/types.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L327)
 
 For damage effects: the dice formula
 
@@ -967,7 +967,7 @@ For damage effects: the dice formula
 optional value?: number;
 ```
 
-Defined in: tables/types.ts:330
+Defined in: [tables/types.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L330)
 
 For numeric effects: a value
 
@@ -977,7 +977,7 @@ For numeric effects: a value
 optional duration?: string;
 ```
 
-Defined in: tables/types.ts:333
+Defined in: [tables/types.ts:333](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L333)
 
 Duration of effect
 
@@ -987,7 +987,7 @@ Duration of effect
 optional target?: string;
 ```
 
-Defined in: tables/types.ts:336
+Defined in: [tables/types.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L336)
 
 Target of effect
 
@@ -997,7 +997,7 @@ Target of effect
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: tables/types.ts:339
+Defined in: [tables/types.ts:339](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L339)
 
 Additional structured data
 
@@ -1005,7 +1005,7 @@ Additional structured data
 
 ### SimpleLookupResult
 
-Defined in: tables/types.ts:358
+Defined in: [tables/types.ts:358](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L358)
 
 Result from a simple table lookup
 
@@ -1017,7 +1017,7 @@ Result from a simple table lookup
 tableType: "simple";
 ```
 
-Defined in: tables/types.ts:359
+Defined in: [tables/types.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L359)
 
 ##### tableId
 
@@ -1025,7 +1025,7 @@ Defined in: tables/types.ts:359
 tableId: string;
 ```
 
-Defined in: tables/types.ts:360
+Defined in: [tables/types.ts:360](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L360)
 
 ##### tableName
 
@@ -1033,7 +1033,7 @@ Defined in: tables/types.ts:360
 tableName: string;
 ```
 
-Defined in: tables/types.ts:361
+Defined in: [tables/types.ts:361](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L361)
 
 ##### roll
 
@@ -1041,7 +1041,7 @@ Defined in: tables/types.ts:361
 roll: number;
 ```
 
-Defined in: tables/types.ts:362
+Defined in: [tables/types.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L362)
 
 ##### text
 
@@ -1049,7 +1049,7 @@ Defined in: tables/types.ts:362
 text: string;
 ```
 
-Defined in: tables/types.ts:363
+Defined in: [tables/types.ts:363](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L363)
 
 ##### effect?
 
@@ -1057,7 +1057,7 @@ Defined in: tables/types.ts:363
 optional effect?: TableEffect;
 ```
 
-Defined in: tables/types.ts:364
+Defined in: [tables/types.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L364)
 
 ##### entry
 
@@ -1065,13 +1065,13 @@ Defined in: tables/types.ts:364
 entry: SimpleTableEntry;
 ```
 
-Defined in: tables/types.ts:365
+Defined in: [tables/types.ts:365](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L365)
 
 ***
 
 ### MultiColumnLookupResult
 
-Defined in: tables/types.ts:371
+Defined in: [tables/types.ts:371](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L371)
 
 Result from a multi-column table lookup
 
@@ -1083,7 +1083,7 @@ Result from a multi-column table lookup
 tableType: "multi-column";
 ```
 
-Defined in: tables/types.ts:372
+Defined in: [tables/types.ts:372](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L372)
 
 ##### tableId
 
@@ -1091,7 +1091,7 @@ Defined in: tables/types.ts:372
 tableId: string;
 ```
 
-Defined in: tables/types.ts:373
+Defined in: [tables/types.ts:373](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L373)
 
 ##### tableName
 
@@ -1099,7 +1099,7 @@ Defined in: tables/types.ts:373
 tableName: string;
 ```
 
-Defined in: tables/types.ts:374
+Defined in: [tables/types.ts:374](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L374)
 
 ##### roll
 
@@ -1107,7 +1107,7 @@ Defined in: tables/types.ts:374
 roll: number;
 ```
 
-Defined in: tables/types.ts:375
+Defined in: [tables/types.ts:375](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L375)
 
 ##### column
 
@@ -1115,7 +1115,7 @@ Defined in: tables/types.ts:375
 column: string;
 ```
 
-Defined in: tables/types.ts:376
+Defined in: [tables/types.ts:376](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L376)
 
 ##### text
 
@@ -1123,7 +1123,7 @@ Defined in: tables/types.ts:376
 text: string;
 ```
 
-Defined in: tables/types.ts:377
+Defined in: [tables/types.ts:377](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L377)
 
 ##### effect?
 
@@ -1131,7 +1131,7 @@ Defined in: tables/types.ts:377
 optional effect?: TableEffect;
 ```
 
-Defined in: tables/types.ts:378
+Defined in: [tables/types.ts:378](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L378)
 
 ##### row
 
@@ -1139,13 +1139,13 @@ Defined in: tables/types.ts:378
 row: MultiColumnRow;
 ```
 
-Defined in: tables/types.ts:379
+Defined in: [tables/types.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L379)
 
 ***
 
 ### TieredLookupResult
 
-Defined in: tables/types.ts:385
+Defined in: [tables/types.ts:385](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L385)
 
 Result from a tiered table lookup
 
@@ -1157,7 +1157,7 @@ Result from a tiered table lookup
 tableType: "tiered";
 ```
 
-Defined in: tables/types.ts:386
+Defined in: [tables/types.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L386)
 
 ##### tableId
 
@@ -1165,7 +1165,7 @@ Defined in: tables/types.ts:386
 tableId: string;
 ```
 
-Defined in: tables/types.ts:387
+Defined in: [tables/types.ts:387](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L387)
 
 ##### tableName
 
@@ -1173,7 +1173,7 @@ Defined in: tables/types.ts:387
 tableName: string;
 ```
 
-Defined in: tables/types.ts:388
+Defined in: [tables/types.ts:388](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L388)
 
 ##### roll
 
@@ -1181,7 +1181,7 @@ Defined in: tables/types.ts:388
 roll: number;
 ```
 
-Defined in: tables/types.ts:389
+Defined in: [tables/types.ts:389](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L389)
 
 ##### tier
 
@@ -1189,7 +1189,7 @@ Defined in: tables/types.ts:389
 tier: ResultTier;
 ```
 
-Defined in: tables/types.ts:390
+Defined in: [tables/types.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L390)
 
 ##### text
 
@@ -1197,7 +1197,7 @@ Defined in: tables/types.ts:390
 text: string;
 ```
 
-Defined in: tables/types.ts:391
+Defined in: [tables/types.ts:391](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L391)
 
 ##### effect?
 
@@ -1205,7 +1205,7 @@ Defined in: tables/types.ts:391
 optional effect?: TableEffect;
 ```
 
-Defined in: tables/types.ts:392
+Defined in: [tables/types.ts:392](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L392)
 
 ##### entry
 
@@ -1213,7 +1213,7 @@ Defined in: tables/types.ts:392
 entry: TieredEntry;
 ```
 
-Defined in: tables/types.ts:393
+Defined in: [tables/types.ts:393](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L393)
 
 ##### manifestation?
 
@@ -1221,13 +1221,13 @@ Defined in: tables/types.ts:393
 optional manifestation?: string;
 ```
 
-Defined in: tables/types.ts:394
+Defined in: [tables/types.ts:394](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L394)
 
 ***
 
 ### TableReference
 
-Defined in: tables/types.ts:413
+Defined in: [tables/types.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L413)
 
 Reference to a table from a skill definition.
 Specifies which table to use and how to determine the column (if applicable).
@@ -1240,7 +1240,7 @@ Specifies which table to use and how to determine the column (if applicable).
 tableId: string;
 ```
 
-Defined in: tables/types.ts:415
+Defined in: [tables/types.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L415)
 
 Table ID to look up
 
@@ -1250,7 +1250,7 @@ Table ID to look up
 optional columnSource?: string;
 ```
 
-Defined in: tables/types.ts:423
+Defined in: [tables/types.ts:423](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L423)
 
 For multi-column tables: how to determine the column.
 - "crit-die": Use the character's crit die
@@ -1263,7 +1263,7 @@ For multi-column tables: how to determine the column.
 optional rollModifier?: string | number;
 ```
 
-Defined in: tables/types.ts:429
+Defined in: [tables/types.ts:429](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L429)
 
 Modifier to apply to the roll before lookup.
 Can be a number or a reference like "luck" or "level".
@@ -1276,7 +1276,7 @@ Can be a number or a reference like "luck" or "level".
 type TableType = "simple" | "multi-column" | "tiered" | "lay-on-hands";
 ```
 
-Defined in: tables/types.ts:39
+Defined in: [tables/types.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L39)
 
 The type of table structure
 
@@ -1288,7 +1288,7 @@ The type of table structure
 type LayOnHandsAlignment = "same" | "adjacent" | "opposed";
 ```
 
-Defined in: tables/types.ts:53
+Defined in: [tables/types.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L53)
 
 Cleric–subject alignment relationship used to pick a column on the
 RAW Lay on Hands table.
@@ -1305,7 +1305,7 @@ RAW Lay on Hands table.
 type LayOnHandsConditionThresholds = Record<string, number>;
 ```
 
-Defined in: tables/types.ts:93
+Defined in: [tables/types.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L93)
 
 Dice thresholds for alleviating specific conditions instead of HP (RAW p.31).
 If the cleric declares a condition before rolling and the resolved dice count
@@ -1327,7 +1327,7 @@ type ResultTier =
   | "success-critical";
 ```
 
-Defined in: tables/types.ts:241
+Defined in: [tables/types.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L241)
 
 Result tier for spell-like tables.
 Spells have distinct outcome tiers based on check result.
@@ -1344,7 +1344,7 @@ type LookupTable =
   | LayOnHandsTable;
 ```
 
-Defined in: tables/types.ts:349
+Defined in: [tables/types.ts:349](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L349)
 
 Any type of lookup table
 
@@ -1359,7 +1359,7 @@ type LookupResult =
   | TieredLookupResult;
 ```
 
-Defined in: tables/types.ts:400
+Defined in: [tables/types.ts:400](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/types.ts#L400)
 
 Union of all lookup result types
 
@@ -1371,7 +1371,7 @@ Union of all lookup result types
 function findSimpleEntry(table: SimpleTable, roll: number): SimpleTableEntry | undefined;
 ```
 
-Defined in: tables/lookup.ts:29
+Defined in: [tables/lookup.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L29)
 
 Find the matching entry in a simple table for a given roll.
 
@@ -1394,7 +1394,7 @@ Find the matching entry in a simple table for a given roll.
 function lookupSimple(table: SimpleTable, roll: number): SimpleLookupResult | undefined;
 ```
 
-Defined in: tables/lookup.ts:43
+Defined in: [tables/lookup.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L43)
 
 Look up a result in a simple range table.
 
@@ -1419,7 +1419,7 @@ The lookup result, or undefined if no match
 function findMultiColumnRow(table: MultiColumnTable, roll: number): MultiColumnRow | undefined;
 ```
 
-Defined in: tables/lookup.ts:70
+Defined in: [tables/lookup.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L70)
 
 Find the matching row in a multi-column table for a given roll.
 
@@ -1446,7 +1446,7 @@ function lookupMultiColumn(
 ): MultiColumnLookupResult | undefined;
 ```
 
-Defined in: tables/lookup.ts:85
+Defined in: [tables/lookup.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L85)
 
 Look up a result in a multi-column table.
 
@@ -1472,7 +1472,7 @@ The lookup result, or undefined if no match
 function getTableColumns(table: MultiColumnTable): string[];
 ```
 
-Defined in: tables/lookup.ts:116
+Defined in: [tables/lookup.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L116)
 
 Get available column IDs for a multi-column table.
 
@@ -1494,7 +1494,7 @@ Get available column IDs for a multi-column table.
 function findTieredEntry(table: TieredTable, roll: number): TieredEntry | undefined;
 ```
 
-Defined in: tables/lookup.ts:127
+Defined in: [tables/lookup.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L127)
 
 Find the matching entry in a tiered table for a given roll.
 
@@ -1517,7 +1517,7 @@ Find the matching entry in a tiered table for a given roll.
 function determineTier(table: TieredTable, roll: number): ResultTier | undefined;
 ```
 
-Defined in: tables/lookup.ts:144
+Defined in: [tables/lookup.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L144)
 
 Determine the result tier for a roll in a tiered table.
 
@@ -1540,7 +1540,7 @@ Determine the result tier for a roll in a tiered table.
 function lookupTiered(table: TieredTable, roll: number): TieredLookupResult | undefined;
 ```
 
-Defined in: tables/lookup.ts:169
+Defined in: [tables/lookup.ts:169](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L169)
 
 Look up a result in a tiered table.
 
@@ -1565,7 +1565,7 @@ The lookup result, or undefined if no match
 function getEntriesForTier(table: TieredTable, tier: ResultTier): TieredEntry[];
 ```
 
-Defined in: tables/lookup.ts:194
+Defined in: [tables/lookup.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L194)
 
 Get all entries for a specific tier.
 
@@ -1592,7 +1592,7 @@ function lookup(
 ): LookupResult | undefined;
 ```
 
-Defined in: tables/lookup.ts:213
+Defined in: [tables/lookup.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L213)
 
 Look up a result in any table type.
 
@@ -1621,7 +1621,7 @@ function getTableRange(table: LookupTable): {
 };
 ```
 
-Defined in: tables/lookup.ts:247
+Defined in: [tables/lookup.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L247)
 
 Get the valid roll range for a table.
 
@@ -1642,8 +1642,8 @@ Get the valid roll range for a table.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `min` | `number` | tables/lookup.ts:249 |
-| `max` | `number` | tables/lookup.ts:249 |
+| `min` | `number` | [tables/lookup.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L249) |
+| `max` | `number` | [tables/lookup.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L249) |
 
 ***
 
@@ -1656,7 +1656,7 @@ function validateTable(table: LookupTable): {
 };
 ```
 
-Defined in: tables/lookup.ts:292
+Defined in: [tables/lookup.ts:292](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L292)
 
 Validate that a table has no gaps or overlaps in its ranges.
 
@@ -1677,8 +1677,8 @@ Validate that a table has no gaps or overlaps in its ranges.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `valid` | `boolean` | tables/lookup.ts:294 |
-| `errors` | `string`[] | tables/lookup.ts:294 |
+| `valid` | `boolean` | [tables/lookup.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L294) |
+| `errors` | `string`[] | [tables/lookup.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L294) |
 
 ***
 
@@ -1688,7 +1688,7 @@ Validate that a table has no gaps or overlaps in its ranges.
 function tableCoversRoll(table: LookupTable, roll: number): boolean;
 ```
 
-Defined in: tables/lookup.ts:336
+Defined in: [tables/lookup.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/lookup.ts#L336)
 
 Check if a table covers a specific roll value.
 
@@ -1714,7 +1714,7 @@ function registerTable(table: LookupTable, options?: {
 }): void;
 ```
 
-Defined in: tables/registry.ts:38
+Defined in: [tables/registry.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L38)
 
 Register a table in the registry.
 
@@ -1746,7 +1746,7 @@ function registerTables(tables: LookupTable[], options?: {
 }): void;
 ```
 
-Defined in: tables/registry.ts:63
+Defined in: [tables/registry.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L63)
 
 Register multiple tables at once.
 
@@ -1771,7 +1771,7 @@ Register multiple tables at once.
 function unregisterTable(tableId: string): boolean;
 ```
 
-Defined in: tables/registry.ts:75
+Defined in: [tables/registry.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L75)
 
 Unregister a table from the registry.
 
@@ -1793,7 +1793,7 @@ Unregister a table from the registry.
 function clearRegistry(): void;
 ```
 
-Defined in: tables/registry.ts:82
+Defined in: [tables/registry.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L82)
 
 Clear all registered tables.
 
@@ -1809,7 +1809,7 @@ Clear all registered tables.
 function getTable(tableId: string): LookupTable | undefined;
 ```
 
-Defined in: tables/registry.ts:93
+Defined in: [tables/registry.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L93)
 
 Get a table by ID.
 
@@ -1831,7 +1831,7 @@ Get a table by ID.
 function requireTable(tableId: string): LookupTable;
 ```
 
-Defined in: tables/registry.ts:100
+Defined in: [tables/registry.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L100)
 
 Get a table by ID, throwing if not found.
 
@@ -1853,7 +1853,7 @@ Get a table by ID, throwing if not found.
 function getSimpleTable(tableId: string): SimpleTable | undefined;
 ```
 
-Defined in: tables/registry.ts:111
+Defined in: [tables/registry.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L111)
 
 Get a simple table by ID.
 
@@ -1875,7 +1875,7 @@ Get a simple table by ID.
 function getMultiColumnTable(tableId: string): MultiColumnTable | undefined;
 ```
 
-Defined in: tables/registry.ts:122
+Defined in: [tables/registry.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L122)
 
 Get a multi-column table by ID.
 
@@ -1897,7 +1897,7 @@ Get a multi-column table by ID.
 function getTieredTable(tableId: string): TieredTable | undefined;
 ```
 
-Defined in: tables/registry.ts:135
+Defined in: [tables/registry.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L135)
 
 Get a tiered table by ID.
 
@@ -1919,7 +1919,7 @@ Get a tiered table by ID.
 function hasTable(tableId: string): boolean;
 ```
 
-Defined in: tables/registry.ts:146
+Defined in: [tables/registry.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L146)
 
 Check if a table exists in the registry.
 
@@ -1941,7 +1941,7 @@ Check if a table exists in the registry.
 function getTableIds(): string[];
 ```
 
-Defined in: tables/registry.ts:153
+Defined in: [tables/registry.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L153)
 
 Get all registered table IDs.
 
@@ -1957,7 +1957,7 @@ Get all registered table IDs.
 function getTablesByType(type: TableType): LookupTable[];
 ```
 
-Defined in: tables/registry.ts:160
+Defined in: [tables/registry.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L160)
 
 Get all tables of a specific type.
 
@@ -1979,7 +1979,7 @@ Get all tables of a specific type.
 function getTablesByTag(tag: string): LookupTable[];
 ```
 
-Defined in: tables/registry.ts:167
+Defined in: [tables/registry.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L167)
 
 Get all tables with a specific tag.
 
@@ -2009,7 +2009,7 @@ function parseTable(data: unknown):
 };
 ```
 
-Defined in: tables/registry.ts:225
+Defined in: [tables/registry.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L225)
 
 Parse a table from JSON data.
 
@@ -2048,7 +2048,7 @@ function loadTableFromJson(json: string):
 };
 ```
 
-Defined in: tables/registry.ts:267
+Defined in: [tables/registry.ts:267](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L267)
 
 Load a table from a JSON string.
 
@@ -2088,7 +2088,7 @@ function loadAndRegisterTable(json: string, options?: {
 };
 ```
 
-Defined in: tables/registry.ts:283
+Defined in: [tables/registry.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L283)
 
 Load and register a table from JSON.
 
@@ -2128,7 +2128,7 @@ function loadTablesFromJson(json: string):
 };
 ```
 
-Defined in: tables/registry.ts:306
+Defined in: [tables/registry.ts:306](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L306)
 
 Load multiple tables from a JSON array.
 

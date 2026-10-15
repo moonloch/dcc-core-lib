@@ -4,7 +4,7 @@
 
 ### DisapprovalResult
 
-Defined in: spells/disapproval.ts:86
+Defined in: [spells/disapproval.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L86)
 
 Result of rolling on the disapproval table
 
@@ -16,7 +16,7 @@ Result of rolling on the disapproval table
 roll: number;
 ```
 
-Defined in: spells/disapproval.ts:92
+Defined in: [spells/disapproval.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L92)
 
 The disapproval roll: (natural)d4 minus the cleric's Luck modifier.
 Not clamped — may be below 1 when Luck is high. The table lookup
@@ -28,7 +28,7 @@ clamps to row 1 (see `rollDisapproval`).
 formula: string;
 ```
 
-Defined in: spells/disapproval.ts:95
+Defined in: [spells/disapproval.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L95)
 
 The dice expression rolled, e.g. "3d4"
 
@@ -38,7 +38,7 @@ The dice expression rolled, e.g. "3d4"
 diceCount: number;
 ```
 
-Defined in: spells/disapproval.ts:98
+Defined in: [spells/disapproval.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L98)
 
 Number of d4s rolled (equals the triggering natural roll)
 
@@ -48,7 +48,7 @@ Number of d4s rolled (equals the triggering natural roll)
 naturalRoll: number;
 ```
 
-Defined in: spells/disapproval.ts:101
+Defined in: [spells/disapproval.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L101)
 
 The natural spell-check roll that triggered disapproval
 
@@ -58,7 +58,7 @@ The natural spell-check roll that triggered disapproval
 luckModifier: number;
 ```
 
-Defined in: spells/disapproval.ts:104
+Defined in: [spells/disapproval.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L104)
 
 The cleric's Luck modifier (subtracted from the dice total)
 
@@ -68,7 +68,7 @@ The cleric's Luck modifier (subtracted from the dice total)
 matched: boolean;
 ```
 
-Defined in: spells/disapproval.ts:110
+Defined in: [spells/disapproval.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L110)
 
 Whether the table had a row for the roll. False when the roll is above
 the table's last row (a high natural can roll up to 80).
@@ -79,7 +79,7 @@ the table's last row (a high natural can roll up to 80).
 description: string;
 ```
 
-Defined in: spells/disapproval.ts:116
+Defined in: [spells/disapproval.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L116)
 
 Description of the disapproval effect: the matched row's text, or ""
 when no row matched (consumers render their own localized fallback).
@@ -90,7 +90,7 @@ when no row matched (consumers render their own localized fallback).
 optional duration?: string;
 ```
 
-Defined in: spells/disapproval.ts:119
+Defined in: [spells/disapproval.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L119)
 
 Duration of the effect (if applicable)
 
@@ -100,7 +100,7 @@ Duration of the effect (if applicable)
 optional effect?: TableEffect;
 ```
 
-Defined in: spells/disapproval.ts:122
+Defined in: [spells/disapproval.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L122)
 
 Structured effect data
 
@@ -110,7 +110,7 @@ Structured effect data
 disapprovalRange: number;
 ```
 
-Defined in: spells/disapproval.ts:125
+Defined in: [spells/disapproval.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L125)
 
 The disapproval range that was used
 
@@ -118,7 +118,7 @@ The disapproval range that was used
 
 ### MisfireResult
 
-Defined in: spells/fumble.ts:192
+Defined in: [spells/fumble.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L192)
 
 Misfire result - spell goes wrong in some way
 
@@ -130,7 +130,7 @@ Misfire result - spell goes wrong in some way
 description: string;
 ```
 
-Defined in: spells/fumble.ts:194
+Defined in: [spells/fumble.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L194)
 
 Description of the misfire
 
@@ -145,7 +145,7 @@ type:
   | "backfire";
 ```
 
-Defined in: spells/fumble.ts:197
+Defined in: [spells/fumble.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L197)
 
 Type of misfire
 
@@ -155,7 +155,7 @@ Type of misfire
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: spells/fumble.ts:200
+Defined in: [spells/fumble.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L200)
 
 Additional data
 
@@ -163,7 +163,7 @@ Additional data
 
 ### MercurialTable
 
-Defined in: spells/mercurial.ts:24
+Defined in: [spells/mercurial.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L24)
 
 A mercurial magic table (typically d100 with ranges)
 
@@ -175,7 +175,7 @@ A mercurial magic table (typically d100 with ranges)
 id: string;
 ```
 
-Defined in: spells/mercurial.ts:26
+Defined in: [spells/mercurial.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L26)
 
 Table identifier
 
@@ -185,7 +185,7 @@ Table identifier
 name: string;
 ```
 
-Defined in: spells/mercurial.ts:29
+Defined in: [spells/mercurial.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L29)
 
 Table name
 
@@ -195,7 +195,7 @@ Table name
 entries: MercurialTableEntry[];
 ```
 
-Defined in: spells/mercurial.ts:32
+Defined in: [spells/mercurial.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L32)
 
 Entries sorted by min value
 
@@ -203,7 +203,7 @@ Entries sorted by min value
 
 ### PatronTaintCheckOutcome
 
-Defined in: spells/patron-taint-check.ts:76
+Defined in: [spells/patron-taint-check.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L76)
 
 Result of the creeping-chance d100 roll.
 
@@ -215,7 +215,7 @@ Result of the creeping-chance d100 roll.
 roll: number;
 ```
 
-Defined in: spells/patron-taint-check.ts:78
+Defined in: [spells/patron-taint-check.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L78)
 
 The d100 roll value.
 
@@ -225,7 +225,7 @@ The d100 roll value.
 acquired: boolean;
 ```
 
-Defined in: spells/patron-taint-check.ts:81
+Defined in: [spells/patron-taint-check.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L81)
 
 True when roll <= currentChance.
 
@@ -233,7 +233,7 @@ True when roll <= currentChance.
 
 ### SpellCheckInput
 
-Defined in: spells/spell-check.ts:50
+Defined in: [spells/spell-check.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L50)
 
 Simplified input for spell checks.
 The function will extract needed data from character state.
@@ -246,7 +246,7 @@ The function will extract needed data from character state.
 spell: SpellDefinition;
 ```
 
-Defined in: spells/spell-check.ts:52
+Defined in: [spells/spell-check.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L52)
 
 The spell being cast (definition)
 
@@ -256,7 +256,7 @@ The spell being cast (definition)
 optional luckBurn?: number;
 ```
 
-Defined in: spells/spell-check.ts:55
+Defined in: [spells/spell-check.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L55)
 
 Luck to burn on this check (optional)
 
@@ -266,7 +266,7 @@ Luck to burn on this check (optional)
 optional spellburn?: SpellburnCommitment;
 ```
 
-Defined in: spells/spell-check.ts:58
+Defined in: [spells/spell-check.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L58)
 
 Spellburn commitment (wizard/elf only)
 
@@ -276,7 +276,7 @@ Spellburn commitment (wizard/elf only)
 optional situationalModifiers?: LegacyRollModifier[];
 ```
 
-Defined in: spells/spell-check.ts:61
+Defined in: [spells/spell-check.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L61)
 
 Situational modifiers to apply
 
@@ -286,7 +286,7 @@ Situational modifiers to apply
 optional actionDie?: `d${number}`;
 ```
 
-Defined in: spells/spell-check.ts:64
+Defined in: [spells/spell-check.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L64)
 
 Action die override (if not d20)
 
@@ -296,7 +296,7 @@ Action die override (if not d20)
 optional resultTable?: TieredTable;
 ```
 
-Defined in: spells/spell-check.ts:67
+Defined in: [spells/spell-check.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L67)
 
 Result table for spell effects (pre-loaded)
 
@@ -306,7 +306,7 @@ Result table for spell effects (pre-loaded)
 optional fumbleTable?: SimpleTable;
 ```
 
-Defined in: spells/spell-check.ts:70
+Defined in: [spells/spell-check.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L70)
 
 Fumble table (pre-loaded)
 
@@ -316,7 +316,7 @@ Fumble table (pre-loaded)
 optional corruptionTable?: SimpleTable;
 ```
 
-Defined in: spells/spell-check.ts:73
+Defined in: [spells/spell-check.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L73)
 
 Corruption table (pre-loaded)
 
@@ -326,7 +326,7 @@ Corruption table (pre-loaded)
 optional disapprovalTable?: SimpleTable;
 ```
 
-Defined in: spells/spell-check.ts:76
+Defined in: [spells/spell-check.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L76)
 
 Disapproval table (pre-loaded, for clerics)
 
@@ -336,7 +336,7 @@ Disapproval table (pre-loaded, for clerics)
 optional patronTaintTable?: SimpleTable;
 ```
 
-Defined in: spells/spell-check.ts:79
+Defined in: [spells/spell-check.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L79)
 
 Patron taint table (pre-loaded, if applicable)
 
@@ -346,7 +346,7 @@ Patron taint table (pre-loaded, if applicable)
 optional patronTaintChance?: number;
 ```
 
-Defined in: spells/spell-check.ts:85
+Defined in: [spells/spell-check.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L85)
 
 Current patron-taint chance as integer percent. Defaults to 1 when
 omitted. See `SpellCastInput.patronTaintChance`.
@@ -357,7 +357,7 @@ omitted. See `SpellCastInput.patronTaintChance`.
 optional isPatronSpell?: boolean;
 ```
 
-Defined in: spells/spell-check.ts:91
+Defined in: [spells/spell-check.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L91)
 
 Caller override for "is this cast a patron-based spell?". When omitted,
 the lib falls back to `spell.tags?.includes('patron')`.
@@ -366,7 +366,7 @@ the lib falls back to `spell.tags?.includes('patron')`.
 
 ### SpellCheckResult
 
-Defined in: spells/spell-check.ts:97
+Defined in: [spells/spell-check.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L97)
 
 Complete result of a spell check including all follow-up rolls
 
@@ -382,7 +382,7 @@ Complete result of a spell check including all follow-up rolls
 optional disapprovalResult?: DisapprovalResult;
 ```
 
-Defined in: spells/spell-check.ts:99
+Defined in: [spells/spell-check.ts:99](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L99)
 
 Disapproval result (if cleric triggered disapproval)
 
@@ -392,7 +392,7 @@ Disapproval result (if cleric triggered disapproval)
 optional updatedSpellbookEntry?: SpellbookEntry;
 ```
 
-Defined in: spells/spell-check.ts:102
+Defined in: [spells/spell-check.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L102)
 
 Updated spellbook entry (with lost status)
 
@@ -402,7 +402,7 @@ Updated spellbook entry (with lost status)
 optional error?: string;
 ```
 
-Defined in: spells/spell-check.ts:105
+Defined in: [spells/spell-check.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L105)
 
 Error message if spell check could not be performed
 
@@ -412,7 +412,7 @@ Error message if spell check could not be performed
 spellId: string;
 ```
 
-Defined in: types/spells.ts:661
+Defined in: [types/spells.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L661)
 
 The spell that was cast
 
@@ -426,7 +426,7 @@ The spell that was cast
 die: `d${number}`;
 ```
 
-Defined in: types/spells.ts:664
+Defined in: [types/spells.ts:664](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L664)
 
 Die used for the check
 
@@ -440,7 +440,7 @@ Die used for the check
 optional natural?: number;
 ```
 
-Defined in: types/spells.ts:667
+Defined in: [types/spells.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L667)
 
 Natural die result (before modifiers)
 
@@ -454,7 +454,7 @@ Natural die result (before modifiers)
 optional total?: number;
 ```
 
-Defined in: types/spells.ts:670
+Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
 
 Total check result (after all modifiers)
 
@@ -468,7 +468,7 @@ Total check result (after all modifiers)
 formula: string;
 ```
 
-Defined in: types/spells.ts:673
+Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
 
 The formula used
 
@@ -482,7 +482,7 @@ The formula used
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: types/spells.ts:676
+Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
 
 All modifiers applied
 
@@ -496,7 +496,7 @@ All modifiers applied
 critical: boolean;
 ```
 
-Defined in: types/spells.ts:679
+Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
 
 Was this a critical (natural 20)?
 
@@ -510,7 +510,7 @@ Was this a critical (natural 20)?
 fumble: boolean;
 ```
 
-Defined in: types/spells.ts:682
+Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
 
 Was this a fumble (natural 1)?
 
@@ -524,7 +524,7 @@ Was this a fumble (natural 1)?
 disapprovalAutoFail: boolean;
 ```
 
-Defined in: types/spells.ts:692
+Defined in: [types/spells.ts:692](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L692)
 
 Did the natural roll land inside the caster's disapproval range
 (excluding the natural-1 fumble)? Per DCC RAW (core rulebook, cleric
@@ -543,7 +543,7 @@ with `usesDisapproval` when `disapprovalRange` was provided.
 optional tier?: ResultTier;
 ```
 
-Defined in: types/spells.ts:695
+Defined in: [types/spells.ts:695](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L695)
 
 Result tier (lost, failure, success levels)
 
@@ -557,7 +557,7 @@ Result tier (lost, failure, success levels)
 optional resultText?: string;
 ```
 
-Defined in: types/spells.ts:698
+Defined in: [types/spells.ts:698](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L698)
 
 Result text from table lookup
 
@@ -571,7 +571,7 @@ Result text from table lookup
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:701
+Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
 
 Structured effect from result
 
@@ -585,7 +585,7 @@ Structured effect from result
 spellLost: boolean;
 ```
 
-Defined in: types/spells.ts:704
+Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
 
 Was the spell lost for the day?
 
@@ -599,7 +599,7 @@ Was the spell lost for the day?
 corruptionTriggered: boolean;
 ```
 
-Defined in: types/spells.ts:707
+Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
 
 Was corruption triggered? (wizard/elf only)
 
@@ -613,7 +613,7 @@ Was corruption triggered? (wizard/elf only)
 optional corruptionResult?: CorruptionResult;
 ```
 
-Defined in: types/spells.ts:710
+Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
 
 Corruption result (if rolled, filled by corruption module)
 
@@ -627,7 +627,7 @@ Corruption result (if rolled, filled by corruption module)
 optional fumbleResult?: SpellFumbleResult;
 ```
 
-Defined in: types/spells.ts:713
+Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
 
 Fumble result (if applicable)
 
@@ -641,7 +641,7 @@ Fumble result (if applicable)
 patronTaintChecked: boolean;
 ```
 
-Defined in: types/spells.ts:720
+Defined in: [types/spells.ts:720](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L720)
 
 Did the per-cast creeping-chance patron-taint check fire this cast?
 True when `patron` is set AND `isPatronCast` returns true — regardless
@@ -657,7 +657,7 @@ of spell outcome (success, failure, fumble all still check).
 optional patronTaintRoll?: number;
 ```
 
-Defined in: types/spells.ts:723
+Defined in: [types/spells.ts:723](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L723)
 
 The d100 rolled for the creeping-chance check (only present when checked).
 
@@ -671,7 +671,7 @@ The d100 rolled for the creeping-chance check (only present when checked).
 patronTaintAcquired: boolean;
 ```
 
-Defined in: types/spells.ts:731
+Defined in: [types/spells.ts:731](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L731)
 
 Was patron taint acquired on this cast? True when either:
 1. Creeping-chance check hit (roll <= chance), OR
@@ -688,7 +688,7 @@ Was patron taint acquired on this cast? True when either:
 optional patronTaintSource?: "creeping-chance" | "result-table";
 ```
 
-Defined in: types/spells.ts:734
+Defined in: [types/spells.ts:734](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L734)
 
 Which trigger acquired the taint (only present when acquired).
 
@@ -702,7 +702,7 @@ Which trigger acquired the taint (only present when acquired).
 optional newPatronTaintChance?: number;
 ```
 
-Defined in: types/spells.ts:740
+Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
 
 Post-cast patron-taint chance. Only set when `patronTaintChecked`.
 RAW: resets to 1 on acquisition, else currentChance + 1.
@@ -717,7 +717,7 @@ RAW: resets to 1 on acquisition, else currentChance + 1.
 optional patronTaintResult?: PatronTaintResult;
 ```
 
-Defined in: types/spells.ts:746
+Defined in: [types/spells.ts:746](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L746)
 
 Patron-taint manifestation (only present when acquired AND a
 `patronTaintTable` was provided). Rolled via `rollPatronTaint`.
@@ -732,7 +732,7 @@ Patron-taint manifestation (only present when acquired AND a
 disapprovalIncrease: number;
 ```
 
-Defined in: types/spells.ts:749
+Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
 
 Disapproval increase amount (cleric)
 
@@ -746,7 +746,7 @@ Disapproval increase amount (cleric)
 optional newDisapprovalRange?: number;
 ```
 
-Defined in: types/spells.ts:752
+Defined in: [types/spells.ts:752](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L752)
 
 New disapproval range after this cast (cleric)
 
@@ -760,7 +760,7 @@ New disapproval range after this cast (cleric)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: types/spells.ts:755
+Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
 
 Mercurial effect that applied (if any)
 
@@ -774,7 +774,7 @@ Mercurial effect that applied (if any)
 optional spellburnApplied?: SpellburnCommitment;
 ```
 
-Defined in: types/spells.ts:758
+Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
 
 Spellburn that was applied
 
@@ -788,7 +788,7 @@ Spellburn that was applied
 luckBurned: number;
 ```
 
-Defined in: types/spells.ts:761
+Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
 
 Luck points burned
 
@@ -802,7 +802,7 @@ Luck points burned
 optional manifestation?: string;
 ```
 
-Defined in: types/spells.ts:764
+Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
 
 Manifestation description (if rolled/provided)
 
@@ -814,7 +814,7 @@ Manifestation description (if rolled/provided)
 
 ### CounterspellPowerEntry
 
-Defined in: spells/spell-duel-tables.ts:25
+Defined in: [spells/spell-duel-tables.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L25)
 
 Entry for Table 4-6: Counterspell Power
 
@@ -826,7 +826,7 @@ Entry for Table 4-6: Counterspell Power
 min: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:27
+Defined in: [spells/spell-duel-tables.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L27)
 
 Minimum roll value for this entry (inclusive)
 
@@ -836,7 +836,7 @@ Minimum roll value for this entry (inclusive)
 max: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:29
+Defined in: [spells/spell-duel-tables.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L29)
 
 Maximum roll value for this entry (inclusive)
 
@@ -846,7 +846,7 @@ Maximum roll value for this entry (inclusive)
 effect: string;
 ```
 
-Defined in: spells/spell-duel-tables.ts:31
+Defined in: [spells/spell-duel-tables.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L31)
 
 Effect description
 
@@ -856,7 +856,7 @@ Effect description
 attackerSpellEffective: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:33
+Defined in: [spells/spell-duel-tables.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L33)
 
 Whether attacker's spell takes effect
 
@@ -866,7 +866,7 @@ Whether attacker's spell takes effect
 defenderSpellEffective: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:35
+Defined in: [spells/spell-duel-tables.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L35)
 
 Whether defender's spell takes effect
 
@@ -876,7 +876,7 @@ Whether defender's spell takes effect
 attackerCheckModifier: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:37
+Defined in: [spells/spell-duel-tables.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L37)
 
 Modifier to attacker's effective spell check
 
@@ -886,7 +886,7 @@ Modifier to attacker's effective spell check
 defenderCheckModifier: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:39
+Defined in: [spells/spell-duel-tables.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L39)
 
 Modifier to defender's effective spell check
 
@@ -896,7 +896,7 @@ Modifier to defender's effective spell check
 simultaneousEffect: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:41
+Defined in: [spells/spell-duel-tables.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L41)
 
 Whether both spells go off simultaneously
 
@@ -904,7 +904,7 @@ Whether both spells go off simultaneously
 
 ### CounterspellPowerTable
 
-Defined in: spells/spell-duel-tables.ts:47
+Defined in: [spells/spell-duel-tables.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L47)
 
 Table 4-6 data structure
 
@@ -916,7 +916,7 @@ Table 4-6 data structure
 attackerHigh: CounterspellPowerEntry[];
 ```
 
-Defined in: spells/spell-duel-tables.ts:49
+Defined in: [spells/spell-duel-tables.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L49)
 
 Results for when attacker has higher spell check
 
@@ -926,7 +926,7 @@ Results for when attacker has higher spell check
 defenderHigh: CounterspellPowerEntry[];
 ```
 
-Defined in: spells/spell-duel-tables.ts:51
+Defined in: [spells/spell-duel-tables.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L51)
 
 Results for when defender has higher spell check
 
@@ -934,7 +934,7 @@ Results for when defender has higher spell check
 
 ### PhlogistonDisturbanceEntry
 
-Defined in: spells/spell-duel-tables.ts:57
+Defined in: [spells/spell-duel-tables.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L57)
 
 Entry for Table 4-7: Phlogiston Disturbance
 
@@ -946,7 +946,7 @@ Entry for Table 4-7: Phlogiston Disturbance
 min: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:59
+Defined in: [spells/spell-duel-tables.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L59)
 
 Minimum roll value (inclusive)
 
@@ -956,7 +956,7 @@ Minimum roll value (inclusive)
 max: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:61
+Defined in: [spells/spell-duel-tables.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L61)
 
 Maximum roll value (inclusive)
 
@@ -966,7 +966,7 @@ Maximum roll value (inclusive)
 effect: string;
 ```
 
-Defined in: spells/spell-duel-tables.ts:63
+Defined in: [spells/spell-duel-tables.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L63)
 
 Effect description
 
@@ -976,7 +976,7 @@ Effect description
 affectsAttacker: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:65
+Defined in: [spells/spell-duel-tables.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L65)
 
 Whether this affects the attacker
 
@@ -986,7 +986,7 @@ Whether this affects the attacker
 affectsDefender: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:67
+Defined in: [spells/spell-duel-tables.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L67)
 
 Whether this affects the defender
 
@@ -996,7 +996,7 @@ Whether this affects the defender
 affectsBystanders: boolean;
 ```
 
-Defined in: spells/spell-duel-tables.ts:69
+Defined in: [spells/spell-duel-tables.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L69)
 
 Whether this affects bystanders
 
@@ -1006,7 +1006,7 @@ Whether this affects bystanders
 optional damage?: string;
 ```
 
-Defined in: spells/spell-duel-tables.ts:71
+Defined in: [spells/spell-duel-tables.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L71)
 
 Damage dealt (if any)
 
@@ -1016,7 +1016,7 @@ Damage dealt (if any)
 optional areaOfEffect?: number;
 ```
 
-Defined in: spells/spell-duel-tables.ts:73
+Defined in: [spells/spell-duel-tables.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L73)
 
 Area of effect in feet (if any)
 
@@ -1033,7 +1033,7 @@ optional specialEffect?:
   | "magical-chaos";
 ```
 
-Defined in: spells/spell-duel-tables.ts:75
+Defined in: [spells/spell-duel-tables.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L75)
 
 Special effect type
 
@@ -1041,7 +1041,7 @@ Special effect type
 
 ### SpellDuelTables
 
-Defined in: spells/spell-duel-tables.ts:94
+Defined in: [spells/spell-duel-tables.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L94)
 
 All spell duel tables bundled together
 
@@ -1053,7 +1053,7 @@ All spell duel tables bundled together
 getComparisonDie: ComparisonDieLookup;
 ```
 
-Defined in: spells/spell-duel-tables.ts:96
+Defined in: [spells/spell-duel-tables.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L96)
 
 Comparison die lookup function (Table 4-5)
 
@@ -1063,7 +1063,7 @@ Comparison die lookup function (Table 4-5)
 counterspellPower: CounterspellPowerTable;
 ```
 
-Defined in: spells/spell-duel-tables.ts:98
+Defined in: [spells/spell-duel-tables.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L98)
 
 Counterspell power results (Table 4-6)
 
@@ -1073,7 +1073,7 @@ Counterspell power results (Table 4-6)
 phlogistonDisturbance: PhlogistonDisturbanceTable;
 ```
 
-Defined in: spells/spell-duel-tables.ts:100
+Defined in: [spells/spell-duel-tables.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L100)
 
 Phlogiston disturbance results (Table 4-7)
 
@@ -1081,7 +1081,7 @@ Phlogiston disturbance results (Table 4-7)
 
 ### SpellDuelParticipant
 
-Defined in: spells/spell-duel.ts:78
+Defined in: [spells/spell-duel.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L78)
 
 A participant in a spell duel
 
@@ -1093,7 +1093,7 @@ A participant in a spell duel
 id: string;
 ```
 
-Defined in: spells/spell-duel.ts:80
+Defined in: [spells/spell-duel.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L80)
 
 Unique identifier for the participant
 
@@ -1103,7 +1103,7 @@ Unique identifier for the participant
 name: string;
 ```
 
-Defined in: spells/spell-duel.ts:83
+Defined in: [spells/spell-duel.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L83)
 
 Display name
 
@@ -1113,7 +1113,7 @@ Display name
 casterType: SpellDuelCasterType;
 ```
 
-Defined in: spells/spell-duel.ts:86
+Defined in: [spells/spell-duel.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L86)
 
 Type of caster
 
@@ -1123,7 +1123,7 @@ Type of caster
 momentum: number;
 ```
 
-Defined in: spells/spell-duel.ts:89
+Defined in: [spells/spell-duel.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L89)
 
 Current momentum (starts at 10)
 
@@ -1133,7 +1133,7 @@ Current momentum (starts at 10)
 initiative: number;
 ```
 
-Defined in: spells/spell-duel.ts:92
+Defined in: [spells/spell-duel.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L92)
 
 Initiative roll for ordering
 
@@ -1143,7 +1143,7 @@ Initiative roll for ordering
 optional patron?: string;
 ```
 
-Defined in: spells/spell-duel.ts:95
+Defined in: [spells/spell-duel.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L95)
 
 Patron name if invoking patron (for same-patron cancellation)
 
@@ -1151,7 +1151,7 @@ Patron name if invoking patron (for same-patron cancellation)
 
 ### SpellDuelSpell
 
-Defined in: spells/spell-duel.ts:111
+Defined in: [spells/spell-duel.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L111)
 
 A spell being cast or used to counter
 
@@ -1163,7 +1163,7 @@ A spell being cast or used to counter
 name: string;
 ```
 
-Defined in: spells/spell-duel.ts:113
+Defined in: [spells/spell-duel.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L113)
 
 Name of the spell
 
@@ -1173,7 +1173,7 @@ Name of the spell
 level: number;
 ```
 
-Defined in: spells/spell-duel.ts:116
+Defined in: [spells/spell-duel.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L116)
 
 Spell level (affects minimum spell check threshold)
 
@@ -1183,7 +1183,7 @@ Spell level (affects minimum spell check threshold)
 category: CounterspellCategory;
 ```
 
-Defined in: spells/spell-duel.ts:119
+Defined in: [spells/spell-duel.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L119)
 
 Category for counterspell matching
 
@@ -1193,7 +1193,7 @@ Category for counterspell matching
 optional counters?: string[];
 ```
 
-Defined in: spells/spell-duel.ts:122
+Defined in: [spells/spell-duel.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L122)
 
 Specific spells this can counter (for defensive spells)
 
@@ -1203,7 +1203,7 @@ Specific spells this can counter (for defensive spells)
 optional patron?: string;
 ```
 
-Defined in: spells/spell-duel.ts:125
+Defined in: [spells/spell-duel.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L125)
 
 The patron being invoked (if invoke patron)
 
@@ -1211,7 +1211,7 @@ The patron being invoked (if invoke patron)
 
 ### SpellDuelCheck
 
-Defined in: spells/spell-duel.ts:131
+Defined in: [spells/spell-duel.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L131)
 
 Result of a spell check in the duel
 
@@ -1223,7 +1223,7 @@ Result of a spell check in the duel
 casterId: string;
 ```
 
-Defined in: spells/spell-duel.ts:133
+Defined in: [spells/spell-duel.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L133)
 
 The caster making the check
 
@@ -1233,7 +1233,7 @@ The caster making the check
 spell: SpellDuelSpell;
 ```
 
-Defined in: spells/spell-duel.ts:136
+Defined in: [spells/spell-duel.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L136)
 
 The spell being cast
 
@@ -1243,7 +1243,7 @@ The spell being cast
 naturalRoll: number;
 ```
 
-Defined in: spells/spell-duel.ts:139
+Defined in: [spells/spell-duel.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L139)
 
 Natural roll on the die
 
@@ -1253,7 +1253,7 @@ Natural roll on the die
 total: number;
 ```
 
-Defined in: spells/spell-duel.ts:142
+Defined in: [spells/spell-duel.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L142)
 
 Total spell check result
 
@@ -1263,7 +1263,7 @@ Total spell check result
 succeeded: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:145
+Defined in: [spells/spell-duel.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L145)
 
 Whether the check succeeded (met minimum threshold)
 
@@ -1273,7 +1273,7 @@ Whether the check succeeded (met minimum threshold)
 spellLost: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:148
+Defined in: [spells/spell-duel.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L148)
 
 Whether the spell is lost for the day
 
@@ -1281,7 +1281,7 @@ Whether the spell is lost for the day
 
 ### SpellCheckComparison
 
-Defined in: spells/spell-duel.ts:170
+Defined in: [spells/spell-duel.ts:170](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L170)
 
 Result of comparing spell checks (Table 4-5)
 
@@ -1293,7 +1293,7 @@ Result of comparing spell checks (Table 4-5)
 attackerCheck: number;
 ```
 
-Defined in: spells/spell-duel.ts:172
+Defined in: [spells/spell-duel.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L172)
 
 Attacker's spell check total
 
@@ -1303,7 +1303,7 @@ Attacker's spell check total
 defenderCheck: number;
 ```
 
-Defined in: spells/spell-duel.ts:175
+Defined in: [spells/spell-duel.ts:175](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L175)
 
 Defender's spell check total
 
@@ -1313,7 +1313,7 @@ Defender's spell check total
 attackerHigh: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:178
+Defined in: [spells/spell-duel.ts:178](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L178)
 
 Whether attacker had higher check
 
@@ -1323,7 +1323,7 @@ Whether attacker had higher check
 comparisonDie: ComparisonDie;
 ```
 
-Defined in: spells/spell-duel.ts:181
+Defined in: [spells/spell-duel.ts:181](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L181)
 
 Die to roll on Table 4-6, or "PD" for phlogiston disturbance
 
@@ -1333,7 +1333,7 @@ Die to roll on Table 4-6, or "PD" for phlogiston disturbance
 isPhlogistonDisturbance: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:184
+Defined in: [spells/spell-duel.ts:184](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L184)
 
 Whether this triggers phlogiston disturbance
 
@@ -1341,7 +1341,7 @@ Whether this triggers phlogiston disturbance
 
 ### CounterspellPowerResult
 
-Defined in: spells/spell-duel.ts:190
+Defined in: [spells/spell-duel.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L190)
 
 Result from Table 4-6: Counterspell Power
 
@@ -1353,7 +1353,7 @@ Result from Table 4-6: Counterspell Power
 roll: number;
 ```
 
-Defined in: spells/spell-duel.ts:192
+Defined in: [spells/spell-duel.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L192)
 
 Roll on the comparison die
 
@@ -1363,7 +1363,7 @@ Roll on the comparison die
 momentumModifier: number;
 ```
 
-Defined in: spells/spell-duel.ts:195
+Defined in: [spells/spell-duel.ts:195](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L195)
 
 Momentum modifier applied
 
@@ -1373,7 +1373,7 @@ Momentum modifier applied
 modifiedResult: number;
 ```
 
-Defined in: spells/spell-duel.ts:198
+Defined in: [spells/spell-duel.ts:198](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L198)
 
 Final modified result
 
@@ -1383,7 +1383,7 @@ Final modified result
 effect: string;
 ```
 
-Defined in: spells/spell-duel.ts:201
+Defined in: [spells/spell-duel.ts:201](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L201)
 
 Effect description
 
@@ -1393,7 +1393,7 @@ Effect description
 attackerSpellEffective: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:204
+Defined in: [spells/spell-duel.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L204)
 
 Whether attacker's spell takes effect
 
@@ -1403,7 +1403,7 @@ Whether attacker's spell takes effect
 defenderSpellEffective: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:207
+Defined in: [spells/spell-duel.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L207)
 
 Whether defender's spell takes effect
 
@@ -1413,7 +1413,7 @@ Whether defender's spell takes effect
 attackerCheckModifier: number;
 ```
 
-Defined in: spells/spell-duel.ts:210
+Defined in: [spells/spell-duel.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L210)
 
 Modifier to attacker's effective spell check (can reduce it)
 
@@ -1423,7 +1423,7 @@ Modifier to attacker's effective spell check (can reduce it)
 defenderCheckModifier: number;
 ```
 
-Defined in: spells/spell-duel.ts:213
+Defined in: [spells/spell-duel.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L213)
 
 Modifier to defender's effective spell check (can reduce it)
 
@@ -1433,7 +1433,7 @@ Modifier to defender's effective spell check (can reduce it)
 simultaneousEffect: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:216
+Defined in: [spells/spell-duel.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L216)
 
 Whether both spells go off simultaneously
 
@@ -1441,7 +1441,7 @@ Whether both spells go off simultaneously
 
 ### PhlogistonDisturbanceResult
 
-Defined in: spells/spell-duel.ts:222
+Defined in: [spells/spell-duel.ts:222](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L222)
 
 Result from Table 4-7: Phlogiston Disturbance
 
@@ -1453,7 +1453,7 @@ Result from Table 4-7: Phlogiston Disturbance
 roll: number;
 ```
 
-Defined in: spells/spell-duel.ts:224
+Defined in: [spells/spell-duel.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L224)
 
 Roll on the table
 
@@ -1463,7 +1463,7 @@ Roll on the table
 effect: string;
 ```
 
-Defined in: spells/spell-duel.ts:227
+Defined in: [spells/spell-duel.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L227)
 
 Effect description
 
@@ -1473,7 +1473,7 @@ Effect description
 affectsAttacker: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:230
+Defined in: [spells/spell-duel.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L230)
 
 Whether this affects the attacker
 
@@ -1483,7 +1483,7 @@ Whether this affects the attacker
 affectsDefender: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:233
+Defined in: [spells/spell-duel.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L233)
 
 Whether this affects the defender
 
@@ -1493,7 +1493,7 @@ Whether this affects the defender
 affectsBystanders: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:236
+Defined in: [spells/spell-duel.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L236)
 
 Whether this affects bystanders
 
@@ -1503,7 +1503,7 @@ Whether this affects bystanders
 optional damage?: string;
 ```
 
-Defined in: spells/spell-duel.ts:239
+Defined in: [spells/spell-duel.ts:239](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L239)
 
 Damage dealt (if any)
 
@@ -1513,7 +1513,7 @@ Damage dealt (if any)
 optional areaOfEffect?: number;
 ```
 
-Defined in: spells/spell-duel.ts:242
+Defined in: [spells/spell-duel.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L242)
 
 Area of effect in feet (if any)
 
@@ -1530,7 +1530,7 @@ optional specialEffect?:
   | "magical-chaos";
 ```
 
-Defined in: spells/spell-duel.ts:245
+Defined in: [spells/spell-duel.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L245)
 
 Special effect type
 
@@ -1538,7 +1538,7 @@ Special effect type
 
 ### CounterspellExchangeResult
 
-Defined in: spells/spell-duel.ts:259
+Defined in: [spells/spell-duel.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L259)
 
 Result of a single counterspell exchange
 
@@ -1550,7 +1550,7 @@ Result of a single counterspell exchange
 attackerCheck: SpellDuelCheck;
 ```
 
-Defined in: spells/spell-duel.ts:261
+Defined in: [spells/spell-duel.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L261)
 
 The attacking caster's check
 
@@ -1560,7 +1560,7 @@ The attacking caster's check
 defenderCheck: SpellDuelCheck;
 ```
 
-Defined in: spells/spell-duel.ts:264
+Defined in: [spells/spell-duel.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L264)
 
 The defending caster's check
 
@@ -1570,7 +1570,7 @@ The defending caster's check
 comparison: SpellCheckComparison;
 ```
 
-Defined in: spells/spell-duel.ts:267
+Defined in: [spells/spell-duel.ts:267](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L267)
 
 Comparison result
 
@@ -1580,7 +1580,7 @@ Comparison result
 optional counterspellPower?: CounterspellPowerResult;
 ```
 
-Defined in: spells/spell-duel.ts:270
+Defined in: [spells/spell-duel.ts:270](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L270)
 
 Counterspell power result (if not phlogiston disturbance)
 
@@ -1590,7 +1590,7 @@ Counterspell power result (if not phlogiston disturbance)
 optional phlogistonDisturbance?: PhlogistonDisturbanceResult;
 ```
 
-Defined in: spells/spell-duel.ts:273
+Defined in: [spells/spell-duel.ts:273](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L273)
 
 Phlogiston disturbance result (if checks were equal)
 
@@ -1600,7 +1600,7 @@ Phlogiston disturbance result (if checks were equal)
 newAttackerMomentum: number;
 ```
 
-Defined in: spells/spell-duel.ts:276
+Defined in: [spells/spell-duel.ts:276](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L276)
 
 Updated attacker momentum
 
@@ -1610,7 +1610,7 @@ Updated attacker momentum
 newDefenderMomentum: number;
 ```
 
-Defined in: spells/spell-duel.ts:279
+Defined in: [spells/spell-duel.ts:279](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L279)
 
 Updated defender momentum
 
@@ -1620,7 +1620,7 @@ Updated defender momentum
 samePatronCancellation: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:282
+Defined in: [spells/spell-duel.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L282)
 
 Whether same-patron cancellation occurred
 
@@ -1628,7 +1628,7 @@ Whether same-patron cancellation occurred
 
 ### SpellDuelState
 
-Defined in: spells/spell-duel.ts:288
+Defined in: [spells/spell-duel.ts:288](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L288)
 
 State of an ongoing spell duel
 
@@ -1640,7 +1640,7 @@ State of an ongoing spell duel
 participants: SpellDuelParticipant[];
 ```
 
-Defined in: spells/spell-duel.ts:290
+Defined in: [spells/spell-duel.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L290)
 
 All participants in the duel
 
@@ -1650,7 +1650,7 @@ All participants in the duel
 exchanges: CounterspellExchangeResult[];
 ```
 
-Defined in: spells/spell-duel.ts:293
+Defined in: [spells/spell-duel.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L293)
 
 History of exchanges
 
@@ -1660,7 +1660,7 @@ History of exchanges
 active: boolean;
 ```
 
-Defined in: spells/spell-duel.ts:296
+Defined in: [spells/spell-duel.ts:296](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L296)
 
 Whether the duel is still active
 
@@ -1670,7 +1670,7 @@ Whether the duel is still active
 optional currentAttackerId?: string;
 ```
 
-Defined in: spells/spell-duel.ts:299
+Defined in: [spells/spell-duel.ts:299](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L299)
 
 ID of the current attacker
 
@@ -1680,7 +1680,7 @@ ID of the current attacker
 optional currentAttackSpell?: SpellDuelSpell;
 ```
 
-Defined in: spells/spell-duel.ts:302
+Defined in: [spells/spell-duel.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L302)
 
 The spell being attacked with
 
@@ -1688,7 +1688,7 @@ The spell being attacked with
 
 ### ResolveExchangeOptions
 
-Defined in: spells/spell-duel.ts:605
+Defined in: [spells/spell-duel.ts:605](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L605)
 
 Options for resolving a counterspell exchange
 
@@ -1700,7 +1700,7 @@ Options for resolving a counterspell exchange
 optional roller?: DiceRoller;
 ```
 
-Defined in: spells/spell-duel.ts:607
+Defined in: [spells/spell-duel.ts:607](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L607)
 
 Optional dice roller
 
@@ -1710,7 +1710,7 @@ Optional dice roller
 optional tables?: SpellDuelTables;
 ```
 
-Defined in: spells/spell-duel.ts:609
+Defined in: [spells/spell-duel.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L609)
 
 Optional custom tables (for official tables)
 
@@ -1718,7 +1718,7 @@ Optional custom tables (for official tables)
 
 ### CanLearnResult
 
-Defined in: spells/spellbook.ts:177
+Defined in: [spells/spellbook.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L177)
 
 Result of checking if a spell can be learned
 
@@ -1730,7 +1730,7 @@ Result of checking if a spell can be learned
 allowed: boolean;
 ```
 
-Defined in: spells/spellbook.ts:179
+Defined in: [spells/spellbook.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L179)
 
 Whether the spell can be learned
 
@@ -1740,7 +1740,7 @@ Whether the spell can be learned
 optional reason?: string;
 ```
 
-Defined in: spells/spellbook.ts:182
+Defined in: [spells/spellbook.ts:182](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L182)
 
 Reason if not allowed
 
@@ -1748,7 +1748,7 @@ Reason if not allowed
 
 ### SpellburnValidationResult
 
-Defined in: spells/spellburn.ts:21
+Defined in: [spells/spellburn.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L21)
 
 Result of validating a spellburn commitment
 
@@ -1760,7 +1760,7 @@ Result of validating a spellburn commitment
 valid: boolean;
 ```
 
-Defined in: spells/spellburn.ts:23
+Defined in: [spells/spellburn.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L23)
 
 Whether the spellburn is valid
 
@@ -1770,7 +1770,7 @@ Whether the spellburn is valid
 errors: string[];
 ```
 
-Defined in: spells/spellburn.ts:26
+Defined in: [spells/spellburn.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L26)
 
 Error messages if invalid
 
@@ -1780,7 +1780,7 @@ Error messages if invalid
 warnings: string[];
 ```
 
-Defined in: spells/spellburn.ts:29
+Defined in: [spells/spellburn.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L29)
 
 Warning messages (valid but potentially problematic)
 
@@ -1792,7 +1792,7 @@ Warning messages (valid but potentially problematic)
 type DisapprovalSeverity = "minor" | "moderate" | "major" | "severe" | "catastrophic";
 ```
 
-Defined in: spells/disapproval.ts:236
+Defined in: [spells/disapproval.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L236)
 
 Disapproval severity level
 
@@ -1804,7 +1804,7 @@ Disapproval severity level
 type FumbleSeverity = "minor" | "moderate" | "major" | "catastrophic";
 ```
 
-Defined in: spells/fumble.ts:127
+Defined in: [spells/fumble.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L127)
 
 Fumble severity level
 
@@ -1816,7 +1816,7 @@ Fumble severity level
 type MercurialClassification = "beneficial" | "detrimental" | "neutral" | "mixed";
 ```
 
-Defined in: spells/mercurial.ts:379
+Defined in: [spells/mercurial.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L379)
 
 Mercurial effect classification
 
@@ -1828,7 +1828,7 @@ Mercurial effect classification
 type ComparisonDieLookup = (attackerCheck: number, defenderCheck: number) => ComparisonDie;
 ```
 
-Defined in: spells/spell-duel-tables.ts:20
+Defined in: [spells/spell-duel-tables.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L20)
 
 Function type for looking up comparison die (Table 4-5)
 
@@ -1851,7 +1851,7 @@ Function type for looking up comparison die (Table 4-5)
 type PhlogistonDisturbanceTable = PhlogistonDisturbanceEntry[];
 ```
 
-Defined in: spells/spell-duel-tables.ts:89
+Defined in: [spells/spell-duel-tables.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L89)
 
 Table 4-7 data structure
 
@@ -1863,7 +1863,7 @@ Table 4-7 data structure
 type SpellDuelCasterType = "wizard" | "cleric" | "other";
 ```
 
-Defined in: spells/spell-duel.ts:73
+Defined in: [spells/spell-duel.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L73)
 
 Types of casters that can participate in spell duels
 
@@ -1880,7 +1880,7 @@ type CounterspellCategory =
   | "same-spell";
 ```
 
-Defined in: spells/spell-duel.ts:101
+Defined in: [spells/spell-duel.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L101)
 
 Categories of spells that can counter each other
 
@@ -1892,7 +1892,7 @@ Categories of spells that can counter each other
 type ComparisonDie = "d3" | "d4" | "d5" | "d6" | "d7" | "d8" | "d10" | "d12" | "d14" | "d16" | "PD";
 ```
 
-Defined in: spells/spell-duel.ts:154
+Defined in: [spells/spell-duel.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L154)
 
 Comparison die from Table 4-5
 
@@ -1904,7 +1904,7 @@ Comparison die from Table 4-5
 const SPELL_CHECK_THRESHOLDS: Record<number, number>;
 ```
 
-Defined in: spells/cast.ts:129
+Defined in: [spells/cast.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L129)
 
 Minimum spell check total to succeed, by spell level (DCC RAW: 10 + 2 × level)
 
@@ -1916,7 +1916,7 @@ Minimum spell check total to succeed, by spell level (DCC RAW: 10 + 2 × level)
 const DEFAULT_DISAPPROVAL_RANGE: 1 = 1;
 ```
 
-Defined in: spells/disapproval.ts:20
+Defined in: [spells/disapproval.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L20)
 
 Default starting disapproval range for clerics
 
@@ -1928,7 +1928,7 @@ Default starting disapproval range for clerics
 const MAX_DISAPPROVAL_RANGE: 20 = 20;
 ```
 
-Defined in: spells/disapproval.ts:25
+Defined in: [spells/disapproval.ts:25](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L25)
 
 Maximum disapproval range (at which point casting becomes very difficult)
 
@@ -1940,7 +1940,7 @@ Maximum disapproval range (at which point casting becomes very difficult)
 const MAX_MERCURIAL_SPECIAL_DEPTH: 5 = 5;
 ```
 
-Defined in: spells/mercurial.ts:52
+Defined in: [spells/mercurial.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L52)
 
 Maximum recursion depth when expanding `rollAgain` specials. A sub-roll
 landing on another special entry recurses; past this depth the literal
@@ -1955,7 +1955,7 @@ loop forever.
 const DEFAULT_COUNTERSPELL_POWER_TABLE: CounterspellPowerTable;
 ```
 
-Defined in: spells/spell-duel-tables.ts:153
+Defined in: [spells/spell-duel-tables.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L153)
 
 Default counterspell power table (fan-made)
 
@@ -1970,7 +1970,7 @@ Lower results favor the defender, higher results favor the attacker.
 const DEFAULT_PHLOGISTON_DISTURBANCE_TABLE: PhlogistonDisturbanceTable;
 ```
 
-Defined in: spells/spell-duel-tables.ts:310
+Defined in: [spells/spell-duel-tables.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L310)
 
 Default phlogiston disturbance table (fan-made)
 
@@ -1985,7 +1985,7 @@ Roll d20 to determine the effect.
 const DEFAULT_SPELL_DUEL_TABLES: SpellDuelTables;
 ```
 
-Defined in: spells/spell-duel-tables.ts:421
+Defined in: [spells/spell-duel-tables.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L421)
 
 Default spell duel tables (fan-made)
 
@@ -1999,7 +1999,7 @@ Use these when official DCC tables are not available.
 const STARTING_MOMENTUM: 10 = 10;
 ```
 
-Defined in: spells/spell-duel.ts:312
+Defined in: [spells/spell-duel.ts:312](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L312)
 
 Starting momentum for all duel participants
 
@@ -2011,7 +2011,7 @@ Starting momentum for all duel participants
 const COUNTERSPELL_RELATIONSHIPS: Record<string, string[]>;
 ```
 
-Defined in: spells/spell-duel.ts:317
+Defined in: [spells/spell-duel.ts:317](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L317)
 
 Default spells and what they can counter
 
@@ -2023,7 +2023,7 @@ Default spells and what they can counter
 function buildSpellCheckModifiers(input: SpellCastInput): LegacyRollModifier[];
 ```
 
-Defined in: spells/cast.ts:32
+Defined in: [spells/cast.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L32)
 
 Build the modifier list for a spell check.
 Combines ability modifier, caster level, luck burn, spellburn, and situational modifiers.
@@ -2046,7 +2046,7 @@ Combines ability modifier, caster level, luck burn, spellburn, and situational m
 function findInlineResult(results: readonly SpellResultEntry[], roll: number): SpellResultEntry | undefined;
 ```
 
-Defined in: spells/cast.ts:113
+Defined in: [spells/cast.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L113)
 
 Find a spell result entry from inline results
 
@@ -2069,7 +2069,7 @@ Find a spell result entry from inline results
 function getSpellCheckThreshold(spellLevel: number): number;
 ```
 
-Defined in: spells/cast.ts:140
+Defined in: [spells/cast.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L140)
 
 Get the minimum spell check threshold for a spell level
 
@@ -2091,7 +2091,7 @@ Get the minimum spell check threshold for a spell level
 function didSpellCheckSucceed(total: number, spellLevel: number): boolean;
 ```
 
-Defined in: spells/cast.ts:147
+Defined in: [spells/cast.ts:147](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L147)
 
 Check if a spell check succeeded (met minimum threshold)
 
@@ -2125,7 +2125,7 @@ function determineSpellResult(
   | undefined;
 ```
 
-Defined in: spells/cast.ts:160
+Defined in: [spells/cast.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L160)
 
 Determine the spell result from a check total.
 Uses inline results if available, otherwise falls back to table lookup.
@@ -2160,7 +2160,7 @@ A missing or invalid level is treated as level 1.
 function losesSpellOnFailure(profile: CasterProfile): boolean;
 ```
 
-Defined in: spells/cast.ts:219
+Defined in: [spells/cast.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L219)
 
 Does this caster lose the spell for the day on a failed spell check?
 See `CasterProfile.losesSpellOnFailure`.
@@ -2190,7 +2190,7 @@ function isSpellLostResult(
 ): boolean;
 ```
 
-Defined in: spells/cast.ts:232
+Defined in: [spells/cast.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L232)
 
 Check if a result indicates the spell is lost.
 
@@ -2227,7 +2227,7 @@ function triggersCorruption(
 ): boolean;
 ```
 
-Defined in: spells/cast.ts:252
+Defined in: [spells/cast.ts:252](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L252)
 
 Check if a result triggers corruption
 
@@ -2251,7 +2251,7 @@ Check if a result triggers corruption
 function checkDisapproval(natural: number, disapprovalRange: number): boolean;
 ```
 
-Defined in: spells/cast.ts:282
+Defined in: [spells/cast.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L282)
 
 Check if a spell check triggers disapproval (clerics only)
 
@@ -2278,7 +2278,7 @@ function calculateDisapprovalIncrease(
 ): number;
 ```
 
-Defined in: spells/cast.ts:307
+Defined in: [spells/cast.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L307)
 
 Calculate the disapproval-range increase this cast causes.
 
@@ -2316,7 +2316,7 @@ function castSpell(
 ): SpellCastResult;
 ```
 
-Defined in: spells/cast.ts:337
+Defined in: [spells/cast.ts:337](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L337)
 
 Cast a spell, performing the spell check and determining results.
 
@@ -2351,7 +2351,7 @@ the flags indicating when they should be triggered.
 function getCasterProfile(classId: string): CasterProfile | undefined;
 ```
 
-Defined in: spells/cast.ts:545
+Defined in: [spells/cast.ts:545](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L545)
 
 Get the default caster profile for a class
 
@@ -2373,7 +2373,7 @@ Get the default caster profile for a class
 function isSuccess(tier: ResultTier | undefined): boolean;
 ```
 
-Defined in: spells/cast.ts:582
+Defined in: [spells/cast.ts:582](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L582)
 
 Check if a result is a success (any success tier)
 
@@ -2395,7 +2395,7 @@ Check if a result is a success (any success tier)
 function isFailure(tier: ResultTier | undefined): boolean;
 ```
 
-Defined in: spells/cast.ts:590
+Defined in: [spells/cast.ts:590](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L590)
 
 Check if a result is a failure (failure or lost)
 
@@ -2417,7 +2417,7 @@ Check if a result is a failure (failure or lost)
 function getSpellCheckTotalModifier(modifiers: LegacyRollModifier[]): number;
 ```
 
-Defined in: spells/cast.ts:598
+Defined in: [spells/cast.ts:598](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L598)
 
 Calculate the total modifier sum from a spell check modifiers list
 
@@ -2443,7 +2443,7 @@ function rollCorruption(
 ): CorruptionResult;
 ```
 
-Defined in: spells/corruption.ts:37
+Defined in: [spells/corruption.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L37)
 
 Roll for corruption effect.
 
@@ -2477,7 +2477,7 @@ function rollCorruptionWithModifier(
 ): CorruptionResult;
 ```
 
-Defined in: spells/corruption.ts:78
+Defined in: [spells/corruption.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L78)
 
 Roll corruption with a specific modifier (e.g., from luck).
 
@@ -2502,7 +2502,7 @@ Roll corruption with a specific modifier (e.g., from luck).
 function addCorruption(currentCorruptions: readonly string[], newCorruption: CorruptionResult): string[];
 ```
 
-Defined in: spells/corruption.ts:125
+Defined in: [spells/corruption.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L125)
 
 Add a corruption to a character's corruption list.
 Returns the updated corruption array.
@@ -2526,7 +2526,7 @@ Returns the updated corruption array.
 function getCorruptions(character: Character): readonly string[];
 ```
 
-Defined in: spells/corruption.ts:136
+Defined in: [spells/corruption.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L136)
 
 Get corruptions from a character's class state.
 Works for both wizards and elves.
@@ -2549,7 +2549,7 @@ readonly `string`[]
 function getCorruptionCount(character: Character): number;
 ```
 
-Defined in: spells/corruption.ts:153
+Defined in: [spells/corruption.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L153)
 
 Count the number of corruptions a character has.
 
@@ -2571,7 +2571,7 @@ Count the number of corruptions a character has.
 function hasCorruptions(character: Character): boolean;
 ```
 
-Defined in: spells/corruption.ts:160
+Defined in: [spells/corruption.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L160)
 
 Check if a character has any corruptions.
 
@@ -2593,7 +2593,7 @@ Check if a character has any corruptions.
 function determineCorruptionTier(spellLevel: number): "minor" | "major" | "greater";
 ```
 
-Defined in: spells/corruption.ts:172
+Defined in: [spells/corruption.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L172)
 
 Determine corruption tier based on spell level.
 Higher level spells risk greater corruption.
@@ -2616,7 +2616,7 @@ Higher level spells risk greater corruption.
 function getCorruptionSeverity(roll: number): "minor" | "major" | "greater";
 ```
 
-Defined in: spells/corruption.ts:183
+Defined in: [spells/corruption.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L183)
 
 Determine corruption tier based on roll result.
 
@@ -2642,7 +2642,7 @@ function rollPatronTaint(
 ): PatronTaintResult;
 ```
 
-Defined in: spells/corruption.ts:202
+Defined in: [spells/corruption.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L202)
 
 Roll for patron taint.
 Patron taint is similar to corruption but specific to the patron.
@@ -2669,7 +2669,7 @@ The patron taint result
 function removeCorruption(currentCorruptions: readonly string[], indexToRemove: number): string[];
 ```
 
-Defined in: spells/corruption.ts:241
+Defined in: [spells/corruption.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L241)
 
 Remove a corruption from a character (very rare in DCC).
 Returns the updated corruption array.
@@ -2696,7 +2696,7 @@ exists for special cases like divine intervention or powerful magic.
 function clearAllCorruptions(): string[];
 ```
 
-Defined in: spells/corruption.ts:251
+Defined in: [spells/corruption.ts:251](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/corruption.ts#L251)
 
 Remove all corruptions from a character (extremely rare).
 
@@ -2712,7 +2712,7 @@ Remove all corruptions from a character (extremely rare).
 function rollTriggersDisapproval(natural: number, disapprovalRange: number): boolean;
 ```
 
-Defined in: spells/disapproval.ts:34
+Defined in: [spells/disapproval.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L34)
 
 Check if a natural roll triggers disapproval.
 
@@ -2737,7 +2737,7 @@ True if the roll is within the disapproval range
 function increaseDisapprovalRange(currentRange: number, increase?: number): number;
 ```
 
-Defined in: spells/disapproval.ts:49
+Defined in: [spells/disapproval.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L49)
 
 Increase the disapproval range.
 Range increases by 1 on natural 1 (by default).
@@ -2767,7 +2767,7 @@ function reduceDisapprovalRange(
 ): number;
 ```
 
-Defined in: spells/disapproval.ts:64
+Defined in: [spells/disapproval.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L64)
 
 Reduce the disapproval range (after appropriate penance/atonement).
 
@@ -2793,7 +2793,7 @@ New disapproval range
 function resetDisapprovalRange(): number;
 ```
 
-Defined in: spells/disapproval.ts:75
+Defined in: [spells/disapproval.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L75)
 
 Fully reset disapproval range to default.
 
@@ -2815,7 +2815,7 @@ function rollDisapproval(
 ): DisapprovalResult;
 ```
 
-Defined in: spells/disapproval.ts:159
+Defined in: [spells/disapproval.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L159)
 
 Roll for disapproval effect.
 
@@ -2859,7 +2859,7 @@ function checkAndRollDisapproval(
 ): DisapprovalResult | undefined;
 ```
 
-Defined in: spells/disapproval.ts:215
+Defined in: [spells/disapproval.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L215)
 
 Combined check and roll for disapproval.
 Returns undefined if disapproval was not triggered.
@@ -2888,7 +2888,7 @@ DisapprovalResult if triggered, undefined otherwise
 function getDisapprovalSeverity(roll: number): DisapprovalSeverity;
 ```
 
-Defined in: spells/disapproval.ts:242
+Defined in: [spells/disapproval.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L242)
 
 Get the severity level of a disapproval roll.
 Based on typical DCC disapproval table structure.
@@ -2915,7 +2915,7 @@ function getExpectedSeverity(disapprovalRange: number, luckModifier?: number): {
 };
 ```
 
-Defined in: spells/disapproval.ts:259
+Defined in: [spells/disapproval.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L259)
 
 Calculate the expected disapproval severity for a given range.
 Useful for warning players about high disapproval ranges.
@@ -2944,9 +2944,9 @@ The average assumes each triggering natural is equally likely.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | spells/disapproval.ts:263 |
-| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | spells/disapproval.ts:264 |
-| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | spells/disapproval.ts:265 |
+| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L263) |
+| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L264) |
+| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:265](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L265) |
 
 ***
 
@@ -2956,7 +2956,7 @@ The average assumes each triggering natural is equally likely.
 function getDisapprovalProbability(disapprovalRange: number): number;
 ```
 
-Defined in: spells/disapproval.ts:287
+Defined in: [spells/disapproval.ts:287](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L287)
 
 Calculate the probability of triggering disapproval on a d20.
 
@@ -2978,7 +2978,7 @@ Calculate the probability of triggering disapproval on a d20.
 function getDisapprovalRiskDescription(disapprovalRange: number): string;
 ```
 
-Defined in: spells/disapproval.ts:294
+Defined in: [spells/disapproval.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L294)
 
 Get a description of how risky the current disapproval range is.
 
@@ -3004,7 +3004,7 @@ function rollSpellFumble(
 ): SpellFumbleResult;
 ```
 
-Defined in: spells/fumble.ts:39
+Defined in: [spells/fumble.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L39)
 
 Roll on the spell fumble table.
 
@@ -3038,7 +3038,7 @@ function rollSpellFumbleWithModifier(
 ): SpellFumbleResult;
 ```
 
-Defined in: spells/fumble.ts:81
+Defined in: [spells/fumble.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L81)
 
 Roll spell fumble with a modifier (e.g., from luck or other sources).
 
@@ -3063,7 +3063,7 @@ Roll spell fumble with a modifier (e.g., from luck or other sources).
 function getFumbleSeverity(roll: number): FumbleSeverity;
 ```
 
-Defined in: spells/fumble.ts:132
+Defined in: [spells/fumble.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L132)
 
 Determine fumble severity from the roll.
 
@@ -3089,7 +3089,7 @@ function getExpectedFumbleRange(spellLevel: number): {
 };
 ```
 
-Defined in: spells/fumble.ts:142
+Defined in: [spells/fumble.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L142)
 
 Calculate expected fumble range for a spell level.
 
@@ -3111,9 +3111,9 @@ Calculate expected fumble range for a spell level.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `min` | `number` | spells/fumble.ts:143 |
-| `max` | `number` | spells/fumble.ts:144 |
-| `averageSeverity` | [`FumbleSeverity`](#fumbleseverity) | spells/fumble.ts:145 |
+| `min` | `number` | [spells/fumble.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L143) |
+| `max` | `number` | [spells/fumble.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L144) |
+| `averageSeverity` | [`FumbleSeverity`](#fumbleseverity) | [spells/fumble.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L145) |
 
 ***
 
@@ -3123,7 +3123,7 @@ Calculate expected fumble range for a spell level.
 function isSpellFumble(natural: number): boolean;
 ```
 
-Defined in: spells/fumble.ts:166
+Defined in: [spells/fumble.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L166)
 
 Check if a natural roll is a fumble.
 Fumbles occur on natural 1 for spell checks.
@@ -3146,7 +3146,7 @@ Fumbles occur on natural 1 for spell checks.
 function fumbleRequiresCorruption(fumbleResult: SpellFumbleResult, profile: CasterProfile): boolean;
 ```
 
-Defined in: spells/fumble.ts:173
+Defined in: [spells/fumble.ts:173](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L173)
 
 Check if a fumble result requires a corruption roll.
 
@@ -3169,7 +3169,7 @@ Check if a fumble result requires a corruption roll.
 function parseMisfireType(fumbleResult: SpellFumbleResult): MisfireResult | undefined;
 ```
 
-Defined in: spells/fumble.ts:207
+Defined in: [spells/fumble.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L207)
 
 Determine misfire type from fumble result.
 This is a helper for systems that want to parse misfire effects.
@@ -3192,7 +3192,7 @@ This is a helper for systems that want to parse misfire effects.
 function isClericSpellFailure(natural: number, profile: CasterProfile): boolean;
 ```
 
-Defined in: spells/fumble.ts:247
+Defined in: [spells/fumble.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L247)
 
 Cleric natural 1 handling is different - it's disapproval, not fumble.
 This function documents the distinction.
@@ -3216,7 +3216,7 @@ This function documents the distinction.
 function getFailureType(natural: number, profile: CasterProfile): "none" | "disapproval" | "fumble";
 ```
 
-Defined in: spells/fumble.ts:262
+Defined in: [spells/fumble.ts:262](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/fumble.ts#L262)
 
 Get the appropriate failure type for a caster.
 
@@ -3243,7 +3243,7 @@ function rollMercurialMagic(
 ): MercurialEffect;
 ```
 
-Defined in: spells/mercurial.ts:97
+Defined in: [spells/mercurial.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L97)
 
 Roll for mercurial magic effect.
 
@@ -3285,7 +3285,7 @@ function expandMercurialSpecial(
 ): MercurialEffect;
 ```
 
-Defined in: spells/mercurial.ts:146
+Defined in: [spells/mercurial.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L146)
 
 Expand a looked-up special (`rollAgain`) effect into its sub-effects.
 
@@ -3318,7 +3318,7 @@ A combined effect with `subEffects` populated
 function lookupMercurialEffect(roll: number, table: MercurialTable): MercurialEffect;
 ```
 
-Defined in: spells/mercurial.ts:188
+Defined in: [spells/mercurial.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L188)
 
 Look up a mercurial effect by roll value.
 
@@ -3350,7 +3350,7 @@ function shouldMercurialTrigger(
 ): boolean;
 ```
 
-Defined in: spells/mercurial.ts:240
+Defined in: [spells/mercurial.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L240)
 
 Check if a mercurial effect should trigger based on the spell check result.
 
@@ -3381,7 +3381,7 @@ True if the effect should trigger
 function getMercurialModifier(effect: MercurialEffect): number;
 ```
 
-Defined in: spells/mercurial.ts:282
+Defined in: [spells/mercurial.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L282)
 
 Get the spell check modifier from a mercurial effect.
 Returns 0 if the effect doesn't provide a modifier.
@@ -3407,7 +3407,7 @@ summed — every sub-effect applies.
 function getMercurialDiceModifier(effect: MercurialEffect): string | undefined;
 ```
 
-Defined in: spells/mercurial.ts:301
+Defined in: [spells/mercurial.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L301)
 
 Get the dice modifier from a mercurial effect (e.g., "+1d4").
 Returns undefined if the effect doesn't provide a dice modifier.
@@ -3434,7 +3434,7 @@ sub-effect applies.
 function getMercurialDuration(effect: MercurialEffect): string | undefined;
 ```
 
-Defined in: spells/mercurial.ts:330
+Defined in: [spells/mercurial.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L330)
 
 Get the duration adjustment from a mercurial effect.
 Returns undefined if the effect doesn't modify duration.
@@ -3461,7 +3461,7 @@ for per-effect durations.
 function getMercurialData(effect: MercurialEffect): Record<string, unknown> | undefined;
 ```
 
-Defined in: spells/mercurial.ts:355
+Defined in: [spells/mercurial.ts:355](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L355)
 
 Get custom data from a mercurial effect.
 Returns undefined if no custom data exists.
@@ -3488,7 +3488,7 @@ per-effect data.
 function classifyMercurialEffect(effect: MercurialEffect): MercurialClassification;
 ```
 
-Defined in: spells/mercurial.ts:393
+Defined in: [spells/mercurial.ts:393](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L393)
 
 Classify a mercurial effect as beneficial, detrimental, neutral, or mixed.
 
@@ -3515,7 +3515,7 @@ stays "neutral".
 function summarizeMercurialEffect(effect: MercurialEffect): string;
 ```
 
-Defined in: spells/mercurial.ts:463
+Defined in: [spells/mercurial.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L463)
 
 Get a summary of what the mercurial effect does numerically.
 
@@ -3543,7 +3543,7 @@ function validateMercurialTable(table: MercurialTable): {
 };
 ```
 
-Defined in: spells/mercurial.ts:514
+Defined in: [spells/mercurial.ts:514](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L514)
 
 Validate that a mercurial table has no gaps or overlaps.
 
@@ -3564,8 +3564,8 @@ Validate that a mercurial table has no gaps or overlaps.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `valid` | `boolean` | spells/mercurial.ts:516 |
-| `errors` | `string`[] | spells/mercurial.ts:516 |
+| `valid` | `boolean` | [spells/mercurial.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L516) |
+| `errors` | `string`[] | [spells/mercurial.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L516) |
 
 ***
 
@@ -3578,7 +3578,7 @@ function getMercurialTableRange(table: MercurialTable): {
 };
 ```
 
-Defined in: spells/mercurial.ts:555
+Defined in: [spells/mercurial.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L555)
 
 Get the roll range covered by a mercurial table.
 
@@ -3599,8 +3599,8 @@ Get the roll range covered by a mercurial table.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `min` | `number` | spells/mercurial.ts:557 |
-| `max` | `number` | spells/mercurial.ts:557 |
+| `min` | `number` | [spells/mercurial.ts:557](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L557) |
+| `max` | `number` | [spells/mercurial.ts:557](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L557) |
 
 ***
 
@@ -3610,7 +3610,7 @@ Get the roll range covered by a mercurial table.
 function countMercurialByClassification(table: MercurialTable): Record<MercurialClassification, number>;
 ```
 
-Defined in: spells/mercurial.ts:574
+Defined in: [spells/mercurial.ts:574](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L574)
 
 Count entries by classification.
 
@@ -3632,7 +3632,7 @@ Count entries by classification.
 function createNoMercurialEffect(): MercurialEffect;
 ```
 
-Defined in: spells/mercurial.ts:610
+Defined in: [spells/mercurial.ts:610](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L610)
 
 Create a "no effect" mercurial result for spells that don't use mercurial magic.
 
@@ -3648,7 +3648,7 @@ Create a "no effect" mercurial result for spells that don't use mercurial magic.
 function isMercurialEffectPlaceholder(effect: MercurialEffect): boolean;
 ```
 
-Defined in: spells/mercurial.ts:622
+Defined in: [spells/mercurial.ts:622](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/mercurial.ts#L622)
 
 Check if a mercurial effect is the "no effect" placeholder.
 
@@ -3670,7 +3670,7 @@ Check if a mercurial effect is the "no effect" placeholder.
 function isPatronCast(spell: SpellDefinition, input: SpellCastInput): boolean;
 ```
 
-Defined in: spells/patron-taint-check.ts:48
+Defined in: [spells/patron-taint-check.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L48)
 
 Determine whether a cast counts as a "patron-based spell" for taint-check
 purposes. The caller's explicit `isPatronSpell` takes precedence; otherwise
@@ -3695,7 +3695,7 @@ fall back to the spell definition's `tags` array.
 function effectTriggersTaint(effect: TableEffect | undefined): boolean;
 ```
 
-Defined in: spells/patron-taint-check.ts:67
+Defined in: [spells/patron-taint-check.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L67)
 
 Detect whether a spell result-table entry's effect marks a patron-taint
 outcome. Accepts two content-authoring forms:
@@ -3723,7 +3723,7 @@ outcome. Accepts two content-authoring forms:
 function rollPatronTaintChanceCheck(currentChance: number, options?: RollOptions): PatronTaintCheckOutcome;
 ```
 
-Defined in: spells/patron-taint-check.ts:93
+Defined in: [spells/patron-taint-check.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L93)
 
 Roll the per-cast creeping-chance check. Does NOT apply the acquisition
 consequences (chance reset, manifestation roll) — that is the orchestrator's
@@ -3755,7 +3755,7 @@ function applyPatronTaintAcquisition(
 ): PatronTaintResult | undefined;
 ```
 
-Defined in: spells/patron-taint-check.ts:110
+Defined in: [spells/patron-taint-check.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/patron-taint-check.ts#L110)
 
 Apply patron-taint acquisition consequences. Rolls the manifestation table
 when provided, fires the `onPatronTaint` event, and returns the manifestation
@@ -3786,7 +3786,7 @@ Intentionally does NOT mutate `patronTaintChance`; the orchestrator computes
 function getCasterLevel(character: Character): number;
 ```
 
-Defined in: spells/spell-check.ts:115
+Defined in: [spells/spell-check.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L115)
 
 Get the caster level from character
 
@@ -3808,7 +3808,7 @@ Get the caster level from character
 function getCasterProfileFromCharacter(character: Character): CasterProfile | undefined;
 ```
 
-Defined in: spells/spell-check.ts:122
+Defined in: [spells/spell-check.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L122)
 
 Get the caster profile from character class
 
@@ -3833,7 +3833,7 @@ function getSpellCheckAbility(character: Character, profile: CasterProfile): {
 };
 ```
 
-Defined in: spells/spell-check.ts:131
+Defined in: [spells/spell-check.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L131)
 
 Get the spell check ability score and modifier from character
 
@@ -3855,8 +3855,8 @@ Get the spell check ability score and modifier from character
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `score` | `number` | spells/spell-check.ts:134 |
-| `modifier` | `number` | spells/spell-check.ts:134 |
+| `score` | `number` | [spells/spell-check.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L134) |
+| `modifier` | `number` | [spells/spell-check.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L134) |
 
 ***
 
@@ -3866,7 +3866,7 @@ Get the spell check ability score and modifier from character
 function getCurrentLuck(character: Character): number;
 ```
 
-Defined in: spells/spell-check.ts:144
+Defined in: [spells/spell-check.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L144)
 
 Get current luck from character
 
@@ -3888,7 +3888,7 @@ Get current luck from character
 function getStartingLuck(character: Character): number;
 ```
 
-Defined in: spells/spell-check.ts:151
+Defined in: [spells/spell-check.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L151)
 
 Get starting luck from character identity
 
@@ -3910,7 +3910,7 @@ Get starting luck from character identity
 function getLuckMultiplier(character: Character): number;
 ```
 
-Defined in: spells/spell-check.ts:158
+Defined in: [spells/spell-check.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L158)
 
 Get luck modifier multiplier from birth augur
 
@@ -3932,7 +3932,7 @@ Get luck modifier multiplier from birth augur
 function getDisapprovalRange(character: Character): number;
 ```
 
-Defined in: spells/spell-check.ts:165
+Defined in: [spells/spell-check.ts:165](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L165)
 
 Get disapproval range for cleric
 
@@ -3954,7 +3954,7 @@ Get disapproval range for cleric
 function getPatronId(character: Character): string | undefined;
 ```
 
-Defined in: spells/spell-check.ts:183
+Defined in: [spells/spell-check.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L183)
 
 Get patron ID for wizard/elf
 
@@ -3980,7 +3980,7 @@ function getSpellbookEntry(
 ): SpellbookEntry | undefined;
 ```
 
-Defined in: spells/spell-check.ts:197
+Defined in: [spells/spell-check.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L197)
 
 Get spellbook entry for a spell.
 
@@ -4019,7 +4019,7 @@ function buildSpellCastInput(
 };
 ```
 
-Defined in: spells/spell-check.ts:224
+Defined in: [spells/spell-check.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L224)
 
 Build the full SpellCastInput from character state and simplified input
 
@@ -4051,7 +4051,7 @@ function calculateSpellCheck(
 ): SpellCheckResult;
 ```
 
-Defined in: spells/spell-check.ts:340
+Defined in: [spells/spell-check.ts:340](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L340)
 
 Calculate a complete spell check with all follow-up effects.
 
@@ -4088,7 +4088,7 @@ Complete spell check result
 function isSpellCheckSuccess(result: SpellCheckResult): boolean;
 ```
 
-Defined in: spells/spell-check.ts:628
+Defined in: [spells/spell-check.ts:628](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L628)
 
 Check if a spell check result is successful
 
@@ -4110,7 +4110,7 @@ Check if a spell check result is successful
 function isSpellCheckFailure(result: SpellCheckResult): boolean;
 ```
 
-Defined in: spells/spell-check.ts:637
+Defined in: [spells/spell-check.ts:637](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L637)
 
 Check if a spell check result is a failure
 
@@ -4132,7 +4132,7 @@ Check if a spell check result is a failure
 function getSpellCheckSummary(result: SpellCheckResult): string;
 ```
 
-Defined in: spells/spell-check.ts:646
+Defined in: [spells/spell-check.ts:646](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-check.ts#L646)
 
 Get a summary of the spell check result for display
 
@@ -4154,7 +4154,7 @@ Get a summary of the spell check result for display
 function defaultGetComparisonDie(attackerCheck: number, defenderCheck: number): ComparisonDie;
 ```
 
-Defined in: spells/spell-duel-tables.ts:114
+Defined in: [spells/spell-duel-tables.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L114)
 
 Default comparison die lookup
 
@@ -4181,7 +4181,7 @@ Otherwise, the difference determines the die size to roll.
 function lookupCounterspellPowerEntry(table: CounterspellPowerEntry[], roll: number): CounterspellPowerEntry;
 ```
 
-Defined in: spells/spell-duel-tables.ts:434
+Defined in: [spells/spell-duel-tables.ts:434](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L434)
 
 Look up a counterspell power entry by roll value
 
@@ -4204,7 +4204,7 @@ Look up a counterspell power entry by roll value
 function lookupPhlogistonDisturbanceEntry(table: PhlogistonDisturbanceTable, roll: number): PhlogistonDisturbanceEntry;
 ```
 
-Defined in: spells/spell-duel-tables.ts:454
+Defined in: [spells/spell-duel-tables.ts:454](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L454)
 
 Look up a phlogiston disturbance entry by roll value
 
@@ -4232,7 +4232,7 @@ function entryToCounterspellPowerResult(
 ): CounterspellPowerResult;
 ```
 
-Defined in: spells/spell-duel-tables.ts:474
+Defined in: [spells/spell-duel-tables.ts:474](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L474)
 
 Convert a counterspell power entry to the full result format
 
@@ -4257,7 +4257,7 @@ Convert a counterspell power entry to the full result format
 function entryToPhlogistonDisturbanceResult(entry: PhlogistonDisturbanceEntry, roll: number): PhlogistonDisturbanceResult;
 ```
 
-Defined in: spells/spell-duel-tables.ts:496
+Defined in: [spells/spell-duel-tables.ts:496](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel-tables.ts#L496)
 
 Convert a phlogiston disturbance entry to the full result format
 
@@ -4284,7 +4284,7 @@ function getComparisonDie(
 ): ComparisonDie;
 ```
 
-Defined in: spells/spell-duel.ts:337
+Defined in: [spells/spell-duel.ts:337](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L337)
 
 Table 4-5 lookup - returns the die to roll based on attacker and defender checks
 
@@ -4315,7 +4315,7 @@ function compareSpellChecks(
 ): SpellCheckComparison;
 ```
 
-Defined in: spells/spell-duel.ts:353
+Defined in: [spells/spell-duel.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L353)
 
 Compare spell checks and determine the die to roll
 
@@ -4345,7 +4345,7 @@ function rollCounterspellPower(
 ): CounterspellPowerResult;
 ```
 
-Defined in: spells/spell-duel.ts:386
+Defined in: [spells/spell-duel.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L386)
 
 Table 4-6: Counterspell Power results
 
@@ -4375,7 +4375,7 @@ If defender high, use "Defender High" column
 function rollPhlogistonDisturbance(roller?: DiceRoller, table?: PhlogistonDisturbanceTable): PhlogistonDisturbanceResult;
 ```
 
-Defined in: spells/spell-duel.ts:429
+Defined in: [spells/spell-duel.ts:429](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L429)
 
 Roll on Table 4-7: Phlogiston Disturbance
 
@@ -4407,7 +4407,7 @@ function createSpellDuelState(participants: {
 }[]): SpellDuelState;
 ```
 
-Defined in: spells/spell-duel.ts:453
+Defined in: [spells/spell-duel.ts:453](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L453)
 
 Create initial spell duel state
 
@@ -4435,7 +4435,7 @@ function createSpellDuelParticipant(
 ): SpellDuelParticipant;
 ```
 
-Defined in: spells/spell-duel.ts:475
+Defined in: [spells/spell-duel.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L475)
 
 Create a spell duel participant
 
@@ -4465,7 +4465,7 @@ function checkSpellLostInDuel(
 ): boolean;
 ```
 
-Defined in: spells/spell-duel.ts:495
+Defined in: [spells/spell-duel.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L495)
 
 Determine if a spell is lost based on the initial check (spell duel context)
 
@@ -4489,7 +4489,7 @@ Determine if a spell is lost based on the initial check (spell duel context)
 function canCounter(attackSpell: SpellDuelSpell, counterSpell: SpellDuelSpell): boolean;
 ```
 
-Defined in: spells/spell-duel.ts:513
+Defined in: [spells/spell-duel.ts:513](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L513)
 
 Check if a defending spell can counter an attacking spell
 
@@ -4512,7 +4512,7 @@ Check if a defending spell can counter an attacking spell
 function isSamePatronInvocation(attackSpell: SpellDuelSpell, counterSpell: SpellDuelSpell): boolean;
 ```
 
-Defined in: spells/spell-duel.ts:555
+Defined in: [spells/spell-duel.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L555)
 
 Check if two invoke patron spells are for the same patron (auto-cancel)
 
@@ -4540,7 +4540,7 @@ function makeSpellDuelCheck(
 ): SpellDuelCheck;
 ```
 
-Defined in: spells/spell-duel.ts:577
+Defined in: [spells/spell-duel.ts:577](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L577)
 
 Make a spell check for a duel participant
 
@@ -4574,7 +4574,7 @@ function resolveCounterspellExchange(
 ): CounterspellExchangeResult;
 ```
 
-Defined in: spells/spell-duel.ts:622
+Defined in: [spells/spell-duel.ts:622](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L622)
 
 Resolve a counterspell exchange between attacker and defender
 
@@ -4601,7 +4601,7 @@ Resolve a counterspell exchange between attacker and defender
 function applyExchangeResult(state: SpellDuelState, result: CounterspellExchangeResult): SpellDuelState;
 ```
 
-Defined in: spells/spell-duel.ts:737
+Defined in: [spells/spell-duel.ts:737](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L737)
 
 Apply a counterspell exchange result to update the duel state
 
@@ -4624,7 +4624,7 @@ Apply a counterspell exchange result to update the duel state
 function getInitiativeOrder(state: SpellDuelState): SpellDuelParticipant[];
 ```
 
-Defined in: spells/spell-duel.ts:761
+Defined in: [spells/spell-duel.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L761)
 
 Get participants sorted by initiative (highest first)
 
@@ -4650,7 +4650,7 @@ function canCounterspellByInitiative(
 ): boolean;
 ```
 
-Defined in: spells/spell-duel.ts:769
+Defined in: [spells/spell-duel.ts:769](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L769)
 
 Check if a participant can counterspell based on initiative
 A caster can only counterspell someone with higher initiative
@@ -4675,7 +4675,7 @@ A caster can only counterspell someone with higher initiative
 function formatSpellDuelCheck(check: SpellDuelCheck): string;
 ```
 
-Defined in: spells/spell-duel.ts:792
+Defined in: [spells/spell-duel.ts:792](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L792)
 
 Format a spell duel check result for display
 
@@ -4701,7 +4701,7 @@ function formatExchangeResult(
 ): string;
 ```
 
-Defined in: spells/spell-duel.ts:801
+Defined in: [spells/spell-duel.ts:801](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L801)
 
 Format a counterspell exchange result for display
 
@@ -4725,7 +4725,7 @@ Format a counterspell exchange result for display
 function formatSpellDuelState(state: SpellDuelState): string;
 ```
 
-Defined in: spells/spell-duel.ts:856
+Defined in: [spells/spell-duel.ts:856](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spell-duel.ts#L856)
 
 Format the current state of a spell duel
 
@@ -4781,7 +4781,7 @@ function findSpellEntry(spellbook: {
 }, spellId: string): SpellbookEntry | undefined;
 ```
 
-Defined in: spells/spellbook.ts:88
+Defined in: [spells/spellbook.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L88)
 
 Find a spell entry in a spellbook by ID
 
@@ -4840,7 +4840,7 @@ function knowsSpell(spellbook: {
 }, spellId: string): boolean;
 ```
 
-Defined in: spells/spellbook.ts:100
+Defined in: [spells/spellbook.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L100)
 
 Check if a spell is known
 
@@ -4899,7 +4899,7 @@ function isSpellLost(spellbook: {
 }, spellId: string): boolean;
 ```
 
-Defined in: spells/spellbook.ts:110
+Defined in: [spells/spellbook.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L110)
 
 Check if a spell is currently lost (for the day)
 
@@ -4996,7 +4996,7 @@ function getSpellCountAtLevel(
 ): number;
 ```
 
-Defined in: spells/spellbook.ts:121
+Defined in: [spells/spellbook.ts:121](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L121)
 
 Get count of spells known at a specific level
 
@@ -5094,7 +5094,7 @@ function getSpellsAtLevel(
 ): SpellbookEntry[];
 ```
 
-Defined in: spells/spellbook.ts:135
+Defined in: [spells/spellbook.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L135)
 
 Get all spell entries at a specific level
 
@@ -5154,7 +5154,7 @@ function getLostSpells(spellbook: {
 }): SpellbookEntry[];
 ```
 
-Defined in: spells/spellbook.ts:151
+Defined in: [spells/spellbook.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L151)
 
 Get all lost spells
 
@@ -5212,7 +5212,7 @@ function getCastableSpells(spellbook: {
 }): SpellbookEntry[];
 ```
 
-Defined in: spells/spellbook.ts:162
+Defined in: [spells/spellbook.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L162)
 
 Get all castable (not lost) spells from a spellbook
 
@@ -5343,7 +5343,7 @@ function canLearnSpell(
 ): CanLearnResult;
 ```
 
-Defined in: spells/spellbook.ts:188
+Defined in: [spells/spellbook.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L188)
 
 Check if a character can learn a specific spell
 
@@ -5457,7 +5457,7 @@ function addSpellToSpellbook(
 ): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:232
+Defined in: [spells/spellbook.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L232)
 
 Add a spell to a spellbook.
 Returns a new spellbook with the spell added.
@@ -5533,7 +5533,7 @@ function removeSpellFromSpellbook(spellbook: {
 }, spellId: string): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:271
+Defined in: [spells/spellbook.ts:271](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L271)
 
 Remove a spell from a spellbook.
 Returns a new spellbook with the spell removed.
@@ -5593,7 +5593,7 @@ function markSpellLost(spellbook: {
 }, spellId: string): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:292
+Defined in: [spells/spellbook.ts:292](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L292)
 
 Mark a spell as lost for the day.
 Returns a new spellbook with the spell marked as lost.
@@ -5653,7 +5653,7 @@ function markSpellRecovered(spellbook: {
 }, spellId: string): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:316
+Defined in: [spells/spellbook.ts:316](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L316)
 
 Mark a spell as recovered (no longer lost).
 Returns a new spellbook with the spell marked as available.
@@ -5713,7 +5713,7 @@ function recoverAllSpells(spellbook: {
 }): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:340
+Defined in: [spells/spellbook.ts:340](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L340)
 
 Recover all lost spells (after rest/prayer).
 Returns a new spellbook with all spells marked as available.
@@ -5776,7 +5776,7 @@ function updateSpellLastResult(
 ): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:361
+Defined in: [spells/spellbook.ts:361](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L361)
 
 Update the last result for a spell (for GM adjustment feature).
 Returns a new spellbook with the result recorded.
@@ -5841,7 +5841,7 @@ function updateSpellNotes(
 ): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:386
+Defined in: [spells/spellbook.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L386)
 
 Update notes for a spell.
 Returns a new spellbook with updated notes.
@@ -5902,7 +5902,7 @@ function setSpellLimits(spellbook: {
 }, limits: Partial<Record<number, number>>): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:417
+Defined in: [spells/spellbook.ts:417](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L417)
 
 Set the maximum spells per level limits.
 Returns a new spellbook with updated limits.
@@ -5966,7 +5966,7 @@ function updateMercurialEffect(
 ): Spellbook;
 ```
 
-Defined in: spells/spellbook.ts:431
+Defined in: [spells/spellbook.ts:431](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellbook.ts#L431)
 
 Update a spell's mercurial effect.
 Returns a new spellbook with updated mercurial effect.
@@ -5993,7 +5993,7 @@ Returns a new spellbook with updated mercurial effect.
 function validateSpellburn(abilities: AbilityScores, commitment: SpellburnCommitment): SpellburnValidationResult;
 ```
 
-Defined in: spells/spellburn.ts:42
+Defined in: [spells/spellburn.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L42)
 
 Validate that a spellburn commitment is possible given current ability scores.
 
@@ -6023,7 +6023,7 @@ Rules:
 function getMaxSpellburn(abilities: AbilityScores): SpellburnCommitment;
 ```
 
-Defined in: spells/spellburn.ts:96
+Defined in: [spells/spellburn.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L96)
 
 Get the maximum spellburn possible for each ability
 
@@ -6045,7 +6045,7 @@ Get the maximum spellburn possible for each ability
 function getTotalMaxSpellburn(abilities: AbilityScores): number;
 ```
 
-Defined in: spells/spellburn.ts:109
+Defined in: [spells/spellburn.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L109)
 
 Get total maximum spellburn across all abilities
 
@@ -6067,7 +6067,7 @@ Get total maximum spellburn across all abilities
 function applySpellburn(abilities: AbilityScores, commitment: SpellburnCommitment): AbilityScores;
 ```
 
-Defined in: spells/spellburn.ts:124
+Defined in: [spells/spellburn.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L124)
 
 Apply spellburn to ability scores.
 Returns new ability scores with reduced current values.
@@ -6093,7 +6093,7 @@ Note: This function does NOT validate - call validateSpellburn first.
 function recoverSpellburn(abilities: AbilityScores, pointsPerAbility?: number): AbilityScores;
 ```
 
-Defined in: spells/spellburn.ts:162
+Defined in: [spells/spellburn.ts:162](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L162)
 
 Recover spellburn damage (1 point per day per ability).
 Returns new ability scores with recovered values.
@@ -6117,7 +6117,7 @@ Returns new ability scores with recovered values.
 function fullyRecoverSpellburn(abilities: AbilityScores): AbilityScores;
 ```
 
-Defined in: spells/spellburn.ts:194
+Defined in: [spells/spellburn.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L194)
 
 Fully recover all spellburn damage.
 Restores all physical abilities to their max values.
@@ -6140,7 +6140,7 @@ Restores all physical abilities to their max values.
 function getSpellburnDamage(abilities: AbilityScores): SpellburnCommitment;
 ```
 
-Defined in: spells/spellburn.ts:208
+Defined in: [spells/spellburn.ts:208](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L208)
 
 Get the current spellburn damage (difference between max and current).
 
@@ -6162,7 +6162,7 @@ Get the current spellburn damage (difference between max and current).
 function hasSpellburnDamage(abilities: AbilityScores): boolean;
 ```
 
-Defined in: spells/spellburn.ts:219
+Defined in: [spells/spellburn.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/spellburn.ts#L219)
 
 Check if any spellburn damage remains
 

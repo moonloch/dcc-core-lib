@@ -4,7 +4,7 @@
 
 ### BonusSource
 
-Defined in: types/bonuses.ts:53
+Defined in: [types/bonuses.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L53)
 
 Detailed source information for a bonus.
 Allows both simple and detailed tracking.
@@ -17,7 +17,7 @@ Allows both simple and detailed tracking.
 type: BonusSourceType;
 ```
 
-Defined in: types/bonuses.ts:55
+Defined in: [types/bonuses.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L55)
 
 High-level source type
 
@@ -27,7 +27,7 @@ High-level source type
 optional id?: string;
 ```
 
-Defined in: types/bonuses.ts:61
+Defined in: [types/bonuses.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L61)
 
 Specific identifier for the source (optional).
 Examples: "str", "ring-of-protection", "enlarge-person"
@@ -38,7 +38,7 @@ Examples: "str", "ring-of-protection", "enlarge-person"
 optional name?: string;
 ```
 
-Defined in: types/bonuses.ts:67
+Defined in: [types/bonuses.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L67)
 
 Human-readable name for display.
 If not provided, can be derived from type/id.
@@ -47,7 +47,7 @@ If not provided, can be derived from type/id.
 
 ### BonusFlatModifier
 
-Defined in: types/bonuses.ts:87
+Defined in: [types/bonuses.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L87)
 
 A flat numeric modifier bonus
 
@@ -59,7 +59,7 @@ A flat numeric modifier bonus
 type: "modifier";
 ```
 
-Defined in: types/bonuses.ts:88
+Defined in: [types/bonuses.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L88)
 
 ##### value
 
@@ -67,7 +67,7 @@ Defined in: types/bonuses.ts:88
 value: number;
 ```
 
-Defined in: types/bonuses.ts:90
+Defined in: [types/bonuses.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L90)
 
 The numeric value to add (can be negative)
 
@@ -75,7 +75,7 @@ The numeric value to add (can be negative)
 
 ### BonusDieRoll
 
-Defined in: types/bonuses.ts:96
+Defined in: [types/bonuses.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L96)
 
 A die-based bonus (adds a die roll to the result)
 
@@ -87,7 +87,7 @@ A die-based bonus (adds a die roll to the result)
 type: "die";
 ```
 
-Defined in: types/bonuses.ts:97
+Defined in: [types/bonuses.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L97)
 
 ##### die
 
@@ -95,7 +95,7 @@ Defined in: types/bonuses.ts:97
 die: `d${number}`;
 ```
 
-Defined in: types/bonuses.ts:99
+Defined in: [types/bonuses.ts:99](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L99)
 
 The die to roll and add
 
@@ -105,7 +105,7 @@ The die to roll and add
 optional count?: number;
 ```
 
-Defined in: types/bonuses.ts:101
+Defined in: [types/bonuses.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L101)
 
 Number of dice (default 1)
 
@@ -113,7 +113,7 @@ Number of dice (default 1)
 
 ### BonusDiceChain
 
-Defined in: types/bonuses.ts:107
+Defined in: [types/bonuses.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L107)
 
 A dice chain bump (changes the action die)
 
@@ -125,7 +125,7 @@ A dice chain bump (changes the action die)
 type: "dice-chain";
 ```
 
-Defined in: types/bonuses.ts:108
+Defined in: [types/bonuses.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L108)
 
 ##### steps
 
@@ -133,7 +133,7 @@ Defined in: types/bonuses.ts:108
 steps: number;
 ```
 
-Defined in: types/bonuses.ts:110
+Defined in: [types/bonuses.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L110)
 
 Steps to move on the dice chain (+1 = up one step, -2 = down two)
 
@@ -141,7 +141,7 @@ Steps to move on the dice chain (+1 = up one step, -2 = down two)
 
 ### BonusSetDie
 
-Defined in: types/bonuses.ts:116
+Defined in: [types/bonuses.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L116)
 
 Sets the die to a specific value (rare, for special abilities)
 
@@ -153,7 +153,7 @@ Sets the die to a specific value (rare, for special abilities)
 type: "set-die";
 ```
 
-Defined in: types/bonuses.ts:117
+Defined in: [types/bonuses.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L117)
 
 ##### die
 
@@ -161,7 +161,7 @@ Defined in: types/bonuses.ts:117
 die: `d${number}`;
 ```
 
-Defined in: types/bonuses.ts:119
+Defined in: [types/bonuses.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L119)
 
 The die to use instead
 
@@ -169,7 +169,7 @@ The die to use instead
 
 ### BonusReroll
 
-Defined in: types/bonuses.ts:125
+Defined in: [types/bonuses.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L125)
 
 Allows a reroll (like advantage)
 
@@ -181,7 +181,7 @@ Allows a reroll (like advantage)
 type: "reroll";
 ```
 
-Defined in: types/bonuses.ts:126
+Defined in: [types/bonuses.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L126)
 
 ##### mode
 
@@ -189,7 +189,7 @@ Defined in: types/bonuses.ts:126
 mode: "take-higher" | "take-lower" | "choice";
 ```
 
-Defined in: types/bonuses.ts:128
+Defined in: [types/bonuses.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L128)
 
 How the reroll works
 
@@ -197,7 +197,7 @@ How the reroll works
 
 ### RollBonus
 
-Defined in: types/bonuses.ts:182
+Defined in: [types/bonuses.ts:182](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L182)
 
 A complete bonus that can apply to a roll.
 
@@ -248,7 +248,7 @@ const judgeBump: RollBonus = {
 id: string;
 ```
 
-Defined in: types/bonuses.ts:188
+Defined in: [types/bonuses.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L188)
 
 Unique identifier for this bonus instance.
 Format: "{source-type}:{specific-id}" recommended.
@@ -260,7 +260,7 @@ Examples: "ability:str", "item:ring-of-protection", "spell:enlarge"
 label: string;
 ```
 
-Defined in: types/bonuses.ts:194
+Defined in: [types/bonuses.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L194)
 
 Human-readable label for display.
 Should be concise but descriptive.
@@ -271,7 +271,7 @@ Should be concise but descriptive.
 source: BonusSource;
 ```
 
-Defined in: types/bonuses.ts:199
+Defined in: [types/bonuses.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L199)
 
 Where this bonus comes from.
 
@@ -281,7 +281,7 @@ Where this bonus comes from.
 category: BonusCategory;
 ```
 
-Defined in: types/bonuses.ts:204
+Defined in: [types/bonuses.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L204)
 
 Category for grouping and application timing.
 
@@ -291,7 +291,7 @@ Category for grouping and application timing.
 effect: BonusEffect;
 ```
 
-Defined in: types/bonuses.ts:209
+Defined in: [types/bonuses.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L209)
 
 What effect this bonus has on the roll.
 
@@ -301,7 +301,7 @@ What effect this bonus has on the roll.
 optional condition?: string;
 ```
 
-Defined in: types/bonuses.ts:220
+Defined in: [types/bonuses.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L220)
 
 Optional condition for when this bonus applies.
 If not specified, bonus always applies when present.
@@ -317,7 +317,7 @@ Examples:
 optional priority?: number;
 ```
 
-Defined in: types/bonuses.ts:227
+Defined in: [types/bonuses.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L227)
 
 Priority for ordering when multiple bonuses modify the same thing.
 Higher priority bonuses are applied first.
@@ -327,7 +327,7 @@ Default is 0. Dice chain effects should typically be high priority.
 
 ### BonusList
 
-Defined in: types/bonuses.ts:238
+Defined in: [types/bonuses.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L238)
 
 A collection of bonuses organized by category.
 Useful for separating "always on" vs "per-roll" bonuses.
@@ -340,7 +340,7 @@ Useful for separating "always on" vs "per-roll" bonuses.
 inherent: RollBonus[];
 ```
 
-Defined in: types/bonuses.ts:240
+Defined in: [types/bonuses.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L240)
 
 Bonuses that always apply (ability, class, equipment)
 
@@ -350,7 +350,7 @@ Bonuses that always apply (ability, class, equipment)
 situational: RollBonus[];
 ```
 
-Defined in: types/bonuses.ts:243
+Defined in: [types/bonuses.ts:243](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L243)
 
 Bonuses added for this specific roll
 
@@ -358,7 +358,7 @@ Bonuses added for this specific roll
 
 ### ComputedBonuses
 
-Defined in: types/bonuses.ts:405
+Defined in: [types/bonuses.ts:405](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L405)
 
 Result of computing bonuses for a roll
 
@@ -370,7 +370,7 @@ Result of computing bonuses for a roll
 totalModifier: number;
 ```
 
-Defined in: types/bonuses.ts:407
+Defined in: [types/bonuses.ts:407](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L407)
 
 Total flat modifier to add to the roll
 
@@ -380,7 +380,7 @@ Total flat modifier to add to the roll
 diceChainSteps: number;
 ```
 
-Defined in: types/bonuses.ts:410
+Defined in: [types/bonuses.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L410)
 
 Net dice chain steps (positive = up, negative = down)
 
@@ -393,7 +393,7 @@ additionalDice: {
 }[];
 ```
 
-Defined in: types/bonuses.ts:413
+Defined in: [types/bonuses.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L413)
 
 Additional dice to roll and add to the result
 
@@ -415,7 +415,7 @@ count: number;
 hasReroll: boolean;
 ```
 
-Defined in: types/bonuses.ts:416
+Defined in: [types/bonuses.ts:416](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L416)
 
 Whether a reroll is available
 
@@ -425,7 +425,7 @@ Whether a reroll is available
 optional rerollMode?: "take-higher" | "take-lower" | "choice";
 ```
 
-Defined in: types/bonuses.ts:417
+Defined in: [types/bonuses.ts:417](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L417)
 
 ##### forcedDie?
 
@@ -433,7 +433,7 @@ Defined in: types/bonuses.ts:417
 optional forcedDie?: `d${number}`;
 ```
 
-Defined in: types/bonuses.ts:420
+Defined in: [types/bonuses.ts:420](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L420)
 
 If a specific die is forced
 
@@ -443,7 +443,7 @@ If a specific die is forced
 appliedBonuses: RollBonus[];
 ```
 
-Defined in: types/bonuses.ts:423
+Defined in: [types/bonuses.ts:423](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L423)
 
 All bonuses that were applied, for display
 
@@ -451,7 +451,7 @@ All bonuses that were applied, for display
 
 ### DiceMethodDefinition
 
-Defined in: types/character-creation.ts:21
+Defined in: [types/character-creation.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L21)
 
 Definition for a custom dice rolling method.
 Used when ability score method is "custom".
@@ -464,7 +464,7 @@ Used when ability score method is "custom".
 id: string;
 ```
 
-Defined in: types/character-creation.ts:23
+Defined in: [types/character-creation.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L23)
 
 Unique identifier
 
@@ -474,7 +474,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/character-creation.ts:26
+Defined in: [types/character-creation.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L26)
 
 Display name
 
@@ -484,7 +484,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/character-creation.ts:29
+Defined in: [types/character-creation.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L29)
 
 Description of the method
 
@@ -494,7 +494,7 @@ Description of the method
 diceCount: number;
 ```
 
-Defined in: types/character-creation.ts:32
+Defined in: [types/character-creation.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L32)
 
 Number of dice to roll
 
@@ -504,7 +504,7 @@ Number of dice to roll
 dieSize: number;
 ```
 
-Defined in: types/character-creation.ts:35
+Defined in: [types/character-creation.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L35)
 
 Die size (e.g., 6 for d6)
 
@@ -517,7 +517,7 @@ optional keep?: {
 };
 ```
 
-Defined in: types/character-creation.ts:41
+Defined in: [types/character-creation.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L41)
 
 How many dice to keep after rolling.
 If undefined, keep all dice.
@@ -540,7 +540,7 @@ which: "highest" | "lowest";
 optional modifier?: number;
 ```
 
-Defined in: types/character-creation.ts:50
+Defined in: [types/character-creation.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L50)
 
 Flat modifier to add after rolling.
 e.g., +6 for "2d6+6"
@@ -551,7 +551,7 @@ e.g., +6 for "2d6+6"
 optional divisor?: number;
 ```
 
-Defined in: types/character-creation.ts:56
+Defined in: [types/character-creation.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L56)
 
 Divisor to apply after rolling.
 e.g., 2 for "6d6/2"
@@ -562,7 +562,7 @@ e.g., 2 for "6d6/2"
 optional minimum?: number;
 ```
 
-Defined in: types/character-creation.ts:62
+Defined in: [types/character-creation.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L62)
 
 Minimum result (floor).
 e.g., 3 for methods that can't go below 3
@@ -573,7 +573,7 @@ e.g., 3 for methods that can't go below 3
 optional maximum?: number;
 ```
 
-Defined in: types/character-creation.ts:68
+Defined in: [types/character-creation.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L68)
 
 Maximum result (ceiling).
 e.g., 18 for standard ability scores
@@ -582,7 +582,7 @@ e.g., 18 for standard ability scores
 
 ### HPMethodDefinition
 
-Defined in: types/character-creation.ts:74
+Defined in: [types/character-creation.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L74)
 
 Definition for a custom hit point rolling method.
 
@@ -594,7 +594,7 @@ Definition for a custom hit point rolling method.
 id: string;
 ```
 
-Defined in: types/character-creation.ts:76
+Defined in: [types/character-creation.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L76)
 
 Unique identifier
 
@@ -604,7 +604,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/character-creation.ts:79
+Defined in: [types/character-creation.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L79)
 
 Display name
 
@@ -614,7 +614,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/character-creation.ts:82
+Defined in: [types/character-creation.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L82)
 
 Description of the method
 
@@ -624,7 +624,7 @@ Description of the method
 optional dieSize?: number;
 ```
 
-Defined in: types/character-creation.ts:88
+Defined in: [types/character-creation.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L88)
 
 Die size override.
 If undefined, uses class hit die.
@@ -635,7 +635,7 @@ If undefined, uses class hit die.
 optional diceCount?: number;
 ```
 
-Defined in: types/character-creation.ts:94
+Defined in: [types/character-creation.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L94)
 
 Number of dice to roll.
 Default: 1
@@ -646,7 +646,7 @@ Default: 1
 optional rerollBelow?: number;
 ```
 
-Defined in: types/character-creation.ts:100
+Defined in: [types/character-creation.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L100)
 
 Re-roll dice that show this value or lower.
 e.g., 1 for "re-roll 1s"
@@ -660,7 +660,7 @@ optional takeMultiple?: {
 };
 ```
 
-Defined in: types/character-creation.ts:105
+Defined in: [types/character-creation.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L105)
 
 Roll multiple dice and take highest/lowest.
 
@@ -682,7 +682,7 @@ which: "highest" | "lowest";
 optional modifier?: number;
 ```
 
-Defined in: types/character-creation.ts:113
+Defined in: [types/character-creation.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L113)
 
 Flat modifier to add.
 
@@ -692,7 +692,7 @@ Flat modifier to add.
 optional useMax?: boolean;
 ```
 
-Defined in: types/character-creation.ts:118
+Defined in: [types/character-creation.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L118)
 
 Use maximum possible value instead of rolling.
 
@@ -702,7 +702,7 @@ Use maximum possible value instead of rolling.
 optional useAverage?: boolean;
 ```
 
-Defined in: types/character-creation.ts:123
+Defined in: [types/character-creation.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L123)
 
 Use average (rounded up) instead of rolling.
 
@@ -712,7 +712,7 @@ Use average (rounded up) instead of rolling.
 optional percentageOfMax?: number;
 ```
 
-Defined in: types/character-creation.ts:129
+Defined in: [types/character-creation.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L129)
 
 Use percentage of maximum possible.
 e.g., 0.5 for 50%
@@ -721,7 +721,7 @@ e.g., 0.5 for 50%
 
 ### LuckySignModeDefinition
 
-Defined in: types/character-creation.ts:135
+Defined in: [types/character-creation.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L135)
 
 Definition for a custom lucky sign mode.
 
@@ -733,7 +733,7 @@ Definition for a custom lucky sign mode.
 id: string;
 ```
 
-Defined in: types/character-creation.ts:137
+Defined in: [types/character-creation.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L137)
 
 Unique identifier
 
@@ -743,7 +743,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/character-creation.ts:140
+Defined in: [types/character-creation.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L140)
 
 Display name
 
@@ -753,7 +753,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/character-creation.ts:143
+Defined in: [types/character-creation.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L143)
 
 Description of the mode
 
@@ -763,7 +763,7 @@ Description of the mode
 optional hideWhen?: "zero" | "negative" | "non-positive";
 ```
 
-Defined in: types/character-creation.ts:149
+Defined in: [types/character-creation.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L149)
 
 Hide the lucky sign if luck modifier meets this condition.
 e.g., "zero" to hide when modifier is 0
@@ -774,7 +774,7 @@ e.g., "zero" to hide when modifier is 0
 optional minimumBonus?: number;
 ```
 
-Defined in: types/character-creation.ts:155
+Defined in: [types/character-creation.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L155)
 
 Minimum bonus to apply (floor).
 e.g., 1 for "always at least +1"
@@ -785,7 +785,7 @@ e.g., 1 for "always at least +1"
 optional positiveOnly?: boolean;
 ```
 
-Defined in: types/character-creation.ts:160
+Defined in: [types/character-creation.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L160)
 
 Only apply if luck modifier is positive.
 
@@ -795,7 +795,7 @@ Only apply if luck modifier is positive.
 optional minimumOrLuck?: number;
 ```
 
-Defined in: types/character-creation.ts:166
+Defined in: [types/character-creation.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L166)
 
 Use the better of luck modifier or this value.
 e.g., 1 for "luck mod OR +1, whichever higher"
@@ -804,7 +804,7 @@ e.g., 1 for "luck mod OR +1, whichever higher"
 
 ### AbilityScoreConfig
 
-Defined in: types/character-creation.ts:188
+Defined in: [types/character-creation.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L188)
 
 Configuration for ability score generation
 
@@ -816,7 +816,7 @@ Configuration for ability score generation
 method: AbilityScoreMethod;
 ```
 
-Defined in: types/character-creation.ts:190
+Defined in: [types/character-creation.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L190)
 
 Method for rolling ability scores
 
@@ -826,7 +826,7 @@ Method for rolling ability scores
 optional customMethod?: string | DiceMethodDefinition;
 ```
 
-Defined in: types/character-creation.ts:196
+Defined in: [types/character-creation.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L196)
 
 Custom method definition (required if method is "custom").
 Can be inline definition or string ID referencing loaded data.
@@ -837,7 +837,7 @@ Can be inline definition or string ID referencing loaded data.
 optional manualScores?: [number, number, number, number, number, number];
 ```
 
-Defined in: types/character-creation.ts:199
+Defined in: [types/character-creation.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L199)
 
 For manual method: the scores to use [str, agl, sta, per, int, lck]
 
@@ -847,7 +847,7 @@ For manual method: the scores to use [str, agl, sta, per, int, lck]
 optional minTotalModifier?: number;
 ```
 
-Defined in: types/character-creation.ts:206
+Defined in: [types/character-creation.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L206)
 
 Minimum total ability modifier sum allowed.
 Characters below this are re-rolled.
@@ -859,7 +859,7 @@ undefined = no minimum
 optional maxTotalModifier?: number;
 ```
 
-Defined in: types/character-creation.ts:213
+Defined in: [types/character-creation.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L213)
 
 Maximum total ability modifier sum allowed.
 Characters above this are re-rolled.
@@ -871,7 +871,7 @@ undefined = no maximum
 optional rerollLowPrimaryStats?: boolean;
 ```
 
-Defined in: types/character-creation.ts:219
+Defined in: [types/character-creation.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L219)
 
 Re-roll if primary class stats are below threshold.
 When true, re-rolls if primary stat < 11 or secondary stat < 8.
@@ -880,7 +880,7 @@ When true, re-rolls if primary stat < 11 or secondary stat < 8.
 
 ### HitPointConfig
 
-Defined in: types/character-creation.ts:254
+Defined in: [types/character-creation.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L254)
 
 Configuration for hit point generation
 
@@ -892,7 +892,7 @@ Configuration for hit point generation
 zeroLevelMethod: ZeroLevelHPMethod;
 ```
 
-Defined in: types/character-creation.ts:256
+Defined in: [types/character-creation.ts:256](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L256)
 
 Method for 0-level HP
 
@@ -902,7 +902,7 @@ Method for 0-level HP
 optional customZeroLevelMethod?: string | HPMethodDefinition;
 ```
 
-Defined in: types/character-creation.ts:262
+Defined in: [types/character-creation.ts:262](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L262)
 
 Custom 0-level HP method (required if zeroLevelMethod is "custom").
 Can be inline definition or string ID referencing loaded data.
@@ -913,7 +913,7 @@ Can be inline definition or string ID referencing loaded data.
 leveledMethod: LeveledHPMethod;
 ```
 
-Defined in: types/character-creation.ts:265
+Defined in: [types/character-creation.ts:265](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L265)
 
 Method for leveled HP
 
@@ -923,7 +923,7 @@ Method for leveled HP
 optional customLeveledMethod?: string | HPMethodDefinition;
 ```
 
-Defined in: types/character-creation.ts:271
+Defined in: [types/character-creation.ts:271](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L271)
 
 Custom leveled HP method (required if leveledMethod is "custom").
 Can be inline definition or string ID referencing loaded data.
@@ -934,7 +934,7 @@ Can be inline definition or string ID referencing loaded data.
 optional hpPercentage?: number;
 ```
 
-Defined in: types/character-creation.ts:277
+Defined in: [types/character-creation.ts:277](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L277)
 
 For percentage method: what % of max HP (0.25 to 1.0)
 e.g., 0.5 = 50% of maximum possible HP
@@ -945,7 +945,7 @@ e.g., 0.5 = 50% of maximum possible HP
 optional minHPPerLevel?: number;
 ```
 
-Defined in: types/character-creation.ts:283
+Defined in: [types/character-creation.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L283)
 
 Minimum HP per level (after STA mod).
 Common house rule: minimum 1 HP per level.
@@ -954,7 +954,7 @@ Common house rule: minimum 1 HP per level.
 
 ### BirthAugurConfig
 
-Defined in: types/character-creation.ts:305
+Defined in: [types/character-creation.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L305)
 
 Configuration for birth augur handling
 
@@ -966,7 +966,7 @@ Configuration for birth augur handling
 mode: LuckySignMode;
 ```
 
-Defined in: types/character-creation.ts:307
+Defined in: [types/character-creation.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L307)
 
 How to handle the lucky sign bonus
 
@@ -976,7 +976,7 @@ How to handle the lucky sign bonus
 optional customMode?: string | LuckySignModeDefinition;
 ```
 
-Defined in: types/character-creation.ts:313
+Defined in: [types/character-creation.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L313)
 
 Custom mode definition (required if mode is "custom").
 Can be inline definition or string ID referencing loaded data.
@@ -987,7 +987,7 @@ Can be inline definition or string ID referencing loaded data.
 optional specificAugurId?: string;
 ```
 
-Defined in: types/character-creation.ts:319
+Defined in: [types/character-creation.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L319)
 
 Specific augur ID to assign (if not random).
 If undefined, roll randomly.
@@ -996,7 +996,7 @@ If undefined, roll randomly.
 
 ### OccupationConfig
 
-Defined in: types/character-creation.ts:339
+Defined in: [types/character-creation.ts:339](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L339)
 
 Configuration for occupation selection
 
@@ -1008,7 +1008,7 @@ Configuration for occupation selection
 source: OccupationSource;
 ```
 
-Defined in: types/character-creation.ts:341
+Defined in: [types/character-creation.ts:341](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L341)
 
 Source for occupation table
 
@@ -1018,7 +1018,7 @@ Source for occupation table
 optional customTableId?: string;
 ```
 
-Defined in: types/character-creation.ts:346
+Defined in: [types/character-creation.ts:346](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L346)
 
 Custom occupation table ID (required if source is "custom").
 
@@ -1028,7 +1028,7 @@ Custom occupation table ID (required if source is "custom").
 optional specificOccupation?: string;
 ```
 
-Defined in: types/character-creation.ts:352
+Defined in: [types/character-creation.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L352)
 
 Specific occupation to assign (if not random).
 If undefined, roll randomly from source table.
@@ -1037,7 +1037,7 @@ If undefined, roll randomly from source table.
 
 ### ClassSelectionConfig
 
-Defined in: types/character-creation.ts:362
+Defined in: [types/character-creation.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L362)
 
 Configuration for class selection
 
@@ -1049,7 +1049,7 @@ Configuration for class selection
 optional classId?: string;
 ```
 
-Defined in: types/character-creation.ts:367
+Defined in: [types/character-creation.ts:367](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L367)
 
 Specific class to assign.
 If undefined, either random or determined by other means.
@@ -1060,7 +1060,7 @@ If undefined, either random or determined by other means.
 optional allowRandom?: boolean;
 ```
 
-Defined in: types/character-creation.ts:373
+Defined in: [types/character-creation.ts:373](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L373)
 
 If true and classId is undefined, pick randomly.
 If false and classId is undefined, error.
@@ -1071,7 +1071,7 @@ If false and classId is undefined, error.
 optional availableClasses?: string[];
 ```
 
-Defined in: types/character-creation.ts:379
+Defined in: [types/character-creation.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L379)
 
 Classes to include in random selection.
 If undefined, all classes from system config are available.
@@ -1080,7 +1080,7 @@ If undefined, all classes from system config are available.
 
 ### EquipmentConfig
 
-Defined in: types/character-creation.ts:389
+Defined in: [types/character-creation.ts:389](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L389)
 
 Configuration for starting equipment and funds
 
@@ -1092,7 +1092,7 @@ Configuration for starting equipment and funds
 includeFunds: boolean;
 ```
 
-Defined in: types/character-creation.ts:391
+Defined in: [types/character-creation.ts:391](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L391)
 
 Include starting funds from occupation
 
@@ -1102,7 +1102,7 @@ Include starting funds from occupation
 includeTradeGoods: boolean;
 ```
 
-Defined in: types/character-creation.ts:394
+Defined in: [types/character-creation.ts:394](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L394)
 
 Include trade goods from occupation
 
@@ -1112,7 +1112,7 @@ Include trade goods from occupation
 includeOccupationEquipment: boolean;
 ```
 
-Defined in: types/character-creation.ts:397
+Defined in: [types/character-creation.ts:397](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L397)
 
 Include occupation-based equipment
 
@@ -1122,7 +1122,7 @@ Include occupation-based equipment
 includeOccupationWeapon: boolean;
 ```
 
-Defined in: types/character-creation.ts:400
+Defined in: [types/character-creation.ts:400](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L400)
 
 Include occupation weapon
 
@@ -1130,7 +1130,7 @@ Include occupation weapon
 
 ### LanguageConfig
 
-Defined in: types/character-creation.ts:410
+Defined in: [types/character-creation.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L410)
 
 Configuration for language assignment
 
@@ -1142,7 +1142,7 @@ Configuration for language assignment
 determineBonusLanguages: boolean;
 ```
 
-Defined in: types/character-creation.ts:412
+Defined in: [types/character-creation.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L412)
 
 Determine bonus languages from INT
 
@@ -1152,7 +1152,7 @@ Determine bonus languages from INT
 alwaysGrantRacialLanguage: boolean;
 ```
 
-Defined in: types/character-creation.ts:418
+Defined in: [types/character-creation.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L418)
 
 Non-humans always get racial language regardless of INT.
 Standard rule: need INT 8+ for racial language.
@@ -1161,7 +1161,7 @@ Standard rule: need INT 8+ for racial language.
 
 ### NameConfig
 
-Defined in: types/character-creation.ts:428
+Defined in: [types/character-creation.ts:428](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L428)
 
 Configuration for automatic name generation
 
@@ -1173,7 +1173,7 @@ Configuration for automatic name generation
 generateName: boolean;
 ```
 
-Defined in: types/character-creation.ts:430
+Defined in: [types/character-creation.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L430)
 
 Generate a random name for the character
 
@@ -1183,7 +1183,7 @@ Generate a random name for the character
 optional includeEpithet?: boolean;
 ```
 
-Defined in: types/character-creation.ts:436
+Defined in: [types/character-creation.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L436)
 
 Include epithet in generated name.
 e.g., "the Bold", "Ironfoot"
@@ -1194,7 +1194,7 @@ e.g., "the Bold", "Ironfoot"
 optional epithetChance?: number;
 ```
 
-Defined in: types/character-creation.ts:442
+Defined in: [types/character-creation.ts:442](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L442)
 
 Chance of including epithet if enabled (0-1).
 Default: 0.3 (30%)
@@ -1203,7 +1203,7 @@ Default: 0.3 (30%)
 
 ### DwarfRulesConfig
 
-Defined in: types/character-creation.ts:459
+Defined in: [types/character-creation.ts:459](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L459)
 
 Configuration for dwarf-specific rules
 
@@ -1215,7 +1215,7 @@ Configuration for dwarf-specific rules
 ignoreArmorSpeedPenalty: boolean;
 ```
 
-Defined in: types/character-creation.ts:464
+Defined in: [types/character-creation.ts:464](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L464)
 
 Ignore armor speed penalty for dwarves.
 House rule: dwarves are unaffected by heavy armor.
@@ -1224,7 +1224,7 @@ House rule: dwarves are unaffected by heavy armor.
 
 ### CharacterCreationConfig
 
-Defined in: types/character-creation.ts:476
+Defined in: [types/character-creation.ts:476](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L476)
 
 Complete configuration for character creation.
 
@@ -1238,7 +1238,7 @@ All fields are optional - unspecified fields use defaults.
 optional abilityScores?: Partial<AbilityScoreConfig>;
 ```
 
-Defined in: types/character-creation.ts:478
+Defined in: [types/character-creation.ts:478](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L478)
 
 Ability score generation options
 
@@ -1248,7 +1248,7 @@ Ability score generation options
 optional hitPoints?: Partial<HitPointConfig>;
 ```
 
-Defined in: types/character-creation.ts:481
+Defined in: [types/character-creation.ts:481](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L481)
 
 Hit point generation options
 
@@ -1258,7 +1258,7 @@ Hit point generation options
 optional birthAugur?: Partial<BirthAugurConfig>;
 ```
 
-Defined in: types/character-creation.ts:484
+Defined in: [types/character-creation.ts:484](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L484)
 
 Birth augur / lucky sign options
 
@@ -1268,7 +1268,7 @@ Birth augur / lucky sign options
 optional occupation?: Partial<OccupationConfig>;
 ```
 
-Defined in: types/character-creation.ts:487
+Defined in: [types/character-creation.ts:487](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L487)
 
 Occupation selection options
 
@@ -1278,7 +1278,7 @@ Occupation selection options
 optional classSelection?: Partial<ClassSelectionConfig>;
 ```
 
-Defined in: types/character-creation.ts:490
+Defined in: [types/character-creation.ts:490](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L490)
 
 Class selection options (for leveled characters)
 
@@ -1288,7 +1288,7 @@ Class selection options (for leveled characters)
 optional equipment?: Partial<EquipmentConfig>;
 ```
 
-Defined in: types/character-creation.ts:493
+Defined in: [types/character-creation.ts:493](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L493)
 
 Equipment and funds options
 
@@ -1298,7 +1298,7 @@ Equipment and funds options
 optional languages?: Partial<LanguageConfig>;
 ```
 
-Defined in: types/character-creation.ts:496
+Defined in: [types/character-creation.ts:496](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L496)
 
 Language options
 
@@ -1308,7 +1308,7 @@ Language options
 optional dwarfRules?: Partial<DwarfRulesConfig>;
 ```
 
-Defined in: types/character-creation.ts:499
+Defined in: [types/character-creation.ts:499](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L499)
 
 Dwarf-specific rules
 
@@ -1318,7 +1318,7 @@ Dwarf-specific rules
 optional name?: Partial<NameConfig>;
 ```
 
-Defined in: types/character-creation.ts:502
+Defined in: [types/character-creation.ts:502](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L502)
 
 Name generation options
 
@@ -1328,7 +1328,7 @@ Name generation options
 optional alignment?: Alignment;
 ```
 
-Defined in: types/character-creation.ts:505
+Defined in: [types/character-creation.ts:505](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L505)
 
 Alignment (if not random)
 
@@ -1338,7 +1338,7 @@ Alignment (if not random)
 optional allowRandomAlignment?: boolean;
 ```
 
-Defined in: types/character-creation.ts:508
+Defined in: [types/character-creation.ts:508](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L508)
 
 Allow random alignment if not specified
 
@@ -1346,7 +1346,7 @@ Allow random alignment if not specified
 
 ### AbilityScore
 
-Defined in: types/character.ts:34
+Defined in: [types/character.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L34)
 
 A single ability score with current and max values.
 Current can differ from max due to spellburn, poison, etc.
@@ -1359,7 +1359,7 @@ Current can differ from max due to spellburn, poison, etc.
 current: number;
 ```
 
-Defined in: types/character.ts:36
+Defined in: [types/character.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L36)
 
 Current value (may be reduced by spellburn, etc.)
 
@@ -1369,7 +1369,7 @@ Current value (may be reduced by spellburn, etc.)
 max: number;
 ```
 
-Defined in: types/character.ts:39
+Defined in: [types/character.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L39)
 
 Maximum/base value
 
@@ -1377,7 +1377,7 @@ Maximum/base value
 
 ### SavingThrows
 
-Defined in: types/character.ts:68
+Defined in: [types/character.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L68)
 
 Saving throw values
 
@@ -1389,7 +1389,7 @@ Saving throw values
 reflex: number;
 ```
 
-Defined in: types/character.ts:69
+Defined in: [types/character.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L69)
 
 ##### fortitude
 
@@ -1397,7 +1397,7 @@ Defined in: types/character.ts:69
 fortitude: number;
 ```
 
-Defined in: types/character.ts:70
+Defined in: [types/character.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L70)
 
 ##### will
 
@@ -1405,13 +1405,13 @@ Defined in: types/character.ts:70
 will: number;
 ```
 
-Defined in: types/character.ts:71
+Defined in: [types/character.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L71)
 
 ***
 
 ### BirthAugur
 
-Defined in: types/character.ts:81
+Defined in: [types/character.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L81)
 
 Birth augur (lucky sign) that affects a specific roll type
 
@@ -1423,7 +1423,7 @@ Birth augur (lucky sign) that affects a specific roll type
 id: string;
 ```
 
-Defined in: types/character.ts:83
+Defined in: [types/character.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L83)
 
 Unique identifier
 
@@ -1433,7 +1433,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/character.ts:86
+Defined in: [types/character.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L86)
 
 Display name (e.g., "Harsh Winter")
 
@@ -1443,7 +1443,7 @@ Display name (e.g., "Harsh Winter")
 effect: string;
 ```
 
-Defined in: types/character.ts:89
+Defined in: [types/character.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L89)
 
 What this augur affects (e.g., "All attack rolls")
 
@@ -1453,7 +1453,7 @@ What this augur affects (e.g., "All attack rolls")
 modifies: string;
 ```
 
-Defined in: types/character.ts:92
+Defined in: [types/character.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L92)
 
 The roll or mechanic this modifies
 
@@ -1463,7 +1463,7 @@ The roll or mechanic this modifies
 multiplier: number;
 ```
 
-Defined in: types/character.ts:95
+Defined in: [types/character.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L95)
 
 Luck modifier multiplier (usually 1, sometimes 2)
 
@@ -1471,7 +1471,7 @@ Luck modifier multiplier (usually 1, sometimes 2)
 
 ### CharacterIdentity
 
-Defined in: types/character.ts:105
+Defined in: [types/character.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L105)
 
 Core character identity - things that don't change
 
@@ -1483,7 +1483,7 @@ Core character identity - things that don't change
 id: string;
 ```
 
-Defined in: types/character.ts:107
+Defined in: [types/character.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L107)
 
 Unique identifier
 
@@ -1493,7 +1493,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/character.ts:110
+Defined in: [types/character.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L110)
 
 Character name
 
@@ -1503,7 +1503,7 @@ Character name
 occupation: string;
 ```
 
-Defined in: types/character.ts:113
+Defined in: [types/character.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L113)
 
 0-level occupation
 
@@ -1513,7 +1513,7 @@ Defined in: types/character.ts:113
 alignment: Alignment;
 ```
 
-Defined in: types/character.ts:116
+Defined in: [types/character.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L116)
 
 Character alignment
 
@@ -1523,7 +1523,7 @@ Character alignment
 birthAugur: BirthAugur;
 ```
 
-Defined in: types/character.ts:119
+Defined in: [types/character.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L119)
 
 Birth augur / lucky sign
 
@@ -1533,7 +1533,7 @@ Birth augur / lucky sign
 startingLuck: number;
 ```
 
-Defined in: types/character.ts:122
+Defined in: [types/character.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L122)
 
 Starting luck score (for reference, since luck can be burned)
 
@@ -1543,7 +1543,7 @@ Starting luck score (for reference, since luck can be burned)
 languages: string[];
 ```
 
-Defined in: types/character.ts:125
+Defined in: [types/character.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L125)
 
 Languages known
 
@@ -1553,7 +1553,7 @@ Languages known
 optional notes?: string;
 ```
 
-Defined in: types/character.ts:128
+Defined in: [types/character.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L128)
 
 Player notes
 
@@ -1561,7 +1561,7 @@ Player notes
 
 ### CharacterClassInfo
 
-Defined in: types/character.ts:138
+Defined in: [types/character.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L138)
 
 Character's class and level information
 
@@ -1573,7 +1573,7 @@ Character's class and level information
 classId: string;
 ```
 
-Defined in: types/character.ts:140
+Defined in: [types/character.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L140)
 
 Class identifier (e.g., "warrior", "wizard")
 
@@ -1583,7 +1583,7 @@ Class identifier (e.g., "warrior", "wizard")
 level: number;
 ```
 
-Defined in: types/character.ts:143
+Defined in: [types/character.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L143)
 
 Current level in this class
 
@@ -1593,7 +1593,7 @@ Current level in this class
 optional title?: string;
 ```
 
-Defined in: types/character.ts:146
+Defined in: [types/character.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L146)
 
 Class title at current level (e.g., "Squire", "Magician")
 
@@ -1601,7 +1601,7 @@ Class title at current level (e.g., "Squire", "Magician")
 
 ### CombatStats
 
-Defined in: types/character.ts:156
+Defined in: [types/character.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L156)
 
 Combat-related statistics
 
@@ -1613,7 +1613,7 @@ Combat-related statistics
 attackBonus: number;
 ```
 
-Defined in: types/character.ts:158
+Defined in: [types/character.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L158)
 
 Base attack bonus (from class/level)
 
@@ -1623,7 +1623,7 @@ Base attack bonus (from class/level)
 actionDice: `d${number}`[];
 ```
 
-Defined in: types/character.ts:161
+Defined in: [types/character.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L161)
 
 Action dice available (e.g., ["1d20"] or ["1d20", "1d14"])
 
@@ -1633,7 +1633,7 @@ Action dice available (e.g., ["1d20"] or ["1d20", "1d14"])
 critDie: string;
 ```
 
-Defined in: types/character.ts:164
+Defined in: [types/character.ts:164](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L164)
 
 Critical hit die formula (e.g., "d12", "2d20", "d30+2")
 
@@ -1643,7 +1643,7 @@ Critical hit die formula (e.g., "d12", "2d20", "d30+2")
 critTable: string;
 ```
 
-Defined in: types/character.ts:167
+Defined in: [types/character.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L167)
 
 Critical hit table (I-V or custom ID)
 
@@ -1653,7 +1653,7 @@ Critical hit table (I-V or custom ID)
 threatRange: number;
 ```
 
-Defined in: types/character.ts:170
+Defined in: [types/character.ts:170](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L170)
 
 Threat range (20 = only nat 20, 19 = 19-20, etc.)
 
@@ -1663,7 +1663,7 @@ Threat range (20 = only nat 20, 19 = 19-20, etc.)
 ac: number;
 ```
 
-Defined in: types/character.ts:173
+Defined in: [types/character.ts:173](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L173)
 
 Armor class
 
@@ -1673,7 +1673,7 @@ Armor class
 speed: number;
 ```
 
-Defined in: types/character.ts:176
+Defined in: [types/character.ts:176](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L176)
 
 Speed in feet
 
@@ -1683,7 +1683,7 @@ Speed in feet
 initiative: number;
 ```
 
-Defined in: types/character.ts:179
+Defined in: [types/character.ts:179](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L179)
 
 Initiative modifier
 
@@ -1691,7 +1691,7 @@ Initiative modifier
 
 ### HPRollRecord
 
-Defined in: types/character.ts:189
+Defined in: [types/character.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L189)
 
 Record of HP rolled at a specific level
 
@@ -1703,7 +1703,7 @@ Record of HP rolled at a specific level
 level: number;
 ```
 
-Defined in: types/character.ts:191
+Defined in: [types/character.ts:191](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L191)
 
 Level at which this HP was gained (0 for 0-level)
 
@@ -1713,7 +1713,7 @@ Level at which this HP was gained (0 for 0-level)
 die: string;
 ```
 
-Defined in: types/character.ts:194
+Defined in: [types/character.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L194)
 
 Die used (d4 for 0-level, class hit die for levels 1+)
 
@@ -1723,7 +1723,7 @@ Die used (d4 for 0-level, class hit die for levels 1+)
 rolled: number;
 ```
 
-Defined in: types/character.ts:197
+Defined in: [types/character.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L197)
 
 Raw roll result before modifiers
 
@@ -1733,7 +1733,7 @@ Raw roll result before modifiers
 staminaModifier: number;
 ```
 
-Defined in: types/character.ts:200
+Defined in: [types/character.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L200)
 
 Stamina modifier at time of roll
 
@@ -1743,7 +1743,7 @@ Stamina modifier at time of roll
 gained: number;
 ```
 
-Defined in: types/character.ts:203
+Defined in: [types/character.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L203)
 
 HP actually gained (after minimum 1 rule)
 
@@ -1751,7 +1751,7 @@ HP actually gained (after minimum 1 rule)
 
 ### HitPoints
 
-Defined in: types/character.ts:209
+Defined in: [types/character.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L209)
 
 Hit point tracking
 
@@ -1763,7 +1763,7 @@ Hit point tracking
 current: number;
 ```
 
-Defined in: types/character.ts:211
+Defined in: [types/character.ts:211](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L211)
 
 Current HP
 
@@ -1773,7 +1773,7 @@ Current HP
 max: number;
 ```
 
-Defined in: types/character.ts:214
+Defined in: [types/character.ts:214](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L214)
 
 Maximum HP
 
@@ -1783,7 +1783,7 @@ Maximum HP
 temp: number;
 ```
 
-Defined in: types/character.ts:217
+Defined in: [types/character.ts:217](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L217)
 
 Temporary HP (from spells, etc.)
 
@@ -1793,7 +1793,7 @@ Temporary HP (from spells, etc.)
 optional history?: HPRollRecord[];
 ```
 
-Defined in: types/character.ts:220
+Defined in: [types/character.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L220)
 
 History of HP rolls per level (for recalculation if stamina changes)
 
@@ -1801,7 +1801,7 @@ History of HP rolls per level (for recalculation if stamina changes)
 
 ### ClericState
 
-Defined in: types/character.ts:230
+Defined in: [types/character.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L230)
 
 Cleric-specific state
 
@@ -1813,7 +1813,7 @@ Cleric-specific state
 disapprovalRange: number;
 ```
 
-Defined in: types/character.ts:232
+Defined in: [types/character.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L232)
 
 Current disapproval range (starts at 1)
 
@@ -1823,7 +1823,7 @@ Current disapproval range (starts at 1)
 optional deity?: string;
 ```
 
-Defined in: types/character.ts:235
+Defined in: [types/character.ts:235](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L235)
 
 Deity name
 
@@ -1833,7 +1833,7 @@ Deity name
 optional sins?: string[];
 ```
 
-Defined in: types/character.ts:238
+Defined in: [types/character.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L238)
 
 Sins or other disapproval notes
 
@@ -1843,7 +1843,7 @@ Sins or other disapproval notes
 optional spellbook?: Spellbook;
 ```
 
-Defined in: types/character.ts:241
+Defined in: [types/character.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L241)
 
 Known spells and spellbook data
 
@@ -1851,7 +1851,7 @@ Known spells and spellbook data
 
 ### WizardState
 
-Defined in: types/character.ts:247
+Defined in: [types/character.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L247)
 
 Wizard-specific state
 
@@ -1863,7 +1863,7 @@ Wizard-specific state
 corruption: string[];
 ```
 
-Defined in: types/character.ts:249
+Defined in: [types/character.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L249)
 
 Known corruption effects
 
@@ -1873,7 +1873,7 @@ Known corruption effects
 optional patron?: string;
 ```
 
-Defined in: types/character.ts:252
+Defined in: [types/character.ts:252](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L252)
 
 Patron name
 
@@ -1883,7 +1883,7 @@ Patron name
 optional familiar?: string;
 ```
 
-Defined in: types/character.ts:255
+Defined in: [types/character.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L255)
 
 Familiar description
 
@@ -1893,7 +1893,7 @@ Familiar description
 optional spellburnDamage?: Partial<Record<DCCAbilityId, number>>;
 ```
 
-Defined in: types/character.ts:258
+Defined in: [types/character.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L258)
 
 Spellburn damage by ability (heals 1/day)
 
@@ -1903,7 +1903,7 @@ Spellburn damage by ability (heals 1/day)
 optional spellbook?: Spellbook;
 ```
 
-Defined in: types/character.ts:261
+Defined in: [types/character.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L261)
 
 Known spells and spellbook data
 
@@ -1911,7 +1911,7 @@ Known spells and spellbook data
 
 ### ThiefState
 
-Defined in: types/character.ts:271
+Defined in: [types/character.ts:271](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L271)
 
 Thief-specific state
 
@@ -1927,7 +1927,7 @@ is inherent to the class — nothing to persist here.
 luckDie: `d${number}`;
 ```
 
-Defined in: types/character.ts:273
+Defined in: [types/character.ts:273](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L273)
 
 Luck die for spending luck
 
@@ -1935,7 +1935,7 @@ Luck die for spending luck
 
 ### WarriorState
 
-Defined in: types/character.ts:279
+Defined in: [types/character.ts:279](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L279)
 
 Warrior-specific state
 
@@ -1947,7 +1947,7 @@ Warrior-specific state
 optional luckyWeapon?: string;
 ```
 
-Defined in: types/character.ts:281
+Defined in: [types/character.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L281)
 
 Lucky weapon name (if any)
 
@@ -1957,7 +1957,7 @@ Lucky weapon name (if any)
 deedDie: `d${number}`;
 ```
 
-Defined in: types/character.ts:284
+Defined in: [types/character.ts:284](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L284)
 
 Deed die at current level
 
@@ -1965,7 +1965,7 @@ Deed die at current level
 
 ### DwarfState
 
-Defined in: types/character.ts:290
+Defined in: [types/character.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L290)
 
 Dwarf-specific state
 
@@ -1977,7 +1977,7 @@ Dwarf-specific state
 optional luckyWeapon?: string;
 ```
 
-Defined in: types/character.ts:292
+Defined in: [types/character.ts:292](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L292)
 
 Lucky weapon name (if any)
 
@@ -1987,7 +1987,7 @@ Lucky weapon name (if any)
 deedDie: `d${number}`;
 ```
 
-Defined in: types/character.ts:295
+Defined in: [types/character.ts:295](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L295)
 
 Deed die at current level
 
@@ -1995,7 +1995,7 @@ Deed die at current level
 
 ### ElfState
 
-Defined in: types/character.ts:301
+Defined in: [types/character.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L301)
 
 Elf-specific state
 
@@ -2007,7 +2007,7 @@ Elf-specific state
 optional patron?: string;
 ```
 
-Defined in: types/character.ts:303
+Defined in: [types/character.ts:303](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L303)
 
 Patron name
 
@@ -2017,7 +2017,7 @@ Patron name
 corruption: string[];
 ```
 
-Defined in: types/character.ts:306
+Defined in: [types/character.ts:306](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L306)
 
 Known corruption effects
 
@@ -2027,7 +2027,7 @@ Known corruption effects
 optional spellbook?: Spellbook;
 ```
 
-Defined in: types/character.ts:309
+Defined in: [types/character.ts:309](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L309)
 
 Known spells and spellbook data
 
@@ -2035,7 +2035,7 @@ Known spells and spellbook data
 
 ### HalflingState
 
-Defined in: types/character.ts:315
+Defined in: [types/character.ts:315](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L315)
 
 Halfling-specific state
 
@@ -2047,7 +2047,7 @@ Halfling-specific state
 twoWeaponFighting: boolean;
 ```
 
-Defined in: types/character.ts:317
+Defined in: [types/character.ts:317](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L317)
 
 Two-weapon fighting capability
 
@@ -2055,7 +2055,7 @@ Two-weapon fighting capability
 
 ### ClassSpecificState
 
-Defined in: types/character.ts:323
+Defined in: [types/character.ts:323](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L323)
 
 All possible class-specific states
 
@@ -2067,7 +2067,7 @@ All possible class-specific states
 optional cleric?: ClericState;
 ```
 
-Defined in: types/character.ts:324
+Defined in: [types/character.ts:324](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L324)
 
 ##### wizard?
 
@@ -2075,7 +2075,7 @@ Defined in: types/character.ts:324
 optional wizard?: WizardState;
 ```
 
-Defined in: types/character.ts:325
+Defined in: [types/character.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L325)
 
 ##### thief?
 
@@ -2083,7 +2083,7 @@ Defined in: types/character.ts:325
 optional thief?: ThiefState;
 ```
 
-Defined in: types/character.ts:326
+Defined in: [types/character.ts:326](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L326)
 
 ##### warrior?
 
@@ -2091,7 +2091,7 @@ Defined in: types/character.ts:326
 optional warrior?: WarriorState;
 ```
 
-Defined in: types/character.ts:327
+Defined in: [types/character.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L327)
 
 ##### dwarf?
 
@@ -2099,7 +2099,7 @@ Defined in: types/character.ts:327
 optional dwarf?: DwarfState;
 ```
 
-Defined in: types/character.ts:328
+Defined in: [types/character.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L328)
 
 ##### elf?
 
@@ -2107,7 +2107,7 @@ Defined in: types/character.ts:328
 optional elf?: ElfState;
 ```
 
-Defined in: types/character.ts:329
+Defined in: [types/character.ts:329](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L329)
 
 ##### halfling?
 
@@ -2115,13 +2115,13 @@ Defined in: types/character.ts:329
 optional halfling?: HalflingState;
 ```
 
-Defined in: types/character.ts:330
+Defined in: [types/character.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L330)
 
 ***
 
 ### Experience
 
-Defined in: types/character.ts:340
+Defined in: [types/character.ts:340](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L340)
 
 Experience point tracking
 
@@ -2133,7 +2133,7 @@ Experience point tracking
 current: number;
 ```
 
-Defined in: types/character.ts:342
+Defined in: [types/character.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L342)
 
 Current XP total
 
@@ -2143,7 +2143,7 @@ Current XP total
 nextLevel: number;
 ```
 
-Defined in: types/character.ts:345
+Defined in: [types/character.ts:345](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L345)
 
 XP needed for next level
 
@@ -2151,7 +2151,7 @@ XP needed for next level
 
 ### InventoryItem
 
-Defined in: types/character.ts:360
+Defined in: [types/character.ts:360](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L360)
 
 An item in the character's inventory
 
@@ -2163,7 +2163,7 @@ An item in the character's inventory
 id: string;
 ```
 
-Defined in: types/character.ts:362
+Defined in: [types/character.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L362)
 
 Unique identifier for this item instance
 
@@ -2173,7 +2173,7 @@ Unique identifier for this item instance
 name: string;
 ```
 
-Defined in: types/character.ts:365
+Defined in: [types/character.ts:365](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L365)
 
 Item name
 
@@ -2183,7 +2183,7 @@ Item name
 category: ItemCategory;
 ```
 
-Defined in: types/character.ts:368
+Defined in: [types/character.ts:368](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L368)
 
 Item category
 
@@ -2193,7 +2193,7 @@ Item category
 quantity: number;
 ```
 
-Defined in: types/character.ts:371
+Defined in: [types/character.ts:371](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L371)
 
 Quantity (default 1)
 
@@ -2203,7 +2203,7 @@ Quantity (default 1)
 optional equipped?: boolean;
 ```
 
-Defined in: types/character.ts:374
+Defined in: [types/character.ts:374](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L374)
 
 Is this item currently equipped?
 
@@ -2213,7 +2213,7 @@ Is this item currently equipped?
 optional notes?: string;
 ```
 
-Defined in: types/character.ts:377
+Defined in: [types/character.ts:377](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L377)
 
 Additional notes about the item
 
@@ -2223,7 +2223,7 @@ Additional notes about the item
 optional value?: number;
 ```
 
-Defined in: types/character.ts:380
+Defined in: [types/character.ts:380](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L380)
 
 Value in copper pieces (if known)
 
@@ -2231,7 +2231,7 @@ Value in copper pieces (if known)
 
 ### Inventory
 
-Defined in: types/character.ts:386
+Defined in: [types/character.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L386)
 
 Character's inventory/equipment
 
@@ -2243,7 +2243,7 @@ Character's inventory/equipment
 items: InventoryItem[];
 ```
 
-Defined in: types/character.ts:388
+Defined in: [types/character.ts:388](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L388)
 
 All items carried
 
@@ -2251,7 +2251,7 @@ All items carried
 
 ### Currency
 
-Defined in: types/character.ts:434
+Defined in: [types/character.ts:434](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L434)
 
 Currency holdings
 
@@ -2263,7 +2263,7 @@ Currency holdings
 pp: number;
 ```
 
-Defined in: types/character.ts:436
+Defined in: [types/character.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L436)
 
 Platinum pieces
 
@@ -2273,7 +2273,7 @@ Platinum pieces
 ep: number;
 ```
 
-Defined in: types/character.ts:439
+Defined in: [types/character.ts:439](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L439)
 
 Electrum pieces
 
@@ -2283,7 +2283,7 @@ Electrum pieces
 gp: number;
 ```
 
-Defined in: types/character.ts:442
+Defined in: [types/character.ts:442](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L442)
 
 Gold pieces
 
@@ -2293,7 +2293,7 @@ Gold pieces
 sp: number;
 ```
 
-Defined in: types/character.ts:445
+Defined in: [types/character.ts:445](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L445)
 
 Silver pieces
 
@@ -2303,7 +2303,7 @@ Silver pieces
 cp: number;
 ```
 
-Defined in: types/character.ts:448
+Defined in: [types/character.ts:448](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L448)
 
 Copper pieces
 
@@ -2311,7 +2311,7 @@ Copper pieces
 
 ### CharacterState
 
-Defined in: types/character.ts:458
+Defined in: [types/character.ts:458](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L458)
 
 Mutable character state - things that change during play
 
@@ -2323,7 +2323,7 @@ Mutable character state - things that change during play
 hp: HitPoints;
 ```
 
-Defined in: types/character.ts:460
+Defined in: [types/character.ts:460](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L460)
 
 Current hit points
 
@@ -2333,7 +2333,7 @@ Current hit points
 abilities: AbilityScores;
 ```
 
-Defined in: types/character.ts:463
+Defined in: [types/character.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L463)
 
 Current ability scores (may differ from max due to damage)
 
@@ -2343,7 +2343,7 @@ Current ability scores (may differ from max due to damage)
 xp: Experience;
 ```
 
-Defined in: types/character.ts:466
+Defined in: [types/character.ts:466](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L466)
 
 Current experience
 
@@ -2353,7 +2353,7 @@ Current experience
 saves: SavingThrows;
 ```
 
-Defined in: types/character.ts:469
+Defined in: [types/character.ts:469](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L469)
 
 Current saving throws (computed from class + ability mods)
 
@@ -2363,7 +2363,7 @@ Current saving throws (computed from class + ability mods)
 combat: CombatStats;
 ```
 
-Defined in: types/character.ts:472
+Defined in: [types/character.ts:472](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L472)
 
 Combat statistics
 
@@ -2373,7 +2373,7 @@ Combat statistics
 currency: Currency;
 ```
 
-Defined in: types/character.ts:475
+Defined in: [types/character.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L475)
 
 Currency
 
@@ -2383,7 +2383,7 @@ Currency
 inventory: Inventory;
 ```
 
-Defined in: types/character.ts:478
+Defined in: [types/character.ts:478](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L478)
 
 Inventory/equipment
 
@@ -2393,7 +2393,7 @@ Inventory/equipment
 conditions: string[];
 ```
 
-Defined in: types/character.ts:481
+Defined in: [types/character.ts:481](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L481)
 
 Active conditions/effects
 
@@ -2403,7 +2403,7 @@ Active conditions/effects
 optional classState?: ClassSpecificState;
 ```
 
-Defined in: types/character.ts:484
+Defined in: [types/character.ts:484](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L484)
 
 Class-specific state (only populated for relevant class)
 
@@ -2411,7 +2411,7 @@ Class-specific state (only populated for relevant class)
 
 ### Character
 
-Defined in: types/character.ts:497
+Defined in: [types/character.ts:497](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L497)
 
 Complete character record
 
@@ -2426,7 +2426,7 @@ For 0-level characters, `classInfo` is undefined.
 identity: CharacterIdentity;
 ```
 
-Defined in: types/character.ts:499
+Defined in: [types/character.ts:499](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L499)
 
 Character identity (mostly immutable)
 
@@ -2436,7 +2436,7 @@ Character identity (mostly immutable)
 optional classInfo?: CharacterClassInfo;
 ```
 
-Defined in: types/character.ts:502
+Defined in: [types/character.ts:502](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L502)
 
 Class information (undefined for 0-level)
 
@@ -2446,7 +2446,7 @@ Class information (undefined for 0-level)
 state: CharacterState;
 ```
 
-Defined in: types/character.ts:505
+Defined in: [types/character.ts:505](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L505)
 
 Mutable character state
 
@@ -2454,7 +2454,7 @@ Mutable character state
 
 ### AlignmentLevelData
 
-Defined in: types/class-progression.ts:31
+Defined in: [types/class-progression.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L31)
 
 Alignment-specific data at a level
 
@@ -2466,7 +2466,7 @@ Alignment-specific data at a level
 title: string;
 ```
 
-Defined in: types/class-progression.ts:33
+Defined in: [types/class-progression.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L33)
 
 Title at this level (e.g., "Bravo", "Thug")
 
@@ -2476,7 +2476,7 @@ Title at this level (e.g., "Bravo", "Thug")
 skills: SkillBonuses;
 ```
 
-Defined in: types/class-progression.ts:36
+Defined in: [types/class-progression.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L36)
 
 Skill bonuses for this alignment at this level
 
@@ -2484,7 +2484,7 @@ Skill bonuses for this alignment at this level
 
 ### ProgressionBaseLevelData
 
-Defined in: types/class-progression.ts:42
+Defined in: [types/class-progression.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L42)
 
 Core level data (same regardless of alignment)
 
@@ -2500,7 +2500,7 @@ Core level data (same regardless of alignment)
 attackBonus: number | `d${number}`;
 ```
 
-Defined in: types/class-progression.ts:44
+Defined in: [types/class-progression.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L44)
 
 Attack bonus (can be a die like "d3" for warriors)
 
@@ -2510,7 +2510,7 @@ Attack bonus (can be a die like "d3" for warriors)
 criticalDie: string;
 ```
 
-Defined in: types/class-progression.ts:47
+Defined in: [types/class-progression.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L47)
 
 Critical hit die
 
@@ -2520,7 +2520,7 @@ Critical hit die
 criticalTable: string;
 ```
 
-Defined in: types/class-progression.ts:50
+Defined in: [types/class-progression.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L50)
 
 Critical hit table
 
@@ -2530,7 +2530,7 @@ Critical hit table
 actionDice: string[];
 ```
 
-Defined in: types/class-progression.ts:53
+Defined in: [types/class-progression.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L53)
 
 Action dice available
 
@@ -2540,7 +2540,7 @@ Action dice available
 hitDie: `d${number}`;
 ```
 
-Defined in: types/class-progression.ts:56
+Defined in: [types/class-progression.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L56)
 
 Hit die for this class
 
@@ -2550,7 +2550,7 @@ Hit die for this class
 saves: Record<ProgressionSaveType, number>;
 ```
 
-Defined in: types/class-progression.ts:59
+Defined in: [types/class-progression.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L59)
 
 Saving throw bonuses
 
@@ -2558,7 +2558,7 @@ Saving throw bonuses
 
 ### ProgressionLevelData
 
-Defined in: types/class-progression.ts:65
+Defined in: [types/class-progression.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L65)
 
 Complete level data including alignment variations
 
@@ -2574,7 +2574,7 @@ Complete level data including alignment variations
 attackBonus: number | `d${number}`;
 ```
 
-Defined in: types/class-progression.ts:44
+Defined in: [types/class-progression.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L44)
 
 Attack bonus (can be a die like "d3" for warriors)
 
@@ -2588,7 +2588,7 @@ Attack bonus (can be a die like "d3" for warriors)
 criticalDie: string;
 ```
 
-Defined in: types/class-progression.ts:47
+Defined in: [types/class-progression.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L47)
 
 Critical hit die
 
@@ -2602,7 +2602,7 @@ Critical hit die
 criticalTable: string;
 ```
 
-Defined in: types/class-progression.ts:50
+Defined in: [types/class-progression.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L50)
 
 Critical hit table
 
@@ -2616,7 +2616,7 @@ Critical hit table
 actionDice: string[];
 ```
 
-Defined in: types/class-progression.ts:53
+Defined in: [types/class-progression.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L53)
 
 Action dice available
 
@@ -2630,7 +2630,7 @@ Action dice available
 hitDie: `d${number}`;
 ```
 
-Defined in: types/class-progression.ts:56
+Defined in: [types/class-progression.ts:56](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L56)
 
 Hit die for this class
 
@@ -2644,7 +2644,7 @@ Hit die for this class
 saves: Record<ProgressionSaveType, number>;
 ```
 
-Defined in: types/class-progression.ts:59
+Defined in: [types/class-progression.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L59)
 
 Saving throw bonuses
 
@@ -2658,7 +2658,7 @@ Saving throw bonuses
 optional lawful?: AlignmentLevelData;
 ```
 
-Defined in: types/class-progression.ts:67
+Defined in: [types/class-progression.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L67)
 
 Lawful alignment data
 
@@ -2668,7 +2668,7 @@ Lawful alignment data
 optional neutral?: AlignmentLevelData;
 ```
 
-Defined in: types/class-progression.ts:70
+Defined in: [types/class-progression.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L70)
 
 Neutral alignment data
 
@@ -2678,7 +2678,7 @@ Neutral alignment data
 optional chaotic?: AlignmentLevelData;
 ```
 
-Defined in: types/class-progression.ts:73
+Defined in: [types/class-progression.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L73)
 
 Chaotic alignment data
 
@@ -2688,7 +2688,7 @@ Chaotic alignment data
 optional luckDie?: `d${number}`;
 ```
 
-Defined in: types/class-progression.ts:76
+Defined in: [types/class-progression.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L76)
 
 Luck die (for thieves, halflings)
 
@@ -2698,7 +2698,7 @@ Luck die (for thieves, halflings)
 optional critRange?: number;
 ```
 
-Defined in: types/class-progression.ts:79
+Defined in: [types/class-progression.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L79)
 
 Threat range for critical hits (warriors get 19-20)
 
@@ -2706,7 +2706,7 @@ Threat range for critical hits (warriors get 19-20)
 
 ### ClassProgression
 
-Defined in: types/class-progression.ts:85
+Defined in: [types/class-progression.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L85)
 
 Complete class progression (all levels)
 
@@ -2718,7 +2718,7 @@ Complete class progression (all levels)
 classId: string;
 ```
 
-Defined in: types/class-progression.ts:87
+Defined in: [types/class-progression.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L87)
 
 Class ID
 
@@ -2728,7 +2728,7 @@ Class ID
 name: string;
 ```
 
-Defined in: types/class-progression.ts:90
+Defined in: [types/class-progression.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L90)
 
 Class name
 
@@ -2738,7 +2738,7 @@ Class name
 skills: string[];
 ```
 
-Defined in: types/class-progression.ts:93
+Defined in: [types/class-progression.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L93)
 
 Skill IDs this class has access to
 
@@ -2748,7 +2748,7 @@ Skill IDs this class has access to
 levels: Record<number, ProgressionLevelData>;
 ```
 
-Defined in: types/class-progression.ts:96
+Defined in: [types/class-progression.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L96)
 
 Level-by-level progression data
 
@@ -2756,7 +2756,7 @@ Level-by-level progression data
 
 ### ClassLevelData
 
-Defined in: types/classes.ts:55
+Defined in: [types/classes.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L55)
 
 Level-specific class data
 
@@ -2768,7 +2768,7 @@ Level-specific class data
 optional attackBonus?: number;
 ```
 
-Defined in: types/classes.ts:57
+Defined in: [types/classes.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L57)
 
 Attack bonus at this level
 
@@ -2778,7 +2778,7 @@ Attack bonus at this level
 optional actionDice?: string;
 ```
 
-Defined in: types/classes.ts:60
+Defined in: [types/classes.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L60)
 
 Action dice at this level (e.g., "1d20", "1d20+1d14")
 
@@ -2788,7 +2788,7 @@ Action dice at this level (e.g., "1d20", "1d20+1d14")
 optional critDie?: string;
 ```
 
-Defined in: types/classes.ts:63
+Defined in: [types/classes.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L63)
 
 Crit die formula at this level (e.g., "d12", "2d20", "d30+2")
 
@@ -2798,7 +2798,7 @@ Crit die formula at this level (e.g., "d12", "2d20", "d30+2")
 optional threatRange?: number;
 ```
 
-Defined in: types/classes.ts:66
+Defined in: [types/classes.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L66)
 
 Threat range at this level (e.g., 19 for 19-20)
 
@@ -2808,7 +2808,7 @@ Threat range at this level (e.g., 19 for 19-20)
 optional saves?: Partial<Record<SaveType, number>>;
 ```
 
-Defined in: types/classes.ts:69
+Defined in: [types/classes.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L69)
 
 Saves at this level
 
@@ -2818,7 +2818,7 @@ Saves at this level
 optional title?: string;
 ```
 
-Defined in: types/classes.ts:72
+Defined in: [types/classes.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L72)
 
 Titles at this level
 
@@ -2828,7 +2828,7 @@ Titles at this level
 optional skillsUnlocked?: string[];
 ```
 
-Defined in: types/classes.ts:75
+Defined in: [types/classes.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L75)
 
 Skills unlocked at this level
 
@@ -2838,7 +2838,7 @@ Skills unlocked at this level
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/classes.ts:78
+Defined in: [types/classes.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L78)
 
 Any other level-specific data
 
@@ -2846,7 +2846,7 @@ Any other level-specific data
 
 ### ClassRequirements
 
-Defined in: types/classes.ts:84
+Defined in: [types/classes.ts:84](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L84)
 
 Requirements to take a class
 
@@ -2858,7 +2858,7 @@ Requirements to take a class
 optional abilities?: Partial<Record<string, number>>;
 ```
 
-Defined in: types/classes.ts:86
+Defined in: [types/classes.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L86)
 
 Minimum ability scores
 
@@ -2868,7 +2868,7 @@ Minimum ability scores
 optional alignments?: Alignment[];
 ```
 
-Defined in: types/classes.ts:89
+Defined in: [types/classes.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L89)
 
 Allowed alignments
 
@@ -2878,7 +2878,7 @@ Allowed alignments
 optional race?: string;
 ```
 
-Defined in: types/classes.ts:92
+Defined in: [types/classes.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L92)
 
 Required race (for race-as-class)
 
@@ -2886,7 +2886,7 @@ Required race (for race-as-class)
 
 ### ClassDefinition
 
-Defined in: types/classes.ts:98
+Defined in: [types/classes.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L98)
 
 Complete class definition
 
@@ -2898,7 +2898,7 @@ Complete class definition
 id: string;
 ```
 
-Defined in: types/classes.ts:100
+Defined in: [types/classes.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L100)
 
 Unique identifier (e.g., "warrior", "wizard")
 
@@ -2908,7 +2908,7 @@ Unique identifier (e.g., "warrior", "wizard")
 name: string;
 ```
 
-Defined in: types/classes.ts:103
+Defined in: [types/classes.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L103)
 
 Display name
 
@@ -2918,7 +2918,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/classes.ts:106
+Defined in: [types/classes.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L106)
 
 Class description
 
@@ -2928,7 +2928,7 @@ Class description
 hitDie: `d${number}`;
 ```
 
-Defined in: types/classes.ts:109
+Defined in: [types/classes.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L109)
 
 Hit die (e.g., "d12" for warrior)
 
@@ -2938,7 +2938,7 @@ Hit die (e.g., "d12" for warrior)
 attackProgression: AttackProgression;
 ```
 
-Defined in: types/classes.ts:112
+Defined in: [types/classes.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L112)
 
 Attack bonus progression type
 
@@ -2948,7 +2948,7 @@ Attack bonus progression type
 saveProgression: SaveProgression;
 ```
 
-Defined in: types/classes.ts:115
+Defined in: [types/classes.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L115)
 
 Save progression type
 
@@ -2958,7 +2958,7 @@ Save progression type
 critTable: CritTable;
 ```
 
-Defined in: types/classes.ts:118
+Defined in: [types/classes.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L118)
 
 Which crit table to use
 
@@ -2968,7 +2968,7 @@ Which crit table to use
 optional customCritTable?: string;
 ```
 
-Defined in: types/classes.ts:121
+Defined in: [types/classes.ts:121](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L121)
 
 Custom crit table ID (if critTable is "custom")
 
@@ -2978,7 +2978,7 @@ Custom crit table ID (if critTable is "custom")
 optional baseThreatRange?: number;
 ```
 
-Defined in: types/classes.ts:124
+Defined in: [types/classes.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L124)
 
 Base threat range (20 = only on 20, 19 = 19-20)
 
@@ -2988,7 +2988,7 @@ Base threat range (20 = only on 20, 19 = 19-20)
 skills: string[];
 ```
 
-Defined in: types/classes.ts:127
+Defined in: [types/classes.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L127)
 
 Skills this class grants
 
@@ -2998,7 +2998,7 @@ Skills this class grants
 levels: Record<number, ClassLevelData>;
 ```
 
-Defined in: types/classes.ts:130
+Defined in: [types/classes.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L130)
 
 Level-by-level progression
 
@@ -3008,7 +3008,7 @@ Level-by-level progression
 optional requirements?: ClassRequirements;
 ```
 
-Defined in: types/classes.ts:133
+Defined in: [types/classes.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L133)
 
 Requirements to take this class
 
@@ -3018,7 +3018,7 @@ Requirements to take this class
 optional isSpellcaster?: boolean;
 ```
 
-Defined in: types/classes.ts:136
+Defined in: [types/classes.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L136)
 
 Whether this is a spellcasting class
 
@@ -3028,7 +3028,7 @@ Whether this is a spellcasting class
 optional spellcastingAbility?: string;
 ```
 
-Defined in: types/classes.ts:139
+Defined in: [types/classes.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L139)
 
 Spellcasting ability (if spellcaster)
 
@@ -3038,7 +3038,7 @@ Spellcasting ability (if spellcaster)
 optional maxSpellLevel?: Record<number, number>;
 ```
 
-Defined in: types/classes.ts:142
+Defined in: [types/classes.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L142)
 
 Maximum spell level by class level
 
@@ -3048,7 +3048,7 @@ Maximum spell level by class level
 optional tags?: string[];
 ```
 
-Defined in: types/classes.ts:145
+Defined in: [types/classes.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L145)
 
 Tags for categorization
 
@@ -3056,7 +3056,7 @@ Tags for categorization
 
 ### CharacterClass
 
-Defined in: types/classes.ts:151
+Defined in: [types/classes.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L151)
 
 A character's class instance (for multiclassing support)
 
@@ -3068,7 +3068,7 @@ A character's class instance (for multiclassing support)
 classId: string;
 ```
 
-Defined in: types/classes.ts:153
+Defined in: [types/classes.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L153)
 
 The class definition ID
 
@@ -3078,7 +3078,7 @@ The class definition ID
 level: number;
 ```
 
-Defined in: types/classes.ts:156
+Defined in: [types/classes.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L156)
 
 Level in this class
 
@@ -3088,7 +3088,7 @@ Level in this class
 optional xp?: number;
 ```
 
-Defined in: types/classes.ts:159
+Defined in: [types/classes.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L159)
 
 XP in this class (if tracking separately)
 
@@ -3096,7 +3096,7 @@ XP in this class (if tracking separately)
 
 ### AttackInput
 
-Defined in: types/combat.ts:24
+Defined in: [types/combat.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L24)
 
 Input for making an attack roll
 
@@ -3108,7 +3108,7 @@ Input for making an attack roll
 attackType: AttackType;
 ```
 
-Defined in: types/combat.ts:26
+Defined in: [types/combat.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L26)
 
 Type of attack
 
@@ -3118,7 +3118,7 @@ Type of attack
 attackBonus: number;
 ```
 
-Defined in: types/combat.ts:29
+Defined in: [types/combat.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L29)
 
 Base attack bonus from class/level
 
@@ -3128,7 +3128,7 @@ Base attack bonus from class/level
 actionDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:32
+Defined in: [types/combat.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L32)
 
 Action die to use (e.g., "d20", "d16")
 
@@ -3138,7 +3138,7 @@ Action die to use (e.g., "d20", "d16")
 threatRange: number;
 ```
 
-Defined in: types/combat.ts:35
+Defined in: [types/combat.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L35)
 
 Threat range for critical hits (20 = only on 20, 19 = 19-20, etc.)
 
@@ -3148,7 +3148,7 @@ Threat range for critical hits (20 = only on 20, 19 = 19-20, etc.)
 optional threatRangeIsNatural?: boolean;
 ```
 
-Defined in: types/combat.ts:50
+Defined in: [types/combat.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L50)
 
 Treat `threatRange` as a natural-roll threshold on the die actually
 rolled, instead of a d20-relative range that gets rescaled to the
@@ -3168,7 +3168,7 @@ has already expressed `threatRange` for the die in `actionDie`.
 optional fumbleRange?: number;
 ```
 
-Defined in: types/combat.ts:62
+Defined in: [types/combat.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L62)
 
 Fumble range as a natural-roll threshold on the die actually rolled
 (1 = only a natural 1, 2 = natural 1-2, etc.). Defaults to 1.
@@ -3185,7 +3185,7 @@ the fumble range always misses and can never be a critical threat
 abilityModifier: number;
 ```
 
-Defined in: types/combat.ts:65
+Defined in: [types/combat.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L65)
 
 Ability modifier to add (usually STR for melee, AGL for missile)
 
@@ -3195,7 +3195,7 @@ Ability modifier to add (usually STR for melee, AGL for missile)
 optional deedDie?: `d${number}`;
 ```
 
-Defined in: types/combat.ts:68
+Defined in: [types/combat.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L68)
 
 Deed die for warriors/dwarves (e.g., "d3", "d4")
 
@@ -3205,7 +3205,7 @@ Deed die for warriors/dwarves (e.g., "d3", "d4")
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: types/combat.ts:71
+Defined in: [types/combat.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L71)
 
 Additional bonuses from equipment, spells, luck, etc.
 
@@ -3215,7 +3215,7 @@ Additional bonuses from equipment, spells, luck, etc.
 optional targetAC?: number;
 ```
 
-Defined in: types/combat.ts:74
+Defined in: [types/combat.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L74)
 
 Target's armor class (optional, for hit determination)
 
@@ -3225,7 +3225,7 @@ Target's armor class (optional, for hit determination)
 optional isBackstab?: boolean;
 ```
 
-Defined in: types/combat.ts:89
+Defined in: [types/combat.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L89)
 
 Thief backstab attack: a hit is automatically a critical threat
 (DCC core rules, Crit Table II). A natural 1 is still a fumble
@@ -3243,7 +3243,7 @@ value: N }`). See `makeAttackRoll` docstring for a full example.
 
 ### ActionDieSlot
 
-Defined in: types/combat.ts:122
+Defined in: [types/combat.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L122)
 
 One action die in an actor's per-round budget. A high-level warrior's
 `"1d20+1, 1d20, 1d14"` becomes three slots; an NPC's `"2d20"` becomes two.
@@ -3259,7 +3259,7 @@ expand to two separate slots rather than one slot of count 2.
 slot: number;
 ```
 
-Defined in: types/combat.ts:124
+Defined in: [types/combat.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L124)
 
 0-based position in the budget (slot 0 is the primary die).
 
@@ -3269,7 +3269,7 @@ Defined in: types/combat.ts:124
 die: `d${number}`;
 ```
 
-Defined in: types/combat.ts:127
+Defined in: [types/combat.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L127)
 
 The die for this slot, e.g. `"d20"`, `"d16"`.
 
@@ -3279,7 +3279,7 @@ The die for this slot, e.g. `"d20"`, `"d16"`.
 modifier: number;
 ```
 
-Defined in: types/combat.ts:135
+Defined in: [types/combat.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L135)
 
 Per-die rider parsed from a `"1d20+4"` authoring token (DCC top-end
 warriors carry a flat bonus on their first action die). `0` when the
@@ -3292,7 +3292,7 @@ slot has no rider. This is the action die's *own* adjustment — see the
 use: ActionDieUse;
 ```
 
-Defined in: types/combat.ts:138
+Defined in: [types/combat.ts:138](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L138)
 
 What this slot may be spent on.
 
@@ -3300,7 +3300,7 @@ What this slot may be spent on.
 
 ### ActionDiceState
 
-Defined in: types/combat.ts:146
+Defined in: [types/combat.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L146)
 
 Live per-round spend state for an actor's action dice. Owned and
 persisted by the caller (e.g. a Foundry combatant flag); the lib only
@@ -3314,7 +3314,7 @@ provides pure transitions over it.
 round: number;
 ```
 
-Defined in: types/combat.ts:148
+Defined in: [types/combat.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L148)
 
 The combat round these `spent` flags are valid for.
 
@@ -3324,7 +3324,7 @@ The combat round these `spent` flags are valid for.
 spent: boolean[];
 ```
 
-Defined in: types/combat.ts:151
+Defined in: [types/combat.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L151)
 
 Parallel to the slot list: `spent[i]` is true once slot `i` is used.
 
@@ -3332,7 +3332,7 @@ Parallel to the slot list: `spent[i]` is true once slot `i` is used.
 
 ### ActionDieRollTerms
 
-Defined in: types/combat.ts:158
+Defined in: [types/combat.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L158)
 
 Roll terms for a chosen action-die slot, reconciling the slot's own
 modifier against the generic attack/spell bonus. See `actionDieRollTerms`.
@@ -3345,7 +3345,7 @@ modifier against the generic attack/spell bonus. See `actionDieRollTerms`.
 die: `d${number}`;
 ```
 
-Defined in: types/combat.ts:160
+Defined in: [types/combat.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L160)
 
 The die to roll for this action.
 
@@ -3355,7 +3355,7 @@ The die to roll for this action.
 modifier: number;
 ```
 
-Defined in: types/combat.ts:163
+Defined in: [types/combat.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L163)
 
 The slot's per-die modifier (0 when none).
 
@@ -3365,7 +3365,7 @@ The slot's per-die modifier (0 when none).
 suppressAttackBonus: boolean;
 ```
 
-Defined in: types/combat.ts:171
+Defined in: [types/combat.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L171)
 
 When true, the slot carries its own authoritative modifier and the
 caller must NOT also add the generic attack-bonus term for this action
@@ -3376,7 +3376,7 @@ its normal attack-bonus / ability-modifier logic.
 
 ### TwoWeaponDiceConfig
 
-Defined in: types/combat.ts:183
+Defined in: [types/combat.ts:183](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L183)
 
 Two-weapon fighting configuration derived from the attacker's Agility
 (DCC core rules Table 4-3, plus halfling class overrides). Reductions
@@ -3390,7 +3390,7 @@ step each hand's action die DOWN the dice chain.
 primaryDieReduction: number;
 ```
 
-Defined in: types/combat.ts:185
+Defined in: [types/combat.ts:185](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L185)
 
 Number of dice-chain steps to reduce the primary hand's action die.
 
@@ -3400,7 +3400,7 @@ Number of dice-chain steps to reduce the primary hand's action die.
 offHandDieReduction: number;
 ```
 
-Defined in: types/combat.ts:187
+Defined in: [types/combat.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L187)
 
 Number of dice-chain steps to reduce the off-hand's action die.
 
@@ -3410,7 +3410,7 @@ Number of dice-chain steps to reduce the off-hand's action die.
 primaryCanCrit: boolean;
 ```
 
-Defined in: types/combat.ts:189
+Defined in: [types/combat.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L189)
 
 Whether the primary hand is capable of scoring a critical hit at all.
 
@@ -3420,7 +3420,7 @@ Whether the primary hand is capable of scoring a critical hit at all.
 offHandCanCrit: boolean;
 ```
 
-Defined in: types/combat.ts:191
+Defined in: [types/combat.ts:191](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L191)
 
 Whether the off-hand is capable of scoring a critical hit at all.
 
@@ -3430,7 +3430,7 @@ Whether the off-hand is capable of scoring a critical hit at all.
 primaryCritRequiresBeatAC: boolean;
 ```
 
-Defined in: types/combat.ts:197
+Defined in: [types/combat.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L197)
 
 Agl-16-17 row (non-halfling): the primary hand crits only on a
 natural max that ALSO beats the target's AC. The natural max does
@@ -3442,7 +3442,7 @@ NOT auto-hit — the attacker must actually beat AC.
 halflingAutoCritOnMax: boolean;
 ```
 
-Defined in: types/combat.ts:204
+Defined in: [types/combat.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L204)
 
 Halfling class override on the clamped Agl-16 row: a natural max
 on the reduced die is both an auto-hit AND an auto-crit, applied
@@ -3455,7 +3455,7 @@ Replaces the non-halfling `primaryCritRequiresBeatAC` rule.
 halflingFumbleRequiresBoth1s: boolean;
 ```
 
-Defined in: types/combat.ts:209
+Defined in: [types/combat.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L209)
 
 Halfling class override: a natural 1 on a single hand is NOT a
 fumble — halflings fumble only when BOTH hands roll natural 1.
@@ -3464,7 +3464,7 @@ fumble — halflings fumble only when BOTH hands roll natural 1.
 
 ### TwoWeaponAttackInput
 
-Defined in: types/combat.ts:219
+Defined in: [types/combat.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L219)
 
 Input for rolling a full two-weapon attack round (both hands).
 
@@ -3480,7 +3480,7 @@ the Table 4-3 reductions.
 agility: number;
 ```
 
-Defined in: types/combat.ts:221
+Defined in: [types/combat.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L221)
 
 Attacker's Agility score (raw, pre-halfling-clamp).
 
@@ -3490,7 +3490,7 @@ Attacker's Agility score (raw, pre-halfling-clamp).
 optional isHalfling?: boolean;
 ```
 
-Defined in: types/combat.ts:227
+Defined in: [types/combat.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L227)
 
 When true, applies the halfling class overrides: min effective
 Agility 16 for row lookup, auto-crit/auto-hit on natural max of
@@ -3502,7 +3502,7 @@ the reduced die, and "both rolls must be natural 1" fumble rule.
 baseActionDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:232
+Defined in: [types/combat.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L232)
 
 Base action die before two-weapon reduction. Typically `d20`, or
 `d16` when already two-handing a single weapon (rare combo).
@@ -3513,7 +3513,7 @@ Base action die before two-weapon reduction. Typically `d20`, or
 primary: Omit<AttackInput, "actionDie">;
 ```
 
-Defined in: types/combat.ts:234
+Defined in: [types/combat.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L234)
 
 Primary-hand attack input (without `actionDie`).
 
@@ -3523,7 +3523,7 @@ Primary-hand attack input (without `actionDie`).
 offHand: Omit<AttackInput, "actionDie">;
 ```
 
-Defined in: types/combat.ts:236
+Defined in: [types/combat.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L236)
 
 Off-hand attack input (without `actionDie`).
 
@@ -3531,7 +3531,7 @@ Off-hand attack input (without `actionDie`).
 
 ### TwoWeaponAttackResult
 
-Defined in: types/combat.ts:242
+Defined in: [types/combat.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L242)
 
 Result of a two-weapon attack round.
 
@@ -3543,7 +3543,7 @@ Result of a two-weapon attack round.
 primary: AttackResult;
 ```
 
-Defined in: types/combat.ts:243
+Defined in: [types/combat.ts:243](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L243)
 
 ##### offHand
 
@@ -3551,7 +3551,7 @@ Defined in: types/combat.ts:243
 offHand: AttackResult;
 ```
 
-Defined in: types/combat.ts:244
+Defined in: [types/combat.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L244)
 
 ##### config
 
@@ -3559,13 +3559,13 @@ Defined in: types/combat.ts:244
 config: TwoWeaponDiceConfig;
 ```
 
-Defined in: types/combat.ts:245
+Defined in: [types/combat.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L245)
 
 ***
 
 ### AttackResult
 
-Defined in: types/combat.ts:258
+Defined in: [types/combat.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L258)
 
 Result of an attack roll
 
@@ -3577,7 +3577,7 @@ Result of an attack roll
 roll: RollResult;
 ```
 
-Defined in: types/combat.ts:260
+Defined in: [types/combat.ts:260](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L260)
 
 The roll result
 
@@ -3587,7 +3587,7 @@ The roll result
 optional deedRoll?: RollResult;
 ```
 
-Defined in: types/combat.ts:263
+Defined in: [types/combat.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L263)
 
 The deed die result (if applicable)
 
@@ -3597,7 +3597,7 @@ The deed die result (if applicable)
 totalBonus: number;
 ```
 
-Defined in: types/combat.ts:266
+Defined in: [types/combat.ts:266](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L266)
 
 Total attack bonus after all modifiers
 
@@ -3607,7 +3607,7 @@ Total attack bonus after all modifiers
 total: number;
 ```
 
-Defined in: types/combat.ts:269
+Defined in: [types/combat.ts:269](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L269)
 
 Final total (roll + bonus)
 
@@ -3617,7 +3617,7 @@ Final total (roll + bonus)
 isCriticalThreat: boolean;
 ```
 
-Defined in: types/combat.ts:272
+Defined in: [types/combat.ts:272](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L272)
 
 Whether this is a critical threat
 
@@ -3627,7 +3627,7 @@ Whether this is a critical threat
 optional critSource?: CritSource;
 ```
 
-Defined in: types/combat.ts:278
+Defined in: [types/combat.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L278)
 
 When `isCriticalThreat` is true, what caused it. `undefined` when
 the attack is not a critical threat.
@@ -3638,7 +3638,7 @@ the attack is not a critical threat.
 isFumble: boolean;
 ```
 
-Defined in: types/combat.ts:281
+Defined in: [types/combat.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L281)
 
 Whether this is a fumble (natural 1)
 
@@ -3648,7 +3648,7 @@ Whether this is a fumble (natural 1)
 optional isHit?: boolean;
 ```
 
-Defined in: types/combat.ts:284
+Defined in: [types/combat.ts:284](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L284)
 
 Whether the attack hits (if targetAC was provided)
 
@@ -3658,7 +3658,7 @@ Whether the attack hits (if targetAC was provided)
 appliedModifiers: LegacyRollModifier[];
 ```
 
-Defined in: types/combat.ts:287
+Defined in: [types/combat.ts:287](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L287)
 
 All modifiers that were applied
 
@@ -3668,7 +3668,7 @@ All modifiers that were applied
 optional deedSuccess?: boolean;
 ```
 
-Defined in: types/combat.ts:290
+Defined in: [types/combat.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L290)
 
 Whether the deed was successful (roll >= 3)
 
@@ -3676,7 +3676,7 @@ Whether the deed was successful (roll >= 3)
 
 ### DamageInput
 
-Defined in: types/combat.ts:300
+Defined in: [types/combat.ts:300](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L300)
 
 Input for calculating damage
 
@@ -3688,7 +3688,7 @@ Input for calculating damage
 damageDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:302
+Defined in: [types/combat.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L302)
 
 Base weapon damage die (e.g., "d8" for longsword)
 
@@ -3698,7 +3698,7 @@ Base weapon damage die (e.g., "d8" for longsword)
 optional diceCount?: number;
 ```
 
-Defined in: types/combat.ts:305
+Defined in: [types/combat.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L305)
 
 Number of damage dice (usually 1)
 
@@ -3708,7 +3708,7 @@ Number of damage dice (usually 1)
 strengthModifier: number;
 ```
 
-Defined in: types/combat.ts:308
+Defined in: [types/combat.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L308)
 
 Strength modifier for melee, 0 for most missile
 
@@ -3718,7 +3718,7 @@ Strength modifier for melee, 0 for most missile
 optional deedDieResult?: number;
 ```
 
-Defined in: types/combat.ts:311
+Defined in: [types/combat.ts:311](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L311)
 
 Deed die result (added to damage for warriors)
 
@@ -3728,7 +3728,7 @@ Deed die result (added to damage for warriors)
 optional magicBonus?: number;
 ```
 
-Defined in: types/combat.ts:318
+Defined in: [types/combat.ts:318](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L318)
 
 Magic weapon bonus (positive) or cursed penalty (negative).
 Surfaced in `breakdown` as `source: "magic"` when positive and
@@ -3745,7 +3745,7 @@ optional extraDamageDice?: {
 }[];
 ```
 
-Defined in: types/combat.ts:330
+Defined in: [types/combat.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L330)
 
 Extra dice beyond the base weapon die. Each term is rolled
 separately and added to `modifierDamage`, with its own
@@ -3786,7 +3786,7 @@ optional source?: string;
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: types/combat.ts:338
+Defined in: [types/combat.ts:338](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L338)
 
 Additional bonuses
 
@@ -3794,7 +3794,7 @@ Additional bonuses
 
 ### DamageResult
 
-Defined in: types/combat.ts:344
+Defined in: [types/combat.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L344)
 
 Result of a damage roll
 
@@ -3806,7 +3806,7 @@ Result of a damage roll
 roll: RollResult;
 ```
 
-Defined in: types/combat.ts:346
+Defined in: [types/combat.ts:346](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L346)
 
 The damage roll result
 
@@ -3816,7 +3816,7 @@ The damage roll result
 baseDamage: number;
 ```
 
-Defined in: types/combat.ts:349
+Defined in: [types/combat.ts:349](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L349)
 
 Base damage from dice
 
@@ -3826,7 +3826,7 @@ Base damage from dice
 modifierDamage: number;
 ```
 
-Defined in: types/combat.ts:352
+Defined in: [types/combat.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L352)
 
 Modifier damage (str, deed, magic, etc.)
 
@@ -3836,7 +3836,7 @@ Modifier damage (str, deed, magic, etc.)
 total: number;
 ```
 
-Defined in: types/combat.ts:355
+Defined in: [types/combat.ts:355](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L355)
 
 Final total damage
 
@@ -3846,7 +3846,7 @@ Final total damage
 breakdown: DamageBreakdown[];
 ```
 
-Defined in: types/combat.ts:358
+Defined in: [types/combat.ts:358](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L358)
 
 Breakdown of damage sources
 
@@ -3854,7 +3854,7 @@ Breakdown of damage sources
 
 ### DamageBreakdown
 
-Defined in: types/combat.ts:364
+Defined in: [types/combat.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L364)
 
 Single source of damage
 
@@ -3866,7 +3866,7 @@ Single source of damage
 source: string;
 ```
 
-Defined in: types/combat.ts:366
+Defined in: [types/combat.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L366)
 
 Source of the damage
 
@@ -3876,7 +3876,7 @@ Source of the damage
 amount: number;
 ```
 
-Defined in: types/combat.ts:369
+Defined in: [types/combat.ts:369](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L369)
 
 Amount
 
@@ -3884,7 +3884,7 @@ Amount
 
 ### CriticalInput
 
-Defined in: types/combat.ts:384
+Defined in: [types/combat.ts:384](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L384)
 
 Input for rolling a critical hit
 
@@ -3896,7 +3896,7 @@ Input for rolling a critical hit
 critTable: CritTableId;
 ```
 
-Defined in: types/combat.ts:386
+Defined in: [types/combat.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L386)
 
 Which crit table to use
 
@@ -3906,7 +3906,7 @@ Which crit table to use
 critDie: string;
 ```
 
-Defined in: types/combat.ts:389
+Defined in: [types/combat.ts:389](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L389)
 
 Crit die formula (e.g., "d12", "2d20", or "d30+2").
 
@@ -3916,7 +3916,7 @@ Crit die formula (e.g., "d12", "2d20", or "d30+2").
 luckModifier: number;
 ```
 
-Defined in: types/combat.ts:392
+Defined in: [types/combat.ts:392](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L392)
 
 Luck modifier (the roller's own Luck; added to the crit roll)
 
@@ -3926,7 +3926,7 @@ Luck modifier (the roller's own Luck; added to the crit roll)
 optional defenderLuckModifier?: number;
 ```
 
-Defined in: types/combat.ts:401
+Defined in: [types/combat.ts:401](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L401)
 
 Defending PC's Luck modifier, for a critical hit scored *against* that PC.
 Per DCC RAW a PC's Luck modifier always alters a monster's critical hit:
@@ -3940,7 +3940,7 @@ Omit (or 0) when the crit is not against a luck-bearing defender.
 optional level?: number;
 ```
 
-Defined in: types/combat.ts:404
+Defined in: [types/combat.ts:404](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L404)
 
 Level (adds to crit roll for some classes)
 
@@ -3950,7 +3950,7 @@ Level (adds to crit roll for some classes)
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: types/combat.ts:407
+Defined in: [types/combat.ts:407](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L407)
 
 Additional crit modifiers (from items, spells, etc.)
 
@@ -3958,7 +3958,7 @@ Additional crit modifiers (from items, spells, etc.)
 
 ### CriticalResult
 
-Defined in: types/combat.ts:413
+Defined in: [types/combat.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L413)
 
 Result of a critical hit roll
 
@@ -3970,7 +3970,7 @@ Result of a critical hit roll
 roll: RollResult;
 ```
 
-Defined in: types/combat.ts:415
+Defined in: [types/combat.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L415)
 
 The crit roll result
 
@@ -3980,7 +3980,7 @@ The crit roll result
 total: number;
 ```
 
-Defined in: types/combat.ts:418
+Defined in: [types/combat.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L418)
 
 Total crit roll (die + modifiers)
 
@@ -3990,7 +3990,7 @@ Total crit roll (die + modifiers)
 critTable: CritTableId;
 ```
 
-Defined in: types/combat.ts:421
+Defined in: [types/combat.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L421)
 
 Which table to look up the result on
 
@@ -4000,7 +4000,7 @@ Which table to look up the result on
 optional tableResult?: string;
 ```
 
-Defined in: types/combat.ts:424
+Defined in: [types/combat.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L424)
 
 The table result (from lookup)
 
@@ -4010,7 +4010,7 @@ The table result (from lookup)
 optional extraDamageDice?: string;
 ```
 
-Defined in: types/combat.ts:427
+Defined in: [types/combat.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L427)
 
 Extra damage dice from the crit
 
@@ -4020,7 +4020,7 @@ Extra damage dice from the crit
 optional extraDamageModifier?: number;
 ```
 
-Defined in: types/combat.ts:430
+Defined in: [types/combat.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L430)
 
 Extra damage modifier
 
@@ -4030,7 +4030,7 @@ Extra damage modifier
 optional effect?: string;
 ```
 
-Defined in: types/combat.ts:433
+Defined in: [types/combat.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L433)
 
 Special effect description
 
@@ -4038,7 +4038,7 @@ Special effect description
 
 ### ArmorStats
 
-Defined in: types/combat.ts:490
+Defined in: [types/combat.ts:490](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L490)
 
 Armor statistics for equipped armor
 
@@ -4050,7 +4050,7 @@ Armor statistics for equipped armor
 name: string;
 ```
 
-Defined in: types/combat.ts:492
+Defined in: [types/combat.ts:492](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L492)
 
 Armor name
 
@@ -4060,7 +4060,7 @@ Armor name
 type: ArmorType;
 ```
 
-Defined in: types/combat.ts:495
+Defined in: [types/combat.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L495)
 
 Armor type
 
@@ -4070,7 +4070,7 @@ Armor type
 acBonus: number;
 ```
 
-Defined in: types/combat.ts:498
+Defined in: [types/combat.ts:498](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L498)
 
 AC bonus (can differ from standard for magic armor)
 
@@ -4080,7 +4080,7 @@ AC bonus (can differ from standard for magic armor)
 optional magicBonus?: number;
 ```
 
-Defined in: types/combat.ts:501
+Defined in: [types/combat.ts:501](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L501)
 
 Magic bonus (if any)
 
@@ -4090,7 +4090,7 @@ Magic bonus (if any)
 checkPenalty: number;
 ```
 
-Defined in: types/combat.ts:504
+Defined in: [types/combat.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L504)
 
 Check penalty (negative number, can be reduced by magic)
 
@@ -4100,7 +4100,7 @@ Check penalty (negative number, can be reduced by magic)
 speedPenalty: number;
 ```
 
-Defined in: types/combat.ts:507
+Defined in: [types/combat.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L507)
 
 Speed penalty in feet
 
@@ -4110,7 +4110,7 @@ Speed penalty in feet
 fumbleDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:510
+Defined in: [types/combat.ts:510](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L510)
 
 Fumble die
 
@@ -4118,7 +4118,7 @@ Fumble die
 
 ### ShieldStats
 
-Defined in: types/combat.ts:516
+Defined in: [types/combat.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L516)
 
 Shield statistics
 
@@ -4130,7 +4130,7 @@ Shield statistics
 name: string;
 ```
 
-Defined in: types/combat.ts:518
+Defined in: [types/combat.ts:518](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L518)
 
 Shield name
 
@@ -4140,7 +4140,7 @@ Shield name
 acBonus: number;
 ```
 
-Defined in: types/combat.ts:521
+Defined in: [types/combat.ts:521](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L521)
 
 AC bonus (usually 1, can be higher for magic shields)
 
@@ -4150,7 +4150,7 @@ AC bonus (usually 1, can be higher for magic shields)
 optional magicBonus?: number;
 ```
 
-Defined in: types/combat.ts:524
+Defined in: [types/combat.ts:524](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L524)
 
 Magic bonus (if any)
 
@@ -4158,7 +4158,7 @@ Magic bonus (if any)
 
 ### FumbleInput
 
-Defined in: types/combat.ts:530
+Defined in: [types/combat.ts:530](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L530)
 
 Input for rolling a fumble
 
@@ -4170,7 +4170,7 @@ Input for rolling a fumble
 armorType: ArmorType;
 ```
 
-Defined in: types/combat.ts:532
+Defined in: [types/combat.ts:532](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L532)
 
 Armor type worn (determines fumble die)
 
@@ -4180,7 +4180,7 @@ Armor type worn (determines fumble die)
 luckModifier: number;
 ```
 
-Defined in: types/combat.ts:535
+Defined in: [types/combat.ts:535](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L535)
 
 Luck modifier (subtracted from fumble roll - lower is worse!)
 
@@ -4190,7 +4190,7 @@ Luck modifier (subtracted from fumble roll - lower is worse!)
 optional fumbleDieOverride?: `d${number}`;
 ```
 
-Defined in: types/combat.ts:538
+Defined in: [types/combat.ts:538](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L538)
 
 Override fumble die (for special circumstances)
 
@@ -4198,7 +4198,7 @@ Override fumble die (for special circumstances)
 
 ### FumbleResult
 
-Defined in: types/combat.ts:544
+Defined in: [types/combat.ts:544](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L544)
 
 Result of a fumble roll
 
@@ -4210,7 +4210,7 @@ Result of a fumble roll
 roll: RollResult;
 ```
 
-Defined in: types/combat.ts:546
+Defined in: [types/combat.ts:546](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L546)
 
 The fumble roll result
 
@@ -4220,7 +4220,7 @@ The fumble roll result
 total: number;
 ```
 
-Defined in: types/combat.ts:549
+Defined in: [types/combat.ts:549](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L549)
 
 Total fumble roll (die - luck, minimum 0)
 
@@ -4230,7 +4230,7 @@ Total fumble roll (die - luck, minimum 0)
 fumbleDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:552
+Defined in: [types/combat.ts:552](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L552)
 
 The fumble die used
 
@@ -4240,7 +4240,7 @@ The fumble die used
 optional tableResult?: string;
 ```
 
-Defined in: types/combat.ts:555
+Defined in: [types/combat.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L555)
 
 The table result (from lookup)
 
@@ -4250,7 +4250,7 @@ The table result (from lookup)
 optional effect?: string;
 ```
 
-Defined in: types/combat.ts:558
+Defined in: [types/combat.ts:558](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L558)
 
 Effect description
 
@@ -4258,7 +4258,7 @@ Effect description
 
 ### InitiativeInput
 
-Defined in: types/combat.ts:572
+Defined in: [types/combat.ts:572](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L572)
 
 Input for rolling initiative
 
@@ -4274,7 +4274,7 @@ level as a flat modifier — pass it as `classModifier`.
 initiativeDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:577
+Defined in: [types/combat.ts:577](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L577)
 
 Initiative die. Callers should pass `d20` by default, or `d16` when
 wielding a two-handed weapon. See `getInitiativeDie`.
@@ -4285,7 +4285,7 @@ wielding a two-handed weapon. See `getInitiativeDie`.
 agilityModifier: number;
 ```
 
-Defined in: types/combat.ts:580
+Defined in: [types/combat.ts:580](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L580)
 
 Agility modifier
 
@@ -4295,7 +4295,7 @@ Agility modifier
 optional classModifier?: number;
 ```
 
-Defined in: types/combat.ts:586
+Defined in: [types/combat.ts:586](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L586)
 
 Flat class-based initiative modifier. Warriors pass their class
 level here (RAW: warriors add level to initiative).
@@ -4306,7 +4306,7 @@ level here (RAW: warriors add level to initiative).
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: types/combat.ts:589
+Defined in: [types/combat.ts:589](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L589)
 
 Additional bonuses
 
@@ -4314,7 +4314,7 @@ Additional bonuses
 
 ### InitiativeResult
 
-Defined in: types/combat.ts:595
+Defined in: [types/combat.ts:595](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L595)
 
 Result of an initiative roll
 
@@ -4326,7 +4326,7 @@ Result of an initiative roll
 roll: RollResult;
 ```
 
-Defined in: types/combat.ts:597
+Defined in: [types/combat.ts:597](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L597)
 
 The initiative roll result
 
@@ -4336,7 +4336,7 @@ The initiative roll result
 total: number;
 ```
 
-Defined in: types/combat.ts:600
+Defined in: [types/combat.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L600)
 
 Total initiative
 
@@ -4346,7 +4346,7 @@ Total initiative
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: types/combat.ts:603
+Defined in: [types/combat.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L603)
 
 All modifiers applied
 
@@ -4354,7 +4354,7 @@ All modifiers applied
 
 ### CombatEvents
 
-Defined in: types/combat.ts:613
+Defined in: [types/combat.ts:613](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L613)
 
 Events emitted during combat
 
@@ -4366,7 +4366,7 @@ Events emitted during combat
 optional onAttackRoll?: (result: AttackResult) => void;
 ```
 
-Defined in: types/combat.ts:615
+Defined in: [types/combat.ts:615](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L615)
 
 Called when an attack roll is made
 
@@ -4386,7 +4386,7 @@ Called when an attack roll is made
 optional onCriticalThreat?: (result: AttackResult) => void;
 ```
 
-Defined in: types/combat.ts:618
+Defined in: [types/combat.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L618)
 
 Called when a critical threat is rolled
 
@@ -4406,7 +4406,7 @@ Called when a critical threat is rolled
 optional onFumbleRoll?: (result: AttackResult) => void;
 ```
 
-Defined in: types/combat.ts:621
+Defined in: [types/combat.ts:621](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L621)
 
 Called when a fumble is rolled
 
@@ -4426,7 +4426,7 @@ Called when a fumble is rolled
 optional onDamageRoll?: (result: DamageResult) => void;
 ```
 
-Defined in: types/combat.ts:624
+Defined in: [types/combat.ts:624](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L624)
 
 Called when damage is rolled
 
@@ -4446,7 +4446,7 @@ Called when damage is rolled
 optional onCriticalResult?: (result: CriticalResult) => void;
 ```
 
-Defined in: types/combat.ts:627
+Defined in: [types/combat.ts:627](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L627)
 
 Called when a crit table result is determined
 
@@ -4466,7 +4466,7 @@ Called when a crit table result is determined
 optional onFumbleResult?: (result: FumbleResult) => void;
 ```
 
-Defined in: types/combat.ts:630
+Defined in: [types/combat.ts:630](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L630)
 
 Called when a fumble table result is determined
 
@@ -4486,7 +4486,7 @@ Called when a fumble table result is determined
 optional onInitiativeRoll?: (result: InitiativeResult) => void;
 ```
 
-Defined in: types/combat.ts:633
+Defined in: [types/combat.ts:633](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L633)
 
 Called when initiative is rolled
 
@@ -4506,7 +4506,7 @@ Called when initiative is rolled
 optional onDeedAttempt?: (deedRoll: RollResult, success: boolean) => void;
 ```
 
-Defined in: types/combat.ts:636
+Defined in: [types/combat.ts:636](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L636)
 
 Called when a deed is attempted
 
@@ -4525,7 +4525,7 @@ Called when a deed is attempted
 
 ### BackstabDamage
 
-Defined in: types/combat.ts:650
+Defined in: [types/combat.ts:650](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L650)
 
 Alternate damage expression used when a thief lands a successful
 backstab using a backstab-friendly weapon (DCC Table 3-1 footnote).
@@ -4541,7 +4541,7 @@ damage — it is a full replacement, not an additive bonus.
 damageDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:652
+Defined in: [types/combat.ts:652](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L652)
 
 Alternate damage die rolled on a successful backstab
 
@@ -4551,7 +4551,7 @@ Alternate damage die rolled on a successful backstab
 optional diceCount?: number;
 ```
 
-Defined in: types/combat.ts:655
+Defined in: [types/combat.ts:655](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L655)
 
 Number of damage dice (defaults to 1)
 
@@ -4559,7 +4559,7 @@ Number of damage dice (defaults to 1)
 
 ### WeaponStats
 
-Defined in: types/combat.ts:661
+Defined in: [types/combat.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L661)
 
 Weapon properties for combat calculations
 
@@ -4571,7 +4571,7 @@ Weapon properties for combat calculations
 name: string;
 ```
 
-Defined in: types/combat.ts:663
+Defined in: [types/combat.ts:663](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L663)
 
 Weapon name
 
@@ -4581,7 +4581,7 @@ Weapon name
 damageDie: `d${number}`;
 ```
 
-Defined in: types/combat.ts:666
+Defined in: [types/combat.ts:666](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L666)
 
 Damage die
 
@@ -4591,7 +4591,7 @@ Damage die
 optional diceCount?: number;
 ```
 
-Defined in: types/combat.ts:669
+Defined in: [types/combat.ts:669](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L669)
 
 Number of damage dice
 
@@ -4601,7 +4601,7 @@ Number of damage dice
 isMelee: boolean;
 ```
 
-Defined in: types/combat.ts:672
+Defined in: [types/combat.ts:672](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L672)
 
 Whether this is a melee weapon
 
@@ -4611,7 +4611,7 @@ Whether this is a melee weapon
 isRanged: boolean;
 ```
 
-Defined in: types/combat.ts:675
+Defined in: [types/combat.ts:675](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L675)
 
 Whether this is a ranged weapon
 
@@ -4621,7 +4621,7 @@ Whether this is a ranged weapon
 optional twoHanded?: boolean;
 ```
 
-Defined in: types/combat.ts:678
+Defined in: [types/combat.ts:678](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L678)
 
 Whether this weapon can be used two-handed for extra damage
 
@@ -4631,7 +4631,7 @@ Whether this weapon can be used two-handed for extra damage
 optional twoHandedDamageDie?: `d${number}`;
 ```
 
-Defined in: types/combat.ts:681
+Defined in: [types/combat.ts:681](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L681)
 
 Two-handed damage die (if different)
 
@@ -4641,7 +4641,7 @@ Two-handed damage die (if different)
 optional magicBonus?: number;
 ```
 
-Defined in: types/combat.ts:684
+Defined in: [types/combat.ts:684](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L684)
 
 Magic bonus (if any)
 
@@ -4651,7 +4651,7 @@ Magic bonus (if any)
 optional range?: number;
 ```
 
-Defined in: types/combat.ts:687
+Defined in: [types/combat.ts:687](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L687)
 
 Range in feet (for ranged weapons)
 
@@ -4661,7 +4661,7 @@ Range in feet (for ranged weapons)
 optional attackAbility?: DCCAbilityId;
 ```
 
-Defined in: types/combat.ts:690
+Defined in: [types/combat.ts:690](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L690)
 
 Ability used for attack (override default)
 
@@ -4671,7 +4671,7 @@ Ability used for attack (override default)
 optional damageAbility?: DCCAbilityId;
 ```
 
-Defined in: types/combat.ts:693
+Defined in: [types/combat.ts:693](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L693)
 
 Ability used for damage (override default)
 
@@ -4681,7 +4681,7 @@ Ability used for damage (override default)
 optional backstabDamage?: BackstabDamage;
 ```
 
-Defined in: types/combat.ts:701
+Defined in: [types/combat.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L701)
 
 Alternate damage used on a successful thief backstab. Only a small
 set of weapons has this (DCC Table 3-1 footnote: dagger, blackjack,
@@ -4692,7 +4692,7 @@ a backstab, roll this instead of the normal damage.
 
 ### CreatureAttack
 
-Defined in: types/creatures.ts:12
+Defined in: [types/creatures.ts:12](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L12)
 
 Creature attack definition
 
@@ -4704,7 +4704,7 @@ Creature attack definition
 name: string;
 ```
 
-Defined in: types/creatures.ts:14
+Defined in: [types/creatures.ts:14](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L14)
 
 Attack name (e.g., "bite", "claw", "mace")
 
@@ -4714,7 +4714,7 @@ Attack name (e.g., "bite", "claw", "mace")
 toHit: string;
 ```
 
-Defined in: types/creatures.ts:17
+Defined in: [types/creatures.ts:17](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L17)
 
 Attack bonus (e.g., "+5")
 
@@ -4724,7 +4724,7 @@ Attack bonus (e.g., "+5")
 melee: boolean;
 ```
 
-Defined in: types/creatures.ts:20
+Defined in: [types/creatures.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L20)
 
 Whether this is a melee attack
 
@@ -4734,7 +4734,7 @@ Whether this is a melee attack
 optional range?: string;
 ```
 
-Defined in: types/creatures.ts:23
+Defined in: [types/creatures.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L23)
 
 Range for missile attacks (e.g., "60'")
 
@@ -4744,7 +4744,7 @@ Range for missile attacks (e.g., "60'")
 damage: string;
 ```
 
-Defined in: types/creatures.ts:26
+Defined in: [types/creatures.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L26)
 
 Damage expression (e.g., "1d6+5", "2d4")
 
@@ -4752,7 +4752,7 @@ Damage expression (e.g., "1d6+5", "2d4")
 
 ### CreatureSaves
 
-Defined in: types/creatures.ts:32
+Defined in: [types/creatures.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L32)
 
 Creature saving throws
 
@@ -4764,7 +4764,7 @@ Creature saving throws
 fort: number;
 ```
 
-Defined in: types/creatures.ts:34
+Defined in: [types/creatures.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L34)
 
 Fortitude save
 
@@ -4774,7 +4774,7 @@ Fortitude save
 ref: number;
 ```
 
-Defined in: types/creatures.ts:37
+Defined in: [types/creatures.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L37)
 
 Reflex save
 
@@ -4784,7 +4784,7 @@ Reflex save
 will: number;
 ```
 
-Defined in: types/creatures.ts:40
+Defined in: [types/creatures.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L40)
 
 Will save
 
@@ -4792,7 +4792,7 @@ Will save
 
 ### CreatureSpeed
 
-Defined in: types/creatures.ts:46
+Defined in: [types/creatures.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L46)
 
 Creature movement speeds
 
@@ -4804,7 +4804,7 @@ Creature movement speeds
 land: string;
 ```
 
-Defined in: types/creatures.ts:48
+Defined in: [types/creatures.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L48)
 
 Base land speed (e.g., "30'")
 
@@ -4814,7 +4814,7 @@ Base land speed (e.g., "30'")
 optional fly?: string;
 ```
 
-Defined in: types/creatures.ts:51
+Defined in: [types/creatures.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L51)
 
 Flying speed if any
 
@@ -4824,7 +4824,7 @@ Flying speed if any
 optional swim?: string;
 ```
 
-Defined in: types/creatures.ts:54
+Defined in: [types/creatures.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L54)
 
 Swimming speed if any
 
@@ -4834,7 +4834,7 @@ Swimming speed if any
 optional other?: string;
 ```
 
-Defined in: types/creatures.ts:57
+Defined in: [types/creatures.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L57)
 
 Other movement (e.g., "climb 20'")
 
@@ -4842,7 +4842,7 @@ Other movement (e.g., "climb 20'")
 
 ### Creature
 
-Defined in: types/creatures.ts:63
+Defined in: [types/creatures.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L63)
 
 Core creature/NPC data structure
 
@@ -4854,7 +4854,7 @@ Core creature/NPC data structure
 id: string;
 ```
 
-Defined in: types/creatures.ts:65
+Defined in: [types/creatures.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L65)
 
 Unique identifier
 
@@ -4864,7 +4864,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/creatures.ts:68
+Defined in: [types/creatures.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L68)
 
 Display name
 
@@ -4874,7 +4874,7 @@ Display name
 ac: number;
 ```
 
-Defined in: types/creatures.ts:71
+Defined in: [types/creatures.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L71)
 
 Armor Class
 
@@ -4884,7 +4884,7 @@ Armor Class
 hitDice: string;
 ```
 
-Defined in: types/creatures.ts:74
+Defined in: [types/creatures.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L74)
 
 Hit Dice expression (e.g., "4d8+4")
 
@@ -4894,7 +4894,7 @@ Hit Dice expression (e.g., "4d8+4")
 hp: number;
 ```
 
-Defined in: types/creatures.ts:77
+Defined in: [types/creatures.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L77)
 
 Average/default HP
 
@@ -4904,7 +4904,7 @@ Average/default HP
 init: number;
 ```
 
-Defined in: types/creatures.ts:80
+Defined in: [types/creatures.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L80)
 
 Initiative modifier
 
@@ -4914,7 +4914,7 @@ Initiative modifier
 speed: CreatureSpeed;
 ```
 
-Defined in: types/creatures.ts:83
+Defined in: [types/creatures.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L83)
 
 Movement speed
 
@@ -4924,7 +4924,7 @@ Movement speed
 actionDice: string;
 ```
 
-Defined in: types/creatures.ts:86
+Defined in: [types/creatures.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L86)
 
 Action dice (e.g., "1d20", "3d20")
 
@@ -4934,7 +4934,7 @@ Action dice (e.g., "1d20", "3d20")
 critDie: string;
 ```
 
-Defined in: types/creatures.ts:89
+Defined in: [types/creatures.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L89)
 
 Critical hit die (e.g., "1d10")
 
@@ -4944,7 +4944,7 @@ Critical hit die (e.g., "1d10")
 critTable: string;
 ```
 
-Defined in: types/creatures.ts:92
+Defined in: [types/creatures.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L92)
 
 Critical hit table (e.g., "M", "III")
 
@@ -4954,7 +4954,7 @@ Critical hit table (e.g., "M", "III")
 saves: CreatureSaves;
 ```
 
-Defined in: types/creatures.ts:95
+Defined in: [types/creatures.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L95)
 
 Saving throws
 
@@ -4964,7 +4964,7 @@ Saving throws
 alignment: Alignment;
 ```
 
-Defined in: types/creatures.ts:98
+Defined in: [types/creatures.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L98)
 
 Alignment
 
@@ -4974,7 +4974,7 @@ Alignment
 attacks: CreatureAttack[];
 ```
 
-Defined in: types/creatures.ts:101
+Defined in: [types/creatures.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L101)
 
 Attacks
 
@@ -4984,7 +4984,7 @@ Attacks
 optional special?: string;
 ```
 
-Defined in: types/creatures.ts:104
+Defined in: [types/creatures.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L104)
 
 Special abilities description
 
@@ -4994,7 +4994,7 @@ Special abilities description
 statline: string;
 ```
 
-Defined in: types/creatures.ts:107
+Defined in: [types/creatures.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L107)
 
 Full statline from source
 
@@ -5004,7 +5004,7 @@ Full statline from source
 optional category?: string;
 ```
 
-Defined in: types/creatures.ts:110
+Defined in: [types/creatures.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L110)
 
 Category for grouping related creatures
 
@@ -5012,7 +5012,7 @@ Category for grouping related creatures
 
 ### RollOptions
 
-Defined in: types/dice.ts:50
+Defined in: [types/dice.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L50)
 
 Options for synchronous roll evaluation.
 
@@ -5029,7 +5029,7 @@ Options for synchronous roll evaluation.
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:52
+Defined in: [types/dice.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L52)
 
 Whether to just build the formula or actually evaluate it
 
@@ -5039,7 +5039,7 @@ Whether to just build the formula or actually evaluate it
 optional roller?: DiceRoller;
 ```
 
-Defined in: types/dice.ts:55
+Defined in: [types/dice.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L55)
 
 Synchronous custom roller — used instead of built-in RNG when provided
 
@@ -5047,7 +5047,7 @@ Synchronous custom roller — used instead of built-in RNG when provided
 
 ### RollOptionsAsync
 
-Defined in: types/dice.ts:62
+Defined in: [types/dice.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L62)
 
 Options for asynchronous roll evaluation. Used by evaluateRollAsync
 and the async-sibling resolveSkillCheckAsync / rollCheckAsync variants.
@@ -5064,7 +5064,7 @@ and the async-sibling resolveSkillCheckAsync / rollCheckAsync variants.
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:64
+Defined in: [types/dice.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L64)
 
 Whether to just build the formula or actually evaluate it
 
@@ -5074,7 +5074,7 @@ Whether to just build the formula or actually evaluate it
 roller: AsyncDiceRoller;
 ```
 
-Defined in: types/dice.ts:67
+Defined in: [types/dice.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L67)
 
 Asynchronous custom roller. Required for async evaluation.
 
@@ -5082,7 +5082,7 @@ Asynchronous custom roller. Required for async evaluation.
 
 ### ModifierOrigin
 
-Defined in: types/dice.ts:83
+Defined in: [types/dice.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L83)
 
 Origin metadata — structured "why this modifier exists" information
 used by renderers for grouping, filtering, and i18n.
@@ -5095,7 +5095,7 @@ used by renderers for grouping, filtering, and i18n.
 category: ModifierCategory;
 ```
 
-Defined in: types/dice.ts:85
+Defined in: [types/dice.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L85)
 
 Which category this modifier falls into. Closed union.
 
@@ -5105,7 +5105,7 @@ Which category this modifier falls into. Closed union.
 id: string;
 ```
 
-Defined in: types/dice.ts:94
+Defined in: [types/dice.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L94)
 
 Stable identifier within the category. Examples:
 - `'str'` for ability modifiers
@@ -5119,7 +5119,7 @@ Stable identifier within the category. Examples:
 optional label?: string;
 ```
 
-Defined in: types/dice.ts:101
+Defined in: [types/dice.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L101)
 
 Human-readable label for display. Typically English at emission;
 renderers may localize via a catalog. Optional — renderers can
@@ -5131,7 +5131,7 @@ synthesize a fallback from `category` + `id`.
 optional moduleId?: string;
 ```
 
-Defined in: types/dice.ts:107
+Defined in: [types/dice.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L107)
 
 Module identifier, only set when `category === 'module'`.
 Examples: `'dcc-qol'`, `'xcc'`.
@@ -5142,7 +5142,7 @@ Examples: `'dcc-qol'`, `'xcc'`.
 optional stackGroup?: string;
 ```
 
-Defined in: types/dice.ts:114
+Defined in: [types/dice.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L114)
 
 Optional hint for future stacking-rule engines. Modifiers sharing
 a stack group may be deduplicated or limited. Not interpreted by
@@ -5152,7 +5152,7 @@ the evaluator today; reserved for use by variants and homebrew.
 
 ### AddModifier
 
-Defined in: types/dice.ts:141
+Defined in: [types/dice.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L141)
 
 Flat numeric adjustment to the total. The most common case.
 The evaluator sets `applied` to reflect whether the value contributed.
@@ -5165,7 +5165,7 @@ The evaluator sets `applied` to reflect whether the value contributed.
 kind: "add";
 ```
 
-Defined in: types/dice.ts:142
+Defined in: [types/dice.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L142)
 
 ##### value
 
@@ -5173,7 +5173,7 @@ Defined in: types/dice.ts:142
 value: number;
 ```
 
-Defined in: types/dice.ts:143
+Defined in: [types/dice.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L143)
 
 ##### origin
 
@@ -5181,7 +5181,7 @@ Defined in: types/dice.ts:143
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:144
+Defined in: [types/dice.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L144)
 
 ##### applied?
 
@@ -5189,7 +5189,7 @@ Defined in: types/dice.ts:144
 optional applied?: boolean;
 ```
 
-Defined in: types/dice.ts:146
+Defined in: [types/dice.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L146)
 
 Output-only: set by the evaluator. True if the value affected the total.
 
@@ -5197,7 +5197,7 @@ Output-only: set by the evaluator. True if the value affected the total.
 
 ### AddDiceModifier
 
-Defined in: types/dice.ts:152
+Defined in: [types/dice.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L152)
 
 Add a dice expression to the formula (e.g. Mighty Deed "+1d3").
 
@@ -5209,7 +5209,7 @@ Add a dice expression to the formula (e.g. Mighty Deed "+1d3").
 kind: "add-dice";
 ```
 
-Defined in: types/dice.ts:153
+Defined in: [types/dice.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L153)
 
 ##### dice
 
@@ -5217,7 +5217,7 @@ Defined in: types/dice.ts:153
 dice: string;
 ```
 
-Defined in: types/dice.ts:155
+Defined in: [types/dice.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L155)
 
 A bare dice expression, e.g. "1d3", "2d6".
 
@@ -5227,7 +5227,7 @@ A bare dice expression, e.g. "1d3", "2d6".
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:156
+Defined in: [types/dice.ts:156](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L156)
 
 ##### applied?
 
@@ -5235,7 +5235,7 @@ Defined in: types/dice.ts:156
 optional applied?: boolean;
 ```
 
-Defined in: types/dice.ts:158
+Defined in: [types/dice.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L158)
 
 Output-only: set by the evaluator.
 
@@ -5243,7 +5243,7 @@ Output-only: set by the evaluator.
 
 ### SetDieModifier
 
-Defined in: types/dice.ts:165
+Defined in: [types/dice.ts:165](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L165)
 
 Replace the base die with a specific die. When multiple `set-die`
 modifiers are present, the LAST in list order wins.
@@ -5256,7 +5256,7 @@ modifiers are present, the LAST in list order wins.
 kind: "set-die";
 ```
 
-Defined in: types/dice.ts:166
+Defined in: [types/dice.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L166)
 
 ##### die
 
@@ -5264,7 +5264,7 @@ Defined in: types/dice.ts:166
 die: `d${number}`;
 ```
 
-Defined in: types/dice.ts:167
+Defined in: [types/dice.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L167)
 
 ##### origin
 
@@ -5272,13 +5272,13 @@ Defined in: types/dice.ts:167
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:168
+Defined in: [types/dice.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L168)
 
 ***
 
 ### BumpDieModifier
 
-Defined in: types/dice.ts:174
+Defined in: [types/dice.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L174)
 
 Shift the die up or down the DCC dice chain. Multiple bumps sum.
 
@@ -5290,7 +5290,7 @@ Shift the die up or down the DCC dice chain. Multiple bumps sum.
 kind: "bump-die";
 ```
 
-Defined in: types/dice.ts:175
+Defined in: [types/dice.ts:175](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L175)
 
 ##### steps
 
@@ -5298,7 +5298,7 @@ Defined in: types/dice.ts:175
 steps: number;
 ```
 
-Defined in: types/dice.ts:177
+Defined in: [types/dice.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L177)
 
 Positive bumps up the chain; negative bumps down.
 
@@ -5308,13 +5308,13 @@ Positive bumps up the chain; negative bumps down.
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:178
+Defined in: [types/dice.ts:178](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L178)
 
 ***
 
 ### MultiplyModifier
 
-Defined in: types/dice.ts:186
+Defined in: [types/dice.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L186)
 
 Multiplicative factor applied after additive modifiers. Primarily
 used by damage rolls (e.g. spell-effect damage doubling, critical
@@ -5328,7 +5328,7 @@ multipliers).
 kind: "multiply";
 ```
 
-Defined in: types/dice.ts:187
+Defined in: [types/dice.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L187)
 
 ##### factor
 
@@ -5336,7 +5336,7 @@ Defined in: types/dice.ts:187
 factor: number;
 ```
 
-Defined in: types/dice.ts:188
+Defined in: [types/dice.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L188)
 
 ##### origin
 
@@ -5344,13 +5344,13 @@ Defined in: types/dice.ts:188
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:189
+Defined in: [types/dice.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L189)
 
 ***
 
 ### ThreatShiftModifier
 
-Defined in: types/dice.ts:196
+Defined in: [types/dice.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L196)
 
 Shift the effective threat range for critical detection.
 Positive `amount` widens (e.g. 19-20 → 18-20); negative narrows.
@@ -5363,7 +5363,7 @@ Positive `amount` widens (e.g. 19-20 → 18-20); negative narrows.
 kind: "threat-shift";
 ```
 
-Defined in: types/dice.ts:197
+Defined in: [types/dice.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L197)
 
 ##### amount
 
@@ -5371,7 +5371,7 @@ Defined in: types/dice.ts:197
 amount: number;
 ```
 
-Defined in: types/dice.ts:198
+Defined in: [types/dice.ts:198](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L198)
 
 ##### origin
 
@@ -5379,13 +5379,13 @@ Defined in: types/dice.ts:198
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:199
+Defined in: [types/dice.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L199)
 
 ***
 
 ### DisplayModifier
 
-Defined in: types/dice.ts:207
+Defined in: [types/dice.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L207)
 
 Shown in the breakdown but NOT added to the total. Informational.
 Used for things like a 0-value Armor Check Penalty that players
@@ -5399,7 +5399,7 @@ still want to see.
 kind: "display";
 ```
 
-Defined in: types/dice.ts:208
+Defined in: [types/dice.ts:208](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L208)
 
 ##### value
 
@@ -5407,7 +5407,7 @@ Defined in: types/dice.ts:208
 value: number;
 ```
 
-Defined in: types/dice.ts:209
+Defined in: [types/dice.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L209)
 
 ##### origin
 
@@ -5415,13 +5415,13 @@ Defined in: types/dice.ts:209
 origin: ModifierOrigin;
 ```
 
-Defined in: types/dice.ts:210
+Defined in: [types/dice.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L210)
 
 ***
 
 ### LegacyRollModifier
 
-Defined in: types/dice.ts:242
+Defined in: [types/dice.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L242)
 
 ---------------------------------------------------------------------
 Legacy modifier type
@@ -5443,7 +5443,7 @@ Do NOT use this type in new code — always reach for `RollModifier`.
 source: string;
 ```
 
-Defined in: types/dice.ts:244
+Defined in: [types/dice.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L244)
 
 Source of the modifier (e.g., "strength", "luck", "situational")
 
@@ -5453,7 +5453,7 @@ Source of the modifier (e.g., "strength", "luck", "situational")
 value: number;
 ```
 
-Defined in: types/dice.ts:247
+Defined in: [types/dice.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L247)
 
 The modifier value
 
@@ -5463,7 +5463,7 @@ The modifier value
 optional label?: string;
 ```
 
-Defined in: types/dice.ts:250
+Defined in: [types/dice.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L250)
 
 Optional label for display
 
@@ -5471,7 +5471,7 @@ Optional label for display
 
 ### RollResult
 
-Defined in: types/dice.ts:256
+Defined in: [types/dice.ts:256](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L256)
 
 Result of a dice roll
 
@@ -5483,7 +5483,7 @@ Result of a dice roll
 formula: string;
 ```
 
-Defined in: types/dice.ts:258
+Defined in: [types/dice.ts:258](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L258)
 
 The complete formula (e.g., "1d20+5")
 
@@ -5493,7 +5493,7 @@ The complete formula (e.g., "1d20+5")
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: types/dice.ts:263
+Defined in: [types/dice.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L263)
 
 Breakdown of all legacy-shape modifiers that contributed. Produced
  by evaluateRoll from the parsed formula for backward compatibility
@@ -5505,7 +5505,7 @@ Breakdown of all legacy-shape modifiers that contributed. Produced
 optional total?: number;
 ```
 
-Defined in: types/dice.ts:266
+Defined in: [types/dice.ts:266](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L266)
 
 The total result - only present if mode was 'evaluate'
 
@@ -5515,7 +5515,7 @@ The total result - only present if mode was 'evaluate'
 optional natural?: number;
 ```
 
-Defined in: types/dice.ts:269
+Defined in: [types/dice.ts:269](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L269)
 
 The natural die roll before modifiers - only present if mode was 'evaluate'
 
@@ -5525,7 +5525,7 @@ The natural die roll before modifiers - only present if mode was 'evaluate'
 die: `d${number}`;
 ```
 
-Defined in: types/dice.ts:272
+Defined in: [types/dice.ts:272](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L272)
 
 The die used for the roll (e.g., "d20")
 
@@ -5535,7 +5535,7 @@ The die used for the roll (e.g., "d20")
 diceCount: number;
 ```
 
-Defined in: types/dice.ts:275
+Defined in: [types/dice.ts:275](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L275)
 
 Number of dice rolled
 
@@ -5543,7 +5543,7 @@ Number of dice rolled
 
 ### ParsedDiceExpression
 
-Defined in: types/dice.ts:281
+Defined in: [types/dice.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L281)
 
 A parsed dice expression
 
@@ -5555,7 +5555,7 @@ A parsed dice expression
 count: number;
 ```
 
-Defined in: types/dice.ts:283
+Defined in: [types/dice.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L283)
 
 Number of dice (e.g., 2 in "2d20")
 
@@ -5565,7 +5565,7 @@ Number of dice (e.g., 2 in "2d20")
 faces: number;
 ```
 
-Defined in: types/dice.ts:286
+Defined in: [types/dice.ts:286](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L286)
 
 Faces on each die (e.g., 20 in "2d20")
 
@@ -5575,7 +5575,7 @@ Faces on each die (e.g., 20 in "2d20")
 suffix: string;
 ```
 
-Defined in: types/dice.ts:289
+Defined in: [types/dice.ts:289](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L289)
 
 Any suffix after the dice (e.g., "+5" in "1d20+5")
 
@@ -5585,7 +5585,7 @@ Any suffix after the dice (e.g., "+5" in "1d20+5")
 original: string;
 ```
 
-Defined in: types/dice.ts:292
+Defined in: [types/dice.ts:292](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L292)
 
 The original expression
 
@@ -5593,7 +5593,7 @@ The original expression
 
 ### EquipmentEntry
 
-Defined in: types/equipment.ts:16
+Defined in: [types/equipment.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L16)
 
 Equipment entry representing an item from the DCC equipment table
 
@@ -5605,7 +5605,7 @@ Equipment entry representing an item from the DCC equipment table
 name: string;
 ```
 
-Defined in: types/equipment.ts:18
+Defined in: [types/equipment.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L18)
 
 Item name
 
@@ -5615,7 +5615,7 @@ Item name
 valueInCopper: number;
 ```
 
-Defined in: types/equipment.ts:21
+Defined in: [types/equipment.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L21)
 
 Value in copper pieces
 
@@ -5625,7 +5625,7 @@ Value in copper pieces
 optional description?: string;
 ```
 
-Defined in: types/equipment.ts:24
+Defined in: [types/equipment.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L24)
 
 Optional description/notes about the item
 
@@ -5633,7 +5633,7 @@ Optional description/notes about the item
 
 ### ArmorEntry
 
-Defined in: types/equipment.ts:34
+Defined in: [types/equipment.ts:34](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L34)
 
 Armor entry representing armor or shield from the DCC armor table
 
@@ -5645,7 +5645,7 @@ Armor entry representing armor or shield from the DCC armor table
 name: string;
 ```
 
-Defined in: types/equipment.ts:36
+Defined in: [types/equipment.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L36)
 
 Armor name
 
@@ -5655,7 +5655,7 @@ Armor name
 acBonus: number;
 ```
 
-Defined in: types/equipment.ts:39
+Defined in: [types/equipment.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L39)
 
 AC bonus provided by this armor
 
@@ -5665,7 +5665,7 @@ AC bonus provided by this armor
 checkPenalty: number;
 ```
 
-Defined in: types/equipment.ts:42
+Defined in: [types/equipment.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L42)
 
 Check penalty (negative number, applied to certain skill checks)
 
@@ -5675,7 +5675,7 @@ Check penalty (negative number, applied to certain skill checks)
 speedPenalty: string;
 ```
 
-Defined in: types/equipment.ts:45
+Defined in: [types/equipment.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L45)
 
 Speed penalty (e.g., "-5'" or "" for none)
 
@@ -5685,7 +5685,7 @@ Speed penalty (e.g., "-5'" or "" for none)
 fumbleDie: string;
 ```
 
-Defined in: types/equipment.ts:48
+Defined in: [types/equipment.ts:48](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L48)
 
 Fumble die when wearing this armor (e.g., "d8", "d12", "d16")
 
@@ -5695,7 +5695,7 @@ Fumble die when wearing this armor (e.g., "d8", "d12", "d16")
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:51
+Defined in: [types/equipment.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L51)
 
 Cost in gold pieces
 
@@ -5705,7 +5705,7 @@ Cost in gold pieces
 isShield: boolean;
 ```
 
-Defined in: types/equipment.ts:54
+Defined in: [types/equipment.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L54)
 
 Whether this is a shield rather than body armor
 
@@ -5713,7 +5713,7 @@ Whether this is a shield rather than body armor
 
 ### WeaponEntry
 
-Defined in: types/equipment.ts:64
+Defined in: [types/equipment.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L64)
 
 Weapon entry representing a weapon from the DCC weapons table
 
@@ -5725,7 +5725,7 @@ Weapon entry representing a weapon from the DCC weapons table
 name: string;
 ```
 
-Defined in: types/equipment.ts:66
+Defined in: [types/equipment.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L66)
 
 Weapon name
 
@@ -5735,7 +5735,7 @@ Weapon name
 damage: string;
 ```
 
-Defined in: types/equipment.ts:69
+Defined in: [types/equipment.ts:69](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L69)
 
 Base damage die (e.g., "1d8", "1d6", "1d4")
 
@@ -5745,7 +5745,7 @@ Base damage die (e.g., "1d8", "1d6", "1d4")
 melee: boolean;
 ```
 
-Defined in: types/equipment.ts:72
+Defined in: [types/equipment.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L72)
 
 Whether this is a melee weapon
 
@@ -5755,7 +5755,7 @@ Whether this is a melee weapon
 optional range?: string;
 ```
 
-Defined in: types/equipment.ts:75
+Defined in: [types/equipment.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L75)
 
 Range increments for ranged/thrown weapons (e.g., "10/20/30")
 
@@ -5765,7 +5765,7 @@ Range increments for ranged/thrown weapons (e.g., "10/20/30")
 twoHanded: boolean;
 ```
 
-Defined in: types/equipment.ts:78
+Defined in: [types/equipment.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L78)
 
 Whether this requires two hands
 
@@ -5775,7 +5775,7 @@ Whether this requires two hands
 doubleIfMounted: boolean;
 ```
 
-Defined in: types/equipment.ts:81
+Defined in: [types/equipment.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L81)
 
 Whether damage is doubled on a mounted charge
 
@@ -5785,7 +5785,7 @@ Whether damage is doubled on a mounted charge
 shortRangeStrength: boolean;
 ```
 
-Defined in: types/equipment.ts:84
+Defined in: [types/equipment.ts:84](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L84)
 
 Whether strength bonus applies at short range (thrown weapons)
 
@@ -5795,7 +5795,7 @@ Whether strength bonus applies at short range (thrown weapons)
 subdual: boolean;
 ```
 
-Defined in: types/equipment.ts:87
+Defined in: [types/equipment.ts:87](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L87)
 
 Whether this deals subdual (non-lethal) damage
 
@@ -5805,7 +5805,7 @@ Whether this deals subdual (non-lethal) damage
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:90
+Defined in: [types/equipment.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L90)
 
 Cost in gold pieces
 
@@ -5815,7 +5815,7 @@ Cost in gold pieces
 costSp: number;
 ```
 
-Defined in: types/equipment.ts:93
+Defined in: [types/equipment.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L93)
 
 Cost in silver pieces (for items costing less than 1 gp)
 
@@ -5825,7 +5825,7 @@ Cost in silver pieces (for items costing less than 1 gp)
 optional notes?: string;
 ```
 
-Defined in: types/equipment.ts:96
+Defined in: [types/equipment.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L96)
 
 Optional notes about special properties
 
@@ -5833,7 +5833,7 @@ Optional notes about special properties
 
 ### AmmunitionEntry
 
-Defined in: types/equipment.ts:106
+Defined in: [types/equipment.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L106)
 
 Ammunition entry representing projectiles for ranged weapons
 
@@ -5845,7 +5845,7 @@ Ammunition entry representing projectiles for ranged weapons
 name: string;
 ```
 
-Defined in: types/equipment.ts:108
+Defined in: [types/equipment.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L108)
 
 Ammunition name
 
@@ -5855,7 +5855,7 @@ Ammunition name
 quantity: number;
 ```
 
-Defined in: types/equipment.ts:111
+Defined in: [types/equipment.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L111)
 
 Quantity per purchase (e.g., 20 arrows, 30 sling stones)
 
@@ -5865,7 +5865,7 @@ Quantity per purchase (e.g., 20 arrows, 30 sling stones)
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:114
+Defined in: [types/equipment.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L114)
 
 Cost in gold pieces
 
@@ -5875,7 +5875,7 @@ Cost in gold pieces
 costSp: number;
 ```
 
-Defined in: types/equipment.ts:117
+Defined in: [types/equipment.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L117)
 
 Cost in silver pieces (for items costing less than 1 gp)
 
@@ -5885,7 +5885,7 @@ Cost in silver pieces (for items costing less than 1 gp)
 optional notes?: string;
 ```
 
-Defined in: types/equipment.ts:120
+Defined in: [types/equipment.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L120)
 
 Optional notes
 
@@ -5893,7 +5893,7 @@ Optional notes
 
 ### MountEntry
 
-Defined in: types/equipment.ts:130
+Defined in: [types/equipment.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L130)
 
 Mount entry representing a rideable animal
 
@@ -5905,7 +5905,7 @@ Mount entry representing a rideable animal
 name: string;
 ```
 
-Defined in: types/equipment.ts:132
+Defined in: [types/equipment.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L132)
 
 Mount name
 
@@ -5915,7 +5915,7 @@ Mount name
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:135
+Defined in: [types/equipment.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L135)
 
 Cost in gold pieces
 
@@ -5923,7 +5923,7 @@ Cost in gold pieces
 
 ### BardingEntry
 
-Defined in: types/equipment.ts:141
+Defined in: [types/equipment.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L141)
 
 Barding entry representing horse/mount armor
 
@@ -5935,7 +5935,7 @@ Barding entry representing horse/mount armor
 name: string;
 ```
 
-Defined in: types/equipment.ts:143
+Defined in: [types/equipment.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L143)
 
 Barding name (armor type)
 
@@ -5945,7 +5945,7 @@ Barding name (armor type)
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:146
+Defined in: [types/equipment.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L146)
 
 Cost in gold pieces (4x normal armor cost)
 
@@ -5955,7 +5955,7 @@ Cost in gold pieces (4x normal armor cost)
 acBonus: number;
 ```
 
-Defined in: types/equipment.ts:149
+Defined in: [types/equipment.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L149)
 
 AC bonus (same as equivalent armor)
 
@@ -5963,7 +5963,7 @@ AC bonus (same as equivalent armor)
 
 ### MountEquipmentEntry
 
-Defined in: types/equipment.ts:155
+Defined in: [types/equipment.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L155)
 
 Mount equipment entry
 
@@ -5975,7 +5975,7 @@ Mount equipment entry
 name: string;
 ```
 
-Defined in: types/equipment.ts:157
+Defined in: [types/equipment.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L157)
 
 Item name
 
@@ -5985,7 +5985,7 @@ Item name
 costGp: number;
 ```
 
-Defined in: types/equipment.ts:160
+Defined in: [types/equipment.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L160)
 
 Cost in gold pieces
 
@@ -5995,7 +5995,7 @@ Cost in gold pieces
 costSp: number;
 ```
 
-Defined in: types/equipment.ts:163
+Defined in: [types/equipment.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L163)
 
 Cost in silver pieces (for items costing less than 1 gp)
 
@@ -6005,7 +6005,7 @@ Cost in silver pieces (for items costing less than 1 gp)
 costCp: number;
 ```
 
-Defined in: types/equipment.ts:166
+Defined in: [types/equipment.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L166)
 
 Cost in copper pieces (for items costing less than 1 sp)
 
@@ -6013,7 +6013,7 @@ Cost in copper pieces (for items costing less than 1 sp)
 
 ### OccupationWeapon
 
-Defined in: types/equipment.ts:176
+Defined in: [types/equipment.ts:176](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L176)
 
 An occupation item that can be used as a weapon
 
@@ -6025,7 +6025,7 @@ An occupation item that can be used as a weapon
 id: string;
 ```
 
-Defined in: types/equipment.ts:178
+Defined in: [types/equipment.ts:178](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L178)
 
 Unique identifier
 
@@ -6035,7 +6035,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/equipment.ts:181
+Defined in: [types/equipment.ts:181](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L181)
 
 Item name (e.g., "Awl (as dagger)")
 
@@ -6045,7 +6045,7 @@ Item name (e.g., "Awl (as dagger)")
 type: "weapon";
 ```
 
-Defined in: types/equipment.ts:184
+Defined in: [types/equipment.ts:184](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L184)
 
 Item type
 
@@ -6055,7 +6055,7 @@ Item type
 damage: string;
 ```
 
-Defined in: types/equipment.ts:187
+Defined in: [types/equipment.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L187)
 
 Damage dice
 
@@ -6065,7 +6065,7 @@ Damage dice
 melee: boolean;
 ```
 
-Defined in: types/equipment.ts:190
+Defined in: [types/equipment.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L190)
 
 Whether this is a melee weapon
 
@@ -6075,7 +6075,7 @@ Whether this is a melee weapon
 optional range?: string;
 ```
 
-Defined in: types/equipment.ts:193
+Defined in: [types/equipment.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L193)
 
 Range for thrown/ranged weapons
 
@@ -6085,7 +6085,7 @@ Range for thrown/ranged weapons
 optional twoHanded?: boolean;
 ```
 
-Defined in: types/equipment.ts:196
+Defined in: [types/equipment.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L196)
 
 Whether this requires two hands
 
@@ -6093,7 +6093,7 @@ Whether this requires two hands
 
 ### OccupationTradeGood
 
-Defined in: types/equipment.ts:202
+Defined in: [types/equipment.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L202)
 
 An occupation item that is trade goods/equipment
 
@@ -6105,7 +6105,7 @@ An occupation item that is trade goods/equipment
 id: string;
 ```
 
-Defined in: types/equipment.ts:204
+Defined in: [types/equipment.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L204)
 
 Unique identifier
 
@@ -6115,7 +6115,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/equipment.ts:207
+Defined in: [types/equipment.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L207)
 
 Item name
 
@@ -6125,7 +6125,7 @@ Item name
 type: "equipment";
 ```
 
-Defined in: types/equipment.ts:210
+Defined in: [types/equipment.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L210)
 
 Item type
 
@@ -6133,7 +6133,7 @@ Item type
 
 ### OccupationTreasure
 
-Defined in: types/equipment.ts:216
+Defined in: [types/equipment.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L216)
 
 An occupation item that is treasure (coins, gems, etc.)
 
@@ -6145,7 +6145,7 @@ An occupation item that is treasure (coins, gems, etc.)
 id: string;
 ```
 
-Defined in: types/equipment.ts:218
+Defined in: [types/equipment.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L218)
 
 Unique identifier
 
@@ -6155,7 +6155,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/equipment.ts:221
+Defined in: [types/equipment.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L221)
 
 Item name
 
@@ -6165,7 +6165,7 @@ Item name
 type: "treasure";
 ```
 
-Defined in: types/equipment.ts:224
+Defined in: [types/equipment.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L224)
 
 Item type
 
@@ -6173,7 +6173,7 @@ Item type
 
 ### OccupationArmor
 
-Defined in: types/equipment.ts:230
+Defined in: [types/equipment.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L230)
 
 An occupation item that is armor
 
@@ -6185,7 +6185,7 @@ An occupation item that is armor
 id: string;
 ```
 
-Defined in: types/equipment.ts:232
+Defined in: [types/equipment.ts:232](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L232)
 
 Unique identifier
 
@@ -6195,7 +6195,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/equipment.ts:235
+Defined in: [types/equipment.ts:235](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L235)
 
 Item name
 
@@ -6205,7 +6205,7 @@ Item name
 type: "armor";
 ```
 
-Defined in: types/equipment.ts:238
+Defined in: [types/equipment.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L238)
 
 Item type
 
@@ -6213,7 +6213,7 @@ Item type
 
 ### RandomSource
 
-Defined in: types/random.ts:16
+Defined in: [types/random.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L16)
 
 Source of randomness for dice rolls and selections.
 
@@ -6230,7 +6230,7 @@ Implementations:
 roll(sides: number): number;
 ```
 
-Defined in: types/random.ts:22
+Defined in: [types/random.ts:22](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L22)
 
 Roll a single die, returning a value from 1 to sides (inclusive).
 
@@ -6252,7 +6252,7 @@ A value from 1 to sides
 rollMultiple(count: number, sides: number): number[];
 ```
 
-Defined in: types/random.ts:30
+Defined in: [types/random.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L30)
 
 Roll multiple dice of the same type.
 
@@ -6275,7 +6275,7 @@ Array of individual die results
 randomIndex(max: number): number;
 ```
 
-Defined in: types/random.ts:38
+Defined in: [types/random.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L38)
 
 Pick a random index from 0 to max-1.
 Useful for selecting from arrays.
@@ -6298,7 +6298,7 @@ A value from 0 to max-1
 pick<T>(array: readonly T[]): T | undefined;
 ```
 
-Defined in: types/random.ts:45
+Defined in: [types/random.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L45)
 
 Pick a random element from an array.
 
@@ -6324,7 +6324,7 @@ A random element, or undefined if array is empty
 
 ### MockRandomQueue
 
-Defined in: types/random.ts:123
+Defined in: [types/random.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L123)
 
 Queue of predetermined values for mock random source.
 
@@ -6336,7 +6336,7 @@ Queue of predetermined values for mock random source.
 optional rolls?: number[];
 ```
 
-Defined in: types/random.ts:125
+Defined in: [types/random.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L125)
 
 Predetermined die roll results (consumed in order)
 
@@ -6346,7 +6346,7 @@ Predetermined die roll results (consumed in order)
 optional indices?: number[];
 ```
 
-Defined in: types/random.ts:128
+Defined in: [types/random.ts:128](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L128)
 
 Predetermined index selections (consumed in order)
 
@@ -6354,7 +6354,7 @@ Predetermined index selections (consumed in order)
 
 ### ModifierEffect
 
-Defined in: types/skills.ts:71
+Defined in: [types/skills.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L71)
 
 Effect of a modifier skill
 
@@ -6366,7 +6366,7 @@ Effect of a modifier skill
 type: ModifierEffectType;
 ```
 
-Defined in: types/skills.ts:72
+Defined in: [types/skills.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L72)
 
 ##### value?
 
@@ -6374,7 +6374,7 @@ Defined in: types/skills.ts:72
 optional value?: number;
 ```
 
-Defined in: types/skills.ts:75
+Defined in: [types/skills.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L75)
 
 For flat bonuses
 
@@ -6384,7 +6384,7 @@ For flat bonuses
 optional multiplier?: number;
 ```
 
-Defined in: types/skills.ts:78
+Defined in: [types/skills.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L78)
 
 For luck-multiplied effects
 
@@ -6394,7 +6394,7 @@ For luck-multiplied effects
 optional die?: `d${number}`;
 ```
 
-Defined in: types/skills.ts:81
+Defined in: [types/skills.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L81)
 
 For die-based effects
 
@@ -6404,7 +6404,7 @@ For die-based effects
 optional ability?: string;
 ```
 
-Defined in: types/skills.ts:84
+Defined in: [types/skills.ts:84](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L84)
 
 For ability-based effects
 
@@ -6412,7 +6412,7 @@ For ability-based effects
 
 ### SkillRollConfig
 
-Defined in: types/skills.ts:90
+Defined in: [types/skills.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L90)
 
 Configuration for a skill's roll
 
@@ -6424,7 +6424,7 @@ Configuration for a skill's roll
 die: `d${number}`;
 ```
 
-Defined in: types/skills.ts:92
+Defined in: [types/skills.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L92)
 
 Base die to roll (e.g., "d20", "d24")
 
@@ -6434,7 +6434,7 @@ Base die to roll (e.g., "d20", "d24")
 optional useDiceChain?: boolean;
 ```
 
-Defined in: types/skills.ts:95
+Defined in: [types/skills.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L95)
 
 Can this die be bumped up/down the dice chain?
 
@@ -6444,7 +6444,7 @@ Can this die be bumped up/down the dice chain?
 optional ability?: string;
 ```
 
-Defined in: types/skills.ts:98
+Defined in: [types/skills.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L98)
 
 Which ability modifier applies (if any)
 
@@ -6454,7 +6454,7 @@ Which ability modifier applies (if any)
 optional levelModifier?: LevelModifierType;
 ```
 
-Defined in: types/skills.ts:101
+Defined in: [types/skills.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L101)
 
 How level affects the roll
 
@@ -6464,7 +6464,7 @@ How level affects the roll
 optional allowLuck?: boolean;
 ```
 
-Defined in: types/skills.ts:104
+Defined in: [types/skills.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L104)
 
 Can luck be applied to this roll?
 
@@ -6474,7 +6474,7 @@ Can luck be applied to this roll?
 optional luckMultiplier?: number;
 ```
 
-Defined in: types/skills.ts:107
+Defined in: [types/skills.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L107)
 
 Luck multiplier (default 1)
 
@@ -6482,7 +6482,7 @@ Luck multiplier (default 1)
 
 ### ResultTableConfig
 
-Defined in: types/skills.ts:113
+Defined in: [types/skills.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L113)
 
 Configuration for table-based results
 
@@ -6494,7 +6494,7 @@ Configuration for table-based results
 tableId: string;
 ```
 
-Defined in: types/skills.ts:115
+Defined in: [types/skills.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L115)
 
 ID of the table to look up
 
@@ -6504,7 +6504,7 @@ ID of the table to look up
 optional rollModifier?: string;
 ```
 
-Defined in: types/skills.ts:118
+Defined in: [types/skills.ts:118](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L118)
 
 Additional modifier to the table roll
 
@@ -6514,7 +6514,7 @@ Additional modifier to the table roll
 optional column?: string;
 ```
 
-Defined in: types/skills.ts:121
+Defined in: [types/skills.ts:121](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L121)
 
 Column to use in the table (if multi-column)
 
@@ -6522,7 +6522,7 @@ Column to use in the table (if multi-column)
 
 ### ModifiesConfig
 
-Defined in: types/skills.ts:127
+Defined in: [types/skills.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L127)
 
 Configuration for skills that modify other actions
 
@@ -6534,7 +6534,7 @@ Configuration for skills that modify other actions
 action: ModifiableAction;
 ```
 
-Defined in: types/skills.ts:129
+Defined in: [types/skills.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L129)
 
 What action this skill modifies
 
@@ -6544,7 +6544,7 @@ What action this skill modifies
 effect: ModifierEffect;
 ```
 
-Defined in: types/skills.ts:132
+Defined in: [types/skills.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L132)
 
 The effect to apply
 
@@ -6554,7 +6554,7 @@ The effect to apply
 optional condition?: string;
 ```
 
-Defined in: types/skills.ts:135
+Defined in: [types/skills.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L135)
 
 Condition when this applies (e.g., "with-melee-weapon")
 
@@ -6562,7 +6562,7 @@ Condition when this applies (e.g., "with-melee-weapon")
 
 ### EnablesConfig
 
-Defined in: types/skills.ts:141
+Defined in: [types/skills.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L141)
 
 Configuration for skills that enable other mechanics
 
@@ -6574,7 +6574,7 @@ Configuration for skills that enable other mechanics
 action: string;
 ```
 
-Defined in: types/skills.ts:143
+Defined in: [types/skills.ts:143](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L143)
 
 What action/mechanic this enables
 
@@ -6584,7 +6584,7 @@ What action/mechanic this enables
 optional condition?: string;
 ```
 
-Defined in: types/skills.ts:146
+Defined in: [types/skills.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L146)
 
 When this triggers (e.g., "on-attack", "wielding-shield")
 
@@ -6594,7 +6594,7 @@ When this triggers (e.g., "on-attack", "wielding-shield")
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/skills.ts:149
+Defined in: [types/skills.ts:149](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L149)
 
 Additional data for the enabled action
 
@@ -6602,7 +6602,7 @@ Additional data for the enabled action
 
 ### SkillCost
 
-Defined in: types/skills.ts:155
+Defined in: [types/skills.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L155)
 
 Resource cost for using a skill
 
@@ -6614,7 +6614,7 @@ Resource cost for using a skill
 resource: ResourceType;
 ```
 
-Defined in: types/skills.ts:157
+Defined in: [types/skills.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L157)
 
 Type of resource consumed
 
@@ -6624,7 +6624,7 @@ Type of resource consumed
 amount: string | number;
 ```
 
-Defined in: types/skills.ts:160
+Defined in: [types/skills.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L160)
 
 Amount consumed (number or formula)
 
@@ -6634,7 +6634,7 @@ Amount consumed (number or formula)
 optional timing?: "before" | "after-failure" | "after-success" | "always";
 ```
 
-Defined in: types/skills.ts:163
+Defined in: [types/skills.ts:163](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L163)
 
 When the cost is paid (before roll, after failure, etc.)
 
@@ -6642,7 +6642,7 @@ When the cost is paid (before roll, after failure, etc.)
 
 ### SkillProgression
 
-Defined in: types/skills.ts:169
+Defined in: [types/skills.ts:169](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L169)
 
 Level-based progression for a skill
 
@@ -6654,7 +6654,7 @@ Level-based progression for a skill
 optional die?: `d${number}`;
 ```
 
-Defined in: types/skills.ts:171
+Defined in: [types/skills.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L171)
 
 Die to use at this level
 
@@ -6664,7 +6664,7 @@ Die to use at this level
 optional bonus?: number;
 ```
 
-Defined in: types/skills.ts:174
+Defined in: [types/skills.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L174)
 
 Flat bonus at this level
 
@@ -6674,7 +6674,7 @@ Flat bonus at this level
 optional enables?: EnablesConfig;
 ```
 
-Defined in: types/skills.ts:177
+Defined in: [types/skills.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L177)
 
 For enabling skills, what's enabled at this level
 
@@ -6684,7 +6684,7 @@ For enabling skills, what's enabled at this level
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/skills.ts:180
+Defined in: [types/skills.ts:180](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L180)
 
 Any other level-specific data
 
@@ -6692,7 +6692,7 @@ Any other level-specific data
 
 ### SkillDefinition
 
-Defined in: types/skills.ts:189
+Defined in: [types/skills.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L189)
 
 Complete skill definition
 
@@ -6707,7 +6707,7 @@ from thief skills to turn unholy to mighty deeds, is defined as a skill.
 id: string;
 ```
 
-Defined in: types/skills.ts:191
+Defined in: [types/skills.ts:191](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L191)
 
 Unique identifier
 
@@ -6717,7 +6717,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/skills.ts:194
+Defined in: [types/skills.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L194)
 
 Display name
 
@@ -6727,7 +6727,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/skills.ts:197
+Defined in: [types/skills.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L197)
 
 Description of what the skill does
 
@@ -6737,7 +6737,7 @@ Description of what the skill does
 type: SkillType;
 ```
 
-Defined in: types/skills.ts:200
+Defined in: [types/skills.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L200)
 
 What type of skill this is
 
@@ -6747,7 +6747,7 @@ What type of skill this is
 optional roll?: SkillRollConfig;
 ```
 
-Defined in: types/skills.ts:203
+Defined in: [types/skills.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L203)
 
 Roll configuration (for check-type skills)
 
@@ -6757,7 +6757,7 @@ Roll configuration (for check-type skills)
 optional resultTable?: ResultTableConfig;
 ```
 
-Defined in: types/skills.ts:206
+Defined in: [types/skills.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L206)
 
 Result table configuration
 
@@ -6767,7 +6767,7 @@ Result table configuration
 optional modifies?: ModifiesConfig;
 ```
 
-Defined in: types/skills.ts:209
+Defined in: [types/skills.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L209)
 
 What this skill modifies (for modifier-type skills)
 
@@ -6777,7 +6777,7 @@ What this skill modifies (for modifier-type skills)
 optional enables?: EnablesConfig;
 ```
 
-Defined in: types/skills.ts:212
+Defined in: [types/skills.ts:212](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L212)
 
 What this skill enables (for passive-type skills)
 
@@ -6787,7 +6787,7 @@ What this skill enables (for passive-type skills)
 optional progression?: Record<number, SkillProgression>;
 ```
 
-Defined in: types/skills.ts:215
+Defined in: [types/skills.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L215)
 
 Level-based progression
 
@@ -6797,7 +6797,7 @@ Level-based progression
 optional cost?: SkillCost;
 ```
 
-Defined in: types/skills.ts:218
+Defined in: [types/skills.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L218)
 
 Resource cost to use
 
@@ -6807,7 +6807,7 @@ Resource cost to use
 optional tags?: string[];
 ```
 
-Defined in: types/skills.ts:221
+Defined in: [types/skills.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L221)
 
 Tags for categorization and filtering
 
@@ -6817,7 +6817,7 @@ Tags for categorization and filtering
 optional classes?: string[];
 ```
 
-Defined in: types/skills.ts:224
+Defined in: [types/skills.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L224)
 
 Which classes have access to this skill
 
@@ -6827,7 +6827,7 @@ Which classes have access to this skill
 optional alignments?: string[];
 ```
 
-Defined in: types/skills.ts:227
+Defined in: [types/skills.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L227)
 
 Alignment restrictions
 
@@ -6835,7 +6835,7 @@ Alignment restrictions
 
 ### SkillCheckInput
 
-Defined in: types/skills.ts:233
+Defined in: [types/skills.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L233)
 
 Input for resolving a skill check
 
@@ -6847,7 +6847,7 @@ Input for resolving a skill check
 skill: SkillDefinition;
 ```
 
-Defined in: types/skills.ts:235
+Defined in: [types/skills.ts:235](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L235)
 
 The skill being used
 
@@ -6857,7 +6857,7 @@ The skill being used
 abilities: Record<string, number>;
 ```
 
-Defined in: types/skills.ts:238
+Defined in: [types/skills.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L238)
 
 Character's ability scores
 
@@ -6867,7 +6867,7 @@ Character's ability scores
 level: number;
 ```
 
-Defined in: types/skills.ts:241
+Defined in: [types/skills.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L241)
 
 Character's level
 
@@ -6877,7 +6877,7 @@ Character's level
 optional classId?: string;
 ```
 
-Defined in: types/skills.ts:244
+Defined in: [types/skills.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L244)
 
 Character's class (for class-level modifiers)
 
@@ -6887,7 +6887,7 @@ Character's class (for class-level modifiers)
 optional situationalModifiers?: RollModifier[];
 ```
 
-Defined in: types/skills.ts:247
+Defined in: [types/skills.ts:247](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L247)
 
 Situational modifiers
 
@@ -6897,7 +6897,7 @@ Situational modifiers
 optional luck?: number;
 ```
 
-Defined in: types/skills.ts:250
+Defined in: [types/skills.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L250)
 
 Current luck score (for luck-based bonuses)
 
@@ -6907,7 +6907,7 @@ Current luck score (for luck-based bonuses)
 optional luckBurn?: number;
 ```
 
-Defined in: types/skills.ts:253
+Defined in: [types/skills.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L253)
 
 Luck to burn on this roll
 
@@ -6915,7 +6915,7 @@ Luck to burn on this roll
 
 ### TableLookupResult
 
-Defined in: types/skills.ts:259
+Defined in: [types/skills.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L259)
 
 Result from looking up a result table
 
@@ -6927,7 +6927,7 @@ Result from looking up a result table
 tableId: string;
 ```
 
-Defined in: types/skills.ts:261
+Defined in: [types/skills.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L261)
 
 The table that was used
 
@@ -6937,7 +6937,7 @@ The table that was used
 rollValue: number;
 ```
 
-Defined in: types/skills.ts:264
+Defined in: [types/skills.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L264)
 
 The roll result used for lookup
 
@@ -6947,7 +6947,7 @@ The roll result used for lookup
 text: string;
 ```
 
-Defined in: types/skills.ts:267
+Defined in: [types/skills.ts:267](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L267)
 
 The text result from the table
 
@@ -6957,7 +6957,7 @@ The text result from the table
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/skills.ts:270
+Defined in: [types/skills.ts:270](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L270)
 
 Any structured data from the table entry
 
@@ -6965,7 +6965,7 @@ Any structured data from the table entry
 
 ### SkillEffect
 
-Defined in: types/skills.ts:276
+Defined in: [types/skills.ts:276](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L276)
 
 Effect produced by a skill
 
@@ -6977,7 +6977,7 @@ Effect produced by a skill
 type: string;
 ```
 
-Defined in: types/skills.ts:278
+Defined in: [types/skills.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L278)
 
 Type of effect
 
@@ -6987,7 +6987,7 @@ Type of effect
 optional target?: string;
 ```
 
-Defined in: types/skills.ts:281
+Defined in: [types/skills.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L281)
 
 Target of the effect
 
@@ -6997,7 +6997,7 @@ Target of the effect
 optional duration?: string;
 ```
 
-Defined in: types/skills.ts:284
+Defined in: [types/skills.ts:284](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L284)
 
 Duration of the effect
 
@@ -7007,7 +7007,7 @@ Duration of the effect
 optional value?: number;
 ```
 
-Defined in: types/skills.ts:287
+Defined in: [types/skills.ts:287](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L287)
 
 Numeric value of the effect
 
@@ -7017,7 +7017,7 @@ Numeric value of the effect
 optional description?: string;
 ```
 
-Defined in: types/skills.ts:290
+Defined in: [types/skills.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L290)
 
 Description of the effect
 
@@ -7025,7 +7025,7 @@ Description of the effect
 
 ### SkillCheckResult
 
-Defined in: types/skills.ts:296
+Defined in: [types/skills.ts:296](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L296)
 
 Complete result of a skill check
 
@@ -7037,7 +7037,7 @@ Complete result of a skill check
 skillId: string;
 ```
 
-Defined in: types/skills.ts:298
+Defined in: [types/skills.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L298)
 
 The skill that was used
 
@@ -7047,7 +7047,7 @@ The skill that was used
 die: `d${number}`;
 ```
 
-Defined in: types/skills.ts:301
+Defined in: [types/skills.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L301)
 
 The die that was rolled
 
@@ -7057,7 +7057,7 @@ The die that was rolled
 optional natural?: number;
 ```
 
-Defined in: types/skills.ts:304
+Defined in: [types/skills.ts:304](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L304)
 
 The natural die result (if evaluated)
 
@@ -7067,7 +7067,7 @@ The natural die result (if evaluated)
 modifiers: RollModifier[];
 ```
 
-Defined in: types/skills.ts:307
+Defined in: [types/skills.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L307)
 
 All modifiers that were applied
 
@@ -7077,7 +7077,7 @@ All modifiers that were applied
 optional total?: number;
 ```
 
-Defined in: types/skills.ts:310
+Defined in: [types/skills.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L310)
 
 The total result (if evaluated)
 
@@ -7087,7 +7087,7 @@ The total result (if evaluated)
 formula: string;
 ```
 
-Defined in: types/skills.ts:313
+Defined in: [types/skills.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L313)
 
 The complete roll formula
 
@@ -7097,7 +7097,7 @@ The complete roll formula
 optional tableResult?: TableLookupResult;
 ```
 
-Defined in: types/skills.ts:316
+Defined in: [types/skills.ts:316](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L316)
 
 Result from table lookup (if applicable)
 
@@ -7107,7 +7107,7 @@ Result from table lookup (if applicable)
 optional success?: boolean;
 ```
 
-Defined in: types/skills.ts:319
+Defined in: [types/skills.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L319)
 
 Whether the check succeeded (if determinable)
 
@@ -7117,7 +7117,7 @@ Whether the check succeeded (if determinable)
 optional critical?: boolean;
 ```
 
-Defined in: types/skills.ts:322
+Defined in: [types/skills.ts:322](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L322)
 
 Whether this was a critical success
 
@@ -7127,7 +7127,7 @@ Whether this was a critical success
 optional fumble?: boolean;
 ```
 
-Defined in: types/skills.ts:325
+Defined in: [types/skills.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L325)
 
 Whether this was a fumble
 
@@ -7137,7 +7137,7 @@ Whether this was a fumble
 optional effects?: SkillEffect[];
 ```
 
-Defined in: types/skills.ts:328
+Defined in: [types/skills.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L328)
 
 Effects produced by this skill use
 
@@ -7150,7 +7150,7 @@ optional resourcesConsumed?: {
 }[];
 ```
 
-Defined in: types/skills.ts:331
+Defined in: [types/skills.ts:331](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L331)
 
 Resources consumed
 
@@ -7170,7 +7170,7 @@ amount: number;
 
 ### SkillEvents
 
-Defined in: types/skills.ts:340
+Defined in: [types/skills.ts:340](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L340)
 
 Event callbacks for skill resolution
 
@@ -7182,7 +7182,7 @@ Event callbacks for skill resolution
 optional onSkillCheckStart?: (input: SkillCheckInput) => void;
 ```
 
-Defined in: types/skills.ts:342
+Defined in: [types/skills.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L342)
 
 Called when skill check starts
 
@@ -7202,7 +7202,7 @@ Called when skill check starts
 optional onSkillCheckComplete?: (result: SkillCheckResult) => void;
 ```
 
-Defined in: types/skills.ts:345
+Defined in: [types/skills.ts:345](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L345)
 
 Called when skill check completes
 
@@ -7222,7 +7222,7 @@ Called when skill check completes
 optional onCritical?: (result: SkillCheckResult) => void;
 ```
 
-Defined in: types/skills.ts:348
+Defined in: [types/skills.ts:348](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L348)
 
 Called on critical success
 
@@ -7242,7 +7242,7 @@ Called on critical success
 optional onFumble?: (result: SkillCheckResult) => void;
 ```
 
-Defined in: types/skills.ts:351
+Defined in: [types/skills.ts:351](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L351)
 
 Called on fumble
 
@@ -7262,7 +7262,7 @@ Called on fumble
 optional onResourceConsumed?: (resource: ResourceType, amount: number) => void;
 ```
 
-Defined in: types/skills.ts:354
+Defined in: [types/skills.ts:354](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L354)
 
 Called when resources are consumed
 
@@ -7283,7 +7283,7 @@ Called when resources are consumed
 optional onTableLookup?: (result: TableLookupResult) => void;
 ```
 
-Defined in: types/skills.ts:357
+Defined in: [types/skills.ts:357](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L357)
 
 Called when a table lookup occurs
 
@@ -7301,7 +7301,7 @@ Called when a table lookup occurs
 
 ### SpellResultRange
 
-Defined in: types/spells.ts:33
+Defined in: [types/spells.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L33)
 
 Range bracket for a spell result
 
@@ -7313,7 +7313,7 @@ Range bracket for a spell result
 min: number;
 ```
 
-Defined in: types/spells.ts:35
+Defined in: [types/spells.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L35)
 
 Minimum roll (inclusive)
 
@@ -7323,7 +7323,7 @@ Minimum roll (inclusive)
 max: number;
 ```
 
-Defined in: types/spells.ts:37
+Defined in: [types/spells.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L37)
 
 Maximum roll (inclusive)
 
@@ -7331,7 +7331,7 @@ Maximum roll (inclusive)
 
 ### SpellResult
 
-Defined in: types/spells.ts:43
+Defined in: [types/spells.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L43)
 
 A single result entry in a spell result table
 
@@ -7343,7 +7343,7 @@ A single result entry in a spell result table
 range: SpellResultRange;
 ```
 
-Defined in: types/spells.ts:45
+Defined in: [types/spells.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L45)
 
 The roll range that triggers this result (inclusive)
 
@@ -7353,7 +7353,7 @@ The roll range that triggers this result (inclusive)
 description: string;
 ```
 
-Defined in: types/spells.ts:47
+Defined in: [types/spells.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L47)
 
 Description of the spell effect at this roll level
 
@@ -7361,7 +7361,7 @@ Description of the spell effect at this roll level
 
 ### SpellResultTable
 
-Defined in: types/spells.ts:53
+Defined in: [types/spells.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L53)
 
 Complete spell result table for spell check resolution
 
@@ -7373,7 +7373,7 @@ Complete spell result table for spell check resolution
 spellName: string;
 ```
 
-Defined in: types/spells.ts:55
+Defined in: [types/spells.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L55)
 
 Spell name this table applies to
 
@@ -7383,7 +7383,7 @@ Spell name this table applies to
 castingMode: SpellCastingMode;
 ```
 
-Defined in: types/spells.ts:57
+Defined in: [types/spells.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L57)
 
 Casting mode (wizard, cleric, or patron)
 
@@ -7393,7 +7393,7 @@ Casting mode (wizard, cleric, or patron)
 results: SpellResult[];
 ```
 
-Defined in: types/spells.ts:59
+Defined in: [types/spells.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L59)
 
 Ordered list of results by roll range
 
@@ -7401,7 +7401,7 @@ Ordered list of results by roll range
 
 ### Spell
 
-Defined in: types/spells.ts:66
+Defined in: [types/spells.ts:66](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L66)
 
 Core spell data structure for spell catalogs.
 This is the "data" type for spell storage/lookup.
@@ -7418,7 +7418,7 @@ This is the "data" type for spell storage/lookup.
 id: string;
 ```
 
-Defined in: types/spells.ts:68
+Defined in: [types/spells.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L68)
 
 Unique identifier for the spell
 
@@ -7428,7 +7428,7 @@ Unique identifier for the spell
 name: string;
 ```
 
-Defined in: types/spells.ts:70
+Defined in: [types/spells.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L70)
 
 Display name
 
@@ -7438,7 +7438,7 @@ Display name
 level: number;
 ```
 
-Defined in: types/spells.ts:72
+Defined in: [types/spells.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L72)
 
 Spell level (1-5)
 
@@ -7448,7 +7448,7 @@ Spell level (1-5)
 castingMode: SpellCastingMode;
 ```
 
-Defined in: types/spells.ts:74
+Defined in: [types/spells.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L74)
 
 Casting mode
 
@@ -7458,7 +7458,7 @@ Casting mode
 page: string;
 ```
 
-Defined in: types/spells.ts:76
+Defined in: [types/spells.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L76)
 
 Rulebook page reference
 
@@ -7468,7 +7468,7 @@ Rulebook page reference
 range: string;
 ```
 
-Defined in: types/spells.ts:78
+Defined in: [types/spells.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L78)
 
 Spell range
 
@@ -7478,7 +7478,7 @@ Spell range
 duration: string;
 ```
 
-Defined in: types/spells.ts:80
+Defined in: [types/spells.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L80)
 
 Spell duration
 
@@ -7488,7 +7488,7 @@ Spell duration
 castingTime: string;
 ```
 
-Defined in: types/spells.ts:82
+Defined in: [types/spells.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L82)
 
 Casting time
 
@@ -7498,7 +7498,7 @@ Casting time
 save: string;
 ```
 
-Defined in: types/spells.ts:84
+Defined in: [types/spells.ts:84](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L84)
 
 Save type (e.g., "None", "Will vs. spell check DC")
 
@@ -7508,7 +7508,7 @@ Save type (e.g., "None", "Will vs. spell check DC")
 description: string;
 ```
 
-Defined in: types/spells.ts:86
+Defined in: [types/spells.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L86)
 
 General description of the spell
 
@@ -7516,7 +7516,7 @@ General description of the spell
 
 ### SpellWithResults
 
-Defined in: types/spells.ts:92
+Defined in: [types/spells.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L92)
 
 Extended spell data with result table included
 
@@ -7532,7 +7532,7 @@ Extended spell data with result table included
 id: string;
 ```
 
-Defined in: types/spells.ts:68
+Defined in: [types/spells.ts:68](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L68)
 
 Unique identifier for the spell
 
@@ -7546,7 +7546,7 @@ Unique identifier for the spell
 name: string;
 ```
 
-Defined in: types/spells.ts:70
+Defined in: [types/spells.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L70)
 
 Display name
 
@@ -7560,7 +7560,7 @@ Display name
 level: number;
 ```
 
-Defined in: types/spells.ts:72
+Defined in: [types/spells.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L72)
 
 Spell level (1-5)
 
@@ -7574,7 +7574,7 @@ Spell level (1-5)
 castingMode: SpellCastingMode;
 ```
 
-Defined in: types/spells.ts:74
+Defined in: [types/spells.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L74)
 
 Casting mode
 
@@ -7588,7 +7588,7 @@ Casting mode
 page: string;
 ```
 
-Defined in: types/spells.ts:76
+Defined in: [types/spells.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L76)
 
 Rulebook page reference
 
@@ -7602,7 +7602,7 @@ Rulebook page reference
 range: string;
 ```
 
-Defined in: types/spells.ts:78
+Defined in: [types/spells.ts:78](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L78)
 
 Spell range
 
@@ -7616,7 +7616,7 @@ Spell range
 duration: string;
 ```
 
-Defined in: types/spells.ts:80
+Defined in: [types/spells.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L80)
 
 Spell duration
 
@@ -7630,7 +7630,7 @@ Spell duration
 castingTime: string;
 ```
 
-Defined in: types/spells.ts:82
+Defined in: [types/spells.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L82)
 
 Casting time
 
@@ -7644,7 +7644,7 @@ Casting time
 save: string;
 ```
 
-Defined in: types/spells.ts:84
+Defined in: [types/spells.ts:84](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L84)
 
 Save type (e.g., "None", "Will vs. spell check DC")
 
@@ -7658,7 +7658,7 @@ Save type (e.g., "None", "Will vs. spell check DC")
 description: string;
 ```
 
-Defined in: types/spells.ts:86
+Defined in: [types/spells.ts:86](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L86)
 
 General description of the spell
 
@@ -7672,7 +7672,7 @@ General description of the spell
 resultTable: SpellResultTable;
 ```
 
-Defined in: types/spells.ts:94
+Defined in: [types/spells.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L94)
 
 Result table for spell check resolution
 
@@ -7680,7 +7680,7 @@ Result table for spell check resolution
 
 ### SpellCollection
 
-Defined in: types/spells.ts:100
+Defined in: [types/spells.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L100)
 
 Collection of spells organized by level
 
@@ -7692,7 +7692,7 @@ Collection of spells organized by level
 castingMode: SpellCastingMode;
 ```
 
-Defined in: types/spells.ts:102
+Defined in: [types/spells.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L102)
 
 Casting mode for this collection
 
@@ -7702,7 +7702,7 @@ Casting mode for this collection
 spellsByLevel: Record<number, Spell[]>;
 ```
 
-Defined in: types/spells.ts:104
+Defined in: [types/spells.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L104)
 
 Spells indexed by level
 
@@ -7710,7 +7710,7 @@ Spells indexed by level
 
 ### CasterProfile
 
-Defined in: types/spells.ts:119
+Defined in: [types/spells.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L119)
 
 How a caster learns/casts spells (determines which mechanics apply)
 
@@ -7722,7 +7722,7 @@ How a caster learns/casts spells (determines which mechanics apply)
 type: CasterType;
 ```
 
-Defined in: types/spells.ts:121
+Defined in: [types/spells.ts:121](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L121)
 
 The caster type
 
@@ -7732,7 +7732,7 @@ The caster type
 spellCheckAbility: DCCAbilityId;
 ```
 
-Defined in: types/spells.ts:124
+Defined in: [types/spells.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L124)
 
 Which ability is used for spell checks
 
@@ -7742,7 +7742,7 @@ Which ability is used for spell checks
 usesMercurial: boolean;
 ```
 
-Defined in: types/spells.ts:127
+Defined in: [types/spells.ts:127](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L127)
 
 Does this caster use mercurial magic?
 
@@ -7752,7 +7752,7 @@ Does this caster use mercurial magic?
 usesCorruption: boolean;
 ```
 
-Defined in: types/spells.ts:130
+Defined in: [types/spells.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L130)
 
 Does this caster use corruption?
 
@@ -7762,7 +7762,7 @@ Does this caster use corruption?
 usesDisapproval: boolean;
 ```
 
-Defined in: types/spells.ts:133
+Defined in: [types/spells.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L133)
 
 Does this caster use disapproval?
 
@@ -7772,7 +7772,7 @@ Does this caster use disapproval?
 canSpellburn: boolean;
 ```
 
-Defined in: types/spells.ts:136
+Defined in: [types/spells.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L136)
 
 Can this caster spellburn?
 
@@ -7782,7 +7782,7 @@ Can this caster spellburn?
 lostSpellRecovery: "none" | "rest" | "prayer";
 ```
 
-Defined in: types/spells.ts:139
+Defined in: [types/spells.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L139)
 
 How lost spells can be recovered
 
@@ -7792,7 +7792,7 @@ How lost spells can be recovered
 optional losesSpellOnFailure?: boolean;
 ```
 
-Defined in: types/spells.ts:146
+Defined in: [types/spells.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L146)
 
 Is the spell lost for the day when a spell check fails? DCC RAW: true for
 wizards and elves; a cleric's failure raises disapproval instead. When
@@ -7802,7 +7802,7 @@ omitted, casters that use disapproval keep the spell and all others lose it.
 
 ### SpellResultEntry
 
-Defined in: types/spells.ts:192
+Defined in: [types/spells.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L192)
 
 A spell result entry (for inline results or loaded from tables)
 
@@ -7814,7 +7814,7 @@ A spell result entry (for inline results or loaded from tables)
 min: number;
 ```
 
-Defined in: types/spells.ts:194
+Defined in: [types/spells.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L194)
 
 Minimum check result
 
@@ -7824,7 +7824,7 @@ Minimum check result
 optional max?: number;
 ```
 
-Defined in: types/spells.ts:197
+Defined in: [types/spells.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L197)
 
 Maximum check result (optional, defaults to next entry's min - 1)
 
@@ -7834,7 +7834,7 @@ Maximum check result (optional, defaults to next entry's min - 1)
 tier: ResultTier;
 ```
 
-Defined in: types/spells.ts:200
+Defined in: [types/spells.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L200)
 
 Result tier
 
@@ -7844,7 +7844,7 @@ Result tier
 text: string;
 ```
 
-Defined in: types/spells.ts:203
+Defined in: [types/spells.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L203)
 
 Result text
 
@@ -7854,7 +7854,7 @@ Result text
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:206
+Defined in: [types/spells.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L206)
 
 Structured effect data
 
@@ -7864,7 +7864,7 @@ Structured effect data
 optional lost?: boolean;
 ```
 
-Defined in: types/spells.ts:209
+Defined in: [types/spells.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L209)
 
 Is the spell lost after this result?
 
@@ -7874,7 +7874,7 @@ Is the spell lost after this result?
 optional corruption?: boolean;
 ```
 
-Defined in: types/spells.ts:212
+Defined in: [types/spells.ts:212](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L212)
 
 Does this trigger corruption? (wizard/elf)
 
@@ -7884,7 +7884,7 @@ Does this trigger corruption? (wizard/elf)
 optional disapproval?: boolean;
 ```
 
-Defined in: types/spells.ts:215
+Defined in: [types/spells.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L215)
 
 Does this trigger disapproval increase? (cleric)
 
@@ -7894,7 +7894,7 @@ Does this trigger disapproval increase? (cleric)
 optional manifestation?: string;
 ```
 
-Defined in: types/spells.ts:218
+Defined in: [types/spells.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L218)
 
 Manifestation description for this result
 
@@ -7902,7 +7902,7 @@ Manifestation description for this result
 
 ### SpellDefinition
 
-Defined in: types/spells.ts:225
+Defined in: [types/spells.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L225)
 
 A spell's base definition loaded from external JSON.
 This is the "template" - character-specific instances are stored in spellbooks.
@@ -7915,7 +7915,7 @@ This is the "template" - character-specific instances are stored in spellbooks.
 id: string;
 ```
 
-Defined in: types/spells.ts:227
+Defined in: [types/spells.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L227)
 
 Unique identifier (e.g., "magic-missile", "bless")
 
@@ -7925,7 +7925,7 @@ Unique identifier (e.g., "magic-missile", "bless")
 name: string;
 ```
 
-Defined in: types/spells.ts:230
+Defined in: [types/spells.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L230)
 
 Display name
 
@@ -7935,7 +7935,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/spells.ts:233
+Defined in: [types/spells.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L233)
 
 Full description
 
@@ -7945,7 +7945,7 @@ Full description
 level: number;
 ```
 
-Defined in: types/spells.ts:236
+Defined in: [types/spells.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L236)
 
 Spell level (1-5 for wizards, 1-5 for clerics)
 
@@ -7955,7 +7955,7 @@ Spell level (1-5 for wizards, 1-5 for clerics)
 casterTypes: CasterType[];
 ```
 
-Defined in: types/spells.ts:239
+Defined in: [types/spells.ts:239](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L239)
 
 Which caster types can use this spell
 
@@ -7965,7 +7965,7 @@ Which caster types can use this spell
 optional range?: string;
 ```
 
-Defined in: types/spells.ts:242
+Defined in: [types/spells.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L242)
 
 Range description
 
@@ -7975,7 +7975,7 @@ Range description
 optional duration?: string;
 ```
 
-Defined in: types/spells.ts:245
+Defined in: [types/spells.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L245)
 
 Duration description
 
@@ -7985,7 +7985,7 @@ Duration description
 optional castingTime?: string;
 ```
 
-Defined in: types/spells.ts:248
+Defined in: [types/spells.ts:248](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L248)
 
 Casting time description
 
@@ -7995,7 +7995,7 @@ Casting time description
 optional save?: "reflex" | "fortitude" | "will" | "none";
 ```
 
-Defined in: types/spells.ts:251
+Defined in: [types/spells.ts:251](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L251)
 
 Save type if applicable
 
@@ -8005,7 +8005,7 @@ Save type if applicable
 optional tags?: string[];
 ```
 
-Defined in: types/spells.ts:254
+Defined in: [types/spells.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L254)
 
 General/school/type tags for filtering
 
@@ -8015,7 +8015,7 @@ General/school/type tags for filtering
 optional source?: string;
 ```
 
-Defined in: types/spells.ts:257
+Defined in: [types/spells.ts:257](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L257)
 
 Source reference (e.g., "DCC Core Rules p.XXX")
 
@@ -8025,7 +8025,7 @@ Source reference (e.g., "DCC Core Rules p.XXX")
 optional resultTableId?: string;
 ```
 
-Defined in: types/spells.ts:263
+Defined in: [types/spells.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L263)
 
 Result table ID for looking up spell results.
 If undefined, use inline `results` array.
@@ -8036,7 +8036,7 @@ If undefined, use inline `results` array.
 optional results?: SpellResultEntry[];
 ```
 
-Defined in: types/spells.ts:269
+Defined in: [types/spells.ts:269](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L269)
 
 Inline tiered results (alternative to resultTableId).
 Simpler spells can embed results directly.
@@ -8047,7 +8047,7 @@ Simpler spells can embed results directly.
 optional manifestationTableId?: string;
 ```
 
-Defined in: types/spells.ts:272
+Defined in: [types/spells.ts:272](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L272)
 
 Manifestation table ID (optional)
 
@@ -8055,7 +8055,7 @@ Manifestation table ID (optional)
 
 ### MercurialEffectData
 
-Defined in: types/spells.ts:293
+Defined in: [types/spells.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L293)
 
 Structured mercurial effect for programmatic handling
 
@@ -8067,7 +8067,7 @@ Structured mercurial effect for programmatic handling
 type: string;
 ```
 
-Defined in: types/spells.ts:295
+Defined in: [types/spells.ts:295](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L295)
 
 Effect type (e.g., "modifier", "condition", "damage", "heal")
 
@@ -8077,7 +8077,7 @@ Effect type (e.g., "modifier", "condition", "damage", "heal")
 optional modifier?: number;
 ```
 
-Defined in: types/spells.ts:298
+Defined in: [types/spells.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L298)
 
 Numeric modifier if applicable
 
@@ -8087,7 +8087,7 @@ Numeric modifier if applicable
 optional dice?: string;
 ```
 
-Defined in: types/spells.ts:301
+Defined in: [types/spells.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L301)
 
 Dice modifier if applicable (e.g., "+1d4")
 
@@ -8097,7 +8097,7 @@ Dice modifier if applicable (e.g., "+1d4")
 optional trigger?: MercurialTrigger;
 ```
 
-Defined in: types/spells.ts:304
+Defined in: [types/spells.ts:304](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L304)
 
 When this triggers
 
@@ -8107,7 +8107,7 @@ When this triggers
 optional duration?: string;
 ```
 
-Defined in: types/spells.ts:307
+Defined in: [types/spells.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L307)
 
 Duration of effect
 
@@ -8117,7 +8117,7 @@ Duration of effect
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/spells.ts:310
+Defined in: [types/spells.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L310)
 
 Additional structured data
 
@@ -8125,7 +8125,7 @@ Additional structured data
 
 ### MercurialSpecial
 
-Defined in: types/spells.ts:325
+Defined in: [types/spells.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L325)
 
 Instruction attached to a mercurial table entry that, when drawn,
 triggers meta-handling instead of being a literal effect.
@@ -8138,7 +8138,7 @@ triggers meta-handling instead of being a literal effect.
 action: "rollAgain";
 ```
 
-Defined in: types/spells.ts:327
+Defined in: [types/spells.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L327)
 
 What kind of special handling this entry requires
 
@@ -8148,7 +8148,7 @@ What kind of special handling this entry requires
 count: number;
 ```
 
-Defined in: types/spells.ts:330
+Defined in: [types/spells.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L330)
 
 Number of additional rolls to make (e.g. 2 for "roll again twice")
 
@@ -8158,7 +8158,7 @@ Number of additional rolls to make (e.g. 2 for "roll again twice")
 optional formula?: string;
 ```
 
-Defined in: types/spells.ts:336
+Defined in: [types/spells.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L336)
 
 Dice expression for the sub-rolls (default "1d100"). The luck
 modifier (×10) is still added on top of this expression's total.
@@ -8167,7 +8167,7 @@ modifier (×10) is still added on top of this expression's total.
 
 ### MercurialEffect
 
-Defined in: types/spells.ts:342
+Defined in: [types/spells.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L342)
 
 A mercurial magic effect stored with a spell
 
@@ -8179,7 +8179,7 @@ A mercurial magic effect stored with a spell
 rollValue: number;
 ```
 
-Defined in: types/spells.ts:344
+Defined in: [types/spells.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L344)
 
 The roll result that determined this effect (d100 + luck mod * 10)
 
@@ -8189,7 +8189,7 @@ The roll result that determined this effect (d100 + luck mod * 10)
 summary: string;
 ```
 
-Defined in: types/spells.ts:347
+Defined in: [types/spells.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L347)
 
 Short summary of the effect (for display)
 
@@ -8199,7 +8199,7 @@ Short summary of the effect (for display)
 description: string;
 ```
 
-Defined in: types/spells.ts:350
+Defined in: [types/spells.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L350)
 
 Full description of the effect
 
@@ -8209,7 +8209,7 @@ Full description of the effect
 displayOnCast: boolean;
 ```
 
-Defined in: types/spells.ts:353
+Defined in: [types/spells.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L353)
 
 Should this display in chat/output when casting?
 
@@ -8219,7 +8219,7 @@ Should this display in chat/output when casting?
 optional effect?: MercurialEffectData;
 ```
 
-Defined in: types/spells.ts:356
+Defined in: [types/spells.ts:356](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L356)
 
 Structured effect data (if parseable for automation)
 
@@ -8229,7 +8229,7 @@ Structured effect data (if parseable for automation)
 optional special?: MercurialSpecial;
 ```
 
-Defined in: types/spells.ts:366
+Defined in: [types/spells.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L366)
 
 The special instruction on the table entry this effect came from.
 Present alongside `subEffects` when the special was expanded by
@@ -8244,7 +8244,7 @@ and the consumer may expand it itself.
 optional subEffects?: MercurialEffect[];
 ```
 
-Defined in: types/spells.ts:373
+Defined in: [types/spells.ts:373](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L373)
 
 The individual effects a `rollAgain` special expanded into. Each
 sub-effect may itself carry `special`/`subEffects` when a sub-roll
@@ -8254,7 +8254,7 @@ landed on another special entry.
 
 ### MercurialTableEntry
 
-Defined in: types/spells.ts:379
+Defined in: [types/spells.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L379)
 
 A single entry in a mercurial magic table
 
@@ -8266,7 +8266,7 @@ A single entry in a mercurial magic table
 min: number;
 ```
 
-Defined in: types/spells.ts:381
+Defined in: [types/spells.ts:381](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L381)
 
 Minimum roll value (inclusive)
 
@@ -8276,7 +8276,7 @@ Minimum roll value (inclusive)
 max: number;
 ```
 
-Defined in: types/spells.ts:384
+Defined in: [types/spells.ts:384](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L384)
 
 Maximum roll value (inclusive)
 
@@ -8286,7 +8286,7 @@ Maximum roll value (inclusive)
 summary: string;
 ```
 
-Defined in: types/spells.ts:387
+Defined in: [types/spells.ts:387](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L387)
 
 Short summary
 
@@ -8296,7 +8296,7 @@ Short summary
 description: string;
 ```
 
-Defined in: types/spells.ts:390
+Defined in: [types/spells.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L390)
 
 Full description
 
@@ -8306,7 +8306,7 @@ Full description
 displayOnCast: boolean;
 ```
 
-Defined in: types/spells.ts:393
+Defined in: [types/spells.ts:393](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L393)
 
 Whether to display on each cast
 
@@ -8316,7 +8316,7 @@ Whether to display on each cast
 optional effect?: MercurialEffectData;
 ```
 
-Defined in: types/spells.ts:396
+Defined in: [types/spells.ts:396](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L396)
 
 Structured effect (optional)
 
@@ -8326,7 +8326,7 @@ Structured effect (optional)
 optional special?: MercurialSpecial;
 ```
 
-Defined in: types/spells.ts:399
+Defined in: [types/spells.ts:399](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L399)
 
 Special (meta) handling instruction (optional)
 
@@ -8334,7 +8334,7 @@ Special (meta) handling instruction (optional)
 
 ### SpellbookEntry
 
-Defined in: types/spells.ts:410
+Defined in: [types/spells.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L410)
 
 A spell known by a specific character.
 Includes character-specific data like mercurial effect.
@@ -8347,7 +8347,7 @@ Includes character-specific data like mercurial effect.
 spellId: string;
 ```
 
-Defined in: types/spells.ts:412
+Defined in: [types/spells.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L412)
 
 Reference to spell definition ID
 
@@ -8357,7 +8357,7 @@ Reference to spell definition ID
 optional learnedAt?: string;
 ```
 
-Defined in: types/spells.ts:415
+Defined in: [types/spells.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L415)
 
 When this spell was learned (ISO date string, for tracking)
 
@@ -8367,7 +8367,7 @@ When this spell was learned (ISO date string, for tracking)
 lost: boolean;
 ```
 
-Defined in: types/spells.ts:418
+Defined in: [types/spells.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L418)
 
 Is this spell currently lost? (for the day)
 
@@ -8377,7 +8377,7 @@ Is this spell currently lost? (for the day)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: types/spells.ts:421
+Defined in: [types/spells.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L421)
 
 Mercurial magic effect (for wizards/elves)
 
@@ -8387,7 +8387,7 @@ Mercurial magic effect (for wizards/elves)
 optional manifestation?: string;
 ```
 
-Defined in: types/spells.ts:424
+Defined in: [types/spells.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L424)
 
 Custom manifestation description (optional override)
 
@@ -8397,7 +8397,7 @@ Custom manifestation description (optional override)
 optional lastResult?: number;
 ```
 
-Defined in: types/spells.ts:427
+Defined in: [types/spells.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L427)
 
 Last check result rolled (for GM adjustment feature)
 
@@ -8407,7 +8407,7 @@ Last check result rolled (for GM adjustment feature)
 optional notes?: string;
 ```
 
-Defined in: types/spells.ts:430
+Defined in: [types/spells.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L430)
 
 Player notes about this spell
 
@@ -8415,7 +8415,7 @@ Player notes about this spell
 
 ### Spellbook
 
-Defined in: types/spells.ts:436
+Defined in: [types/spells.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L436)
 
 A character's complete spellbook
 
@@ -8427,7 +8427,7 @@ A character's complete spellbook
 spells: SpellbookEntry[];
 ```
 
-Defined in: types/spells.ts:438
+Defined in: [types/spells.ts:438](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L438)
 
 All known spells
 
@@ -8437,7 +8437,7 @@ All known spells
 optional maxSpellsPerLevel?: Partial<Record<number, number>>;
 ```
 
-Defined in: types/spells.ts:441
+Defined in: [types/spells.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L441)
 
 Maximum spells known per level (from class/level progression)
 
@@ -8445,7 +8445,7 @@ Maximum spells known per level (from class/level progression)
 
 ### SpellburnCommitment
 
-Defined in: types/spells.ts:461
+Defined in: [types/spells.ts:461](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L461)
 
 Spellburn commitment for a spell check (wizard/elf only)
 Points are temporarily burned from physical abilities.
@@ -8458,7 +8458,7 @@ Points are temporarily burned from physical abilities.
 str: number;
 ```
 
-Defined in: types/spells.ts:463
+Defined in: [types/spells.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L463)
 
 Points burned from Strength
 
@@ -8468,7 +8468,7 @@ Points burned from Strength
 agl: number;
 ```
 
-Defined in: types/spells.ts:466
+Defined in: [types/spells.ts:466](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L466)
 
 Points burned from Agility
 
@@ -8478,7 +8478,7 @@ Points burned from Agility
 sta: number;
 ```
 
-Defined in: types/spells.ts:469
+Defined in: [types/spells.ts:469](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L469)
 
 Points burned from Stamina
 
@@ -8486,7 +8486,7 @@ Points burned from Stamina
 
 ### CorruptionResult
 
-Defined in: types/spells.ts:493
+Defined in: [types/spells.ts:493](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L493)
 
 Result of rolling on the corruption table
 
@@ -8498,7 +8498,7 @@ Result of rolling on the corruption table
 roll: number;
 ```
 
-Defined in: types/spells.ts:495
+Defined in: [types/spells.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L495)
 
 The die roll result
 
@@ -8508,7 +8508,7 @@ The die roll result
 description: string;
 ```
 
-Defined in: types/spells.ts:498
+Defined in: [types/spells.ts:498](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L498)
 
 Description of the corruption effect
 
@@ -8518,7 +8518,7 @@ Description of the corruption effect
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:501
+Defined in: [types/spells.ts:501](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L501)
 
 Structured effect data
 
@@ -8528,7 +8528,7 @@ Structured effect data
 permanent: boolean;
 ```
 
-Defined in: types/spells.ts:504
+Defined in: [types/spells.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L504)
 
 Is this corruption permanent? (most are)
 
@@ -8538,7 +8538,7 @@ Is this corruption permanent? (most are)
 optional tier?: "minor" | "major" | "greater";
 ```
 
-Defined in: types/spells.ts:507
+Defined in: [types/spells.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L507)
 
 Corruption tier (minor, major, greater)
 
@@ -8546,7 +8546,7 @@ Corruption tier (minor, major, greater)
 
 ### SpellFumbleResult
 
-Defined in: types/spells.ts:525
+Defined in: [types/spells.ts:525](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L525)
 
 Result of rolling on the spell fumble table.
 
@@ -8566,7 +8566,7 @@ read by orchestration) and was removed in 0.8.0.
 roll: number;
 ```
 
-Defined in: types/spells.ts:527
+Defined in: [types/spells.ts:527](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L527)
 
 The die roll result
 
@@ -8576,7 +8576,7 @@ The die roll result
 description: string;
 ```
 
-Defined in: types/spells.ts:530
+Defined in: [types/spells.ts:530](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L530)
 
 Description of the fumble effect
 
@@ -8586,7 +8586,7 @@ Description of the fumble effect
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:533
+Defined in: [types/spells.ts:533](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L533)
 
 Structured effect data
 
@@ -8596,7 +8596,7 @@ Structured effect data
 misfire: boolean;
 ```
 
-Defined in: types/spells.ts:536
+Defined in: [types/spells.ts:536](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L536)
 
 Did the spell misfire?
 
@@ -8606,7 +8606,7 @@ Did the spell misfire?
 corruption: boolean;
 ```
 
-Defined in: types/spells.ts:539
+Defined in: [types/spells.ts:539](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L539)
 
 Should roll on corruption table?
 
@@ -8614,7 +8614,7 @@ Should roll on corruption table?
 
 ### PatronTaintResult
 
-Defined in: types/spells.ts:545
+Defined in: [types/spells.ts:545](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L545)
 
 Result of rolling on the patron taint table
 
@@ -8626,7 +8626,7 @@ Result of rolling on the patron taint table
 roll: number;
 ```
 
-Defined in: types/spells.ts:547
+Defined in: [types/spells.ts:547](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L547)
 
 The die roll result
 
@@ -8636,7 +8636,7 @@ The die roll result
 patronId: string;
 ```
 
-Defined in: types/spells.ts:550
+Defined in: [types/spells.ts:550](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L550)
 
 Patron ID that caused the taint
 
@@ -8646,7 +8646,7 @@ Patron ID that caused the taint
 description: string;
 ```
 
-Defined in: types/spells.ts:553
+Defined in: [types/spells.ts:553](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L553)
 
 Description of the taint effect
 
@@ -8656,7 +8656,7 @@ Description of the taint effect
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:556
+Defined in: [types/spells.ts:556](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L556)
 
 Structured effect data
 
@@ -8664,7 +8664,7 @@ Structured effect data
 
 ### SpellCastInput
 
-Defined in: types/spells.ts:566
+Defined in: [types/spells.ts:566](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L566)
 
 Input for casting a spell
 
@@ -8676,7 +8676,7 @@ Input for casting a spell
 spell: SpellDefinition;
 ```
 
-Defined in: types/spells.ts:568
+Defined in: [types/spells.ts:568](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L568)
 
 The spell being cast (definition)
 
@@ -8686,7 +8686,7 @@ The spell being cast (definition)
 optional spellbookEntry?: SpellbookEntry;
 ```
 
-Defined in: types/spells.ts:585
+Defined in: [types/spells.ts:585](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L585)
 
 The spellbook entry (character-specific data).
 
@@ -8708,7 +8708,7 @@ When omitted:
 casterProfile: CasterProfile;
 ```
 
-Defined in: types/spells.ts:588
+Defined in: [types/spells.ts:588](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L588)
 
 Caster's profile (determines mechanics)
 
@@ -8718,7 +8718,7 @@ Caster's profile (determines mechanics)
 casterLevel: number;
 ```
 
-Defined in: types/spells.ts:591
+Defined in: [types/spells.ts:591](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L591)
 
 Caster level
 
@@ -8728,7 +8728,7 @@ Caster level
 abilityScore: number;
 ```
 
-Defined in: types/spells.ts:594
+Defined in: [types/spells.ts:594](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L594)
 
 Spell check ability score (current value)
 
@@ -8738,7 +8738,7 @@ Spell check ability score (current value)
 abilityModifier: number;
 ```
 
-Defined in: types/spells.ts:597
+Defined in: [types/spells.ts:597](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L597)
 
 Ability modifier (pre-calculated)
 
@@ -8748,7 +8748,7 @@ Ability modifier (pre-calculated)
 optional luck?: number;
 ```
 
-Defined in: types/spells.ts:600
+Defined in: [types/spells.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L600)
 
 Current luck score (for luck burn calculations)
 
@@ -8758,7 +8758,7 @@ Current luck score (for luck burn calculations)
 optional startingLuck?: number;
 ```
 
-Defined in: types/spells.ts:603
+Defined in: [types/spells.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L603)
 
 Starting luck score (for birth augur effects)
 
@@ -8768,7 +8768,7 @@ Starting luck score (for birth augur effects)
 optional luckBurn?: number;
 ```
 
-Defined in: types/spells.ts:606
+Defined in: [types/spells.ts:606](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L606)
 
 Luck to burn on this check
 
@@ -8778,7 +8778,7 @@ Luck to burn on this check
 optional luckMultiplier?: number;
 ```
 
-Defined in: types/spells.ts:609
+Defined in: [types/spells.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L609)
 
 Luck modifier multiplier from birth augur (default 1)
 
@@ -8788,7 +8788,7 @@ Luck modifier multiplier from birth augur (default 1)
 optional spellburn?: SpellburnCommitment;
 ```
 
-Defined in: types/spells.ts:612
+Defined in: [types/spells.ts:612](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L612)
 
 Spellburn commitment (wizard/elf only)
 
@@ -8798,7 +8798,7 @@ Spellburn commitment (wizard/elf only)
 optional disapprovalRange?: number;
 ```
 
-Defined in: types/spells.ts:615
+Defined in: [types/spells.ts:615](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L615)
 
 Current disapproval range (cleric only, starts at 1)
 
@@ -8808,7 +8808,7 @@ Current disapproval range (cleric only, starts at 1)
 optional patron?: string;
 ```
 
-Defined in: types/spells.ts:618
+Defined in: [types/spells.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L618)
 
 Patron ID (for patron taint acquisition)
 
@@ -8818,7 +8818,7 @@ Patron ID (for patron taint acquisition)
 optional patronTaintChance?: number;
 ```
 
-Defined in: types/spells.ts:626
+Defined in: [types/spells.ts:626](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L626)
 
 Current patron-taint chance as an integer percent (1-100).
 RAW (DCC core): every patron-based cast rolls d100 vs this value;
@@ -8831,7 +8831,7 @@ Defaults to 1 when omitted.
 optional isPatronSpell?: boolean;
 ```
 
-Defined in: types/spells.ts:635
+Defined in: [types/spells.ts:635](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L635)
 
 Caller override for "is this cast a patron-based spell?" When set, the
 lib honors it directly. When omitted, the lib falls back to
@@ -8845,7 +8845,7 @@ per-item flag should pass this explicitly.
 optional situationalModifiers?: LegacyRollModifier[];
 ```
 
-Defined in: types/spells.ts:638
+Defined in: [types/spells.ts:638](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L638)
 
 Situational modifiers to apply
 
@@ -8855,7 +8855,7 @@ Situational modifiers to apply
 optional actionDie?: `d${number}`;
 ```
 
-Defined in: types/spells.ts:641
+Defined in: [types/spells.ts:641](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L641)
 
 Action die override (if not d20)
 
@@ -8865,7 +8865,7 @@ Action die override (if not d20)
 optional resultTable?: TieredTable;
 ```
 
-Defined in: types/spells.ts:644
+Defined in: [types/spells.ts:644](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L644)
 
 Result table for spell effects (pre-loaded)
 
@@ -8875,7 +8875,7 @@ Result table for spell effects (pre-loaded)
 optional fumbleTable?: SimpleTable;
 ```
 
-Defined in: types/spells.ts:647
+Defined in: [types/spells.ts:647](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L647)
 
 Fumble table (pre-loaded)
 
@@ -8885,7 +8885,7 @@ Fumble table (pre-loaded)
 optional corruptionTable?: SimpleTable;
 ```
 
-Defined in: types/spells.ts:650
+Defined in: [types/spells.ts:650](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L650)
 
 Corruption table (pre-loaded)
 
@@ -8895,7 +8895,7 @@ Corruption table (pre-loaded)
 optional patronTaintTable?: SimpleTable;
 ```
 
-Defined in: types/spells.ts:653
+Defined in: [types/spells.ts:653](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L653)
 
 Patron taint table (pre-loaded, if applicable)
 
@@ -8903,7 +8903,7 @@ Patron taint table (pre-loaded, if applicable)
 
 ### SpellCastResult
 
-Defined in: types/spells.ts:659
+Defined in: [types/spells.ts:659](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L659)
 
 Result of casting a spell
 
@@ -8919,7 +8919,7 @@ Result of casting a spell
 spellId: string;
 ```
 
-Defined in: types/spells.ts:661
+Defined in: [types/spells.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L661)
 
 The spell that was cast
 
@@ -8929,7 +8929,7 @@ The spell that was cast
 die: `d${number}`;
 ```
 
-Defined in: types/spells.ts:664
+Defined in: [types/spells.ts:664](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L664)
 
 Die used for the check
 
@@ -8939,7 +8939,7 @@ Die used for the check
 optional natural?: number;
 ```
 
-Defined in: types/spells.ts:667
+Defined in: [types/spells.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L667)
 
 Natural die result (before modifiers)
 
@@ -8949,7 +8949,7 @@ Natural die result (before modifiers)
 optional total?: number;
 ```
 
-Defined in: types/spells.ts:670
+Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
 
 Total check result (after all modifiers)
 
@@ -8959,7 +8959,7 @@ Total check result (after all modifiers)
 formula: string;
 ```
 
-Defined in: types/spells.ts:673
+Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
 
 The formula used
 
@@ -8969,7 +8969,7 @@ The formula used
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: types/spells.ts:676
+Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
 
 All modifiers applied
 
@@ -8979,7 +8979,7 @@ All modifiers applied
 critical: boolean;
 ```
 
-Defined in: types/spells.ts:679
+Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
 
 Was this a critical (natural 20)?
 
@@ -8989,7 +8989,7 @@ Was this a critical (natural 20)?
 fumble: boolean;
 ```
 
-Defined in: types/spells.ts:682
+Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
 
 Was this a fumble (natural 1)?
 
@@ -8999,7 +8999,7 @@ Was this a fumble (natural 1)?
 disapprovalAutoFail: boolean;
 ```
 
-Defined in: types/spells.ts:692
+Defined in: [types/spells.ts:692](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L692)
 
 Did the natural roll land inside the caster's disapproval range
 (excluding the natural-1 fumble)? Per DCC RAW (core rulebook, cleric
@@ -9014,7 +9014,7 @@ with `usesDisapproval` when `disapprovalRange` was provided.
 optional tier?: ResultTier;
 ```
 
-Defined in: types/spells.ts:695
+Defined in: [types/spells.ts:695](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L695)
 
 Result tier (lost, failure, success levels)
 
@@ -9024,7 +9024,7 @@ Result tier (lost, failure, success levels)
 optional resultText?: string;
 ```
 
-Defined in: types/spells.ts:698
+Defined in: [types/spells.ts:698](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L698)
 
 Result text from table lookup
 
@@ -9034,7 +9034,7 @@ Result text from table lookup
 optional effect?: TableEffect;
 ```
 
-Defined in: types/spells.ts:701
+Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
 
 Structured effect from result
 
@@ -9044,7 +9044,7 @@ Structured effect from result
 spellLost: boolean;
 ```
 
-Defined in: types/spells.ts:704
+Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
 
 Was the spell lost for the day?
 
@@ -9054,7 +9054,7 @@ Was the spell lost for the day?
 corruptionTriggered: boolean;
 ```
 
-Defined in: types/spells.ts:707
+Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
 
 Was corruption triggered? (wizard/elf only)
 
@@ -9064,7 +9064,7 @@ Was corruption triggered? (wizard/elf only)
 optional corruptionResult?: CorruptionResult;
 ```
 
-Defined in: types/spells.ts:710
+Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
 
 Corruption result (if rolled, filled by corruption module)
 
@@ -9074,7 +9074,7 @@ Corruption result (if rolled, filled by corruption module)
 optional fumbleResult?: SpellFumbleResult;
 ```
 
-Defined in: types/spells.ts:713
+Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
 
 Fumble result (if applicable)
 
@@ -9084,7 +9084,7 @@ Fumble result (if applicable)
 patronTaintChecked: boolean;
 ```
 
-Defined in: types/spells.ts:720
+Defined in: [types/spells.ts:720](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L720)
 
 Did the per-cast creeping-chance patron-taint check fire this cast?
 True when `patron` is set AND `isPatronCast` returns true — regardless
@@ -9096,7 +9096,7 @@ of spell outcome (success, failure, fumble all still check).
 optional patronTaintRoll?: number;
 ```
 
-Defined in: types/spells.ts:723
+Defined in: [types/spells.ts:723](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L723)
 
 The d100 rolled for the creeping-chance check (only present when checked).
 
@@ -9106,7 +9106,7 @@ The d100 rolled for the creeping-chance check (only present when checked).
 patronTaintAcquired: boolean;
 ```
 
-Defined in: types/spells.ts:731
+Defined in: [types/spells.ts:731](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L731)
 
 Was patron taint acquired on this cast? True when either:
 1. Creeping-chance check hit (roll <= chance), OR
@@ -9119,7 +9119,7 @@ Was patron taint acquired on this cast? True when either:
 optional patronTaintSource?: "creeping-chance" | "result-table";
 ```
 
-Defined in: types/spells.ts:734
+Defined in: [types/spells.ts:734](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L734)
 
 Which trigger acquired the taint (only present when acquired).
 
@@ -9129,7 +9129,7 @@ Which trigger acquired the taint (only present when acquired).
 optional newPatronTaintChance?: number;
 ```
 
-Defined in: types/spells.ts:740
+Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
 
 Post-cast patron-taint chance. Only set when `patronTaintChecked`.
 RAW: resets to 1 on acquisition, else currentChance + 1.
@@ -9140,7 +9140,7 @@ RAW: resets to 1 on acquisition, else currentChance + 1.
 optional patronTaintResult?: PatronTaintResult;
 ```
 
-Defined in: types/spells.ts:746
+Defined in: [types/spells.ts:746](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L746)
 
 Patron-taint manifestation (only present when acquired AND a
 `patronTaintTable` was provided). Rolled via `rollPatronTaint`.
@@ -9151,7 +9151,7 @@ Patron-taint manifestation (only present when acquired AND a
 disapprovalIncrease: number;
 ```
 
-Defined in: types/spells.ts:749
+Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
 
 Disapproval increase amount (cleric)
 
@@ -9161,7 +9161,7 @@ Disapproval increase amount (cleric)
 optional newDisapprovalRange?: number;
 ```
 
-Defined in: types/spells.ts:752
+Defined in: [types/spells.ts:752](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L752)
 
 New disapproval range after this cast (cleric)
 
@@ -9171,7 +9171,7 @@ New disapproval range after this cast (cleric)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: types/spells.ts:755
+Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
 
 Mercurial effect that applied (if any)
 
@@ -9181,7 +9181,7 @@ Mercurial effect that applied (if any)
 optional spellburnApplied?: SpellburnCommitment;
 ```
 
-Defined in: types/spells.ts:758
+Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
 
 Spellburn that was applied
 
@@ -9191,7 +9191,7 @@ Spellburn that was applied
 luckBurned: number;
 ```
 
-Defined in: types/spells.ts:761
+Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
 
 Luck points burned
 
@@ -9201,7 +9201,7 @@ Luck points burned
 optional manifestation?: string;
 ```
 
-Defined in: types/spells.ts:764
+Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
 
 Manifestation description (if rolled/provided)
 
@@ -9209,7 +9209,7 @@ Manifestation description (if rolled/provided)
 
 ### SpellEvents
 
-Defined in: types/spells.ts:775
+Defined in: [types/spells.ts:775](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L775)
 
 Event callbacks for spell casting
 Allows UI layer to react to spell events without coupling.
@@ -9222,7 +9222,7 @@ Allows UI layer to react to spell events without coupling.
 optional onSpellCheckStart?: (input: SpellCastInput) => void;
 ```
 
-Defined in: types/spells.ts:777
+Defined in: [types/spells.ts:777](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L777)
 
 Called when spell check starts
 
@@ -9242,7 +9242,7 @@ Called when spell check starts
 optional onSpellCheckComplete?: (result: SpellCastResult) => void;
 ```
 
-Defined in: types/spells.ts:780
+Defined in: [types/spells.ts:780](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L780)
 
 Called when spell check completes
 
@@ -9262,7 +9262,7 @@ Called when spell check completes
 optional onCritical?: (result: SpellCastResult) => void;
 ```
 
-Defined in: types/spells.ts:783
+Defined in: [types/spells.ts:783](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L783)
 
 Called on critical (natural 20)
 
@@ -9282,7 +9282,7 @@ Called on critical (natural 20)
 optional onFumble?: (result: SpellCastResult) => void;
 ```
 
-Defined in: types/spells.ts:786
+Defined in: [types/spells.ts:786](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L786)
 
 Called on fumble (natural 1)
 
@@ -9302,7 +9302,7 @@ Called on fumble (natural 1)
 optional onSpellLost?: (result: SpellCastResult) => void;
 ```
 
-Defined in: types/spells.ts:789
+Defined in: [types/spells.ts:789](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L789)
 
 Called when spell is lost
 
@@ -9322,7 +9322,7 @@ Called when spell is lost
 optional onCorruptionTriggered?: (result: SpellCastResult, corruption: CorruptionResult) => void;
 ```
 
-Defined in: types/spells.ts:792
+Defined in: [types/spells.ts:792](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L792)
 
 Called when corruption is triggered
 
@@ -9343,7 +9343,7 @@ Called when corruption is triggered
 optional onDisapprovalIncreased?: (result: SpellCastResult, newRange: number) => void;
 ```
 
-Defined in: types/spells.ts:795
+Defined in: [types/spells.ts:795](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L795)
 
 Called when disapproval range increases
 
@@ -9364,7 +9364,7 @@ Called when disapproval range increases
 optional onSpellburnApplied?: (burn: SpellburnCommitment) => void;
 ```
 
-Defined in: types/spells.ts:798
+Defined in: [types/spells.ts:798](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L798)
 
 Called when spellburn is applied
 
@@ -9384,7 +9384,7 @@ Called when spellburn is applied
 optional onMercurialEffect?: (effect: MercurialEffect, result: SpellCastResult) => void;
 ```
 
-Defined in: types/spells.ts:801
+Defined in: [types/spells.ts:801](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L801)
 
 Called when mercurial effect triggers
 
@@ -9405,7 +9405,7 @@ Called when mercurial effect triggers
 optional onPatronTaint?: (result: SpellCastResult, taint: PatronTaintResult) => void;
 ```
 
-Defined in: types/spells.ts:804
+Defined in: [types/spells.ts:804](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L804)
 
 Called when patron taint is triggered
 
@@ -9424,7 +9424,7 @@ Called when patron taint is triggered
 
 ### SpellLookupOptions
 
-Defined in: types/spells.ts:814
+Defined in: [types/spells.ts:814](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L814)
 
 Options for looking up spells
 
@@ -9436,7 +9436,7 @@ Options for looking up spells
 optional casterType?: CasterType;
 ```
 
-Defined in: types/spells.ts:816
+Defined in: [types/spells.ts:816](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L816)
 
 Filter by caster type
 
@@ -9446,7 +9446,7 @@ Filter by caster type
 optional level?: number;
 ```
 
-Defined in: types/spells.ts:819
+Defined in: [types/spells.ts:819](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L819)
 
 Filter by spell level
 
@@ -9456,7 +9456,7 @@ Filter by spell level
 optional tags?: string[];
 ```
 
-Defined in: types/spells.ts:822
+Defined in: [types/spells.ts:822](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L822)
 
 Filter by tags
 
@@ -9466,7 +9466,7 @@ Filter by tags
 optional nameSearch?: string;
 ```
 
-Defined in: types/spells.ts:825
+Defined in: [types/spells.ts:825](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L825)
 
 Search by name (partial match)
 
@@ -9474,7 +9474,7 @@ Search by name (partial match)
 
 ### SpellCheckOptions
 
-Defined in: types/spells.ts:831
+Defined in: [types/spells.ts:831](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L831)
 
 Options for rolling spell checks
 
@@ -9490,7 +9490,7 @@ Options for rolling spell checks
 optional mode?: RollMode;
 ```
 
-Defined in: types/dice.ts:52
+Defined in: [types/dice.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L52)
 
 Whether to just build the formula or actually evaluate it
 
@@ -9504,7 +9504,7 @@ Whether to just build the formula or actually evaluate it
 optional roller?: DiceRoller;
 ```
 
-Defined in: types/dice.ts:55
+Defined in: [types/dice.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L55)
 
 Synchronous custom roller — used instead of built-in RNG when provided
 
@@ -9518,7 +9518,7 @@ Synchronous custom roller — used instead of built-in RNG when provided
 optional skipMercurial?: boolean;
 ```
 
-Defined in: types/spells.ts:833
+Defined in: [types/spells.ts:833](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L833)
 
 Skip mercurial magic application
 
@@ -9528,7 +9528,7 @@ Skip mercurial magic application
 optional skipCorruption?: boolean;
 ```
 
-Defined in: types/spells.ts:836
+Defined in: [types/spells.ts:836](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L836)
 
 Skip corruption rolling (even on trigger)
 
@@ -9538,7 +9538,7 @@ Skip corruption rolling (even on trigger)
 optional skipFumble?: boolean;
 ```
 
-Defined in: types/spells.ts:839
+Defined in: [types/spells.ts:839](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L839)
 
 Skip fumble table rolling
 
@@ -9548,7 +9548,7 @@ Skip fumble table rolling
 optional forceTier?: ResultTier;
 ```
 
-Defined in: types/spells.ts:842
+Defined in: [types/spells.ts:842](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L842)
 
 Force a specific tier result (for testing/GM override)
 
@@ -9558,7 +9558,7 @@ Force a specific tier result (for testing/GM override)
 optional forceNatural?: number;
 ```
 
-Defined in: types/spells.ts:845
+Defined in: [types/spells.ts:845](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L845)
 
 Override the natural die roll (for testing/GM override)
 
@@ -9568,7 +9568,7 @@ Override the natural die roll (for testing/GM override)
 optional profileOverride?: CasterProfile;
 ```
 
-Defined in: types/spells.ts:869
+Defined in: [types/spells.ts:869](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L869)
 
 Override the caster profile derived from `character.classInfo.classId`.
 
@@ -9595,7 +9595,7 @@ the appropriate spellbook, disapproval range, patron, etc.
 
 ### AbilityDefinition
 
-Defined in: types/system.ts:11
+Defined in: [types/system.ts:11](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L11)
 
 Definition of an ability score
 
@@ -9607,7 +9607,7 @@ Definition of an ability score
 id: string;
 ```
 
-Defined in: types/system.ts:13
+Defined in: [types/system.ts:13](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L13)
 
 Unique identifier (e.g., "str", "agl")
 
@@ -9617,7 +9617,7 @@ Unique identifier (e.g., "str", "agl")
 name: string;
 ```
 
-Defined in: types/system.ts:16
+Defined in: [types/system.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L16)
 
 Full name (e.g., "Strength", "Agility")
 
@@ -9627,7 +9627,7 @@ Full name (e.g., "Strength", "Agility")
 abbrev: string;
 ```
 
-Defined in: types/system.ts:19
+Defined in: [types/system.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L19)
 
 Abbreviation for display (e.g., "STR", "AGL")
 
@@ -9637,7 +9637,7 @@ Abbreviation for display (e.g., "STR", "AGL")
 optional description?: string;
 ```
 
-Defined in: types/system.ts:22
+Defined in: [types/system.ts:22](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L22)
 
 Optional description
 
@@ -9645,7 +9645,7 @@ Optional description
 
 ### AlignmentDefinition
 
-Defined in: types/system.ts:38
+Defined in: [types/system.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L38)
 
 Alignment definition with display info
 
@@ -9657,7 +9657,7 @@ Alignment definition with display info
 id: Alignment;
 ```
 
-Defined in: types/system.ts:39
+Defined in: [types/system.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L39)
 
 ##### name
 
@@ -9665,7 +9665,7 @@ Defined in: types/system.ts:39
 name: string;
 ```
 
-Defined in: types/system.ts:40
+Defined in: [types/system.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L40)
 
 ##### abbrev
 
@@ -9673,13 +9673,13 @@ Defined in: types/system.ts:40
 abbrev: string;
 ```
 
-Defined in: types/system.ts:41
+Defined in: [types/system.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L41)
 
 ***
 
 ### AbilityMappings
 
-Defined in: types/system.ts:47
+Defined in: [types/system.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L47)
 
 Mapping of abilities to their common uses
 
@@ -9691,7 +9691,7 @@ Mapping of abilities to their common uses
 meleeAttack: string;
 ```
 
-Defined in: types/system.ts:49
+Defined in: [types/system.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L49)
 
 Ability used for melee attack rolls
 
@@ -9701,7 +9701,7 @@ Ability used for melee attack rolls
 meleeDamage: string;
 ```
 
-Defined in: types/system.ts:52
+Defined in: [types/system.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L52)
 
 Ability used for melee damage
 
@@ -9711,7 +9711,7 @@ Ability used for melee damage
 missileAttack: string;
 ```
 
-Defined in: types/system.ts:55
+Defined in: [types/system.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L55)
 
 Ability used for missile attack rolls
 
@@ -9721,7 +9721,7 @@ Ability used for missile attack rolls
 optional missileDamage?: string;
 ```
 
-Defined in: types/system.ts:58
+Defined in: [types/system.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L58)
 
 Ability used for missile damage (if any)
 
@@ -9731,7 +9731,7 @@ Ability used for missile damage (if any)
 armorClass: string;
 ```
 
-Defined in: types/system.ts:61
+Defined in: [types/system.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L61)
 
 Ability used for armor class
 
@@ -9741,7 +9741,7 @@ Ability used for armor class
 hitPoints: string;
 ```
 
-Defined in: types/system.ts:64
+Defined in: [types/system.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L64)
 
 Ability used for hit points
 
@@ -9751,7 +9751,7 @@ Ability used for hit points
 reflexSave: string;
 ```
 
-Defined in: types/system.ts:67
+Defined in: [types/system.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L67)
 
 Ability used for Reflex saves
 
@@ -9761,7 +9761,7 @@ Ability used for Reflex saves
 fortSave: string;
 ```
 
-Defined in: types/system.ts:70
+Defined in: [types/system.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L70)
 
 Ability used for Fortitude saves
 
@@ -9771,7 +9771,7 @@ Ability used for Fortitude saves
 willSave: string;
 ```
 
-Defined in: types/system.ts:73
+Defined in: [types/system.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L73)
 
 Ability used for Will saves
 
@@ -9781,7 +9781,7 @@ Ability used for Will saves
 initiative: string;
 ```
 
-Defined in: types/system.ts:76
+Defined in: [types/system.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L76)
 
 Ability used for initiative
 
@@ -9791,7 +9791,7 @@ Ability used for initiative
 optional wizardSpellCheck?: string;
 ```
 
-Defined in: types/system.ts:79
+Defined in: [types/system.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L79)
 
 Ability used for spell checks (wizards)
 
@@ -9801,7 +9801,7 @@ Ability used for spell checks (wizards)
 optional clericSpellCheck?: string;
 ```
 
-Defined in: types/system.ts:82
+Defined in: [types/system.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L82)
 
 Ability used for spell checks (clerics)
 
@@ -9809,7 +9809,7 @@ Ability used for spell checks (clerics)
 
 ### SaveDefinition
 
-Defined in: types/system.ts:93
+Defined in: [types/system.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L93)
 
 Save definition
 
@@ -9821,7 +9821,7 @@ Save definition
 id: SaveType;
 ```
 
-Defined in: types/system.ts:94
+Defined in: [types/system.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L94)
 
 ##### name
 
@@ -9829,7 +9829,7 @@ Defined in: types/system.ts:94
 name: string;
 ```
 
-Defined in: types/system.ts:95
+Defined in: [types/system.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L95)
 
 ##### abbrev
 
@@ -9837,7 +9837,7 @@ Defined in: types/system.ts:95
 abbrev: string;
 ```
 
-Defined in: types/system.ts:96
+Defined in: [types/system.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L96)
 
 ##### ability
 
@@ -9845,13 +9845,13 @@ Defined in: types/system.ts:96
 ability: string;
 ```
 
-Defined in: types/system.ts:97
+Defined in: [types/system.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L97)
 
 ***
 
 ### SystemMechanics
 
-Defined in: types/system.ts:103
+Defined in: [types/system.ts:103](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L103)
 
 System-specific mechanics flags
 
@@ -9863,7 +9863,7 @@ System-specific mechanics flags
 optional hasDisapproval?: boolean;
 ```
 
-Defined in: types/system.ts:105
+Defined in: [types/system.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L105)
 
 Does this system use cleric disapproval?
 
@@ -9873,7 +9873,7 @@ Does this system use cleric disapproval?
 optional hasMercurial?: boolean;
 ```
 
-Defined in: types/system.ts:108
+Defined in: [types/system.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L108)
 
 Does this system use wizard mercurial magic?
 
@@ -9883,7 +9883,7 @@ Does this system use wizard mercurial magic?
 optional hasMutations?: boolean;
 ```
 
-Defined in: types/system.ts:111
+Defined in: [types/system.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L111)
 
 Does this system have mutations (MCC)?
 
@@ -9893,7 +9893,7 @@ Does this system have mutations (MCC)?
 optional hasWetware?: boolean;
 ```
 
-Defined in: types/system.ts:114
+Defined in: [types/system.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L114)
 
 Does this system have wetware/cyberware (MCC)?
 
@@ -9903,7 +9903,7 @@ Does this system have wetware/cyberware (MCC)?
 optional hasArtifacts?: boolean;
 ```
 
-Defined in: types/system.ts:117
+Defined in: [types/system.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L117)
 
 Does this system have AI artifacts (MCC)?
 
@@ -9913,7 +9913,7 @@ Does this system have AI artifacts (MCC)?
 optional hasLuckDie?: boolean;
 ```
 
-Defined in: types/system.ts:120
+Defined in: [types/system.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L120)
 
 Does this system use luck for specific rolls?
 
@@ -9923,7 +9923,7 @@ Does this system use luck for specific rolls?
 optional hasFleetingLuck?: boolean;
 ```
 
-Defined in: types/system.ts:123
+Defined in: [types/system.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L123)
 
 Does this system use fleeting luck?
 
@@ -9931,7 +9931,7 @@ Does this system use fleeting luck?
 
 ### SystemConfig
 
-Defined in: types/system.ts:131
+Defined in: [types/system.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L131)
 
 Complete system configuration
 
@@ -9945,7 +9945,7 @@ This defines everything needed to run a DCC-family game system.
 id: string;
 ```
 
-Defined in: types/system.ts:133
+Defined in: [types/system.ts:133](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L133)
 
 Unique system identifier (e.g., "dcc", "mcc", "xcrawl")
 
@@ -9955,7 +9955,7 @@ Unique system identifier (e.g., "dcc", "mcc", "xcrawl")
 name: string;
 ```
 
-Defined in: types/system.ts:136
+Defined in: [types/system.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L136)
 
 Display name (e.g., "Dungeon Crawl Classics")
 
@@ -9965,7 +9965,7 @@ Display name (e.g., "Dungeon Crawl Classics")
 optional version?: string;
 ```
 
-Defined in: types/system.ts:139
+Defined in: [types/system.ts:139](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L139)
 
 System version
 
@@ -9975,7 +9975,7 @@ System version
 abilities: AbilityDefinition[];
 ```
 
-Defined in: types/system.ts:142
+Defined in: [types/system.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L142)
 
 Ability scores used in this system
 
@@ -9985,7 +9985,7 @@ Ability scores used in this system
 abilityMappings: AbilityMappings;
 ```
 
-Defined in: types/system.ts:145
+Defined in: [types/system.ts:145](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L145)
 
 How abilities map to common game uses
 
@@ -9995,7 +9995,7 @@ How abilities map to common game uses
 alignments: AlignmentDefinition[];
 ```
 
-Defined in: types/system.ts:148
+Defined in: [types/system.ts:148](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L148)
 
 Alignments available in this system
 
@@ -10005,7 +10005,7 @@ Alignments available in this system
 saves: SaveDefinition[];
 ```
 
-Defined in: types/system.ts:151
+Defined in: [types/system.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L151)
 
 Saving throws in this system
 
@@ -10015,7 +10015,7 @@ Saving throws in this system
 classes: string[];
 ```
 
-Defined in: types/system.ts:154
+Defined in: [types/system.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L154)
 
 Character classes available (IDs reference class data)
 
@@ -10025,7 +10025,7 @@ Character classes available (IDs reference class data)
 optional diceChain?: number[];
 ```
 
-Defined in: types/system.ts:157
+Defined in: [types/system.ts:157](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L157)
 
 Custom dice chain (if different from standard DCC)
 
@@ -10035,7 +10035,7 @@ Custom dice chain (if different from standard DCC)
 mechanics: SystemMechanics;
 ```
 
-Defined in: types/system.ts:160
+Defined in: [types/system.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L160)
 
 System-specific mechanics
 
@@ -10043,7 +10043,7 @@ System-specific mechanics
 
 ### TableEntry
 
-Defined in: types/tables.ts:10
+Defined in: [types/tables.ts:10](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L10)
 
 A single entry in a rollable table
 
@@ -10055,7 +10055,7 @@ A single entry in a rollable table
 min: number;
 ```
 
-Defined in: types/tables.ts:12
+Defined in: [types/tables.ts:12](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L12)
 
 Minimum roll value for this entry
 
@@ -10065,7 +10065,7 @@ Minimum roll value for this entry
 max: number;
 ```
 
-Defined in: types/tables.ts:15
+Defined in: [types/tables.ts:15](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L15)
 
 Maximum roll value for this entry
 
@@ -10075,7 +10075,7 @@ Maximum roll value for this entry
 text: string;
 ```
 
-Defined in: types/tables.ts:18
+Defined in: [types/tables.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L18)
 
 The result text/description
 
@@ -10085,7 +10085,7 @@ The result text/description
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: types/tables.ts:21
+Defined in: [types/tables.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L21)
 
 Optional structured data parsed from the text
 
@@ -10093,7 +10093,7 @@ Optional structured data parsed from the text
 
 ### RollableTable
 
-Defined in: types/tables.ts:27
+Defined in: [types/tables.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L27)
 
 A complete rollable table
 
@@ -10105,7 +10105,7 @@ A complete rollable table
 id: string;
 ```
 
-Defined in: types/tables.ts:29
+Defined in: [types/tables.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L29)
 
 Unique identifier
 
@@ -10115,7 +10115,7 @@ Unique identifier
 name: string;
 ```
 
-Defined in: types/tables.ts:32
+Defined in: [types/tables.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L32)
 
 Display name
 
@@ -10125,7 +10125,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: types/tables.ts:35
+Defined in: [types/tables.ts:35](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L35)
 
 Description of the table
 
@@ -10135,7 +10135,7 @@ Description of the table
 formula: string;
 ```
 
-Defined in: types/tables.ts:38
+Defined in: [types/tables.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L38)
 
 The die formula to roll (e.g., "1d30")
 
@@ -10145,7 +10145,7 @@ The die formula to roll (e.g., "1d30")
 entries: TableEntry[];
 ```
 
-Defined in: types/tables.ts:41
+Defined in: [types/tables.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L41)
 
 Table entries sorted by range
 
@@ -10153,7 +10153,7 @@ Table entries sorted by range
 
 ### BirthAugurEntry
 
-Defined in: types/tables.ts:47
+Defined in: [types/tables.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L47)
 
 Birth augur (luck) table entry with parsed data
 
@@ -10165,7 +10165,7 @@ Birth augur (luck) table entry with parsed data
 roll: number;
 ```
 
-Defined in: types/tables.ts:49
+Defined in: [types/tables.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L49)
 
 Roll value (1-30)
 
@@ -10175,7 +10175,7 @@ Roll value (1-30)
 name: string;
 ```
 
-Defined in: types/tables.ts:52
+Defined in: [types/tables.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L52)
 
 Name of the birth augur (e.g., "Harsh winter")
 
@@ -10185,7 +10185,7 @@ Name of the birth augur (e.g., "Harsh winter")
 affects: string;
 ```
 
-Defined in: types/tables.ts:55
+Defined in: [types/tables.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L55)
 
 What the luck modifier affects (e.g., "All attack rolls")
 
@@ -10195,7 +10195,7 @@ What the luck modifier affects (e.g., "All attack rolls")
 optional effectType?: BirthAugurEffectType;
 ```
 
-Defined in: types/tables.ts:58
+Defined in: [types/tables.ts:58](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L58)
 
 Parsed effect type for programmatic use
 
@@ -10216,7 +10216,7 @@ type BonusSourceType =
   | "other";
 ```
 
-Defined in: types/bonuses.ts:26
+Defined in: [types/bonuses.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L26)
 
 High-level category of where a bonus comes from.
 Used for organization and UI grouping.
@@ -10229,7 +10229,7 @@ Used for organization and UI grouping.
 type BonusCategory = "inherent" | "equipment" | "circumstance" | "luck" | "spell" | "other";
 ```
 
-Defined in: types/bonuses.ts:41
+Defined in: [types/bonuses.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L41)
 
 Category that determines when bonuses apply.
 Inherent bonuses are always active; situational are per-roll.
@@ -10242,7 +10242,7 @@ Inherent bonuses are always active; situational are per-roll.
 type BonusEffectType = "modifier" | "die" | "dice-chain" | "set-die" | "reroll";
 ```
 
-Defined in: types/bonuses.ts:77
+Defined in: [types/bonuses.ts:77](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L77)
 
 What kind of effect the bonus has on the roll.
 
@@ -10259,7 +10259,7 @@ type BonusEffect =
   | BonusReroll;
 ```
 
-Defined in: types/bonuses.ts:134
+Defined in: [types/bonuses.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L134)
 
 Union of all bonus effect types
 
@@ -10271,7 +10271,7 @@ Union of all bonus effect types
 type AbilityScoreMethod = "3d6" | "4d6-drop-lowest" | "2d6+6" | "2d10" | "manual" | "custom";
 ```
 
-Defined in: types/character-creation.ts:177
+Defined in: [types/character-creation.ts:177](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L177)
 
 Built-in methods for generating ability scores.
 Use "custom" with a DiceMethodDefinition for other methods.
@@ -10291,7 +10291,7 @@ type ZeroLevelHPMethod =
   | "custom";
 ```
 
-Defined in: types/character-creation.ts:230
+Defined in: [types/character-creation.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L230)
 
 Built-in methods for rolling 0-level hit points.
 Use "custom" with an HPMethodDefinition for other methods.
@@ -10304,7 +10304,7 @@ Use "custom" with an HPMethodDefinition for other methods.
 type LeveledHPMethod = "standard" | "reroll-ones" | "average" | "max" | "percentage" | "custom";
 ```
 
-Defined in: types/character-creation.ts:243
+Defined in: [types/character-creation.ts:243](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L243)
 
 Built-in methods for rolling leveled character hit points.
 Use "custom" with an HPMethodDefinition for other methods.
@@ -10323,7 +10323,7 @@ type LuckySignMode =
   | "custom";
 ```
 
-Defined in: types/character-creation.ts:294
+Defined in: [types/character-creation.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L294)
 
 Built-in modes for handling the birth augur / lucky sign.
 Use "custom" with a LuckySignModeDefinition for other modes.
@@ -10336,7 +10336,7 @@ Use "custom" with a LuckySignModeDefinition for other modes.
 type OccupationSource = "core" | "core-human" | "core-demihuman" | "custom";
 ```
 
-Defined in: types/character-creation.ts:330
+Defined in: [types/character-creation.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L330)
 
 Built-in sources for occupation tables.
 Use "custom" with a table ID for other sources.
@@ -10349,7 +10349,7 @@ Use "custom" with a table ID for other sources.
 type DeepReadonly<T> = T extends infer U[] ? readonly DeepReadonly<U>[] : T extends object ? { readonly [K in keyof T]: DeepReadonly<T[K]> } : T;
 ```
 
-Defined in: types/character.ts:20
+Defined in: [types/character.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L20)
 
 Deep readonly utility for immutable function inputs
 
@@ -10367,7 +10367,7 @@ Deep readonly utility for immutable function inputs
 type AbilityScores = Record<DCCAbilityId, AbilityScore>;
 ```
 
-Defined in: types/character.ts:45
+Defined in: [types/character.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L45)
 
 All six DCC ability scores
 
@@ -10379,7 +10379,7 @@ All six DCC ability scores
 type ItemCategory = "weapon" | "armor" | "gear" | "trade-goods" | "treasure" | "other";
 ```
 
-Defined in: types/character.ts:355
+Defined in: [types/character.ts:355](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L355)
 
 Item category for organization
 
@@ -10391,7 +10391,7 @@ Item category for organization
 type ProgressionAlignment = "lawful" | "neutral" | "chaotic";
 ```
 
-Defined in: types/class-progression.ts:16
+Defined in: [types/class-progression.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L16)
 
 Alignment types for progression data (long form)
 
@@ -10403,7 +10403,7 @@ Alignment types for progression data (long form)
 type ProgressionSaveType = "ref" | "frt" | "wil";
 ```
 
-Defined in: types/class-progression.ts:21
+Defined in: [types/class-progression.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L21)
 
 Saving throw short codes (as used in source data)
 
@@ -10415,7 +10415,7 @@ Saving throw short codes (as used in source data)
 type SkillBonuses = Record<string, number | DieType>;
 ```
 
-Defined in: types/class-progression.ts:26
+Defined in: [types/class-progression.ts:26](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L26)
 
 Skill bonuses at a specific level
 
@@ -10435,7 +10435,7 @@ type AttackProgression =
   | "custom";
 ```
 
-Defined in: types/classes.ts:18
+Defined in: [types/classes.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L18)
 
 Attack bonus progression type
 
@@ -10455,7 +10455,7 @@ type SaveProgression =
   | "custom";
 ```
 
-Defined in: types/classes.ts:31
+Defined in: [types/classes.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L31)
 
 Save progression type
 
@@ -10467,7 +10467,7 @@ Save progression type
 type CritTable = "I" | "II" | "III" | "IV" | "V" | "custom";
 ```
 
-Defined in: types/classes.ts:44
+Defined in: [types/classes.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/classes.ts#L44)
 
 Crit table to use
 
@@ -10479,7 +10479,7 @@ Crit table to use
 type AttackType = "melee" | "missile" | "special";
 ```
 
-Defined in: types/combat.ts:19
+Defined in: [types/combat.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L19)
 
 Type of attack being made
 
@@ -10496,7 +10496,7 @@ type ActionDieUse =
 };
 ```
 
-Defined in: types/combat.ts:107
+Defined in: [types/combat.ts:107](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L107)
 
 What an action die may be spent on.
 
@@ -10516,7 +10516,7 @@ unknown tags simply never match a given `ActionType`.
 type ActionType = "attack" | "spell" | "check";
 ```
 
-Defined in: types/combat.ts:113
+Defined in: [types/combat.ts:113](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L113)
 
 The kind of action a roll represents, used to test eligibility against
 an `ActionDieSlot.use` tag.
@@ -10529,7 +10529,7 @@ an `ActionDieSlot.use` tag.
 type CritSource = "threat-range" | "backstab-auto" | "natural-max";
 ```
 
-Defined in: types/combat.ts:253
+Defined in: [types/combat.ts:253](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L253)
 
 Why a critical threat fired. Drives downstream crit-table selection
 (a backstab auto-crit always rolls on Crit Table II regardless of
@@ -10543,7 +10543,7 @@ the attacker's normal crit table).
 type CritTableId = "I" | "II" | "III" | "IV" | "V";
 ```
 
-Defined in: types/combat.ts:379
+Defined in: [types/combat.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L379)
 
 Crit table identifier
 
@@ -10565,7 +10565,7 @@ type ArmorType =
   | "full-plate";
 ```
 
-Defined in: types/combat.ts:443
+Defined in: [types/combat.ts:443](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L443)
 
 Armor type affects fumble die
 
@@ -10577,7 +10577,7 @@ Armor type affects fumble die
 type CreatureCollection = Record<string, Creature>;
 ```
 
-Defined in: types/creatures.ts:116
+Defined in: [types/creatures.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/creatures.ts#L116)
 
 Collection of creatures indexed by ID
 
@@ -10589,7 +10589,7 @@ Collection of creatures indexed by ID
 type DiceChainFaces = typeof DEFAULT_DICE_CHAIN[number];
 ```
 
-Defined in: types/dice.ts:14
+Defined in: [types/dice.ts:14](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L14)
 
 ***
 
@@ -10599,7 +10599,7 @@ Defined in: types/dice.ts:14
 type DieType = `d${number}`;
 ```
 
-Defined in: types/dice.ts:19
+Defined in: [types/dice.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L19)
 
 A die type string like "d20" or "d16"
 
@@ -10611,7 +10611,7 @@ A die type string like "d20" or "d16"
 type CritDieFormula = string;
 ```
 
-Defined in: types/dice.ts:27
+Defined in: [types/dice.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L27)
 
 A crit-die formula. Covers single dice ("d12"), multi-dice ("2d20"),
 and dice-plus-modifier ("d30+2"). The DCC crit die progressions for
@@ -10626,7 +10626,7 @@ used wherever a crit die value is stored or rolled.
 type RollMode = "formula" | "evaluate";
 ```
 
-Defined in: types/dice.ts:32
+Defined in: [types/dice.ts:32](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L32)
 
 How a roll should be handled
 
@@ -10638,7 +10638,7 @@ How a roll should be handled
 type DiceRoller = (expression: string) => number;
 ```
 
-Defined in: types/dice.ts:38
+Defined in: [types/dice.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L38)
 
 Function signature for a synchronous custom dice roller.
 Takes a dice expression (e.g., "1d20") and returns the total.
@@ -10661,7 +10661,7 @@ Takes a dice expression (e.g., "1d20") and returns the total.
 type AsyncDiceRoller = (expression: string) => Promise<number>;
 ```
 
-Defined in: types/dice.ts:45
+Defined in: [types/dice.ts:45](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L45)
 
 Function signature for an asynchronous custom dice roller.
 Use this when the underlying roll machinery is Promise-based
@@ -10698,7 +10698,7 @@ type ModifierCategory =
   | "other";
 ```
 
-Defined in: types/dice.ts:122
+Defined in: [types/dice.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L122)
 
 Closed union of origin categories. Adding a new category is a
 breaking change (by design — it's a natural review point).
@@ -10719,7 +10719,7 @@ type RollModifier =
   | DisplayModifier;
 ```
 
-Defined in: types/dice.ts:220
+Defined in: [types/dice.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L220)
 
 The tagged-union RollModifier. Every roll modification is one of
 these variants; the evaluator dispatches on `kind`.
@@ -10741,7 +10741,7 @@ type OccupationItem =
   | OccupationArmor;
 ```
 
-Defined in: types/equipment.ts:244
+Defined in: [types/equipment.ts:244](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/equipment.ts#L244)
 
 Union type for all occupation items
 
@@ -10753,7 +10753,7 @@ Union type for all occupation items
 type SkillType = "check" | "modifier" | "passive";
 ```
 
-Defined in: types/skills.ts:23
+Defined in: [types/skills.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L23)
 
 Types of skills
 
@@ -10776,7 +10776,7 @@ type ModifiableAction =
   | "skill-check";
 ```
 
-Defined in: types/skills.ts:28
+Defined in: [types/skills.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L28)
 
 What action a modifier skill affects
 
@@ -10788,7 +10788,7 @@ What action a modifier skill affects
 type LevelModifierType = "none" | "full" | "half" | "class-level" | "caster-level" | "custom";
 ```
 
-Defined in: types/skills.ts:40
+Defined in: [types/skills.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L40)
 
 How level affects a skill's roll
 
@@ -10800,7 +10800,7 @@ How level affects a skill's roll
 type ResourceType = "luck" | "spellburn" | "disapproval" | "hp" | "custom";
 ```
 
-Defined in: types/skills.ts:51
+Defined in: [types/skills.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L51)
 
 Resource types that skills can cost
 
@@ -10812,7 +10812,7 @@ Resource types that skills can cost
 type ModifierEffectType = "flat" | "luck" | "luck-multiplied" | "die" | "ability";
 ```
 
-Defined in: types/skills.ts:61
+Defined in: [types/skills.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/skills.ts#L61)
 
 Modifier effect types
 
@@ -10824,7 +10824,7 @@ Modifier effect types
 type SpellCastingMode = "wizard" | "cleric" | "patron";
 ```
 
-Defined in: types/spells.ts:24
+Defined in: [types/spells.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L24)
 
 Spell casting mode determines how the spell is cast.
 Used in spell data catalogs to categorize spells.
@@ -10837,7 +10837,7 @@ Used in spell data catalogs to categorize spells.
 type CasterType = "wizard" | "cleric" | "elf";
 ```
 
-Defined in: types/spells.ts:114
+Defined in: [types/spells.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L114)
 
 Types of spellcasters in DCC
 
@@ -10855,7 +10855,7 @@ type MercurialTrigger =
   | "on-fumble";
 ```
 
-Defined in: types/spells.ts:282
+Defined in: [types/spells.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L282)
 
 Trigger conditions for mercurial effects
 
@@ -10867,7 +10867,7 @@ Trigger conditions for mercurial effects
 type MercurialSpecialAction = "rollAgain";
 ```
 
-Defined in: types/spells.ts:319
+Defined in: [types/spells.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L319)
 
 Special (meta) table-entry actions that need handling beyond "store the
 text". Currently the only action is `rollAgain` — the DCC core Table 5-2
@@ -10882,7 +10882,7 @@ roll 4d20 ...") — but the discriminator leaves room for future specials.
 type DCCAbilityId = "str" | "agl" | "sta" | "per" | "int" | "lck";
 ```
 
-Defined in: types/system.ts:28
+Defined in: [types/system.ts:28](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L28)
 
 Standard DCC ability IDs
 
@@ -10894,7 +10894,7 @@ Standard DCC ability IDs
 type Alignment = "l" | "n" | "c";
 ```
 
-Defined in: types/system.ts:33
+Defined in: [types/system.ts:33](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L33)
 
 Alignment options
 
@@ -10906,7 +10906,7 @@ Alignment options
 type SaveType = "reflex" | "fortitude" | "will";
 ```
 
-Defined in: types/system.ts:88
+Defined in: [types/system.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L88)
 
 Save type identifiers
 
@@ -10949,7 +10949,7 @@ type BirthAugurEffectType =
   | "unknown";
 ```
 
-Defined in: types/tables.ts:64
+Defined in: [types/tables.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L64)
 
 Types of effects birth augurs can have
 
@@ -10961,7 +10961,7 @@ Types of effects birth augurs can have
 const DEFAULT_NAME_CONFIG: NameConfig;
 ```
 
-Defined in: types/character-creation.ts:448
+Defined in: [types/character-creation.ts:448](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L448)
 
 Default name configuration (no automatic generation)
 
@@ -10973,7 +10973,7 @@ Default name configuration (no automatic generation)
 const DEFAULT_ABILITY_SCORE_CONFIG: AbilityScoreConfig;
 ```
 
-Defined in: types/character-creation.ts:518
+Defined in: [types/character-creation.ts:518](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L518)
 
 Default ability score configuration (standard DCC rules)
 
@@ -10985,7 +10985,7 @@ Default ability score configuration (standard DCC rules)
 const DEFAULT_HIT_POINT_CONFIG: HitPointConfig;
 ```
 
-Defined in: types/character-creation.ts:526
+Defined in: [types/character-creation.ts:526](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L526)
 
 Default hit point configuration (standard DCC rules)
 
@@ -10997,7 +10997,7 @@ Default hit point configuration (standard DCC rules)
 const DEFAULT_BIRTH_AUGUR_CONFIG: BirthAugurConfig;
 ```
 
-Defined in: types/character-creation.ts:534
+Defined in: [types/character-creation.ts:534](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L534)
 
 Default birth augur configuration (standard DCC rules)
 
@@ -11009,7 +11009,7 @@ Default birth augur configuration (standard DCC rules)
 const DEFAULT_OCCUPATION_CONFIG: OccupationConfig;
 ```
 
-Defined in: types/character-creation.ts:541
+Defined in: [types/character-creation.ts:541](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L541)
 
 Default occupation configuration (standard DCC rules)
 
@@ -11021,7 +11021,7 @@ Default occupation configuration (standard DCC rules)
 const DEFAULT_CLASS_SELECTION_CONFIG: ClassSelectionConfig;
 ```
 
-Defined in: types/character-creation.ts:548
+Defined in: [types/character-creation.ts:548](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L548)
 
 Default class selection configuration
 
@@ -11033,7 +11033,7 @@ Default class selection configuration
 const DEFAULT_EQUIPMENT_CONFIG: EquipmentConfig;
 ```
 
-Defined in: types/character-creation.ts:555
+Defined in: [types/character-creation.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L555)
 
 Default equipment configuration (standard DCC rules)
 
@@ -11045,7 +11045,7 @@ Default equipment configuration (standard DCC rules)
 const DEFAULT_LANGUAGE_CONFIG: LanguageConfig;
 ```
 
-Defined in: types/character-creation.ts:565
+Defined in: [types/character-creation.ts:565](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L565)
 
 Default language configuration (standard DCC rules)
 
@@ -11057,7 +11057,7 @@ Default language configuration (standard DCC rules)
 const DEFAULT_DWARF_RULES_CONFIG: DwarfRulesConfig;
 ```
 
-Defined in: types/character-creation.ts:573
+Defined in: [types/character-creation.ts:573](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L573)
 
 Default dwarf rules configuration (standard DCC rules)
 
@@ -11069,7 +11069,7 @@ Default dwarf rules configuration (standard DCC rules)
 const DEFAULT_CHARACTER_CREATION_CONFIG: Required<CharacterCreationConfig>;
 ```
 
-Defined in: types/character-creation.ts:580
+Defined in: [types/character-creation.ts:580](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L580)
 
 Complete default configuration (standard DCC rules)
 
@@ -11081,7 +11081,7 @@ Complete default configuration (standard DCC rules)
 const BUILT_IN_DICE_METHODS: Record<Exclude<AbilityScoreMethod, "manual" | "custom">, DiceMethodDefinition>;
 ```
 
-Defined in: types/character-creation.ts:602
+Defined in: [types/character-creation.ts:602](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L602)
 
 Built-in dice method definitions.
 These correspond to the AbilityScoreMethod union values.
@@ -11094,7 +11094,7 @@ These correspond to the AbilityScoreMethod union values.
 const BUILT_IN_ZERO_LEVEL_HP_METHODS: Record<Exclude<ZeroLevelHPMethod, "custom">, HPMethodDefinition>;
 ```
 
-Defined in: types/character-creation.ts:641
+Defined in: [types/character-creation.ts:641](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L641)
 
 Built-in 0-level HP method definitions.
 
@@ -11106,7 +11106,7 @@ Built-in 0-level HP method definitions.
 const FUMBLE_DICE: Record<ArmorType, DieType>;
 ```
 
-Defined in: types/combat.ts:448
+Defined in: [types/combat.ts:448](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L448)
 
 Fumble die by armor type
 
@@ -11118,7 +11118,7 @@ Fumble die by armor type
 const ARMOR_AC_BONUS: Record<ArmorType, number>;
 ```
 
-Defined in: types/combat.ts:464
+Defined in: [types/combat.ts:464](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L464)
 
 AC bonus by armor type (DCC core rules Table 3-3)
 
@@ -11130,7 +11130,7 @@ AC bonus by armor type (DCC core rules Table 3-3)
 const SHIELD_AC_BONUS: 1 = 1;
 ```
 
-Defined in: types/combat.ts:480
+Defined in: [types/combat.ts:480](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L480)
 
 Shield AC bonus
 
@@ -11142,7 +11142,7 @@ Shield AC bonus
 const BASE_AC: 10 = 10;
 ```
 
-Defined in: types/combat.ts:485
+Defined in: [types/combat.ts:485](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L485)
 
 Base AC without any armor or modifiers
 
@@ -11154,7 +11154,7 @@ Base AC without any armor or modifiers
 const COMMON_WEAPONS: Record<string, WeaponStats>;
 ```
 
-Defined in: types/combat.ts:707
+Defined in: [types/combat.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L707)
 
 Common weapon stats
 
@@ -11166,7 +11166,7 @@ Common weapon stats
 const DEFAULT_DICE_CHAIN: readonly [3, 4, 5, 6, 7, 8, 10, 12, 14, 16, 20, 24, 30];
 ```
 
-Defined in: types/dice.ts:12
+Defined in: [types/dice.ts:12](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L12)
 
 Standard DCC dice chain - the progression of dice sizes
 d3 → d4 → d5 → d6 → d7 → d8 → d10 → d12 → d14 → d16 → d20 → d24 → d30
@@ -11179,7 +11179,7 @@ d3 → d4 → d5 → d6 → d7 → d8 → d10 → d12 → d14 → d16 → d20 �
 const defaultRandomSource: RandomSource;
 ```
 
-Defined in: types/random.ts:172
+Defined in: [types/random.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L172)
 
 Default random source instance.
 Use this when you don't need reproducibility or testing.
@@ -11192,7 +11192,7 @@ Use this when you don't need reproducibility or testing.
 const CASTER_PROFILES: Record<CasterType, CasterProfile>;
 ```
 
-Defined in: types/spells.ts:152
+Defined in: [types/spells.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L152)
 
 Standard caster profiles for DCC classes
 
@@ -11204,7 +11204,7 @@ Standard caster profiles for DCC classes
 const DCC_ABILITIES: readonly AbilityDefinition[];
 ```
 
-Defined in: types/system.ts:166
+Defined in: [types/system.ts:166](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L166)
 
 Standard DCC abilities
 
@@ -11216,7 +11216,7 @@ Standard DCC abilities
 const DCC_ALIGNMENTS: readonly AlignmentDefinition[];
 ```
 
-Defined in: types/system.ts:178
+Defined in: [types/system.ts:178](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L178)
 
 Standard DCC alignments
 
@@ -11228,7 +11228,7 @@ Standard DCC alignments
 const DCC_SAVES: readonly SaveDefinition[];
 ```
 
-Defined in: types/system.ts:187
+Defined in: [types/system.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L187)
 
 Standard DCC saves
 
@@ -11240,7 +11240,7 @@ Standard DCC saves
 const DCC_ABILITY_MAPPINGS: AbilityMappings;
 ```
 
-Defined in: types/system.ts:196
+Defined in: [types/system.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L196)
 
 Standard DCC ability mappings
 
@@ -11252,7 +11252,7 @@ Standard DCC ability mappings
 const DCC_SYSTEM: SystemConfig;
 ```
 
-Defined in: types/system.ts:213
+Defined in: [types/system.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L213)
 
 Standard DCC system configuration
 
@@ -11264,7 +11264,7 @@ Standard DCC system configuration
 function createEmptyBonusList(): BonusList;
 ```
 
-Defined in: types/bonuses.ts:249
+Defined in: [types/bonuses.ts:249](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L249)
 
 Create an empty bonus list
 
@@ -11284,7 +11284,7 @@ function createAbilityBonus(
 ): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:263
+Defined in: [types/bonuses.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L263)
 
 Create an ability modifier bonus
 
@@ -11313,7 +11313,7 @@ function createLevelBonus(
 ): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:280
+Defined in: [types/bonuses.ts:280](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L280)
 
 Create a level/class bonus
 
@@ -11338,7 +11338,7 @@ Create a level/class bonus
 function createLuckBonus(pointsBurned: number, multiplier?: number): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:298
+Defined in: [types/bonuses.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L298)
 
 Create a luck burn bonus
 
@@ -11365,7 +11365,7 @@ function createEquipmentBonus(
 ): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:317
+Defined in: [types/bonuses.ts:317](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L317)
 
 Create an equipment bonus
 
@@ -11393,7 +11393,7 @@ function createSpellBonus(
 ): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:334
+Defined in: [types/bonuses.ts:334](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L334)
 
 Create a spell effect bonus
 
@@ -11417,7 +11417,7 @@ Create a spell effect bonus
 function createAssistBonus(helperName: string, modifier?: number): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:351
+Defined in: [types/bonuses.ts:351](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L351)
 
 Create an assist bonus (another character helping)
 
@@ -11440,7 +11440,7 @@ Create an assist bonus (another character helping)
 function createJudgeBonus(reason: string, effect: BonusEffect): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:367
+Defined in: [types/bonuses.ts:367](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L367)
 
 Create a judge's situational bonus
 
@@ -11467,7 +11467,7 @@ function createDiceChainBonus(
 ): RollBonus;
 ```
 
-Defined in: types/bonuses.ts:383
+Defined in: [types/bonuses.ts:383](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L383)
 
 Create a dice chain bump bonus
 
@@ -11491,7 +11491,7 @@ Create a dice chain bump bonus
 function computeBonuses(bonuses: RollBonus[], condition?: string): ComputedBonuses;
 ```
 
-Defined in: types/bonuses.ts:434
+Defined in: [types/bonuses.ts:434](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L434)
 
 Compute the total effect of all bonuses.
 All bonuses stack in DCC.
@@ -11517,7 +11517,7 @@ Computed totals for modifiers, dice chain, etc.
 function mergeBonuses(list: BonusList): RollBonus[];
 ```
 
-Defined in: types/bonuses.ts:490
+Defined in: [types/bonuses.ts:490](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L490)
 
 Merge inherent and situational bonuses into a single list
 
@@ -11539,7 +11539,7 @@ Merge inherent and situational bonuses into a single list
 function getTotalModifier(bonuses: RollBonus[]): number;
 ```
 
-Defined in: types/bonuses.ts:497
+Defined in: [types/bonuses.ts:497](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L497)
 
 Get the total modifier from a list of bonuses (quick helper)
 
@@ -11561,7 +11561,7 @@ Get the total modifier from a list of bonuses (quick helper)
 function getDiceChainSteps(bonuses: RollBonus[]): number;
 ```
 
-Defined in: types/bonuses.ts:509
+Defined in: [types/bonuses.ts:509](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/bonuses.ts#L509)
 
 Get net dice chain steps from a list of bonuses
 
@@ -11583,7 +11583,7 @@ Get net dice chain steps from a list of bonuses
 function resolveCharacterCreationConfig(userConfig?: CharacterCreationConfig): Required<CharacterCreationConfig>;
 ```
 
-Defined in: types/character-creation.ts:695
+Defined in: [types/character-creation.ts:695](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L695)
 
 Merge user config with defaults
 
@@ -11609,7 +11609,7 @@ function getDiceMethodDefinition(
 ): DiceMethodDefinition | undefined;
 ```
 
-Defined in: types/character-creation.ts:750
+Defined in: [types/character-creation.ts:750](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character-creation.ts#L750)
 
 Get dice method definition by ID or built-in name.
 Returns undefined if not found.
@@ -11634,7 +11634,7 @@ Returns undefined if not found.
 function createDefaultAbilityScores(): AbilityScores;
 ```
 
-Defined in: types/character.ts:50
+Defined in: [types/character.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L50)
 
 Create default ability scores (all 10s)
 
@@ -11650,7 +11650,7 @@ Create default ability scores (all 10s)
 function createEmptyInventory(): Inventory;
 ```
 
-Defined in: types/character.ts:394
+Defined in: [types/character.ts:394](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L394)
 
 Create an empty inventory
 
@@ -11670,7 +11670,7 @@ function createInventoryItem(
 ): InventoryItem;
 ```
 
-Defined in: types/character.ts:401
+Defined in: [types/character.ts:401](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/character.ts#L401)
 
 Create an inventory item with defaults
 
@@ -11699,7 +11699,7 @@ function getSkillBonus(
 ): number | `d${number}` | undefined;
 ```
 
-Defined in: types/class-progression.ts:102
+Defined in: [types/class-progression.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/class-progression.ts#L102)
 
 Helper to get skill bonus for a character
 
@@ -11724,7 +11724,7 @@ Helper to get skill bonus for a character
 function createDefaultRandomSource(): RandomSource;
 ```
 
-Defined in: types/random.ts:52
+Defined in: [types/random.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L52)
 
 Create a random source using Math.random().
 This is the default for production use.
@@ -11741,7 +11741,7 @@ This is the default for production use.
 function createSeededRandomSource(seed: number): RandomSource;
 ```
 
-Defined in: types/random.ts:83
+Defined in: [types/random.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L83)
 
 Create a seeded random source for reproducible results.
 Uses a simple LCG (Linear Congruential Generator).
@@ -11764,7 +11764,7 @@ Uses a simple LCG (Linear Congruential Generator).
 function createMockRandomSource(queue: MockRandomQueue): RandomSource;
 ```
 
-Defined in: types/random.ts:140
+Defined in: [types/random.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/random.ts#L140)
 
 Create a mock random source with predetermined values.
 Useful for testing specific scenarios.
@@ -11790,7 +11790,7 @@ and 0 for indices.
 function createEmptySpellbook(): Spellbook;
 ```
 
-Defined in: types/spells.ts:447
+Defined in: [types/spells.ts:447](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L447)
 
 Create an empty spellbook
 
@@ -11806,7 +11806,7 @@ Create an empty spellbook
 function createEmptySpellburn(): SpellburnCommitment;
 ```
 
-Defined in: types/spells.ts:475
+Defined in: [types/spells.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L475)
 
 Create an empty spellburn commitment
 
@@ -11822,7 +11822,7 @@ Create an empty spellburn commitment
 function totalSpellburn(commitment: SpellburnCommitment): number;
 ```
 
-Defined in: types/spells.ts:482
+Defined in: [types/spells.ts:482](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L482)
 
 Calculate total spellburn points
 
@@ -11844,7 +11844,7 @@ Calculate total spellburn points
 function findAbility(abilities: readonly AbilityDefinition[], id: string): AbilityDefinition | undefined;
 ```
 
-Defined in: types/system.ts:240
+Defined in: [types/system.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L240)
 
 Helper to find an ability by ID
 
@@ -11867,7 +11867,7 @@ Helper to find an ability by ID
 function findSave(saves: readonly SaveDefinition[], id: SaveType): SaveDefinition | undefined;
 ```
 
-Defined in: types/system.ts:250
+Defined in: [types/system.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/system.ts#L250)
 
 Helper to find a save by ID
 
@@ -11890,7 +11890,7 @@ Helper to find a save by ID
 function lookupTableResult(table: RollableTable, roll: number): TableEntry | undefined;
 ```
 
-Defined in: types/tables.ts:100
+Defined in: [types/tables.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L100)
 
 Look up a result in a table by roll value
 
@@ -11913,7 +11913,7 @@ Look up a result in a table by roll value
 function lookupBirthAugurEntry(augurs: BirthAugurEntry[], roll: number): BirthAugurEntry | undefined;
 ```
 
-Defined in: types/tables.ts:110
+Defined in: [types/tables.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/tables.ts#L110)
 
 Look up a birth augur by roll value
 

@@ -4,7 +4,7 @@
 
 ### ConvertOptions
 
-Defined in: parsers/convert.ts:41
+Defined in: [parsers/convert.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L41)
 
 Options for conversion
 
@@ -16,7 +16,7 @@ Options for conversion
 optional generateId?: () => string;
 ```
 
-Defined in: parsers/convert.ts:46
+Defined in: [parsers/convert.ts:46](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L46)
 
 Generate a unique ID for the character.
 If not provided, a random UUID-like ID will be generated.
@@ -31,7 +31,7 @@ If not provided, a random UUID-like ID will be generated.
 optional defaultName?: string;
 ```
 
-Defined in: parsers/convert.ts:52
+Defined in: [parsers/convert.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L52)
 
 Default name if the character doesn't have one.
 Purple Sorcerer doesn't generate names, so this is often needed.
@@ -42,7 +42,7 @@ Purple Sorcerer doesn't generate names, so this is often needed.
 optional defaultAlignment?: Alignment;
 ```
 
-Defined in: parsers/convert.ts:57
+Defined in: [parsers/convert.ts:57](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L57)
 
 Default alignment for 0-level characters.
 
@@ -50,7 +50,7 @@ Default alignment for 0-level characters.
 
 ### PSGeneratorSettings
 
-Defined in: parsers/purple-sorcerer-types.ts:18
+Defined in: [parsers/purple-sorcerer-types.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L18)
 
 Generator settings from the output header
 
@@ -62,7 +62,7 @@ Generator settings from the output header
 source: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:19
+Defined in: [parsers/purple-sorcerer-types.ts:19](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L19)
 
 ##### rollMode
 
@@ -70,7 +70,7 @@ Defined in: parsers/purple-sorcerer-types.ts:19
 rollMode: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:20
+Defined in: [parsers/purple-sorcerer-types.ts:20](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L20)
 
 ##### hpMode
 
@@ -78,7 +78,7 @@ Defined in: parsers/purple-sorcerer-types.ts:20
 hpMode: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:21
+Defined in: [parsers/purple-sorcerer-types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L21)
 
 ##### hpUpMode?
 
@@ -86,7 +86,7 @@ Defined in: parsers/purple-sorcerer-types.ts:21
 optional hpUpMode?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:22
+Defined in: [parsers/purple-sorcerer-types.ts:22](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L22)
 
 ##### augurMode
 
@@ -94,13 +94,13 @@ Defined in: parsers/purple-sorcerer-types.ts:22
 augurMode: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:23
+Defined in: [parsers/purple-sorcerer-types.ts:23](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L23)
 
 ***
 
 ### PSAbilityScore
 
-Defined in: parsers/purple-sorcerer-types.ts:29
+Defined in: [parsers/purple-sorcerer-types.ts:29](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L29)
 
 Parsed ability score
 
@@ -112,7 +112,7 @@ Parsed ability score
 score: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:30
+Defined in: [parsers/purple-sorcerer-types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L30)
 
 ##### modifier
 
@@ -120,13 +120,13 @@ Defined in: parsers/purple-sorcerer-types.ts:30
 modifier: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:31
+Defined in: [parsers/purple-sorcerer-types.ts:31](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L31)
 
 ***
 
 ### PSAbilityScores
 
-Defined in: parsers/purple-sorcerer-types.ts:37
+Defined in: [parsers/purple-sorcerer-types.ts:37](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L37)
 
 Parsed ability scores (all six)
 
@@ -138,7 +138,7 @@ Parsed ability scores (all six)
 strength: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:38
+Defined in: [parsers/purple-sorcerer-types.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L38)
 
 ##### agility
 
@@ -146,7 +146,7 @@ Defined in: parsers/purple-sorcerer-types.ts:38
 agility: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:39
+Defined in: [parsers/purple-sorcerer-types.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L39)
 
 ##### stamina
 
@@ -154,7 +154,7 @@ Defined in: parsers/purple-sorcerer-types.ts:39
 stamina: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:40
+Defined in: [parsers/purple-sorcerer-types.ts:40](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L40)
 
 ##### personality
 
@@ -162,7 +162,7 @@ Defined in: parsers/purple-sorcerer-types.ts:40
 personality: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:41
+Defined in: [parsers/purple-sorcerer-types.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L41)
 
 ##### intelligence
 
@@ -170,7 +170,7 @@ Defined in: parsers/purple-sorcerer-types.ts:41
 intelligence: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:42
+Defined in: [parsers/purple-sorcerer-types.ts:42](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L42)
 
 ##### luck
 
@@ -178,13 +178,13 @@ Defined in: parsers/purple-sorcerer-types.ts:42
 luck: PSAbilityScore;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:43
+Defined in: [parsers/purple-sorcerer-types.ts:43](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L43)
 
 ***
 
 ### PSWeapon
 
-Defined in: parsers/purple-sorcerer-types.ts:49
+Defined in: [parsers/purple-sorcerer-types.ts:49](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L49)
 
 Parsed weapon data
 
@@ -196,7 +196,7 @@ Parsed weapon data
 name: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:50
+Defined in: [parsers/purple-sorcerer-types.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L50)
 
 ##### type
 
@@ -204,7 +204,7 @@ Defined in: parsers/purple-sorcerer-types.ts:50
 type: "melee" | "ranged";
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:51
+Defined in: [parsers/purple-sorcerer-types.ts:51](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L51)
 
 ##### attackMod
 
@@ -212,7 +212,7 @@ Defined in: parsers/purple-sorcerer-types.ts:51
 attackMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:52
+Defined in: [parsers/purple-sorcerer-types.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L52)
 
 ##### damage
 
@@ -220,7 +220,7 @@ Defined in: parsers/purple-sorcerer-types.ts:52
 damage: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:53
+Defined in: [parsers/purple-sorcerer-types.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L53)
 
 ##### magicBonus?
 
@@ -228,13 +228,13 @@ Defined in: parsers/purple-sorcerer-types.ts:53
 optional magicBonus?: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:54
+Defined in: [parsers/purple-sorcerer-types.ts:54](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L54)
 
 ***
 
 ### PSArmor
 
-Defined in: parsers/purple-sorcerer-types.ts:60
+Defined in: [parsers/purple-sorcerer-types.ts:60](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L60)
 
 Parsed armor data
 
@@ -246,7 +246,7 @@ Parsed armor data
 name: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:61
+Defined in: [parsers/purple-sorcerer-types.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L61)
 
 ##### acBonus
 
@@ -254,7 +254,7 @@ Defined in: parsers/purple-sorcerer-types.ts:61
 acBonus: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:62
+Defined in: [parsers/purple-sorcerer-types.ts:62](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L62)
 
 ##### checkPenalty
 
@@ -262,7 +262,7 @@ Defined in: parsers/purple-sorcerer-types.ts:62
 checkPenalty: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:63
+Defined in: [parsers/purple-sorcerer-types.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L63)
 
 ##### fumbleDie
 
@@ -270,7 +270,7 @@ Defined in: parsers/purple-sorcerer-types.ts:63
 fumbleDie: `d${number}`;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:64
+Defined in: [parsers/purple-sorcerer-types.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L64)
 
 ##### speedPenalty?
 
@@ -278,13 +278,13 @@ Defined in: parsers/purple-sorcerer-types.ts:64
 optional speedPenalty?: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:65
+Defined in: [parsers/purple-sorcerer-types.ts:65](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L65)
 
 ***
 
 ### PSThiefSkill
 
-Defined in: parsers/purple-sorcerer-types.ts:71
+Defined in: [parsers/purple-sorcerer-types.ts:71](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L71)
 
 Parsed thief skill
 
@@ -296,7 +296,7 @@ Parsed thief skill
 name: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:72
+Defined in: [parsers/purple-sorcerer-types.ts:72](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L72)
 
 ##### bonus
 
@@ -304,7 +304,7 @@ Defined in: parsers/purple-sorcerer-types.ts:72
 bonus: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:73
+Defined in: [parsers/purple-sorcerer-types.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L73)
 
 ##### checkPenalty
 
@@ -312,13 +312,13 @@ Defined in: parsers/purple-sorcerer-types.ts:73
 checkPenalty: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:74
+Defined in: [parsers/purple-sorcerer-types.ts:74](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L74)
 
 ***
 
 ### PSSpell
 
-Defined in: parsers/purple-sorcerer-types.ts:80
+Defined in: [parsers/purple-sorcerer-types.ts:80](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L80)
 
 Parsed spell entry
 
@@ -330,7 +330,7 @@ Parsed spell entry
 level: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:81
+Defined in: [parsers/purple-sorcerer-types.ts:81](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L81)
 
 ##### name
 
@@ -338,13 +338,13 @@ Defined in: parsers/purple-sorcerer-types.ts:81
 name: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:82
+Defined in: [parsers/purple-sorcerer-types.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L82)
 
 ***
 
 ### PSLuckySign
 
-Defined in: parsers/purple-sorcerer-types.ts:88
+Defined in: [parsers/purple-sorcerer-types.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L88)
 
 Lucky sign / birth augur
 
@@ -356,7 +356,7 @@ Lucky sign / birth augur
 name: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:89
+Defined in: [parsers/purple-sorcerer-types.ts:89](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L89)
 
 ##### effect
 
@@ -364,7 +364,7 @@ Defined in: parsers/purple-sorcerer-types.ts:89
 effect: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:90
+Defined in: [parsers/purple-sorcerer-types.ts:90](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L90)
 
 ##### modifier
 
@@ -372,13 +372,13 @@ Defined in: parsers/purple-sorcerer-types.ts:90
 modifier: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:91
+Defined in: [parsers/purple-sorcerer-types.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L91)
 
 ***
 
 ### PSCharacter
 
-Defined in: parsers/purple-sorcerer-types.ts:109
+Defined in: [parsers/purple-sorcerer-types.ts:109](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L109)
 
 Complete parsed character from Purple Sorcerer
 
@@ -390,7 +390,7 @@ Complete parsed character from Purple Sorcerer
 optional settings?: PSGeneratorSettings;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:111
+Defined in: [parsers/purple-sorcerer-types.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L111)
 
 ##### occupation
 
@@ -398,7 +398,7 @@ Defined in: parsers/purple-sorcerer-types.ts:111
 occupation: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:114
+Defined in: [parsers/purple-sorcerer-types.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L114)
 
 ##### alignment?
 
@@ -406,7 +406,7 @@ Defined in: parsers/purple-sorcerer-types.ts:114
 optional alignment?: Alignment;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:115
+Defined in: [parsers/purple-sorcerer-types.ts:115](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L115)
 
 ##### classType?
 
@@ -414,7 +414,7 @@ Defined in: parsers/purple-sorcerer-types.ts:115
 optional classType?: PSClassType;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:116
+Defined in: [parsers/purple-sorcerer-types.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L116)
 
 ##### level
 
@@ -422,7 +422,7 @@ Defined in: parsers/purple-sorcerer-types.ts:116
 level: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:117
+Defined in: [parsers/purple-sorcerer-types.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L117)
 
 ##### abilities
 
@@ -430,7 +430,7 @@ Defined in: parsers/purple-sorcerer-types.ts:117
 abilities: PSAbilityScores;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:120
+Defined in: [parsers/purple-sorcerer-types.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L120)
 
 ##### ac
 
@@ -438,7 +438,7 @@ Defined in: parsers/purple-sorcerer-types.ts:120
 ac: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:123
+Defined in: [parsers/purple-sorcerer-types.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L123)
 
 ##### hp
 
@@ -446,7 +446,7 @@ Defined in: parsers/purple-sorcerer-types.ts:123
 hp: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:124
+Defined in: [parsers/purple-sorcerer-types.ts:124](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L124)
 
 ##### speed
 
@@ -454,7 +454,7 @@ Defined in: parsers/purple-sorcerer-types.ts:124
 speed: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:125
+Defined in: [parsers/purple-sorcerer-types.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L125)
 
 ##### initiative
 
@@ -462,7 +462,7 @@ Defined in: parsers/purple-sorcerer-types.ts:125
 initiative: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:126
+Defined in: [parsers/purple-sorcerer-types.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L126)
 
 ##### reflex
 
@@ -470,7 +470,7 @@ Defined in: parsers/purple-sorcerer-types.ts:126
 reflex: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:129
+Defined in: [parsers/purple-sorcerer-types.ts:129](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L129)
 
 ##### fortitude
 
@@ -478,7 +478,7 @@ Defined in: parsers/purple-sorcerer-types.ts:129
 fortitude: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:130
+Defined in: [parsers/purple-sorcerer-types.ts:130](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L130)
 
 ##### will
 
@@ -486,7 +486,7 @@ Defined in: parsers/purple-sorcerer-types.ts:130
 will: number;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:131
+Defined in: [parsers/purple-sorcerer-types.ts:131](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L131)
 
 ##### baseAttackMod?
 
@@ -494,7 +494,7 @@ Defined in: parsers/purple-sorcerer-types.ts:131
 optional baseAttackMod?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:134
+Defined in: [parsers/purple-sorcerer-types.ts:134](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L134)
 
 ##### attackDice?
 
@@ -502,7 +502,7 @@ Defined in: parsers/purple-sorcerer-types.ts:134
 optional attackDice?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:135
+Defined in: [parsers/purple-sorcerer-types.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L135)
 
 ##### critDie?
 
@@ -510,7 +510,7 @@ Defined in: parsers/purple-sorcerer-types.ts:135
 optional critDie?: `d${number}`;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:136
+Defined in: [parsers/purple-sorcerer-types.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L136)
 
 ##### critTable?
 
@@ -518,7 +518,7 @@ Defined in: parsers/purple-sorcerer-types.ts:136
 optional critTable?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:137
+Defined in: [parsers/purple-sorcerer-types.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L137)
 
 ##### occupationWeapon?
 
@@ -526,7 +526,7 @@ Defined in: parsers/purple-sorcerer-types.ts:137
 optional occupationWeapon?: PSWeapon;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:140
+Defined in: [parsers/purple-sorcerer-types.ts:140](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L140)
 
 ##### mainWeapon?
 
@@ -534,7 +534,7 @@ Defined in: parsers/purple-sorcerer-types.ts:140
 optional mainWeapon?: PSWeapon;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:141
+Defined in: [parsers/purple-sorcerer-types.ts:141](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L141)
 
 ##### secondaryWeapon?
 
@@ -542,7 +542,7 @@ Defined in: parsers/purple-sorcerer-types.ts:141
 optional secondaryWeapon?: PSWeapon;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:142
+Defined in: [parsers/purple-sorcerer-types.ts:142](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L142)
 
 ##### weapon?
 
@@ -550,7 +550,7 @@ Defined in: parsers/purple-sorcerer-types.ts:142
 optional weapon?: PSWeapon;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:144
+Defined in: [parsers/purple-sorcerer-types.ts:144](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L144)
 
 ##### armor?
 
@@ -558,7 +558,7 @@ Defined in: parsers/purple-sorcerer-types.ts:144
 optional armor?: PSArmor;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:147
+Defined in: [parsers/purple-sorcerer-types.ts:147](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L147)
 
 ##### equipment
 
@@ -566,7 +566,7 @@ Defined in: parsers/purple-sorcerer-types.ts:147
 equipment: string[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:150
+Defined in: [parsers/purple-sorcerer-types.ts:150](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L150)
 
 ##### tradeGood?
 
@@ -574,7 +574,7 @@ Defined in: parsers/purple-sorcerer-types.ts:150
 optional tradeGood?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:151
+Defined in: [parsers/purple-sorcerer-types.ts:151](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L151)
 
 ##### startingFunds
 
@@ -582,7 +582,7 @@ Defined in: parsers/purple-sorcerer-types.ts:151
 startingFunds: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:152
+Defined in: [parsers/purple-sorcerer-types.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L152)
 
 ##### luckySign?
 
@@ -590,7 +590,7 @@ Defined in: parsers/purple-sorcerer-types.ts:152
 optional luckySign?: PSLuckySign;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:155
+Defined in: [parsers/purple-sorcerer-types.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L155)
 
 ##### languages
 
@@ -598,7 +598,7 @@ Defined in: parsers/purple-sorcerer-types.ts:155
 languages: string[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:158
+Defined in: [parsers/purple-sorcerer-types.ts:158](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L158)
 
 ##### racialTraits?
 
@@ -606,7 +606,7 @@ Defined in: parsers/purple-sorcerer-types.ts:158
 optional racialTraits?: string[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:161
+Defined in: [parsers/purple-sorcerer-types.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L161)
 
 ##### classTrait?
 
@@ -614,7 +614,7 @@ Defined in: parsers/purple-sorcerer-types.ts:161
 optional classTrait?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:164
+Defined in: [parsers/purple-sorcerer-types.ts:164](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L164)
 
 ##### thiefSkills?
 
@@ -622,7 +622,7 @@ Defined in: parsers/purple-sorcerer-types.ts:164
 optional thiefSkills?: PSThiefSkill[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:167
+Defined in: [parsers/purple-sorcerer-types.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L167)
 
 ##### spells?
 
@@ -630,7 +630,7 @@ Defined in: parsers/purple-sorcerer-types.ts:167
 optional spells?: PSSpell[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:170
+Defined in: [parsers/purple-sorcerer-types.ts:170](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L170)
 
 ##### spellCheck?
 
@@ -638,7 +638,7 @@ Defined in: parsers/purple-sorcerer-types.ts:170
 optional spellCheck?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:171
+Defined in: [parsers/purple-sorcerer-types.ts:171](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L171)
 
 ##### luckDie?
 
@@ -646,7 +646,7 @@ Defined in: parsers/purple-sorcerer-types.ts:171
 optional luckDie?: `d${number}`;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:174
+Defined in: [parsers/purple-sorcerer-types.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L174)
 
 ##### castSpellFromScrollDie?
 
@@ -654,13 +654,13 @@ Defined in: parsers/purple-sorcerer-types.ts:174
 optional castSpellFromScrollDie?: `d${number}`;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:175
+Defined in: [parsers/purple-sorcerer-types.ts:175](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L175)
 
 ***
 
 ### PSJsonZeroLevel
 
-Defined in: parsers/purple-sorcerer-types.ts:185
+Defined in: [parsers/purple-sorcerer-types.ts:185](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L185)
 
 Raw character from Purple Sorcerer JSON format (0-level)
 
@@ -672,7 +672,7 @@ Raw character from Purple Sorcerer JSON format (0-level)
 occTitle: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:186
+Defined in: [parsers/purple-sorcerer-types.ts:186](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L186)
 
 ##### strengthScore
 
@@ -680,7 +680,7 @@ Defined in: parsers/purple-sorcerer-types.ts:186
 strengthScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:187
+Defined in: [parsers/purple-sorcerer-types.ts:187](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L187)
 
 ##### strengthMod
 
@@ -688,7 +688,7 @@ Defined in: parsers/purple-sorcerer-types.ts:187
 strengthMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:188
+Defined in: [parsers/purple-sorcerer-types.ts:188](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L188)
 
 ##### agilityScore
 
@@ -696,7 +696,7 @@ Defined in: parsers/purple-sorcerer-types.ts:188
 agilityScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:189
+Defined in: [parsers/purple-sorcerer-types.ts:189](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L189)
 
 ##### agilityMod
 
@@ -704,7 +704,7 @@ Defined in: parsers/purple-sorcerer-types.ts:189
 agilityMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:190
+Defined in: [parsers/purple-sorcerer-types.ts:190](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L190)
 
 ##### staminaScore
 
@@ -712,7 +712,7 @@ Defined in: parsers/purple-sorcerer-types.ts:190
 staminaScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:191
+Defined in: [parsers/purple-sorcerer-types.ts:191](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L191)
 
 ##### staminaMod
 
@@ -720,7 +720,7 @@ Defined in: parsers/purple-sorcerer-types.ts:191
 staminaMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:192
+Defined in: [parsers/purple-sorcerer-types.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L192)
 
 ##### personalityScore
 
@@ -728,7 +728,7 @@ Defined in: parsers/purple-sorcerer-types.ts:192
 personalityScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:193
+Defined in: [parsers/purple-sorcerer-types.ts:193](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L193)
 
 ##### personalityMod
 
@@ -736,7 +736,7 @@ Defined in: parsers/purple-sorcerer-types.ts:193
 personalityMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:194
+Defined in: [parsers/purple-sorcerer-types.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L194)
 
 ##### intelligenceScore
 
@@ -744,7 +744,7 @@ Defined in: parsers/purple-sorcerer-types.ts:194
 intelligenceScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:195
+Defined in: [parsers/purple-sorcerer-types.ts:195](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L195)
 
 ##### intelligenceMod
 
@@ -752,7 +752,7 @@ Defined in: parsers/purple-sorcerer-types.ts:195
 intelligenceMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:196
+Defined in: [parsers/purple-sorcerer-types.ts:196](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L196)
 
 ##### luckScore
 
@@ -760,7 +760,7 @@ Defined in: parsers/purple-sorcerer-types.ts:196
 luckScore: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:197
+Defined in: [parsers/purple-sorcerer-types.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L197)
 
 ##### luckMod
 
@@ -768,7 +768,7 @@ Defined in: parsers/purple-sorcerer-types.ts:197
 luckMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:198
+Defined in: [parsers/purple-sorcerer-types.ts:198](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L198)
 
 ##### armorClass
 
@@ -776,7 +776,7 @@ Defined in: parsers/purple-sorcerer-types.ts:198
 armorClass: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:199
+Defined in: [parsers/purple-sorcerer-types.ts:199](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L199)
 
 ##### hitPoints
 
@@ -784,7 +784,7 @@ Defined in: parsers/purple-sorcerer-types.ts:199
 hitPoints: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:200
+Defined in: [parsers/purple-sorcerer-types.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L200)
 
 ##### weapon
 
@@ -792,7 +792,7 @@ Defined in: parsers/purple-sorcerer-types.ts:200
 weapon: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:201
+Defined in: [parsers/purple-sorcerer-types.ts:201](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L201)
 
 ##### attackMod
 
@@ -800,7 +800,7 @@ Defined in: parsers/purple-sorcerer-types.ts:201
 attackMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:202
+Defined in: [parsers/purple-sorcerer-types.ts:202](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L202)
 
 ##### attackDamageMod
 
@@ -808,7 +808,7 @@ Defined in: parsers/purple-sorcerer-types.ts:202
 attackDamageMod: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:203
+Defined in: [parsers/purple-sorcerer-types.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L203)
 
 ##### attackDamage
 
@@ -816,7 +816,7 @@ Defined in: parsers/purple-sorcerer-types.ts:203
 attackDamage: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:204
+Defined in: [parsers/purple-sorcerer-types.ts:204](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L204)
 
 ##### attackModMelee
 
@@ -824,7 +824,7 @@ Defined in: parsers/purple-sorcerer-types.ts:204
 attackModMelee: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:205
+Defined in: [parsers/purple-sorcerer-types.ts:205](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L205)
 
 ##### attackDamageMelee
 
@@ -832,7 +832,7 @@ Defined in: parsers/purple-sorcerer-types.ts:205
 attackDamageMelee: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:206
+Defined in: [parsers/purple-sorcerer-types.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L206)
 
 ##### attackModRanged
 
@@ -840,7 +840,7 @@ Defined in: parsers/purple-sorcerer-types.ts:206
 attackModRanged: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:207
+Defined in: [parsers/purple-sorcerer-types.ts:207](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L207)
 
 ##### attackDamageRanged
 
@@ -848,7 +848,7 @@ Defined in: parsers/purple-sorcerer-types.ts:207
 attackDamageRanged: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:208
+Defined in: [parsers/purple-sorcerer-types.ts:208](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L208)
 
 ##### speed
 
@@ -856,7 +856,7 @@ Defined in: parsers/purple-sorcerer-types.ts:208
 speed: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:209
+Defined in: [parsers/purple-sorcerer-types.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L209)
 
 ##### initiative
 
@@ -864,7 +864,7 @@ Defined in: parsers/purple-sorcerer-types.ts:209
 initiative: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:210
+Defined in: [parsers/purple-sorcerer-types.ts:210](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L210)
 
 ##### saveReflex
 
@@ -872,7 +872,7 @@ Defined in: parsers/purple-sorcerer-types.ts:210
 saveReflex: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:211
+Defined in: [parsers/purple-sorcerer-types.ts:211](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L211)
 
 ##### saveFort
 
@@ -880,7 +880,7 @@ Defined in: parsers/purple-sorcerer-types.ts:211
 saveFort: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:212
+Defined in: [parsers/purple-sorcerer-types.ts:212](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L212)
 
 ##### saveWill
 
@@ -888,7 +888,7 @@ Defined in: parsers/purple-sorcerer-types.ts:212
 saveWill: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:213
+Defined in: [parsers/purple-sorcerer-types.ts:213](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L213)
 
 ##### equipment
 
@@ -896,7 +896,7 @@ Defined in: parsers/purple-sorcerer-types.ts:213
 equipment: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:214
+Defined in: [parsers/purple-sorcerer-types.ts:214](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L214)
 
 ##### equipment2?
 
@@ -904,7 +904,7 @@ Defined in: parsers/purple-sorcerer-types.ts:214
 optional equipment2?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:215
+Defined in: [parsers/purple-sorcerer-types.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L215)
 
 ##### equipment3?
 
@@ -912,7 +912,7 @@ Defined in: parsers/purple-sorcerer-types.ts:215
 optional equipment3?: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:216
+Defined in: [parsers/purple-sorcerer-types.ts:216](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L216)
 
 ##### tradeGood
 
@@ -920,7 +920,7 @@ Defined in: parsers/purple-sorcerer-types.ts:216
 tradeGood: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:217
+Defined in: [parsers/purple-sorcerer-types.ts:217](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L217)
 
 ##### startingFunds
 
@@ -928,7 +928,7 @@ Defined in: parsers/purple-sorcerer-types.ts:217
 startingFunds: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:218
+Defined in: [parsers/purple-sorcerer-types.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L218)
 
 ##### luckySign
 
@@ -936,7 +936,7 @@ Defined in: parsers/purple-sorcerer-types.ts:218
 luckySign: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:219
+Defined in: [parsers/purple-sorcerer-types.ts:219](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L219)
 
 ##### languages
 
@@ -944,7 +944,7 @@ Defined in: parsers/purple-sorcerer-types.ts:219
 languages: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:220
+Defined in: [parsers/purple-sorcerer-types.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L220)
 
 ##### racialTraits
 
@@ -952,13 +952,13 @@ Defined in: parsers/purple-sorcerer-types.ts:220
 racialTraits: string;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:221
+Defined in: [parsers/purple-sorcerer-types.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L221)
 
 ***
 
 ### PSJsonCharacterList
 
-Defined in: parsers/purple-sorcerer-types.ts:227
+Defined in: [parsers/purple-sorcerer-types.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L227)
 
 Container for multiple JSON characters
 
@@ -970,13 +970,13 @@ Container for multiple JSON characters
 characters: PSJsonZeroLevel[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:228
+Defined in: [parsers/purple-sorcerer-types.ts:228](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L228)
 
 ***
 
 ### PSParseResult
 
-Defined in: parsers/purple-sorcerer-types.ts:238
+Defined in: [parsers/purple-sorcerer-types.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L238)
 
 Result of parsing Purple Sorcerer data
 
@@ -988,7 +988,7 @@ Result of parsing Purple Sorcerer data
 success: boolean;
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:239
+Defined in: [parsers/purple-sorcerer-types.ts:239](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L239)
 
 ##### characters
 
@@ -996,7 +996,7 @@ Defined in: parsers/purple-sorcerer-types.ts:239
 characters: PSCharacter[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:240
+Defined in: [parsers/purple-sorcerer-types.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L240)
 
 ##### errors
 
@@ -1004,7 +1004,7 @@ Defined in: parsers/purple-sorcerer-types.ts:240
 errors: string[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:241
+Defined in: [parsers/purple-sorcerer-types.ts:241](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L241)
 
 ##### warnings
 
@@ -1012,13 +1012,13 @@ Defined in: parsers/purple-sorcerer-types.ts:241
 warnings: string[];
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:242
+Defined in: [parsers/purple-sorcerer-types.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L242)
 
 ***
 
 ### StatBlockParseResult
 
-Defined in: parsers/statblock-types.ts:16
+Defined in: [parsers/statblock-types.ts:16](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L16)
 
 Result of parsing a stat block
 
@@ -1030,7 +1030,7 @@ Result of parsing a stat block
 success: boolean;
 ```
 
-Defined in: parsers/statblock-types.ts:18
+Defined in: [parsers/statblock-types.ts:18](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L18)
 
 Whether parsing succeeded
 
@@ -1040,7 +1040,7 @@ Whether parsing succeeded
 optional creature?: Creature;
 ```
 
-Defined in: parsers/statblock-types.ts:21
+Defined in: [parsers/statblock-types.ts:21](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L21)
 
 Parsed creature data (if successful)
 
@@ -1050,7 +1050,7 @@ Parsed creature data (if successful)
 optional error?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:24
+Defined in: [parsers/statblock-types.ts:24](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L24)
 
 Error message (if failed)
 
@@ -1060,7 +1060,7 @@ Error message (if failed)
 optional warnings?: string[];
 ```
 
-Defined in: parsers/statblock-types.ts:27
+Defined in: [parsers/statblock-types.ts:27](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L27)
 
 Warnings about potentially incorrect parsing
 
@@ -1070,7 +1070,7 @@ Warnings about potentially incorrect parsing
 original: string;
 ```
 
-Defined in: parsers/statblock-types.ts:30
+Defined in: [parsers/statblock-types.ts:30](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L30)
 
 The original stat block text
 
@@ -1078,7 +1078,7 @@ The original stat block text
 
 ### ParsedAttack
 
-Defined in: parsers/statblock-types.ts:36
+Defined in: [parsers/statblock-types.ts:36](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L36)
 
 Intermediate parsed attack data before conversion
 
@@ -1090,7 +1090,7 @@ Intermediate parsed attack data before conversion
 name: string;
 ```
 
-Defined in: parsers/statblock-types.ts:38
+Defined in: [parsers/statblock-types.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L38)
 
 Attack name
 
@@ -1100,7 +1100,7 @@ Attack name
 toHit: string;
 ```
 
-Defined in: parsers/statblock-types.ts:41
+Defined in: [parsers/statblock-types.ts:41](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L41)
 
 Attack bonus as string (e.g., "+5", "-2")
 
@@ -1110,7 +1110,7 @@ Attack bonus as string (e.g., "+5", "-2")
 melee: boolean;
 ```
 
-Defined in: parsers/statblock-types.ts:44
+Defined in: [parsers/statblock-types.ts:44](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L44)
 
 Whether this is a melee attack
 
@@ -1120,7 +1120,7 @@ Whether this is a melee attack
 damage: string;
 ```
 
-Defined in: parsers/statblock-types.ts:47
+Defined in: [parsers/statblock-types.ts:47](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L47)
 
 Damage expression
 
@@ -1130,7 +1130,7 @@ Damage expression
 optional range?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:50
+Defined in: [parsers/statblock-types.ts:50](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L50)
 
 Range for missile attacks
 
@@ -1140,7 +1140,7 @@ Range for missile attacks
 optional isSpecial?: boolean;
 ```
 
-Defined in: parsers/statblock-types.ts:53
+Defined in: [parsers/statblock-types.ts:53](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L53)
 
 Whether this is a special attack (see below, spell, etc.)
 
@@ -1148,7 +1148,7 @@ Whether this is a special attack (see below, spell, etc.)
 
 ### ParsedStatBlock
 
-Defined in: parsers/statblock-types.ts:59
+Defined in: [parsers/statblock-types.ts:59](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L59)
 
 Intermediate parsed stat block data
 
@@ -1160,7 +1160,7 @@ Intermediate parsed stat block data
 name: string;
 ```
 
-Defined in: parsers/statblock-types.ts:61
+Defined in: [parsers/statblock-types.ts:61](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L61)
 
 Creature name
 
@@ -1170,7 +1170,7 @@ Creature name
 init: number;
 ```
 
-Defined in: parsers/statblock-types.ts:64
+Defined in: [parsers/statblock-types.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L64)
 
 Initiative modifier
 
@@ -1180,7 +1180,7 @@ Initiative modifier
 attacks: ParsedAttack[];
 ```
 
-Defined in: parsers/statblock-types.ts:67
+Defined in: [parsers/statblock-types.ts:67](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L67)
 
 Parsed attacks
 
@@ -1190,7 +1190,7 @@ Parsed attacks
 ac: number;
 ```
 
-Defined in: parsers/statblock-types.ts:70
+Defined in: [parsers/statblock-types.ts:70](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L70)
 
 Armor Class
 
@@ -1200,7 +1200,7 @@ Armor Class
 optional acNotes?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:73
+Defined in: [parsers/statblock-types.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L73)
 
 AC notes (e.g., "scale mail")
 
@@ -1210,7 +1210,7 @@ AC notes (e.g., "scale mail")
 hitDice: string;
 ```
 
-Defined in: parsers/statblock-types.ts:76
+Defined in: [parsers/statblock-types.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L76)
 
 Hit Dice expression
 
@@ -1220,7 +1220,7 @@ Hit Dice expression
 speed: CreatureSpeed;
 ```
 
-Defined in: parsers/statblock-types.ts:79
+Defined in: [parsers/statblock-types.ts:79](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L79)
 
 Movement speeds
 
@@ -1230,7 +1230,7 @@ Movement speeds
 actionDice: string;
 ```
 
-Defined in: parsers/statblock-types.ts:82
+Defined in: [parsers/statblock-types.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L82)
 
 Action dice expression
 
@@ -1240,7 +1240,7 @@ Action dice expression
 optional special?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:85
+Defined in: [parsers/statblock-types.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L85)
 
 Special abilities
 
@@ -1250,7 +1250,7 @@ Special abilities
 saves: CreatureSaves;
 ```
 
-Defined in: parsers/statblock-types.ts:88
+Defined in: [parsers/statblock-types.ts:88](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L88)
 
 Saving throws
 
@@ -1260,7 +1260,7 @@ Saving throws
 alignment: Alignment;
 ```
 
-Defined in: parsers/statblock-types.ts:91
+Defined in: [parsers/statblock-types.ts:91](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L91)
 
 Alignment
 
@@ -1270,7 +1270,7 @@ Alignment
 optional critDie?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:94
+Defined in: [parsers/statblock-types.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L94)
 
 Crit die (if specified)
 
@@ -1280,7 +1280,7 @@ Crit die (if specified)
 optional critTable?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:97
+Defined in: [parsers/statblock-types.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L97)
 
 Crit table (if specified)
 
@@ -1290,7 +1290,7 @@ Crit table (if specified)
 optional critRange?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:100
+Defined in: [parsers/statblock-types.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L100)
 
 Crit range (if specified, e.g., "19-20", "20-24")
 
@@ -1298,7 +1298,7 @@ Crit range (if specified, e.g., "19-20", "20-24")
 
 ### StatBlockParseOptions
 
-Defined in: parsers/statblock-types.ts:106
+Defined in: [parsers/statblock-types.ts:106](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L106)
 
 Options for stat block parsing
 
@@ -1310,7 +1310,7 @@ Options for stat block parsing
 optional category?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:108
+Defined in: [parsers/statblock-types.ts:108](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L108)
 
 Category to assign to parsed creature
 
@@ -1320,7 +1320,7 @@ Category to assign to parsed creature
 optional id?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:111
+Defined in: [parsers/statblock-types.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L111)
 
 Custom ID to use (otherwise derived from name)
 
@@ -1330,7 +1330,7 @@ Custom ID to use (otherwise derived from name)
 optional defaultHp?: number;
 ```
 
-Defined in: parsers/statblock-types.ts:114
+Defined in: [parsers/statblock-types.ts:114](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L114)
 
 Default HP if not calculable (uses average of HD)
 
@@ -1340,7 +1340,7 @@ Default HP if not calculable (uses average of HD)
 optional defaultCritDie?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:117
+Defined in: [parsers/statblock-types.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L117)
 
 Default crit die if not specified in stat block
 
@@ -1350,7 +1350,7 @@ Default crit die if not specified in stat block
 optional defaultCritTable?: string;
 ```
 
-Defined in: parsers/statblock-types.ts:120
+Defined in: [parsers/statblock-types.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/statblock-types.ts#L120)
 
 Default crit table if not specified in stat block
 
@@ -1362,7 +1362,7 @@ Default crit table if not specified in stat block
 type PSClassType = "warrior" | "wizard" | "cleric" | "thief" | "dwarf" | "elf" | "halfling";
 ```
 
-Defined in: parsers/purple-sorcerer-types.ts:97
+Defined in: [parsers/purple-sorcerer-types.ts:97](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/purple-sorcerer-types.ts#L97)
 
 Class type (lowercase, matches classId in the library)
 
@@ -1374,7 +1374,7 @@ Class type (lowercase, matches classId in the library)
 function convertPSCharacter(ps: PSCharacter, options?: ConvertOptions): Character;
 ```
 
-Defined in: parsers/convert.ts:460
+Defined in: [parsers/convert.ts:460](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L460)
 
 Convert a parsed Purple Sorcerer character to the library's Character type
 
@@ -1397,7 +1397,7 @@ Convert a parsed Purple Sorcerer character to the library's Character type
 function convertPSCharacters(characters: PSCharacter[], options?: ConvertOptions): Character[];
 ```
 
-Defined in: parsers/convert.ts:557
+Defined in: [parsers/convert.ts:557](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/convert.ts#L557)
 
 Convert multiple parsed characters
 
@@ -1420,7 +1420,7 @@ Convert multiple parsed characters
 function parsePurpleSorcerer(input: string): PSParseResult;
 ```
 
-Defined in: parsers/index.ts:85
+Defined in: [parsers/index.ts:85](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/index.ts#L85)
 
 Parse Purple Sorcerer data (auto-detects format)
 
@@ -1448,7 +1448,7 @@ Parse result with characters and any errors/warnings
 function parsePurpleSorcererJson(jsonString: string): PSParseResult;
 ```
 
-Defined in: parsers/parse-json.ts:220
+Defined in: [parsers/parse-json.ts:220](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/parse-json.ts#L220)
 
 Parse Purple Sorcerer JSON format
 Handles both single character and array of characters
@@ -1471,7 +1471,7 @@ Handles both single character and array of characters
 function parseStatBlock(statblock: string, options?: StatBlockParseOptions): StatBlockParseResult;
 ```
 
-Defined in: parsers/parse-statblock.ts:38
+Defined in: [parsers/parse-statblock.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/parse-statblock.ts#L38)
 
 Parse a DCC stat block string into a Creature object
 
@@ -1502,7 +1502,7 @@ parseStatBlock("Road Reaver: Init +1; Atk hooked blade +3 melee (1d7+1); AC 14; 
 function parseStatBlocks(text: string, options?: StatBlockParseOptions): StatBlockParseResult[];
 ```
 
-Defined in: parsers/parse-statblock.ts:73
+Defined in: [parsers/parse-statblock.ts:73](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/parse-statblock.ts#L73)
 
 Parse multiple stat blocks from text (separated by blank lines or double newlines)
 
@@ -1525,7 +1525,7 @@ Parse multiple stat blocks from text (separated by blank lines or double newline
 function parsePurpleSorcererText(text: string): PSParseResult;
 ```
 
-Defined in: parsers/parse-text.ts:696
+Defined in: [parsers/parse-text.ts:696](https://github.com/moonloch/dcc-core-lib/blob/main/src/parsers/parse-text.ts#L696)
 
 Parse Purple Sorcerer text format
 Handles both single and multiple character outputs

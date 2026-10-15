@@ -215,7 +215,7 @@ import {
 // Export to versioned JSON
 const json = exportCharacter(character);
 // {
-//   "version": "1.0",
+//   "version": "1.1",
 //   "format": "dcc-core-lib",
 //   "exportedAt": "2025-11-27T...",
 //   "character": { ... }
@@ -354,14 +354,14 @@ This library follows a **pure functional approach**:
 
 - All game logic is implemented as pure functions with no side effects
 - No classes or stateful objects
-- Platform-specific behavior injected via callbacks and data loaders
+- Platform-specific behavior injected by the caller: dice rollers, event callbacks, and data registered at startup
 - Event system uses callback injection pattern
 
 For detailed architecture documentation, see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md).
 
 ## System Variants
 
-The library supports DCC variants (MCC, XCrawl, etc.) through `SystemConfig`:
+The library defines a `SystemConfig` type for describing DCC variants (MCC, XCrawl, etc.) and ships the DCC config as `DCC_SYSTEM`. No library function takes a `SystemConfig` yet (see [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md#system-variants-mcc-xcrawl-etc)):
 
 ```typescript
 import type { SystemConfig } from '@moonloch/dcc-core-lib';
@@ -369,7 +369,7 @@ import { DCC_SYSTEM } from '@moonloch/dcc-core-lib';
 
 // Use the default DCC system config
 console.log(DCC_SYSTEM.abilities);
-// [{ id: 'str', name: 'Strength' }, ...]
+// [{ id: 'str', name: 'Strength', abbrev: 'STR' }, ...]
 
 // Or define your own for MCC, etc.
 const mccSystem: SystemConfig = {
@@ -413,6 +413,8 @@ Modules under `src/`: `adventure`, `character`, `checks`, `cleric`, `combat`, `d
 - Combat (attacks, damage, crits, fumbles, initiative, action dice, two-weapon fighting, morale, death and dying)
 - Spell system (spell checks, spellbooks, spellburn, disapproval, corruption, mercurial magic, spell duels)
 - Cleric abilities (turn unholy, lay on hands, divine aid) and patrons (bond, invoke, taint)
+- Occupation-based skill checks
+- Adventure helpers (encounter and narrative engines)
 - Bonus system and table lookup system (simple, multi-column, tiered tables)
 - Data loaders and parsers (FoundryVTT class progressions, rollable tables, birth augurs, spell definitions, statblocks, Purple Sorcerer output)
 

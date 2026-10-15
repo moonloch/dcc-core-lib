@@ -17,7 +17,7 @@
  *
  * Table Data:
  * - Default fan-made tables are provided for basic functionality
- * - Official DCC tables can be injected via the licensed-data-package package
+ * - Official DCC tables can be injected by the caller
  */
 
 import type { DiceRoller } from "../types/dice.js";

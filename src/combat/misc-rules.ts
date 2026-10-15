@@ -525,8 +525,7 @@ export function getFiringIntoMeleePenalty(targetEngagedInMelee: boolean): number
  *
  * @param numAlliesInMelee - Number of allies engaged with the target
  * @param allyACs - Array of ally armor classes
- * @param attackRoll - The original attack roll (to re-roll against ally)
- * @param attackBonus - Attacker's bonus
+ * @param attackBonus - Attacker's bonus, applied to the re-roll against the ally
  * @param roller - Dice roller
  * @returns Result of firing into melee
  */

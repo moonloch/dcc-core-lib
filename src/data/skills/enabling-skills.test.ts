@@ -341,6 +341,11 @@ describe("Enabling Skills", () => {
       expect(LUCK_SHARING.enables?.data).not.toHaveProperty("range");
     });
 
+    it("spends the halfling's own Luck", () => {
+      expect(LUCK_SHARING.enables?.data?.["spendsOwnLuck"]).toBe(true);
+      expect(LUCK_SHARING.enables?.data).not.toHaveProperty("usesLuckModifier");
+    });
+
     it("requires the ally to be visible", () => {
       expect(canShareLuck("halfling", { allyVisible: true })).toBe(true);
       expect(canShareLuck("halfling", { allyVisible: false })).toBe(false);

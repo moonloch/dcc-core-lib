@@ -690,7 +690,7 @@ The character's natural maximum Luck score.
 
 ### ShareLuckOptions
 
-Defined in: [data/skills/enabling-skills.ts:406](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L406)
+Defined in: [data/skills/enabling-skills.ts:407](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L407)
 
 Optional conditions for [canShareLuck](#canshareluck).
 
@@ -702,7 +702,7 @@ Optional conditions for [canShareLuck](#canshareluck).
 optional allyVisible?: boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:408](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L408)
+Defined in: [data/skills/enabling-skills.ts:409](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L409)
 
 Whether the ally is nearby and visible to the halfling. Default true.
 
@@ -712,7 +712,7 @@ Whether the ally is nearby and visible to the halfling. Default true.
 optional distanceToAlly?: number;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L410)
+Defined in: [data/skills/enabling-skills.ts:411](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L411)
 
 Distance to the ally. Only checked when `maxRange` is also given.
 
@@ -722,7 +722,7 @@ Distance to the ally. Only checked when `maxRange` is also given.
 optional maxRange?: number;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L415)
+Defined in: [data/skills/enabling-skills.ts:416](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L416)
 
 A table's own range limit. The rules set none, so there is no default.
 Ignored unless `distanceToAlly` is also given.
@@ -964,12 +964,13 @@ Thief and Halfling class text).
 const LUCK_SHARING: SkillDefinition;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:383](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L383)
+Defined in: [data/skills/enabling-skills.ts:384](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L384)
 
 Luck Sharing (Halfling)
 
-A halfling can spend Luck on behalf of an ally who is nearby and
-visible to them, even outside their turn in the initiative order.
+A halfling can burn their own Luck on an ally's roll when the ally is
+nearby and visible to them, even outside their turn in the initiative
+order. The halfling loses the Luck and the ally gets the bonus.
 Only one halfling in a party can do this. There is no fixed range.
 
 ***
@@ -980,7 +981,7 @@ Only one halfling in a party can do this. There is no fixed range.
 const ENABLING_SKILLS: Record<string, SkillDefinition>;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:440](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L440)
+Defined in: [data/skills/enabling-skills.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L441)
 
 All enabling skills indexed by ID
 
@@ -992,7 +993,7 @@ All enabling skills indexed by ID
 const ENABLING_SKILL_IDS: string[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:452](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L452)
+Defined in: [data/skills/enabling-skills.ts:453](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L453)
 
 List of enabling skill IDs
 
@@ -2489,7 +2490,7 @@ decide whether the character recovers Luck at all (see
 function canShareLuck(classId: string, options?: ShareLuckOptions): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L424)
+Defined in: [data/skills/enabling-skills.ts:425](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L425)
 
 Check if a character can share Luck with an ally. The class must have
 [LUCK\_SHARING](#luck_sharing) and the ally must be visible. A range applies only
@@ -2515,7 +2516,7 @@ is left to the caller.
 function getEnablingSkillsForClass(classId: string): SkillDefinition[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:457](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L457)
+Defined in: [data/skills/enabling-skills.ts:458](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L458)
 
 Get all enabling skills for a given class
 
@@ -2537,7 +2538,7 @@ Get all enabling skills for a given class
 function classHasEnablingSkill(classId: string, skillId: string): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:466](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L466)
+Defined in: [data/skills/enabling-skills.ts:467](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L467)
 
 Check if a class has a specific enabling skill
 

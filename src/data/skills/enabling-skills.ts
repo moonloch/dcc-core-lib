@@ -376,17 +376,18 @@ export function nightlyLuckRecovery(input: NightlyLuckRecoveryInput): number {
 /**
  * Luck Sharing (Halfling)
  *
- * A halfling can spend Luck on behalf of an ally who is nearby and
- * visible to them, even outside their turn in the initiative order.
+ * A halfling can burn their own Luck on an ally's roll when the ally is
+ * nearby and visible to them, even outside their turn in the initiative
+ * order. The halfling loses the Luck and the ally gets the bonus.
  * Only one halfling in a party can do this. There is no fixed range.
  */
 export const LUCK_SHARING: SkillDefinition = {
   id: "luck-sharing",
   name: "Good Fortune",
   description:
-    "You can spend your own Luck to aid an ally who is nearby and visible " +
-    "to you, even out of initiative order, applying your Luck modifier to " +
-    "their roll. Only one halfling in a party can do this.",
+    "You can burn your own Luck on a roll made by an ally who is nearby " +
+    "and visible to you, even out of initiative order. You lose the Luck " +
+    "and the ally gets the bonus. Only one halfling in a party can do this.",
   type: "passive",
   enables: {
     action: "share-luck",
@@ -395,7 +396,7 @@ export const LUCK_SHARING: SkillDefinition = {
       requiresAllyVisible: true,
       actsOutOfInitiative: true,
       onePerParty: true,
-      usesLuckModifier: true,
+      spendsOwnLuck: true,
     },
   },
   tags: ["luck", "support"],

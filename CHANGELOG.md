@@ -19,7 +19,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
     built-in 30-foot range. The ally must be visible (`allyVisible`), and a
     range applies only when the caller passes `maxRange` with `distanceToAlly`.
   - `LUCK_RECOVERY` and `LUCK_SHARING` descriptions and `enables.data` are
-    updated to match.
+    updated to match. `LUCK_SHARING.enables.data.usesLuckModifier` is replaced
+    by `spendsOwnLuck`: the halfling burns their own Luck and the ally gets the
+    bonus.
 
 ### Fixed
 

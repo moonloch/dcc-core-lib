@@ -182,7 +182,7 @@ function isSimpleTable(data: unknown): data is SimpleTable {
     typeof data === "object" &&
     data !== null &&
     "type" in data &&
-    (data as { type: unknown }).type === "simple" &&
+    data.type === "simple" &&
     "entries" in data &&
     Array.isArray((data as { entries: unknown }).entries)
   );
@@ -196,7 +196,7 @@ function isMultiColumnTable(data: unknown): data is MultiColumnTable {
     typeof data === "object" &&
     data !== null &&
     "type" in data &&
-    (data as { type: unknown }).type === "multi-column" &&
+    data.type === "multi-column" &&
     "rows" in data &&
     Array.isArray((data as { rows: unknown }).rows)
   );
@@ -210,7 +210,7 @@ function isTieredTable(data: unknown): data is TieredTable {
     typeof data === "object" &&
     data !== null &&
     "type" in data &&
-    (data as { type: unknown }).type === "tiered" &&
+    data.type === "tiered" &&
     "entries" in data &&
     Array.isArray((data as { entries: unknown }).entries)
   );

@@ -124,7 +124,7 @@ function resolveSkillCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: [skills/resolve.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L336)
+Defined in: [skills/resolve.ts:334](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L334)
 
 Resolve a skill check (sync).
 
@@ -161,7 +161,7 @@ function resolveSkillCheckAsync(
 ): Promise<SkillCheckResult>;
 ```
 
-Defined in: [skills/resolve.ts:377](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L377)
+Defined in: [skills/resolve.ts:375](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L375)
 
 Resolve a skill check (async). Same pipeline as the sync variant;
 uses an async custom roller for the dice evaluation step.
@@ -196,7 +196,7 @@ function quickSkillCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: [skills/resolve.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L413)
+Defined in: [skills/resolve.ts:411](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L411)
 
 Quick skill check with minimal input
 
@@ -229,7 +229,7 @@ function abilityCheck(
 ): SkillCheckResult;
 ```
 
-Defined in: [skills/resolve.ts:444](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L444)
+Defined in: [skills/resolve.ts:442](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L442)
 
 Create a simple ability check
 
@@ -259,7 +259,7 @@ function savingThrow(
 ): SkillCheckResult;
 ```
 
-Defined in: [skills/resolve.ts:472](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L472)
+Defined in: [skills/resolve.ts:470](https://github.com/moonloch/dcc-core-lib/blob/main/src/skills/resolve.ts#L470)
 
 Create a saving throw check
 

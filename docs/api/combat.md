@@ -2333,7 +2333,7 @@ function calculateAttackBonus(
 ): number;
 ```
 
-Defined in: [combat/attack.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L281)
+Defined in: [combat/attack.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L298)
 
 Calculate attack bonus from character data
 
@@ -2364,7 +2364,7 @@ function doesAttackHit(
 ): boolean;
 ```
 
-Defined in: [combat/attack.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L302)
+Defined in: [combat/attack.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L319)
 
 Check if an attack hits a target
 
@@ -2394,7 +2394,7 @@ Whether the attack hits
 function getAttackAbility(attackType: "melee" | "missile" | "special"): "str" | "agl";
 ```
 
-Defined in: [combat/attack.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L328)
+Defined in: [combat/attack.ts:345](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L345)
 
 Get the attack ability for an attack type
 
@@ -2420,7 +2420,7 @@ function getTwoWeaponDice(agility: number, options?: {
 }): TwoWeaponDiceConfig;
 ```
 
-Defined in: [combat/attack.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L342)
+Defined in: [combat/attack.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L359)
 
 Compute the two-weapon-fighting dice configuration for a given Agility
 (Table 4-3, with halfling class overrides applied when `isHalfling`).
@@ -2455,7 +2455,7 @@ function rollTwoWeaponAttack(
 ): TwoWeaponAttackResult;
 ```
 
-Defined in: [combat/attack.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L433)
+Defined in: [combat/attack.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L450)
 
 Roll a full two-weapon attack round (both hands).
 
@@ -2494,7 +2494,7 @@ function applyTwoWeaponHandRules(
 ): void;
 ```
 
-Defined in: [combat/attack.ts:477](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L477)
+Defined in: [combat/attack.ts:494](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L494)
 
 Apply one hand's Table 4-3 critical-hit rules to an attack roll made
 with that hand's reduced die (mutates `result`). Use this when each
@@ -2533,11 +2533,13 @@ here.
 function isDeedSuccessful(deedRoll: number): boolean;
 ```
 
-Defined in: [combat/attack.ts:579](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L579)
+Defined in: [combat/attack.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/combat/attack.ts#L600)
 
 Check if a deed die roll is successful
 
-A deed is successful if the deed die shows 3 or higher.
+A deed die roll is successful if it shows 3 or higher. This judges the
+die only: the deed itself also needs the attack to hit, which
+[AttackResult.deedSuccess](types.md#deedsuccess) accounts for.
 
 #### Parameters
 
@@ -2549,7 +2551,7 @@ A deed is successful if the deed die shows 3 or higher.
 
 `boolean`
 
-Whether the deed succeeded
+Whether the deed die shows 3+
 
 ***
 

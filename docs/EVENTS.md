@@ -78,7 +78,7 @@ interface CombatEvents {
 | `onCriticalResult` | Crit table lookup done | `CriticalResult` - table, roll, effect, extra damage |
 | `onFumbleResult` | Fumble table lookup done | `FumbleResult` - fumbleDie, roll, effect |
 | `onInitiativeRoll` | Initiative rolled | `InitiativeResult` - roll, total, modifiers |
-| `onDeedAttempt` | Warrior/dwarf deed die rolled | `RollResult`, `success` (true if 3+) |
+| `onDeedAttempt` | Warrior/dwarf deed die rolled | `RollResult`, `success` (deed die 3+ and the attack hits; see `AttackResult.deedSuccess`) |
 
 ### SpellEvents
 
@@ -199,7 +199,7 @@ interface AttackResult {
   isFumble: boolean;           // Natural 1?
   isHit?: boolean;             // Hit the target? (if AC provided)
   appliedModifiers: LegacyRollModifier[];
-  deedSuccess?: boolean;       // Deed roll >= 3?
+  deedSuccess?: boolean;       // Deed die >= 3 and the attack hits?
 }
 ```
 

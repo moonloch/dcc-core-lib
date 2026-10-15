@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.16.0] - 2026-10-15
+
 ### Changed
 
 - **BREAKING: spell duel momentum modifier follows the core book (Table 4-6,
@@ -29,6 +31,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Same-patron cancellation needs both checks to succeed.**
   `resolveCounterspellExchange` checks for success before cancelling two
   invocations of the same patron (p. 98).
+- **Phlogiston Disturbance momentum no longer depends on which side rolled
+  higher.** `resolveCounterspellExchange` gives momentum to the higher total,
+  or to nobody on identical totals, even when Table 4-5 returns PD for totals
+  that differ (p. 98). `formatExchangeResult` names no winner on identical
+  checks.
 
 ## [0.15.0] - 2026-10-15
 

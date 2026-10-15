@@ -1,6 +1,6 @@
 {
   "name": "@moonloch/dcc-core-lib",
-  "version": "0.14.4",
+  "version": "0.14.5",
   "description": "Pure-function TypeScript game-logic library for the Dungeon Crawl Classics RPG (dice chain, checks, combat, spells, character creation). No platform dependencies and no official rulebook data.",
   "type": "module",
   "main": "./dist/index.js",

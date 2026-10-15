@@ -16,7 +16,7 @@ import {
 } from "./class-loader.js";
 import { loadBirthAugurs, loadRollableTable, type RawTableData } from "./table-loader.js";
 
-const SOURCE_DATA_PATH = join(process.cwd(), "source_data");
+const TEST_DATA_PATH = join(process.cwd(), "test_data");
 
 /**
  * Raw FoundryVTT level item format
@@ -33,19 +33,19 @@ interface RawLevelItem {
 }
 
 /**
- * Helper to load a JSON file from source_data
+ * Helper to load a JSON file from test_data
  */
 function loadLevelItem(subpath: string): RawLevelItem {
-  const fullPath = join(SOURCE_DATA_PATH, subpath);
+  const fullPath = join(TEST_DATA_PATH, subpath);
   const content = readFileSync(fullPath, "utf-8");
   return JSON.parse(content) as RawLevelItem;
 }
 
 /**
- * Helper to load a table JSON file from source_data
+ * Helper to load a table JSON file from test_data
  */
 function loadTableData(subpath: string): RawTableData {
-  const fullPath = join(SOURCE_DATA_PATH, subpath);
+  const fullPath = join(TEST_DATA_PATH, subpath);
   const content = readFileSync(fullPath, "utf-8");
   return JSON.parse(content) as RawTableData;
 }

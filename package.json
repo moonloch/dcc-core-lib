@@ -23,7 +23,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "tsc && npm run build:dts",
+    "build": "tsc -p tsconfig.build.json && npm run build:dts",
     "build:dts": "dts-bundle-generator --no-check --export-referenced-types --out-file dist/dcc-core-lib.d.ts src/index.ts",
     "check": "npm run lint && npm run typecheck && npm run test",
     "clean": "rm -rf dist",

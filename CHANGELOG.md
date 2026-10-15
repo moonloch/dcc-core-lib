@@ -7,6 +7,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Changed
+
+- **Test files no longer ship in `dist/`.** `npm run build` now compiles with
+  `tsconfig.build.json`, which excludes `*.test.ts`. The published package and
+  the DCC system's vendored copy lose the compiled test files; the public API
+  is unchanged.
+
 ## [0.14.3] - 2026-10-07
 
 ### Added

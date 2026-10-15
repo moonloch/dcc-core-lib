@@ -9,6 +9,7 @@ This is `dcc-core-lib`, a TypeScript library providing core game logic for Dunge
 ## Commands
 
 ```bash
+npm run check        # Lint + typecheck + tests (CI and pre-push hook run this)
 npm run build        # Compile TypeScript to dist/
 npm run lint         # Run ESLint on src/
 npm run lint:fix     # Run ESLint with auto-fix
@@ -27,7 +28,7 @@ npx vitest run src/path/to/file.test.ts
 
 - **Pure Functions**: All game logic must be implemented as pure functions with no side effects
 - **ESM Module**: Uses ES modules (`"type": "module"`)
-- **Modules**: `dice`, `skills`, `data`, `character`, `types`
+- **Modules** (under `src/`, all re-exported from `src/index.ts`): `adventure`, `character`, `checks`, `cleric`, `combat`, `data`, `dice`, `occupation`, `parsers`, `patron`, `skills`, `spells`, `tables`, `types`
 
 ## Key Modules
 
@@ -55,25 +56,25 @@ Unused variables pattern: prefix with `_` (e.g., `_unusedParam`)
 
 - `docs/ARCHITECTURE.md` - Goal architecture, event system design, data loading strategy
 - `docs/TASKS.md` - Extraction task checklist
-- `docs/STATUS.md` - Current project status and next steps
+- `docs/STATUS.md` - Project status notes (historical; `CHANGELOG.md` is the current record)
+- `CONTRIBUTING.md` - Contribution rules (regression tests, conventional commits, copyright separation, how fixes reach the DCC system)
 
 ## Source Repository
 
-Game logic is being extracted from the FoundryVTT DCC system at:
-`<local path>`
+Game logic is being extracted from the FoundryVTT DCC system ([foundryvtt-dcc/dcc](https://github.com/foundryvtt-dcc/dcc)), which vendors this library's `dist/` at `module/vendor/dcc-core-lib/`. Use a local checkout of that repo when you need to compare behavior.
 
 ## Rules Reference (local, read-only)
 
-When verifying that logic in this library matches the DCC rules as written, consult the FoundryVTT `dcc-core-book` module already installed on this machine. Do **not** copy rulebook text into this repository — read it on demand. (Rules text is Goodman Games copyrighted material; treat it as reference only.)
+When verifying that logic in this library matches the DCC rules as written, consult the FoundryVTT `dcc-core-book` module (the licensed DCC core rulebook module for Foundry) if it is installed locally. Paths below are relative to your FoundryVTT user-data directory, written `<FoundryVTT Data>` (e.g. `~/FoundryVTT/Data`). If you don't have the module, cite the table/page number in your PR and the maintainer will verify. Do **not** copy rulebook text into this repository — read it on demand. (Rules text is Goodman Games copyrighted material; treat it as reference only.)
 
 ### Locations
 
 - **Per-topic journals** (preferred entry point) — one file per table/topic/class:
-  `<local path>`
+  `<FoundryVTT Data>/modules/dcc-core-book/packs/dcc-core-journals/src/*.json`
 - **Full rulebook prose** (chapters 1–9 + appendices, all in one file):
-  `<local path>`
+  `<FoundryVTT Data>/modules/dcc-core-book/packs/dcc-core-text/src/Core_Book_Text_*.json`
 - **Monster fumble tables** (separate pack):
-  `<local path>`
+  `<FoundryVTT Data>/modules/dcc-core-book/packs/dcc-monster-fumble-journals/src/*.json`
 
 ### File shape
 
@@ -167,7 +168,7 @@ Workflow: glob the relevant filename prefix under `packs/dcc-core-journals/src/`
 
 ### Companion data repo
 
-`../licensed-data-package` contains the typed table data values that implement these rules. When verifying logic here, confirm that the data values there match the rulebook text referenced above. Both repos share the same rules-reference convention.
+`../licensed-data-package` (a separate, private repository — external contributors will not have it) contains the typed table data values that implement these rules. When verifying logic here, confirm that the data values there match the rulebook text referenced above. Both repos share the same rules-reference convention.
 
 ### Separation of concerns: core-lib vs. licensed-data-package
 

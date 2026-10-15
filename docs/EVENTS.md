@@ -10,7 +10,7 @@ The dcc-core-lib uses a **callback injection pattern** for events. Functions tha
 ## Usage Pattern
 
 ```typescript
-import { resolveSkillCheck } from "dcc-core-lib";
+import { resolveSkillCheck, rollCheck } from "@moonloch/dcc-core-lib";
 
 // Pass callbacks for events you care about
 const result = resolveSkillCheck(input, options, {
@@ -19,13 +19,18 @@ const result = resolveSkillCheck(input, options, {
   onFumble: (result) => playSound("fumble.mp3"),
   onSkillCheckComplete: (result) => updateUI(result),
 });
+
+// Higher-level helpers take callbacks via their options object instead
+rollCheck("ability:str", character, {
+  events: { onCritical: (result) => playSound("critical.mp3") },
+});
 ```
 
 ## Event Interfaces
 
 ### SkillEvents
 
-Used by `resolveSkillCheck()` and skill-based functions.
+Used by `resolveSkillCheck()` and `resolveSkillCheckAsync()` (third argument), and by `rollCheck()` / `rollCheckAsync()` (via `options.events`).
 
 ```typescript
 interface SkillEvents {
@@ -41,15 +46,15 @@ interface SkillEvents {
 | Event | When Fired | Payload |
 |-------|------------|---------|
 | `onSkillCheckStart` | Before rolling | `SkillCheckInput` - skill, abilities, level, modifiers |
-| `onSkillCheckComplete` | After all processing | `SkillCheckResult` - full result with rolls, modifiers, effects |
-| `onCritical` | Natural 20 rolled | `SkillCheckResult` - result with `critical: true` |
+| `onSkillCheckComplete` | After all processing (fires last) | `SkillCheckResult` - full result with rolls, modifiers, effects |
+| `onCritical` | Natural roll meets the threat range (die max by default) | `SkillCheckResult` - result with `critical: true` |
 | `onFumble` | Natural 1 rolled | `SkillCheckResult` - result with `fumble: true` |
-| `onResourceConsumed` | Luck burned or other cost paid | `ResourceType` ("luck", etc.), `amount` |
-| `onTableLookup` | Table result determined | `TableLookupResult` - tableId, rollValue, text, data |
+| `onResourceConsumed` | Luck burned, or the skill's `cost` paid on a fumble | `ResourceType` (`"luck"`, `"spellburn"`, `"disapproval"`, `"hp"`, `"custom"`), `amount` |
+| `onTableLookup` | Declared but not currently emitted by any library function | `TableLookupResult` - tableId, rollValue, text, data |
 
 ### CombatEvents
 
-Used by combat functions (`makeAttackRoll()`, `rollCritical()`, `rollFumble()`, etc.)
+Used by combat functions: `makeAttackRoll()`, `rollTwoWeaponAttack()` (attack events fire once per hand, after two-weapon overrides), `rollDamage()`, `rollCritical()`, `rollFumble()`, and `rollInitiative()`.
 
 ```typescript
 interface CombatEvents {
@@ -67,7 +72,7 @@ interface CombatEvents {
 | Event | When Fired | Payload |
 |-------|------------|---------|
 | `onAttackRoll` | Attack roll completed | `AttackResult` - roll, bonus, total, hit status |
-| `onCriticalThreat` | Roll meets/exceeds threat range | `AttackResult` with `isCriticalThreat: true` |
+| `onCriticalThreat` | Attack is a critical threat (threat range, natural max, or backstab auto-crit) | `AttackResult` with `isCriticalThreat: true` and `critSource` set |
 | `onFumbleRoll` | Natural 1 on attack | `AttackResult` with `isFumble: true` |
 | `onDamageRoll` | Damage calculated | `DamageResult` - dice, modifiers, multiplier, total |
 | `onCriticalResult` | Crit table lookup done | `CriticalResult` - table, roll, effect, extra damage |
@@ -77,7 +82,7 @@ interface CombatEvents {
 
 ### SpellEvents
 
-Used by `castSpell()`, `calculateSpellCheck()`, and spell-related functions.
+Used by `castSpell()` and `calculateSpellCheck()`. `calculateSpellCheck()` calls `castSpell()` (which emits the roll-level events) and then runs the follow-up rolls (fumble, corruption, patron taint), so `onCorruptionTriggered` and `onPatronTaint` are only emitted when you go through `calculateSpellCheck()`.
 
 ```typescript
 interface SpellEvents {
@@ -97,15 +102,54 @@ interface SpellEvents {
 | Event | When Fired | Payload |
 |-------|------------|---------|
 | `onSpellCheckStart` | Before spell check roll | `SpellCastInput` - spell, caster info, modifiers |
-| `onSpellCheckComplete` | After all processing | `SpellCastResult` - full result with tier, effects |
+| `onSpellCheckComplete` | After the spell check roll, before the other `castSpell()` events and before `calculateSpellCheck()` follow-ups | `SpellCastResult` - result with tier, effects |
 | `onCritical` | Natural 20 on spell check | `SpellCastResult` with `critical: true` |
 | `onFumble` | Natural 1 on spell check | `SpellCastResult` with `fumble: true` |
 | `onSpellLost` | Spell lost for the day | `SpellCastResult` with `spellLost: true` |
-| `onCorruptionTriggered` | Wizard/elf gains corruption | `SpellCastResult`, `CorruptionResult` |
+| `onCorruptionTriggered` | Wizard/elf gains corruption (`calculateSpellCheck()` only) | `SpellCastResult`, `CorruptionResult` |
 | `onDisapprovalIncreased` | Cleric disapproval range grows | `SpellCastResult`, new range (number) |
 | `onSpellburnApplied` | Spellburn points committed | `SpellburnCommitment` (str, agl, sta) |
-| `onMercurialEffect` | Mercurial magic triggers | `MercurialEffect`, `SpellCastResult` |
-| `onPatronTaint` | Patron taint rolled | `SpellCastResult`, `PatronTaintResult` |
+| `onMercurialEffect` | The spellbook entry carries a mercurial effect (unless `skipMercurial`) | `MercurialEffect`, `SpellCastResult` |
+| `onPatronTaint` | Patron taint acquired (`calculateSpellCheck()` only) | `SpellCastResult`, `PatronTaintResult` (a minimal result with `roll: 0` if no taint table was supplied) |
+
+### PatronEvents
+
+Used by `invokePatron()`.
+
+```typescript
+interface PatronEvents {
+  onInvokeStart?: (input: InvokePatronInput) => void;
+  onInvokeComplete?: (result: InvokePatronResult) => void;
+  onPatronAnswers?: (result: InvokePatronResult) => void;
+  onPatronIgnores?: (result: InvokePatronResult) => void;
+  onTaintIncurred?: (patronId: string, description: string) => void;
+  onBondFormed?: (bond: PatronBond) => void;
+}
+```
+
+| Event | When Fired | Payload |
+|-------|------------|---------|
+| `onInvokeStart` | Before rolling | `InvokePatronInput` |
+| `onInvokeComplete` | After the check resolves | `InvokePatronResult` |
+| `onPatronAnswers` | After `onInvokeComplete`, on success | `InvokePatronResult` with `success: true` |
+| `onPatronIgnores` | After `onInvokeComplete`, on failure | `InvokePatronResult` with `success: false` |
+| `onTaintIncurred` | Natural 1 and a `taintTable` was supplied | `patronId`, taint description |
+| `onBondFormed` | Declared but not currently emitted by any library function | `PatronBond` |
+
+### OccupationSkillEvents
+
+Used by `resolveOccupationSkillCheck()`.
+
+```typescript
+interface OccupationSkillEvents {
+  onCheckStart?: (input: OccupationSkillCheckInput) => void;
+  onCheckComplete?: (result: OccupationSkillCheckResult) => void;
+  onCritical?: (result: OccupationSkillCheckResult) => void;
+  onFumble?: (result: OccupationSkillCheckResult) => void;
+}
+```
+
+`onCritical` / `onFumble` fire before `onCheckComplete`.
 
 ## Payload Types Reference
 
@@ -150,10 +194,11 @@ interface AttackResult {
   deedRoll?: RollResult;       // Deed die result (warrior/dwarf)
   totalBonus: number;          // Total attack bonus
   total: number;               // Final attack total
-  isCriticalThreat: boolean;   // Roll meets threat range?
+  isCriticalThreat: boolean;   // Critical threat?
+  critSource?: CritSource;     // "threat-range" | "backstab-auto" | "natural-max"
   isFumble: boolean;           // Natural 1?
   isHit?: boolean;             // Hit the target? (if AC provided)
-  appliedModifiers: RollModifier[];
+  appliedModifiers: LegacyRollModifier[];
   deedSuccess?: boolean;       // Deed roll >= 3?
 }
 ```
@@ -198,6 +243,8 @@ interface FumbleResult {
 
 ### SpellCastResult
 
+`calculateSpellCheck()` returns `SpellCheckResult`, which extends this with `disapprovalResult`, `updatedSpellbookEntry`, and `error`.
+
 ```typescript
 interface SpellCastResult {
   spellId: string;             // Spell cast
@@ -205,9 +252,10 @@ interface SpellCastResult {
   natural?: number;            // Natural roll
   total?: number;              // Total check result
   formula: string;             // Roll formula
-  modifiers: RollModifier[];   // All modifiers
+  modifiers: LegacyRollModifier[];  // All modifiers
   critical: boolean;           // Natural 20?
   fumble: boolean;             // Natural 1?
+  disapprovalAutoFail: boolean;  // Cleric natural roll within disapproval range
   tier?: ResultTier;           // Result tier (lost/failure/success-X)
   resultText?: string;         // Table result text
   effect?: TableEffect;        // Structured effect
@@ -215,6 +263,11 @@ interface SpellCastResult {
   corruptionTriggered: boolean;
   corruptionResult?: CorruptionResult;
   fumbleResult?: SpellFumbleResult;
+  patronTaintChecked: boolean;
+  patronTaintRoll?: number;
+  patronTaintAcquired: boolean;
+  patronTaintSource?: "creeping-chance" | "result-table";
+  newPatronTaintChance?: number;
   patronTaintResult?: PatronTaintResult;
   disapprovalIncrease: number;
   newDisapprovalRange?: number;
@@ -256,6 +309,8 @@ interface MercurialEffect {
   description: string;         // Full description
   displayOnCast: boolean;      // Show in chat?
   effect?: MercurialEffectData;  // Structured data
+  special?: MercurialSpecial;  // Special instruction on the table entry
+  subEffects?: MercurialEffect[];  // Effects a "roll again" special expanded into
 }
 ```
 
@@ -276,7 +331,7 @@ interface PatronTaintResult {
 
 ```typescript
 import { EventEmitter } from "events";
-import type { SkillEvents, CombatEvents, SpellEvents } from "dcc-core-lib";
+import type { SkillEvents, CombatEvents, SpellEvents } from "@moonloch/dcc-core-lib";
 
 /**
  * Create SkillEvents that emit to an EventEmitter
@@ -345,7 +400,7 @@ resolveSkillCheck(input, options, skillEvents);
 ### FoundryVTT Adapter Example
 
 ```typescript
-import type { SkillEvents, CombatEvents, SpellEvents } from "dcc-core-lib";
+import type { SkillEvents, CombatEvents, SpellEvents } from "@moonloch/dcc-core-lib";
 
 /**
  * Create events that integrate with FoundryVTT's chat and hooks
@@ -481,7 +536,7 @@ export function createFoundrySpellEvents(actor: Actor): SpellEvents {
 ### React/State Management Adapter
 
 ```typescript
-import type { SpellEvents, SpellCastResult, CorruptionResult } from "dcc-core-lib";
+import type { SpellEvents, SpellCastResult, CorruptionResult } from "@moonloch/dcc-core-lib";
 
 // For use with Redux, Zustand, or similar
 interface SpellState {
@@ -543,7 +598,7 @@ export function createZustandSpellEvents(): SpellEvents {
 ### Logging/Analytics Adapter
 
 ```typescript
-import type { SkillEvents, CombatEvents, SpellEvents } from "dcc-core-lib";
+import type { SkillEvents, CombatEvents, SpellEvents } from "@moonloch/dcc-core-lib";
 
 interface GameEvent {
   type: string;
@@ -565,8 +620,16 @@ export function createLoggingEvents(
     // Skill events
     onSkillCheckStart: (input) => emit("skill.start", { skillId: input.skill.id }),
     onSkillCheckComplete: (result) => emit("skill.complete", result),
-    onCritical: (result) => emit("skill.critical", { skillId: result.skillId }),
-    onFumble: (result) => emit("skill.fumble", { skillId: result.skillId }),
+    // onCritical/onFumble exist on both SkillEvents and SpellEvents, so the
+    // payload is SkillCheckResult | SpellCastResult here
+    onCritical: (result) =>
+      "skillId" in result
+        ? emit("skill.critical", { skillId: result.skillId })
+        : emit("spell.critical", { spellId: result.spellId }),
+    onFumble: (result) =>
+      "skillId" in result
+        ? emit("skill.fumble", { skillId: result.skillId })
+        : emit("spell.fumble", { spellId: result.spellId }),
     onResourceConsumed: (resource, amount) =>
       emit("resource.consumed", { resource, amount }),
 
@@ -607,7 +670,7 @@ export function createLoggingEvents(
 You can combine multiple event handlers by creating a merged events object:
 
 ```typescript
-import type { SpellEvents } from "dcc-core-lib";
+import type { SpellEvents } from "@moonloch/dcc-core-lib";
 
 function mergeSpellEvents(...handlers: SpellEvents[]): SpellEvents {
   return {

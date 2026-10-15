@@ -269,7 +269,10 @@ export interface CounterspellExchangeResult {
   /** Counterspell power result (if not phlogiston disturbance) */
   counterspellPower?: CounterspellPowerResult | undefined;
 
-  /** Phlogiston disturbance result (if checks were equal) */
+  /**
+   * Phlogiston disturbance result (if Table 4-5 returned PD). Table 4-5 caps
+   * both checks, so the totals may differ; momentum still goes to the higher.
+   */
   phlogistonDisturbance?: PhlogistonDisturbanceResult | undefined;
 
   /** Updated attacker momentum */
@@ -696,13 +699,15 @@ export function resolveCounterspellExchange(
     tables?.getComparisonDie
   );
 
-  // Update momentum - winner increments by 1
+  // Update momentum - the high roller increments by 1, nobody on identical
+  // totals (core book p. 98). This holds on a PD too: Table 4-5 caps both
+  // checks, so it can return PD for totals that differ.
   let newAttackerMomentum = attacker.momentum;
   let newDefenderMomentum = defender.momentum;
 
   if (comparison.attackerHigh) {
     newAttackerMomentum += 1;
-  } else if (!comparison.isPhlogistonDisturbance) {
+  } else if (defenderCheck.total > attackerCheck.total) {
     newDefenderMomentum += 1;
   }
 
@@ -825,8 +830,13 @@ export function formatExchangeResult(
     return lines.join("\n");
   }
 
-  const winner = result.comparison.attackerHigh ? attackerName : defenderName;
-  lines.push(`${winner} wins the exchange!`);
+  const { attackerCheck, defenderCheck } = result.comparison;
+  if (attackerCheck === defenderCheck) {
+    lines.push(`Identical checks - no winner!`);
+  } else {
+    const winner = attackerCheck > defenderCheck ? attackerName : defenderName;
+    lines.push(`${winner} wins the exchange!`);
+  }
   lines.push(`Momentum: ${attackerName} ${String(result.newAttackerMomentum)}, ${defenderName} ${String(result.newDefenderMomentum)}`);
 
   if (result.phlogistonDisturbance) {

@@ -871,6 +871,46 @@ describe("resolveCounterspellExchange", () => {
     expect(result.counterspellPower).toBeUndefined();
   });
 
+  it("gives momentum to the higher raw total on a capped default-table PD, symmetrically (#29)", () => {
+    const state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12 },
+    ]);
+    const check = (casterId: string, total: number) => ({
+      casterId,
+      spell: casterId === "attacker" ? createMagicMissile() : createMagicShield(),
+      naturalRoll: 20,
+      total,
+      succeeded: true,
+      spellLost: false,
+    });
+    const exchange = (attackerTotal: number, defenderTotal: number) =>
+      resolveCounterspellExchange(
+        state,
+        "attacker",
+        "defender",
+        check("attacker", attackerTotal),
+        check("defender", defenderTotal),
+        createMockRoller(1)
+      );
+
+    // The default Table 4-5 lookup caps both checks, so these all land on PD
+
+    const attackerHigher = exchange(30, 29);
+    expect(attackerHigher.comparison.isPhlogistonDisturbance).toBe(true);
+    expect(attackerHigher.newAttackerMomentum).toBe(11);
+    expect(attackerHigher.newDefenderMomentum).toBe(10);
+
+    const defenderHigher = exchange(29, 30);
+    expect(defenderHigher.comparison.isPhlogistonDisturbance).toBe(true);
+    expect(defenderHigher.newAttackerMomentum).toBe(10);
+    expect(defenderHigher.newDefenderMomentum).toBe(11);
+
+    const identical = exchange(30, 30);
+    expect(identical.newAttackerMomentum).toBe(10);
+    expect(identical.newDefenderMomentum).toBe(10);
+  });
+
   it("rolls on counterspell power table for unequal checks", () => {
     const state = createSpellDuelState([
       { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
@@ -1129,6 +1169,42 @@ describe("formatExchangeResult", () => {
     expect(formatted).toContain("Momentum");
     expect(formatted).toContain("11");
     expect(formatted).toContain("d5");
+  });
+
+  it("names no winner on identical checks", () => {
+    const check = (casterId: string) => ({
+      casterId,
+      spell: casterId === "attacker" ? createMagicMissile() : createMagicShield(),
+      naturalRoll: 15,
+      total: 15,
+      succeeded: true,
+      spellLost: false,
+    });
+    const result = {
+      attackerCheck: check("attacker"),
+      defenderCheck: check("defender"),
+      comparison: {
+        attackerCheck: 15,
+        defenderCheck: 15,
+        attackerHigh: false,
+        comparisonDie: "PD" as const,
+        isPhlogistonDisturbance: true,
+      },
+      phlogistonDisturbance: {
+        roll: 1,
+        effect: "Test effect",
+        affectsAttacker: true,
+        affectsDefender: true,
+        affectsBystanders: false,
+      },
+      newAttackerMomentum: 10,
+      newDefenderMomentum: 10,
+      samePatronCancellation: false,
+    };
+
+    const formatted = formatExchangeResult(result, "Emerald", "Magnus");
+    expect(formatted).toContain("no winner");
+    expect(formatted).not.toContain("wins the exchange");
   });
 
   it("formats same patron cancellation", () => {

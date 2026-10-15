@@ -385,8 +385,8 @@ export const LUCK_SHARING: SkillDefinition = {
   name: "Good Fortune",
   description:
     "You can spend your own Luck to aid an ally who is nearby and visible " +
-    "to you, even out of initiative order. Only one halfling in a party " +
-    "can do this.",
+    "to you, even out of initiative order, applying your Luck modifier to " +
+    "their roll. Only one halfling in a party can do this.",
   type: "passive",
   enables: {
     action: "share-luck",
@@ -408,7 +408,10 @@ export interface ShareLuckOptions {
   allyVisible?: boolean | undefined;
   /** Distance to the ally. Only checked when `maxRange` is also given. */
   distanceToAlly?: number | undefined;
-  /** A table's own range limit. The rules set none, so there is no default. */
+  /**
+   * A table's own range limit. The rules set none, so there is no default.
+   * Ignored unless `distanceToAlly` is also given.
+   */
   maxRange?: number | undefined;
 }
 

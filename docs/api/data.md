@@ -722,9 +722,10 @@ Distance to the ally. Only checked when `maxRange` is also given.
 optional maxRange?: number;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L412)
+Defined in: [data/skills/enabling-skills.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L415)
 
 A table's own range limit. The rules set none, so there is no default.
+Ignored unless `distanceToAlly` is also given.
 
 ## Type Aliases
 
@@ -979,7 +980,7 @@ Only one halfling in a party can do this. There is no fixed range.
 const ENABLING_SKILLS: Record<string, SkillDefinition>;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:437](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L437)
+Defined in: [data/skills/enabling-skills.ts:440](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L440)
 
 All enabling skills indexed by ID
 
@@ -991,7 +992,7 @@ All enabling skills indexed by ID
 const ENABLING_SKILL_IDS: string[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:449](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L449)
+Defined in: [data/skills/enabling-skills.ts:452](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L452)
 
 List of enabling skill IDs
 
@@ -2488,7 +2489,7 @@ decide whether the character recovers Luck at all (see
 function canShareLuck(classId: string, options?: ShareLuckOptions): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L421)
+Defined in: [data/skills/enabling-skills.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L424)
 
 Check if a character can share Luck with an ally. The class must have
 [LUCK\_SHARING](#luck_sharing) and the ally must be visible. A range applies only
@@ -2514,7 +2515,7 @@ is left to the caller.
 function getEnablingSkillsForClass(classId: string): SkillDefinition[];
 ```
 
-Defined in: [data/skills/enabling-skills.ts:454](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L454)
+Defined in: [data/skills/enabling-skills.ts:457](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L457)
 
 Get all enabling skills for a given class
 
@@ -2536,7 +2537,7 @@ Get all enabling skills for a given class
 function classHasEnablingSkill(classId: string, skillId: string): boolean;
 ```
 
-Defined in: [data/skills/enabling-skills.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L463)
+Defined in: [data/skills/enabling-skills.ts:466](https://github.com/moonloch/dcc-core-lib/blob/main/src/data/skills/enabling-skills.ts#L466)
 
 Check if a class has a specific enabling skill
 

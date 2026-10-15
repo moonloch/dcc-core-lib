@@ -349,6 +349,7 @@ describe("Enabling Skills", () => {
     it("applies a caller-supplied range", () => {
       expect(canShareLuck("halfling", { distanceToAlly: 30, maxRange: 30 })).toBe(true);
       expect(canShareLuck("halfling", { distanceToAlly: 31, maxRange: 30 })).toBe(false);
+      expect(canShareLuck("halfling", { maxRange: 30 })).toBe(true);
     });
 
     it("returns false for non-halfling", () => {

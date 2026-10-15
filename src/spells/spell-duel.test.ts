@@ -37,6 +37,7 @@ import {
   formatSpellDuelCheck,
   formatExchangeResult,
   formatSpellDuelState,
+  DEFAULT_SPELL_DUEL_TABLES,
 } from "./spell-duel.js";
 
 // =============================================================================
@@ -869,6 +870,44 @@ describe("resolveCounterspellExchange", () => {
     expect(result.comparison.isPhlogistonDisturbance).toBe(true);
     expect(result.phlogistonDisturbance).toBeDefined();
     expect(result.counterspellPower).toBeUndefined();
+  });
+
+  it("gives momentum to the higher raw total on a capped-table PD, symmetrically (#29)", () => {
+    const state = createSpellDuelState([
+      { id: "attacker", name: "Attacker", casterType: "wizard", initiative: 17 },
+      { id: "defender", name: "Defender", casterType: "wizard", initiative: 12 },
+    ]);
+    const check = (casterId: string, total: number) => ({
+      casterId,
+      spell: casterId === "attacker" ? createMagicMissile() : createMagicShield(),
+      naturalRoll: 20,
+      total,
+      succeeded: true,
+      spellLost: false,
+    });
+    const exchange = (attackerTotal: number, defenderTotal: number) =>
+      resolveCounterspellExchange(
+        state,
+        "attacker",
+        "defender",
+        check("attacker", attackerTotal),
+        check("defender", defenderTotal),
+        { roller: createMockRoller(1), tables: { ...DEFAULT_SPELL_DUEL_TABLES, getComparisonDie: () => "PD" } }
+      );
+
+    const attackerHigher = exchange(30, 29);
+    expect(attackerHigher.comparison.isPhlogistonDisturbance).toBe(true);
+    expect(attackerHigher.newAttackerMomentum).toBe(11);
+    expect(attackerHigher.newDefenderMomentum).toBe(10);
+
+    const defenderHigher = exchange(29, 30);
+    expect(defenderHigher.comparison.isPhlogistonDisturbance).toBe(true);
+    expect(defenderHigher.newAttackerMomentum).toBe(10);
+    expect(defenderHigher.newDefenderMomentum).toBe(11);
+
+    const identical = exchange(30, 30);
+    expect(identical.newAttackerMomentum).toBe(10);
+    expect(identical.newDefenderMomentum).toBe(10);
   });
 
   it("rolls on counterspell power table for unequal checks", () => {

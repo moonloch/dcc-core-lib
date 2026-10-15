@@ -696,13 +696,15 @@ export function resolveCounterspellExchange(
     tables?.getComparisonDie
   );
 
-  // Update momentum - winner increments by 1
+  // Update momentum - the high roller increments by 1, nobody on identical
+  // totals (core book p. 98). Decided on raw totals, not the Table 4-5 cell:
+  // a capped table can return PD for totals that differ.
   let newAttackerMomentum = attacker.momentum;
   let newDefenderMomentum = defender.momentum;
 
-  if (comparison.attackerHigh) {
+  if (attackerCheck.total > defenderCheck.total) {
     newAttackerMomentum += 1;
-  } else if (!comparison.isPhlogistonDisturbance) {
+  } else if (defenderCheck.total > attackerCheck.total) {
     newDefenderMomentum += 1;
   }
 

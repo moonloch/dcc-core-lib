@@ -33,11 +33,11 @@ npx vitest run src/path/to/file.test.ts
 ## Key Modules
 
 - `src/character/create.ts` - 0-level character generation
-- `src/character/serialize.ts` - Versioned JSON export/import (CHARACTER_FORMAT_VERSION = "1.0")
+- `src/character/serialize.ts` - Versioned JSON export/import (CHARACTER_FORMAT_VERSION = "1.1"; older exports are migrated on import)
 - `src/types/character.ts` - Character, Inventory, InventoryItem types
 - `src/dice/` - Dice chain, roll evaluation
 - `src/skills/` - Skill resolution system
-- `src/data/` - Static data (occupations, birth augurs, names, ability modifiers)
+- `src/data/` - Ability modifiers, name generation, fan-made sample data, class-progression registry, and loaders for raw (FoundryVTT-format) data
 
 ## TypeScript Configuration
 
@@ -55,6 +55,9 @@ Unused variables pattern: prefix with `_` (e.g., `_unusedParam`)
 ## Documentation
 
 - `docs/ARCHITECTURE.md` - Goal architecture, event system design, data loading strategy
+- `docs/API.md` - API reference for every exported function
+- `docs/EVENTS.md` - Event callback interfaces and adapter examples
+- `docs/MODIFIERS.md` - `RollModifier` design and the staged `LegacyRollModifier` migration (cited from src comments)
 - `CONTRIBUTING.md` - Contribution rules (regression tests, conventional commits, copyright separation, how fixes reach the DCC system)
 
 ## Source Repository

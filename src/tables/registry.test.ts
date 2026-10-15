@@ -22,6 +22,7 @@ import {
   loadAndRegisterTable,
   loadTablesFromJson,
 } from "./registry.js";
+import { validateTable } from "./lookup.js";
 import type {
   SimpleTable,
   MultiColumnTable,
@@ -384,6 +385,32 @@ describe("JSON Loading", () => {
       const json = JSON.stringify(simpleTable);
       const result = loadTableFromJson(json);
       expect(result.success).toBe(true);
+    });
+
+    it("loads a lay-on-hands table (issue #3)", () => {
+      const json = JSON.stringify({
+        id: "test-lay-on-hands",
+        name: "Test Lay on Hands",
+        type: "lay-on-hands",
+        rows: [
+          { min: 1, max: 11, dice: { same: 0, adjacent: 0, opposed: 0 } },
+          { min: 12, max: 20, dice: { same: 2, adjacent: 1, opposed: 1 } },
+        ],
+        conditions: { disease: 2 },
+      });
+      const result = loadTableFromJson(json);
+      expect(result.success).toBe(true);
+      if (result.success) {
+        expect(result.table.type).toBe("lay-on-hands");
+        expect(validateTable(result.table).valid).toBe(true);
+      }
+    });
+
+    it("rejects a lay-on-hands table without rows", () => {
+      const result = loadTableFromJson(
+        JSON.stringify({ id: "x", name: "X", type: "lay-on-hands" })
+      );
+      expect(result.success).toBe(false);
     });
 
     it("fails for invalid JSON", () => {

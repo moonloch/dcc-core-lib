@@ -32,6 +32,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   `isHit`. Without `targetAC` it still judges the deed die alone (DCC RPG core
   rules, p. 88).
 
+- **`lay-on-hands` tables load from JSON.** `parseTable`, `loadTableFromJson`,
+  `loadTablesFromJson` and `loadAndRegisterTable` rejected a valid
+  `LayOnHandsTable` with `Unknown table type: lay-on-hands`. They now accept an
+  object with `type: "lay-on-hands"` and a `rows` array.
+
 ## [0.14.4] - 2026-10-15
 
 ### Changed

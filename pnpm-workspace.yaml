@@ -1,0 +1,8 @@
+allowBuilds:
+  esbuild: true
+
+# Refuse package versions published less than a week ago (in minutes).
+minimumReleaseAge: 10080
+# Already locked before the policy was added; remove after 2026-10-20.
+minimumReleaseAgeExclude:
+  - typedoc-plugin-markdown@4.14.0

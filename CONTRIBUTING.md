@@ -11,11 +11,12 @@ Thanks for helping. This library holds the rules logic for Dungeon Crawl Classic
 - Randomness goes through an injected roller or `RandomSource` so tests can be deterministic.
 - The library is ESM (`"type": "module"`); use `.js` extensions in relative imports.
 
-### `npm run check` must pass
+### `pnpm run check` must pass
 
 ```bash
-npm ci
-npm run check   # eslint + tsc --noEmit + vitest
+corepack enable                 # once: provides the pnpm version pinned in package.json
+pnpm install --frozen-lockfile
+pnpm run check                  # eslint + tsc --noEmit + vitest
 ```
 
 CI runs the same command on every PR, and the husky pre-push hook runs it locally. The TypeScript config is strict (`noUncheckedIndexedAccess`, `exactOptionalPropertyTypes`, `noPropertyAccessFromIndexSignature`) and ESLint uses `typescript-eslint`'s `strictTypeChecked` + `stylisticTypeChecked`. Prefix intentionally unused variables with `_`.
@@ -66,14 +67,14 @@ The fan-made fixtures in `test_data/` (thief and warrior class-level documents a
 The DCC system does not install this package from a registry; it **vendors** the compiled `dist/` at `module/vendor/dcc-core-lib/` (FoundryVTT has no bundler). A lib fix flows like this:
 
 1. **Open a PR here** against `main` with the fix and its regression test. Link the system issue it addresses (e.g. `foundryvtt-dcc/dcc#123`).
-2. **Review and merge.** On merge to `main`, the `Create Release` workflow runs `npm run check`, builds, and creates a draft GitHub release for the `package.json` version. If a release for that version already exists, the workflow does not push to `main`; it opens a `release/bump-vX.Y.Z` pull request that bumps the patch version, and merging that PR creates the draft release for the new version. (Bumping `package.json` in your own PR avoids the extra round trip.) The maintainer publishes the draft release, which triggers `Publish to GitHub Packages`.
+2. **Review and merge.** On merge to `main`, the `Create Release` workflow runs `pnpm run check`, builds, and creates a draft GitHub release for the `package.json` version. If a release for that version already exists, the workflow does not push to `main`; it opens a `release/bump-vX.Y.Z` pull request that bumps the patch version, and merging that PR creates the draft release for the new version. (Bumping `package.json` in your own PR avoids the extra round trip.) The maintainer publishes the draft release, which triggers `Publish to GitHub Packages`.
 3. **Sync the vendored copy in the system repo.** In a checkout of [foundryvtt-dcc/dcc](https://github.com/foundryvtt-dcc/dcc), with this repo checked out at the merged commit:
 
    ```bash
-   DCC_CORE_LIB_SRC=/path/to/your/dcc-core-lib pnpm run sync-core-lib
+   DCC_CORE_LIB_SRC=/path/to/your/dcc-core-lib ppnpm run sync-core-lib
    ```
 
-   `scripts/sync-core-lib.mjs` runs `npm run build` in the lib checkout, copies `dist/` into `module/vendor/dcc-core-lib/`, and writes `VERSION.json` with the source commit SHA. Commit the vendor diff (e.g. `vendor: sync dcc-core-lib to 0.14.4 (abc1234)`) in a system PR, and remove any temporary adapter workaround that the lib fix makes unnecessary. The system repo's `.claude/skills/sync-core-lib/SKILL.md` describes the same procedure.
+   `scripts/sync-core-lib.mjs` runs `npm run build` in the lib checkout, copies `dist/` into `module/vendor/dcc-core-lib/`, and writes `VERSION.json` with the source commit SHA. Commit the vendor diff (e.g. `vendor: sync dcc-core-lib to 0.14.4 (abc1234)`) in a system PR, and remove any temporary adapter workaround that the lib fix makes unnecessary. The system repo's `.claude/skills/sync-core-lib/SKILL.md` describes the same procedure. The script still calls `npm run build` rather than `pnpm run build`; that works because `build` is a plain script, and the system repo may switch it to pnpm later.
 
 If you need a system-side workaround while the lib PR is in review, keep it small, mark it as temporary, and reference the lib PR so it can be removed after the sync.
 
@@ -84,7 +85,7 @@ You may use AI coding assistants and large language models (LLMs) to help write 
 ### You are the author
 
 - **Review everything before you submit it.** You must understand every line of the PR and be able to explain and defend it in review. "The model wrote it" is not an answer to a review question.
-- **Run the checks yourself.** `npm run check` must pass on your machine before you open the PR. Do not submit code you have not run.
+- **Run the checks yourself.** `pnpm run check` must pass on your machine before you open the PR. Do not submit code you have not run.
 - **Check that tests test something.** Generated tests often assert whatever the code currently does. A regression test must fail without your fix; confirm that by reverting the fix locally.
 - **Keep the change focused.** Remove unrelated refactors, renames, reformatting and comment churn that an assistant adds along the way.
 
@@ -122,4 +123,4 @@ By contributing you agree that your contributions are licensed under the [MIT Li
 
 ## API docs
 
-`docs/api/` is generated from the TSDoc comments by TypeDoc (`npm run docs:api`). Do not edit it by hand: fix the doc comment in `src/` and regenerate. CI fails if the committed docs are stale (`npm run docs:check`). `npm run build` also emits `dist/dcc-core-lib.d.ts`, the whole public surface as one declaration file, which is the best single input for tooling and LLM-assisted callers.
+`docs/api/` is generated from the TSDoc comments by TypeDoc (`pnpm run docs:api`). Do not edit it by hand: fix the doc comment in `src/` and regenerate. CI fails if the committed docs are stale (`pnpm run docs:check`). `pnpm run build` also emits `dist/dcc-core-lib.d.ts`, the whole public surface as one declaration file, which is the best single input for tooling and LLM-assisted callers.

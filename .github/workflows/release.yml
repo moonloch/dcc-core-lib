@@ -4,7 +4,8 @@ name: Create Release
 # version, create a draft release for it. If one already exists, open (or
 # reuse) a pull request that bumps the patch version instead of pushing to
 # main, so main can stay branch-protected. Merging that PR re-runs this
-# workflow and creates the draft release for the new version.
+# workflow and creates the draft release for the new version. Pushes that
+# come from merging a Dependabot PR never open a bump PR.
 
 on:
   push:
@@ -21,19 +22,20 @@ jobs:
     steps:
       - uses: actions/checkout@v7
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v7
+      # Installs pnpm (from packageManager) and Node, then runs
+      # `pnpm install --frozen-lockfile`.
+      - name: Setup pnpm, Node.js and dependencies
+        uses: pnpm/setup@v3
         with:
-          node-version: '20'
-
-      - name: Install dependencies
-        run: npm ci
+          runtime: node@24
+          cache: true
+          require-lockfile: true
 
       - name: Run checks
-        run: npm run check
+        run: pnpm run check
 
       - name: Build
-        run: npm run build
+        run: pnpm run build
 
       - name: Check for an existing release
         id: package
@@ -51,6 +53,22 @@ jobs:
             echo "exists=false" >> "$GITHUB_OUTPUT"
           fi
 
+      # Dependabot merges should not cut a new patch version. The push actor is
+      # whoever clicked merge, so look up the PR behind the commit instead.
+      - name: Check whether the push came from a Dependabot PR
+        id: source
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          PR_AUTHOR=$(gh api "repos/${{ github.repository }}/commits/${{ github.sha }}/pulls" \
+            --jq '.[0].user.login // ""')
+          echo "Merged PR author: ${PR_AUTHOR:-<none>}"
+          if [ "$PR_AUTHOR" = "dependabot[bot]" ]; then
+            echo "dependabot=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "dependabot=false" >> "$GITHUB_OUTPUT"
+          fi
+
       - name: Create draft release
         if: steps.package.outputs.exists == 'false'
         uses: softprops/action-gh-release@v3
@@ -61,7 +79,7 @@ jobs:
           generate_release_notes: true
 
       - name: Open a version-bump pull request
-        if: steps.package.outputs.exists == 'true'
+        if: steps.package.outputs.exists == 'true' && steps.source.outputs.dependabot == 'false'
         env:
           # A personal access token in RELEASE_PR_TOKEN (contents + pull
           # requests: write) makes the CI workflow run on the bump PR.
@@ -83,8 +101,8 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git checkout -b "$BRANCH"
-          npm version "$NEW_VERSION" --no-git-tag-version
-          git add package.json package-lock.json
+          pnpm pkg set version="$NEW_VERSION"
+          git add package.json
           git commit -m "chore: bump version to $NEW_VERSION"
           git push --force origin "$BRANCH"
 

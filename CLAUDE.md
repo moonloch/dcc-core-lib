@@ -9,19 +9,19 @@ This is `dcc-core-lib`, a TypeScript library providing core game logic for Dunge
 ## Commands
 
 ```bash
-npm run check        # Lint + typecheck + tests (CI and pre-push hook run this)
-npm run build        # Compile TypeScript to dist/
-npm run lint         # Run ESLint on src/
-npm run lint:fix     # Run ESLint with auto-fix
-npm run test         # Run tests once
-npm run test:watch   # Run tests in watch mode
-npm run typecheck    # Type-check without emitting
-npm run clean        # Remove dist/
+pnpm run check        # Lint + typecheck + tests (CI and pre-push hook run this)
+pnpm run build        # Compile TypeScript to dist/
+pnpm run lint         # Run ESLint on src/
+pnpm run lint:fix     # Run ESLint with auto-fix
+pnpm run test         # Run tests once
+pnpm run test:watch   # Run tests in watch mode
+pnpm run typecheck    # Type-check without emitting
+pnpm run clean        # Remove dist/
 ```
 
 Run a single test file:
 ```bash
-npx vitest run src/path/to/file.test.ts
+pnpm exec vitest run src/path/to/file.test.ts
 ```
 
 ## Architecture
@@ -55,7 +55,7 @@ Unused variables pattern: prefix with `_` (e.g., `_unusedParam`)
 ## Documentation
 
 - `docs/ARCHITECTURE.md` - Goal architecture, event system design, data loading strategy
-- `docs/api/` - generated API reference (`npm run docs:api`; do not edit by hand). `dist/dcc-core-lib.d.ts` (from `npm run build`) is the whole public surface in one file
+- `docs/api/` - generated API reference (`pnpm run docs:api`; do not edit by hand). `dist/dcc-core-lib.d.ts` (from `pnpm run build`) is the whole public surface in one file
 - `docs/EVENTS.md` - Event callback interfaces and adapter examples
 - `docs/MODIFIERS.md` - `RollModifier` design and the staged `LegacyRollModifier` migration (cited from src comments)
 - `CONTRIBUTING.md` - Contribution rules (regression tests, conventional commits, copyright separation, how fixes reach the DCC system)

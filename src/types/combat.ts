@@ -286,7 +286,13 @@ export interface AttackResult {
   /** All modifiers that were applied */
   appliedModifiers: LegacyRollModifier[];
 
-  /** Whether the deed was successful (roll >= 3) */
+  /**
+   * Whether the deed succeeded: the deed die shows 3+ and the attack hits.
+   * `false` on a fumble or a known miss. When `targetAC` was omitted the
+   * hit is unknown (`isHit` undefined) and only the deed die is judged, so
+   * the caller must still confirm the hit. Undefined when no deed die was
+   * rolled.
+   */
   deedSuccess?: boolean | undefined;
 }
 

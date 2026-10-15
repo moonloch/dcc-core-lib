@@ -4,7 +4,7 @@
  * Tests for attack rolls, damage, critical hits, fumbles, and initiative
  */
 
-import { describe, it, expect, beforeAll, afterAll } from "vitest";
+import { describe, it, expect, beforeAll, afterAll, vi } from "vitest";
 import type { DiceRoller } from "../types/dice.js";
 import type { AttackInput, AttackResult, DamageInput, CriticalInput, FumbleInput, InitiativeInput } from "../types/combat.js";
 import { COMMON_WEAPONS } from "../types/combat.js";
@@ -300,6 +300,44 @@ describe("Attack System", () => {
       const result = makeAttackRoll(input, roller);
 
       expect(result.deedSuccess).toBe(false); // 2 < 3
+    });
+
+    it("should fail a 3+ deed when the attack misses targetAC", () => {
+      const roller = createSequenceRoller([5, 4]); // Attack roll, deed roll
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 1,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 0,
+        deedDie: "d4",
+        targetAC: 15,
+      };
+
+      const result = makeAttackRoll(input, roller);
+
+      expect(result.total).toBe(10); // 5 + 1 + 4 deed
+      expect(result.isHit).toBe(false);
+      expect(result.deedSuccess).toBe(false);
+    });
+
+    it("should fail a 3+ deed on a fumble, even without targetAC", () => {
+      const roller = createSequenceRoller([1, 4]); // Attack roll, deed roll
+      const onDeedAttempt = vi.fn();
+      const input: AttackInput = {
+        attackType: "melee",
+        attackBonus: 3,
+        actionDie: "d20",
+        threatRange: 20,
+        abilityModifier: 2,
+        deedDie: "d4",
+      };
+
+      const result = makeAttackRoll(input, roller, { onDeedAttempt });
+
+      expect(result.isFumble).toBe(true);
+      expect(result.deedSuccess).toBe(false);
+      expect(onDeedAttempt).toHaveBeenCalledWith(result.deedRoll, false);
     });
 
     it("should determine hit when target AC is provided", () => {
@@ -870,6 +908,22 @@ describe("Attack System", () => {
       expect(result.primary.roll.natural).toBe(16);
       expect(result.primary.isHit).toBe(false); // no auto-hit on natural max
       expect(result.primary.isCriticalThreat).toBe(false);
+    });
+
+    it("Agl 16-17 non-halfling: a 3+ deed fails when the natural max misses AC", () => {
+      // Primary d16 natural 16 with a d4 deed of 3: total 19 < AC 25, so the
+      // hand rules turn the auto-hit into a miss and the deed must fail too.
+      const roller = createSequenceRoller([16, 3, 1]); // primary, primary deed, off-hand
+      const result = rollTwoWeaponAttack({
+        agility: 16,
+        baseActionDie: "d20",
+        primary: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0, deedDie: "d4", targetAC: 25 },
+        offHand: { attackType: "melee", attackBonus: 0, threatRange: 20, abilityModifier: 0, targetAC: 25 },
+      }, roller);
+
+      expect(result.primary.deedRoll?.natural).toBe(3);
+      expect(result.primary.isHit).toBe(false);
+      expect(result.primary.deedSuccess).toBe(false);
     });
 
     it("Agl 16-17 non-halfling: natural max that beats AC crits", () => {

@@ -55,7 +55,7 @@ Unused variables pattern: prefix with `_` (e.g., `_unusedParam`)
 ## Documentation
 
 - `docs/ARCHITECTURE.md` - Goal architecture, event system design, data loading strategy
-- `docs/API.md` - API reference for every exported function
+- `docs/api/` - generated API reference (`npm run docs:api`; do not edit by hand). `dist/dcc-core-lib.d.ts` (from `npm run build`) is the whole public surface in one file
 - `docs/EVENTS.md` - Event callback interfaces and adapter examples
 - `docs/MODIFIERS.md` - `RollModifier` design and the staged `LegacyRollModifier` migration (cited from src comments)
 - `CONTRIBUTING.md` - Contribution rules (regression tests, conventional commits, copyright separation, how fixes reach the DCC system)

@@ -1,0 +1,32 @@
+{
+  "$schema": "https://typedoc.org/schema.json",
+  "entryPoints": [
+    "src/*/index.ts"
+  ],
+  "entryPointStrategy": "resolve",
+  "plugin": [
+    "typedoc-plugin-markdown"
+  ],
+  "out": "docs/api",
+  "readme": "none",
+  "entryFileName": "index.md",
+  "outputFileStrategy": "modules",
+  "hidePageHeader": true,
+  "hideBreadcrumbs": true,
+  "useCodeBlocks": true,
+  "expandObjects": true,
+  "expandParameters": true,
+  "parametersFormat": "table",
+  "typeDeclarationFormat": "table",
+  "excludePrivate": true,
+  "excludeInternal": true,
+  "sort": [
+    "source-order"
+  ],
+  "treatWarningsAsErrors": false,
+  "validation": {
+    "notExported": false,
+    "invalidLink": true,
+    "notDocumented": false
+  }
+}

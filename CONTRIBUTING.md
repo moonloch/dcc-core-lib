@@ -84,3 +84,7 @@ Open an issue here for rules-logic bugs, with the inputs, the expected result (a
 ## License
 
 By contributing you agree that your contributions are licensed under the [MIT License](LICENSE).
+
+## API docs
+
+`docs/api/` is generated from the TSDoc comments by TypeDoc (`npm run docs:api`). Do not edit it by hand: fix the doc comment in `src/` and regenerate. CI fails if the committed docs are stale (`npm run docs:check`). `npm run build` also emits `dist/dcc-core-lib.d.ts`, the whole public surface as one declaration file, which is the best single input for tooling and LLM-assisted callers.

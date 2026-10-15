@@ -27,3 +27,6 @@ jobs:
 
       - name: Build
         run: npm run build
+
+      - name: Check generated API docs are current
+        run: npm run docs:check

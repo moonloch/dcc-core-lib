@@ -1,0 +1,18 @@
+# @moonloch/dcc-core-lib
+
+> Pure-function TypeScript library for Dungeon Crawl Classics RPG game logic: dice chain, checks and saves, skills, spells, combat, character creation and advancement, cleric, patron, occupation and adventure helpers. No platform dependencies. Contains no official rulebook data; callers register their own licensed data.
+
+The public surface is the set of exports from `src/index.ts`. The most precise, complete description is the generated declaration file: `dist/dcc-core-lib.d.ts` (one file, produced by `npm run build`). The generated markdown under `docs/api/` carries the same signatures and doc comments, one page per module.
+
+## Reference
+
+- [API index](docs/api/index.md): generated per-module API reference
+- [Modifier design](docs/MODIFIERS.md): the RollModifier type, application order and migration status
+- [Event system](docs/EVENTS.md): callback-injection event interfaces
+- [Architecture](docs/ARCHITECTURE.md): goals, module layout, data-loading and copyright policy
+
+## Contributing
+
+- [README](README.md): install, quick start, consumers
+- [CONTRIBUTING](CONTRIBUTING.md): rules, checks, regression tests, how a fix reaches the DCC FoundryVTT system
+- [CHANGELOG](CHANGELOG.md): release history

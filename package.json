@@ -1,13 +1,17 @@
 {
   "name": "@moonloch/dcc-core-lib",
   "version": "0.14.3",
-  "description": "Core DCC (Dungeon Crawl Classics) logic library - pure functions, no objects",
+  "description": "Pure-function TypeScript game-logic library for the Dungeon Crawl Classics RPG (dice chain, checks, combat, spells, character creation). No platform dependencies and no official rulebook data.",
   "type": "module",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "git@github.com:moonloch/dcc-core-lib.git"
+    "url": "git+https://github.com/moonloch/dcc-core-lib.git"
+  },
+  "homepage": "https://github.com/moonloch/dcc-core-lib#readme",
+  "bugs": {
+    "url": "https://github.com/moonloch/dcc-core-lib/issues"
   },
   "exports": {
     ".": {

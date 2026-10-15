@@ -3,7 +3,10 @@
 > Design doc for the roll-modifier type used throughout the check, skill,
 > attack, damage, and spell pipelines.
 >
-> **Status:** Proposal · 2026-04-17 · **staged migration in progress**
+> **Status:** Adopted · first written 2026-04-17 · updated 2026-10-15 ·
+> **staged migration in progress** — the check/skill/dice pipeline and
+> `cleric/` are on the tagged union; `spells/`, `patron/`, `combat/` and
+> `occupation/` still use `LegacyRollModifier` (see §9).
 >
 > This document pins the type shape, application order, and
 > origin-categorization scheme. The implementation is landing in
@@ -394,12 +397,15 @@ shape they need.
 
 ### Migration order
 
-| Wave | Subsystem | When it migrates | Notes |
-|---|---|---|---|
-| 1 | `checks/`, `skills/`, `dice/roll.ts` | **Now** (with this doc's implementation) | Needed by the Foundry adapter's Phase 1 (ability check → save → skill → init). |
-| 2 | `spells/`, `cleric/`, `patron/` | Foundry adapter Phase 2 | Spell check pipeline + cleric disapproval + patron taint. |
-| 3 | `combat/` (attack, damage, crits, fumbles, initiative, misc-rules, morale) | Foundry adapter Phase 3 | The largest chunk — attack/damage/crit chain interleaves lots of modifier types. |
-| 4 | `occupation/` | Opportunistic | Small surface; may migrate with wave 2 or 3. |
+Status as of 2026-10-15 (from which non-test files in `src/` import
+`LegacyRollModifier`):
+
+| Wave | Subsystem | When it migrates | Status | Notes |
+|---|---|---|---|---|
+| 1 | `checks/`, `skills/`, `dice/roll.ts` | With this doc's implementation | **Done** | Needed by the Foundry adapter's Phase 1 (ability check → save → skill → init). `dice/roll.ts` also still hosts the legacy helpers (`buildFormula`, `createRoll`, `rollSimple`) that the unmigrated subsystems call, and `RollResult.modifiers` is still the legacy shape. |
+| 2 | `spells/`, `cleric/`, `patron/` | Foundry adapter Phase 2 | **Partial** — `cleric/` done; `spells/` (`cast.ts`, `spell-check.ts`, `types/spells.ts`) and `patron/` (`invoke.ts`) remain | Spell check pipeline + cleric disapproval + patron taint. |
+| 3 | `combat/` (attack, damage, crits, fumbles, initiative, misc-rules, morale) | Foundry adapter Phase 3 | **Not started** — all seven files plus `types/combat.ts` remain | The largest chunk — attack/damage/crit chain interleaves lots of modifier types. |
+| 4 | `occupation/` | Opportunistic | **Not started** — `occupation/skills.ts` remains | Small surface; may migrate with wave 2 or 3. |
 
 ### Retirement criteria
 

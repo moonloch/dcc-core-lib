@@ -416,7 +416,7 @@ Modules under `src/`: `adventure`, `character`, `checks`, `cleric`, `combat`, `d
 - Bonus system and table lookup system (simple, multi-column, tiered tables)
 - Data loaders and parsers (FoundryVTT class progressions, rollable tables, birth augurs, spell definitions, statblocks, Purple Sorcerer output)
 
-See [CHANGELOG.md](CHANGELOG.md) for release history and [docs/STATUS.md](docs/STATUS.md) for detailed (historical) progress notes. Full API reference: [docs/API.md](docs/API.md).
+See [CHANGELOG.md](CHANGELOG.md) for release history. Full API reference: [docs/API.md](docs/API.md).
 
 ## Contributing
 

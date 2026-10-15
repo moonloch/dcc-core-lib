@@ -59,6 +59,8 @@ Does **not** belong here:
 
 If a function needs class- or table-specific rulebook data, read it from a registry. If nothing is registered, return a minimal neutral default — don't inline "reasonable" values taken from the rulebook. Official data is supplied by the consuming app (the DCC system loads it from its own content) or by a separately maintained data package.
 
+The fan-made fixtures in `source_data/` (thief and warrior class-level documents and a d30 birth-augur table) exist only to exercise the FoundryVTT-format loaders in `src/data/loaders/integration.test.ts`. They reuse table and augur names with altered values and contain no rulebook text. Do not add official data there.
+
 ## How a fix reaches the DCC system
 
 The DCC system does not install this package from a registry; it **vendors** the compiled `dist/` at `module/vendor/dcc-core-lib/` (FoundryVTT has no bundler). A lib fix flows like this:

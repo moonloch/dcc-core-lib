@@ -55,8 +55,6 @@ Unused variables pattern: prefix with `_` (e.g., `_unusedParam`)
 ## Documentation
 
 - `docs/ARCHITECTURE.md` - Goal architecture, event system design, data loading strategy
-- `docs/TASKS.md` - Extraction task checklist
-- `docs/STATUS.md` - Project status notes (historical; `CHANGELOG.md` is the current record)
 - `CONTRIBUTING.md` - Contribution rules (regression tests, conventional commits, copyright separation, how fixes reach the DCC system)
 
 ## Source Repository

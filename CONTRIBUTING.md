@@ -67,7 +67,7 @@ The fan-made fixtures in `test_data/` (thief and warrior class-level documents a
 The DCC system does not install this package from a registry; it **vendors** the compiled `dist/` at `module/vendor/dcc-core-lib/` (FoundryVTT has no bundler). A lib fix flows like this:
 
 1. **Open a PR here** against `main` with the fix and its regression test. Link the system issue it addresses (e.g. `foundryvtt-dcc/dcc#123`).
-2. **Review and merge.** On merge to `main`, the `Create Release` workflow runs `pnpm run check`, builds, and creates a draft GitHub release for the `package.json` version. If a release for that version already exists, the workflow does not push to `main`; it opens a `release/bump-vX.Y.Z` pull request that bumps the patch version, and merging that PR creates the draft release for the new version. (Bumping `package.json` in your own PR avoids the extra round trip.) The maintainer publishes the draft release, which triggers `Publish to GitHub Packages`.
+2. **Review and merge.** On merge to `main`, the `Create Release` workflow runs `pnpm run check`, builds, and creates a draft GitHub release for the `package.json` version if none exists yet. Feature PRs don't bump the version: the maintainer cuts a `chore: release X.Y.Z` PR that bumps `package.json` and moves the Unreleased CHANGELOG notes under the new version, and merging it creates the draft release. The maintainer publishes the draft release, which triggers `Publish to GitHub Packages`.
 3. **Sync the vendored copy in the system repo.** In a checkout of [foundryvtt-dcc/dcc](https://github.com/foundryvtt-dcc/dcc), with this repo checked out at the merged commit:
 
    ```bash

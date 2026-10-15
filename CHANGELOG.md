@@ -578,7 +578,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **Luck Sharing**: Halfling luck sharing with allies
 
 #### Data Loading
-- **Class Progressions**: Load from external data (licensed-data-package) via `registerClassProgressions()`
+- **Class Progressions**: Load from an external data package via `registerClassProgressions()`
 - **Tables**: `loadTableFromJson()`, `loadTablesFromJson()` for rollable tables
 - **Birth Augurs**: `loadBirthAugurs()` with effect type classification
 
@@ -605,6 +605,6 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Notes
 - Pure functional architecture - no classes or objects, only pure functions
-- All official DCC data is in separate private repository (licensed-data-package)
+- All official DCC data lives in a separate, privately maintained data package
 - Fan-made sample data included for testing
 - 1079 tests passing

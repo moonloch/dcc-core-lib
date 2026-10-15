@@ -5,7 +5,6 @@ dist/
 coverage/
 .idea/
 *.tsbuildinfo
-# test_data contains fan-made fixtures for the loader integration tests
 .claude/worktrees
 .claude/*.lock
 .claude/settings.local.jsons

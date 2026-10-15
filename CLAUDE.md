@@ -163,19 +163,19 @@ Reach for this reference when:
 - Implementing a new rules-based function and unsure of RAW behavior.
 - A test case's expected value needs rulebook justification.
 - Reviewing a PR that touches rules logic (dice chain, crit range, spellburn, corruption, etc.).
-- Cross-checking values in `../licensed-data-package` against the authoritative tables.
+- Cross-checking values in a data package (see `docs/DATA.md`) against the authoritative tables.
 
 Workflow: glob the relevant filename prefix under `packs/dcc-core-journals/src/`, read the matching file, extract rules text from `pages[*].text.content`. Fall back to `Core_Book_Text_*.json` for narrative chapters that aren't in a named table.
 
-### Companion data repo
+### Companion data
 
-`../licensed-data-package` (a separate, private repository — external contributors will not have it) contains the typed table data values that implement these rules. When verifying logic here, confirm that the data values there match the rulebook text referenced above. Both repos share the same rules-reference convention.
+The typed table values that implement these rules live outside this repository, in a privately maintained data package that external contributors will not have (the DCC FoundryVTT system reads them from licensed content modules instead). When verifying logic here, confirm that the data values you are using match the rulebook text referenced above. `docs/DATA.md` describes the file formats and registration functions such a package feeds into.
 
-### Separation of concerns: core-lib vs. licensed-data-package
+### Separation of concerns: core-lib vs. data packages
 
 **This library contains logic (functions) only. It does not contain DCC rulebook data.**
 
-All per-class progressions, spell lists, crit/fumble/corruption table entries, occupation/augur tables, patron/taint tables, and any other Goodman-copyrighted table values belong in `licensed-data-package` (or another registered data source), never in `dcc-core-lib`. Core-lib exposes:
+All per-class progressions, spell lists, crit/fumble/corruption table entries, occupation/augur tables, patron/taint tables, and any other Goodman-copyrighted table values belong in a separate data package (or another registered data source), never in `dcc-core-lib`. Core-lib exposes:
 
 - Type definitions (`ClassProgression`, `SpellDefinition`, etc.)
 - A registry (`registerClassProgression`, `registerClassProgressions`, `clearClassProgressions`) that data packages populate at app startup
@@ -195,6 +195,6 @@ If a function needs class-specific rulebook data, read it from the registry. If 
 - Pure algorithmic logic: "spell check = d20 + level + ability mod", "natural 1 on a cleric cast triggers disapproval", "halfling TWF penalty is one step better than the base TWF penalty".
 - Mechanic shapes and types: how lay-on-hands resolves, how disapproval range grows, how mercurial magic is rolled.
 - Fan-made sample data in `src/data/sample-data.ts` and similar, clearly labeled as "FAN-MADE, NOT OFFICIAL".
-- Tests that use synthetic class IDs (e.g., `"test-fighter"`) with inline minimal progressions, so the test suite does not depend on `licensed-data-package`.
+- Tests that use synthetic class IDs (e.g., `"test-fighter"`) with inline minimal progressions, so the test suite does not depend on any official data package.
 
-When tempted to "just put the table here for convenience," add it to `../licensed-data-package` instead, and have core-lib read it through the registry.
+When tempted to "just put the table here for convenience," put it in your own data package instead, and have core-lib read it through the registry.

@@ -7,6 +7,15 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Fixed
+
+- **A Mighty Deed now needs the attack to hit.** `AttackResult.deedSuccess`
+  (and the `onDeedAttempt` event) was `true` whenever the deed die showed 3+,
+  even on a fumble or a miss against `targetAC`. It is now `false` on a fumble
+  or a known miss, and the two-weapon hand rules update it when they change
+  `isHit`. Without `targetAC` it still judges the deed die alone (DCC RPG core
+  rules, p. 88).
+
 ## [0.14.4] - 2026-10-15
 
 ### Changed

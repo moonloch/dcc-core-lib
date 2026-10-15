@@ -3668,15 +3668,19 @@ All modifiers that were applied
 optional deedSuccess?: boolean;
 ```
 
-Defined in: [types/combat.ts:290](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L290)
+Defined in: [types/combat.ts:296](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L296)
 
-Whether the deed was successful (roll >= 3)
+Whether the deed succeeded: the deed die shows 3+ and the attack hits.
+`false` on a fumble or a known miss. When `targetAC` was omitted the
+hit is unknown (`isHit` undefined) and only the deed die is judged, so
+the caller must still confirm the hit. Undefined when no deed die was
+rolled.
 
 ***
 
 ### DamageInput
 
-Defined in: [types/combat.ts:300](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L300)
+Defined in: [types/combat.ts:306](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L306)
 
 Input for calculating damage
 
@@ -3688,7 +3692,7 @@ Input for calculating damage
 damageDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L302)
+Defined in: [types/combat.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L308)
 
 Base weapon damage die (e.g., "d8" for longsword)
 
@@ -3698,7 +3702,7 @@ Base weapon damage die (e.g., "d8" for longsword)
 optional diceCount?: number;
 ```
 
-Defined in: [types/combat.ts:305](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L305)
+Defined in: [types/combat.ts:311](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L311)
 
 Number of damage dice (usually 1)
 
@@ -3708,7 +3712,7 @@ Number of damage dice (usually 1)
 strengthModifier: number;
 ```
 
-Defined in: [types/combat.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L308)
+Defined in: [types/combat.ts:314](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L314)
 
 Strength modifier for melee, 0 for most missile
 
@@ -3718,7 +3722,7 @@ Strength modifier for melee, 0 for most missile
 optional deedDieResult?: number;
 ```
 
-Defined in: [types/combat.ts:311](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L311)
+Defined in: [types/combat.ts:317](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L317)
 
 Deed die result (added to damage for warriors)
 
@@ -3728,7 +3732,7 @@ Deed die result (added to damage for warriors)
 optional magicBonus?: number;
 ```
 
-Defined in: [types/combat.ts:318](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L318)
+Defined in: [types/combat.ts:324](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L324)
 
 Magic weapon bonus (positive) or cursed penalty (negative).
 Surfaced in `breakdown` as `source: "magic"` when positive and
@@ -3745,7 +3749,7 @@ optional extraDamageDice?: {
 }[];
 ```
 
-Defined in: [types/combat.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L330)
+Defined in: [types/combat.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L336)
 
 Extra dice beyond the base weapon die. Each term is rolled
 separately and added to `modifierDamage`, with its own
@@ -3786,7 +3790,7 @@ optional source?: string;
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: [types/combat.ts:338](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L338)
+Defined in: [types/combat.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L344)
 
 Additional bonuses
 
@@ -3794,7 +3798,7 @@ Additional bonuses
 
 ### DamageResult
 
-Defined in: [types/combat.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L344)
+Defined in: [types/combat.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L350)
 
 Result of a damage roll
 
@@ -3806,7 +3810,7 @@ Result of a damage roll
 roll: RollResult;
 ```
 
-Defined in: [types/combat.ts:346](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L346)
+Defined in: [types/combat.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L352)
 
 The damage roll result
 
@@ -3816,7 +3820,7 @@ The damage roll result
 baseDamage: number;
 ```
 
-Defined in: [types/combat.ts:349](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L349)
+Defined in: [types/combat.ts:355](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L355)
 
 Base damage from dice
 
@@ -3826,7 +3830,7 @@ Base damage from dice
 modifierDamage: number;
 ```
 
-Defined in: [types/combat.ts:352](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L352)
+Defined in: [types/combat.ts:358](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L358)
 
 Modifier damage (str, deed, magic, etc.)
 
@@ -3836,7 +3840,7 @@ Modifier damage (str, deed, magic, etc.)
 total: number;
 ```
 
-Defined in: [types/combat.ts:355](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L355)
+Defined in: [types/combat.ts:361](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L361)
 
 Final total damage
 
@@ -3846,7 +3850,7 @@ Final total damage
 breakdown: DamageBreakdown[];
 ```
 
-Defined in: [types/combat.ts:358](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L358)
+Defined in: [types/combat.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L364)
 
 Breakdown of damage sources
 
@@ -3854,7 +3858,7 @@ Breakdown of damage sources
 
 ### DamageBreakdown
 
-Defined in: [types/combat.ts:364](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L364)
+Defined in: [types/combat.ts:370](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L370)
 
 Single source of damage
 
@@ -3866,7 +3870,7 @@ Single source of damage
 source: string;
 ```
 
-Defined in: [types/combat.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L366)
+Defined in: [types/combat.ts:372](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L372)
 
 Source of the damage
 
@@ -3876,7 +3880,7 @@ Source of the damage
 amount: number;
 ```
 
-Defined in: [types/combat.ts:369](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L369)
+Defined in: [types/combat.ts:375](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L375)
 
 Amount
 
@@ -3884,7 +3888,7 @@ Amount
 
 ### CriticalInput
 
-Defined in: [types/combat.ts:384](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L384)
+Defined in: [types/combat.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L390)
 
 Input for rolling a critical hit
 
@@ -3896,7 +3900,7 @@ Input for rolling a critical hit
 critTable: CritTableId;
 ```
 
-Defined in: [types/combat.ts:386](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L386)
+Defined in: [types/combat.ts:392](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L392)
 
 Which crit table to use
 
@@ -3906,7 +3910,7 @@ Which crit table to use
 critDie: string;
 ```
 
-Defined in: [types/combat.ts:389](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L389)
+Defined in: [types/combat.ts:395](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L395)
 
 Crit die formula (e.g., "d12", "2d20", or "d30+2").
 
@@ -3916,7 +3920,7 @@ Crit die formula (e.g., "d12", "2d20", or "d30+2").
 luckModifier: number;
 ```
 
-Defined in: [types/combat.ts:392](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L392)
+Defined in: [types/combat.ts:398](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L398)
 
 Luck modifier (the roller's own Luck; added to the crit roll)
 
@@ -3926,7 +3930,7 @@ Luck modifier (the roller's own Luck; added to the crit roll)
 optional defenderLuckModifier?: number;
 ```
 
-Defined in: [types/combat.ts:401](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L401)
+Defined in: [types/combat.ts:407](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L407)
 
 Defending PC's Luck modifier, for a critical hit scored *against* that PC.
 Per DCC RAW a PC's Luck modifier always alters a monster's critical hit:
@@ -3940,7 +3944,7 @@ Omit (or 0) when the crit is not against a luck-bearing defender.
 optional level?: number;
 ```
 
-Defined in: [types/combat.ts:404](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L404)
+Defined in: [types/combat.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L410)
 
 Level (adds to crit roll for some classes)
 
@@ -3950,7 +3954,7 @@ Level (adds to crit roll for some classes)
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: [types/combat.ts:407](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L407)
+Defined in: [types/combat.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L413)
 
 Additional crit modifiers (from items, spells, etc.)
 
@@ -3958,7 +3962,7 @@ Additional crit modifiers (from items, spells, etc.)
 
 ### CriticalResult
 
-Defined in: [types/combat.ts:413](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L413)
+Defined in: [types/combat.ts:419](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L419)
 
 Result of a critical hit roll
 
@@ -3970,7 +3974,7 @@ Result of a critical hit roll
 roll: RollResult;
 ```
 
-Defined in: [types/combat.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L415)
+Defined in: [types/combat.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L421)
 
 The crit roll result
 
@@ -3980,7 +3984,7 @@ The crit roll result
 total: number;
 ```
 
-Defined in: [types/combat.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L418)
+Defined in: [types/combat.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L424)
 
 Total crit roll (die + modifiers)
 
@@ -3990,7 +3994,7 @@ Total crit roll (die + modifiers)
 critTable: CritTableId;
 ```
 
-Defined in: [types/combat.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L421)
+Defined in: [types/combat.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L427)
 
 Which table to look up the result on
 
@@ -4000,7 +4004,7 @@ Which table to look up the result on
 optional tableResult?: string;
 ```
 
-Defined in: [types/combat.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L424)
+Defined in: [types/combat.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L430)
 
 The table result (from lookup)
 
@@ -4010,7 +4014,7 @@ The table result (from lookup)
 optional extraDamageDice?: string;
 ```
 
-Defined in: [types/combat.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L427)
+Defined in: [types/combat.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L433)
 
 Extra damage dice from the crit
 
@@ -4020,7 +4024,7 @@ Extra damage dice from the crit
 optional extraDamageModifier?: number;
 ```
 
-Defined in: [types/combat.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L430)
+Defined in: [types/combat.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L436)
 
 Extra damage modifier
 
@@ -4030,7 +4034,7 @@ Extra damage modifier
 optional effect?: string;
 ```
 
-Defined in: [types/combat.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L433)
+Defined in: [types/combat.ts:439](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L439)
 
 Special effect description
 
@@ -4038,7 +4042,7 @@ Special effect description
 
 ### ArmorStats
 
-Defined in: [types/combat.ts:490](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L490)
+Defined in: [types/combat.ts:496](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L496)
 
 Armor statistics for equipped armor
 
@@ -4050,7 +4054,7 @@ Armor statistics for equipped armor
 name: string;
 ```
 
-Defined in: [types/combat.ts:492](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L492)
+Defined in: [types/combat.ts:498](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L498)
 
 Armor name
 
@@ -4060,7 +4064,7 @@ Armor name
 type: ArmorType;
 ```
 
-Defined in: [types/combat.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L495)
+Defined in: [types/combat.ts:501](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L501)
 
 Armor type
 
@@ -4070,7 +4074,7 @@ Armor type
 acBonus: number;
 ```
 
-Defined in: [types/combat.ts:498](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L498)
+Defined in: [types/combat.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L504)
 
 AC bonus (can differ from standard for magic armor)
 
@@ -4080,7 +4084,7 @@ AC bonus (can differ from standard for magic armor)
 optional magicBonus?: number;
 ```
 
-Defined in: [types/combat.ts:501](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L501)
+Defined in: [types/combat.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L507)
 
 Magic bonus (if any)
 
@@ -4090,7 +4094,7 @@ Magic bonus (if any)
 checkPenalty: number;
 ```
 
-Defined in: [types/combat.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L504)
+Defined in: [types/combat.ts:510](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L510)
 
 Check penalty (negative number, can be reduced by magic)
 
@@ -4100,7 +4104,7 @@ Check penalty (negative number, can be reduced by magic)
 speedPenalty: number;
 ```
 
-Defined in: [types/combat.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L507)
+Defined in: [types/combat.ts:513](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L513)
 
 Speed penalty in feet
 
@@ -4110,7 +4114,7 @@ Speed penalty in feet
 fumbleDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:510](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L510)
+Defined in: [types/combat.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L516)
 
 Fumble die
 
@@ -4118,7 +4122,7 @@ Fumble die
 
 ### ShieldStats
 
-Defined in: [types/combat.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L516)
+Defined in: [types/combat.ts:522](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L522)
 
 Shield statistics
 
@@ -4130,7 +4134,7 @@ Shield statistics
 name: string;
 ```
 
-Defined in: [types/combat.ts:518](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L518)
+Defined in: [types/combat.ts:524](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L524)
 
 Shield name
 
@@ -4140,7 +4144,7 @@ Shield name
 acBonus: number;
 ```
 
-Defined in: [types/combat.ts:521](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L521)
+Defined in: [types/combat.ts:527](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L527)
 
 AC bonus (usually 1, can be higher for magic shields)
 
@@ -4150,7 +4154,7 @@ AC bonus (usually 1, can be higher for magic shields)
 optional magicBonus?: number;
 ```
 
-Defined in: [types/combat.ts:524](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L524)
+Defined in: [types/combat.ts:530](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L530)
 
 Magic bonus (if any)
 
@@ -4158,7 +4162,7 @@ Magic bonus (if any)
 
 ### FumbleInput
 
-Defined in: [types/combat.ts:530](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L530)
+Defined in: [types/combat.ts:536](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L536)
 
 Input for rolling a fumble
 
@@ -4170,7 +4174,7 @@ Input for rolling a fumble
 armorType: ArmorType;
 ```
 
-Defined in: [types/combat.ts:532](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L532)
+Defined in: [types/combat.ts:538](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L538)
 
 Armor type worn (determines fumble die)
 
@@ -4180,7 +4184,7 @@ Armor type worn (determines fumble die)
 luckModifier: number;
 ```
 
-Defined in: [types/combat.ts:535](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L535)
+Defined in: [types/combat.ts:541](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L541)
 
 Luck modifier (subtracted from fumble roll - lower is worse!)
 
@@ -4190,7 +4194,7 @@ Luck modifier (subtracted from fumble roll - lower is worse!)
 optional fumbleDieOverride?: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:538](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L538)
+Defined in: [types/combat.ts:544](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L544)
 
 Override fumble die (for special circumstances)
 
@@ -4198,7 +4202,7 @@ Override fumble die (for special circumstances)
 
 ### FumbleResult
 
-Defined in: [types/combat.ts:544](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L544)
+Defined in: [types/combat.ts:550](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L550)
 
 Result of a fumble roll
 
@@ -4210,7 +4214,7 @@ Result of a fumble roll
 roll: RollResult;
 ```
 
-Defined in: [types/combat.ts:546](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L546)
+Defined in: [types/combat.ts:552](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L552)
 
 The fumble roll result
 
@@ -4220,7 +4224,7 @@ The fumble roll result
 total: number;
 ```
 
-Defined in: [types/combat.ts:549](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L549)
+Defined in: [types/combat.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L555)
 
 Total fumble roll (die - luck, minimum 0)
 
@@ -4230,7 +4234,7 @@ Total fumble roll (die - luck, minimum 0)
 fumbleDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:552](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L552)
+Defined in: [types/combat.ts:558](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L558)
 
 The fumble die used
 
@@ -4240,7 +4244,7 @@ The fumble die used
 optional tableResult?: string;
 ```
 
-Defined in: [types/combat.ts:555](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L555)
+Defined in: [types/combat.ts:561](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L561)
 
 The table result (from lookup)
 
@@ -4250,7 +4254,7 @@ The table result (from lookup)
 optional effect?: string;
 ```
 
-Defined in: [types/combat.ts:558](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L558)
+Defined in: [types/combat.ts:564](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L564)
 
 Effect description
 
@@ -4258,7 +4262,7 @@ Effect description
 
 ### InitiativeInput
 
-Defined in: [types/combat.ts:572](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L572)
+Defined in: [types/combat.ts:578](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L578)
 
 Input for rolling initiative
 
@@ -4274,7 +4278,7 @@ level as a flat modifier — pass it as `classModifier`.
 initiativeDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:577](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L577)
+Defined in: [types/combat.ts:583](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L583)
 
 Initiative die. Callers should pass `d20` by default, or `d16` when
 wielding a two-handed weapon. See `getInitiativeDie`.
@@ -4285,7 +4289,7 @@ wielding a two-handed weapon. See `getInitiativeDie`.
 agilityModifier: number;
 ```
 
-Defined in: [types/combat.ts:580](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L580)
+Defined in: [types/combat.ts:586](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L586)
 
 Agility modifier
 
@@ -4295,7 +4299,7 @@ Agility modifier
 optional classModifier?: number;
 ```
 
-Defined in: [types/combat.ts:586](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L586)
+Defined in: [types/combat.ts:592](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L592)
 
 Flat class-based initiative modifier. Warriors pass their class
 level here (RAW: warriors add level to initiative).
@@ -4306,7 +4310,7 @@ level here (RAW: warriors add level to initiative).
 optional bonuses?: RollBonus[];
 ```
 
-Defined in: [types/combat.ts:589](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L589)
+Defined in: [types/combat.ts:595](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L595)
 
 Additional bonuses
 
@@ -4314,7 +4318,7 @@ Additional bonuses
 
 ### InitiativeResult
 
-Defined in: [types/combat.ts:595](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L595)
+Defined in: [types/combat.ts:601](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L601)
 
 Result of an initiative roll
 
@@ -4326,7 +4330,7 @@ Result of an initiative roll
 roll: RollResult;
 ```
 
-Defined in: [types/combat.ts:597](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L597)
+Defined in: [types/combat.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L603)
 
 The initiative roll result
 
@@ -4336,7 +4340,7 @@ The initiative roll result
 total: number;
 ```
 
-Defined in: [types/combat.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L600)
+Defined in: [types/combat.ts:606](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L606)
 
 Total initiative
 
@@ -4346,7 +4350,7 @@ Total initiative
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: [types/combat.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L603)
+Defined in: [types/combat.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L609)
 
 All modifiers applied
 
@@ -4354,7 +4358,7 @@ All modifiers applied
 
 ### CombatEvents
 
-Defined in: [types/combat.ts:613](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L613)
+Defined in: [types/combat.ts:619](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L619)
 
 Events emitted during combat
 
@@ -4366,7 +4370,7 @@ Events emitted during combat
 optional onAttackRoll?: (result: AttackResult) => void;
 ```
 
-Defined in: [types/combat.ts:615](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L615)
+Defined in: [types/combat.ts:621](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L621)
 
 Called when an attack roll is made
 
@@ -4386,7 +4390,7 @@ Called when an attack roll is made
 optional onCriticalThreat?: (result: AttackResult) => void;
 ```
 
-Defined in: [types/combat.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L618)
+Defined in: [types/combat.ts:624](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L624)
 
 Called when a critical threat is rolled
 
@@ -4406,7 +4410,7 @@ Called when a critical threat is rolled
 optional onFumbleRoll?: (result: AttackResult) => void;
 ```
 
-Defined in: [types/combat.ts:621](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L621)
+Defined in: [types/combat.ts:627](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L627)
 
 Called when a fumble is rolled
 
@@ -4426,7 +4430,7 @@ Called when a fumble is rolled
 optional onDamageRoll?: (result: DamageResult) => void;
 ```
 
-Defined in: [types/combat.ts:624](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L624)
+Defined in: [types/combat.ts:630](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L630)
 
 Called when damage is rolled
 
@@ -4446,7 +4450,7 @@ Called when damage is rolled
 optional onCriticalResult?: (result: CriticalResult) => void;
 ```
 
-Defined in: [types/combat.ts:627](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L627)
+Defined in: [types/combat.ts:633](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L633)
 
 Called when a crit table result is determined
 
@@ -4466,7 +4470,7 @@ Called when a crit table result is determined
 optional onFumbleResult?: (result: FumbleResult) => void;
 ```
 
-Defined in: [types/combat.ts:630](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L630)
+Defined in: [types/combat.ts:636](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L636)
 
 Called when a fumble table result is determined
 
@@ -4486,7 +4490,7 @@ Called when a fumble table result is determined
 optional onInitiativeRoll?: (result: InitiativeResult) => void;
 ```
 
-Defined in: [types/combat.ts:633](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L633)
+Defined in: [types/combat.ts:639](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L639)
 
 Called when initiative is rolled
 
@@ -4506,7 +4510,7 @@ Called when initiative is rolled
 optional onDeedAttempt?: (deedRoll: RollResult, success: boolean) => void;
 ```
 
-Defined in: [types/combat.ts:636](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L636)
+Defined in: [types/combat.ts:642](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L642)
 
 Called when a deed is attempted
 
@@ -4525,7 +4529,7 @@ Called when a deed is attempted
 
 ### BackstabDamage
 
-Defined in: [types/combat.ts:650](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L650)
+Defined in: [types/combat.ts:656](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L656)
 
 Alternate damage expression used when a thief lands a successful
 backstab using a backstab-friendly weapon (DCC Table 3-1 footnote).
@@ -4541,7 +4545,7 @@ damage — it is a full replacement, not an additive bonus.
 damageDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:652](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L652)
+Defined in: [types/combat.ts:658](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L658)
 
 Alternate damage die rolled on a successful backstab
 
@@ -4551,7 +4555,7 @@ Alternate damage die rolled on a successful backstab
 optional diceCount?: number;
 ```
 
-Defined in: [types/combat.ts:655](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L655)
+Defined in: [types/combat.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L661)
 
 Number of damage dice (defaults to 1)
 
@@ -4559,7 +4563,7 @@ Number of damage dice (defaults to 1)
 
 ### WeaponStats
 
-Defined in: [types/combat.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L661)
+Defined in: [types/combat.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L667)
 
 Weapon properties for combat calculations
 
@@ -4571,7 +4575,7 @@ Weapon properties for combat calculations
 name: string;
 ```
 
-Defined in: [types/combat.ts:663](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L663)
+Defined in: [types/combat.ts:669](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L669)
 
 Weapon name
 
@@ -4581,7 +4585,7 @@ Weapon name
 damageDie: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:666](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L666)
+Defined in: [types/combat.ts:672](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L672)
 
 Damage die
 
@@ -4591,7 +4595,7 @@ Damage die
 optional diceCount?: number;
 ```
 
-Defined in: [types/combat.ts:669](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L669)
+Defined in: [types/combat.ts:675](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L675)
 
 Number of damage dice
 
@@ -4601,7 +4605,7 @@ Number of damage dice
 isMelee: boolean;
 ```
 
-Defined in: [types/combat.ts:672](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L672)
+Defined in: [types/combat.ts:678](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L678)
 
 Whether this is a melee weapon
 
@@ -4611,7 +4615,7 @@ Whether this is a melee weapon
 isRanged: boolean;
 ```
 
-Defined in: [types/combat.ts:675](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L675)
+Defined in: [types/combat.ts:681](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L681)
 
 Whether this is a ranged weapon
 
@@ -4621,7 +4625,7 @@ Whether this is a ranged weapon
 optional twoHanded?: boolean;
 ```
 
-Defined in: [types/combat.ts:678](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L678)
+Defined in: [types/combat.ts:684](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L684)
 
 Whether this weapon can be used two-handed for extra damage
 
@@ -4631,7 +4635,7 @@ Whether this weapon can be used two-handed for extra damage
 optional twoHandedDamageDie?: `d${number}`;
 ```
 
-Defined in: [types/combat.ts:681](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L681)
+Defined in: [types/combat.ts:687](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L687)
 
 Two-handed damage die (if different)
 
@@ -4641,7 +4645,7 @@ Two-handed damage die (if different)
 optional magicBonus?: number;
 ```
 
-Defined in: [types/combat.ts:684](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L684)
+Defined in: [types/combat.ts:690](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L690)
 
 Magic bonus (if any)
 
@@ -4651,7 +4655,7 @@ Magic bonus (if any)
 optional range?: number;
 ```
 
-Defined in: [types/combat.ts:687](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L687)
+Defined in: [types/combat.ts:693](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L693)
 
 Range in feet (for ranged weapons)
 
@@ -4661,7 +4665,7 @@ Range in feet (for ranged weapons)
 optional attackAbility?: DCCAbilityId;
 ```
 
-Defined in: [types/combat.ts:690](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L690)
+Defined in: [types/combat.ts:696](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L696)
 
 Ability used for attack (override default)
 
@@ -4671,7 +4675,7 @@ Ability used for attack (override default)
 optional damageAbility?: DCCAbilityId;
 ```
 
-Defined in: [types/combat.ts:693](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L693)
+Defined in: [types/combat.ts:699](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L699)
 
 Ability used for damage (override default)
 
@@ -4681,7 +4685,7 @@ Ability used for damage (override default)
 optional backstabDamage?: BackstabDamage;
 ```
 
-Defined in: [types/combat.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L701)
+Defined in: [types/combat.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L707)
 
 Alternate damage used on a successful thief backstab. Only a small
 set of weapons has this (DCC Table 3-1 footnote: dagger, blackjack,
@@ -10543,7 +10547,7 @@ the attacker's normal crit table).
 type CritTableId = "I" | "II" | "III" | "IV" | "V";
 ```
 
-Defined in: [types/combat.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L379)
+Defined in: [types/combat.ts:385](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L385)
 
 Crit table identifier
 
@@ -10565,7 +10569,7 @@ type ArmorType =
   | "full-plate";
 ```
 
-Defined in: [types/combat.ts:443](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L443)
+Defined in: [types/combat.ts:449](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L449)
 
 Armor type affects fumble die
 
@@ -11106,7 +11110,7 @@ Built-in 0-level HP method definitions.
 const FUMBLE_DICE: Record<ArmorType, DieType>;
 ```
 
-Defined in: [types/combat.ts:448](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L448)
+Defined in: [types/combat.ts:454](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L454)
 
 Fumble die by armor type
 
@@ -11118,7 +11122,7 @@ Fumble die by armor type
 const ARMOR_AC_BONUS: Record<ArmorType, number>;
 ```
 
-Defined in: [types/combat.ts:464](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L464)
+Defined in: [types/combat.ts:470](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L470)
 
 AC bonus by armor type (DCC core rules Table 3-3)
 
@@ -11130,7 +11134,7 @@ AC bonus by armor type (DCC core rules Table 3-3)
 const SHIELD_AC_BONUS: 1 = 1;
 ```
 
-Defined in: [types/combat.ts:480](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L480)
+Defined in: [types/combat.ts:486](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L486)
 
 Shield AC bonus
 
@@ -11142,7 +11146,7 @@ Shield AC bonus
 const BASE_AC: 10 = 10;
 ```
 
-Defined in: [types/combat.ts:485](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L485)
+Defined in: [types/combat.ts:491](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L491)
 
 Base AC without any armor or modifiers
 
@@ -11154,7 +11158,7 @@ Base AC without any armor or modifiers
 const COMMON_WEAPONS: Record<string, WeaponStats>;
 ```
 
-Defined in: [types/combat.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L707)
+Defined in: [types/combat.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/combat.ts#L713)
 
 Common weapon stats
 

@@ -391,7 +391,7 @@ DCC RPG content is copyrighted by Goodman Games. To respect this:
 
 2. **Official data** - Class progressions, occupations, birth augurs, crit/fumble/corruption tables, spell definitions and spell result tables are supplied at runtime by the consuming application (the FoundryVTT DCC system loads them from its own content) or by a separately maintained data package. None of it is committed here.
 
-See [CONTRIBUTING.md](../CONTRIBUTING.md#copyright-separation) for the exact rules on what may and may not be added to this repository.
+See [CONTRIBUTING.md](../CONTRIBUTING.md#copyright-separation) for the exact rules on what may and may not be added to this repository, and [DATA.md](DATA.md) for the file formats and registration functions a data package feeds into.
 
 ### Registry Pattern for Class Data
 
@@ -453,7 +453,7 @@ const levelDocs = (await game.packs.get("my-module.class-levels").getDocuments()
 registerClassProgression(loadClassProgression("warrior", "Warrior", ["mighty-deed"], levelDocs));
 ```
 
-The loaders in `src/data/loaders/` convert raw JSON to library types: `loadClassProgression` / `parseClassLevel` and `loadRollableTable` / `loadBirthAugurs` accept the FoundryVTT document JSON shape, so data exported from Foundry compendiums can be used directly; `loadSpellDefinitions` and `loadMercurialTable` (plus `*WithValidation` variants) take plain JSON. The table registry's `loadTableFromJson` / `loadAndRegisterTable` take a JSON string in the library's own table format. `src/data/loaders/integration.test.ts` exercises them against the fan-made fixtures in `test_data/`.
+The loaders in `src/data/loaders/` convert raw JSON to library types: `loadClassProgression` / `parseClassLevel` and `loadRollableTable` / `loadBirthAugurs` accept the FoundryVTT document JSON shape, so data exported from Foundry compendiums can be used directly; `loadSpellDefinitions` and `loadMercurialTable` (plus `*WithValidation` variants) take plain JSON. The table registry's `loadTableFromJson` / `loadAndRegisterTable` take a JSON string in the library's own table format. `src/data/loaders/integration.test.ts` exercises them against the fan-made fixtures in `test_data/`. [DATA.md](DATA.md) documents every format field by field.
 
 ## System Variants (MCC, XCrawl, etc.)
 

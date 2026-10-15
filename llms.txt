@@ -7,6 +7,7 @@ The public surface is the set of exports from `src/index.ts`. The most precise, 
 ## Reference
 
 - [API index](docs/api/index.md): generated per-module API reference
+- [Supplying game data](docs/DATA.md): file formats, schemas and registration functions for class progressions, tables, augurs, occupations, spells, patrons; copyright stance; minimal example
 - [Modifier design](docs/MODIFIERS.md): the RollModifier type, application order and migration status
 - [Event system](docs/EVENTS.md): callback-injection event interfaces
 - [Architecture](docs/ARCHITECTURE.md): goals, module layout, data-loading and copyright policy

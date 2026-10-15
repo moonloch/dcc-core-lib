@@ -4,7 +4,7 @@ A TypeScript library providing core game logic for Dungeon Crawl Classics (DCC) 
 
 The primary consumer is the [DCC system for FoundryVTT](https://github.com/foundryvtt-dcc/dcc), which vendors this library's compiled output. Game-logic fixes for that system belong here, with a regression test — see [CONTRIBUTING.md](CONTRIBUTING.md).
 
-This library contains **logic only**. It ships no official Goodman Games rulebook data (class progressions, spell tables, crit/fumble tables, etc.); apps register that data at runtime. See [Copyright separation](#copyright-separation).
+This library contains **logic only**. It ships no official Goodman Games rulebook data (class progressions, spell tables, crit/fumble tables, etc.); apps register that data at runtime from their own licensed source. See [Copyright separation](#copyright-separation) and [docs/DATA.md](docs/DATA.md) for how to build and load a data directory.
 
 ## Features
 
@@ -172,6 +172,8 @@ const augurEffect = getBirthAugurModifier(luckModifier, augurs[0]);
 // { modifier, affects, effectType }
 ```
 
+File formats, field lists and the registration functions for every kind of data: [docs/DATA.md](docs/DATA.md).
+
 ### Character Creation
 
 ```typescript
@@ -230,6 +232,8 @@ if (result.success) {
   }
 }
 ```
+
+[examples/character-export-v1.0.json](examples/character-export-v1.0.json) is a complete export in the older 1.0 format; `importCharacter` migrates it to the current version.
 
 ### Bonus System
 
@@ -381,7 +385,7 @@ const mccSystem: SystemConfig = {
 
 ## Copyright separation
 
-DCC RPG is © Goodman Games. This repository contains logic, types, loaders, and clearly labeled fan-made sample data only. Official table values (class progressions, spell lists and results, crit/fumble/corruption tables, occupations, birth augurs, patron taints, ...) are registered at runtime by the consuming app — e.g. via `registerClassProgressions()` — from a separate data source. Contributions must not add official rulebook data or text; see [CONTRIBUTING.md](CONTRIBUTING.md#copyright-separation).
+DCC RPG is © Goodman Games. This repository contains logic, types, loaders, and clearly labeled fan-made sample data only. Official table values (class progressions, spell lists and results, crit/fumble/corruption tables, occupations, birth augurs, patron taints, ...) are registered at runtime by the consuming app — e.g. via `registerClassProgressions()` — from a separate data source that you build from your own licensed copy. [docs/DATA.md](docs/DATA.md) documents the formats and functions. Contributions must not add official rulebook data or text; see [CONTRIBUTING.md](CONTRIBUTING.md#copyright-separation).
 
 ## Development
 
@@ -418,7 +422,7 @@ Modules under `src/`: `adventure`, `character`, `checks`, `cleric`, `combat`, `d
 - Bonus system and table lookup system (simple, multi-column, tiered tables)
 - Data loaders and parsers (FoundryVTT class progressions, rollable tables, birth augurs, spell definitions, statblocks, Purple Sorcerer output)
 
-See [CHANGELOG.md](CHANGELOG.md) for release history. Full API reference: [docs/api/index.md](docs/api/index.md) (generated from the source by TypeDoc; `dist/dcc-core-lib.d.ts` is the same surface as one declaration file).
+See [CHANGELOG.md](CHANGELOG.md) for release history. Full API reference: [docs/api/index.md](docs/api/index.md) (generated from the source by TypeDoc; `dist/dcc-core-lib.d.ts` is the same surface as one declaration file). Other docs: [docs/DATA.md](docs/DATA.md) (supplying game data), [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md), [docs/EVENTS.md](docs/EVENTS.md), [docs/MODIFIERS.md](docs/MODIFIERS.md).
 
 ## Contributing
 

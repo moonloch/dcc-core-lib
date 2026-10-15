@@ -57,7 +57,7 @@ Does **not** belong here:
 - `Record`s keyed by level, `switch` statements on `classId`, or class-named constants (`WARRIOR_*`, `THIEF_*`, …) that encode rulebook values.
 - Rulebook text, including in comments, test names, or fixtures.
 
-If a function needs class- or table-specific rulebook data, read it from a registry. If nothing is registered, return a minimal neutral default — don't inline "reasonable" values taken from the rulebook. Official data is supplied by the consuming app (the DCC system loads it from its own content) or by a separately maintained data package.
+If a function needs class- or table-specific rulebook data, read it from a registry. If nothing is registered, return a minimal neutral default — don't inline "reasonable" values taken from the rulebook. Official data is supplied by the consuming app (the DCC system loads it from its own content) or by a separately maintained data package; [docs/DATA.md](docs/DATA.md) describes the formats such a package uses.
 
 The fan-made fixtures in `test_data/` (thief and warrior class-level documents and a d30 birth-augur table) exist only to exercise the FoundryVTT-format loaders in `src/data/loaders/integration.test.ts`. They reuse table and augur names with altered values and contain no rulebook text. Do not add official data there.
 

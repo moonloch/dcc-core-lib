@@ -595,15 +595,16 @@ const mccSystem: SystemConfig = {
 **Not yet implemented.** Today no library function takes a `SystemConfig`; functions use DCC's ability mappings directly. The intended shape is for functions that need system context to accept the config:
 
 ```typescript
+// Hypothetical signatures — neither exists today
 function resolveSkillCheck(
   input: SkillCheckInput,
   system: SystemConfig,      // System defines ability mappings
-  events?: SkillEvents,
-  loader?: DataLoader
-): Promise<SkillCheckResult>;
+  options?: SkillResolveOptions,
+  events?: SkillEvents
+): SkillCheckResult;
 
 // Or create a bound context
-const dcc = createSystemContext(dccSystem, loader, events);
+const dcc = createSystemContext(DCC_SYSTEM, events);
 dcc.resolveSkillCheck(input);  // Uses DCC config
 ```
 

@@ -7,6 +7,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.15.0] - 2026-10-15
+
 ### Changed
 
 - **BREAKING: Luck helpers follow the core book.** Thieves and halflings regain

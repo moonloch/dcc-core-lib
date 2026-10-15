@@ -10,6 +10,7 @@ import type {
   SimpleTable,
   MultiColumnTable,
   TieredTable,
+  LayOnHandsTable,
   TableType,
 } from "./types.js";
 import { validateTable } from "./lookup.js";
@@ -217,6 +218,20 @@ function isTieredTable(data: unknown): data is TieredTable {
 }
 
 /**
+ * Type guard for LayOnHandsTable
+ */
+function isLayOnHandsTable(data: unknown): data is LayOnHandsTable {
+  return (
+    typeof data === "object" &&
+    data !== null &&
+    "type" in data &&
+    data.type === "lay-on-hands" &&
+    "rows" in data &&
+    Array.isArray((data as { rows: unknown }).rows)
+  );
+}
+
+/**
  * Parse a table from JSON data.
  *
  * @param data - Raw JSON data
@@ -252,6 +267,10 @@ export function parseTable(
   }
 
   if (isTieredTable(data)) {
+    return { success: true, table: data };
+  }
+
+  if (isLayOnHandsTable(data)) {
     return { success: true, table: data };
   }
 

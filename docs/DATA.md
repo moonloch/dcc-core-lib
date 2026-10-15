@@ -248,10 +248,6 @@ entry's `min - 1`). Optional `tiers` gives quick thresholds per tier.
 }
 ```
 
-Note: `parseTable` / `loadTableFromJson` recognize `simple`, `multi-column`
-and `tiered` only. A `lay-on-hands` table must be built as an object and
-passed to `registerTable()` or straight to `layOnHands()`.
-
 ### Loading, validating, registering
 
 ```typescript

@@ -1714,7 +1714,7 @@ function registerTable(table: LookupTable, options?: {
 }): void;
 ```
 
-Defined in: [tables/registry.ts:38](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L38)
+Defined in: [tables/registry.ts:39](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L39)
 
 Register a table in the registry.
 
@@ -1746,7 +1746,7 @@ function registerTables(tables: LookupTable[], options?: {
 }): void;
 ```
 
-Defined in: [tables/registry.ts:63](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L63)
+Defined in: [tables/registry.ts:64](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L64)
 
 Register multiple tables at once.
 
@@ -1771,7 +1771,7 @@ Register multiple tables at once.
 function unregisterTable(tableId: string): boolean;
 ```
 
-Defined in: [tables/registry.ts:75](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L75)
+Defined in: [tables/registry.ts:76](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L76)
 
 Unregister a table from the registry.
 
@@ -1793,7 +1793,7 @@ Unregister a table from the registry.
 function clearRegistry(): void;
 ```
 
-Defined in: [tables/registry.ts:82](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L82)
+Defined in: [tables/registry.ts:83](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L83)
 
 Clear all registered tables.
 
@@ -1809,7 +1809,7 @@ Clear all registered tables.
 function getTable(tableId: string): LookupTable | undefined;
 ```
 
-Defined in: [tables/registry.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L93)
+Defined in: [tables/registry.ts:94](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L94)
 
 Get a table by ID.
 
@@ -1831,7 +1831,7 @@ Get a table by ID.
 function requireTable(tableId: string): LookupTable;
 ```
 
-Defined in: [tables/registry.ts:100](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L100)
+Defined in: [tables/registry.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L101)
 
 Get a table by ID, throwing if not found.
 
@@ -1853,7 +1853,7 @@ Get a table by ID, throwing if not found.
 function getSimpleTable(tableId: string): SimpleTable | undefined;
 ```
 
-Defined in: [tables/registry.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L111)
+Defined in: [tables/registry.ts:112](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L112)
 
 Get a simple table by ID.
 
@@ -1875,7 +1875,7 @@ Get a simple table by ID.
 function getMultiColumnTable(tableId: string): MultiColumnTable | undefined;
 ```
 
-Defined in: [tables/registry.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L122)
+Defined in: [tables/registry.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L123)
 
 Get a multi-column table by ID.
 
@@ -1897,7 +1897,7 @@ Get a multi-column table by ID.
 function getTieredTable(tableId: string): TieredTable | undefined;
 ```
 
-Defined in: [tables/registry.ts:135](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L135)
+Defined in: [tables/registry.ts:136](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L136)
 
 Get a tiered table by ID.
 
@@ -1919,7 +1919,7 @@ Get a tiered table by ID.
 function hasTable(tableId: string): boolean;
 ```
 
-Defined in: [tables/registry.ts:146](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L146)
+Defined in: [tables/registry.ts:147](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L147)
 
 Check if a table exists in the registry.
 
@@ -1941,7 +1941,7 @@ Check if a table exists in the registry.
 function getTableIds(): string[];
 ```
 
-Defined in: [tables/registry.ts:153](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L153)
+Defined in: [tables/registry.ts:154](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L154)
 
 Get all registered table IDs.
 
@@ -1957,7 +1957,7 @@ Get all registered table IDs.
 function getTablesByType(type: TableType): LookupTable[];
 ```
 
-Defined in: [tables/registry.ts:160](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L160)
+Defined in: [tables/registry.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L161)
 
 Get all tables of a specific type.
 
@@ -1979,7 +1979,7 @@ Get all tables of a specific type.
 function getTablesByTag(tag: string): LookupTable[];
 ```
 
-Defined in: [tables/registry.ts:167](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L167)
+Defined in: [tables/registry.ts:168](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L168)
 
 Get all tables with a specific tag.
 
@@ -2009,7 +2009,7 @@ function parseTable(data: unknown):
 };
 ```
 
-Defined in: [tables/registry.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L225)
+Defined in: [tables/registry.ts:240](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L240)
 
 Parse a table from JSON data.
 
@@ -2048,7 +2048,7 @@ function loadTableFromJson(json: string):
 };
 ```
 
-Defined in: [tables/registry.ts:267](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L267)
+Defined in: [tables/registry.ts:286](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L286)
 
 Load a table from a JSON string.
 
@@ -2088,7 +2088,7 @@ function loadAndRegisterTable(json: string, options?: {
 };
 ```
 
-Defined in: [tables/registry.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L283)
+Defined in: [tables/registry.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L302)
 
 Load and register a table from JSON.
 
@@ -2128,7 +2128,7 @@ function loadTablesFromJson(json: string):
 };
 ```
 
-Defined in: [tables/registry.ts:306](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L306)
+Defined in: [tables/registry.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/tables/registry.ts#L325)
 
 Load multiple tables from a JSON array.
 

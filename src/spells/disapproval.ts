@@ -85,7 +85,8 @@ export function resetDisapprovalRange(): number {
  */
 export interface DisapprovalResult {
   /**
-   * The disapproval roll: (natural)d4 minus the cleric's Luck modifier.
+   * The disapproval roll: (natural)d4 minus the cleric's Luck modifier
+   * (another die when `dieFaces` is passed).
    * Not clamped — may be below 1 when Luck is high. The table lookup
    * clamps to row 1 (see `rollDisapproval`).
    */
@@ -94,7 +95,7 @@ export interface DisapprovalResult {
   /** The dice expression rolled, e.g. "3d4" */
   formula: string;
 
-  /** Number of d4s rolled (equals the triggering natural roll) */
+  /** Number of dice rolled (equals the triggering natural roll) */
   diceCount: number;
 
   /** The natural spell-check roll that triggered disapproval */
@@ -126,6 +127,17 @@ export interface DisapprovalResult {
 }
 
 /**
+ * Roll options for disapproval rolls.
+ */
+export interface DisapprovalRollOptions extends RollOptions {
+  /**
+   * Faces of the die rolled per point of the natural roll. Defaults to 4,
+   * the core rule. Homebrew classes that roll another die pass it here.
+   */
+  dieFaces?: number;
+}
+
+/**
  * Default random number generator for disapproval rolls
  */
 function defaultRoller(count: number, faces: number): number {
@@ -153,7 +165,8 @@ function defaultRoller(count: number, faces: number): number {
  * @param disapprovalRange - Current disapproval range (reported only)
  * @param disapprovalTable - Table to look up the result
  * @param luckModifier - The cleric's Luck modifier (default 0)
- * @param options - Roll options. A custom roller receives "Nd4".
+ * @param options - Roll options. A custom roller receives "Nd4" (or
+ *   "Nd{dieFaces}" when `dieFaces` is set).
  * @returns The disapproval result
  */
 export function rollDisapproval(
@@ -161,14 +174,15 @@ export function rollDisapproval(
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
   luckModifier = 0,
-  options: RollOptions = {}
+  options: DisapprovalRollOptions = {}
 ): DisapprovalResult {
   const diceCount = Math.max(1, Math.floor(naturalRoll));
-  const formula = `${String(diceCount)}d4`;
+  const dieFaces = options.dieFaces ?? 4;
+  const formula = `${String(diceCount)}d${String(dieFaces)}`;
 
   const diceTotal = options.roller
     ? options.roller(formula)
-    : defaultRoller(diceCount, 4);
+    : defaultRoller(diceCount, dieFaces);
 
   const roll = diceTotal - luckModifier;
 
@@ -209,7 +223,7 @@ export function rollDisapproval(
  * @param disapprovalRange - Current disapproval range
  * @param disapprovalTable - Table to look up the result
  * @param luckModifier - The cleric's Luck modifier (default 0)
- * @param options - Roll options
+ * @param options - Roll options, including an optional `dieFaces`
  * @returns DisapprovalResult if triggered, undefined otherwise
  */
 export function checkAndRollDisapproval(
@@ -217,7 +231,7 @@ export function checkAndRollDisapproval(
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
   luckModifier = 0,
-  options: RollOptions = {}
+  options: DisapprovalRollOptions = {}
 ): DisapprovalResult | undefined {
   if (!rollTriggersDisapproval(natural, disapprovalRange)) {
     return undefined;

@@ -144,6 +144,15 @@ export interface CasterProfile {
    * omitted, casters that use disapproval keep the spell and all others lose it.
    */
   losesSpellOnFailure?: boolean;
+
+  /**
+   * Does a failed spell check widen the disapproval range? DCC RAW: true for
+   * clerics. Set false for homebrew classes that raise the range only
+   * through their own mechanics. A natural inside the range is still an
+   * automatic failure. Ignored unless `usesDisapproval` is true; defaults to
+   * true.
+   */
+  disapprovalIncreasesOnFailure?: boolean;
 }
 
 /**

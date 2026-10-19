@@ -90,6 +90,27 @@ describe("rollDisapproval", () => {
     expect(result.description).toBe("Row 1");
   });
 
+  it("rolls the die given by dieFaces", () => {
+    const expressions: string[] = [];
+    const result = rollDisapproval(3, 5, table, 1, {
+      dieFaces: 10,
+      roller: (expression) => {
+        expressions.push(expression);
+        return 21;
+      },
+    });
+
+    expect(expressions).toEqual(["3d10"]);
+    expect(result.formula).toBe("3d10");
+    expect(result.roll).toBe(20);
+
+    for (let i = 0; i < 200; i++) {
+      const roll = rollDisapproval(3, 3, table, 0, { dieFaces: 10 }).roll;
+      expect(roll).toBeGreaterThanOrEqual(3);
+      expect(roll).toBeLessThanOrEqual(30);
+    }
+  });
+
   it("stays within Nd4 bounds with the built-in roller", () => {
     for (let i = 0; i < 200; i++) {
       const result = rollDisapproval(3, 3, table);
@@ -162,5 +183,11 @@ describe("calculateDisapprovalIncrease", () => {
 
   it("never counts for casters without disapproval", () => {
     expect(calculateDisapprovalIncrease(1, CASTER_PROFILES.wizard, 4)).toBe(0);
+  });
+
+  it("does not count when the profile turns off the increase on failure", () => {
+    const profile = { ...cleric, disapprovalIncreasesOnFailure: false };
+    expect(calculateDisapprovalIncrease(1, profile, 4)).toBe(0);
+    expect(calculateDisapprovalIncrease(3, profile, 4)).toBe(0);
   });
 });

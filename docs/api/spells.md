@@ -16,9 +16,10 @@ Result of rolling on the disapproval table
 roll: number;
 ```
 
-Defined in: [spells/disapproval.ts:92](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L92)
+Defined in: [spells/disapproval.ts:93](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L93)
 
-The disapproval roll: (natural)d4 minus the cleric's Luck modifier.
+The disapproval roll: (natural)d4 minus the cleric's Luck modifier
+(another die when `dieFaces` is passed).
 Not clamped — may be below 1 when Luck is high. The table lookup
 clamps to row 1 (see `rollDisapproval`).
 
@@ -28,7 +29,7 @@ clamps to row 1 (see `rollDisapproval`).
 formula: string;
 ```
 
-Defined in: [spells/disapproval.ts:95](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L95)
+Defined in: [spells/disapproval.ts:96](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L96)
 
 The dice expression rolled, e.g. "3d4"
 
@@ -38,9 +39,9 @@ The dice expression rolled, e.g. "3d4"
 diceCount: number;
 ```
 
-Defined in: [spells/disapproval.ts:98](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L98)
+Defined in: [spells/disapproval.ts:99](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L99)
 
-Number of d4s rolled (equals the triggering natural roll)
+Number of dice rolled (equals the triggering natural roll)
 
 ##### naturalRoll
 
@@ -48,7 +49,7 @@ Number of d4s rolled (equals the triggering natural roll)
 naturalRoll: number;
 ```
 
-Defined in: [spells/disapproval.ts:101](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L101)
+Defined in: [spells/disapproval.ts:102](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L102)
 
 The natural spell-check roll that triggered disapproval
 
@@ -58,7 +59,7 @@ The natural spell-check roll that triggered disapproval
 luckModifier: number;
 ```
 
-Defined in: [spells/disapproval.ts:104](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L104)
+Defined in: [spells/disapproval.ts:105](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L105)
 
 The cleric's Luck modifier (subtracted from the dice total)
 
@@ -68,7 +69,7 @@ The cleric's Luck modifier (subtracted from the dice total)
 matched: boolean;
 ```
 
-Defined in: [spells/disapproval.ts:110](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L110)
+Defined in: [spells/disapproval.ts:111](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L111)
 
 Whether the table had a row for the roll. False when the roll is above
 the table's last row (a high natural can roll up to 80).
@@ -79,7 +80,7 @@ the table's last row (a high natural can roll up to 80).
 description: string;
 ```
 
-Defined in: [spells/disapproval.ts:116](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L116)
+Defined in: [spells/disapproval.ts:117](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L117)
 
 Description of the disapproval effect: the matched row's text, or ""
 when no row matched (consumers render their own localized fallback).
@@ -90,7 +91,7 @@ when no row matched (consumers render their own localized fallback).
 optional duration?: string;
 ```
 
-Defined in: [spells/disapproval.ts:119](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L119)
+Defined in: [spells/disapproval.ts:120](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L120)
 
 Duration of the effect (if applicable)
 
@@ -100,7 +101,7 @@ Duration of the effect (if applicable)
 optional effect?: TableEffect;
 ```
 
-Defined in: [spells/disapproval.ts:122](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L122)
+Defined in: [spells/disapproval.ts:123](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L123)
 
 Structured effect data
 
@@ -110,9 +111,62 @@ Structured effect data
 disapprovalRange: number;
 ```
 
-Defined in: [spells/disapproval.ts:125](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L125)
+Defined in: [spells/disapproval.ts:126](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L126)
 
 The disapproval range that was used
+
+***
+
+### DisapprovalRollOptions
+
+Defined in: [spells/disapproval.ts:132](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L132)
+
+Roll options for disapproval rolls.
+
+#### Extends
+
+- [`RollOptions`](types.md#rolloptions)
+
+#### Properties
+
+##### dieFaces?
+
+```ts
+optional dieFaces?: number;
+```
+
+Defined in: [spells/disapproval.ts:137](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L137)
+
+Faces of the die rolled per point of the natural roll. Defaults to 4,
+the core rule. Homebrew classes that roll another die pass it here.
+
+##### mode?
+
+```ts
+optional mode?: RollMode;
+```
+
+Defined in: [types/dice.ts:52](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L52)
+
+Whether to just build the formula or actually evaluate it
+
+###### Inherited from
+
+[`RollOptions`](types.md#rolloptions).[`mode`](types.md#mode-2)
+
+##### roller?
+
+```ts
+optional roller?: DiceRoller;
+```
+
+Defined in: [types/dice.ts:55](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/dice.ts#L55)
+
+Synchronous custom roller — used instead of built-in RNG when provided
+
+###### Inherited from
+
+[`RollOptions`](types.md#rolloptions).[`roller`](types.md#roller)
 
 ***
 
@@ -412,7 +466,7 @@ Error message if spell check could not be performed
 spellId: string;
 ```
 
-Defined in: [types/spells.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L661)
+Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
 
 The spell that was cast
 
@@ -426,7 +480,7 @@ The spell that was cast
 die: `d${number}`;
 ```
 
-Defined in: [types/spells.ts:664](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L664)
+Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
 
 Die used for the check
 
@@ -440,7 +494,7 @@ Die used for the check
 optional natural?: number;
 ```
 
-Defined in: [types/spells.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L667)
+Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
 
 Natural die result (before modifiers)
 
@@ -454,7 +508,7 @@ Natural die result (before modifiers)
 optional total?: number;
 ```
 
-Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
+Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
 
 Total check result (after all modifiers)
 
@@ -468,7 +522,7 @@ Total check result (after all modifiers)
 formula: string;
 ```
 
-Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
+Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
 
 The formula used
 
@@ -482,7 +536,7 @@ The formula used
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
+Defined in: [types/spells.ts:685](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L685)
 
 All modifiers applied
 
@@ -496,7 +550,7 @@ All modifiers applied
 critical: boolean;
 ```
 
-Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
+Defined in: [types/spells.ts:688](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L688)
 
 Was this a critical (natural 20)?
 
@@ -510,7 +564,7 @@ Was this a critical (natural 20)?
 fumble: boolean;
 ```
 
-Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
+Defined in: [types/spells.ts:691](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L691)
 
 Was this a fumble (natural 1)?
 
@@ -524,7 +578,7 @@ Was this a fumble (natural 1)?
 disapprovalAutoFail: boolean;
 ```
 
-Defined in: [types/spells.ts:692](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L692)
+Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
 
 Did the natural roll land inside the caster's disapproval range
 (excluding the natural-1 fumble)? Per DCC RAW (core rulebook, cleric
@@ -543,7 +597,7 @@ with `usesDisapproval` when `disapprovalRange` was provided.
 optional tier?: ResultTier;
 ```
 
-Defined in: [types/spells.ts:695](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L695)
+Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
 
 Result tier (lost, failure, success levels)
 
@@ -557,7 +611,7 @@ Result tier (lost, failure, success levels)
 optional resultText?: string;
 ```
 
-Defined in: [types/spells.ts:698](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L698)
+Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
 
 Result text from table lookup
 
@@ -571,7 +625,7 @@ Result text from table lookup
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
+Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
 
 Structured effect from result
 
@@ -585,7 +639,7 @@ Structured effect from result
 spellLost: boolean;
 ```
 
-Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
+Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
 
 Was the spell lost for the day?
 
@@ -599,7 +653,7 @@ Was the spell lost for the day?
 corruptionTriggered: boolean;
 ```
 
-Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
+Defined in: [types/spells.ts:716](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L716)
 
 Was corruption triggered? (wizard/elf only)
 
@@ -613,7 +667,7 @@ Was corruption triggered? (wizard/elf only)
 optional corruptionResult?: CorruptionResult;
 ```
 
-Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
+Defined in: [types/spells.ts:719](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L719)
 
 Corruption result (if rolled, filled by corruption module)
 
@@ -627,7 +681,7 @@ Corruption result (if rolled, filled by corruption module)
 optional fumbleResult?: SpellFumbleResult;
 ```
 
-Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
+Defined in: [types/spells.ts:722](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L722)
 
 Fumble result (if applicable)
 
@@ -641,7 +695,7 @@ Fumble result (if applicable)
 patronTaintChecked: boolean;
 ```
 
-Defined in: [types/spells.ts:720](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L720)
+Defined in: [types/spells.ts:729](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L729)
 
 Did the per-cast creeping-chance patron-taint check fire this cast?
 True when `patron` is set AND `isPatronCast` returns true — regardless
@@ -657,7 +711,7 @@ of spell outcome (success, failure, fumble all still check).
 optional patronTaintRoll?: number;
 ```
 
-Defined in: [types/spells.ts:723](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L723)
+Defined in: [types/spells.ts:732](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L732)
 
 The d100 rolled for the creeping-chance check (only present when checked).
 
@@ -671,7 +725,7 @@ The d100 rolled for the creeping-chance check (only present when checked).
 patronTaintAcquired: boolean;
 ```
 
-Defined in: [types/spells.ts:731](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L731)
+Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
 
 Was patron taint acquired on this cast? True when either:
 1. Creeping-chance check hit (roll <= chance), OR
@@ -688,7 +742,7 @@ Was patron taint acquired on this cast? True when either:
 optional patronTaintSource?: "creeping-chance" | "result-table";
 ```
 
-Defined in: [types/spells.ts:734](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L734)
+Defined in: [types/spells.ts:743](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L743)
 
 Which trigger acquired the taint (only present when acquired).
 
@@ -702,7 +756,7 @@ Which trigger acquired the taint (only present when acquired).
 optional newPatronTaintChance?: number;
 ```
 
-Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
+Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
 
 Post-cast patron-taint chance. Only set when `patronTaintChecked`.
 RAW: resets to 1 on acquisition, else currentChance + 1.
@@ -717,7 +771,7 @@ RAW: resets to 1 on acquisition, else currentChance + 1.
 optional patronTaintResult?: PatronTaintResult;
 ```
 
-Defined in: [types/spells.ts:746](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L746)
+Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
 
 Patron-taint manifestation (only present when acquired AND a
 `patronTaintTable` was provided). Rolled via `rollPatronTaint`.
@@ -732,7 +786,7 @@ Patron-taint manifestation (only present when acquired AND a
 disapprovalIncrease: number;
 ```
 
-Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
+Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
 
 Disapproval increase amount (cleric)
 
@@ -746,7 +800,7 @@ Disapproval increase amount (cleric)
 optional newDisapprovalRange?: number;
 ```
 
-Defined in: [types/spells.ts:752](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L752)
+Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
 
 New disapproval range after this cast (cleric)
 
@@ -760,7 +814,7 @@ New disapproval range after this cast (cleric)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
+Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
 
 Mercurial effect that applied (if any)
 
@@ -774,7 +828,7 @@ Mercurial effect that applied (if any)
 optional spellburnApplied?: SpellburnCommitment;
 ```
 
-Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
+Defined in: [types/spells.ts:767](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L767)
 
 Spellburn that was applied
 
@@ -788,7 +842,7 @@ Spellburn that was applied
 luckBurned: number;
 ```
 
-Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
+Defined in: [types/spells.ts:770](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L770)
 
 Luck points burned
 
@@ -802,7 +856,7 @@ Luck points burned
 optional manifestation?: string;
 ```
 
-Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
+Defined in: [types/spells.ts:773](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L773)
 
 Manifestation description (if rolled/provided)
 
@@ -1793,7 +1847,7 @@ Warning messages (valid but potentially problematic)
 type DisapprovalSeverity = "minor" | "moderate" | "major" | "severe" | "catastrophic";
 ```
 
-Defined in: [spells/disapproval.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L236)
+Defined in: [spells/disapproval.ts:250](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L250)
 
 Disapproval severity level
 
@@ -2280,7 +2334,7 @@ function calculateDisapprovalIncrease(
 ): number;
 ```
 
-Defined in: [spells/cast.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L307)
+Defined in: [spells/cast.ts:309](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L309)
 
 Calculate the disapproval-range increase this cast causes.
 
@@ -2293,6 +2347,8 @@ Only in-range naturals are counted here. A check that fails on its total
 (outside the range) also raises the range under RAW, but whether a total
 fails depends on the spell's result table, so that increase is left to
 the caller.
+
+Returns 0 when the profile sets `disapprovalIncreasesOnFailure: false`.
 
 #### Parameters
 
@@ -2318,7 +2374,7 @@ function castSpell(
 ): SpellCastResult;
 ```
 
-Defined in: [spells/cast.ts:337](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L337)
+Defined in: [spells/cast.ts:343](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L343)
 
 Cast a spell, performing the spell check and determining results.
 
@@ -2353,7 +2409,7 @@ the flags indicating when they should be triggered.
 function getCasterProfile(classId: string): CasterProfile | undefined;
 ```
 
-Defined in: [spells/cast.ts:545](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L545)
+Defined in: [spells/cast.ts:551](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L551)
 
 Get the default caster profile for a class
 
@@ -2375,7 +2431,7 @@ Get the default caster profile for a class
 function isSuccess(tier: ResultTier | undefined): boolean;
 ```
 
-Defined in: [spells/cast.ts:582](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L582)
+Defined in: [spells/cast.ts:588](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L588)
 
 Check if a result is a success (any success tier)
 
@@ -2397,7 +2453,7 @@ Check if a result is a success (any success tier)
 function isFailure(tier: ResultTier | undefined): boolean;
 ```
 
-Defined in: [spells/cast.ts:590](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L590)
+Defined in: [spells/cast.ts:596](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L596)
 
 Check if a result is a failure (failure or lost)
 
@@ -2419,7 +2475,7 @@ Check if a result is a failure (failure or lost)
 function getSpellCheckTotalModifier(modifiers: LegacyRollModifier[]): number;
 ```
 
-Defined in: [spells/cast.ts:598](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L598)
+Defined in: [spells/cast.ts:604](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/cast.ts#L604)
 
 Calculate the total modifier sum from a spell check modifiers list
 
@@ -2813,11 +2869,11 @@ function rollDisapproval(
    disapprovalRange: number, 
    disapprovalTable: SimpleTable, 
    luckModifier?: number, 
-   options?: RollOptions
+   options?: DisapprovalRollOptions
 ): DisapprovalResult;
 ```
 
-Defined in: [spells/disapproval.ts:159](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L159)
+Defined in: [spells/disapproval.ts:172](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L172)
 
 Roll for disapproval effect.
 
@@ -2839,7 +2895,7 @@ so callers can show the arithmetic.
 | `disapprovalRange` | `number` | `undefined` | Current disapproval range (reported only) |
 | `disapprovalTable` | [`SimpleTable`](tables.md#simpletable) | `undefined` | Table to look up the result |
 | `luckModifier?` | `number` | `0` | The cleric's Luck modifier (default 0) |
-| `options?` | [`RollOptions`](types.md#rolloptions) | `{}` | Roll options. A custom roller receives "Nd4". |
+| `options?` | [`DisapprovalRollOptions`](#disapprovalrolloptions) | `{}` | Roll options. A custom roller receives "Nd4" (or "Nd{dieFaces}" when `dieFaces` is set). |
 
 #### Returns
 
@@ -2857,11 +2913,11 @@ function checkAndRollDisapproval(
    disapprovalRange: number, 
    disapprovalTable: SimpleTable, 
    luckModifier?: number, 
-   options?: RollOptions
+   options?: DisapprovalRollOptions
 ): DisapprovalResult | undefined;
 ```
 
-Defined in: [spells/disapproval.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L215)
+Defined in: [spells/disapproval.ts:229](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L229)
 
 Combined check and roll for disapproval.
 Returns undefined if disapproval was not triggered.
@@ -2874,7 +2930,7 @@ Returns undefined if disapproval was not triggered.
 | `disapprovalRange` | `number` | `undefined` | Current disapproval range |
 | `disapprovalTable` | [`SimpleTable`](tables.md#simpletable) | `undefined` | Table to look up the result |
 | `luckModifier?` | `number` | `0` | The cleric's Luck modifier (default 0) |
-| `options?` | [`RollOptions`](types.md#rolloptions) | `{}` | Roll options |
+| `options?` | [`DisapprovalRollOptions`](#disapprovalrolloptions) | `{}` | Roll options, including an optional `dieFaces` |
 
 #### Returns
 
@@ -2890,7 +2946,7 @@ DisapprovalResult if triggered, undefined otherwise
 function getDisapprovalSeverity(roll: number): DisapprovalSeverity;
 ```
 
-Defined in: [spells/disapproval.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L242)
+Defined in: [spells/disapproval.ts:256](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L256)
 
 Get the severity level of a disapproval roll.
 Based on typical DCC disapproval table structure.
@@ -2917,7 +2973,7 @@ function getExpectedSeverity(disapprovalRange: number, luckModifier?: number): {
 };
 ```
 
-Defined in: [spells/disapproval.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L259)
+Defined in: [spells/disapproval.ts:273](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L273)
 
 Calculate the expected disapproval severity for a given range.
 Useful for warning players about high disapproval ranges.
@@ -2946,9 +3002,9 @@ The average assumes each triggering natural is equally likely.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L263) |
-| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:264](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L264) |
-| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:265](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L265) |
+| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:277](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L277) |
+| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L278) |
+| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:279](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L279) |
 
 ***
 
@@ -2958,7 +3014,7 @@ The average assumes each triggering natural is equally likely.
 function getDisapprovalProbability(disapprovalRange: number): number;
 ```
 
-Defined in: [spells/disapproval.ts:287](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L287)
+Defined in: [spells/disapproval.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L301)
 
 Calculate the probability of triggering disapproval on a d20.
 
@@ -2980,7 +3036,7 @@ Calculate the probability of triggering disapproval on a d20.
 function getDisapprovalRiskDescription(disapprovalRange: number): string;
 ```
 
-Defined in: [spells/disapproval.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L294)
+Defined in: [spells/disapproval.ts:308](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L308)
 
 Get a description of how risky the current disapproval range is.
 

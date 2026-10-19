@@ -5023,6 +5023,7 @@ Options for synchronous roll evaluation.
 #### Extended by
 
 - [`SkillResolveOptions`](skills.md#skillresolveoptions)
+- [`DisapprovalRollOptions`](spells.md#disapprovalrolloptions)
 - [`SpellCheckOptions`](#spellcheckoptions)
 
 #### Properties
@@ -7802,11 +7803,25 @@ Is the spell lost for the day when a spell check fails? DCC RAW: true for
 wizards and elves; a cleric's failure raises disapproval instead. When
 omitted, casters that use disapproval keep the spell and all others lose it.
 
+##### disapprovalIncreasesOnFailure?
+
+```ts
+optional disapprovalIncreasesOnFailure?: boolean;
+```
+
+Defined in: [types/spells.ts:155](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L155)
+
+Does a failed spell check widen the disapproval range? DCC RAW: true for
+clerics. Set false for homebrew classes that raise the range only
+through their own mechanics. A natural inside the range is still an
+automatic failure. Ignored unless `usesDisapproval` is true; defaults to
+true.
+
 ***
 
 ### SpellResultEntry
 
-Defined in: [types/spells.ts:192](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L192)
+Defined in: [types/spells.ts:201](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L201)
 
 A spell result entry (for inline results or loaded from tables)
 
@@ -7818,7 +7833,7 @@ A spell result entry (for inline results or loaded from tables)
 min: number;
 ```
 
-Defined in: [types/spells.ts:194](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L194)
+Defined in: [types/spells.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L203)
 
 Minimum check result
 
@@ -7828,7 +7843,7 @@ Minimum check result
 optional max?: number;
 ```
 
-Defined in: [types/spells.ts:197](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L197)
+Defined in: [types/spells.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L206)
 
 Maximum check result (optional, defaults to next entry's min - 1)
 
@@ -7838,7 +7853,7 @@ Maximum check result (optional, defaults to next entry's min - 1)
 tier: ResultTier;
 ```
 
-Defined in: [types/spells.ts:200](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L200)
+Defined in: [types/spells.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L209)
 
 Result tier
 
@@ -7848,7 +7863,7 @@ Result tier
 text: string;
 ```
 
-Defined in: [types/spells.ts:203](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L203)
+Defined in: [types/spells.ts:212](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L212)
 
 Result text
 
@@ -7858,7 +7873,7 @@ Result text
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:206](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L206)
+Defined in: [types/spells.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L215)
 
 Structured effect data
 
@@ -7868,7 +7883,7 @@ Structured effect data
 optional lost?: boolean;
 ```
 
-Defined in: [types/spells.ts:209](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L209)
+Defined in: [types/spells.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L218)
 
 Is the spell lost after this result?
 
@@ -7878,7 +7893,7 @@ Is the spell lost after this result?
 optional corruption?: boolean;
 ```
 
-Defined in: [types/spells.ts:212](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L212)
+Defined in: [types/spells.ts:221](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L221)
 
 Does this trigger corruption? (wizard/elf)
 
@@ -7888,7 +7903,7 @@ Does this trigger corruption? (wizard/elf)
 optional disapproval?: boolean;
 ```
 
-Defined in: [types/spells.ts:215](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L215)
+Defined in: [types/spells.ts:224](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L224)
 
 Does this trigger disapproval increase? (cleric)
 
@@ -7898,7 +7913,7 @@ Does this trigger disapproval increase? (cleric)
 optional manifestation?: string;
 ```
 
-Defined in: [types/spells.ts:218](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L218)
+Defined in: [types/spells.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L227)
 
 Manifestation description for this result
 
@@ -7906,7 +7921,7 @@ Manifestation description for this result
 
 ### SpellDefinition
 
-Defined in: [types/spells.ts:225](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L225)
+Defined in: [types/spells.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L234)
 
 A spell's base definition loaded from external JSON.
 This is the "template" - character-specific instances are stored in spellbooks.
@@ -7919,7 +7934,7 @@ This is the "template" - character-specific instances are stored in spellbooks.
 id: string;
 ```
 
-Defined in: [types/spells.ts:227](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L227)
+Defined in: [types/spells.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L236)
 
 Unique identifier (e.g., "magic-missile", "bless")
 
@@ -7929,7 +7944,7 @@ Unique identifier (e.g., "magic-missile", "bless")
 name: string;
 ```
 
-Defined in: [types/spells.ts:230](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L230)
+Defined in: [types/spells.ts:239](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L239)
 
 Display name
 
@@ -7939,7 +7954,7 @@ Display name
 optional description?: string;
 ```
 
-Defined in: [types/spells.ts:233](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L233)
+Defined in: [types/spells.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L242)
 
 Full description
 
@@ -7949,7 +7964,7 @@ Full description
 level: number;
 ```
 
-Defined in: [types/spells.ts:236](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L236)
+Defined in: [types/spells.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L245)
 
 Spell level (1-5 for wizards, 1-5 for clerics)
 
@@ -7959,7 +7974,7 @@ Spell level (1-5 for wizards, 1-5 for clerics)
 casterTypes: CasterType[];
 ```
 
-Defined in: [types/spells.ts:239](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L239)
+Defined in: [types/spells.ts:248](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L248)
 
 Which caster types can use this spell
 
@@ -7969,7 +7984,7 @@ Which caster types can use this spell
 optional range?: string;
 ```
 
-Defined in: [types/spells.ts:242](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L242)
+Defined in: [types/spells.ts:251](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L251)
 
 Range description
 
@@ -7979,7 +7994,7 @@ Range description
 optional duration?: string;
 ```
 
-Defined in: [types/spells.ts:245](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L245)
+Defined in: [types/spells.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L254)
 
 Duration description
 
@@ -7989,7 +8004,7 @@ Duration description
 optional castingTime?: string;
 ```
 
-Defined in: [types/spells.ts:248](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L248)
+Defined in: [types/spells.ts:257](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L257)
 
 Casting time description
 
@@ -7999,7 +8014,7 @@ Casting time description
 optional save?: "reflex" | "fortitude" | "will" | "none";
 ```
 
-Defined in: [types/spells.ts:251](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L251)
+Defined in: [types/spells.ts:260](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L260)
 
 Save type if applicable
 
@@ -8009,7 +8024,7 @@ Save type if applicable
 optional tags?: string[];
 ```
 
-Defined in: [types/spells.ts:254](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L254)
+Defined in: [types/spells.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L263)
 
 General/school/type tags for filtering
 
@@ -8019,7 +8034,7 @@ General/school/type tags for filtering
 optional source?: string;
 ```
 
-Defined in: [types/spells.ts:257](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L257)
+Defined in: [types/spells.ts:266](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L266)
 
 Source reference (e.g., "DCC Core Rules p.XXX")
 
@@ -8029,7 +8044,7 @@ Source reference (e.g., "DCC Core Rules p.XXX")
 optional resultTableId?: string;
 ```
 
-Defined in: [types/spells.ts:263](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L263)
+Defined in: [types/spells.ts:272](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L272)
 
 Result table ID for looking up spell results.
 If undefined, use inline `results` array.
@@ -8040,7 +8055,7 @@ If undefined, use inline `results` array.
 optional results?: SpellResultEntry[];
 ```
 
-Defined in: [types/spells.ts:269](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L269)
+Defined in: [types/spells.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L278)
 
 Inline tiered results (alternative to resultTableId).
 Simpler spells can embed results directly.
@@ -8051,7 +8066,7 @@ Simpler spells can embed results directly.
 optional manifestationTableId?: string;
 ```
 
-Defined in: [types/spells.ts:272](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L272)
+Defined in: [types/spells.ts:281](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L281)
 
 Manifestation table ID (optional)
 
@@ -8059,7 +8074,7 @@ Manifestation table ID (optional)
 
 ### MercurialEffectData
 
-Defined in: [types/spells.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L293)
+Defined in: [types/spells.ts:302](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L302)
 
 Structured mercurial effect for programmatic handling
 
@@ -8071,7 +8086,7 @@ Structured mercurial effect for programmatic handling
 type: string;
 ```
 
-Defined in: [types/spells.ts:295](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L295)
+Defined in: [types/spells.ts:304](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L304)
 
 Effect type (e.g., "modifier", "condition", "damage", "heal")
 
@@ -8081,7 +8096,7 @@ Effect type (e.g., "modifier", "condition", "damage", "heal")
 optional modifier?: number;
 ```
 
-Defined in: [types/spells.ts:298](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L298)
+Defined in: [types/spells.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L307)
 
 Numeric modifier if applicable
 
@@ -8091,7 +8106,7 @@ Numeric modifier if applicable
 optional dice?: string;
 ```
 
-Defined in: [types/spells.ts:301](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L301)
+Defined in: [types/spells.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L310)
 
 Dice modifier if applicable (e.g., "+1d4")
 
@@ -8101,7 +8116,7 @@ Dice modifier if applicable (e.g., "+1d4")
 optional trigger?: MercurialTrigger;
 ```
 
-Defined in: [types/spells.ts:304](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L304)
+Defined in: [types/spells.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L313)
 
 When this triggers
 
@@ -8111,7 +8126,7 @@ When this triggers
 optional duration?: string;
 ```
 
-Defined in: [types/spells.ts:307](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L307)
+Defined in: [types/spells.ts:316](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L316)
 
 Duration of effect
 
@@ -8121,7 +8136,7 @@ Duration of effect
 optional data?: Record<string, unknown>;
 ```
 
-Defined in: [types/spells.ts:310](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L310)
+Defined in: [types/spells.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L319)
 
 Additional structured data
 
@@ -8129,7 +8144,7 @@ Additional structured data
 
 ### MercurialSpecial
 
-Defined in: [types/spells.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L325)
+Defined in: [types/spells.ts:334](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L334)
 
 Instruction attached to a mercurial table entry that, when drawn,
 triggers meta-handling instead of being a literal effect.
@@ -8142,7 +8157,7 @@ triggers meta-handling instead of being a literal effect.
 action: "rollAgain";
 ```
 
-Defined in: [types/spells.ts:327](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L327)
+Defined in: [types/spells.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L336)
 
 What kind of special handling this entry requires
 
@@ -8152,7 +8167,7 @@ What kind of special handling this entry requires
 count: number;
 ```
 
-Defined in: [types/spells.ts:330](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L330)
+Defined in: [types/spells.ts:339](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L339)
 
 Number of additional rolls to make (e.g. 2 for "roll again twice")
 
@@ -8162,7 +8177,7 @@ Number of additional rolls to make (e.g. 2 for "roll again twice")
 optional formula?: string;
 ```
 
-Defined in: [types/spells.ts:336](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L336)
+Defined in: [types/spells.ts:345](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L345)
 
 Dice expression for the sub-rolls (default "1d100"). The luck
 modifier (×10) is still added on top of this expression's total.
@@ -8171,7 +8186,7 @@ modifier (×10) is still added on top of this expression's total.
 
 ### MercurialEffect
 
-Defined in: [types/spells.ts:342](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L342)
+Defined in: [types/spells.ts:351](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L351)
 
 A mercurial magic effect stored with a spell
 
@@ -8183,7 +8198,7 @@ A mercurial magic effect stored with a spell
 rollValue: number;
 ```
 
-Defined in: [types/spells.ts:344](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L344)
+Defined in: [types/spells.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L353)
 
 The roll result that determined this effect (d100 + luck mod * 10)
 
@@ -8193,7 +8208,7 @@ The roll result that determined this effect (d100 + luck mod * 10)
 summary: string;
 ```
 
-Defined in: [types/spells.ts:347](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L347)
+Defined in: [types/spells.ts:356](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L356)
 
 Short summary of the effect (for display)
 
@@ -8203,7 +8218,7 @@ Short summary of the effect (for display)
 description: string;
 ```
 
-Defined in: [types/spells.ts:350](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L350)
+Defined in: [types/spells.ts:359](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L359)
 
 Full description of the effect
 
@@ -8213,7 +8228,7 @@ Full description of the effect
 displayOnCast: boolean;
 ```
 
-Defined in: [types/spells.ts:353](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L353)
+Defined in: [types/spells.ts:362](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L362)
 
 Should this display in chat/output when casting?
 
@@ -8223,7 +8238,7 @@ Should this display in chat/output when casting?
 optional effect?: MercurialEffectData;
 ```
 
-Defined in: [types/spells.ts:356](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L356)
+Defined in: [types/spells.ts:365](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L365)
 
 Structured effect data (if parseable for automation)
 
@@ -8233,7 +8248,7 @@ Structured effect data (if parseable for automation)
 optional special?: MercurialSpecial;
 ```
 
-Defined in: [types/spells.ts:366](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L366)
+Defined in: [types/spells.ts:375](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L375)
 
 The special instruction on the table entry this effect came from.
 Present alongside `subEffects` when the special was expanded by
@@ -8248,7 +8263,7 @@ and the consumer may expand it itself.
 optional subEffects?: MercurialEffect[];
 ```
 
-Defined in: [types/spells.ts:373](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L373)
+Defined in: [types/spells.ts:382](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L382)
 
 The individual effects a `rollAgain` special expanded into. Each
 sub-effect may itself carry `special`/`subEffects` when a sub-roll
@@ -8258,7 +8273,7 @@ landed on another special entry.
 
 ### MercurialTableEntry
 
-Defined in: [types/spells.ts:379](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L379)
+Defined in: [types/spells.ts:388](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L388)
 
 A single entry in a mercurial magic table
 
@@ -8270,7 +8285,7 @@ A single entry in a mercurial magic table
 min: number;
 ```
 
-Defined in: [types/spells.ts:381](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L381)
+Defined in: [types/spells.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L390)
 
 Minimum roll value (inclusive)
 
@@ -8280,7 +8295,7 @@ Minimum roll value (inclusive)
 max: number;
 ```
 
-Defined in: [types/spells.ts:384](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L384)
+Defined in: [types/spells.ts:393](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L393)
 
 Maximum roll value (inclusive)
 
@@ -8290,7 +8305,7 @@ Maximum roll value (inclusive)
 summary: string;
 ```
 
-Defined in: [types/spells.ts:387](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L387)
+Defined in: [types/spells.ts:396](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L396)
 
 Short summary
 
@@ -8300,7 +8315,7 @@ Short summary
 description: string;
 ```
 
-Defined in: [types/spells.ts:390](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L390)
+Defined in: [types/spells.ts:399](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L399)
 
 Full description
 
@@ -8310,7 +8325,7 @@ Full description
 displayOnCast: boolean;
 ```
 
-Defined in: [types/spells.ts:393](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L393)
+Defined in: [types/spells.ts:402](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L402)
 
 Whether to display on each cast
 
@@ -8320,7 +8335,7 @@ Whether to display on each cast
 optional effect?: MercurialEffectData;
 ```
 
-Defined in: [types/spells.ts:396](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L396)
+Defined in: [types/spells.ts:405](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L405)
 
 Structured effect (optional)
 
@@ -8330,7 +8345,7 @@ Structured effect (optional)
 optional special?: MercurialSpecial;
 ```
 
-Defined in: [types/spells.ts:399](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L399)
+Defined in: [types/spells.ts:408](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L408)
 
 Special (meta) handling instruction (optional)
 
@@ -8338,7 +8353,7 @@ Special (meta) handling instruction (optional)
 
 ### SpellbookEntry
 
-Defined in: [types/spells.ts:410](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L410)
+Defined in: [types/spells.ts:419](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L419)
 
 A spell known by a specific character.
 Includes character-specific data like mercurial effect.
@@ -8351,7 +8366,7 @@ Includes character-specific data like mercurial effect.
 spellId: string;
 ```
 
-Defined in: [types/spells.ts:412](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L412)
+Defined in: [types/spells.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L421)
 
 Reference to spell definition ID
 
@@ -8361,7 +8376,7 @@ Reference to spell definition ID
 optional learnedAt?: string;
 ```
 
-Defined in: [types/spells.ts:415](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L415)
+Defined in: [types/spells.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L424)
 
 When this spell was learned (ISO date string, for tracking)
 
@@ -8371,7 +8386,7 @@ When this spell was learned (ISO date string, for tracking)
 lost: boolean;
 ```
 
-Defined in: [types/spells.ts:418](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L418)
+Defined in: [types/spells.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L427)
 
 Is this spell currently lost? (for the day)
 
@@ -8381,7 +8396,7 @@ Is this spell currently lost? (for the day)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: [types/spells.ts:421](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L421)
+Defined in: [types/spells.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L430)
 
 Mercurial magic effect (for wizards/elves)
 
@@ -8391,7 +8406,7 @@ Mercurial magic effect (for wizards/elves)
 optional manifestation?: string;
 ```
 
-Defined in: [types/spells.ts:424](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L424)
+Defined in: [types/spells.ts:433](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L433)
 
 Custom manifestation description (optional override)
 
@@ -8401,7 +8416,7 @@ Custom manifestation description (optional override)
 optional lastResult?: number;
 ```
 
-Defined in: [types/spells.ts:427](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L427)
+Defined in: [types/spells.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L436)
 
 Last check result rolled (for GM adjustment feature)
 
@@ -8411,7 +8426,7 @@ Last check result rolled (for GM adjustment feature)
 optional notes?: string;
 ```
 
-Defined in: [types/spells.ts:430](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L430)
+Defined in: [types/spells.ts:439](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L439)
 
 Player notes about this spell
 
@@ -8419,7 +8434,7 @@ Player notes about this spell
 
 ### Spellbook
 
-Defined in: [types/spells.ts:436](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L436)
+Defined in: [types/spells.ts:445](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L445)
 
 A character's complete spellbook
 
@@ -8431,7 +8446,7 @@ A character's complete spellbook
 spells: SpellbookEntry[];
 ```
 
-Defined in: [types/spells.ts:438](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L438)
+Defined in: [types/spells.ts:447](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L447)
 
 All known spells
 
@@ -8441,7 +8456,7 @@ All known spells
 optional maxSpellsPerLevel?: Partial<Record<number, number>>;
 ```
 
-Defined in: [types/spells.ts:441](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L441)
+Defined in: [types/spells.ts:450](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L450)
 
 Maximum spells known per level (from class/level progression)
 
@@ -8449,7 +8464,7 @@ Maximum spells known per level (from class/level progression)
 
 ### SpellburnCommitment
 
-Defined in: [types/spells.ts:461](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L461)
+Defined in: [types/spells.ts:470](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L470)
 
 Spellburn commitment for a spell check (wizard/elf only)
 Points are temporarily burned from physical abilities.
@@ -8462,7 +8477,7 @@ Points are temporarily burned from physical abilities.
 str: number;
 ```
 
-Defined in: [types/spells.ts:463](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L463)
+Defined in: [types/spells.ts:472](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L472)
 
 Points burned from Strength
 
@@ -8472,7 +8487,7 @@ Points burned from Strength
 agl: number;
 ```
 
-Defined in: [types/spells.ts:466](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L466)
+Defined in: [types/spells.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L475)
 
 Points burned from Agility
 
@@ -8482,7 +8497,7 @@ Points burned from Agility
 sta: number;
 ```
 
-Defined in: [types/spells.ts:469](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L469)
+Defined in: [types/spells.ts:478](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L478)
 
 Points burned from Stamina
 
@@ -8490,7 +8505,7 @@ Points burned from Stamina
 
 ### CorruptionResult
 
-Defined in: [types/spells.ts:493](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L493)
+Defined in: [types/spells.ts:502](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L502)
 
 Result of rolling on the corruption table
 
@@ -8502,7 +8517,7 @@ Result of rolling on the corruption table
 roll: number;
 ```
 
-Defined in: [types/spells.ts:495](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L495)
+Defined in: [types/spells.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L504)
 
 The die roll result
 
@@ -8512,7 +8527,7 @@ The die roll result
 description: string;
 ```
 
-Defined in: [types/spells.ts:498](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L498)
+Defined in: [types/spells.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L507)
 
 Description of the corruption effect
 
@@ -8522,7 +8537,7 @@ Description of the corruption effect
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:501](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L501)
+Defined in: [types/spells.ts:510](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L510)
 
 Structured effect data
 
@@ -8532,7 +8547,7 @@ Structured effect data
 permanent: boolean;
 ```
 
-Defined in: [types/spells.ts:504](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L504)
+Defined in: [types/spells.ts:513](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L513)
 
 Is this corruption permanent? (most are)
 
@@ -8542,7 +8557,7 @@ Is this corruption permanent? (most are)
 optional tier?: "minor" | "major" | "greater";
 ```
 
-Defined in: [types/spells.ts:507](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L507)
+Defined in: [types/spells.ts:516](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L516)
 
 Corruption tier (minor, major, greater)
 
@@ -8550,7 +8565,7 @@ Corruption tier (minor, major, greater)
 
 ### SpellFumbleResult
 
-Defined in: [types/spells.ts:525](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L525)
+Defined in: [types/spells.ts:534](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L534)
 
 Result of rolling on the spell fumble table.
 
@@ -8570,7 +8585,7 @@ read by orchestration) and was removed in 0.8.0.
 roll: number;
 ```
 
-Defined in: [types/spells.ts:527](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L527)
+Defined in: [types/spells.ts:536](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L536)
 
 The die roll result
 
@@ -8580,7 +8595,7 @@ The die roll result
 description: string;
 ```
 
-Defined in: [types/spells.ts:530](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L530)
+Defined in: [types/spells.ts:539](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L539)
 
 Description of the fumble effect
 
@@ -8590,7 +8605,7 @@ Description of the fumble effect
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:533](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L533)
+Defined in: [types/spells.ts:542](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L542)
 
 Structured effect data
 
@@ -8600,7 +8615,7 @@ Structured effect data
 misfire: boolean;
 ```
 
-Defined in: [types/spells.ts:536](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L536)
+Defined in: [types/spells.ts:545](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L545)
 
 Did the spell misfire?
 
@@ -8610,7 +8625,7 @@ Did the spell misfire?
 corruption: boolean;
 ```
 
-Defined in: [types/spells.ts:539](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L539)
+Defined in: [types/spells.ts:548](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L548)
 
 Should roll on corruption table?
 
@@ -8618,7 +8633,7 @@ Should roll on corruption table?
 
 ### PatronTaintResult
 
-Defined in: [types/spells.ts:545](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L545)
+Defined in: [types/spells.ts:554](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L554)
 
 Result of rolling on the patron taint table
 
@@ -8630,7 +8645,7 @@ Result of rolling on the patron taint table
 roll: number;
 ```
 
-Defined in: [types/spells.ts:547](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L547)
+Defined in: [types/spells.ts:556](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L556)
 
 The die roll result
 
@@ -8640,7 +8655,7 @@ The die roll result
 patronId: string;
 ```
 
-Defined in: [types/spells.ts:550](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L550)
+Defined in: [types/spells.ts:559](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L559)
 
 Patron ID that caused the taint
 
@@ -8650,7 +8665,7 @@ Patron ID that caused the taint
 description: string;
 ```
 
-Defined in: [types/spells.ts:553](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L553)
+Defined in: [types/spells.ts:562](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L562)
 
 Description of the taint effect
 
@@ -8660,7 +8675,7 @@ Description of the taint effect
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:556](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L556)
+Defined in: [types/spells.ts:565](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L565)
 
 Structured effect data
 
@@ -8668,7 +8683,7 @@ Structured effect data
 
 ### SpellCastInput
 
-Defined in: [types/spells.ts:566](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L566)
+Defined in: [types/spells.ts:575](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L575)
 
 Input for casting a spell
 
@@ -8680,7 +8695,7 @@ Input for casting a spell
 spell: SpellDefinition;
 ```
 
-Defined in: [types/spells.ts:568](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L568)
+Defined in: [types/spells.ts:577](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L577)
 
 The spell being cast (definition)
 
@@ -8690,7 +8705,7 @@ The spell being cast (definition)
 optional spellbookEntry?: SpellbookEntry;
 ```
 
-Defined in: [types/spells.ts:585](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L585)
+Defined in: [types/spells.ts:594](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L594)
 
 The spellbook entry (character-specific data).
 
@@ -8712,7 +8727,7 @@ When omitted:
 casterProfile: CasterProfile;
 ```
 
-Defined in: [types/spells.ts:588](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L588)
+Defined in: [types/spells.ts:597](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L597)
 
 Caster's profile (determines mechanics)
 
@@ -8722,7 +8737,7 @@ Caster's profile (determines mechanics)
 casterLevel: number;
 ```
 
-Defined in: [types/spells.ts:591](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L591)
+Defined in: [types/spells.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L600)
 
 Caster level
 
@@ -8732,7 +8747,7 @@ Caster level
 abilityScore: number;
 ```
 
-Defined in: [types/spells.ts:594](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L594)
+Defined in: [types/spells.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L603)
 
 Spell check ability score (current value)
 
@@ -8742,7 +8757,7 @@ Spell check ability score (current value)
 abilityModifier: number;
 ```
 
-Defined in: [types/spells.ts:597](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L597)
+Defined in: [types/spells.ts:606](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L606)
 
 Ability modifier (pre-calculated)
 
@@ -8752,7 +8767,7 @@ Ability modifier (pre-calculated)
 optional luck?: number;
 ```
 
-Defined in: [types/spells.ts:600](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L600)
+Defined in: [types/spells.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L609)
 
 Current luck score (for luck burn calculations)
 
@@ -8762,7 +8777,7 @@ Current luck score (for luck burn calculations)
 optional startingLuck?: number;
 ```
 
-Defined in: [types/spells.ts:603](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L603)
+Defined in: [types/spells.ts:612](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L612)
 
 Starting luck score (for birth augur effects)
 
@@ -8772,7 +8787,7 @@ Starting luck score (for birth augur effects)
 optional luckBurn?: number;
 ```
 
-Defined in: [types/spells.ts:606](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L606)
+Defined in: [types/spells.ts:615](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L615)
 
 Luck to burn on this check
 
@@ -8782,7 +8797,7 @@ Luck to burn on this check
 optional luckMultiplier?: number;
 ```
 
-Defined in: [types/spells.ts:609](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L609)
+Defined in: [types/spells.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L618)
 
 Luck modifier multiplier from birth augur (default 1)
 
@@ -8792,7 +8807,7 @@ Luck modifier multiplier from birth augur (default 1)
 optional spellburn?: SpellburnCommitment;
 ```
 
-Defined in: [types/spells.ts:612](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L612)
+Defined in: [types/spells.ts:621](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L621)
 
 Spellburn commitment (wizard/elf only)
 
@@ -8802,7 +8817,7 @@ Spellburn commitment (wizard/elf only)
 optional disapprovalRange?: number;
 ```
 
-Defined in: [types/spells.ts:615](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L615)
+Defined in: [types/spells.ts:624](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L624)
 
 Current disapproval range (cleric only, starts at 1)
 
@@ -8812,7 +8827,7 @@ Current disapproval range (cleric only, starts at 1)
 optional patron?: string;
 ```
 
-Defined in: [types/spells.ts:618](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L618)
+Defined in: [types/spells.ts:627](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L627)
 
 Patron ID (for patron taint acquisition)
 
@@ -8822,7 +8837,7 @@ Patron ID (for patron taint acquisition)
 optional patronTaintChance?: number;
 ```
 
-Defined in: [types/spells.ts:626](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L626)
+Defined in: [types/spells.ts:635](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L635)
 
 Current patron-taint chance as an integer percent (1-100).
 RAW (DCC core): every patron-based cast rolls d100 vs this value;
@@ -8835,7 +8850,7 @@ Defaults to 1 when omitted.
 optional isPatronSpell?: boolean;
 ```
 
-Defined in: [types/spells.ts:635](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L635)
+Defined in: [types/spells.ts:644](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L644)
 
 Caller override for "is this cast a patron-based spell?" When set, the
 lib honors it directly. When omitted, the lib falls back to
@@ -8849,7 +8864,7 @@ per-item flag should pass this explicitly.
 optional situationalModifiers?: LegacyRollModifier[];
 ```
 
-Defined in: [types/spells.ts:638](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L638)
+Defined in: [types/spells.ts:647](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L647)
 
 Situational modifiers to apply
 
@@ -8859,7 +8874,7 @@ Situational modifiers to apply
 optional actionDie?: `d${number}`;
 ```
 
-Defined in: [types/spells.ts:641](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L641)
+Defined in: [types/spells.ts:650](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L650)
 
 Action die override (if not d20)
 
@@ -8869,7 +8884,7 @@ Action die override (if not d20)
 optional resultTable?: TieredTable;
 ```
 
-Defined in: [types/spells.ts:644](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L644)
+Defined in: [types/spells.ts:653](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L653)
 
 Result table for spell effects (pre-loaded)
 
@@ -8879,7 +8894,7 @@ Result table for spell effects (pre-loaded)
 optional fumbleTable?: SimpleTable;
 ```
 
-Defined in: [types/spells.ts:647](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L647)
+Defined in: [types/spells.ts:656](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L656)
 
 Fumble table (pre-loaded)
 
@@ -8889,7 +8904,7 @@ Fumble table (pre-loaded)
 optional corruptionTable?: SimpleTable;
 ```
 
-Defined in: [types/spells.ts:650](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L650)
+Defined in: [types/spells.ts:659](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L659)
 
 Corruption table (pre-loaded)
 
@@ -8899,7 +8914,7 @@ Corruption table (pre-loaded)
 optional patronTaintTable?: SimpleTable;
 ```
 
-Defined in: [types/spells.ts:653](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L653)
+Defined in: [types/spells.ts:662](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L662)
 
 Patron taint table (pre-loaded, if applicable)
 
@@ -8907,7 +8922,7 @@ Patron taint table (pre-loaded, if applicable)
 
 ### SpellCastResult
 
-Defined in: [types/spells.ts:659](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L659)
+Defined in: [types/spells.ts:668](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L668)
 
 Result of casting a spell
 
@@ -8923,7 +8938,7 @@ Result of casting a spell
 spellId: string;
 ```
 
-Defined in: [types/spells.ts:661](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L661)
+Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
 
 The spell that was cast
 
@@ -8933,7 +8948,7 @@ The spell that was cast
 die: `d${number}`;
 ```
 
-Defined in: [types/spells.ts:664](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L664)
+Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
 
 Die used for the check
 
@@ -8943,7 +8958,7 @@ Die used for the check
 optional natural?: number;
 ```
 
-Defined in: [types/spells.ts:667](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L667)
+Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
 
 Natural die result (before modifiers)
 
@@ -8953,7 +8968,7 @@ Natural die result (before modifiers)
 optional total?: number;
 ```
 
-Defined in: [types/spells.ts:670](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L670)
+Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
 
 Total check result (after all modifiers)
 
@@ -8963,7 +8978,7 @@ Total check result (after all modifiers)
 formula: string;
 ```
 
-Defined in: [types/spells.ts:673](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L673)
+Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
 
 The formula used
 
@@ -8973,7 +8988,7 @@ The formula used
 modifiers: LegacyRollModifier[];
 ```
 
-Defined in: [types/spells.ts:676](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L676)
+Defined in: [types/spells.ts:685](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L685)
 
 All modifiers applied
 
@@ -8983,7 +8998,7 @@ All modifiers applied
 critical: boolean;
 ```
 
-Defined in: [types/spells.ts:679](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L679)
+Defined in: [types/spells.ts:688](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L688)
 
 Was this a critical (natural 20)?
 
@@ -8993,7 +9008,7 @@ Was this a critical (natural 20)?
 fumble: boolean;
 ```
 
-Defined in: [types/spells.ts:682](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L682)
+Defined in: [types/spells.ts:691](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L691)
 
 Was this a fumble (natural 1)?
 
@@ -9003,7 +9018,7 @@ Was this a fumble (natural 1)?
 disapprovalAutoFail: boolean;
 ```
 
-Defined in: [types/spells.ts:692](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L692)
+Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
 
 Did the natural roll land inside the caster's disapproval range
 (excluding the natural-1 fumble)? Per DCC RAW (core rulebook, cleric
@@ -9018,7 +9033,7 @@ with `usesDisapproval` when `disapprovalRange` was provided.
 optional tier?: ResultTier;
 ```
 
-Defined in: [types/spells.ts:695](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L695)
+Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
 
 Result tier (lost, failure, success levels)
 
@@ -9028,7 +9043,7 @@ Result tier (lost, failure, success levels)
 optional resultText?: string;
 ```
 
-Defined in: [types/spells.ts:698](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L698)
+Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
 
 Result text from table lookup
 
@@ -9038,7 +9053,7 @@ Result text from table lookup
 optional effect?: TableEffect;
 ```
 
-Defined in: [types/spells.ts:701](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L701)
+Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
 
 Structured effect from result
 
@@ -9048,7 +9063,7 @@ Structured effect from result
 spellLost: boolean;
 ```
 
-Defined in: [types/spells.ts:704](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L704)
+Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
 
 Was the spell lost for the day?
 
@@ -9058,7 +9073,7 @@ Was the spell lost for the day?
 corruptionTriggered: boolean;
 ```
 
-Defined in: [types/spells.ts:707](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L707)
+Defined in: [types/spells.ts:716](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L716)
 
 Was corruption triggered? (wizard/elf only)
 
@@ -9068,7 +9083,7 @@ Was corruption triggered? (wizard/elf only)
 optional corruptionResult?: CorruptionResult;
 ```
 
-Defined in: [types/spells.ts:710](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L710)
+Defined in: [types/spells.ts:719](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L719)
 
 Corruption result (if rolled, filled by corruption module)
 
@@ -9078,7 +9093,7 @@ Corruption result (if rolled, filled by corruption module)
 optional fumbleResult?: SpellFumbleResult;
 ```
 
-Defined in: [types/spells.ts:713](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L713)
+Defined in: [types/spells.ts:722](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L722)
 
 Fumble result (if applicable)
 
@@ -9088,7 +9103,7 @@ Fumble result (if applicable)
 patronTaintChecked: boolean;
 ```
 
-Defined in: [types/spells.ts:720](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L720)
+Defined in: [types/spells.ts:729](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L729)
 
 Did the per-cast creeping-chance patron-taint check fire this cast?
 True when `patron` is set AND `isPatronCast` returns true — regardless
@@ -9100,7 +9115,7 @@ of spell outcome (success, failure, fumble all still check).
 optional patronTaintRoll?: number;
 ```
 
-Defined in: [types/spells.ts:723](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L723)
+Defined in: [types/spells.ts:732](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L732)
 
 The d100 rolled for the creeping-chance check (only present when checked).
 
@@ -9110,7 +9125,7 @@ The d100 rolled for the creeping-chance check (only present when checked).
 patronTaintAcquired: boolean;
 ```
 
-Defined in: [types/spells.ts:731](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L731)
+Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
 
 Was patron taint acquired on this cast? True when either:
 1. Creeping-chance check hit (roll <= chance), OR
@@ -9123,7 +9138,7 @@ Was patron taint acquired on this cast? True when either:
 optional patronTaintSource?: "creeping-chance" | "result-table";
 ```
 
-Defined in: [types/spells.ts:734](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L734)
+Defined in: [types/spells.ts:743](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L743)
 
 Which trigger acquired the taint (only present when acquired).
 
@@ -9133,7 +9148,7 @@ Which trigger acquired the taint (only present when acquired).
 optional newPatronTaintChance?: number;
 ```
 
-Defined in: [types/spells.ts:740](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L740)
+Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
 
 Post-cast patron-taint chance. Only set when `patronTaintChecked`.
 RAW: resets to 1 on acquisition, else currentChance + 1.
@@ -9144,7 +9159,7 @@ RAW: resets to 1 on acquisition, else currentChance + 1.
 optional patronTaintResult?: PatronTaintResult;
 ```
 
-Defined in: [types/spells.ts:746](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L746)
+Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
 
 Patron-taint manifestation (only present when acquired AND a
 `patronTaintTable` was provided). Rolled via `rollPatronTaint`.
@@ -9155,7 +9170,7 @@ Patron-taint manifestation (only present when acquired AND a
 disapprovalIncrease: number;
 ```
 
-Defined in: [types/spells.ts:749](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L749)
+Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
 
 Disapproval increase amount (cleric)
 
@@ -9165,7 +9180,7 @@ Disapproval increase amount (cleric)
 optional newDisapprovalRange?: number;
 ```
 
-Defined in: [types/spells.ts:752](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L752)
+Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
 
 New disapproval range after this cast (cleric)
 
@@ -9175,7 +9190,7 @@ New disapproval range after this cast (cleric)
 optional mercurialEffect?: MercurialEffect;
 ```
 
-Defined in: [types/spells.ts:755](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L755)
+Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
 
 Mercurial effect that applied (if any)
 
@@ -9185,7 +9200,7 @@ Mercurial effect that applied (if any)
 optional spellburnApplied?: SpellburnCommitment;
 ```
 
-Defined in: [types/spells.ts:758](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L758)
+Defined in: [types/spells.ts:767](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L767)
 
 Spellburn that was applied
 
@@ -9195,7 +9210,7 @@ Spellburn that was applied
 luckBurned: number;
 ```
 
-Defined in: [types/spells.ts:761](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L761)
+Defined in: [types/spells.ts:770](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L770)
 
 Luck points burned
 
@@ -9205,7 +9220,7 @@ Luck points burned
 optional manifestation?: string;
 ```
 
-Defined in: [types/spells.ts:764](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L764)
+Defined in: [types/spells.ts:773](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L773)
 
 Manifestation description (if rolled/provided)
 
@@ -9213,7 +9228,7 @@ Manifestation description (if rolled/provided)
 
 ### SpellEvents
 
-Defined in: [types/spells.ts:775](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L775)
+Defined in: [types/spells.ts:784](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L784)
 
 Event callbacks for spell casting
 Allows UI layer to react to spell events without coupling.
@@ -9226,7 +9241,7 @@ Allows UI layer to react to spell events without coupling.
 optional onSpellCheckStart?: (input: SpellCastInput) => void;
 ```
 
-Defined in: [types/spells.ts:777](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L777)
+Defined in: [types/spells.ts:786](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L786)
 
 Called when spell check starts
 
@@ -9246,7 +9261,7 @@ Called when spell check starts
 optional onSpellCheckComplete?: (result: SpellCastResult) => void;
 ```
 
-Defined in: [types/spells.ts:780](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L780)
+Defined in: [types/spells.ts:789](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L789)
 
 Called when spell check completes
 
@@ -9266,7 +9281,7 @@ Called when spell check completes
 optional onCritical?: (result: SpellCastResult) => void;
 ```
 
-Defined in: [types/spells.ts:783](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L783)
+Defined in: [types/spells.ts:792](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L792)
 
 Called on critical (natural 20)
 
@@ -9286,7 +9301,7 @@ Called on critical (natural 20)
 optional onFumble?: (result: SpellCastResult) => void;
 ```
 
-Defined in: [types/spells.ts:786](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L786)
+Defined in: [types/spells.ts:795](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L795)
 
 Called on fumble (natural 1)
 
@@ -9306,7 +9321,7 @@ Called on fumble (natural 1)
 optional onSpellLost?: (result: SpellCastResult) => void;
 ```
 
-Defined in: [types/spells.ts:789](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L789)
+Defined in: [types/spells.ts:798](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L798)
 
 Called when spell is lost
 
@@ -9326,7 +9341,7 @@ Called when spell is lost
 optional onCorruptionTriggered?: (result: SpellCastResult, corruption: CorruptionResult) => void;
 ```
 
-Defined in: [types/spells.ts:792](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L792)
+Defined in: [types/spells.ts:801](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L801)
 
 Called when corruption is triggered
 
@@ -9347,7 +9362,7 @@ Called when corruption is triggered
 optional onDisapprovalIncreased?: (result: SpellCastResult, newRange: number) => void;
 ```
 
-Defined in: [types/spells.ts:795](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L795)
+Defined in: [types/spells.ts:804](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L804)
 
 Called when disapproval range increases
 
@@ -9368,7 +9383,7 @@ Called when disapproval range increases
 optional onSpellburnApplied?: (burn: SpellburnCommitment) => void;
 ```
 
-Defined in: [types/spells.ts:798](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L798)
+Defined in: [types/spells.ts:807](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L807)
 
 Called when spellburn is applied
 
@@ -9388,7 +9403,7 @@ Called when spellburn is applied
 optional onMercurialEffect?: (effect: MercurialEffect, result: SpellCastResult) => void;
 ```
 
-Defined in: [types/spells.ts:801](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L801)
+Defined in: [types/spells.ts:810](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L810)
 
 Called when mercurial effect triggers
 
@@ -9409,7 +9424,7 @@ Called when mercurial effect triggers
 optional onPatronTaint?: (result: SpellCastResult, taint: PatronTaintResult) => void;
 ```
 
-Defined in: [types/spells.ts:804](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L804)
+Defined in: [types/spells.ts:813](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L813)
 
 Called when patron taint is triggered
 
@@ -9428,7 +9443,7 @@ Called when patron taint is triggered
 
 ### SpellLookupOptions
 
-Defined in: [types/spells.ts:814](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L814)
+Defined in: [types/spells.ts:823](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L823)
 
 Options for looking up spells
 
@@ -9440,7 +9455,7 @@ Options for looking up spells
 optional casterType?: CasterType;
 ```
 
-Defined in: [types/spells.ts:816](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L816)
+Defined in: [types/spells.ts:825](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L825)
 
 Filter by caster type
 
@@ -9450,7 +9465,7 @@ Filter by caster type
 optional level?: number;
 ```
 
-Defined in: [types/spells.ts:819](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L819)
+Defined in: [types/spells.ts:828](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L828)
 
 Filter by spell level
 
@@ -9460,7 +9475,7 @@ Filter by spell level
 optional tags?: string[];
 ```
 
-Defined in: [types/spells.ts:822](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L822)
+Defined in: [types/spells.ts:831](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L831)
 
 Filter by tags
 
@@ -9470,7 +9485,7 @@ Filter by tags
 optional nameSearch?: string;
 ```
 
-Defined in: [types/spells.ts:825](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L825)
+Defined in: [types/spells.ts:834](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L834)
 
 Search by name (partial match)
 
@@ -9478,7 +9493,7 @@ Search by name (partial match)
 
 ### SpellCheckOptions
 
-Defined in: [types/spells.ts:831](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L831)
+Defined in: [types/spells.ts:840](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L840)
 
 Options for rolling spell checks
 
@@ -9522,7 +9537,7 @@ Synchronous custom roller — used instead of built-in RNG when provided
 optional skipMercurial?: boolean;
 ```
 
-Defined in: [types/spells.ts:833](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L833)
+Defined in: [types/spells.ts:842](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L842)
 
 Skip mercurial magic application
 
@@ -9532,7 +9547,7 @@ Skip mercurial magic application
 optional skipCorruption?: boolean;
 ```
 
-Defined in: [types/spells.ts:836](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L836)
+Defined in: [types/spells.ts:845](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L845)
 
 Skip corruption rolling (even on trigger)
 
@@ -9542,7 +9557,7 @@ Skip corruption rolling (even on trigger)
 optional skipFumble?: boolean;
 ```
 
-Defined in: [types/spells.ts:839](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L839)
+Defined in: [types/spells.ts:848](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L848)
 
 Skip fumble table rolling
 
@@ -9552,7 +9567,7 @@ Skip fumble table rolling
 optional forceTier?: ResultTier;
 ```
 
-Defined in: [types/spells.ts:842](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L842)
+Defined in: [types/spells.ts:851](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L851)
 
 Force a specific tier result (for testing/GM override)
 
@@ -9562,7 +9577,7 @@ Force a specific tier result (for testing/GM override)
 optional forceNatural?: number;
 ```
 
-Defined in: [types/spells.ts:845](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L845)
+Defined in: [types/spells.ts:854](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L854)
 
 Override the natural die roll (for testing/GM override)
 
@@ -9572,7 +9587,7 @@ Override the natural die roll (for testing/GM override)
 optional profileOverride?: CasterProfile;
 ```
 
-Defined in: [types/spells.ts:869](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L869)
+Defined in: [types/spells.ts:878](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L878)
 
 Override the caster profile derived from `character.classInfo.classId`.
 
@@ -10859,7 +10874,7 @@ type MercurialTrigger =
   | "on-fumble";
 ```
 
-Defined in: [types/spells.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L282)
+Defined in: [types/spells.ts:291](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L291)
 
 Trigger conditions for mercurial effects
 
@@ -10871,7 +10886,7 @@ Trigger conditions for mercurial effects
 type MercurialSpecialAction = "rollAgain";
 ```
 
-Defined in: [types/spells.ts:319](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L319)
+Defined in: [types/spells.ts:328](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L328)
 
 Special (meta) table-entry actions that need handling beyond "store the
 text". Currently the only action is `rollAgain` — the DCC core Table 5-2
@@ -11196,7 +11211,7 @@ Use this when you don't need reproducibility or testing.
 const CASTER_PROFILES: Record<CasterType, CasterProfile>;
 ```
 
-Defined in: [types/spells.ts:152](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L152)
+Defined in: [types/spells.ts:161](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L161)
 
 Standard caster profiles for DCC classes
 
@@ -11794,7 +11809,7 @@ and 0 for indices.
 function createEmptySpellbook(): Spellbook;
 ```
 
-Defined in: [types/spells.ts:447](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L447)
+Defined in: [types/spells.ts:456](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L456)
 
 Create an empty spellbook
 
@@ -11810,7 +11825,7 @@ Create an empty spellbook
 function createEmptySpellburn(): SpellburnCommitment;
 ```
 
-Defined in: [types/spells.ts:475](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L475)
+Defined in: [types/spells.ts:484](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L484)
 
 Create an empty spellburn commitment
 
@@ -11826,7 +11841,7 @@ Create an empty spellburn commitment
 function totalSpellburn(commitment: SpellburnCommitment): number;
 ```
 
-Defined in: [types/spells.ts:482](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L482)
+Defined in: [types/spells.ts:491](https://github.com/moonloch/dcc-core-lib/blob/main/src/types/spells.ts#L491)
 
 Calculate total spellburn points
 

@@ -732,6 +732,24 @@ describe("calculateSpellCheck", () => {
       expect(increases).toEqual([4]);
     });
 
+    it("still auto-fails but does not raise the range when the profile turns off the increase", () => {
+      const increases: number[] = [];
+      const result = calculateSpellCheck(
+        clericWith(3, 10),
+        { spell: clericSpell, resultTable: mockSpellResultTable, disapprovalTable: mockDisapprovalTable },
+        {
+          roller: rollerFor(2, 5),
+          profileOverride: { ...CASTER_PROFILES.cleric, disapprovalIncreasesOnFailure: false },
+        },
+        { onDisapprovalIncreased: (_r, newRange) => increases.push(newRange) }
+      );
+
+      expect(result.disapprovalAutoFail).toBe(true);
+      expect(result.disapprovalIncrease).toBe(0);
+      expect(result.newDisapprovalRange).toBe(3);
+      expect(increases).toEqual([]);
+    });
+
     it("does not raise the range for a natural outside it", () => {
       const increases: number[] = [];
       const result = calculateSpellCheck(

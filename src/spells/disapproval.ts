@@ -140,6 +140,13 @@ export interface DisapprovalRollOptions extends RollOptions {
 }
 
 /**
+ * The die faces to roll: `dieFaces` when it is a positive integer, else 4.
+ */
+function resolveDieFaces(dieFaces: number | undefined): number {
+  return dieFaces !== undefined && Number.isInteger(dieFaces) && dieFaces > 0 ? dieFaces : 4;
+}
+
+/**
  * Default random number generator for disapproval rolls
  */
 function defaultRoller(count: number, faces: number): number {
@@ -179,10 +186,7 @@ export function rollDisapproval(
   options: DisapprovalRollOptions = {}
 ): DisapprovalResult {
   const diceCount = Math.max(1, Math.floor(naturalRoll));
-  const dieFaces =
-    options.dieFaces !== undefined && Number.isInteger(options.dieFaces) && options.dieFaces > 0
-      ? options.dieFaces
-      : 4;
+  const dieFaces = resolveDieFaces(options.dieFaces);
   const formula = `${String(diceCount)}d${String(dieFaces)}`;
 
   const diceTotal = options.roller
@@ -256,7 +260,8 @@ export type DisapprovalSeverity = "minor" | "moderate" | "major" | "severe" | "c
 
 /**
  * Get the severity level of a disapproval roll.
- * Based on typical DCC disapproval table structure.
+ * Based on typical DCC disapproval table structure. The table is read by the
+ * roll total, so this holds whatever die was rolled.
  */
 export function getDisapprovalSeverity(roll: number): DisapprovalSeverity {
   if (roll <= 4) return "minor";
@@ -274,10 +279,16 @@ export function getDisapprovalSeverity(roll: number): DisapprovalSeverity {
  * (natural)d4 − Luck modifier, so the best case is a natural 1 rolling a 1
  * and the worst case is a natural equal to the range rolling all 4s.
  * The average assumes each triggering natural is equally likely.
+ *
+ * @param disapprovalRange - Current disapproval range
+ * @param luckModifier - The cleric's Luck modifier (default 0)
+ * @param dieFaces - Faces of the die rolled per point of the natural roll
+ *   (default 4; see `CasterProfile.disapprovalDieFaces`)
  */
 export function getExpectedSeverity(
   disapprovalRange: number,
-  luckModifier = 0
+  luckModifier = 0,
+  dieFaces = 4
 ): {
   minimum: DisapprovalSeverity;
   maximum: DisapprovalSeverity;
@@ -285,9 +296,10 @@ export function getExpectedSeverity(
 } {
   const range = Math.max(1, Math.floor(disapprovalRange));
   const minRoll = Math.max(1, 1 - luckModifier);
-  const maxRoll = Math.max(1, range * 4 - luckModifier);
-  // Mean natural over 1..range is (range + 1) / 2; each d4 averages 2.5.
-  const avgRoll = Math.max(1, Math.floor(((range + 1) / 2) * 2.5 - luckModifier));
+  const faces = resolveDieFaces(dieFaces);
+  const maxRoll = Math.max(1, range * faces - luckModifier);
+  // Mean natural over 1..range is (range + 1) / 2; each die averages (faces + 1) / 2.
+  const avgRoll = Math.max(1, Math.floor(((range + 1) / 2) * ((faces + 1) / 2) - luckModifier));
 
   return {
     minimum: getDisapprovalSeverity(minRoll),

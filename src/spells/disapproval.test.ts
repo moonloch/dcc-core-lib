@@ -165,6 +165,15 @@ describe("getExpectedSeverity", () => {
     // Range 3, Luck +2: worst 12 − 2 = 10 (major) instead of 12.
     expect(getExpectedSeverity(3, 2).maximum).toBe("major");
   });
+
+  it("uses the given die", () => {
+    // Range 3 on d10s: worst 3d10 = 30, mean natural 2 × 5.5 = 11.
+    expect(getExpectedSeverity(3, 0, 10)).toEqual({
+      minimum: "minor",
+      maximum: "catastrophic",
+      average: "major",
+    });
+  });
 });
 
 describe("calculateDisapprovalIncrease", () => {

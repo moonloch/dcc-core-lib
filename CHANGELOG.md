@@ -13,7 +13,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   classes.** `rollDisapproval` and `checkAndRollDisapproval` accept an optional
   `dieFaces` in their roll options (default 4), used for both the reported
   `formula` and the built-in roller; `calculateSpellCheck` reads it from the
-  new `CasterProfile.disapprovalDieFaces`. `CasterProfile` also gains an
+  new `CasterProfile.disapprovalDieFaces`, and `getExpectedSeverity` takes it
+  as a third parameter. `CasterProfile` also gains an
   optional `disapprovalIncreasesOnFailure` (default true). When it is false,
   `calculateDisapprovalIncrease` returns 0, so `castSpell` neither raises the
   range nor fires `onDisapprovalIncreased`. A natural inside the range is still

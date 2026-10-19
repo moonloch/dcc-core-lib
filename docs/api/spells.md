@@ -1849,7 +1849,7 @@ Warning messages (valid but potentially problematic)
 type DisapprovalSeverity = "minor" | "moderate" | "major" | "severe" | "catastrophic";
 ```
 
-Defined in: [spells/disapproval.ts:255](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L255)
+Defined in: [spells/disapproval.ts:259](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L259)
 
 Disapproval severity level
 
@@ -2875,7 +2875,7 @@ function rollDisapproval(
 ): DisapprovalResult;
 ```
 
-Defined in: [spells/disapproval.ts:174](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L174)
+Defined in: [spells/disapproval.ts:181](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L181)
 
 Roll for disapproval effect.
 
@@ -2919,7 +2919,7 @@ function checkAndRollDisapproval(
 ): DisapprovalResult | undefined;
 ```
 
-Defined in: [spells/disapproval.ts:234](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L234)
+Defined in: [spells/disapproval.ts:238](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L238)
 
 Combined check and roll for disapproval.
 Returns undefined if disapproval was not triggered.
@@ -2948,10 +2948,11 @@ DisapprovalResult if triggered, undefined otherwise
 function getDisapprovalSeverity(roll: number): DisapprovalSeverity;
 ```
 
-Defined in: [spells/disapproval.ts:261](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L261)
+Defined in: [spells/disapproval.ts:266](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L266)
 
 Get the severity level of a disapproval roll.
-Based on typical DCC disapproval table structure.
+Based on typical DCC disapproval table structure. The table is read by the
+roll total, so this holds whatever die was rolled.
 
 #### Parameters
 
@@ -2968,14 +2969,18 @@ Based on typical DCC disapproval table structure.
 ### getExpectedSeverity()
 
 ```ts
-function getExpectedSeverity(disapprovalRange: number, luckModifier?: number): {
+function getExpectedSeverity(
+   disapprovalRange: number, 
+   luckModifier?: number, 
+   dieFaces?: number
+): {
   minimum: DisapprovalSeverity;
   maximum: DisapprovalSeverity;
   average: DisapprovalSeverity;
 };
 ```
 
-Defined in: [spells/disapproval.ts:278](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L278)
+Defined in: [spells/disapproval.ts:288](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L288)
 
 Calculate the expected disapproval severity for a given range.
 Useful for warning players about high disapproval ranges.
@@ -2987,10 +2992,11 @@ The average assumes each triggering natural is equally likely.
 
 #### Parameters
 
-| Parameter | Type | Default value |
-| ------ | ------ | ------ |
-| `disapprovalRange` | `number` | `undefined` |
-| `luckModifier?` | `number` | `0` |
+| Parameter | Type | Default value | Description |
+| ------ | ------ | ------ | ------ |
+| `disapprovalRange` | `number` | `undefined` | Current disapproval range |
+| `luckModifier?` | `number` | `0` | The cleric's Luck modifier (default 0) |
+| `dieFaces?` | `number` | `4` | Faces of the die rolled per point of the natural roll (default 4; see `CasterProfile.disapprovalDieFaces`) |
 
 #### Returns
 
@@ -3004,9 +3010,9 @@ The average assumes each triggering natural is equally likely.
 
 | Name | Type | Defined in |
 | ------ | ------ | ------ |
-| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:282](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L282) |
-| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:283](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L283) |
-| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:284](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L284) |
+| `minimum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:293](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L293) |
+| `maximum` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:294](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L294) |
+| `average` | [`DisapprovalSeverity`](#disapprovalseverity) | [spells/disapproval.ts:295](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L295) |
 
 ***
 
@@ -3016,7 +3022,7 @@ The average assumes each triggering natural is equally likely.
 function getDisapprovalProbability(disapprovalRange: number): number;
 ```
 
-Defined in: [spells/disapproval.ts:306](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L306)
+Defined in: [spells/disapproval.ts:318](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L318)
 
 Calculate the probability of triggering disapproval on a d20.
 
@@ -3038,7 +3044,7 @@ Calculate the probability of triggering disapproval on a d20.
 function getDisapprovalRiskDescription(disapprovalRange: number): string;
 ```
 
-Defined in: [spells/disapproval.ts:313](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L313)
+Defined in: [spells/disapproval.ts:325](https://github.com/moonloch/dcc-core-lib/blob/main/src/spells/disapproval.ts#L325)
 
 Get a description of how risky the current disapproval range is.
 

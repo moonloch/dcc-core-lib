@@ -5,7 +5,7 @@
  * the natural spell-check roll, reduced by the cleric's Luck modifier.
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import type { SimpleTable } from "../tables/types.js";
 import { CASTER_PROFILES } from "../types/spells.js";
 import { calculateDisapprovalIncrease } from "./cast.js";
@@ -104,10 +104,14 @@ describe("rollDisapproval", () => {
     expect(result.formula).toBe("3d10");
     expect(result.roll).toBe(20);
 
-    for (let i = 0; i < 200; i++) {
-      const roll = rollDisapproval(3, 3, table, 0, { dieFaces: 10 }).roll;
-      expect(roll).toBeGreaterThanOrEqual(3);
-      expect(roll).toBeLessThanOrEqual(30);
+    const random = vi.spyOn(Math, "random").mockReturnValue(0.999);
+    expect(rollDisapproval(3, 3, table, 0, { dieFaces: 10 }).roll).toBe(30);
+    random.mockRestore();
+  });
+
+  it("falls back to d4 when dieFaces is not a positive integer", () => {
+    for (const dieFaces of [0, -2, 2.5, Number.NaN]) {
+      expect(rollDisapproval(2, 2, table, 0, { dieFaces, roller: () => 3 }).formula).toBe("2d4");
     }
   });
 

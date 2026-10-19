@@ -132,7 +132,9 @@ export interface DisapprovalResult {
 export interface DisapprovalRollOptions extends RollOptions {
   /**
    * Faces of the die rolled per point of the natural roll. Defaults to 4,
-   * the core rule. Homebrew classes that roll another die pass it here.
+   * the core rule; anything other than a positive integer also falls back
+   * to 4. Homebrew classes that roll another die pass it here (see
+   * `CasterProfile.disapprovalDieFaces`).
    */
   dieFaces?: number;
 }
@@ -177,7 +179,10 @@ export function rollDisapproval(
   options: DisapprovalRollOptions = {}
 ): DisapprovalResult {
   const diceCount = Math.max(1, Math.floor(naturalRoll));
-  const dieFaces = options.dieFaces ?? 4;
+  const dieFaces =
+    options.dieFaces !== undefined && Number.isInteger(options.dieFaces) && options.dieFaces > 0
+      ? options.dieFaces
+      : 4;
   const formula = `${String(diceCount)}d${String(dieFaces)}`;
 
   const diceTotal = options.roller

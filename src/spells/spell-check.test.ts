@@ -750,6 +750,27 @@ describe("calculateSpellCheck", () => {
       expect(increases).toEqual([]);
     });
 
+    it("rolls the profile's disapproval die", () => {
+      const seen: string[] = [];
+      const result = calculateSpellCheck(
+        clericWith(3, 10),
+        { spell: clericSpell, resultTable: mockSpellResultTable, disapprovalTable: mockDisapprovalTable },
+        {
+          roller: (formula?: string) => {
+            if (formula !== undefined && /^\d+d10$/.test(formula)) {
+              seen.push(formula);
+              return 5;
+            }
+            return 2;
+          },
+          profileOverride: { ...CASTER_PROFILES.cleric, disapprovalDieFaces: 10 },
+        }
+      );
+
+      expect(seen).toEqual(["2d10"]);
+      expect(result.disapprovalResult?.formula).toBe("2d10");
+    });
+
     it("does not raise the range for a natural outside it", () => {
       const increases: number[] = [];
       const result = calculateSpellCheck(

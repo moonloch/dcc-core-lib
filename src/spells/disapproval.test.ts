@@ -5,7 +5,7 @@
  * the natural spell-check roll, reduced by the cleric's Luck modifier.
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import type { SimpleTable } from "../tables/types.js";
 import { CASTER_PROFILES } from "../types/spells.js";
 import { calculateDisapprovalIncrease } from "./cast.js";
@@ -90,6 +90,31 @@ describe("rollDisapproval", () => {
     expect(result.description).toBe("Row 1");
   });
 
+  it("rolls the die given by dieFaces", () => {
+    const expressions: string[] = [];
+    const result = rollDisapproval(3, 5, table, 1, {
+      dieFaces: 10,
+      roller: (expression) => {
+        expressions.push(expression);
+        return 21;
+      },
+    });
+
+    expect(expressions).toEqual(["3d10"]);
+    expect(result.formula).toBe("3d10");
+    expect(result.roll).toBe(20);
+
+    const random = vi.spyOn(Math, "random").mockReturnValue(0.999);
+    expect(rollDisapproval(3, 3, table, 0, { dieFaces: 10 }).roll).toBe(30);
+    random.mockRestore();
+  });
+
+  it("falls back to d4 when dieFaces is not a positive integer", () => {
+    for (const dieFaces of [0, -2, 2.5, Number.NaN]) {
+      expect(rollDisapproval(2, 2, table, 0, { dieFaces, roller: () => 3 }).formula).toBe("2d4");
+    }
+  });
+
   it("stays within Nd4 bounds with the built-in roller", () => {
     for (let i = 0; i < 200; i++) {
       const result = rollDisapproval(3, 3, table);
@@ -140,6 +165,15 @@ describe("getExpectedSeverity", () => {
     // Range 3, Luck +2: worst 12 − 2 = 10 (major) instead of 12.
     expect(getExpectedSeverity(3, 2).maximum).toBe("major");
   });
+
+  it("uses the given die", () => {
+    // Range 3 on d10s: worst 3d10 = 30, mean natural 2 × 5.5 = 11.
+    expect(getExpectedSeverity(3, 0, 10)).toEqual({
+      minimum: "minor",
+      maximum: "catastrophic",
+      average: "major",
+    });
+  });
 });
 
 describe("calculateDisapprovalIncrease", () => {
@@ -162,5 +196,11 @@ describe("calculateDisapprovalIncrease", () => {
 
   it("never counts for casters without disapproval", () => {
     expect(calculateDisapprovalIncrease(1, CASTER_PROFILES.wizard, 4)).toBe(0);
+  });
+
+  it("does not count when the profile turns off the increase on failure", () => {
+    const profile = { ...cleric, disapprovalIncreasesOnFailure: false };
+    expect(calculateDisapprovalIncrease(1, profile, 4)).toBe(0);
+    expect(calculateDisapprovalIncrease(3, profile, 4)).toBe(0);
   });
 });

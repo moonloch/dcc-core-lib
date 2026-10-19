@@ -85,7 +85,8 @@ export function resetDisapprovalRange(): number {
  */
 export interface DisapprovalResult {
   /**
-   * The disapproval roll: (natural)d4 minus the cleric's Luck modifier.
+   * The disapproval roll: (natural)d4 minus the cleric's Luck modifier
+   * (another die when `dieFaces` is passed).
    * Not clamped — may be below 1 when Luck is high. The table lookup
    * clamps to row 1 (see `rollDisapproval`).
    */
@@ -94,7 +95,7 @@ export interface DisapprovalResult {
   /** The dice expression rolled, e.g. "3d4" */
   formula: string;
 
-  /** Number of d4s rolled (equals the triggering natural roll) */
+  /** Number of dice rolled (equals the triggering natural roll) */
   diceCount: number;
 
   /** The natural spell-check roll that triggered disapproval */
@@ -126,6 +127,26 @@ export interface DisapprovalResult {
 }
 
 /**
+ * Roll options for disapproval rolls.
+ */
+export interface DisapprovalRollOptions extends RollOptions {
+  /**
+   * Faces of the die rolled per point of the natural roll. Defaults to 4,
+   * the core rule; anything other than a positive integer also falls back
+   * to 4. Homebrew classes that roll another die pass it here (see
+   * `CasterProfile.disapprovalDieFaces`).
+   */
+  dieFaces?: number;
+}
+
+/**
+ * The die faces to roll: `dieFaces` when it is a positive integer, else 4.
+ */
+function resolveDieFaces(dieFaces: number | undefined): number {
+  return dieFaces !== undefined && Number.isInteger(dieFaces) && dieFaces > 0 ? dieFaces : 4;
+}
+
+/**
  * Default random number generator for disapproval rolls
  */
 function defaultRoller(count: number, faces: number): number {
@@ -153,7 +174,8 @@ function defaultRoller(count: number, faces: number): number {
  * @param disapprovalRange - Current disapproval range (reported only)
  * @param disapprovalTable - Table to look up the result
  * @param luckModifier - The cleric's Luck modifier (default 0)
- * @param options - Roll options. A custom roller receives "Nd4".
+ * @param options - Roll options. A custom roller receives "Nd4" (or
+ *   "Nd{dieFaces}" when `dieFaces` is set).
  * @returns The disapproval result
  */
 export function rollDisapproval(
@@ -161,14 +183,15 @@ export function rollDisapproval(
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
   luckModifier = 0,
-  options: RollOptions = {}
+  options: DisapprovalRollOptions = {}
 ): DisapprovalResult {
   const diceCount = Math.max(1, Math.floor(naturalRoll));
-  const formula = `${String(diceCount)}d4`;
+  const dieFaces = resolveDieFaces(options.dieFaces);
+  const formula = `${String(diceCount)}d${String(dieFaces)}`;
 
   const diceTotal = options.roller
     ? options.roller(formula)
-    : defaultRoller(diceCount, 4);
+    : defaultRoller(diceCount, dieFaces);
 
   const roll = diceTotal - luckModifier;
 
@@ -209,7 +232,7 @@ export function rollDisapproval(
  * @param disapprovalRange - Current disapproval range
  * @param disapprovalTable - Table to look up the result
  * @param luckModifier - The cleric's Luck modifier (default 0)
- * @param options - Roll options
+ * @param options - Roll options, including an optional `dieFaces`
  * @returns DisapprovalResult if triggered, undefined otherwise
  */
 export function checkAndRollDisapproval(
@@ -217,7 +240,7 @@ export function checkAndRollDisapproval(
   disapprovalRange: number,
   disapprovalTable: SimpleTable,
   luckModifier = 0,
-  options: RollOptions = {}
+  options: DisapprovalRollOptions = {}
 ): DisapprovalResult | undefined {
   if (!rollTriggersDisapproval(natural, disapprovalRange)) {
     return undefined;
@@ -237,7 +260,8 @@ export type DisapprovalSeverity = "minor" | "moderate" | "major" | "severe" | "c
 
 /**
  * Get the severity level of a disapproval roll.
- * Based on typical DCC disapproval table structure.
+ * Based on typical DCC disapproval table structure. The table is read by the
+ * roll total, so this holds whatever die was rolled.
  */
 export function getDisapprovalSeverity(roll: number): DisapprovalSeverity {
   if (roll <= 4) return "minor";
@@ -255,10 +279,16 @@ export function getDisapprovalSeverity(roll: number): DisapprovalSeverity {
  * (natural)d4 − Luck modifier, so the best case is a natural 1 rolling a 1
  * and the worst case is a natural equal to the range rolling all 4s.
  * The average assumes each triggering natural is equally likely.
+ *
+ * @param disapprovalRange - Current disapproval range
+ * @param luckModifier - The cleric's Luck modifier (default 0)
+ * @param dieFaces - Faces of the die rolled per point of the natural roll
+ *   (default 4; see `CasterProfile.disapprovalDieFaces`)
  */
 export function getExpectedSeverity(
   disapprovalRange: number,
-  luckModifier = 0
+  luckModifier = 0,
+  dieFaces = 4
 ): {
   minimum: DisapprovalSeverity;
   maximum: DisapprovalSeverity;
@@ -266,9 +296,10 @@ export function getExpectedSeverity(
 } {
   const range = Math.max(1, Math.floor(disapprovalRange));
   const minRoll = Math.max(1, 1 - luckModifier);
-  const maxRoll = Math.max(1, range * 4 - luckModifier);
-  // Mean natural over 1..range is (range + 1) / 2; each d4 averages 2.5.
-  const avgRoll = Math.max(1, Math.floor(((range + 1) / 2) * 2.5 - luckModifier));
+  const faces = resolveDieFaces(dieFaces);
+  const maxRoll = Math.max(1, range * faces - luckModifier);
+  // Mean natural over 1..range is (range + 1) / 2; each die averages (faces + 1) / 2.
+  const avgRoll = Math.max(1, Math.floor(((range + 1) / 2) * ((faces + 1) / 2) - luckModifier));
 
   return {
     minimum: getDisapprovalSeverity(minRoll),

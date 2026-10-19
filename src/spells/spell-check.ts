@@ -31,7 +31,7 @@ import { castSpell, getCasterProfile } from "./cast.js";
 import { findSpellEntry, markSpellLost } from "./spellbook.js";
 import { rollSpellFumble, fumbleRequiresCorruption } from "./fumble.js";
 import { rollCorruption, determineCorruptionTier } from "./corruption.js";
-import { checkAndRollDisapproval } from "./disapproval.js";
+import { checkAndRollDisapproval, type DisapprovalRollOptions } from "./disapproval.js";
 import {
   applyPatronTaintAcquisition,
   effectTriggersTaint,
@@ -435,7 +435,9 @@ export function calculateSpellCheck(
       castInput.disapprovalRange,
       input.disapprovalTable,
       getDisapprovalLuckModifier(castInput),
-      options
+      profile.disapprovalDieFaces === undefined
+        ? options
+        : { ...options, dieFaces: profile.disapprovalDieFaces }
     );
     if (disapproval) {
       result.disapprovalResult = disapproval;
@@ -581,7 +583,7 @@ function handleClericDisapproval(
   disapprovalRange: number,
   disapprovalTable: SimpleTable | undefined,
   luckModifier: number,
-  options: RollOptions
+  options: DisapprovalRollOptions
 ): DisapprovalResult | undefined {
   if (!disapprovalTable) {
     return undefined;
